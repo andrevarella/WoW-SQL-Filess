@@ -1,0 +1,9 @@
+falta items tbm
+
+-- backups:
+-- INSERT INTO `new_acore_world`.`player_factionchange_spells` (`alliance_id`, `alliance_comment`, `horde_id`, `horde_comment`) VALUES (17229, 'Winterspring Frostsaber', 64659, 'Venomhide Ravasaur');
+-- INSERT INTO `new_acore_world`.`player_factionchange_spells` (`alliance_id`, `alliance_comment`, `horde_id`, `horde_comment`) VALUES (17460, 'Frost Ram', 17450, 'Ivory Raptor');
+-- INSERT INTO `new_acore_world`.`player_factionchange_spells` (`alliance_id`, `alliance_comment`, `horde_id`, `horde_comment`) VALUES (17461, 'Black Ram', 16084, 'Mottled Red Raptor');
+
+
+DELETE FROM `player_factionchange_spells` WHERE `alliance_id` IN (17460); -- Frost Ram > Ivory Raptor

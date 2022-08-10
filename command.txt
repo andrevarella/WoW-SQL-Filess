@@ -1,0 +1,18 @@
+DELETE FROM `command` WHERE `name` = 'spect leave'; 
+DELETE FROM `command` WHERE `name` = 'spect reset'; 
+DELETE FROM `command` WHERE `name` = 'spect spectate'; 
+DELETE FROM `command` WHERE `name` = 'spect version'; 
+DELETE FROM `command` WHERE `name` = 'spect watch'; 
+
+
+UPDATE `command` SET `security` = '4' WHERE `name` = 'dismount';
+UPDATE `command` SET `name` = 'spectate pov' WHERE `name` = 'spectate watch';
+
+
+INSERT INTO `new_acore_world`.`command` (`name`, `security`, `help`) VALUES ('spectate', 0, '');
+INSERT INTO `new_acore_world`.`command` (`name`, `security`, `help`) VALUES ('sp', 0, '');
+INSERT INTO `new_acore_world`.`command` (`name`, `security`, `help`) VALUES ('spectate player', 0, '');
+INSERT INTO `new_acore_world`.`command` (`name`, `security`, `help`) VALUES ('spectate watch', 0, '');
+INSERT INTO `new_acore_world`.`command` (`name`, `security`, `help`) VALUES ('spectate reset', 0, '');
+INSERT INTO `new_acore_world`.`command` (`name`, `security`, `help`) VALUES ('spectate leave', 0, '');
+

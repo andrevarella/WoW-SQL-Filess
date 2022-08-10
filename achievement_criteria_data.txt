@@ -1,0 +1,1 @@
+INSERT INTO `new_acore_world`.`achievement_criteria_data` (`criteria_id`, `type`, `value1`, `value2`, `ScriptName`) VALUES (15004, 0, 0, 0, '');

@@ -1,0 +1,6 @@
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (83004, 'spell_dru_savage_roar');
+
+
+INSERT INTO `acore_world`.`spell_script_names` (`spell_id`, `ScriptName`) VALUES (84010, 'spell_tyraelcharger');
+INSERT INTO `acore_world`.`spell_script_names` (`spell_id`, `ScriptName`) VALUES (84015, 'spell_sinfulglad');
+

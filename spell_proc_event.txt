@@ -1,0 +1,50 @@
+testar procs com BoP tbm (casters)
+testar trinkets/ring/enchants tbm
+
+========= cloth ==============
+-- mage:
+--------- ---- ----
+-- lock:
+Nightfall talent n proca vs absorb
+Eradication proca vs absorb
+--------- ---- ----
+-- priest:
+
+======== leather =============
+-- Druid:
+-- Custom Spell Moonfire/Insect Swarm dots 3% proc chance Starfire PvP Set 
+INSERT INTO `new_acore_world`.`spell_proc_event` (`entry`, `SchoolMask`, `SpellFamilyName`, `SpellFamilyMask0`, `SpellFamilyMask1`, `SpellFamilyMask2`, `procFlags`, `procEx`, `procPhase`, `ppmRate`, `CustomChance`, `Cooldown`) VALUES (83007, 0, 7, 2097154, 0, 0, 262144, 65536, 0, 0, 3, 0);
+
+-- Omen of Clarity/Clearcasting - procFlags 87060, se quiser tirar melee spells = 87044
+UPDATE `spell_proc_event` SET `procEx` = '65536' WHERE `entry` = '16864';    -- procEx tava 2162688
+UPDATE `spell_proc_event` SET `ppmRate` = '4.5' WHERE `entry` = '16864';   -- ppmRate tava 3,5
+UPDATE `spell_proc_event` SET `Cooldown` = '2000' WHERE `entry` = '16864';   -- Cooldown tava 0
+
+-------------------
+-- rogue:
+
+======== mail ==============
+-- hunter
+-- shaman
+======== plate =============
+-- paladin:
+
+-- Judgements of the Wise ignora absorb (tava 262144)
+UPDATE `spell_proc_event` SET `procEx` = '0' WHERE `entry` = -31876;
+
+-- Vindication agora proca vs absorb (tava 0)
+-- UPDATE `spell_proc_event` SET `procEx` = '3' WHERE `entry` = 9452; proca self com divine storm se colocar 3
+
+-- The Art of War proca vs absorbs (tava 262146)
+UPDATE `spell_proc_event` SET `procEx` = '2' WHERE `entry` = -53486;
+
+-- Righteous Vengeance proca vs absorb (tava 262146)
+UPDATE `spell_proc_event` SET `procEx` = '2' WHERE `entry` = -53380;
+
+--------- ---- ----
+-- warrior
+--------- ---- ----
+-- death knight
+
+=======================================
+
