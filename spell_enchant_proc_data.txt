@@ -2,7 +2,7 @@ UPDATE `spell_enchant_proc_data` SET `PPMChance` = '10,4' WHERE `entry` = 3784;
 
 UPDATE `spell_enchant_proc_data` SET `PPMChance` = 10.4, WHERE `entry` = 3784;
 
-UPDATE `new_acore_world`.`spell_enchant_proc_data` SET `PPMChance` = '10.4', WHERE `entry` = 3784;
+UPDATE `1acore_world`.`spell_enchant_proc_data` SET `PPMChance` = '10.4', WHERE `entry` = 3784;
 
 
 

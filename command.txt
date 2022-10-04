@@ -9,10 +9,15 @@ UPDATE `command` SET `security` = '4' WHERE `name` = 'dismount';
 UPDATE `command` SET `name` = 'spectate pov' WHERE `name` = 'spectate watch';
 
 
-INSERT INTO `new_acore_world`.`command` (`name`, `security`, `help`) VALUES ('spectate', 0, '');
-INSERT INTO `new_acore_world`.`command` (`name`, `security`, `help`) VALUES ('sp', 0, '');
-INSERT INTO `new_acore_world`.`command` (`name`, `security`, `help`) VALUES ('spectate player', 0, '');
-INSERT INTO `new_acore_world`.`command` (`name`, `security`, `help`) VALUES ('spectate watch', 0, '');
-INSERT INTO `new_acore_world`.`command` (`name`, `security`, `help`) VALUES ('spectate reset', 0, '');
-INSERT INTO `new_acore_world`.`command` (`name`, `security`, `help`) VALUES ('spectate leave', 0, '');
+INSERT INTO `1acore_world`.`command` (`name`, `security`, `help`) VALUES ('spectate', 0, '');
+INSERT INTO `1acore_world`.`command` (`name`, `security`, `help`) VALUES ('sp', 0, '');
+INSERT INTO `1acore_world`.`command` (`name`, `security`, `help`) VALUES ('spectate player', 0, '');
+INSERT INTO `1core_world`.`command` (`name`, `security`, `help`) VALUES ('spectate watch', 0, '');
+INSERT INTO `1core_world`.`command` (`name`, `security`, `help`) VALUES ('spectate reset', 0, '');
+INSERT INTO `1core_world`.`command` (`name`, `security`, `help`) VALUES ('spectate leave', 0, '');
 
+
+-- nao tinha nada no help antes, agora fica mais facil de usar o comando
+UPDATE `command` SET `help` = 'Usage: .skirmish [arena] [XvX] [Nick1] [Nick2] ... [NickN]. 
+[arena] can be "all" or comma-separated list of possible arenas. [XvX] can be 1v1, 2v2, 3v3, 5v5. 
+Arenas: (NA = Nagrand Arena, BE = Blade's Edge, RL = Ruins of Lordaeron, DS = Dalaran Sewers, RV = Ring of Valor)' WHERE `name` = 'skirmish';

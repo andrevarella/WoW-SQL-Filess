@@ -1,0 +1,28 @@
+-- WARLOCK
+-- p mortal wound do Felguard nao stackar com outros tipos de heal reduction
+INSERT INTO `1acore_world`.`spell_group`(`id`, `spell_id`, `special_flag`) VALUES (1016, 25646, 0);
+
+-- WARRIOR 
+-- Mudanças Enrages p nao stackarem (antes dessa mudança, eles stackam mas os efeitos nao acumulam
+-- Antigo Enrage(Arms)
+-- INSERT INTO `1acore_world`.`spell_group`(`id`, `spell_id`, `special_flag`) VALUES (1031, 57518, 0);
+DELETE FROM `spell_group` WHERE `id` = '1031';
+INSERT INTO `1acore_world`.`spell_group`(`id`, `spell_id`, `special_flag`) VALUES (2000, 57518, 0);
+
+-- Antigo Enrage(Fury)
+-- INSERT INTO `1acore_world`.`spell_group`(`id`, `spell_id`, `special_flag`) VALUES (1031, 12880, 0);
+DELETE FROM `spell_group` WHERE `id` = '12880';
+INSERT INTO `1acore_world`.`spell_group`(`id`, `spell_id`, `special_flag`) VALUES (2000, 12880, 0);
+
+-- Enrage (Prot)
+INSERT INTO `1acore_world`.`spell_group`(`id`, `spell_id`, `special_flag`) VALUES (2000, 57516, 0);
+
+INSERT INTO `1acore_world`.`spell_group`(`id`, `spell_id`, `special_flag`) VALUES (2000, 12880, 0);
+INSERT INTO `1acore_world`.`spell_group`(`id`, `spell_id`, `special_flag`) VALUES (2000, 52610, 0);
+
+
+-- DRUID
+-- Savage Roar Normal e Savage Roar Custom (set)
+INSERT INTO `1acore_world`.`spell_group`(`id`, `spell_id`, `special_flag`) VALUES (2000, 12880, 0);
+INSERT INTO `1acore_world`.`spell_group`(`id`, `spell_id`, `special_flag`) VALUES (2000, 52610, 0);
+

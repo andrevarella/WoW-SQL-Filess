@@ -1,0 +1,9 @@
+-- new set custom druid
+INSERT INTO `1acore_world`.`item_set_names`(`entry`, `name`, `InventoryType`, `VerifiedBuild`) VALUES (80190, 'Custom Gladiator\'s Dragonhide Robes', 20, 11723);
+INSERT INTO `1acore_world`.`item_set_names`(`entry`, `name`, `InventoryType`, `VerifiedBuild`) VALUES (80191, 'Custom Gladiator\'s Dragonhide Gloves', 10, 11723);
+INSERT INTO `1acore_world`.`item_set_names`(`entry`, `name`, `InventoryType`, `VerifiedBuild`) VALUES (80192, 'Custom Gladiator\'s Dragonhide Helm', 1, 11723);
+INSERT INTO `1acore_world`.`item_set_names`(`entry`, `name`, `InventoryType`, `VerifiedBuild`) VALUES (80193, 'Custom Gladiator\'s Dragonhide Legguards', 7, 11723);
+INSERT INTO `1acore_world`.`item_set_names`(`entry`, `name`, `InventoryType`, `VerifiedBuild`) VALUES (80194, 'Custom Gladiator\'s Dragonhide Spaulders', 3, 11723);
+INSERT INTO `1acore_world`.`item_set_names`(`entry`, `name`, `InventoryType`, `VerifiedBuild`) VALUES (80195, 'Custom Gladiator\'s Belt of Triumph', 6, 11723);
+INSERT INTO `1acore_world`.`item_set_names`(`entry`, `name`, `InventoryType`, `VerifiedBuild`) VALUES (80196, 'Custom Gladiator\'s Armwraps of Triumph', 9, 11723);
+INSERT INTO `1acore_world`.`item_set_names`(`entry`, `name`, `InventoryType`, `VerifiedBuild`) VALUES (80197, 'Custom Gladiator\'s Boots of Triumph', 8, 11723);

@@ -1,5 +1,252 @@
-UPDATE `creature_template` SET `spellppmRate_1` = 10 WHERE (`entry` = 50353);
+-- creature_equip_template - CreatureID = creature_template
 
+
+-- npc profession kaylub <Professions>
+UPDATE `creature_template` SET `modelid1` = '21641' WHERE `entry` = '199999';
+
+-- npc mount trainer  roxy ramrocket id 3111838
+UPDATE `creature_template` SET `modelid1` = '27534' WHERE `entry` = '31247';
+INSERT INTO `1acore_world`.`creature_addon`(`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES (3111838, 0, 23656, 0, 0, 0, 0, '');
+
+-- arena queue
+UPDATE `creature_template` SET `name` = 'Arena Queue',`subname` = 'Arena Battlemaster',`modelid1` = '17801',`scale` = '1.9' WHERE `entry` = '19859';
+UPDATE `creature_equip_template` SET `ItemID1` = '19354' WHERE `CreatureID` = '19859';
+
+-- orc transmog vendor
+INSERT INTO `1acore_world`.`creature_equip_template`(`CreatureID`, `ID`, `ItemID1`, `ItemID2`, `ItemID3`, `VerifiedBuild`) VALUES (80247, 1, 28773, 0, 0, 18019);
+
+-- transmog vendor scale
+UPDATE `creature_template` SET `scale` = '1.52' WHERE `entry` = '190010';
+
+-- custom transmog vendor (polearm scythe na mao)
+INSERT INTO `1acore_world`.`creature_equip_template`(`CreatureID`, `ID`, `ItemID1`, `ItemID2`, `ItemID3`, `VerifiedBuild`) VALUES (93027, 1, 70000, 0, 0, 18019);
+
+-- PvP Enchant Transmog - Armas
+INSERT INTO `1acore_world`.`creature_equip_template`(`CreatureID`, `ID`, `ItemID1`, `ItemID2`, `ItemID3`, `VerifiedBuild`) VALUES (93078, 1, 29437, 29437, 0, 18019);
+
+-- ==============
+-- P DELETAR APOS CREATEMPLATE NOVOS ATUALIZADOS (apenas creature novos)
+-- auctioneer 3111766, display 22884, male c regata
+UPDATE `creature_template` SET `modelid1` = '18967' WHERE `entry` = '93070';
+
+-- mall banker 3111723, display 24476
+UPDATE `creature_template` SET `modelid1` = '18968' WHERE `entry` = '93061';
+
+-- pvp enchant transmog
+UPDATE `creature_template` SET `modelid1` = '22387' WHERE `entry` = '93078';
+UPDATE `creature_template` SET `scale` = '0.95' WHERE `entry` = '93078';
+==============
+
+-- PETS HUNTER/DK/MAGE/WARLOCK/PRIEST
+-- pets hunter, da search type_flags = 1 (tameable) e type = 1 (beast), e add flags_extra 8388628 (cant block/dodge/parry) (se tiver 2, coloca 8388630 etc)
+
+-- imp
+UPDATE `creature_template` SET `flags_extra` = '8388628' WHERE `entry` = '416';
+-- felhunter
+UPDATE `creature_template` SET `flags_extra` = '8388628' WHERE `entry` = '417';
+-- succubus
+UPDATE `creature_template` SET `flags_extra` = '8388628' WHERE `entry` = '1863';
+-- voidwalker
+UPDATE `creature_template` SET `flags_extra` = '8388628' WHERE `entry` = '1860';
+-- felguard
+UPDATE `creature_template` SET `flags_extra` = '8388628' WHERE `entry` = '17252';
+-- infernal
+UPDATE `creature_template` SET `flags_extra` = '8388628' WHERE `entry` = '89';
+-- doomguard 1
+UPDATE `creature_template` SET `flags_extra` = '8388628' WHERE `entry` = '21963';
+-- doomguard 2
+UPDATE `creature_template` SET `flags_extra` = '8388628' WHERE `entry` = '11859';
+-- water ele = 510
+UPDATE `creature_template` SET `flags_extra` = '8388628' WHERE `entry` = '510';
+-- mirror image
+UPDATE `creature_template` SET `flags_extra` = '8388628' WHERE `entry` = '31216';
+-- spirit wolf
+UPDATE `creature_template` SET `flags_extra` = '8388628' WHERE `entry` = '29264';
+-- fire ele = 15438
+UPDATE `creature_template` SET `flags_extra` = '8388628' WHERE `entry` = '15438';
+-- earth ele = 15352
+UPDATE `creature_template` SET `flags_extra` = '8388628' WHERE `entry` = '15352';
+-- druid treants = 1964
+UPDATE `creature_template` SET `flags_extra` = '8388628' WHERE `entry` = '1964';
+-- ghoul sem/c talent = 26125
+UPDATE `creature_template` SET `flags_extra` = '8388628' WHERE `entry` = '26125';
+-- garg
+UPDATE `creature_template` SET `flags_extra` = '8388628' WHERE `entry` = '27829';
+-- army of the dead
+UPDATE `creature_template` SET `flags_extra` = '8388628' WHERE `entry` = '24207';
+-- priest sfiend (apenas no block e no parry)
+UPDATE `creature_template` SET `flags_extra` = '20' WHERE `entry` = '19668';
+
+-- ---------------------------------------------------
+-- MOBS RUBY
+-- charscale assaulter 50/175 > 25/37
+UPDATE `creature_template` SET `healthmodifier` = '25' WHERE `entry` = '40419';
+UPDATE `creature_template` SET `healthmodifier` = '37' WHERE `entry` = '40420';
+-- charscale invoker 50/175 > 27/45
+UPDATE `creature_template` SET `healthmodifier` = '27' WHERE `entry` = '40417';
+UPDATE `creature_template` SET `healthmodifier` = '45' WHERE `entry` = '40418';
+-- charscale commander 80/280 > 40/50
+UPDATE `creature_template` SET `healthmodifier` = '40' WHERE `entry` = '40423';
+UPDATE `creature_template` SET `healthmodifier` = '50' WHERE `entry` = '40424';
+-- charscale ellite 80/280 > 35/50
+UPDATE `creature_template` SET `healthmodifier` = '35' WHERE `entry` = '40421';
+UPDATE `creature_template` SET `healthmodifier` = '50' WHERE `entry` = '40422';
+
+-- ---------------------------------------------------
+-- MOBS ICC
+-- Wicked Spirit (spirit lk 10h/25h) speed_run 0,55 > 0,47
+UPDATE `creature_template` SET `speed_run` = '0.47' WHERE `entry` = '39190';
+UPDATE `creature_template` SET `speed_run` = '0.47' WHERE `entry` = '39287';
+UPDATE `creature_template` SET `speed_run` = '0.47' WHERE `entry` = '39288';
+UPDATE `creature_template` SET `speed_run` = '0.47' WHERE `entry` = '39289';
+-- The Damned 38/125 > 16/35
+UPDATE `creature_template` SET `healthmodifier` = '16' WHERE `entry` = '37011';
+UPDATE `creature_template` SET `healthmodifier` = '35' WHERE `entry` = '38061';
+-- Servant of the Throne 30/100 > 
+UPDATE `creature_template` SET `healthmodifier` = '15' WHERE `entry` = '36724';
+UPDATE `creature_template` SET `healthmodifier` = '25' WHERE `entry` = '38057';
+-- Nerub'ar Broodkeeper 25/90 > 
+UPDATE `creature_template` SET `healthmodifier` = '15' WHERE `entry` = '36725';
+UPDATE `creature_template` SET `healthmodifier` = '26' WHERE `entry` = '38058';
+-- Ancient SKeletal Soldier 25/90 >
+UPDATE `creature_template` SET `healthmodifier` = '15' WHERE `entry` = '37012';
+UPDATE `creature_template` SET `healthmodifier` = '27' WHERE `entry` = '38059';
+-- Deathbound Ward 125/400 >
+UPDATE `creature_template` SET `healthmodifier` = '40' WHERE `entry` = '37007';
+UPDATE `creature_template` SET `healthmodifier` = '70' WHERE `entry` = '38031';
+-- Risen Deathspeaker Servant 35/75 >
+UPDATE `creature_template` SET `healthmodifier` = '15' WHERE `entry` = '36844';
+UPDATE `creature_template` SET `healthmodifier` = '35' WHERE `entry` = '38077';
+-- Deathspeaker Servant 20/75 > 
+UPDATE `creature_template` SET `healthmodifier` = '15' WHERE `entry` = '36805';
+UPDATE `creature_template` SET `healthmodifier` = '35' WHERE `entry` = '38075';
+-- Deathspeaker Disciple 25/75 > 
+UPDATE `creature_template` SET `healthmodifier` = '15' WHERE `entry` = '36807';
+UPDATE `creature_template` SET `healthmodifier` = '32' WHERE `entry` = '38073';
+-- Deathspeaker Zealot 30/90 > 
+UPDATE `creature_template` SET `healthmodifier` = '18' WHERE `entry` = '36808';
+UPDATE `creature_template` SET `healthmodifier` = '36' WHERE `entry` = '38076';
+-- Deathspeaker Attendant 25/75 >
+UPDATE `creature_template` SET `healthmodifier` = '15' WHERE `entry` = '36811';
+UPDATE `creature_template` SET `healthmodifier` = '33' WHERE `entry` = '38072';
+-- Deathspeaker High Priest 75/215 >
+UPDATE `creature_template` SET `healthmodifier` = '35' WHERE `entry` = '36829';
+UPDATE `creature_template` SET `healthmodifier` = '55' WHERE `entry` = '38074';
+-- Spire Frostwyrm 80/400 >
+UPDATE `creature_template` SET `healthmodifier` = '40' WHERE `entry` = '37230';
+UPDATE `creature_template` SET `healthmodifier` = '88' WHERE `entry` = '38444';
+-- Val'kyr Herald 80/220 > 
+UPDATE `creature_template` SET `healthmodifier` = '36' WHERE `entry` = '37098';
+UPDATE `creature_template` SET `healthmodifier` = '70' WHERE `entry` = '38418';
+-- Sala PP
+-- blighted abomination 75/225 > 
+UPDATE `creature_template` SET `healthmodifier` = '35' WHERE `entry` = '37022';
+UPDATE `creature_template` SET `healthmodifier` = '55' WHERE `entry` = '38108';
+-- Plague Scientist 35/65 >
+UPDATE `creature_template` SET `healthmodifier` = '12' WHERE `entry` = '37023';
+UPDATE `creature_template` SET `healthmodifier` = '17' WHERE `entry` = '38062';
+-- Pustulating Horror 50/180 > 
+UPDATE `creature_template` SET `healthmodifier` = '22' WHERE `entry` = '10404';
+UPDATE `creature_template` SET `healthmodifier` = '47' WHERE `entry` = '38110';
+-- Vengeful Fleshreaper 12,5/50 >
+UPDATE `creature_template` SET `healthmodifier` = '5' WHERE `entry` = '37038';
+UPDATE `creature_template` SET `healthmodifier` = '16.8' WHERE `entry` = '38063';
+-- Decaying Colossus 125/450 > 
+UPDATE `creature_template` SET `healthmodifier` = '45' WHERE `entry` = '36880';
+UPDATE `creature_template` SET `healthmodifier` = '115' WHERE `entry` = '37655';
+-- Stinky 250/700 >
+UPDATE `creature_template` SET `healthmodifier` = '55' WHERE `entry` = '37025';
+UPDATE `creature_template` SET `healthmodifier` = '157.8' WHERE `entry` = '38064';
+-- Precious 250/700 >
+UPDATE `creature_template` SET `healthmodifier` = '50' WHERE `entry` = '37217';
+UPDATE `creature_template` SET `healthmodifier` = '157.8' WHERE `entry` = '38103';
+-- Flesh Eating Insect 0,3/1 > 0.001
+UPDATE `creature_template` SET `healthmodifier` = '0.001' WHERE `entry` = '37782';
+UPDATE `creature_template` SET `healthmodifier` = '0.001' WHERE `entry` = '38312';
+-- SALA BQ mobs
+-- Darkfallen Advisor 50/150 >
+UPDATE `creature_template` SET `healthmodifier` = '26' WHERE `entry` = '37571';
+UPDATE `creature_template` SET `healthmodifier` = '48' WHERE `entry` = '38098';
+-- Darkfallen archmage 40/120 >
+UPDATE `creature_template` SET `healthmodifier` = '20' WHERE `entry` = '37664';
+UPDATE `creature_template` SET `healthmodifier` = '35' WHERE `entry` = '38099';
+-- Darkfallen noble 40/120 >
+UPDATE `creature_template` SET `healthmodifier` = '20' WHERE `entry` = '37663';
+UPDATE `creature_template` SET `healthmodifier` = '38' WHERE `entry` = '38480';
+-- Darkfallen blood knight 40/120 >
+UPDATE `creature_template` SET `healthmodifier` = '22' WHERE `entry` = '37595';
+UPDATE `creature_template` SET `healthmodifier` = '40' WHERE `entry` = '38100';
+-- Darkfallen lieutenant 60/160 >
+UPDATE `creature_template` SET `healthmodifier` = '30' WHERE `entry` = '37665';
+UPDATE `creature_template` SET `healthmodifier` = '38' WHERE `entry` = '38101';
+-- Darkfallen commander 60/160
+UPDATE `creature_template` SET `healthmodifier` = '30' WHERE `entry` = '37662';
+UPDATE `creature_template` SET `healthmodifier` = '38' WHERE `entry` = '38102';
+-- Darkfallen tactician 60/160
+UPDATE `creature_template` SET `healthmodifier` = '17' WHERE `entry` = '37666';
+UPDATE `creature_template` SET `healthmodifier` = '38' WHERE `entry` = '38479';
+-- Sala Val
+-- Ymirjar Huntress 35/100
+UPDATE `creature_template` SET `healthmodifier` = '17' WHERE `entry` = '37134';
+UPDATE `creature_template` SET `healthmodifier` = '35' WHERE `entry` = '38131';
+-- Ymirjar warlord 50/160
+UPDATE `creature_template` SET `healthmodifier` = '23' WHERE `entry` = '37133';
+UPDATE `creature_template` SET `healthmodifier` = '45' WHERE `entry` = '38133';
+-- Ymirjar battle-maiden 45/150
+UPDATE `creature_template` SET `healthmodifier` = '22' WHERE `entry` = '37132';
+UPDATE `creature_template` SET `healthmodifier` = '38' WHERE `entry` = '38132';
+-- Ymirjar frostbinder 45/140
+UPDATE `creature_template` SET `healthmodifier` = '22' WHERE `entry` = '37127';
+UPDATE `creature_template` SET `healthmodifier` = '36' WHERE `entry` = '38126';
+-- Ymirjar deathbringer 45/140 >
+UPDATE `creature_template` SET `healthmodifier` = '55' WHERE `entry` = '38125';
+UPDATE `creature_template` SET `healthmodifier` = '15' WHERE `entry` = '38130';
+-- corrupted ymirjar 5/15 >
+UPDATE `creature_template` SET `healthmodifier` = '17' WHERE `entry` = '38184';
+UPDATE `creature_template` SET `healthmodifier` = '38' WHERE `entry` = '38185';
+-- sister svalna 200/600 >
+UPDATE `creature_template` SET `healthmodifier` = '75' WHERE `entry` = '37126';
+UPDATE `creature_template` SET `healthmodifier` = '150' WHERE `entry` = '38258';
+-- captain Rupert 50/175 >
+UPDATE `creature_template` SET `healthmodifier` = '30' WHERE `entry` = '37495';
+UPDATE `creature_template` SET `healthmodifier` = '45' WHERE `entry` = '38352';
+-- captain arnath 50/175 >
+UPDATE `creature_template` SET `healthmodifier` = '30' WHERE `entry` = '37491';
+UPDATE `creature_template` SET `healthmodifier` = '45' WHERE `entry` = '38349';
+-- captain grondel 50/175 >
+UPDATE `creature_template` SET `healthmodifier` = '30' WHERE `entry` = '37494';
+UPDATE `creature_template` SET `healthmodifier` = '45' WHERE `entry` = '38351';
+-- Nerub'ar Champion 25/80 >
+UPDATE `creature_template` SET `healthmodifier` = '15' WHERE `entry` = '37501';
+UPDATE `creature_template` SET `healthmodifier` = '38' WHERE `entry` = '38197';
+-- Nerub'ar Webweaver 25/60 > 
+UPDATE `creature_template` SET `healthmodifier` = '15' WHERE `entry` = '37502';
+UPDATE `creature_template` SET `healthmodifier` = '34' WHERE `entry` = '38198';
+-- Nerub'ar Broodling 1/3 >
+UPDATE `creature_template` SET `healthmodifier` = '0.01' WHERE `entry` = '37232';
+UPDATE `creature_template` SET `healthmodifier` = '0.01' WHERE `entry` = '38362';
+-- frostwarden sorceress 25/90 >
+UPDATE `creature_template` SET `healthmodifier` = '15' WHERE `entry` = '37229';
+UPDATE `creature_template` SET `healthmodifier` = '36' WHERE `entry` = '38137';
+-- frostwarden warrior 25/80 > 
+UPDATE `creature_template` SET `healthmodifier` = '18' WHERE `entry` = '37228';
+UPDATE `creature_template` SET `healthmodifier` = '41' WHERE `entry` = '38134';
+-- frostwarden handler 90/300 >
+UPDATE `creature_template` SET `healthmodifier` = '45' WHERE `entry` = '37531';
+UPDATE `creature_template` SET `healthmodifier` = '53.4' WHERE `entry` = '38139';
+-- frostwing whelp 10/20 > 
+UPDATE `creature_template` SET `healthmodifier` = '4' WHERE `entry` = '37532';
+UPDATE `creature_template` SET `healthmodifier` = '8' WHERE `entry` = '38151';
+-- Rimefang 240/550 >
+UPDATE `creature_template` SET `healthmodifier` = '74' WHERE `entry` = '37533';
+UPDATE `creature_template` SET `healthmodifier` = '125' WHERE `entry` = '38220';
+-- Spinestalker 240/550 >
+UPDATE `creature_template` SET `healthmodifier` = '74' WHERE `entry` = '37534';
+UPDATE `creature_template` SET `healthmodifier` = '125' WHERE `entry` = '38219';
+
+-- Bone Spike e Blood Beast mudar Armor p 0 em todos
+
+-- ------------------------------------------------------
 
 INSERT INTO `new_acore_world`.`creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entry_2`, `difficulty_entry_3`, `KillCredit1`, `KillCredit2`, `modelid1`, `modelid2`, `modelid3`, `modelid4`, `name`, `subname`, `IconName`, `gossip_menu_id`, `minlevel`, `maxlevel`, `exp`, `faction`, `npcflag`, `speed_walk`, `speed_run`, `speed_swim`, `speed_flight`, `detection_range`, `scale`, `rank`, `dmgschool`, `DamageModifier`, `BaseAttackTime`, `RangeAttackTime`, `BaseVariance`, `RangeVariance`, `unit_class`, `unit_flags`, `unit_flags2`, `dynamicflags`, `family`, `trainer_type`, `trainer_spell`, `trainer_class`, `trainer_race`, `type`, `type_flags`, `lootid`, `pickpocketloot`, `skinloot`, `PetSpellDataId`, `VehicleId`, `mingold`, `maxgold`, `AIName`, `MovementType`, `HoverHeight`, `HealthModifier`, `ManaModifier`, `ArmorModifier`, `ExperienceModifier`, `RacialLeader`, `movementId`, `RegenHealth`, `mechanic_immune_mask`, `spell_school_immune_mask`, `flags_extra`, `ScriptName`, `VerifiedBuild`) VALUES (45000, 0, 0, 0, 0, 0, 50002, 0, 0, 0, 'Mechano-hog', '', 'vehichleCursor', 0, 80, 80, 0, 35, 0, 1, 1.14286, 1, 1, 20, 1, 0, 0, 1, 2000, 2000, 1, 1, 1, 2181300224, 2048, 0, 0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 318, 0, 0, '', 0, 1, 1, 1, 1, 1, 0, 180, 0, 0, 0, 0, '', 12340);
 INSERT INTO `new_acore_world`.`creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entry_2`, `difficulty_entry_3`, `KillCredit1`, `KillCredit2`, `modelid1`, `modelid2`, `modelid3`, `modelid4`, `name`, `subname`, `IconName`, `gossip_menu_id`, `minlevel`, `maxlevel`, `exp`, `faction`, `npcflag`, `speed_walk`, `speed_run`, `speed_swim`, `speed_flight`, `detection_range`, `scale`, `rank`, `dmgschool`, `DamageModifier`, `BaseAttackTime`, `RangeAttackTime`, `BaseVariance`, `RangeVariance`, `unit_class`, `unit_flags`, `unit_flags2`, `dynamicflags`, `family`, `trainer_type`, `trainer_spell`, `trainer_class`, `trainer_race`, `type`, `type_flags`, `lootid`, `pickpocketloot`, `skinloot`, `PetSpellDataId`, `VehicleId`, `mingold`, `maxgold`, `AIName`, `MovementType`, `HoverHeight`, `HealthModifier`, `ManaModifier`, `ArmorModifier`, `ExperienceModifier`, `RacialLeader`, `movementId`, `RegenHealth`, `mechanic_immune_mask`, `spell_school_immune_mask`, `flags_extra`, `ScriptName`, `VerifiedBuild`) VALUES (45001, 0, 0, 0, 0, 0, 50001, 0, 0, 0, 'Mekgineer\'s Chopper', '', 'vehichleCursor', 0, 80, 80, 0, 35, 0, 1.2, 2, 1, 1, 20, 1, 0, 0, 1, 2000, 2000, 1, 1, 1, 2181300224, 2048, 0, 0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 318, 0, 0, '', 0, 1, 1, 1, 1, 1, 0, 180, 0, 0, 0, 0, '', 12340);

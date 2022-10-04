@@ -6,4 +6,45 @@ falta items tbm
 -- INSERT INTO `new_acore_world`.`player_factionchange_spells` (`alliance_id`, `alliance_comment`, `horde_id`, `horde_comment`) VALUES (17461, 'Black Ram', 16084, 'Mottled Red Raptor');
 
 
-DELETE FROM `player_factionchange_spells` WHERE `alliance_id` IN (17460); -- Frost Ram > Ivory Raptor
+-- Frost Ram > Ivory Raptor
+DELETE FROM `player_factionchange_spells` WHERE `alliance_id` IN (17460); 
+-- winterspring frostsaber > venomhide
+DELETE FROM `player_factionchange_spells` WHERE `alliance_id` = '17229';
+-- Stormpike battle charger > frostwolf howler
+DELETE FROM `player_factionchange_spells` WHERE `alliance_id` = '23510';
+
+-- mounts honor
+-- black ram > mottled red raptor
+DELETE FROM `player_factionchange_spells` WHERE `alliance_id` = '17461';
+-- black war steed
+DELETE FROM `player_factionchange_spells` WHERE `alliance_id` = '22717';
+-- black battlestrider
+DELETE FROM `player_factionchange_spells` WHERE `alliance_id` = '22719';
+-- black war ram
+DELETE FROM `player_factionchange_spells` WHERE `alliance_id` = '22720';
+-- black war tiger
+DELETE FROM `player_factionchange_spells` WHERE `alliance_id` = '22723';
+
+-- 100 moedas toc
+-- Darnassian Nightsaber
+DELETE FROM `player_factionchange_spells` WHERE `alliance_id` = '63637';
+-- Exodar Elekk
+DELETE FROM `player_factionchange_spells` WHERE `alliance_id` = '63639';
+-- Gnomeregan Mechanostrider
+DELETE FROM `player_factionchange_spells` WHERE `alliance_id` = '63638';
+-- Ironforge Ram
+DELETE FROM `player_factionchange_spells` WHERE `alliance_id` = '63636';
+-- Stormwind Steed
+DELETE FROM `player_factionchange_spells` WHERE `alliance_id` = '63232';
+
+-- 5 moedas toc
+-- Great Red Elekk
+DELETE FROM `player_factionchange_spells` WHERE `alliance_id` = '65637';
+-- Swift Gray Steed
+DELETE FROM `player_factionchange_spells` WHERE `alliance_id` = '65640';
+-- Swift Moonsaber
+DELETE FROM `player_factionchange_spells` WHERE `alliance_id` = '65638';
+-- Swift Violet Ram
+DELETE FROM `player_factionchange_spells` WHERE `alliance_id` = '65643';
+-- Turbostrider
+DELETE FROM `player_factionchange_spells` WHERE `alliance_id` = '65642';

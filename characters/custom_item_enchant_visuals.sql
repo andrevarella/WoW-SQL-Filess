@@ -3,15 +3,15 @@
 
  Source Server         : acore
  Source Server Type    : MySQL
- Source Server Version : 50737
+ Source Server Version : 50739
  Source Host           : localhost:3306
- Source Schema         : acore_characters
+ Source Schema         : 1acore_characters
 
  Target Server Type    : MySQL
- Target Server Version : 50737
+ Target Server Version : 50739
  File Encoding         : 65001
 
- Date: 22/07/2022 00:42:07
+ Date: 26/08/2022 06:02:26
 */
 
 SET NAMES utf8mb4;
@@ -30,6 +30,5 @@ CREATE TABLE `custom_item_enchant_visuals`  (
 -- ----------------------------
 -- Records of custom_item_enchant_visuals
 -- ----------------------------
-INSERT INTO `custom_item_enchant_visuals` VALUES (365, 4013);
 
 SET FOREIGN_KEY_CHECKS = 1;
