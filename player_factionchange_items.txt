@@ -1,0 +1,27 @@
+-- tabards novas (de outras expansoes)
+
+-- blood knight tabard
+-- INSERT INTO `1acore_world`.`player_factionchange_items`(`alliance_id`, `alliance_comment`, `horde_id`, `horde_comment`) VALUES (5976, 'Guild Tabard', 25549, 'Blood Knight Tabard');
+DELETE FROM `player_factionchange_items` WHERE `alliance_id` = '5976';
+
+-- tabard of the hand > guild tab
+-- INSERT INTO `1acore_world`.`player_factionchange_items`(`alliance_id`, `alliance_comment`, `horde_id`, `horde_comment`) VALUES (24344, 'Tabard of the Hand', 5976, 'Guild Tabard');
+DELETE FROM `player_factionchange_items` WHERE `alliance_id` = '24344';
+
+-- stormpike battle tab > frostwolf
+-- INSERT INTO `1acore_world`.`player_factionchange_items`(`alliance_id`, `alliance_comment`, `horde_id`, `horde_comment`) VALUES (19032, 'Stormpike Battle Tabard', 19031, 'Frostwolf Battle Tabard');
+DELETE FROM `player_factionchange_items` WHERE `alliance_id` = '19032';
+
+-- silverwing tab > warsong tab
+-- INSERT INTO `1acore_world`.`player_factionchange_items`(`alliance_id`, `alliance_comment`, `horde_id`, `horde_comment`) VALUES (19506, 'Silverwing Battle Tabard', 19505, 'Warsong Battle Tabard');
+DELETE FROM `player_factionchange_items` WHERE `alliance_id` = '19506';
+
+-- arathor > battle tabard of the defilers
+-- INSERT INTO `1acore_world`.`player_factionchange_items`(`alliance_id`, `alliance_comment`, `horde_id`, `horde_comment`) VALUES (20132, 'Arathor Battle Tabard', 20131, 'Battle Tabard of the Defilers');
+DELETE FROM `player_factionchange_items` WHERE `alliance_id` = '20132';
+
+-- Fierce/Dominant/Dread/Corrupted Gladiator's Tabard
+INSERT INTO `1acore_world`.`player_factionchange_items`(`alliance_id`, `alliance_comment`, `horde_id`, `horde_comment`) VALUES (80304, 'Fierce Gladiator\'s Tabard (A)', 80303, 'Fierce Gladiator\'s Tabard (H)');
+INSERT INTO `1acore_world`.`player_factionchange_items`(`alliance_id`, `alliance_comment`, `horde_id`, `horde_comment`) VALUES (80306, 'Dominant Gladiator\'s Tabard (A)', 80305, 'Dominant Gladiator\'s Tabard (H)');
+INSERT INTO `1acore_world`.`player_factionchange_items`(`alliance_id`, `alliance_comment`, `horde_id`, `horde_comment`) VALUES (80308, 'Dread Gladiator\'s Tabard (A)', 80307, 'Dread Gladiator\'s Tabard (H)');
+INSERT INTO `1acore_world`.`player_factionchange_items`(`alliance_id`, `alliance_comment`, `horde_id`, `horde_comment`) VALUES (80314, 'Corrupted Gladiator\'s Tabard (A)', 80313, 'Corrupted Gladiator\'s Tabard (H)');

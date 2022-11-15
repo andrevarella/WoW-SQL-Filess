@@ -26,3 +26,4 @@ INSERT INTO `1acore_world`.`spell_linked_spell`(`spell_trigger`, `spell_effect`,
 INSERT INTO `1acore_world`.`spell_linked_spell`(`spell_trigger`, `spell_effect`, `type`, `comment`) VALUES (650811, 83089, 0, 'Body and Soul Rank2 remove Slows');
 INSERT INTO `1acore_world`.`spell_linked_spell`(`spell_trigger`, `spell_effect`, `type`, `comment`) VALUES (-83121, 83122, 0, 'Perder [Buff Temporario Prowl PvP Set] ganha [Savage Roar 10s]');
 INSERT INTO `1acore_world`.`spell_linked_spell`(`spell_trigger`, `spell_effect`, `type`, `comment`) VALUES (-5215, -83121, 0, 'Perder [Prowl] perde [Buff Temporario Prowl PvP Set]');
+INSERT INTO `1acore_world`.`spell_linked_spell`(`spell_trigger`, `spell_effect`, `type`, `comment`) VALUES (51533, 58876, 0, 'Feral Spirit casta Spirit Walk (4s immune a slow/root)');
