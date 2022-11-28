@@ -27,3 +27,6 @@ INSERT INTO `1acore_world`.`spell_linked_spell`(`spell_trigger`, `spell_effect`,
 INSERT INTO `1acore_world`.`spell_linked_spell`(`spell_trigger`, `spell_effect`, `type`, `comment`) VALUES (-83121, 83122, 0, 'Perder [Buff Temporario Prowl PvP Set] ganha [Savage Roar 10s]');
 INSERT INTO `1acore_world`.`spell_linked_spell`(`spell_trigger`, `spell_effect`, `type`, `comment`) VALUES (-5215, -83121, 0, 'Perder [Prowl] perde [Buff Temporario Prowl PvP Set]');
 INSERT INTO `1acore_world`.`spell_linked_spell`(`spell_trigger`, `spell_effect`, `type`, `comment`) VALUES (51533, 58876, 0, 'Feral Spirit casta Spirit Walk (4s immune a slow/root)');
+INSERT INTO `1acore_world`.`spell_linked_spell`(`spell_trigger`, `spell_effect`, `type`, `comment`) VALUES (83203, 59646, 0, 'Shadowmeld (Custom): Sanctuary');
+INSERT INTO `1acore_world`.`spell_linked_spell`(`spell_trigger`, `spell_effect`, `type`, `comment`) VALUES (83203, 62196, 0, 'Shadowmeld (Custom): Force deselect');
+INSERT INTO `1acore_world`.`spell_linked_spell`(`spell_trigger`, `spell_effect`, `type`, `comment`) VALUES (-83219, 83220, 0, 'Soul Swap (pra ter travel time nos dots)');

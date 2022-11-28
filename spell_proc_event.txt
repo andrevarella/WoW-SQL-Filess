@@ -38,6 +38,7 @@ INSERT INTO `1acore_world`.`spell_proc_event`(`entry`, `SchoolMask`, `SpellFamil
 --------- ---- ----
 -- lock:
 Nightfall talent n proca vs absorb
+glyph of corruption ?
 Eradication proca vs absorb
 --------- ---- ----
 -- priest:
@@ -64,8 +65,11 @@ INSERT INTO `1acore_world`.`spell_proc_event`(`entry`, `SchoolMask`, `SpellFamil
 
 
 -- shaman
-maelstrom weapon n proca vs absorb
-windfury weapon n proca vs absorb
+-- Windfury Weapon passive (agora ignora absorb) -- tava 0 
+UPDATE `spell_proc_event` SET `ProcEx` = '1095' WHERE `entry` = '33757';
+-- enhance Maeltrom Weapon (rank 5) ignora absorbs
+UPDATE `spell_proc_event` SET `ProcEx` = '9287' WHERE `entry` = '51532';
+
 flametongue weapon n proca vs absorb
 static shock n proca vs absorb
 
@@ -89,6 +93,9 @@ UPDATE `spell_proc_event` SET `procEx` = '2' WHERE `entry` = -53486;
 
 -- Righteous Vengeance proca vs absorb (tava 262146)
 UPDATE `spell_proc_event` SET `procEx` = '2' WHERE `entry` = -53380;
+
+-- custom judgement range + move speed (futuro pvp tier set bonus)
+INSERT INTO `1acore_world`.`spell_proc_event`(`entry`, `SchoolMask`, `SpellFamilyName`, `SpellFamilyMask0`, `SpellFamilyMask1`, `SpellFamilyMask2`, `procFlags`, `procEx`, `procPhase`, `ppmRate`, `CustomChance`, `Cooldown`) VALUES (83202, 0, 10, 9437184, 0, 0, 16, 0, 0, 0, 100, 0);
 
 --------- ---- ----
 -- warrior

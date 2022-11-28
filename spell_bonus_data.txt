@@ -11,6 +11,8 @@ INSERT INTO `new_acore_world`.`spell_bonus_data` (`entry`, `direct_bonus`, `dot_
 -- antes tava 1,8 direct bonus, (nerf no spell regu pra melhorar o scalling)
 INSERT INTO `new_acore_world`.`spell_bonus_data` (`entry`, `direct_bonus`, `dot_bonus`, `ap_bonus`, `ap_dot_bonus`, `comments`) VALUES (31117, 1.25, 0, 0, 0, 'Warlock - Unstable Affliction Dispell');
 
+-- custom agony (soul swap)
+INSERT INTO `1acore_world`.`spell_bonus_data`(`entry`, `direct_bonus`, `dot_bonus`, `ap_bonus`, `ap_dot_bonus`, `comments`) VALUES (83222, 0, 0.1, 0, 0, 'Agony Soul Swap');
 
 
 searing pain mudei p 0,4586 (spell_bonus_data)
