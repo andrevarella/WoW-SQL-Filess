@@ -1,6 +1,19 @@
+UPDATE `spell_bonus_data` SET `direct_bonus`= 0.172 WHERE `entry`= 116; -- R1 fbolt
+UPDATE `spell_bonus_data` SET `direct_bonus`= 0.283 WHERE `entry`= 205; -- R2
+UPDATE `spell_bonus_data` SET `direct_bonus`= 0.488 WHERE `entry`= 837; -- R3
+UPDATE `spell_bonus_data` SET `direct_bonus`= 0.743 WHERE `entry`= 7322; -- R4
+
+-- Fireball
+UPDATE `spell_bonus_data` SET `direct_bonus`= 0.123 WHERE `entry`= 133; -- R1
+UPDATE `spell_bonus_data` SET `direct_bonus`= 0.271 WHERE `entry`= 143; -- R2
+UPDATE `spell_bonus_data` SET `direct_bonus`= 0.5 WHERE `entry`= 145; -- R3
+UPDATE `spell_bonus_data` SET `direct_bonus`= 0.793 WHERE `entry`= 3140; -- R4
+
 INSERT INTO `new_acore_world`.`spell_bonus_data` (`entry`, `direct_bonus`, `dot_bonus`, `ap_bonus`, `ap_dot_bonus`, `comments`) VALUES (49804, 0, 0, 0, 0.018, 'Druid - Pounce DoT');
 INSERT INTO `new_acore_world`.`spell_bonus_data` (`entry`, `direct_bonus`, `dot_bonus`, `ap_bonus`, `ap_dot_bonus`, `comments`) VALUES (54043, 0.033, 0, 0, 0, 'Retribution Aura');
 INSERT INTO `new_acore_world`.`spell_bonus_data` (`entry`, `direct_bonus`, `dot_bonus`, `ap_bonus`, `ap_dot_bonus`, `comments`) VALUES (35913, 0.1, 0, 0, 0, 'Fel Fireball');
+
+
 
 -- antes tava dot_bonus 0,0667
 INSERT INTO `new_acore_world`.`spell_bonus_data` (`entry`, `direct_bonus`, `dot_bonus`, `ap_bonus`, `ap_dot_bonus`, `comments`) VALUES (61291, 0, 0.1367, 0, 0, 'Warlock - Shadowflame(rank 2, DOT)');

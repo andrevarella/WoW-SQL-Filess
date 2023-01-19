@@ -38,7 +38,7 @@ UPDATE `creature_template` SET `scale` = '0.95' WHERE `entry` = '93078';
 ==============
 
 -- PETS HUNTER/DK/MAGE/WARLOCK/PRIEST
--- pets hunter, da search type_flags = 1 (tameable) e type = 1 (beast), e add flags_extra 8388628 (cant block/dodge/parry) (se tiver 2, coloca 8388630 etc)
+-- pets hunter, da search type_flags = 1 (tameable) e type = 1 (beast), e add flags_extra 8388628 (cant block/dodge/parry) (se tiver 2, coloca 8388630 [somar os valores] etc)
 
 -- imp
 UPDATE `creature_template` SET `flags_extra` = '8388628' WHERE `entry` = '416';

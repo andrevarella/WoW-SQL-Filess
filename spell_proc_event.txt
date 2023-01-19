@@ -35,6 +35,9 @@ INSERT INTO `1acore_world`.`spell_proc_event`(`entry`, `SchoolMask`, `SpellFamil
 
 ========= cloth ==============
 -- mage:
+Current Behaviour
+If you as a mage have an absorb effect from: Mana Shield/Ice Barrier/Power word shield/Arena Grand master etc. 
+this as of now prevents proccs from the Slow effect from Ice Armor, aswell as frostbite/fiery payback/Blazing speed etc.
 --------- ---- ----
 -- lock:
 Nightfall talent n proca vs absorb

@@ -1,0 +1,3 @@
+-- Winterspring Frostsaber / Venomhide Ravasaur faction -1
+DELETE FROM `player_factionchange_achievement` WHERE `alliance_id` = '3356';
+
