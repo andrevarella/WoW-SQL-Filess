@@ -155,4 +155,5 @@ INSERT INTO `1acore_world`.`spell_script_names`(`spell_id`, `ScriptName`) VALUES
 INSERT INTO `1acore_world`.`spell_script_names`(`spell_id`, `ScriptName`) VALUES (84508, 'spell_NETHERRAY3');
 INSERT INTO `1acore_world`.`spell_script_names`(`spell_id`, `ScriptName`) VALUES (84510, 'spell_NETHERRAY4');
 INSERT INTO `1acore_world`.`spell_script_names`(`spell_id`, `ScriptName`) VALUES (84512, 'spell_NETHERRAY5');
+INSERT INTO `1acore_world`.`spell_script_names`(`spell_id`, `ScriptName`) VALUES (83241, 'spell_gen_lava_burst_cd_reset');
 

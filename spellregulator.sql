@@ -40,5 +40,7 @@ INSERT INTO `spellregulator` VALUES (11116, 100, 'Chaos Bolt');
 INSERT INTO `spellregulator` VALUES (11117, 100, 'Lava Burst');
 INSERT INTO `spellregulator` VALUES (26654, 50, 'Sweeping Strikes (dmg bizarro)');
 INSERT INTO `spellregulator` VALUES (31117, 136.5, 'Dispel UA R5 (scalling diminuído SP 1,8 > 1,3)');
+INSERT INTO `spellregulator` VALUES (83245, 50, 'Lava Burst Custom (Proc on Proc)');
+
 
 SET FOREIGN_KEY_CHECKS = 1;

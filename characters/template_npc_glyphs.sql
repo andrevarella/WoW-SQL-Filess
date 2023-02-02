@@ -11,7 +11,7 @@
  Target Server Version : 50739
  File Encoding         : 65001
 
- Date: 19/01/2023 07:23:31
+ Date: 20/01/2023 05:31:28
 */
 
 SET NAMES utf8mb4;
@@ -82,7 +82,7 @@ INSERT INTO `template_npc_glyphs` VALUES ('Paladin', 'Protection', 4, 452, 0);
 INSERT INTO `template_npc_glyphs` VALUES ('Paladin', 'Protection', 5, 192, 0);
 INSERT INTO `template_npc_glyphs` VALUES ('Shaman', 'Elemental', 0, 754, 0);
 INSERT INTO `template_npc_glyphs` VALUES ('Shaman', 'Elemental', 2, 475, 0);
-INSERT INTO `template_npc_glyphs` VALUES ('Shaman', 'Elemental', 1, 474, 0);
+INSERT INTO `template_npc_glyphs` VALUES ('Shaman', 'Elemental', 1, 476, 0);
 INSERT INTO `template_npc_glyphs` VALUES ('Shaman', 'Elemental', 3, 214, 0);
 INSERT INTO `template_npc_glyphs` VALUES ('Shaman', 'Elemental', 4, 552, 0);
 INSERT INTO `template_npc_glyphs` VALUES ('Shaman', 'Elemental', 5, 735, 0);
@@ -92,7 +92,7 @@ INSERT INTO `template_npc_glyphs` VALUES ('Shaman', 'Enhancement', 2, 475, 0);
 INSERT INTO `template_npc_glyphs` VALUES ('Shaman', 'Enhancement', 3, 736, 0);
 INSERT INTO `template_npc_glyphs` VALUES ('Shaman', 'Enhancement', 4, 476, 0);
 INSERT INTO `template_npc_glyphs` VALUES ('Shaman', 'Enhancement', 5, 754, 0);
-INSERT INTO `template_npc_glyphs` VALUES ('Shaman', 'Restoration', 0, 223, 0);
+INSERT INTO `template_npc_glyphs` VALUES ('Shaman', 'Restoration', 0, 224, 0);
 INSERT INTO `template_npc_glyphs` VALUES ('Shaman', 'Restoration', 1, 476, 0);
 INSERT INTO `template_npc_glyphs` VALUES ('Shaman', 'Restoration', 2, 552, 0);
 INSERT INTO `template_npc_glyphs` VALUES ('Shaman', 'Restoration', 3, 751, 0);

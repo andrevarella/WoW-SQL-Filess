@@ -34,20 +34,20 @@ INSERT INTO `1acore_world`.`spell_proc_event`(`entry`, `SchoolMask`, `SpellFamil
 
 
 ========= cloth ==============
--- mage:
+-- ▸▸Mage:
 Current Behaviour
 If you as a mage have an absorb effect from: Mana Shield/Ice Barrier/Power word shield/Arena Grand master etc. 
 this as of now prevents proccs from the Slow effect from Ice Armor, aswell as frostbite/fiery payback/Blazing speed etc.
 --------- ---- ----
--- lock:
+-- ▸▸ Lock:
 Nightfall talent n proca vs absorb
 glyph of corruption ?
 Eradication proca vs absorb
 --------- ---- ----
--- priest:
+-- ▸▸ Priest:
 
 ======== leather =============
--- Druid:
+-- ▸▸ Druid:
 -- Custom Spell Moonfire/Insect Swarm dots 3% proc chance Starfire PvP Set 
 INSERT INTO `new_acore_world`.`spell_proc_event` (`entry`, `SchoolMask`, `SpellFamilyName`, `SpellFamilyMask0`, `SpellFamilyMask1`, `SpellFamilyMask2`, `procFlags`, `procEx`, `procPhase`, `ppmRate`, `CustomChance`, `Cooldown`) VALUES (83007, 0, 7, 2097154, 0, 0, 262144, 65536, 0, 0, 3, 0);
 
@@ -61,13 +61,22 @@ INSERT INTO `1acore_world`.`spell_proc_event`(`entry`, `SchoolMask`, `SpellFamil
 
 
 -------------------
--- rogue:
+-- ▸▸ Rogue:
+-- nada ainda
 
 ======== mail ==============
--- hunter
+-- ▸▸ Hunter:
+-- nada ainda
+
+-- ▸▸ Shaman:
+
+-- Flame Shock new (Custom) 2% chance de proc Lava Surge
+INSERT INTO `1acore_world`.`spell_proc_event`(`entry`, `SchoolMask`, `SpellFamilyName`, `SpellFamilyMask0`, `SpellFamilyMask1`, `SpellFamilyMask2`, `procFlags`, `procEx`, `procPhase`, `ppmRate`, `CustomChance`, `Cooldown`) VALUES (83242, 4, 11, 268435456, 0, 0, 262144, 1027, 0, 0, 2, 0);
+-- Lava Burst new (Custom) passive buff 5% chance de procar outro Lava Burst
+INSERT INTO `1acore_world`.`spell_proc_event`(`entry`, `SchoolMask`, `SpellFamilyName`, `SpellFamilyMask0`, `SpellFamilyMask1`, `SpellFamilyMask2`, `procFlags`, `procEx`, `procPhase`, `ppmRate`, `CustomChance`, `Cooldown`) VALUES (83246, 4, 11, 0, 4096, 0, 65536, 3, 0, 0, 5, 0);
 
 
--- shaman
+
 -- Windfury Weapon passive (agora ignora absorb) -- tava 0 
 UPDATE `spell_proc_event` SET `ProcEx` = '1095' WHERE `entry` = '33757';
 -- enhance Maeltrom Weapon (rank 5) ignora absorbs
@@ -83,7 +92,7 @@ clearcasting
 lightning overload
 
 ======== plate =============
--- paladin:
+-- ▸▸ Paladin:
 
 -- Judgements of the Wise ignora absorb (tava 262144)
 UPDATE `spell_proc_event` SET `procEx` = '0' WHERE `entry` = -31876;
@@ -101,9 +110,11 @@ UPDATE `spell_proc_event` SET `procEx` = '2' WHERE `entry` = -53380;
 INSERT INTO `1acore_world`.`spell_proc_event`(`entry`, `SchoolMask`, `SpellFamilyName`, `SpellFamilyMask0`, `SpellFamilyMask1`, `SpellFamilyMask2`, `procFlags`, `procEx`, `procPhase`, `ppmRate`, `CustomChance`, `Cooldown`) VALUES (83202, 0, 10, 9437184, 0, 0, 16, 0, 0, 0, 100, 0);
 
 --------- ---- ----
--- warrior
+-- ▸▸ Warrior
+-- nada ainda
 --------- ---- ----
--- death knight
+-- ▸▸ Death Knight
+-- nada ainda
 
 =======================================
 

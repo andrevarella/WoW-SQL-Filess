@@ -28,6 +28,9 @@ INSERT INTO `new_acore_world`.`spell_bonus_data` (`entry`, `direct_bonus`, `dot_
 INSERT INTO `1acore_world`.`spell_bonus_data`(`entry`, `direct_bonus`, `dot_bonus`, `ap_bonus`, `ap_dot_bonus`, `comments`) VALUES (83222, 0, 0.1, 0, 0, 'Agony Soul Swap');
 
 
-searing pain mudei p 0,4586 (spell_bonus_data)
-dot UA 0,216 (tava 0,2)
-UA dispel 1,8 > 1,3 (+ 35% dmg no spellregulator)
+-- searing pain mudei p 0,4586 (spell_bonus_data)
+-- dot UA 0,216 (tava 0,2)
+-- UA dispel 1,8 > 1,3 (+ 35% dmg no spellregulator)
+
+-- Shaman - Custom Lava Bust (mastery proc)
+INSERT INTO `1acore_world`.`spell_bonus_data`(`entry`, `direct_bonus`, `dot_bonus`, `ap_bonus`, `ap_dot_bonus`, `comments`) VALUES (83245, 0.5714, 0, 0, 0, 'Shaman - Lava Burst');
