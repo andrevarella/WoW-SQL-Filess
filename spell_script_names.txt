@@ -1,4 +1,3 @@
-INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (83004, 'spell_dru_savage_roar');
 INSERT INTO `1acore_world`.`spell_script_names`(`spell_id`, `ScriptName`) VALUES (83122, 'spell_dru_savage_roar');
 INSERT INTO `1acore_world`.`spell_script_names`(`spell_id`, `ScriptName`) VALUES (83089, 'spell_gen_remove_slow_impairing_auras');
 

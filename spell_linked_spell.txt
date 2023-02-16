@@ -19,7 +19,7 @@ INSERT INTO `1acore_world`.`spell_linked_spell`(`spell_trigger`, `spell_effect`,
 INSERT INTO `1acore_world`.`spell_linked_spell`(`spell_trigger`, `spell_effect`, `type`, `comment`) VALUES (-74410, -41406, 0, 'Perder [Arena Dampening], perde [Dampening (+1% DMG/Healing por stack)]');
 INSERT INTO `1acore_world`.`spell_linked_spell`(`spell_trigger`, `spell_effect`, `type`, `comment`) VALUES (-74410, -83027, 0, 'Perder [Arena Dampening], perde [Dampening a cada 8 segundos]');
 INSERT INTO `1acore_world`.`spell_linked_spell`(`spell_trigger`, `spell_effect`, `type`, `comment`) VALUES (-74410, -83026, 0, 'Perder [Arena Dampening], perde [Dampening depois de 8min]');
-INSERT INTO `1acore_world`.`spell_linked_spell`(`spell_trigger`, `spell_effect`, `type`, `comment`) VALUES (45182, 15068, 0, 'Cheat Death Proca [Cheat Death Heal] ');
+INSERT INTO `1acore_world`.`spell_linked_spell`(`spell_trigger`, `spell_effect`, `type`, `comment`) VALUES (45182, 15068, 0, 'Cheat Death Proca [Cheat Death Heal] '); -- Criar outra spell que cura 10% 
 INSERT INTO `1acore_world`.`spell_linked_spell`(`spell_trigger`, `spell_effect`, `type`, `comment`) VALUES (-83122, -62071, 0, 'Savage Roar (0 CP Glyph)');
 INSERT INTO `1acore_world`.`spell_linked_spell`(`spell_trigger`, `spell_effect`, `type`, `comment`) VALUES (83122, 62071, 0, 'Savage Roar (0 CP Glyph)');
 INSERT INTO `1acore_world`.`spell_linked_spell`(`spell_trigger`, `spell_effect`, `type`, `comment`) VALUES (641288, 83089, 0, 'Body and Soul Rank1 remove Slows');

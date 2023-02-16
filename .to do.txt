@@ -1,4 +1,4 @@
-coisas p atualizar
+coisas p atualizar no patch/upload
 
 patch.w - separar em 2 patches, 1 pra interface/dbc files e outro pra arquivos pesados
 
