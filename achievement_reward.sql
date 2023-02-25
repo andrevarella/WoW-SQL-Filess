@@ -3,15 +3,15 @@
 
  Source Server         : acore
  Source Server Type    : MySQL
- Source Server Version : 50737
+ Source Server Version : 50739
  Source Host           : localhost:3306
- Source Schema         : acore_world
+ Source Schema         : 1acore_world
 
  Target Server Type    : MySQL
- Target Server Version : 50737
+ Target Server Version : 50739
  File Encoding         : 65001
 
- Date: 19/07/2022 17:47:47
+ Date: 25/02/2023 10:03:58
 */
 
 SET NAMES utf8mb4;
@@ -153,21 +153,21 @@ INSERT INTO `achievement_reward` VALUES (1422, 104, 104, 0, 0, 'Realm First! Gra
 INSERT INTO `achievement_reward` VALUES (1426, 108, 108, 0, 0, 'Realm First! Grand Master Skinner', NULL, 0);
 INSERT INTO `achievement_reward` VALUES (1427, 109, 109, 0, 0, 'Realm First! Grand Master Tailor', NULL, 0);
 INSERT INTO `achievement_reward` VALUES (1416, 98, 98, 0, 0, 'Realm First! Cooking Grand Master', NULL, 0);
-INSERT INTO `achievement_reward` VALUES (457, 0, 0, 33225, 81000, 'Realm First! Level 80', 'Parabens por ser o primeiro player a alcançar o level 80! Aqui está a sua recompensa', 0);
-INSERT INTO `achievement_reward` VALUES (462, 0, 0, 44151, 81000, 'Realm First! Level 80 Hunter', 'Parabens por ser o primeiro da sua classe a alcançar o level 80! Aqui está a sua recompensa', 0);
-INSERT INTO `achievement_reward` VALUES (460, 0, 0, 44151, 81000, 'Realm First! Level 80 Mage', 'Parabens por ser o primeiro da sua classe a alcançar o level 80! Aqui está a sua recompensa', 0);
-INSERT INTO `achievement_reward` VALUES (466, 0, 0, 44151, 81000, 'Realm First! Level 80 Druid', 'Parabens por ser o primeiro da sua classe a alcançar o level 80! Aqui está a sua recompensa', 0);
-INSERT INTO `achievement_reward` VALUES (461, 0, 0, 44151, 81000, 'Realm First! Level 80 Death Knight', 'Parabens por ser o primeiro da sua classe a alcançar o level 80! Aqui está a sua recompensa', 0);
-INSERT INTO `achievement_reward` VALUES (465, 0, 0, 44151, 81000, 'Realm First! Level 80 Paladin', 'Parabens por ser o primeiro da sua classe a alcançar o level 80! Aqui está a sua recompensa', 0);
-INSERT INTO `achievement_reward` VALUES (464, 0, 0, 44151, 81000, 'Realm First! Level 80 Priest', 'Parabens por ser o primeiro da sua classe a alcançar o level 80! Aqui está a sua recompensa', 0);
-INSERT INTO `achievement_reward` VALUES (458, 0, 0, 44151, 81000, 'Realm First! Level 80 Rogue', 'Parabens por ser o primeiro da sua classe a alcançar o level 80! Aqui está a sua recompensa', 0);
-INSERT INTO `achievement_reward` VALUES (467, 0, 0, 44151, 81000, 'Realm First! Level 80 Shaman', 'Parabens por ser o primeiro da sua classe a alcançar o level 80! Aqui está a sua recompensa', 0);
-INSERT INTO `achievement_reward` VALUES (463, 0, 0, 44151, 81000, 'Realm First! Level 80 Warlock', 'Parabens por ser o primeiro da sua classe a pegar level 80! Aqui está a sua recompensa', 0);
-INSERT INTO `achievement_reward` VALUES (459, 0, 0, 44151, 81000, 'Realm First! Level 80 Warrior', 'Parabens por ser o primeiro da sua classe a pegar level 80! Aqui está a sua recompensa', 0);
-INSERT INTO `achievement_reward` VALUES (4576, 10024, 10024, 71636, 81000, 'Realm First! Fall of the Lich King', 'The king has been dethroned. Congratulations for being the Realm First! Here is your reward.', 0);
+INSERT INTO `achievement_reward` VALUES (457, 0, 0, 33225, 81000, 'Realm First! Level 80', 'Parabens por ser o primeiro jogador a alcançar o level 80! Visite o correio para ver sua recompensa.', 0);
+INSERT INTO `achievement_reward` VALUES (462, 0, 0, 44151, 81000, 'Realm First! Level 80 Hunter', 'Parabens por ser o primeiro da sua classe a alcançar o level 80! Visite o correio para ver sua recompensa.', 0);
+INSERT INTO `achievement_reward` VALUES (460, 0, 0, 44151, 81000, 'Realm First! Level 80 Mage', 'Parabens por ser o primeiro da sua classe a alcançar o level 80! Visite o correio para ver sua recompensa.', 0);
+INSERT INTO `achievement_reward` VALUES (466, 0, 0, 44151, 81000, 'Realm First! Level 80 Druid', 'Parabens por ser o primeiro da sua classe a alcançar o level 80! Visite o correio para ver sua recompensa.', 0);
+INSERT INTO `achievement_reward` VALUES (461, 0, 0, 44151, 81000, 'Realm First! Level 80 Death Knight', 'Parabens por ser o primeiro da sua classe a alcançar o level 80! Visite o correio para ver sua recompensa.', 0);
+INSERT INTO `achievement_reward` VALUES (465, 0, 0, 44151, 81000, 'Realm First! Level 80 Paladin', 'Parabens por ser o primeiro da sua classe a alcançar o level 80! Visite o correio para ver sua recompensa.', 0);
+INSERT INTO `achievement_reward` VALUES (464, 0, 0, 44151, 81000, 'Realm First! Level 80 Priest', 'Parabens por ser o primeiro da sua classe a alcançar o level 80! Visite o correio para ver sua recompensa.', 0);
+INSERT INTO `achievement_reward` VALUES (458, 0, 0, 44151, 81000, 'Realm First! Level 80 Rogue', 'Parabens por ser o primeiro da sua classe a alcançar o level 80! Visite o correio para ver sua recompensa.', 0);
+INSERT INTO `achievement_reward` VALUES (467, 0, 0, 44151, 81000, 'Realm First! Level 80 Shaman', 'Parabens por ser o primeiro da sua classe a alcançar o level 80! Visite o correio para ver sua recompensa.', 0);
+INSERT INTO `achievement_reward` VALUES (463, 0, 0, 44151, 81000, 'Realm First! Level 80 Warlock', 'Parabens por ser o primeiro da sua classe a alcançar o level 80! Visite o correio para ver sua recompensa.', 0);
+INSERT INTO `achievement_reward` VALUES (459, 0, 0, 44151, 81000, 'Realm First! Level 80 Warrior', 'Parabens por ser o primeiro da sua classe a alcançar o level 80! Visite o correio para ver sua recompensa.', 0);
+INSERT INTO `achievement_reward` VALUES (4576, 10095, 10095, 71636, 81000, 'Realm First! Fall of the Lich King', 'The king has been dethroned. Congratulations for being the Realm First! Here is your reward.', 0);
 INSERT INTO `achievement_reward` VALUES (1160, 94, 94, 20221, 81000, 'Three\'s Company: 2200', 'Parabens por alcançar 2200 rating em arenas 3v3! Aproveite seu novo titulo Warbringer e sua montaria.', 0);
-INSERT INTO `achievement_reward` VALUES (10036, 10023, 10023, 0, 0, 'Just the Two of Us: 2400', '', 0);
-INSERT INTO `achievement_reward` VALUES (10003, 10000, 10000, 30609, 81000, 'Infernal Gladiator Title', '', 0);
+INSERT INTO `achievement_reward` VALUES (10036, 0, 0, 0, 0, 'Just the Two of Us: 2400', '', 0);
+INSERT INTO `achievement_reward` VALUES (10003, 10000, 10000, 30609, 81000, 'Infernal Gladiator Mount', '', 0);
 INSERT INTO `achievement_reward` VALUES (418, 62, 62, 34092, 81000, 'Merciless Gladiator Mount', '', 0);
 INSERT INTO `achievement_reward` VALUES (419, 71, 71, 37676, 81000, 'Vengeful Gladiator Mount', '', 0);
 INSERT INTO `achievement_reward` VALUES (420, 80, 80, 43516, 81000, 'Brutal Gladiator Mount', '', 0);
@@ -179,43 +179,43 @@ INSERT INTO `achievement_reward` VALUES (2091, 42, 42, 0, 0, 'Gladiator', '', 0)
 INSERT INTO `achievement_reward` VALUES (2092, 43, 43, 0, 0, 'Duelist', '', 0);
 INSERT INTO `achievement_reward` VALUES (2093, 44, 44, 0, 0, 'Rival', '', 0);
 INSERT INTO `achievement_reward` VALUES (2090, 45, 45, 0, 0, 'Challenger', '', 0);
-INSERT INTO `achievement_reward` VALUES (10004, 10001, 10001, 0, 0, 'Vicious Gladiator Title', '', 0);
-INSERT INTO `achievement_reward` VALUES (10005, 10002, 10002, 0, 0, 'Ruthless Gladiator Title', '', 0);
-INSERT INTO `achievement_reward` VALUES (10006, 10003, 10003, 0, 0, 'Cataclysmic Gladiator Title', '', 0);
-INSERT INTO `achievement_reward` VALUES (10007, 10004, 10004, 0, 0, 'Malevolent Gladiator Title', '', 0);
-INSERT INTO `achievement_reward` VALUES (10008, 10005, 10005, 0, 0, 'Tyrannical Gladiator Title', '', 0);
-INSERT INTO `achievement_reward` VALUES (10009, 10006, 10006, 0, 0, 'Grievous Gladiator Title', '', 0);
-INSERT INTO `achievement_reward` VALUES (10010, 10007, 10007, 0, 0, 'Prideful Gladiator Title', '', 0);
-INSERT INTO `achievement_reward` VALUES (10011, 10008, 10008, 0, 0, 'Primal Gladiator Title', '', 0);
-INSERT INTO `achievement_reward` VALUES (10012, 10009, 10009, 0, 0, 'Wild Gladiator Title', '', 0);
-INSERT INTO `achievement_reward` VALUES (10013, 10010, 10010, 0, 0, 'Warmongering Gladiator Title', '', 0);
-INSERT INTO `achievement_reward` VALUES (10014, 10011, 10011, 0, 0, 'Vindictive Gladiator Title', '', 0);
-INSERT INTO `achievement_reward` VALUES (10015, 10012, 10012, 0, 0, 'Fearless Gladiator Title', '', 0);
-INSERT INTO `achievement_reward` VALUES (10016, 10013, 10013, 0, 0, 'Cruel Gladiator Title', '', 0);
-INSERT INTO `achievement_reward` VALUES (10017, 10014, 10014, 0, 0, 'Ferocious Gladiator Title', '', 0);
-INSERT INTO `achievement_reward` VALUES (10018, 10015, 10015, 0, 0, 'Fierce Gladiator Title', '', 0);
-INSERT INTO `achievement_reward` VALUES (10019, 10016, 10016, 0, 0, 'Dominant Gladiator Title', '', 0);
-INSERT INTO `achievement_reward` VALUES (10020, 10017, 10017, 0, 0, 'Demonic Gladiator Title', '', 0);
-INSERT INTO `achievement_reward` VALUES (10021, 10018, 10018, 0, 0, 'Dread Gladiator Title', '', 0);
-INSERT INTO `achievement_reward` VALUES (10022, 10019, 10019, 0, 0, 'Sinister Gladiator Title', '', 0);
-INSERT INTO `achievement_reward` VALUES (10023, 10020, 10020, 0, 0, 'Notorious Gladiator Title', '', 0);
-INSERT INTO `achievement_reward` VALUES (10024, 10021, 10021, 0, 0, 'Corrupted Gladiator Title', '', 0);
-INSERT INTO `achievement_reward` VALUES (10025, 10022, 10022, 0, 0, 'Sinful Gladiator Title', '', 0);
-INSERT INTO `achievement_reward` VALUES (10026, 10023, 10023, 0, 0, 'Unchained Gladiator Title', '', 0);
-INSERT INTO `achievement_reward` VALUES (10037, 10023, 10023, 0, 0, 'Just the Two of Us: 2700', '', 0);
-INSERT INTO `achievement_reward` VALUES (10038, 10023, 10023, 0, 0, 'Three\'s Company: 2400', '', 0);
-INSERT INTO `achievement_reward` VALUES (10039, 10023, 10023, 0, 0, 'Three\'s Company: 2700 - the Supreme', '', 0);
+INSERT INTO `achievement_reward` VALUES (10004, 10001, 10001, 0, 0, 'Vicious Gladiator Mount', '', 0);
+INSERT INTO `achievement_reward` VALUES (10005, 10002, 10002, 0, 0, 'Ruthless Gladiator Mount', '', 0);
+INSERT INTO `achievement_reward` VALUES (10006, 10003, 10003, 0, 0, 'Cataclysmic Gladiator Mount', '', 0);
+INSERT INTO `achievement_reward` VALUES (10007, 10004, 10004, 0, 0, 'Malevolent Gladiator Mount', '', 0);
+INSERT INTO `achievement_reward` VALUES (10008, 10005, 10005, 0, 0, 'Tyrannical Gladiator Mount', '', 0);
+INSERT INTO `achievement_reward` VALUES (10009, 10006, 10006, 0, 0, 'Grievous Gladiator Mount', '', 0);
+INSERT INTO `achievement_reward` VALUES (10010, 10007, 10007, 0, 0, 'Prideful Gladiator Mount', '', 0);
+INSERT INTO `achievement_reward` VALUES (10011, 10008, 10008, 0, 0, 'Primal Gladiator Mount', '', 0);
+INSERT INTO `achievement_reward` VALUES (10012, 10009, 10009, 0, 0, 'Wild Gladiator Mount', '', 0);
+INSERT INTO `achievement_reward` VALUES (10013, 10010, 10010, 0, 0, 'Warmongering Gladiator Mount', '', 0);
+INSERT INTO `achievement_reward` VALUES (10014, 10011, 10011, 0, 0, 'Vindictive Gladiator Mount', '', 0);
+INSERT INTO `achievement_reward` VALUES (10015, 10012, 10012, 0, 0, 'Fearless Gladiator Mount', '', 0);
+INSERT INTO `achievement_reward` VALUES (10016, 10013, 10013, 0, 0, 'Cruel Gladiator Mount', '', 0);
+INSERT INTO `achievement_reward` VALUES (10017, 10014, 10014, 0, 0, 'Ferocious Gladiator Mount', '', 0);
+INSERT INTO `achievement_reward` VALUES (10018, 10015, 10015, 0, 0, 'Fierce Gladiator Mount', '', 0);
+INSERT INTO `achievement_reward` VALUES (10019, 10016, 10016, 0, 0, 'Dominant Gladiator Mount', '', 0);
+INSERT INTO `achievement_reward` VALUES (10020, 10017, 10017, 0, 0, 'Demonic Gladiator Mount', '', 0);
+INSERT INTO `achievement_reward` VALUES (10021, 10018, 10018, 0, 0, 'Dread Gladiator Mount', '', 0);
+INSERT INTO `achievement_reward` VALUES (10022, 10019, 10019, 0, 0, 'Sinister Gladiator Mount', '', 0);
+INSERT INTO `achievement_reward` VALUES (10023, 10020, 10020, 0, 0, 'Notorious Gladiator Mount', '', 0);
+INSERT INTO `achievement_reward` VALUES (10024, 10021, 10021, 0, 0, 'Corrupted Gladiator Mount', '', 0);
+INSERT INTO `achievement_reward` VALUES (10025, 10022, 10022, 0, 0, 'Sinful Gladiator Mount', '', 0);
+INSERT INTO `achievement_reward` VALUES (10026, 10023, 10023, 0, 0, 'Unchained Gladiator Mount', '', 0);
+INSERT INTO `achievement_reward` VALUES (10037, 0, 0, 0, 0, 'Just the Two of Us: 2700', '', 0);
+INSERT INTO `achievement_reward` VALUES (10038, 10090, 10090, 0, 0, 'Three\'s Company: 2400 - the Tactician', '', 0);
+INSERT INTO `achievement_reward` VALUES (10039, 0, 0, 0, 0, 'Three\'s Company: 2700 - the Legend', '', 0);
 INSERT INTO `achievement_reward` VALUES (10034, 128, 128, 0, 0, 'Hot Hot Hot Streak (Flawless Victor)', '', 0);
 INSERT INTO `achievement_reward` VALUES (1159, 163, 163, 0, 81000, 'Just the Two of Us: 2200', 'Parabens pelos 2200 de rating em x2! Aproveite seu novo titulo Vanquisher.', 0);
-INSERT INTO `achievement_reward` VALUES (2536, 2536, 0, 44843, 32216, 'Mountain o\' Mounts', 'I\'ve heard your stables are nearly as extensive as mine, now. Impressive! Perhaps we can help one another.. I\'ve one too many dragonhawks, and hoped you could give this one a home. Naturally its been trained as a mount and not a hunting pet, and you\'ll find it as loyal and tireless as any other steed I raise. $B Yours again,Mei', 0);
-INSERT INTO `achievement_reward` VALUES (2537, 0, 2537, 44842, 32216, 'Mountain o\' Mounts', 'I\'ve heard your stables are nearly as extensive as mine, now. Impressive! Perhaps we can help one another.. I\'ve one too many dragonhawks, and hoped you could give this one a home. Naturally its been trained as a mount and not a hunting pet, and you\'ll find it as loyal and tireless as any other steed I raise. $B Yours again,Mei', 0);
-INSERT INTO `achievement_reward` VALUES (10028, 10052, 10052, 0, 0, 'Realm First! Halion 25h (twilight destroyer title)', NULL, 0);
+INSERT INTO `achievement_reward` VALUES (2536, 0, 0, 44843, 32216, 'Mountain o\' Mounts', 'I\'ve heard your stables are nearly as extensive as mine, now. Impressive! Perhaps we can help one another.. I\'ve one too many dragonhawks, and hoped you could give this one a home. Naturally its been trained as a mount and not a hunting pet, and you\'ll find it as loyal and tireless as any other steed I raise. $B Yours again,Mei', 0);
+INSERT INTO `achievement_reward` VALUES (2537, 0, 0, 44842, 32216, 'Mountain o\' Mounts', 'I\'ve heard your stables are nearly as extensive as mine, now. Impressive! Perhaps we can help one another.. I\'ve one too many dragonhawks, and hoped you could give this one a home. Naturally its been trained as a mount and not a hunting pet, and you\'ll find it as loyal and tireless as any other steed I raise. $B Yours again,Mei', 0);
+INSERT INTO `achievement_reward` VALUES (10028, 10038, 10038, 0, 0, 'Realm First! Halion 25h (Dragonslayer Title)', NULL, 0);
 INSERT INTO `achievement_reward` VALUES (401, 0, 0, 0, 0, 'Just the Two of Us: 2000', NULL, 0);
-INSERT INTO `achievement_reward` VALUES (10046, 10023, 10023, 0, 0, 'Just the Two of Us: 3000', '', 0);
+INSERT INTO `achievement_reward` VALUES (10046, 0, 0, 0, 0, 'Just the Two of Us: 3000', '', 0);
 INSERT INTO `achievement_reward` VALUES (405, 0, 0, 0, 0, 'Three\'s Company: 2000', NULL, 0);
-INSERT INTO `achievement_reward` VALUES (10047, 0, 0, 0, 0, 'Three\'s Company: 3000', '', 0);
+INSERT INTO `achievement_reward` VALUES (10047, 0, 0, 0, 0, 'Three\'s Company: 3000 - the Supreme', '', 0);
 INSERT INTO `achievement_reward` VALUES (513, 0, 0, 0, 0, '100 Honorable Kills', NULL, 0);
-INSERT INTO `achievement_reward` VALUES (685, 10053, 10053, 0, 0, 'Nefarian - Dragonslayer', NULL, 0);
+INSERT INTO `achievement_reward` VALUES (685, 10053, 10053, 0, 0, 'Nefarian - Dragonslayer - DELETAR', NULL, 0);
 INSERT INTO `achievement_reward` VALUES (515, 0, 0, 0, 0, '500 Honorable Kills', NULL, 0);
 INSERT INTO `achievement_reward` VALUES (516, 0, 0, 0, 0, '1000 Honorable Kills', NULL, 0);
 INSERT INTO `achievement_reward` VALUES (512, 0, 0, 0, 0, '5000 Honorable Kills', NULL, 0);
@@ -226,5 +226,19 @@ INSERT INTO `achievement_reward` VALUES (10042, 0, 0, 0, 0, '200.000 Honorable K
 INSERT INTO `achievement_reward` VALUES (10043, 0, 0, 0, 0, '300.000 Honorable Kills', NULL, 0);
 INSERT INTO `achievement_reward` VALUES (10044, 0, 0, 0, 0, '400.000 Honorable Kills', NULL, 0);
 INSERT INTO `achievement_reward` VALUES (10045, 0, 0, 0, 0, '500.000 Honorable Kills', NULL, 0);
+INSERT INTO `achievement_reward` VALUES (10078, 10036, 0, 0, 32216, 'Lord of the Reins (300) A', '', 0);
+INSERT INTO `achievement_reward` VALUES (10075, 0, 0, 0, 32216, 'Mountacular (250) H', '', 0);
+INSERT INTO `achievement_reward` VALUES (10077, 0, 10036, 0, 32216, 'Lord of the Reins (300) H', '', 0);
+INSERT INTO `achievement_reward` VALUES (10082, 0, 0, 80455, 32216, 'A Horde of Hoofbeats (400) A', '', 0);
+INSERT INTO `achievement_reward` VALUES (10081, 0, 0, 80455, 32216, 'A Horde of Hoofbeats (400) H', '', 0);
+INSERT INTO `achievement_reward` VALUES (10076, 0, 0, 0, 32216, 'Mountacular (250) A', '', 0);
+INSERT INTO `achievement_reward` VALUES (10083, 0, 0, 0, 32216, 'Thanks for the Carry! (500) H', '', 0);
+INSERT INTO `achievement_reward` VALUES (10071, 0, 0, 0, 32216, 'We\'re Going to Need More Saddles (150) H', '', 0);
+INSERT INTO `achievement_reward` VALUES (10073, 0, 0, 0, 32216, 'Mount Parade (200) H', '', 0);
+INSERT INTO `achievement_reward` VALUES (10072, 0, 0, 0, 32216, 'We\'re Going to Need More Saddles (150) A', '', 0);
+INSERT INTO `achievement_reward` VALUES (10074, 0, 0, 0, 32216, 'Mount Parade (200) A', '', 0);
+INSERT INTO `achievement_reward` VALUES (10079, 0, 0, 80466, 32216, 'No Stable Big Enough (350) H', '', 0);
+INSERT INTO `achievement_reward` VALUES (10080, 0, 0, 80466, 32216, 'No Stable Big Enough (350) A', '', 0);
+INSERT INTO `achievement_reward` VALUES (10084, 0, 0, 0, 32216, 'Thanks for the Carry! (500) A', '', 0);
 
 SET FOREIGN_KEY_CHECKS = 1;
