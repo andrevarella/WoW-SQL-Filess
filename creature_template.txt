@@ -1,5 +1,15 @@
 -- creature_equip_template - CreatureID = creature_template
 
+-- MALL:
+-- npc inkeeper mall (vermelho p hordas)
+UPDATE `creature_template` SET `faction` = '35' WHERE `entry` = '32413';
+-- npc wintergrasp (vermelho p hordas)
+UPDATE `creature_template` SET `faction` = '35' WHERE `entry` = '32169';
+-- npc frost gear (vermelho p hordas)
+UPDATE `creature_template` SET `faction` = '35' WHERE `entry` = '37942';
+-- npc triumph gear (vermelho p hordas)
+UPDATE `creature_template` SET `faction` = '35' WHERE `entry` = '35494';
+
 
 -- npc profession kaylub <Professions>
 UPDATE `creature_template` SET `modelid1` = '21641' WHERE `entry` = '199999';

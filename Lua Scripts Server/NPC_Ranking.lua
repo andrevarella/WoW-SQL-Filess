@@ -76,10 +76,7 @@ local function On_Top_Hello(event, player, creature)
     player:GossipSetText(string.format(" "))
 	player:GossipMenuAddItem(9,"|TInterface\\icons\\Achievement_bg_killxenemies_generalsroom:30|t Top 10 Killers |cFF000000- [Each Class] \n", 0, 3)
 	player:GossipMenuAddItem(9,"|TInterface\\icons\\Achievement_bg_kill_flag_carrier:30|t Top 10 Killers |cFF000000- [All]\n", 0, 2)
-
-
-    -- Nao da pra ver os players player:GossipMenuAddItem(9,"|TInterface\\icons\\Achievement_featsofstrength_gladiator_10:30|t Top 10 |cFF000000- [Arena Rating]", 0, 1)
-    -- DA DC player:GossipMenuAddItem(9,"|TInterface\\icons\\Achievement_bg_most_damage_killingblow_dieleast:30|t Top 10 Guilds", 0, 4)
+      player:GossipMenuAddItem(9,"|TInterface\\icons\\Achievement_featsofstrength_gladiator_10:30|t Top 10 |cFF000000- [Arena Rating]", 0, 1)
     player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)
 end
 
@@ -126,21 +123,6 @@ if(intid == 3) then
     player:GossipMenuAddItem(9,"|TInterface\\icons\\inv_misc_monsterclaw_04.png:25|t Top 10 |cFFFF4500Druid |cFF000000Killers",0, 17)
     player:GossipMenuAddItem(5,"|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:22:22:0:0|t |cFF8B0000Voltar",0,499)    
     player:GossipMenuAddItem(5,"|TInterface\\RaidFrame\\ReadyCheck-NotReady:27:27:0:0|t |cFF8B0000Sair",0,500)	
-    player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)
-end
-
-if(intid == 4) then
-     local score = CharDBQuery("SELECT name,kills,heroic_creatures,points FROM guild ORDER BY kills and points DESC LIMIT 10") -- TOP GUILDS
-        repeat
-        name = score:GetString(0);
-        kills = score:GetUInt32(1);
-        heroic_creatures = score:GetUInt32(2);
-        points = score:GetUInt32(3);		
-        player:GossipMenuAddItem(9,"|cff0000ffGuild : |r ".. name ..",  |cff0000ffTotal Kills: |r|cffffff00" .. kills .. ", \n|cff0000ffBosses Killed: |r |cffffff00"..heroic_creatures..", |cff0000ffTotal Points: |r |cffffff00"..points.."", 5, 1)
-        until not score:NextRow() 
-        player:GossipComplete()   
-    player:GossipMenuAddItem(5,"|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:22:22:0:0|t |cFF8B0000Voltar",0,499)    
-	player:GossipMenuAddItem(5,"|TInterface\\RaidFrame\\ReadyCheck-NotReady:27:27:0:0|t |cFF8B0000Sair",0,500)	
     player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)
 end
 

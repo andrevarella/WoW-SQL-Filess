@@ -1,85 +1,74 @@
-testar procs com BoP tbm (casters)
-testar trinkets/ring/enchants tbm
-test alguns procs consumiveis (NS druid/shaman/earth shield, flash insta etc)
-mage fingers of frost/frostbite gain/consume on cast?
-tentar arrumar 4 t10 rogue c proc event
+-- testar procs com BoP tbm (casters)
+-- testar trinkets/ring/enchants tbm
+-- test alguns procs consumiveis (NS druid/shaman/earth shield, flash insta etc)
+-- mage fingers of frost/frostbite gain/consume on cast?
 
--- Pyrite infuser (trinket ulduar 10 melee)
-UPDATE `spell_proc_event` SET `cooldown` = '30000',`CustomChance` = '35' WHERE `entry` = '65013';   -- cooldown tava 45000
+-- CLASSES
+-- ========= CLOTH ==============
+-- ▸▸Mage:   ---
+-- * 
 
--- dislodged
-INSERT INTO `1acore_world`.`spell_proc_event`(`entry`, `SchoolMask`, `SpellFamilyName`, `SpellFamilyMask0`, `SpellFamilyMask1`, `SpellFamilyMask2`, `procFlags`, `procEx`, `procPhase`, `ppmRate`, `CustomChance`, `Cooldown`) VALUES (71645, 0, 0, 0, 0, 0, 65536, 3, 1, 0, 0, 45000);
-INSERT INTO `1acore_world`.`spell_proc_event`(`entry`, `SchoolMask`, `SpellFamilyName`, `SpellFamilyMask0`, `SpellFamilyMask1`, `SpellFamilyMask2`, `procFlags`, `procEx`, `procPhase`, `ppmRate`, `CustomChance`, `Cooldown`) VALUES (71602, 0, 0, 0, 0, 0, 65536, 3, 1, 0, 0, 45000);
--- charred twilight scale
-INSERT INTO `1acore_world`.`spell_proc_event`(`entry`, `SchoolMask`, `SpellFamilyName`, `SpellFamilyMask0`, `SpellFamilyMask1`, `SpellFamilyMask2`, `procFlags`, `procEx`, `procPhase`, `ppmRate`, `CustomChance`, `Cooldown`) VALUES (75465, 0, 0, 0, 0, 0, 331776, 1027, 0, 0, 30, 45000);
-INSERT INTO `1acore_world`.`spell_proc_event`(`entry`, `SchoolMask`, `SpellFamilyName`, `SpellFamilyMask0`, `SpellFamilyMask1`, `SpellFamilyMask2`, `procFlags`, `procEx`, `procPhase`, `ppmRate`, `CustomChance`, `Cooldown`) VALUES (75474, 0, 0, 0, 0, 0, 331776, 1027, 0, 0, 30, 45000);
--- sharpened = 75455 e 75457
--- phylactery = 71606 e 71637
-
--- CUSTOM TRINKETS
--- DBW
-INSERT INTO `1acore_world`.`spell_proc_event`(`entry`, `SchoolMask`, `SpellFamilyName`, `SpellFamilyMask0`, `SpellFamilyMask1`, `SpellFamilyMask2`, `procFlags`, `procEx`, `procPhase`, `ppmRate`, `CustomChance`, `Cooldown`) VALUES (83094, 0, 0, 0, 0, 0, 0, 0, 0, 0, 30, 45000);
--- Dislodged
-INSERT INTO `1acore_world`.`spell_proc_event`(`entry`, `SchoolMask`, `SpellFamilyName`, `SpellFamilyMask0`, `SpellFamilyMask1`, `SpellFamilyMask2`, `procFlags`, `procEx`, `procPhase`, `ppmRate`, `CustomChance`, `Cooldown`) VALUES (83105, 0, 0, 0, 0, 0, 65536, 3, 1, 0, 30, 45000);
--- phylactery
-INSERT INTO `1acore_world`.`spell_proc_event`(`entry`, `SchoolMask`, `SpellFamilyName`, `SpellFamilyMask0`, `SpellFamilyMask1`, `SpellFamilyMask2`, `procFlags`, `procEx`, `procPhase`, `ppmRate`, `CustomChance`, `Cooldown`) VALUES (83104, 0, 0, 0, 0, 0, 0, 0, 0, 0, 30, 45000);
--- Death's Verdict
-INSERT INTO `1acore_world`.`spell_proc_event`(`entry`, `SchoolMask`, `SpellFamilyName`, `SpellFamilyMask0`, `SpellFamilyMask1`, `SpellFamilyMask2`, `procFlags`, `procEx`, `procPhase`, `ppmRate`, `CustomChance`, `Cooldown`) VALUES (83100, 1, 0, 0, 0, 0, 332116, 262147, 0, 0, 35, 45000);
--- WFS
-INSERT INTO `1acore_world`.`spell_proc_event`(`entry`, `SchoolMask`, `SpellFamilyName`, `SpellFamilyMask0`, `SpellFamilyMask1`, `SpellFamilyMask2`, `procFlags`, `procEx`, `procPhase`, `ppmRate`, `CustomChance`, `Cooldown`) VALUES (83101, 0, 0, 0, 0, 0, 0, 0, 0, 0, 30, 45000);
--- Sharpened
-INSERT INTO `1acore_world`.`spell_proc_event`(`entry`, `SchoolMask`, `SpellFamilyName`, `SpellFamilyMask0`, `SpellFamilyMask1`, `SpellFamilyMask2`, `procFlags`, `procEx`, `procPhase`, `ppmRate`, `CustomChance`, `Cooldown`) VALUES (83102, 0, 0, 0, 0, 0, 0, 0, 0, 0, 30, 45000);
--- charred
-INSERT INTO `1acore_world`.`spell_proc_event`(`entry`, `SchoolMask`, `SpellFamilyName`, `SpellFamilyMask0`, `SpellFamilyMask1`, `SpellFamilyMask2`, `procFlags`, `procEx`, `procPhase`, `ppmRate`, `CustomChance`, `Cooldown`) VALUES (83103, 0, 0, 0, 0, 0, 331776, 1027, 0, 0, 30, 45000);
-
-
-========= cloth ==============
--- ▸▸Mage:
 Current Behaviour
 If you as a mage have an absorb effect from: Mana Shield/Ice Barrier/Power word shield/Arena Grand master etc. 
 this as of now prevents proccs from the Slow effect from Ice Armor, aswell as frostbite/fiery payback/Blazing speed etc.
---------- ---- ----
--- ▸▸ Lock:
+
+--
+-- ▸▸ Lock:  ---
+-- * 
+
 Nightfall talent n proca vs absorb
 glyph of corruption ?
 Eradication proca vs absorb
---------- ---- ----
--- ▸▸ Priest:
+-- 
+-- ▸▸ Priest:  ---
+--
+-- ========= LEATHER ==============
+--
 
-======== leather =============
--- ▸▸ Druid:
--- Custom Spell Moonfire/Insect Swarm dots 3% proc chance Starfire PvP Set 
-INSERT INTO `new_acore_world`.`spell_proc_event` (`entry`, `SchoolMask`, `SpellFamilyName`, `SpellFamilyMask0`, `SpellFamilyMask1`, `SpellFamilyMask2`, `procFlags`, `procEx`, `procPhase`, `ppmRate`, `CustomChance`, `Cooldown`) VALUES (83007, 0, 7, 2097154, 0, 0, 262144, 65536, 0, 0, 3, 0);
-
--- Omen of Clarity/Clearcasting - procFlags 87060, se quiser tirar melee spells = 87044
+-- ▸▸ Druid:   ---
+--
+-- * Omen of Clarity/Clearcasting - procFlags 87060, se quiser tirar melee spells = 87044
 UPDATE `spell_proc_event` SET `procEx` = '65536' WHERE `entry` = '16864';    -- procEx tava 2162688
 UPDATE `spell_proc_event` SET `ppmRate` = '4.5' WHERE `entry` = '16864';   -- ppmRate tava 3,5
 UPDATE `spell_proc_event` SET `Cooldown` = '2000' WHERE `entry` = '16864';   -- Cooldown tava 0
-
--- Custom Spell - proc Temporary Spell para Savage Roar ao usar Prowl
+--
+-- =Balance
+-- * Custom Spell Moonfire/Insect Swarm dots 3% proc chance Starfire PvP Set 
+INSERT INTO `new_acore_world`.`spell_proc_event` (`entry`, `SchoolMask`, `SpellFamilyName`, `SpellFamilyMask0`, `SpellFamilyMask1`, `SpellFamilyMask2`, `procFlags`, `procEx`, `procPhase`, `ppmRate`, `CustomChance`, `Cooldown`) VALUES (83007, 0, 7, 2097154, 0, 0, 262144, 65536, 0, 0, 3, 0);
+-- 
+-- * Custom Passive Spell - ao ganhar Wrath of Elune, reduz o cd do starfall em 3s (Wrath of Elune só é renovado se o buff é consumido)
+INSERT INTO `1acore_world`.`spell_proc_event`(`entry`, `SchoolMask`, `SpellFamilyName`, `SpellFamilyMask0`, `SpellFamilyMask1`, `SpellFamilyMask2`, `procFlags`, `procEx`, `procPhase`, `ppmRate`, `CustomChance`, `Cooldown`) VALUES (83253, 0, 7, 0, 0, 33554432, 1024, 0, 1, 0, 0, 0);
+--
+-- =Feral
+--
+-- * Custom Spell - proc Temporary Spell para Savage Roar ao usar Prowl
 INSERT INTO `1acore_world`.`spell_proc_event`(`entry`, `SchoolMask`, `SpellFamilyName`, `SpellFamilyMask0`, `SpellFamilyMask1`, `SpellFamilyMask2`, `procFlags`, `procEx`, `procPhase`, `ppmRate`, `CustomChance`, `Cooldown`) VALUES (83091, 0, 0, 16384, 0, 0, 1024, 0, 0, 0, 101, 0);
-
-
--------------------
--- ▸▸ Rogue:
--- nada ainda
-
-======== mail ==============
--- ▸▸ Hunter:
--- nada ainda
-
--- ▸▸ Shaman:
-
--- Flame Shock new (Custom) 2% chance de proc Lava Surge
+--
+-- =Resto
+--
+--
+-- ▸▸ Rogue:     ---
+-- * 
+--
+-- ======== MAIL ==============
+--
+-- ▸▸ Hunter:    ---
+-- * 
+--
+-- ▸▸ Shaman:    ---
+--
+-- * Custom 3.3.5b AT based Enhance Spell -4s Cooldown Feral Spirit on Stormstrike use
+INSERT INTO `1acore_world`.`spell_proc_event`(`entry`, `SchoolMask`, `SpellFamilyName`, `SpellFamilyMask0`, `SpellFamilyMask1`, `SpellFamilyMask2`, `procFlags`, `procEx`, `procPhase`, `ppmRate`, `CustomChance`, `Cooldown`) VALUES (83252, 0, 11, 0, 16777216, 0, 16, 0, 1, 0, 0, 0);
+--
+-- * Flame Shock new (Custom) 2% chance de proc Lava Surge nos ticks
 INSERT INTO `1acore_world`.`spell_proc_event`(`entry`, `SchoolMask`, `SpellFamilyName`, `SpellFamilyMask0`, `SpellFamilyMask1`, `SpellFamilyMask2`, `procFlags`, `procEx`, `procPhase`, `ppmRate`, `CustomChance`, `Cooldown`) VALUES (83242, 4, 11, 268435456, 0, 0, 262144, 1027, 0, 0, 2, 0);
--- Lava Burst new (Custom) passive buff 5% chance de procar outro Lava Burst
+--
+-- * Lava Burst new (Custom) passive buff 5% chance de procar Lava burst (c/ half damage) ao castar Lava Burst
 INSERT INTO `1acore_world`.`spell_proc_event`(`entry`, `SchoolMask`, `SpellFamilyName`, `SpellFamilyMask0`, `SpellFamilyMask1`, `SpellFamilyMask2`, `procFlags`, `procEx`, `procPhase`, `ppmRate`, `CustomChance`, `Cooldown`) VALUES (83246, 4, 11, 0, 4096, 0, 65536, 3, 0, 0, 5, 0);
-
-
-
--- Windfury Weapon passive (agora ignora absorb) -- tava 0 
+--
+-- * Windfury Weapon passive (agora ignora absorb) -- tava 0 
 UPDATE `spell_proc_event` SET `ProcEx` = '1095' WHERE `entry` = '33757';
--- enhance Maeltrom Weapon (rank 5) ignora absorbs
+-- * enhance Maeltrom Weapon (rank 5) ignora absorbs
 UPDATE `spell_proc_event` SET `ProcEx` = '9287' WHERE `entry` = '51532';
 
 flametongue weapon n proca vs absorb
@@ -91,30 +80,67 @@ elemental devasastation
 clearcasting
 lightning overload
 
-======== plate =============
--- ▸▸ Paladin:
-
--- Judgements of the Wise ignora absorb (tava 262144)
+--
+-- ======== PLATE =============
+--
+-- ▸▸ Paladin:   ---
+--
+-- * Judgements of the Wise ignora absorb (tava 262144)
 UPDATE `spell_proc_event` SET `procEx` = '0' WHERE `entry` = -31876;
 
--- Vindication agora proca vs absorb (tava 0)
--- UPDATE `spell_proc_event` SET `procEx` = '3' WHERE `entry` = 9452; proca self com divine storm se colocar 3
-
--- The Art of War proca vs absorbs (tava 262146)
+-- * The Art of War proca vs absorbs (tava 262146)
 UPDATE `spell_proc_event` SET `procEx` = '2' WHERE `entry` = -53486;
 
--- Righteous Vengeance proca vs absorb (tava 262146)
+-- * Righteous Vengeance proca vs absorb (tava 262146)
 UPDATE `spell_proc_event` SET `procEx` = '2' WHERE `entry` = -53380;
 
--- custom judgement range + move speed (futuro pvp tier set bonus)
+-- * custom judgement range + move speed (futuro pvp tier set bonus)
 INSERT INTO `1acore_world`.`spell_proc_event`(`entry`, `SchoolMask`, `SpellFamilyName`, `SpellFamilyMask0`, `SpellFamilyMask1`, `SpellFamilyMask2`, `procFlags`, `procEx`, `procPhase`, `ppmRate`, `CustomChance`, `Cooldown`) VALUES (83202, 0, 10, 9437184, 0, 0, 16, 0, 0, 0, 100, 0);
 
---------- ---- ----
--- ▸▸ Warrior
--- nada ainda
---------- ---- ----
--- ▸▸ Death Knight
--- nada ainda
+-- * Vindication agora proca vs absorb (tava 0)
+-- UPDATE `spell_proc_event` SET `procEx` = '3' WHERE `entry` = 9452; proca self com divine storm se colocar 3
 
-=======================================
+--
+-- ▸▸ Warrior      ---
+-- * custom Spell - MS aumenta duraçao do rend em 3s (NAO TA FUNCIONANDO N SEI PQ)
+INSERT INTO `1acore_world`.`spell_proc_event`(`entry`, `SchoolMask`, `SpellFamilyName`, `SpellFamilyMask0`, `SpellFamilyMask1`, `SpellFamilyMask2`, `procFlags`, `procEx`, `procPhase`, `ppmRate`, `CustomChance`, `Cooldown`) VALUES (83266, 0, 4, 4, 0, 0, 65536, 0, 0, 0, 0, 0);
+
+-- ▸▸ Death Knight ---
+-- 
+
+
+-- ----------------------------------------------------------
+-- ITEMS ----------------------------------------------------
+-- ----------------------------------------------------------
+
+-- * Pyrite infuser (trinket ulduar 10 melee)
+UPDATE `spell_proc_event` SET `cooldown` = '30000',`CustomChance` = '35' WHERE `entry` = '65013';   -- cooldown tava 45000
+
+-- * Dislodged
+INSERT INTO `1acore_world`.`spell_proc_event`(`entry`, `SchoolMask`, `SpellFamilyName`, `SpellFamilyMask0`, `SpellFamilyMask1`, `SpellFamilyMask2`, `procFlags`, `procEx`, `procPhase`, `ppmRate`, `CustomChance`, `Cooldown`) VALUES (71645, 0, 0, 0, 0, 0, 65536, 3, 1, 0, 0, 45000);
+-- * Dislodged tbm ?
+INSERT INTO `1acore_world`.`spell_proc_event`(`entry`, `SchoolMask`, `SpellFamilyName`, `SpellFamilyMask0`, `SpellFamilyMask1`, `SpellFamilyMask2`, `procFlags`, `procEx`, `procPhase`, `ppmRate`, `CustomChance`, `Cooldown`) VALUES (71602, 0, 0, 0, 0, 0, 65536, 3, 1, 0, 0, 45000);
+-- * charred twilight scale
+INSERT INTO `1acore_world`.`spell_proc_event`(`entry`, `SchoolMask`, `SpellFamilyName`, `SpellFamilyMask0`, `SpellFamilyMask1`, `SpellFamilyMask2`, `procFlags`, `procEx`, `procPhase`, `ppmRate`, `CustomChance`, `Cooldown`) VALUES (75465, 0, 0, 0, 0, 0, 331776, 1027, 0, 0, 30, 45000);
+-- * Charred tbm ?
+INSERT INTO `1acore_world`.`spell_proc_event`(`entry`, `SchoolMask`, `SpellFamilyName`, `SpellFamilyMask0`, `SpellFamilyMask1`, `SpellFamilyMask2`, `procFlags`, `procEx`, `procPhase`, `ppmRate`, `CustomChance`, `Cooldown`) VALUES (75474, 0, 0, 0, 0, 0, 331776, 1027, 0, 0, 30, 45000);
+-- sharpened = 75455 e 75457
+-- phylactery = 71606 e 71637
+
+-- CUSTOM TRINKETS
+-- * DBW
+INSERT INTO `1acore_world`.`spell_proc_event`(`entry`, `SchoolMask`, `SpellFamilyName`, `SpellFamilyMask0`, `SpellFamilyMask1`, `SpellFamilyMask2`, `procFlags`, `procEx`, `procPhase`, `ppmRate`, `CustomChance`, `Cooldown`) VALUES (83094, 0, 0, 0, 0, 0, 0, 0, 0, 0, 30, 45000);
+-- * Dislodged
+INSERT INTO `1acore_world`.`spell_proc_event`(`entry`, `SchoolMask`, `SpellFamilyName`, `SpellFamilyMask0`, `SpellFamilyMask1`, `SpellFamilyMask2`, `procFlags`, `procEx`, `procPhase`, `ppmRate`, `CustomChance`, `Cooldown`) VALUES (83105, 0, 0, 0, 0, 0, 65536, 3, 1, 0, 30, 45000);
+-- * phylactery
+INSERT INTO `1acore_world`.`spell_proc_event`(`entry`, `SchoolMask`, `SpellFamilyName`, `SpellFamilyMask0`, `SpellFamilyMask1`, `SpellFamilyMask2`, `procFlags`, `procEx`, `procPhase`, `ppmRate`, `CustomChance`, `Cooldown`) VALUES (83104, 0, 0, 0, 0, 0, 0, 0, 0, 0, 30, 45000);
+-- * Death's Verdict
+INSERT INTO `1acore_world`.`spell_proc_event`(`entry`, `SchoolMask`, `SpellFamilyName`, `SpellFamilyMask0`, `SpellFamilyMask1`, `SpellFamilyMask2`, `procFlags`, `procEx`, `procPhase`, `ppmRate`, `CustomChance`, `Cooldown`) VALUES (83100, 1, 0, 0, 0, 0, 332116, 262147, 0, 0, 35, 45000);
+-- * WFS
+INSERT INTO `1acore_world`.`spell_proc_event`(`entry`, `SchoolMask`, `SpellFamilyName`, `SpellFamilyMask0`, `SpellFamilyMask1`, `SpellFamilyMask2`, `procFlags`, `procEx`, `procPhase`, `ppmRate`, `CustomChance`, `Cooldown`) VALUES (83101, 0, 0, 0, 0, 0, 0, 0, 0, 0, 30, 45000);
+-- * Sharpened
+INSERT INTO `1acore_world`.`spell_proc_event`(`entry`, `SchoolMask`, `SpellFamilyName`, `SpellFamilyMask0`, `SpellFamilyMask1`, `SpellFamilyMask2`, `procFlags`, `procEx`, `procPhase`, `ppmRate`, `CustomChance`, `Cooldown`) VALUES (83102, 0, 0, 0, 0, 0, 0, 0, 0, 0, 30, 45000);
+-- * charred
+INSERT INTO `1acore_world`.`spell_proc_event`(`entry`, `SchoolMask`, `SpellFamilyName`, `SpellFamilyMask0`, `SpellFamilyMask1`, `SpellFamilyMask2`, `procFlags`, `procEx`, `procPhase`, `ppmRate`, `CustomChance`, `Cooldown`) VALUES (83103, 0, 0, 0, 0, 0, 331776, 1027, 0, 0, 30, 45000);
+
 

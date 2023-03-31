@@ -16,6 +16,13 @@ INSERT INTO `1core_world`.`command` (`name`, `security`, `help`) VALUES ('specta
 INSERT INTO `1core_world`.`command` (`name`, `security`, `help`) VALUES ('spectate reset', 0, '');
 INSERT INTO `1core_world`.`command` (`name`, `security`, `help`) VALUES ('spectate leave', 0, '');
 
+-- comando .settings announcer (desativar arena/bg/autobroadcast apenas p o player no chat)
+UPDATE `1acore_world`.`command` SET `security` = 0, `help` = 'Syntax: .settings announcer <type> <on/off>.\nDisables receiving announcements. Valid announcement types are: \'autobroadcast\', \'arena\' and \'bg\'' WHERE `name` = 'settings announcer';
+
+
+-- IMO é desnecessario ter esse comando se quase ninguem vai usar
+UPDATE `1acore_world`.`command` SET `security` = 4, `help` = 'Syntax: weekendxp rate $value \nSet your experience rate up to the allowed value.' WHERE `name` = 'weekendxp rate';
+
 
 -- nao tinha nada no help antes, agora fica mais facil de usar o comando
 UPDATE `command` SET `help` = 'Usage: .skirmish [arena] [XvX] [Nick1] [Nick2] ... [NickN]. 

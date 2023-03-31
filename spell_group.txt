@@ -5,20 +5,19 @@ INSERT INTO `1acore_world`.`spell_group`(`id`, `spell_id`, `special_flag`) VALUE
 
 -- WARRIOR 
 
--- Backup Enrages:
--- Antigo Enrage(Arms)
+-- Enrages Warr + Backup
+DELETE FROM `spell_group` WHERE `spell_id` = '57518'; -- Arms
+DELETE FROM `spell_group` WHERE `spell_id` = '57516'; -- Enrage Prot
+DELETE FROM `spell_group` WHERE `spell_id` = '12880'; -- Fury
+-- Backup Enrages
 -- INSERT INTO `1acore_world`.`spell_group`(`id`, `spell_id`, `special_flag`) VALUES (1031, 57518, 0);
-DELETE FROM `spell_group` WHERE `spell_id` = '57518'; -- ARRUMAR isso aqui, ta deletando group of death wish(arrumado mas ver o grupo depois)
--- Antigo Enrage(Fury)
--- INSERT INTO `1acore_world`.`spell_group`(`id`, `spell_id`, `special_flag`) VALUES (1031, 12880, 0); 
-DELETE FROM `spell_group` WHERE `spell_id` = '12880';
--- Enrage (Prot)
--- DELETE FROM `spell_group` WHERE `spell_id` = '57516'; -- Confirmar se eh isso msm
+-- INSERT INTO `1acore_world`.`spell_group`(`id`, `spell_id`, `special_flag`) VALUES (1031, 12880, 0);
 
 -- Mudanças Enrages p nao stackarem (antes dessa mudança, eles stackam mas os efeitos nao acumulam)
 INSERT INTO `1acore_world`.`spell_group`(`id`, `spell_id`, `special_flag`) VALUES (2000, 57518, 0); -- Enrage Arms
-INSERT INTO `1acore_world`.`spell_group`(`id`, `spell_id`, `special_flag`) VALUES (2000, 57516, 0); -- enrage Prot?
+INSERT INTO `1acore_world`.`spell_group`(`id`, `spell_id`, `special_flag`) VALUES (2000, 57516, 0); -- enrage Prot
 INSERT INTO `1acore_world`.`spell_group`(`id`, `spell_id`, `special_flag`) VALUES (2000, 12880, 0); -- enrage fury
+
 
 
 -- DRUID

@@ -46,7 +46,6 @@ player:GossipSetText(string.format("Sistema Vip para customizar o seu personagem
 player:GossipMenuAddItem(6,"|TInterface\\icons\\Inv_sword_01:27|t Main Hand |cff0000ffWeapon Enchant",0, 300)
 player:GossipMenuAddItem(6,"|TInterface\\icons\\Inv_sword_67:27|t Off Hand |cff0000ffWeapon Enchant",0, 302)
 player:GossipMenuAddItem(6,"|TInterface\\icons\\Spell_shadow_shadowpact:27|t |cff0000ffCharacter Morph",0, 34)
---player:GossipMenuAddItem(6,"|TInterface\\icons\\Spell_shadow_shadesofdarkness:27|t |cff0000ffCharacter Aura",0, 35)
 player:GossipMenuAddItem(3,"|TInterface\\RaidFrame\\ReadyCheck-NotReady:27:27:0:0|t |cFF800000Sair",0,999)
 --player:GossipMenuAddItem(6,"|TInterface\\icons\\Spell_deathknight_scourgestrike:27|t Visual Vip System - Weapons",0, 33)
 player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)
@@ -55,17 +54,14 @@ end
  
 local function On_Gossip_Open(event, player, creature, sender, intid, code)
 if(intid ==33) then
-player:GossipSetText(string.format("carlin deleta isso aqui pfv"))
-player:GossipMenuAddItem(3,"|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:27:27:0:0|t |cFF800000Voltar",0,3)
-player:GossipMenuAddItem(3,"|TInterface\\RaidFrame\\ReadyCheck-NotReady:27:27:0:0|t |cFF800000Sair",0,999)
-player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)
 end
  
  
- 
+-- Weapon Enchant (Main Hand) - Enchants Cor Branco e Azul
 if(intid == 300) then
 player:GossipSetText(string.format("Main-Hand Enchantments de cores |cffffffffBranca |cFF000000e |cff0000ffAzul."))
 player:GossipMenuAddItem(3,"|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:27:27:0:0|t Voltar",0,998)
+-- Ir para pagina 2/3
 player:GossipMenuAddItem(6,"|TInterface\\icons\\Inv_inscription_parchment:25|t Proxima Página (1/3) ",0, 440)
 player:GossipMenuAddItem(3,"|TInterface\\icons\\spell_holy_dispelmagic:27|t Remover Enchant Visual (Main Hand)",0, 1003)
 
@@ -296,6 +292,7 @@ player:GossipComplete()
 end
 end
 
+-- Weapon Enchant (Main Hand) - Enchants Cor Roxo, Vermelho, Laranja e Amarelo (pagina 2/3)
 if(intid == 440) then
 player:GossipSetText(string.format("Main-Hand Enchantments de cores |cFF800080Roxo, |cFFFF0000Vermelho, |cFFFF4500Laranja |cFF000000e |cffffff00Amarelo."))
 player:GossipMenuAddItem(3,"|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:27:27:0:0|t Voltar",0,300)
@@ -487,7 +484,7 @@ player:GossipComplete()
 end
 end
 
-
+-- Weapon Enchant (Main Hand) Pagina 3/3 - Enchants Cor Verde
 if(intid == 441) then
 player:GossipSetText(string.format("Main-Hand Enchantments de cor |cFF008000Verde."))
 player:GossipMenuAddItem(3,"|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:27:27:0:0|t Voltar",0,440)
@@ -614,7 +611,7 @@ end
 end
 
 
-
+-- Weapon Enchant (Off Hand) Pagina 1/3 - Enchants Cor Branco e Azul
 if(intid == 302) then
 player:GossipSetText(string.format("Off-Hand Enchantments de cores |cffffffffBranca |cFF000000e |cff0000ffAzul."))
 player:GossipMenuAddItem(3,"|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:27:27:0:0|t Voltar",0,998)
@@ -846,7 +843,7 @@ player:GossipComplete()
 end
 end
  
-
+-- Weapon Enchant (Off Hand) Pagina 2/3 - Enchants Cor Roxo, Vermelho, Laranja e Amarelo
 if(intid == 530) then
 player:GossipSetText(string.format("Off Hand Enchantments de cores |cFF800080Roxo, |cFFFF0000Vermelho, |cFFFF4500Laranja |cFF000000e |cffffff00Amarelo."))
 player:GossipMenuAddItem(3,"|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:27:27:0:0|t Voltar",0,302)
@@ -1037,7 +1034,8 @@ setVisual(player, item, 1903)
 player:GossipComplete()
 end
 end
- 
+
+-- Weapon Enchant (Off Hand) Pagina 3/3 - Enchants Cor Verde
 if(intid == 551) then
 player:GossipSetText(string.format("Off Hand Enchantments de cor |cFF008000Verde."))
 player:GossipMenuAddItem(3,"|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:27:27:0:0|t Voltar",0,530)
@@ -1170,6 +1168,7 @@ end
 end
 
 
+-- Morphs
 if(intid ==34) then
 player:GossipSetText(string.format(" "))
 player:GossipMenuAddItem(3,"|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:27:27:0:0|t |cFF800000Voltar",0,998)
@@ -1194,25 +1193,116 @@ player:GossipMenuAddItem(6,"|TInterface\\icons\\Spell_shadow_raisedead:27|t Visu
 player:GossipMenuAddItem(6,"|TInterface\\icons\\Achievement_character_troll_male:27|t Visual Morph |cff0000ffTroll Male",0, 102, false, "")
 player:GossipMenuAddItem(6,"|TInterface\\icons\\Achievement_character_troll_female:27|t Visual Morph |cff0000ffTroll Female",0, 103, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Achievement_character_human_male:27|t Visual Morph |cff0000ffHuman Pirate Male",0, 600, false, "")
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Achievement_character_human_female:27|t Visual Morph |cff0000ffHuman Pirate Female",0, 601, false, "")
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Achievement_character_human_female:27|t Visual Morph |cff0000ffHuman Pirate Female 2",0, 602, false, "")
+-- player:GossipMenuAddItem(6,"|TInterface\\icons\\Achievement_character_human_male:27|t Visual Morph |cff0000ffHuman Pirate Male",0, 600, false, "")
+-- player:GossipMenuAddItem(6,"|TInterface\\icons\\Achievement_character_human_female:27|t Visual Morph |cff0000ffHuman Pirate Female",0, 601, false, "")
+-- player:GossipMenuAddItem(6,"|TInterface\\icons\\Achievement_character_human_female:27|t Visual Morph |cff0000ffHuman Pirate Female 2",0, 602, false, "")
 
 player:GossipMenuAddItem(6,"|TInterface\\icons\\Achievement_character_gnome_male:27|t Visual Morph |cff0000ffGnome Male",0, 603, false, "")
 player:GossipMenuAddItem(6,"|TInterface\\icons\\Achievement_character_gnome_female:27|t Visual Morph |cff0000ffGnome Female",0, 604, false, "")
 
 player:GossipMenuAddItem(6,"|TInterface\\icons\\Achievement_character_dwarf_male:27|t Visual Morph |cff0000ffDwarf Male",0, 605, false, "")
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Achievement_character_dwarf_male:27|t Visual Morph |cff0000ffDwarf Pirate Female",0, 606, false, "")
+-- player:GossipMenuAddItem(6,"|TInterface\\icons\\Achievement_character_dwarf_male:27|t Visual Morph |cff0000ffDwarf Pirate Female",0, 606, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Achievement_character_draenei_male:27|t Visual Morph |cff0000ffDraenei Male",0, 609, false, "")
+-- player:GossipMenuAddItem(6,"|TInterface\\icons\\Achievement_character_draenei_male:27|t Visual Morph |cff0000ffDraenei Male",0, 609, false, "")
 player:GossipMenuAddItem(6,"|TInterface\\icons\\Achievement_character_draenei_female:27|t Visual Morph |cff0000ffDraenei Female",0, 607, false, "")
 
-
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Achievement_character_nightelf_female:27|t Visual Morph |cff0000ffNight Elf Pirate Female",0, 608, false, "")
+-- player:GossipMenuAddItem(6,"|TInterface\\icons\\Achievement_character_nightelf_female:27|t Visual Morph |cff0000ffNight Elf Pirate Female",0, 608, false, "")
+player:GossipMenuAddItem(6,"Undead Male daqui pra baixo precisa do patch",0, 750, false, "")
+player:GossipMenuAddItem(6,"Undead FeMale",0, 751, false, "")
+player:GossipMenuAddItem(6,"Orc Male",0, 752, false, "")
+player:GossipMenuAddItem(6,"Troll FeMale",0, 753, false, "")
+player:GossipMenuAddItem(6,"Dwarf FeMale",0, 754, false, "")
+player:GossipMenuAddItem(6,"Draenei Male",0, 755, false, "")
+player:GossipMenuAddItem(6,"Human Male",0, 756, false, "")
+player:GossipMenuAddItem(6,"Human FeMale",0, 757, false, "")
+player:GossipMenuAddItem(6,"Nelf Male",0, 758, false, "")
+player:GossipMenuAddItem(6,"Nelf FeMale",0, 759, false, "")
 player:GossipMenuAddItem(3,"|TInterface\\RaidFrame\\ReadyCheck-NotReady:27:27:0:0|t |cFF800000Sair",0,999)
 player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)
 end
- 
+
+-- Custom Displays (need client patch)
+-- Undead Male
+if (intid == 750) then
+if not (player:IsInCombat() or player:GetMap():IsArena()) then
+player:SetDisplayId(50563)
+player:SetScale(1)
+player:GossipComplete()
+end
+end
+-- Undead FeMale
+if (intid == 751) then
+if not (player:IsInCombat() or player:GetMap():IsArena()) then
+player:SetDisplayId(50564)
+player:SetScale(1)
+player:GossipComplete()
+end
+end
+-- Orc Male
+if (intid == 752) then
+if not (player:IsInCombat() or player:GetMap():IsArena()) then
+player:SetDisplayId(50560)
+player:SetScale(1)
+player:GossipComplete()
+end
+end
+-- Troll FeMale
+if (intid == 753) then
+if not (player:IsInCombat() or player:GetMap():IsArena()) then
+player:SetDisplayId(50562)
+player:SetScale(1)
+player:GossipComplete()
+end
+end
+-- Dwarf FeMale
+if (intid == 754) then
+if not (player:IsInCombat() or player:GetMap():IsArena()) then
+player:SetDisplayId(50565)
+player:SetScale(1)
+player:GossipComplete()
+end
+end
+-- Draenei Male
+if (intid == 755) then
+if not (player:IsInCombat() or player:GetMap():IsArena()) then
+player:SetDisplayId(50566)
+player:SetScale(1)
+player:GossipComplete()
+end
+end
+-- Human Male
+if (intid == 756) then
+if not (player:IsInCombat() or player:GetMap():IsArena()) then
+player:SetDisplayId(50567)
+player:SetScale(1)
+player:GossipComplete()
+end
+end
+-- Human FeMale 
+if (intid == 757) then
+if not (player:IsInCombat() or player:GetMap():IsArena()) then
+player:SetDisplayId(50568)
+player:SetScale(1)
+player:GossipComplete()
+end
+end
+-- Nelf Male
+if (intid == 758) then
+if not (player:IsInCombat() or player:GetMap():IsArena()) then
+player:SetDisplayId(50570)
+player:SetScale(1)
+player:GossipComplete()
+end
+end
+-- Nelf FeMale
+if (intid == 759) then
+if not (player:IsInCombat() or player:GetMap():IsArena()) then
+player:SetDisplayId(50569)
+player:SetScale(1)
+player:GossipComplete()
+end
+end
+
 if (intid == 90) then
 if not (player:IsInCombat() or player:GetMap():IsArena()) then
 player:SetDisplayId(20368)
@@ -1394,104 +1484,12 @@ end
  
  
 
-if(intid ==35) then
-player:GossipSetText(string.format(" "))
-player:GossipMenuAddItem(3,"|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:27:27:0:0|t |cFF800000Voltar",0,998)
-player:GossipMenuAddItem(3,"|TInterface\\icons\\spell_holy_dispelmagic:27|t |cFF800000Remover Auras",0, 1001)
-
-player:GossipMenuAddItem(3,"|TInterface\\icons\\spell_nature_lightning:27|t Visual Aura - |cff0000ffEmpower",0, 104, false, "")
-
-player:GossipMenuAddItem(3,"|TInterface\\icons\\spell_frost_frostward:27|t Visual Aura - |cff0000ffSnow",0, 105, false, "")
-
-player:GossipMenuAddItem(3,"|TInterface\\icons\\spell_holy_blessingofprotection:27|t Visual Aura - |cff0000ffFire Ground",0, 107, false, "")
-
-player:GossipMenuAddItem(3,"|TInterface\\icons\\inv_misc_bone_03:27|t Visual Aura - |cff0000ffCrimson",0, 109, false, "")
-
-player:GossipMenuAddItem(3,"|TInterface\\icons\\spell_shadow_coneofsilence:27|t Visual Aura - |cff0000ffPurple Fury",0, 110, false, "")
-
-player:GossipMenuAddItem(3,"|TInterface\\icons\\spell_nature_dryaddispelmagic:27|t Visual Aura - |cff0000ffFlames",0, 111, false, "")
-
-player:GossipMenuAddItem(3,"|TInterface\\icons\\spell_arcane_arcane01:27|t Visual Aura - |cff0000ffAstral Shield",0, 112, false, "")
-
-player:GossipMenuAddItem(3,"|TInterface\\icons\\spell_nature_sleep:27|t Visual Aura - |cff0000ffSleep Tag",0, 113, false, "")
-
-player:GossipMenuAddItem(3,"|TInterface\\icons\\spell_shadow_felmending:27|t Visual Aura - |cff0000ffDark Flame",0, 114, false, "")
-
-
-player:GossipMenuAddItem(3,"|TInterface\\RaidFrame\\ReadyCheck-NotReady:27:27:0:0|t |cFF800000Sair",0,999)
-player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)
-end
+-- Codigo para deixar de backup caso precise em outros scripts
+-- if(intid == 104) then
+-- player:CastSpell(player, 49411, true)
+-- player:GossipComplete()
+-- end
  
-if(intid == 104) then
-player:CastSpell(player, 49411, true)
-player:GossipComplete()
-end
- 
-if(intid == 105) then
-player:CastSpell(player, 51589, true)
-player:GossipComplete()
-end
- 
-if(intid == 106) then
-player:CastSpell(player, 51394, true)
-player:GossipComplete()
-end
- 
-if(intid == 107) then
-player:CastSpell(player, 51194, true)
-player:GossipComplete()
-end
- 
-if(intid == 108) then
-player:CastSpell(player, 61392, true)
-player:GossipComplete()
-end
- 
-if(intid == 109) then
-player:CastSpell(player, 72100, true)
-player:GossipComplete()
-end
- 
-if(intid == 110) then
-player:CastSpell(player, 47840, true)
-player:GossipComplete()
-end
- 
-if(intid == 111) then
-player:CastSpell(player, 52855, true)
-player:GossipComplete()
-end
- 
-if(intid == 112) then
-player:CastSpell(player, 52952, true)
-player:GossipComplete()
-end
- 
-if(intid == 113) then
-player:CastSpell(player, 55474, true)
-player:GossipComplete()
-end
- 
-if (intid == 114) then
-player:CastSpell(player, 46679, true)
-player:GossipComplete()
-end
- 
-if (intid == 1001) then
-player:RemoveAura(49411)
-player:RemoveAura(51589)
-player:RemoveAura(51394)
-player:RemoveAura(51194)
-player:RemoveAura(61392)
-player:RemoveAura(72100)
-player:RemoveAura(47840)
-player:RemoveAura(52855)
-player:RemoveAura(52952)
-player:RemoveAura(55474)
-player:RemoveAura(46679)
-player:SendNotification("Auras removidas com sucesso..")
-player:GossipComplete()
-end
  
 if (intid == 998) then
 On_Gossip_Select(unit, player, creature)

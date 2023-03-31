@@ -4,9 +4,10 @@ local function On_Top_Hello(event, player, creature)
 player:GossipSetText(string.format("Utilize esse NPC para comprar o set e armas Relentless Gladiator.\n"))
     player:GossipMenuAddItem(6,"|TInterface\\icons\\Inv_helmet_135:25|t Main Set",0, 1)
     player:GossipMenuAddItem(6,"|TInterface\\icons\\Inv_bracer_33:25|t Offset",0, 2)
-    player:GossipMenuAddItem(6,"|TInterface\\icons\\Inv_misc_cape_16:25|t Acessorios",0, 3)
-    player:GossipMenuAddItem(6,"|TInterface\\icons\\Inv_sword_149:25|t Armas Tier 1",0, 4)
-    player:GossipMenuAddItem(6,"|TInterface\\icons\\inv_staff_104:25|t Armas Tier 2 & Relics",0, 5)
+    player:GossipMenuAddItem(6,"|TInterface\\icons\\Inv_misc_cape_16:25|t Accessories",0, 3)
+    player:GossipMenuAddItem(6,"|TInterface\\icons\\INV_Relics_LibramofHope:25|t Relics",0, 10)
+    player:GossipMenuAddItem(6,"|TInterface\\icons\\Inv_sword_149:25|t Tier 1 Weapons",0, 4)
+    player:GossipMenuAddItem(6,"|TInterface\\icons\\inv_staff_104:25|t Tier 2 Weapons",0, 5)
     player:GossipMenuAddItem(6,"|TInterface\\icons\\Inv_shoulder_103:25|t Shoulder Wintergrasp",0, 6)
     player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)
 end
@@ -31,6 +32,10 @@ if(intid == 8) then
 
 if(intid == 9) then
    player:SendListInventory(creature, 81110)
+   end
+
+if(intid == 10) then
+   player:SendListInventory(creature, 93208)
    end
    
 
