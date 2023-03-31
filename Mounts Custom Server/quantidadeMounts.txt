@@ -1,0 +1,165 @@
+quantidade de mounts patch
+
+total voadora + terrestre                    = 200
+total voadora + terrestre com recolor/custom = 307
+
+
+
+undead horses
+1 Black Bonesteed
+2 Vicious Skeletal
+3 White Bonesteed
+4 Midnight
+5 mawsworn charger
+6 soulbound gloomcharger
+7 sanctum cloomcharger
+8 fallen charger
+9 ironbound wraithcharger
+
+==== Recolors/Customs:
++ 11 recolors (11 vicious)
+total 20
+
+horses
+9 sem recolor
++ 2 recolor (1 vicious e 1 bfa stallion)
++ 1 custom (anduin horse)
+total 12
+
+raptors
+8 sem recolor 
++ 12 recolor (9 vicious + 3 fossilized)
+total 20
+
+sabers
+16
++ 14 recolors [7 vicious tigers + 7 sabertron recolor]
++ 8 custom [2 myonix + 2 xuen + 4 siberian tiger]
+total 38
+
+dinos
+6
++ 4 recolor (4 bruttosaurus)
++ 4 custom [4 epic kodo]
+total 14
+
+striders
+4
++ 4 recolor (4 vicious warstrider)
+total 8
+
+grandes
+8 (infernais, hounds etc)
+
+wolves, etc
+35
++ 10 recolors (2 vicious wolf + 3 qiraji battle tank + 2 white otter + 2 black otter + armored blue)
+total 45
+
+undeads
+9
+2 recolors (2 hands)
+total 11
+
+mechs
+8
++1 recolor (mechacycle) + 1~2 mech peacekeeper recolor sobrando n adicionadas
+total 9
+
+total                  = 9+9+8+16+6+4+8+35+9+8                        = 112
+total c recolor/custom = 20 + 12 + 20 + 38 + 14 + 8 + 8 + 45 + 11 + 9 = 185
+
+==========================================
+voadoras
+
+sabers
+16
+
+horses
+11 warlock mount
+
+hawks
+3 firehawks  3
+2 d raven    5
+2 solar/storm crow 7
+clutch of ji-kun/clutch of ha-li 9
+flameward/teldrassil hippo 11
+red/blue dragonhawk (horde/ally?) 13
+vengeance 14
+rogue mount 15
+sharkbait/squawks + blue recolor 17 + 1 recolor
+ashen/violet/crimson pandaren phoenix 20 + 1
+dark phoenix 21 + 1
+sapphire skyblazer + red recolor 22 + 2
+total 22 e 2 recolor
+
+boats etc
+orgrimmar 1
+stormwind 2
+dreadwake 3
+darkmoon 4
+depleted kyparium 5 
+geosynchronous world 6
+explorer's jungle hopper 7
+aerial unit r-21 8
+cloud mount + 2 recolor 9
+mage mount frost/fire/arc 12
+tazavesh gearglider + pilfered + cartel master + 1 recolor
+15 + 1 recolor
+
+elementals
+5 deathwalkers 5
+3 shmaan mount + 3 recolor  8 + 3
+glacial tidestorm + 3 recolor  9 + 6
+antoran char/gloomhound 11 + 6
+iron skyreaver 12 +6
+gruesomeflayedwing 13
+silvertip dredwing 14
+harvester dredwig 15
+the hivemind 16
+fathom dweller 17 + 6
+
+serps
+5 heavenly cl,oud 5
+6 thundering 6
+1 astral cloud 7
+heart of the aspects 8
+abyss worm + 1~2 cor diferentes 10
+greatwyrm blue + 3 recolor 
+11 + 3
+
+drakes
+7 7
+3 warr mount 10
+galakras + black kor'kron proto + 9 recolor 12 + 9 recolor
+5 drakes 17
+void dragon mount + storm dragon void mount (n existe) 18 + 9 recolor + 1 n existe
+island thunderscale + valarjar stormwing + 6 recolor  20 + 9 rec + 6 rec + 1 custom
+3 dk mount  23
++ tarecgosa (n existe)
++5 drakes cata  
+28 + 15 recolor + 2 custom
+
+pvps
+3 cata + 10 recolor  3 + 10 recolor
+4 mop + 4 recolor  7 + 14 recolor
+7 legion + 4 recolor |-| 14 + 18 recolor
+4 bfa + 3 recolor  18 + 21 recolor
+4 slands + 1 recolor || 22 + 22 recolor
+1 dflight 
+23 + 22 recolor
+terrestres
+112
+185 c/ recolor /customs
+
+
+total voadoras                    = 22 + 15 + 17 + 11 + 23        = 88
+total voadoras com custom/recolor = 22+2, 15+1, 17+6, 11+3, 23+22 = 122
+
+
+
+
+------------------
+
+
++ cat/bear/travel etc
