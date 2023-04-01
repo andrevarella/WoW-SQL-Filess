@@ -2,7 +2,6 @@
 
 
 -- Caixa de BG Win
-INSERT INTO `1acore_world`.`item_loot_template`(`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES (32546, 43308, 0, 100, 0, 3, 0, 50, 100, 'Caixa de BG win - 50-100 Honor Point');
 INSERT INTO `1acore_world`.`item_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES (32546, 20559, 0, 40, 0, 1, 0, 1, 1, 'Caixa de BG win - 1 Mark of Honor');
 INSERT INTO `1acore_world`.`item_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES (32546, 27729, 0, 100, 0, 1, 0, 2, 2, 'Caixa de BG win - 2 Caveira Humana');
 INSERT INTO `1acore_world`.`item_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES (32546, 40079, 0, 5, 0, 1, 1, 1, 1, 'Caixa de BG win - Flask Resil');
@@ -17,13 +16,11 @@ INSERT INTO `1acore_world`.`item_loot_template` (`Entry`, `Item`, `Reference`, `
 
 
 -- Caixa de BG Loss
-INSERT INTO `1acore_world`.`item_loot_template`(`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES (32545, 43308, 0, 100, 0, 3, 0, 30, 50, 'Caixa de BG win - 30-50 Honor Point');
 INSERT INTO `1acore_world`.`item_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES (32545, 20559, 0, 5, 0, 1, 0, 1, 1, 'Caixa de BG loss - 1 Mark of Honor');
 INSERT INTO `1acore_world`.`item_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES (32545, 27729, 0, 100, 0, 1, 0, 1, 1, 'Caixa de BG loss - 1 Caveira Humana');
 
 
 -- Caixa de Arena x2
-INSERT INTO `1acore_world`.`item_loot_template`(`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES (32544, 43308, 0, 100, 0, 3, 0, 35, 70, 'Caixa de Arena x2 - 35-70 Honor Point');
 INSERT INTO `1acore_world`.`item_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES (32544, 20558, 0, 100, 0, 1, 0, 3, 3, 'Caixa de Arena x2 - 3 Transmog Token');
 INSERT INTO `1acore_world`.`item_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES (32544, 27729, 0, 100, 0, 1, 0, 1, 1, 'Caixa de Arena x2 - 1 Caveira Humana');
 INSERT INTO `1acore_world`.`item_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES (32544, 20559, 0, 100, 0, 1, 0, 1, 1, 'Caixa de Arena x2 - 1 Mark of Honor');
@@ -34,11 +31,13 @@ INSERT INTO `1acore_world`.`item_loot_template` (`Entry`, `Item`, `Reference`, `
 INSERT INTO `1acore_world`.`item_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES (32544, 38310, 0, 0.5, 0, 1, 0, 1, 1, 'Caixa de Arena x2 - Tabard of Arcane');
 INSERT INTO `1acore_world`.`item_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES (32544, 38314, 0, 0.5, 0, 1, 0, 1, 1, 'Caixa de Arena x2 - Tabard of Defender');
 INSERT INTO `1acore_world`.`item_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES (32544, 38311, 0, 0.5, 0, 1, 0, 1, 1, 'Caixa de Arena x2 - Tabard of Void');
+INSERT INTO `1acore_world`.`item_loot_template`(`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES (32544, 80758, 0, 75, 0, 3, 0, 1, 1, 'Caixa de Arena x2 - Medal of Honor - 75% drop chance');
+
 
 
 
 -- Caixa de Arena x3
-INSERT INTO `1acore_world`.`item_loot_template`(`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES (32548, 43308, 0, 100, 0, 3, 0, 50, 120, 'Caixa de Arena x3 - 50-120 Honor Point');
+INSERT INTO `1acore_world`.`item_loot_template`(`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES (32548, 80758, 0, 75, 0, 3, 0, 1, 1, 'Caixa de Arena x3 - Medal of Honor - 75% drop chance');
 INSERT INTO `1acore_world`.`item_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES (32548, 27729, 0, 100, 0, 1, 0, 2, 2, 'Caixa de Arena x3 - 2 Caveira Humana');
 INSERT INTO `1acore_world`.`item_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES (32548, 20558, 0, 100, 0, 1, 0, 3, 3, 'Caixa de Arena x3 - Transmog Token');
 INSERT INTO `1acore_world`.`item_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES (32548, 20559, 0, 100, 0, 1, 0, 2, 2, 'Caixa de Arena x3 - 2 Mark of Honor');
