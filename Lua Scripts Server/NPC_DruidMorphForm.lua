@@ -1,16 +1,17 @@
-local PLAYER_EVENT_ON_CHAT = 18
+
 local GOSSIP_EVENT_ON_SELECT = 2
 local PLAYER_EVENT_ON_SPELL_CAST = 5
+local GOSSIP_EVENT_ON_HELLO = 1
+local NPC_ID = 45432
 
 
 local druidMorph = {}
-druidMorph.chatMsg = "#druid"
 druidMorph.druidMorhValid = {
     ["Menu"] = {
         {"|TInterface\\icons\\Ability_druid_catform.png:29|t Cat", 3},
         {"|TInterface\\icons\\Ability_racial_bearform.png:29|t Bear", 1},
         {"|TInterface\\icons\\Ability_druid_travelform.png:29|t Travel", 4},
-        {"|TInterface\\icons\\Ability_druid_aquaticform.png:29|t Aquatic", 2},
+        --{"|TInterface\\icons\\Ability_druid_aquaticform.png:29|t Aquatic", 2},
         {"|TInterface\\icons\\Ability_druid_improvedmoonkinform.png:29|t Moonkin", 5}
     },
 
@@ -387,6 +388,5 @@ function druidMorph.castDisplay(event, player, spell, skipCheck)
 end
  
 RegisterPlayerEvent(PLAYER_EVENT_ON_SPELL_CAST, druidMorph.castDisplay)
- 
-RegisterPlayerEvent(PLAYER_EVENT_ON_CHAT, druidMorph.callMenu)
 RegisterPlayerGossipEvent(MENU_ID, GOSSIP_EVENT_ON_SELECT, druidMorph.selectionMorph)
+RegisterCreatureGossipEvent(NPC_ID, GOSSIP_EVENT_ON_HELLO, druidMorph.menu)

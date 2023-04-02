@@ -98,7 +98,7 @@ local function OnGossipRacialSwitch(event, player, creature, sender, intid, code
     if (intid == 1) then
         if not player:HasSpell(59752) then
             for _, v in ipairs(Unlearn) do
-                player:RemoveSpell(v)
+                player:UnlearnSpell(v)
             end
             for _, v in ipairs(Racial[1]) do
                 player:LearnSpell(v)
