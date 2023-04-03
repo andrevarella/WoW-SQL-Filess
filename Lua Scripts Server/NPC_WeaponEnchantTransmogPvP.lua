@@ -57,9 +57,9 @@ RegisterPlayerEvent(29, function(e,p,i,b,s) setVisual(p, i) end)
 
 -- Gossip Principal
 local function On_Gossip_Select(unit, player, creature)
-    player:GossipSetText(string.format("NPC para customizar o visual do |cff0000ffEnchant |cFF000000da sua arma. \n\nNecessita do achievement de 2000 Rating em 2v2 ou 3v3.\n\n"))
-    player:GossipMenuAddItem(6,"|TInterface\\icons\\Inv_sword_01:27|t Main Hand |cff0000ffWeapon Enchant\n",0, 300)
-    player:GossipMenuAddItem(6,"|TInterface\\icons\\Inv_sword_67:27|t Off Hand |cff0000ffWeapon Enchant\n",0, 302)
+    player:GossipSetText(string.format("Sistema para customizar o visual do |cff0000ffenchant |cFF000000da sua arma. \n\nNecessita do achievement de |cFFFFFF002000 Rating |cFF000000em |cFFFFFF002v2 |cFF000000ou |cFFFFFF003v3|cFF000000."))
+    player:GossipMenuAddItem(9,"|TInterface\\icons\\Inv_sword_01:27|t Main Hand |cff0000ffWeapon Enchant\n",0, 300)
+    player:GossipMenuAddItem(9,"|TInterface\\icons\\Inv_sword_67:27|t Off Hand |cff0000ffWeapon Enchant\n",0, 302)
     player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)
 end
  
@@ -73,19 +73,18 @@ if(intid == 300) then
     player:GossipSetText(string.format("Main-Hand Enchantments."))
     -- Verifica se o jogador possui a conquista ID 401
     if(player:HasAchieved(401)) then
-    player:GossipMenuAddItem(6,"|TInterface\\icons\\Inv_rod_enchantedfelsteel:27|t |cFF008000Demonic Tyranny (2x2 2000 Rating)",0, 482, false, "")
+    player:GossipMenuAddItem(9,"|TInterface\\icons\\Inv_rod_enchantedfelsteel:27|t |cFF008000Demonic Tyranny |cFF000000(|cFFFFFF002000 Rating 2v2|cFF000000)",0, 482, false, "")
     else
-    player:GossipMenuAddItem(6,"|TInterface\\icons\\Inv_rod_enchantedfelsteel:27|t |cFF008000Demonic Tyranny (2x2 2000 Rating)", 0, 0, false, "Você não possui a conquista necessária.")
+    player:GossipMenuAddItem(9,"|TInterface\\icons\\Inv_rod_enchantedfelsteel:27|t |cFF008000Demonic Tyranny |cFF000000(|cFFFFFF002000 Rating 2v2|cFF000000)", 0, 0, false, "Você não possui a conquista necessária.")
 end
     -- Verifica se o jogador possui a conquista ID 405
     if(player:HasAchieved(405)) then
-        player:GossipMenuAddItem(6,"|TInterface\\icons\\Inv_spear_09:27|t |cFFFF0000Glorious Tyranny (3x3 2000 Rating)",0, 472, false, "")
+        player:GossipMenuAddItem(9,"|TInterface\\icons\\Inv_spear_09:27|t |cFFFF0000Glorious Tyranny |cFF000000(|cFFFFFF002000 Rating 3v3|cFF000000)\n",0, 472, false, "")
 else
-    player:GossipMenuAddItem(6,"|TInterface\\icons\\Inv_spear_09:27|t |cFFFF0000Glorious Tyranny (3x3 2000 Rating)", 0, 0, false, "Você não possui a conquista necessária.")
+    player:GossipMenuAddItem(9,"|TInterface\\icons\\Inv_spear_09:27|t |cFFFF0000Glorious Tyranny |cFF000000(|cFFFFFF002000 Rating 3v3|cFF000000)\n", 0, 0, false, "Você não possui a conquista necessária.")
 end
-    player:GossipMenuAddItem(3,"|TInterface\\icons\\spell_holy_dispelmagic:27|t Remover Enchant Visual (Main Hand)\n",0, 1003)
+    player:GossipMenuAddItem(5,"|TInterface\\icons\\spell_holy_dispelmagic:27|t Remover Enchant Visual (Main Hand)\n",0, 1003)
     player:GossipMenuAddItem(3,"|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:27:27:0:0|t Voltar",0,998)
-    player:GossipMenuAddItem(3,"|TInterface\\RaidFrame\\ReadyCheck-NotReady:27:27:0:0|t |cFF800000Sair",0,999)
     player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)
 end
 
@@ -94,19 +93,18 @@ if(intid == 302) then
     player:GossipSetText(string.format("Off-Hand Enchantments."))
     -- Verifica se o jogador possui a conquista ID 401
     if(player:HasAchieved(401)) then
-    player:GossipMenuAddItem(6,"|TInterface\\icons\\Inv_rod_enchantedfelsteel:27|t |cFF008000Demonic Tyranny (2000 3x3 Rating)",0, 552, false, "")
+    player:GossipMenuAddItem(9,"|TInterface\\icons\\Inv_rod_enchantedfelsteel:27|t |cFF008000Demonic Tyranny |cFF000000(|cFFFFFF002000 Rating 3v3|cFF000000)",0, 552, false, "")
 else
-    player:GossipMenuAddItem(6,"|TInterface\\icons\\Inv_rod_enchantedfelsteel:27|t |cFF008000Demonic Tyranny (2000 2x2 Rating)", 0, 0, false, "Você não possui a conquista necessária.")
+    player:GossipMenuAddItem(9,"|TInterface\\icons\\Inv_rod_enchantedfelsteel:27|t |cFF008000Demonic Tyranny |cFF000000(|cFFFFFF002000 Rating 3v3|cFF000000)", 0, 0, false, "Você não possui a conquista necessária.")
 end
     -- Verifica se o jogador possui a conquista ID 405
     if(player:HasAchieved(405)) then
-    player:GossipMenuAddItem(6,"|TInterface\\icons\\Inv_spear_09:27|t |cFFFF0000Glorious Tyranny (2000 3x3 Rating)",0, 538, false, "")
+    player:GossipMenuAddItem(9,"|TInterface\\icons\\Inv_spear_09:27|t |cFFFF0000Glorious Tyranny |cFF000000(|cFFFFFF002000 Rating 3v3|cFF000000)\n",0, 538, false, "")
 else
-    player:GossipMenuAddItem(6,"|TInterface\\icons\\Inv_spear_09:27|t |cFFFF0000Glorious Tyranny (2000 3x3 Rating)", 0, 0, false, "Você não possui a conquista necessária.")
+    player:GossipMenuAddItem(9,"|TInterface\\icons\\Inv_spear_09:27|t |cFFFF0000Glorious Tyranny |cFF000000(|cFFFFFF002000 Rating 3v3|cFF000000)\n", 0, 0, false, "Você não possui a conquista necessária.")
 end
-    player:GossipMenuAddItem(3,"|TInterface\\icons\\spell_holy_dispelmagic:27|t Remover Enchant Visual (Off Hand)\n",0, 1002)
+    player:GossipMenuAddItem(5,"|TInterface\\icons\\spell_holy_dispelmagic:27|t Remover Enchant Visual (Off Hand)\n",0, 1002)
     player:GossipMenuAddItem(3,"|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:27:27:0:0|t Voltar",0,998)
-    player:GossipMenuAddItem(3,"|TInterface\\RaidFrame\\ReadyCheck-NotReady:27:27:0:0|t |cFF800000Sair",0,999)
     player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)
 end
 

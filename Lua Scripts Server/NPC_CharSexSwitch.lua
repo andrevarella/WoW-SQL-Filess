@@ -1,8 +1,9 @@
 local npc = 94126
-local Cost = 50000000 -- Custo da mudança de gênero
+local Cost = 50000000 -- Custo da mudança de gênero (50000000 = 5000g)
+
 
 local function OnGossipHello(event, player, object)
-player:GossipMenuAddItem(0, "Mudar de gênero (Custo: 5000g)", 0, 1)
+player:GossipMenuAddItem(0, "|TInterface\\icons\\Ability_hunter_beastwithin.png:27|t Trocar Sexo (Custo: |cffffff005000g|cFF000000)", 0, 1, false, "Tem certeza? essa função custará 5000 de gold")
 player:GossipSendMenu(1, object)
 end
 

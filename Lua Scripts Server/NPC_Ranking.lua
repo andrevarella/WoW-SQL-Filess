@@ -76,7 +76,7 @@ local function On_Top_Hello(event, player, creature)
     player:GossipSetText(string.format(" "))
 	player:GossipMenuAddItem(9,"|TInterface\\icons\\Achievement_bg_killxenemies_generalsroom:30|t Top 10 Killers |cFF000000- [Each Class] \n", 0, 3)
 	player:GossipMenuAddItem(9,"|TInterface\\icons\\Achievement_bg_kill_flag_carrier:30|t Top 10 Killers |cFF000000- [All]\n", 0, 2)
-      player:GossipMenuAddItem(9,"|TInterface\\icons\\Achievement_featsofstrength_gladiator_10:30|t Top 10 |cFF000000- [Arena Rating]", 0, 1)
+      -- player:GossipMenuAddItem(9,"|TInterface\\icons\\Achievement_featsofstrength_gladiator_10:30|t Top 10 |cFF000000- [Arena Rating]", 0, 1)
     player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)
 end
 

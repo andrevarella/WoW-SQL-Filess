@@ -42,12 +42,10 @@ RegisterPlayerEvent(3, LOGIN)
 RegisterPlayerEvent(29, function(e,p,i,b,s) setVisual(p, i) end)
  
 local function On_Gossip_Select(unit, player, creature)
-player:GossipSetText(string.format("Sistema Vip para customizar o seu personagem mudando o visual do |cff0000ffEnchant |cFF000000da sua arma ou usando |cff0000ffVisual Morph!"))
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Inv_sword_01:27|t Main Hand |cff0000ffWeapon Enchant",0, 300)
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Inv_sword_67:27|t Off Hand |cff0000ffWeapon Enchant",0, 302)
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Spell_shadow_shadowpact:27|t |cff0000ffCharacter Morph",0, 34)
-player:GossipMenuAddItem(3,"|TInterface\\RaidFrame\\ReadyCheck-NotReady:27:27:0:0|t |cFF800000Sair",0,999)
---player:GossipMenuAddItem(6,"|TInterface\\icons\\Spell_deathknight_scourgestrike:27|t Visual Vip System - Weapons",0, 33)
+player:GossipSetText(string.format("Sistema vip para customizar o visual do |cff0000ffenchant |cFF000000da sua arma."))
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Inv_sword_01:27|t Main Hand |cff0000ffWeapon Enchant",0, 300)
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Inv_sword_67:27|t Off Hand |cff0000ffWeapon Enchant",0, 302)
+player:GossipMenuAddItem(5,"|TInterface\\RaidFrame\\ReadyCheck-NotReady:27:27:0:0|t |cFF800000Sair",0,999)
 player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)
 end
  
@@ -62,55 +60,55 @@ if(intid == 300) then
 player:GossipSetText(string.format("Main-Hand Enchantments de cores |cffffffffBranca |cFF000000e |cff0000ffAzul."))
 player:GossipMenuAddItem(3,"|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:27:27:0:0|t Voltar",0,998)
 -- Ir para pagina 2/3
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Inv_inscription_parchment:25|t Proxima Página (1/3) ",0, 440)
-player:GossipMenuAddItem(3,"|TInterface\\icons\\spell_holy_dispelmagic:27|t Remover Enchant Visual (Main Hand)",0, 1003)
+player:GossipMenuAddItem(3,"|TInterface\\icons\\Inv_inscription_parchment:25|t Proxima Página (1/3) ",0, 440)
+player:GossipMenuAddItem(5,"|TInterface\\icons\\spell_holy_dispelmagic:27|t Remover Enchant Visual (Main Hand)",0, 1003)
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Inv_jewelry_talisman_07:27|t |cffffffffCrusader",0, 450, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Inv_jewelry_talisman_07:27|t |cffffffffCrusader",0, 450, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Inv_jewelry_talisman_07:27|t |cffffffffBattlemaster",0, 122, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Inv_jewelry_talisman_07:27|t |cffffffffBattlemaster",0, 122, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Ability_shootwand:27|t |cffffffffDeathfrost",0, 117, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Ability_shootwand:27|t |cffffffffDeathfrost",0, 117, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Ability_shootwand:27|t |cffffffffIcy Weapon",0, 129, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Ability_shootwand:27|t |cffffffffIcy Weapon",0, 129, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Ability_shootwand:27|t |cffffffffAP vs Undead",0, 451, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Ability_shootwand:27|t |cffffffffAP vs Undead",0, 451, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Spell_frost_frostward:27|t |cffffffffAvalanche",0, 454, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Spell_frost_frostward:27|t |cffffffffAvalanche",0, 454, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Spell_frost_frostward:27|t |cffffffffWinter's Grasp",0, 455, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Spell_frost_frostward:27|t |cffffffffWinter's Grasp",0, 455, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Ability_warrior_shatteringthrow:27|t |cffffffffExecutioner",0, 118, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Ability_warrior_shatteringthrow:27|t |cffffffffExecutioner",0, 118, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Spell_shadow_mindtwisting:27|t |cffffffffWindwalk",0, 452, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Spell_shadow_mindtwisting:27|t |cffffffffWindwalk",0, 452, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Spell_shaman_improvedstormstrike:27|t |cffffffffElemental Slayer",0, 453, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Spell_shaman_improvedstormstrike:27|t |cffffffffElemental Slayer",0, 453, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Spell_frost_frostblast:27|t |cff0000ffWraithchill",0, 459, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Spell_frost_frostblast:27|t |cff0000ffWraithchill",0, 459, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Spell_nature_lightningoverload:27|t |cff0000ffMongoose",0, 126, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Spell_nature_lightningoverload:27|t |cff0000ffMongoose",0, 126, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Spell_nature_lightningoverload:27|t |cff0000ffMark of the Thunderlord",0, 456, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Spell_nature_lightningoverload:27|t |cff0000ffMark of the Thunderlord",0, 456, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Inv_staff_20:27|t |cff0000ffColossus",0, 457, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Inv_staff_20:27|t |cff0000ffColossus",0, 457, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Inv_staff_20:27|t |cff0000ffBlade Ward",0, 458, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Inv_staff_20:27|t |cff0000ffBlade Ward",0, 458, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Inv_mace_25:27|t |cff0000ffHeartsong",0, 460, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Inv_mace_25:27|t |cff0000ffHeartsong",0, 460, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Inv_mace_25:27|t |cff0000ffSoulfrost",0, 461, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Inv_mace_25:27|t |cff0000ffSoulfrost",0, 461, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Inv_mace_25:27|t |cff0000ffRiver's Song",0, 462, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Inv_mace_25:27|t |cff0000ffRiver's Song",0, 462, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Inv_staff_14:27|t |cff0000ffJade Spirit",0, 463, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Inv_staff_14:27|t |cff0000ffJade Spirit",0, 463, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Spell_fire_bluefire:27|t |cff0000ffGreater Spell Power",0, 116, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Spell_fire_bluefire:27|t |cff0000ffGreater Spell Power",0, 116, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Spell_deathknight_empowerruneblade2:27|t |cff0000ffRune of Razorice",0, 464, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Spell_deathknight_empowerruneblade2:27|t |cff0000ffRune of Razorice",0, 464, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Spell_ice_magicdamage:27|t |cff0000ffFrostbrand",0, 133, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Spell_ice_magicdamage:27|t |cff0000ffFrostbrand",0, 133, false, "")
 
 
-player:GossipMenuAddItem(3,"|TInterface\\RaidFrame\\ReadyCheck-NotReady:27:27:0:0|t |cFF800000Sair",0,999)
+player:GossipMenuAddItem(5,"|TInterface\\RaidFrame\\ReadyCheck-NotReady:27:27:0:0|t |cFF800000Sair",0,999)
 player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)
 end
 
@@ -296,50 +294,50 @@ end
 if(intid == 440) then
 player:GossipSetText(string.format("Main-Hand Enchantments de cores |cFF800080Roxo, |cFFFF0000Vermelho, |cFFFF4500Laranja |cFF000000e |cffffff00Amarelo."))
 player:GossipMenuAddItem(3,"|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:27:27:0:0|t Voltar",0,300)
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Inv_inscription_parchment:25|t Proxima Página (2/3)",0, 441)
-player:GossipMenuAddItem(3,"|TInterface\\icons\\spell_holy_dispelmagic:27|t Remover Enchant Visual (Main Hand)",0, 1003)
+player:GossipMenuAddItem(3,"|TInterface\\icons\\Inv_inscription_parchment:25|t Proxima Página (2/3)",0, 441)
+player:GossipMenuAddItem(5,"|TInterface\\icons\\spell_holy_dispelmagic:27|t Remover Enchant Visual (Main Hand)",0, 1003)
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Spell_arcane_arcane04:27|t |cFF800080Chronos",0, 465, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Spell_arcane_arcane04:27|t |cFF800080Chronos",0, 465, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Spell_arcane_arcane04:27|t |cFF800080Mark of Blackrock",0, 466, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Spell_arcane_arcane04:27|t |cFF800080Mark of Blackrock",0, 466, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Spell_arcane_arcane04:27|t |cFF800080Mark of Shadowmoon (WoD)",0, 467, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Spell_arcane_arcane04:27|t |cFF800080Mark of Shadowmoon (WoD)",0, 467, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Spell_shadow_ritualofsacrifice:27|t |cFF800080Mark of Shadowmoon",0, 468, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Spell_shadow_ritualofsacrifice:27|t |cFF800080Mark of Shadowmoon",0, 468, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Spell_shadow_ritualofsacrifice:27|t |cFF800080Netherflame",0, 469, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Spell_shadow_ritualofsacrifice:27|t |cFF800080Netherflame",0, 469, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Inv_spear_09:27|t |cFFFF0000Nightmare",0, 470, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Inv_spear_09:27|t |cFFFF0000Nightmare",0, 470, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Inv_spear_09:27|t |cFFFF0000Sinwrath",0, 471, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Inv_spear_09:27|t |cFFFF0000Sinwrath",0, 471, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Inv_spear_09:27|t |cFFFF0000Power Torrent (Flames)",0, 472, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Inv_spear_09:27|t |cFFFF0000Power Torrent (Flames)",0, 472, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Spell_deathknight_butcher:27|t |cFFFF0000Berserking",0, 115, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Spell_deathknight_butcher:27|t |cFFFF0000Berserking",0, 115, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Spell_deathknight_butcher:27|t |cFFFF0000Attack Power",0, 473, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Spell_deathknight_butcher:27|t |cFFFF0000Attack Power",0, 473, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Spell_holy_retributionaura:27|t |cFFFF4500Flames of Ragnaros",0, 474, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Spell_holy_retributionaura:27|t |cFFFF4500Flames of Ragnaros",0, 474, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Spell_fire_flameblades:27|t |cFFFF4500Power Torrent",0, 475, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Spell_fire_flameblades:27|t |cFFFF4500Power Torrent",0, 475, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Spell_fire_flameblades:27|t |cFFFF4500Blood Draining",0, 119, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Spell_fire_flameblades:27|t |cFFFF4500Blood Draining",0, 119, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Spell_fire_flameblades:27|t |cFFFF4500Fiery Weapon",0, 136, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Spell_fire_flameblades:27|t |cFFFF4500Fiery Weapon",0, 136, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Ability_dualwieldspecialization:27|t |cFFFF4500Elemental Force",0, 476, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Ability_dualwieldspecialization:27|t |cFFFF4500Elemental Force",0, 476, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Spell_holy_summonlightwell:27|t |cffffff00Sunfire",0, 477, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Spell_holy_summonlightwell:27|t |cffffff00Sunfire",0, 477, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Spell_nature_earthquake:27|t |cffffff00Landslide",0, 478, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Spell_nature_earthquake:27|t |cffffff00Landslide",0, 478, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Spell_holy_searinglight:27|t |cffffff00Light of the Earth-Warder",0, 479, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Spell_holy_searinglight:27|t |cffffff00Light of the Earth-Warder",0, 479, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Spell_holy_searinglight:27|t |cffffff00Titanguard",0, 480, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Spell_holy_searinglight:27|t |cffffff00Titanguard",0, 480, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Ability_paladin_divinestorm:27|t |cffffff00Spirit",0, 481, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Ability_paladin_divinestorm:27|t |cffffff00Spirit",0, 481, false, "")
 
-player:GossipMenuAddItem(3,"|TInterface\\RaidFrame\\ReadyCheck-NotReady:27:27:0:0|t |cFF800000Sair",0,999)
+player:GossipMenuAddItem(5,"|TInterface\\RaidFrame\\ReadyCheck-NotReady:27:27:0:0|t |cFF800000Sair",0,999)
 player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)
 end
 
@@ -488,33 +486,33 @@ end
 if(intid == 441) then
 player:GossipSetText(string.format("Main-Hand Enchantments de cor |cFF008000Verde."))
 player:GossipMenuAddItem(3,"|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:27:27:0:0|t Voltar",0,440)
-player:GossipMenuAddItem(3,"|TInterface\\icons\\spell_holy_dispelmagic:27|t Remover Enchant Visual(Main Hand)",0, 1003)
+player:GossipMenuAddItem(5,"|TInterface\\icons\\spell_holy_dispelmagic:27|t Remover Enchant Visual(Main Hand)",0, 1003)
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Inv_rod_enchantedfelsteel:27|t |cFF008000Demonic Tyranny - Temporario",0, 482, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Inv_rod_enchantedfelsteel:27|t |cFF008000Demonic Tyranny - Temporario",0, 482, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Inv_axe_15:27|t |cFF008000Breath of Yu'lon",0, 483, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Inv_axe_15:27|t |cFF008000Breath of Yu'lon",0, 483, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Inv_axe_15:27|t |cFF008000Earthliving",0, 132, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Inv_axe_15:27|t |cFF008000Earthliving",0, 132, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Inv_axe_15:27|t |cFF008000Agility",0, 131, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Inv_axe_15:27|t |cFF008000Agility",0, 131, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\spell_shaman_earthlivingweapon:27|t |cFF008000Unholy Weapon",0, 120, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\spell_shaman_earthlivingweapon:27|t |cFF008000Unholy Weapon",0, 120, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Spell_holy_removecurse:27|t Spell Power II",0, 127, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Spell_holy_removecurse:27|t Spell Power II",0, 127, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Spell_holy_removecurse:27|t Rockbiter",0, 484, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Spell_holy_removecurse:27|t Rockbiter",0, 484, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Spell_holy_removecurse:27|t Windfury",0, 485, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Spell_holy_removecurse:27|t Windfury",0, 485, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Spell_frost_frostbrand:27|t Frostbrand II",0, 486, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Spell_frost_frostbrand:27|t Frostbrand II",0, 486, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Spell_fire_flametounge:27|t Flametongue",0, 487, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Spell_fire_flametounge:27|t Flametongue",0, 487, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Ability_parry:27|t Sharpened",0, 488, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Ability_parry:27|t Sharpened",0, 488, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Ability_rogue_dualweild:27|t Deadly Poison",0, 489, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Ability_rogue_dualweild:27|t Deadly Poison",0, 489, false, "")
 
-player:GossipMenuAddItem(3,"|TInterface\\RaidFrame\\ReadyCheck-NotReady:27:27:0:0|t |cFF800000Sair",0,999)
+player:GossipMenuAddItem(5,"|TInterface\\RaidFrame\\ReadyCheck-NotReady:27:27:0:0|t |cFF800000Sair",0,999)
 player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)
 end
 
@@ -615,55 +613,55 @@ end
 if(intid == 302) then
 player:GossipSetText(string.format("Off-Hand Enchantments de cores |cffffffffBranca |cFF000000e |cff0000ffAzul."))
 player:GossipMenuAddItem(3,"|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:27:27:0:0|t Voltar",0,998)
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Inv_inscription_parchment:25|t Proxima Página (1/3) ",0, 530)
-player:GossipMenuAddItem(3,"|TInterface\\icons\\spell_holy_dispelmagic:27|t Remover Enchant Visual (Off Hand)",0, 1002)
+player:GossipMenuAddItem(3,"|TInterface\\icons\\Inv_inscription_parchment:25|t Proxima Página (1/3) ",0, 530)
+player:GossipMenuAddItem(5,"|TInterface\\icons\\spell_holy_dispelmagic:27|t Remover Enchant Visual (Off Hand)",0, 1002)
 
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Inv_jewelry_talisman_07:27|t |cffffffffCrusader",0, 501, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Inv_jewelry_talisman_07:27|t |cffffffffCrusader",0, 501, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Inv_jewelry_talisman_07:27|t |cffffffffBattlemaster",0, 502, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Inv_jewelry_talisman_07:27|t |cffffffffBattlemaster",0, 502, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Ability_shootwand:27|t |cffffffffDeathfrost",0, 503, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Ability_shootwand:27|t |cffffffffDeathfrost",0, 503, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Ability_shootwand:27|t |cffffffffIcy Weapon",0, 504, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Ability_shootwand:27|t |cffffffffIcy Weapon",0, 504, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Ability_shootwand:27|t |cffffffffAP vs Undead",0, 505, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Ability_shootwand:27|t |cffffffffAP vs Undead",0, 505, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Spell_frost_frostward:27|t |cffffffffAvalanche",0, 506, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Spell_frost_frostward:27|t |cffffffffAvalanche",0, 506, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Spell_frost_frostward:27|t |cffffffffWinter's Grasp",0, 507, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Spell_frost_frostward:27|t |cffffffffWinter's Grasp",0, 507, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Ability_warrior_shatteringthrow:27|t |cffffffffExecutioner",0, 508, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Ability_warrior_shatteringthrow:27|t |cffffffffExecutioner",0, 508, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Spell_shadow_mindtwisting:27|t |cffffffffWindwalk",0, 509, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Spell_shadow_mindtwisting:27|t |cffffffffWindwalk",0, 509, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Spell_shaman_improvedstormstrike:27|t |cffffffffElemental Slayer",0, 510, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Spell_shaman_improvedstormstrike:27|t |cffffffffElemental Slayer",0, 510, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Spell_frost_frostblast:27|t |cff0000ffWraithchill",0, 511, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Spell_frost_frostblast:27|t |cff0000ffWraithchill",0, 511, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Spell_nature_lightningoverload:27|t |cff0000ffMongoose",0, 512, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Spell_nature_lightningoverload:27|t |cff0000ffMongoose",0, 512, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Spell_nature_lightningoverload:27|t |cff0000ffMark of the Thunderlord",0, 513, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Spell_nature_lightningoverload:27|t |cff0000ffMark of the Thunderlord",0, 513, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Inv_staff_20:27|t |cff0000ffColossus",0, 514, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Inv_staff_20:27|t |cff0000ffColossus",0, 514, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Inv_staff_20:27|t |cff0000ffBlade Ward",0, 515, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Inv_staff_20:27|t |cff0000ffBlade Ward",0, 515, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Inv_mace_25:27|t |cff0000ffHeartsong",0, 516, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Inv_mace_25:27|t |cff0000ffHeartsong",0, 516, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Inv_mace_25:27|t |cff0000ffSoulfrost",0, 517, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Inv_mace_25:27|t |cff0000ffSoulfrost",0, 517, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Inv_mace_25:27|t |cff0000ffRiver's Song",0, 518, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Inv_mace_25:27|t |cff0000ffRiver's Song",0, 518, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Inv_staff_14:27|t |cff0000ffJade Spirit",0, 519, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Inv_staff_14:27|t |cff0000ffJade Spirit",0, 519, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Spell_fire_bluefire:27|t |cff0000ffGreater Spell Power",0, 520, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Spell_fire_bluefire:27|t |cff0000ffGreater Spell Power",0, 520, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Spell_deathknight_empowerruneblade2:27|t |cff0000ffRune of Razorice",0, 521, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Spell_deathknight_empowerruneblade2:27|t |cff0000ffRune of Razorice",0, 521, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Spell_ice_magicdamage:27|t |cff0000ffFrostbrand",0, 522, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Spell_ice_magicdamage:27|t |cff0000ffFrostbrand",0, 522, false, "")
 
-player:GossipMenuAddItem(3,"|TInterface\\RaidFrame\\ReadyCheck-NotReady:27:27:0:0|t |cFF800000Sair",0,999)
+player:GossipMenuAddItem(5,"|TInterface\\RaidFrame\\ReadyCheck-NotReady:27:27:0:0|t |cFF800000Sair",0,999)
 player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)
 end
 
@@ -847,50 +845,50 @@ end
 if(intid == 530) then
 player:GossipSetText(string.format("Off Hand Enchantments de cores |cFF800080Roxo, |cFFFF0000Vermelho, |cFFFF4500Laranja |cFF000000e |cffffff00Amarelo."))
 player:GossipMenuAddItem(3,"|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:27:27:0:0|t Voltar",0,302)
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Inv_inscription_parchment:25|t Proxima Página (2/3)",0, 551)
-player:GossipMenuAddItem(3,"|TInterface\\icons\\spell_holy_dispelmagic:27|t Remover Enchant Visual (Off Hand)",0, 1002)
+player:GossipMenuAddItem(3,"|TInterface\\icons\\Inv_inscription_parchment:25|t Proxima Página (2/3)",0, 551)
+player:GossipMenuAddItem(5,"|TInterface\\icons\\spell_holy_dispelmagic:27|t Remover Enchant Visual (Off Hand)",0, 1002)
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Spell_arcane_arcane04:27|t |cFF800080Chronos",0, 531, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Spell_arcane_arcane04:27|t |cFF800080Chronos",0, 531, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Spell_arcane_arcane04:27|t |cFF800080Mark of Blackrock",0, 532, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Spell_arcane_arcane04:27|t |cFF800080Mark of Blackrock",0, 532, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Spell_arcane_arcane04:27|t |cFF800080Mark of Shadowmoon (WoD)",0, 533, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Spell_arcane_arcane04:27|t |cFF800080Mark of Shadowmoon (WoD)",0, 533, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Spell_shadow_ritualofsacrifice:27|t |cFF800080Mark of Shadowmoon",0, 534, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Spell_shadow_ritualofsacrifice:27|t |cFF800080Mark of Shadowmoon",0, 534, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Spell_shadow_ritualofsacrifice:27|t |cFF800080Netherflame",0, 535, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Spell_shadow_ritualofsacrifice:27|t |cFF800080Netherflame",0, 535, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Inv_spear_09:27|t |cFFFF0000Nightmare",0, 536, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Inv_spear_09:27|t |cFFFF0000Nightmare",0, 536, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Inv_spear_09:27|t |cFFFF0000Sinwrath",0, 537, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Inv_spear_09:27|t |cFFFF0000Sinwrath",0, 537, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Inv_spear_09:27|t |cFFFF0000Power Torrent (Flames)",0, 538, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Inv_spear_09:27|t |cFFFF0000Power Torrent (Flames)",0, 538, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Spell_deathknight_butcher:27|t |cFFFF0000Berserking",0, 539, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Spell_deathknight_butcher:27|t |cFFFF0000Berserking",0, 539, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Spell_deathknight_butcher:27|t |cFFFF0000Attack Power",0, 540, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Spell_deathknight_butcher:27|t |cFFFF0000Attack Power",0, 540, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Spell_holy_retributionaura:27|t |cFFFF4500Flames of Ragnaros",0, 541, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Spell_holy_retributionaura:27|t |cFFFF4500Flames of Ragnaros",0, 541, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Spell_fire_flameblades:27|t |cFFFF4500Power Torrent",0, 542, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Spell_fire_flameblades:27|t |cFFFF4500Power Torrent",0, 542, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Spell_fire_flameblades:27|t |cFFFF4500Blood Draining",0, 543, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Spell_fire_flameblades:27|t |cFFFF4500Blood Draining",0, 543, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Spell_fire_flameblades:27|t |cFFFF4500Fiery Weapon",0, 544, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Spell_fire_flameblades:27|t |cFFFF4500Fiery Weapon",0, 544, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Ability_dualwieldspecialization:27|t |cFFFF4500Elemental Force",0, 545, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Ability_dualwieldspecialization:27|t |cFFFF4500Elemental Force",0, 545, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Spell_holy_summonlightwell:27|t |cffffff00Sunfire",0, 546, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Spell_holy_summonlightwell:27|t |cffffff00Sunfire",0, 546, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Spell_nature_earthquake:27|t |cffffff00Landslide",0, 547, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Spell_nature_earthquake:27|t |cffffff00Landslide",0, 547, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Spell_holy_searinglight:27|t |cffffff00Light of the Earth-Warder",0, 548, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Spell_holy_searinglight:27|t |cffffff00Light of the Earth-Warder",0, 548, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Spell_holy_searinglight:27|t |cffffff00Titanguard",0, 549, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Spell_holy_searinglight:27|t |cffffff00Titanguard",0, 549, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Ability_paladin_divinestorm:27|t |cffffff00Spirit",0, 550, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Ability_paladin_divinestorm:27|t |cffffff00Spirit",0, 550, false, "")
 
-player:GossipMenuAddItem(3,"|TInterface\\RaidFrame\\ReadyCheck-NotReady:27:27:0:0|t |cFF800000Sair",0,999)
+player:GossipMenuAddItem(5,"|TInterface\\RaidFrame\\ReadyCheck-NotReady:27:27:0:0|t |cFF800000Sair",0,999)
 player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)
 end
 
@@ -1039,33 +1037,33 @@ end
 if(intid == 551) then
 player:GossipSetText(string.format("Off Hand Enchantments de cor |cFF008000Verde."))
 player:GossipMenuAddItem(3,"|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:27:27:0:0|t Voltar",0,530)
-player:GossipMenuAddItem(3,"|TInterface\\icons\\spell_holy_dispelmagic:27|t Remover Enchant Visual (Off Hand)",0, 1002)
+player:GossipMenuAddItem(5,"|TInterface\\icons\\spell_holy_dispelmagic:27|t Remover Enchant Visual (Off Hand)",0, 1002)
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Inv_rod_enchantedfelsteel:27|t |cFF008000Demonic Tyranny - Temporario",0, 552, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Inv_rod_enchantedfelsteel:27|t |cFF008000Demonic Tyranny - Temporario",0, 552, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Inv_axe_15:27|t |cFF008000Breath of Yu'lon",0, 553, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Inv_axe_15:27|t |cFF008000Breath of Yu'lon",0, 553, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Inv_axe_15:27|t |cFF008000Earthliving",0, 554, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Inv_axe_15:27|t |cFF008000Earthliving",0, 554, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Inv_axe_15:27|t |cFF008000Agility",0, 555, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Inv_axe_15:27|t |cFF008000Agility",0, 555, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\spell_shaman_earthlivingweapon:27|t |cFF008000Unholy Weapon",0, 556, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\spell_shaman_earthlivingweapon:27|t |cFF008000Unholy Weapon",0, 556, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Spell_holy_removecurse:27|t Spell Power II",0, 557, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Spell_holy_removecurse:27|t Spell Power II",0, 557, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Spell_holy_removecurse:27|t Rockbiter",0, 558, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Spell_holy_removecurse:27|t Rockbiter",0, 558, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Spell_holy_removecurse:27|t Windfury",0, 559, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Spell_holy_removecurse:27|t Windfury",0, 559, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Spell_frost_frostbrand:27|t Frostbrand II",0, 560, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Spell_frost_frostbrand:27|t Frostbrand II",0, 560, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Spell_fire_flametounge:27|t Flametongue",0, 561, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Spell_fire_flametounge:27|t Flametongue",0, 561, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Ability_parry:27|t Sharpened",0, 562, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Ability_parry:27|t Sharpened",0, 562, false, "")
 
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Ability_rogue_dualweild:27|t Deadly Poison",0, 563, false, "")
+player:GossipMenuAddItem(9,"|TInterface\\icons\\Ability_rogue_dualweild:27|t Deadly Poison",0, 563, false, "")
 
-player:GossipMenuAddItem(3,"|TInterface\\RaidFrame\\ReadyCheck-NotReady:27:27:0:0|t |cFF800000Sair",0,999)
+player:GossipMenuAddItem(5,"|TInterface\\RaidFrame\\ReadyCheck-NotReady:27:27:0:0|t |cFF800000Sair",0,999)
 player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)
 end
 
@@ -1168,319 +1166,6 @@ end
 end
 
 
--- Morphs
-if(intid ==34) then
-player:GossipSetText(string.format(" "))
-player:GossipMenuAddItem(3,"|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:27:27:0:0|t |cFF800000Voltar",0,998)
-player:GossipMenuAddItem(3,"|TInterface\\icons\\spell_holy_dispelmagic:27|t |cFF800000Remover Morph",0, 1000)
-
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Achievement_character_bloodelf_male:27|t Visual Morph |cff0000ffBlood Elf Male",0, 90, false, "")
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Achievement_character_bloodelf_female:27|t Visual Morph |cff0000ffBlood Elf Female",0, 91, false, "")
-
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Achievement_character_tauren_male:27|t Visual Morph |cff0000ffTauren Male",0, 92, false, "")
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Achievement_character_tauren_female:27|t Visual Morph |cff0000ffTauren Female",0, 93, false, "")
-
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Achievement_character_orc_male:27|t Visual Morph |cff0000ffOrc Male",0, 94, false, "")
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Achievement_character_orc_female:27|t Visual Morph |cff0000ffOrc Female",0, 95, false, "")
-
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Achievement_character_undead_male:27|t Visual Morph |cff0000ffUndead Male",0, 96, false, "")
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Achievement_character_undead_male:27|t Visual Morph |cff0000ffUndead Male 2",0, 97, false, "")
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Achievement_character_undead_female:27|t Visual Morph |cff0000ffUndead Female",0, 98, false, "")
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Achievement_character_undead_male:27|t Visual Morph |cff0000ffUndead Pirate Male",0, 99, false, "")
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Achievement_character_undead_female:27|t Visual Morph |cff0000ffUndead Pirate Female",0, 100, false, "")
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Spell_shadow_raisedead:27|t Visual Morph |cff0000ffNoggenfogger Elixir",0, 101, false, "")
-
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Achievement_character_troll_male:27|t Visual Morph |cff0000ffTroll Male",0, 102, false, "")
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Achievement_character_troll_female:27|t Visual Morph |cff0000ffTroll Female",0, 103, false, "")
-
--- player:GossipMenuAddItem(6,"|TInterface\\icons\\Achievement_character_human_male:27|t Visual Morph |cff0000ffHuman Pirate Male",0, 600, false, "")
--- player:GossipMenuAddItem(6,"|TInterface\\icons\\Achievement_character_human_female:27|t Visual Morph |cff0000ffHuman Pirate Female",0, 601, false, "")
--- player:GossipMenuAddItem(6,"|TInterface\\icons\\Achievement_character_human_female:27|t Visual Morph |cff0000ffHuman Pirate Female 2",0, 602, false, "")
-
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Achievement_character_gnome_male:27|t Visual Morph |cff0000ffGnome Male",0, 603, false, "")
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Achievement_character_gnome_female:27|t Visual Morph |cff0000ffGnome Female",0, 604, false, "")
-
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Achievement_character_dwarf_male:27|t Visual Morph |cff0000ffDwarf Male",0, 605, false, "")
--- player:GossipMenuAddItem(6,"|TInterface\\icons\\Achievement_character_dwarf_male:27|t Visual Morph |cff0000ffDwarf Pirate Female",0, 606, false, "")
-
--- player:GossipMenuAddItem(6,"|TInterface\\icons\\Achievement_character_draenei_male:27|t Visual Morph |cff0000ffDraenei Male",0, 609, false, "")
-player:GossipMenuAddItem(6,"|TInterface\\icons\\Achievement_character_draenei_female:27|t Visual Morph |cff0000ffDraenei Female",0, 607, false, "")
-
--- player:GossipMenuAddItem(6,"|TInterface\\icons\\Achievement_character_nightelf_female:27|t Visual Morph |cff0000ffNight Elf Pirate Female",0, 608, false, "")
-player:GossipMenuAddItem(6,"Undead Male daqui pra baixo precisa do patch",0, 750, false, "")
-player:GossipMenuAddItem(6,"Undead FeMale",0, 751, false, "")
-player:GossipMenuAddItem(6,"Orc Male",0, 752, false, "")
-player:GossipMenuAddItem(6,"Troll FeMale",0, 753, false, "")
-player:GossipMenuAddItem(6,"Dwarf FeMale",0, 754, false, "")
-player:GossipMenuAddItem(6,"Draenei Male",0, 755, false, "")
-player:GossipMenuAddItem(6,"Human Male",0, 756, false, "")
-player:GossipMenuAddItem(6,"Human FeMale",0, 757, false, "")
-player:GossipMenuAddItem(6,"Nelf Male",0, 758, false, "")
-player:GossipMenuAddItem(6,"Nelf FeMale",0, 759, false, "")
-player:GossipMenuAddItem(3,"|TInterface\\RaidFrame\\ReadyCheck-NotReady:27:27:0:0|t |cFF800000Sair",0,999)
-player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)
-end
-
--- Custom Displays (need client patch)
--- Undead Male
-if (intid == 750) then
-if not (player:IsInCombat() or player:GetMap():IsArena()) then
-player:SetDisplayId(50563)
-player:SetScale(1)
-player:GossipComplete()
-end
-end
--- Undead FeMale
-if (intid == 751) then
-if not (player:IsInCombat() or player:GetMap():IsArena()) then
-player:SetDisplayId(50564)
-player:SetScale(1)
-player:GossipComplete()
-end
-end
--- Orc Male
-if (intid == 752) then
-if not (player:IsInCombat() or player:GetMap():IsArena()) then
-player:SetDisplayId(50560)
-player:SetScale(1)
-player:GossipComplete()
-end
-end
--- Troll FeMale
-if (intid == 753) then
-if not (player:IsInCombat() or player:GetMap():IsArena()) then
-player:SetDisplayId(50562)
-player:SetScale(1)
-player:GossipComplete()
-end
-end
--- Dwarf FeMale
-if (intid == 754) then
-if not (player:IsInCombat() or player:GetMap():IsArena()) then
-player:SetDisplayId(50565)
-player:SetScale(1)
-player:GossipComplete()
-end
-end
--- Draenei Male
-if (intid == 755) then
-if not (player:IsInCombat() or player:GetMap():IsArena()) then
-player:SetDisplayId(50566)
-player:SetScale(1)
-player:GossipComplete()
-end
-end
--- Human Male
-if (intid == 756) then
-if not (player:IsInCombat() or player:GetMap():IsArena()) then
-player:SetDisplayId(50567)
-player:SetScale(1)
-player:GossipComplete()
-end
-end
--- Human FeMale 
-if (intid == 757) then
-if not (player:IsInCombat() or player:GetMap():IsArena()) then
-player:SetDisplayId(50568)
-player:SetScale(1)
-player:GossipComplete()
-end
-end
--- Nelf Male
-if (intid == 758) then
-if not (player:IsInCombat() or player:GetMap():IsArena()) then
-player:SetDisplayId(50570)
-player:SetScale(1)
-player:GossipComplete()
-end
-end
--- Nelf FeMale
-if (intid == 759) then
-if not (player:IsInCombat() or player:GetMap():IsArena()) then
-player:SetDisplayId(50569)
-player:SetScale(1)
-player:GossipComplete()
-end
-end
-
-if (intid == 90) then
-if not (player:IsInCombat() or player:GetMap():IsArena()) then
-player:SetDisplayId(20368)
-player:SetScale(1)
-player:GossipComplete()
-end
-end
-if (intid == 91) then
-if not (player:IsInCombat() or player:GetMap():IsArena()) then
-player:SetDisplayId(20370)
-player:SetScale(1)
-player:GossipComplete()
-end
-end
-
-if (intid == 92) then
-if not (player:IsInCombat() or player:GetMap():IsArena()) then
-player:SetDisplayId(20319)
-player:SetScale(1)
-player:GossipComplete()
-end
-end
-if (intid == 93) then
-if not (player:IsInCombat() or player:GetMap():IsArena()) then
-player:SetDisplayId(20584)
-player:SetScale(1)
-player:GossipComplete()
-end
-end
-
-if (intid == 94) then
-if not (player:IsInCombat() or player:GetMap():IsArena()) then
-player:SetDisplayId(25067)
-player:SetScale(1)
-player:GossipComplete()
-end
-end
-if (intid == 95) then
-if not (player:IsInCombat() or player:GetMap():IsArena()) then
-player:SetDisplayId(20316)
-player:SetScale(1)
-player:GossipComplete()
-end
-end
-
-if (intid == 96) then
-if not (player:IsInCombat() or player:GetMap():IsArena()) then
-player:SetDisplayId(17662)
-player:SetScale(1)
-player:GossipComplete()
-end
-end
-if (intid == 97) then
-if not (player:IsInCombat() or player:GetMap():IsArena()) then
-player:SetDisplayId(3533)
-player:SetScale(1)
-player:GossipComplete()
-end
-end
-if (intid == 98) then
-if not (player:IsInCombat() or player:GetMap():IsArena()) then
-player:SetDisplayId(3529)
-player:SetScale(1)
-player:GossipComplete()
-end
-end
-if (intid == 99) then
-if not (player:IsInCombat() or player:GetMap():IsArena()) then
-player:SetDisplayId(25042)
-player:SetScale(1)
-player:GossipComplete()
-end
-end
-if (intid == 100) then
-if not (player:IsInCombat() or player:GetMap():IsArena()) then
-player:SetDisplayId(25053)
-player:SetScale(1)
-player:GossipComplete()
-end
-end
-if (intid == 101) then
-if not (player:IsInCombat() or player:GetMap():IsArena()) then
-player:SetDisplayId(7550)
-player:SetScale(1)
-player:GossipComplete()
-end
-end
-
-if (intid == 102) then
-if not (player:IsInCombat() or player:GetMap():IsArena()) then
-player:SetDisplayId(20321)
-player:SetScale(1)
-player:GossipComplete()
-end
-end
-if (intid == 103) then
-if not (player:IsInCombat() or player:GetMap():IsArena()) then
-player:SetDisplayId(4358)
-player:SetScale(1)
-player:GossipComplete()
-end
-end
-
-if (intid == 600) then
-if not (player:IsInCombat() or player:GetMap():IsArena()) then
-player:SetDisplayId(25037)
-player:SetScale(1)
-player:GossipComplete()
-end
-end
-if (intid == 601) then
-if not (player:IsInCombat() or player:GetMap():IsArena()) then
-player:SetDisplayId(25048)
-player:SetScale(1)
-player:GossipComplete()
-end
-end
-if (intid == 602) then
-if not (player:IsInCombat() or player:GetMap():IsArena()) then
-player:SetDisplayId(25054)
-player:SetScale(1)
-player:GossipComplete()
-end
-end
-
-if (intid == 603) then
-if not (player:IsInCombat() or player:GetMap():IsArena()) then
-player:SetDisplayId(20580)
-player:SetScale(1)
-player:GossipComplete()
-end
-end
-if (intid == 604) then
-if not (player:IsInCombat() or player:GetMap():IsArena()) then
-player:SetDisplayId(20320)
-player:SetScale(1)
-player:GossipComplete()
-end
-end
-
-if (intid == 605) then
-if not (player:IsInCombat() or player:GetMap():IsArena()) then
-player:SetDisplayId(20317)
-player:SetScale(1)
-player:GossipComplete()
-end
-end
-if (intid == 606) then
-if not (player:IsInCombat() or player:GetMap():IsArena()) then
-player:SetDisplayId(25045)
-player:SetScale(1)
-player:GossipComplete()
-end
-end
-
-if (intid == 607) then
-if not (player:IsInCombat() or player:GetMap():IsArena()) then
-player:SetDisplayId(20323)
-player:SetScale(1)
-player:GossipComplete()
-end
-end
-if (intid == 609) then
-if not (player:IsInCombat() or player:GetMap():IsArena()) then
-player:SetDisplayId(17155)
-player:SetScale(1)
-player:GossipComplete()
-end
-end
-if (intid == 608) then
-if not (player:IsInCombat() or player:GetMap():IsArena()) then
-player:SetDisplayId(25049)
-player:SetScale(1)
-player:GossipComplete()
-end
-end
- 
- 
  
  
 
@@ -1499,12 +1184,6 @@ if (intid == 999) then
 player:GossipComplete()
 end
  
-if(intid == 1000) then
-player:DeMorph()
-player:SetScale(1)
-player:SendBroadcastMessage("Seu morph foi removido, voltou a sua forma original..")
-player:GossipComplete()
-end
 end
  
 RegisterCreatureGossipEvent(NpcId, 1, On_Gossip_Select)
