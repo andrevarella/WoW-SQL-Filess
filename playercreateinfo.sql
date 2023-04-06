@@ -3,15 +3,15 @@
 
  Source Server         : acore
  Source Server Type    : MySQL
- Source Server Version : 50737
+ Source Server Version : 50739
  Source Host           : localhost:3306
- Source Schema         : acore_world
+ Source Schema         : 1acore_world
 
  Target Server Type    : MySQL
- Target Server Version : 50737
+ Target Server Version : 50739
  File Encoding         : 65001
 
- Date: 22/07/2022 00:48:13
+ Date: 06/04/2023 16:26:39
 */
 
 SET NAMES utf8mb4;
@@ -98,5 +98,10 @@ INSERT INTO `playercreateinfo` VALUES (1, 5, 571, 394, 2787.87, -2732.06, 89.671
 INSERT INTO `playercreateinfo` VALUES (1, 4, 571, 394, 2787.87, -2732.06, 89.6718, 0.410484);
 INSERT INTO `playercreateinfo` VALUES (1, 2, 571, 394, 2787.87, -2732.06, 89.6718, 0.410484);
 INSERT INTO `playercreateinfo` VALUES (1, 1, 571, 394, 2787.87, -2732.06, 89.6718, 0.410484);
+INSERT INTO `playercreateinfo` VALUES (4, 8, 571, 394, 2787.87, -2732.06, 89.6718, 0.410484);
+INSERT INTO `playercreateinfo` VALUES (5, 3, 571, 394, 2787.87, -2732.06, 89.6718, 0.410484);
+INSERT INTO `playercreateinfo` VALUES (8, 9, 571, 394, 2787.87, -2732.06, 89.6718, 0.410484);
+INSERT INTO `playercreateinfo` VALUES (6, 2, 571, 394, 2787.87, -2732.06, 89.6718, 0.410484);
+INSERT INTO `playercreateinfo` VALUES (7, 5, 571, 394, 2787.87, -2732.06, 89.6718, 0.410484);
 
 SET FOREIGN_KEY_CHECKS = 1;

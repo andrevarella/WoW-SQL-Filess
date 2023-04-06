@@ -1,9 +1,8 @@
-coisas p atualizar no patch/upload
+coisas p atualizar no repo
 
-patch.w - separar em 2 patches, 1 pra interface/dbc files e outro pra arquivos pesados
-
-dbcs: chartitles/spell/itemextendedcost e talvez outras a mais tbm
-
-database: npc_vendor, creature/creature_template, talvez item, documentar do 0 mudanças em loot em dg/icc/ulduar/toc etc
+database: 
+npc_vendor
+creature (mall/vip/teste/mounts)
+creature_template (todos novos)
 
 talvez spell_proc_event/script/spell_linked_spell

@@ -97,15 +97,15 @@ local function onSelectMorphDisplay(event, player, object, sender, intid, code, 
 
     -- raças horde
     if (intid == 8) then
-        player:SetDisplayId(50563) -- Undead Male
+        player:SetDisplayId(50563) -- Undead Male     -- Precisa do patch
         morpherMenu(event, player, object)
     end
     if (intid == 9) then
-        player:SetDisplayId(50564) -- Undead Female
+        player:SetDisplayId(50564) -- Undead Female    -- Precisa do patch
         morpherMenu(event, player, object)
     end
     if (intid == 10) then
-        player:SetDisplayId(50560) -- Orc Male
+        player:SetDisplayId(50560) -- Orc Male         -- Precisa do patch
         morpherMenu(event, player, object)
     end
     if (intid == 11) then
@@ -133,25 +133,25 @@ local function onSelectMorphDisplay(event, player, object, sender, intid, code, 
         morpherMenu(event, player, object)
     end
     if (intid == 17) then
-        player:SetDisplayId(50562) -- Troll Female
+        player:SetDisplayId(50562) -- Troll Female      -- Precisa do patch
         morpherMenu(event, player, object)
     end
 
     -- Raças Alliance
     if (intid == 20) then
-        player:SetDisplayId(50567) -- Human Male
+        player:SetDisplayId(19723) -- Human Male (old q precisa de patch é 50567)
         morpherMenu(event, player, object)
     end
     if (intid == 21) then
-        player:SetDisplayId(50568) -- Human Female
+        player:SetDisplayId(19724) -- Human Female (old q precisa de patch é 50568)
         morpherMenu(event, player, object)
     end
     if (intid == 22) then
-        player:SetDisplayId(50570) -- Nelf Male
+        player:SetDisplayId(20318) -- Nelf Male (old q precisa de patch é display 50570)
         morpherMenu(event, player, object)
     end
     if (intid == 23) then
-        player:SetDisplayId(50569) -- Nelf Female
+        player:SetDisplayId(50569) -- Nelf Female       -- Precisa do patch
         morpherMenu(event, player, object)
     end
     if (intid == 24) then
@@ -167,11 +167,11 @@ local function onSelectMorphDisplay(event, player, object, sender, intid, code, 
         morpherMenu(event, player, object)
     end
     if (intid == 27) then
-        player:SetDisplayId(50565) -- Dwarf Female
+        player:SetDisplayId(50565) -- Dwarf Female        -- Precisa do patch
         morpherMenu(event, player, object)
     end
     if (intid == 28) then
-        player:SetDisplayId(50566) -- Draenei Male
+        player:SetDisplayId(50566) -- Draenei Male         -- Precisa do patch
         morpherMenu(event, player, object)
     end
     if (intid == 29) then

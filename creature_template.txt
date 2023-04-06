@@ -1,4 +1,32 @@
--- creature_equip_template - CreatureID = creature_template
+--------------------------------------------------------------------------------------------------------------------------
+-- CREATURE_EQUIP_TREMPLATE - CreatureID = creature_template -------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------
+
+-- orc transmog vendor
+INSERT INTO `1acore_world`.`creature_equip_template`(`CreatureID`, `ID`, `ItemID1`, `ItemID2`, `ItemID3`, `VerifiedBuild`) VALUES (80247, 1, 28773, 0, 0, 18019);
+
+-- custom transmog vendor (polearm scythe na mao)
+INSERT INTO `1acore_world`.`creature_equip_template`(`CreatureID`, `ID`, `ItemID1`, `ItemID2`, `ItemID3`, `VerifiedBuild`) VALUES (93027, 1, 70000, 0, 0, 18019);
+
+-- NPC Druid Form Morpher - polearm na mao
+INSERT INTO `1acore_world`.`creature_equip_template`(`CreatureID`, `ID`, `ItemID1`, `ItemID2`, `ItemID3`, `VerifiedBuild`) VALUES (45432, 1, 34874, 0, 0, 18019);
+
+-- PvP Enchant Transmog - Armas
+INSERT INTO `1acore_world`.`creature_equip_template`(`CreatureID`, `ID`, `ItemID1`, `ItemID2`, `ItemID3`, `VerifiedBuild`) VALUES (93078, 1, 29437, 29437, 0, 18019);
+
+-- NPC Vip Transmog Weapon Enchant (cores diferentes em cada mao)
+INSERT INTO `1acore_world`.`creature_equip_template`(`CreatureID`, `ID`, `ItemID1`, `ItemID2`, `ItemID3`, `VerifiedBuild`) VALUES (190065, 1, 29433, 29413, 0, 18019);
+
+
+-- NPC Queue Arena (Orc de armadura/axe dourado)
+UPDATE `creature_template` SET `name` = 'Arena Queue',`subname` = 'Arena Battlemaster',`modelid1` = '17801',`scale` = '1.9' WHERE `entry` = '19859';
+UPDATE `creature_equip_template` SET `ItemID1` = '19354' WHERE `CreatureID` = '19859';
+
+----------------------------------------
+-- npc mount trainer  roxy ramrocket id 3111838
+UPDATE `creature_template` SET `modelid1` = '27534' WHERE `entry` = '31247';
+INSERT INTO `1acore_world`.`creature_addon`(`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES (3111838, 0, 23656, 0, 0, 0, 0, '');
+
 
 -- MALL:
 -- npc inkeeper mall (vermelho p hordas)
@@ -14,25 +42,10 @@ UPDATE `creature_template` SET `faction` = '35' WHERE `entry` = '35494';
 -- npc profession kaylub <Professions>
 UPDATE `creature_template` SET `modelid1` = '21641' WHERE `entry` = '199999';
 
--- npc mount trainer  roxy ramrocket id 3111838
-UPDATE `creature_template` SET `modelid1` = '27534' WHERE `entry` = '31247';
-INSERT INTO `1acore_world`.`creature_addon`(`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES (3111838, 0, 23656, 0, 0, 0, 0, '');
-
--- arena queue
-UPDATE `creature_template` SET `name` = 'Arena Queue',`subname` = 'Arena Battlemaster',`modelid1` = '17801',`scale` = '1.9' WHERE `entry` = '19859';
-UPDATE `creature_equip_template` SET `ItemID1` = '19354' WHERE `CreatureID` = '19859';
-
--- orc transmog vendor
-INSERT INTO `1acore_world`.`creature_equip_template`(`CreatureID`, `ID`, `ItemID1`, `ItemID2`, `ItemID3`, `VerifiedBuild`) VALUES (80247, 1, 28773, 0, 0, 18019);
 
 -- transmog vendor scale
 UPDATE `creature_template` SET `scale` = '1.52' WHERE `entry` = '190010';
 
--- custom transmog vendor (polearm scythe na mao)
-INSERT INTO `1acore_world`.`creature_equip_template`(`CreatureID`, `ID`, `ItemID1`, `ItemID2`, `ItemID3`, `VerifiedBuild`) VALUES (93027, 1, 70000, 0, 0, 18019);
-
--- PvP Enchant Transmog - Armas
-INSERT INTO `1acore_world`.`creature_equip_template`(`CreatureID`, `ID`, `ItemID1`, `ItemID2`, `ItemID3`, `VerifiedBuild`) VALUES (93078, 1, 29437, 29437, 0, 18019);
 
 -- ==============
 -- P DELETAR APOS CREATEMPLATE NOVOS ATUALIZADOS (apenas creature novos)
