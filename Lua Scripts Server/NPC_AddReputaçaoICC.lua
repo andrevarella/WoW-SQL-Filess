@@ -13,7 +13,7 @@ end
 
 local function OnGossipSelect(event, player, object, sender, intid, code)
     if (intid == 1) then
-        player:SetReputation(1156, 42000)
+        player:SetReputation(1156, 9000)
         player:GossipComplete()
     end
 end

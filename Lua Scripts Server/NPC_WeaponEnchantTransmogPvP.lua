@@ -148,6 +148,7 @@ if(intid == 1003) then
     local item = player:GetEquippedItemBySlot(15)
     if(player:GetEquippedItemBySlot(15)) then
     setVisual(player, item, 0)
+    player:SendBroadcastMessage("Relogue para restaurar o visual do enchant equipado na sua main hand weapon.")
     player:GossipComplete()
     end
 end
@@ -156,6 +157,7 @@ end
     local item = player:GetEquippedItemBySlot(16)
     if(player:GetEquippedItemBySlot(16)) then
     setVisual(player, item, 0)
+    player:SendBroadcastMessage("Relogue para restaurar o visual do enchant equipado na sua off hand weapon.")
     player:GossipComplete()
     end
 end

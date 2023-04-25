@@ -1,8 +1,0 @@
-coisas p atualizar no repo
-
-database: 
-npc_vendor
-creature (mall/vip/teste/mounts)
-creature_template (todos novos)
-
-talvez spell_proc_event/script/spell_linked_spell

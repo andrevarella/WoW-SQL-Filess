@@ -63,6 +63,13 @@ player:GossipMenuAddItem(3,"|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:2
 player:GossipMenuAddItem(3,"|TInterface\\icons\\Inv_inscription_parchment:25|t Proxima Página (1/3) ",0, 440)
 player:GossipMenuAddItem(5,"|TInterface\\icons\\spell_holy_dispelmagic:27|t Remover Enchant Visual (Main Hand)",0, 1003)
 
+--player:GossipMenuAddItem(9,"test 4030",0, 600, false, "")
+--player:GossipMenuAddItem(9,"test 4031",0, 601, false, "")
+--player:GossipMenuAddItem(9,"test 4032",0, 602, false, "")
+--player:GossipMenuAddItem(9,"test 4033",0, 603, false, "")
+--player:GossipMenuAddItem(9,"test 4034",0, 604, false, "")
+--player:GossipMenuAddItem(9,"|TInterface\\icons\\Spell_frost_frostblast:27|t |cff0000ffWraithchill",0, 459, false, "")
+
 player:GossipMenuAddItem(9,"|TInterface\\icons\\Inv_jewelry_talisman_07:27|t |cffffffffCrusader",0, 450, false, "")
 
 player:GossipMenuAddItem(9,"|TInterface\\icons\\Inv_jewelry_talisman_07:27|t |cffffffffBattlemaster",0, 122, false, "")
@@ -112,6 +119,46 @@ player:GossipMenuAddItem(5,"|TInterface\\RaidFrame\\ReadyCheck-NotReady:27:27:0:
 player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)
 end
 
+-- test wraithchills estatico, as particulas vao apenas p cima e p baixo
+if(intid == 600) then
+local item = player:GetEquippedItemBySlot(15)
+if(player:GetEquippedItemBySlot(15)) then
+setVisual(player, item, 4030)
+player:GossipComplete()
+end
+end
+-- test wraithchills Ok, as particulas vao p esquerda
+if(intid == 601) then
+local item = player:GetEquippedItemBySlot(15)
+if(player:GetEquippedItemBySlot(15)) then
+setVisual(player, item, 4031)
+player:GossipComplete()
+end
+end
+-- test wraithchills ok, as particulas vao p direita
+if(intid == 602) then
+local item = player:GetEquippedItemBySlot(15)
+if(player:GetEquippedItemBySlot(15)) then
+setVisual(player, item, 4032)
+player:GossipComplete()
+end
+end
+-- test wraithchills ok, p direita tbm (na ponta a particula e maior)
+if(intid == 603) then
+local item = player:GetEquippedItemBySlot(15)
+if(player:GetEquippedItemBySlot(15)) then
+setVisual(player, item, 4033)
+player:GossipComplete()
+end
+end
+-- test wraithchills ok, particula p esquerda e na ponta p direita
+if(intid == 604) then
+local item = player:GetEquippedItemBySlot(15)
+if(player:GetEquippedItemBySlot(15)) then
+setVisual(player, item, 4034)
+player:GossipComplete()
+end
+end
 
 
 if(intid == 450) then
@@ -225,6 +272,7 @@ setVisual(player, item, 3869)
 player:GossipComplete()
 end
 end
+
 
 if(intid == 459) then
 local item = player:GetEquippedItemBySlot(15)
@@ -488,7 +536,7 @@ player:GossipSetText(string.format("Main-Hand Enchantments de cor |cFF008000Verd
 player:GossipMenuAddItem(3,"|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:27:27:0:0|t Voltar",0,440)
 player:GossipMenuAddItem(5,"|TInterface\\icons\\spell_holy_dispelmagic:27|t Remover Enchant Visual(Main Hand)",0, 1003)
 
-player:GossipMenuAddItem(9,"|TInterface\\icons\\Inv_rod_enchantedfelsteel:27|t |cFF008000Demonic Tyranny - Temporario",0, 482, false, "")
+-- player:GossipMenuAddItem(9,"|TInterface\\icons\\Inv_rod_enchantedfelsteel:27|t |cFF008000Demonic Tyranny - Temporario",0, 482, false, "")
 
 player:GossipMenuAddItem(9,"|TInterface\\icons\\Inv_axe_15:27|t |cFF008000Breath of Yu'lon",0, 483, false, "")
 
@@ -600,10 +648,12 @@ setVisual(player, item, 7)
 player:GossipComplete()
 end
 end
+
 if(intid == 1003) then
 local item = player:GetEquippedItemBySlot(15)
 if(player:GetEquippedItemBySlot(15)) then
 setVisual(player, item, 0)
+player:SendBroadcastMessage("Relogue para restaurar o visual do enchant equipado na sua main hand weapon.")
 player:GossipComplete()
 end
 end
@@ -1039,7 +1089,7 @@ player:GossipSetText(string.format("Off Hand Enchantments de cor |cFF008000Verde
 player:GossipMenuAddItem(3,"|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:27:27:0:0|t Voltar",0,530)
 player:GossipMenuAddItem(5,"|TInterface\\icons\\spell_holy_dispelmagic:27|t Remover Enchant Visual (Off Hand)",0, 1002)
 
-player:GossipMenuAddItem(9,"|TInterface\\icons\\Inv_rod_enchantedfelsteel:27|t |cFF008000Demonic Tyranny - Temporario",0, 552, false, "")
+-- player:GossipMenuAddItem(9,"|TInterface\\icons\\Inv_rod_enchantedfelsteel:27|t |cFF008000Demonic Tyranny - Temporario",0, 552, false, "")
 
 player:GossipMenuAddItem(9,"|TInterface\\icons\\Inv_axe_15:27|t |cFF008000Breath of Yu'lon",0, 553, false, "")
 
@@ -1161,6 +1211,7 @@ if(intid == 1002) then
 local item = player:GetEquippedItemBySlot(16)
 if(player:GetEquippedItemBySlot(16)) then
 setVisual(player, item, 0)
+player:SendBroadcastMessage("Relogue para restaurar o visual do enchant equipado na sua off hand weapon.")
 player:GossipComplete()
 end
 end

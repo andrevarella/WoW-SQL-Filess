@@ -2,20 +2,19 @@
 -- CREATURE_EQUIP_TREMPLATE - CreatureID = creature_template -------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------
 
--- orc transmog vendor
+-- Orc transmog Vendor
 INSERT INTO `1acore_world`.`creature_equip_template`(`CreatureID`, `ID`, `ItemID1`, `ItemID2`, `ItemID3`, `VerifiedBuild`) VALUES (80247, 1, 28773, 0, 0, 18019);
 
--- custom transmog vendor (polearm scythe na mao)
+-- Custom Transmog Vendor (polearm scythe na mao)
 INSERT INTO `1acore_world`.`creature_equip_template`(`CreatureID`, `ID`, `ItemID1`, `ItemID2`, `ItemID3`, `VerifiedBuild`) VALUES (93027, 1, 70000, 0, 0, 18019);
 
 -- NPC Druid Form Morpher - polearm na mao
 INSERT INTO `1acore_world`.`creature_equip_template`(`CreatureID`, `ID`, `ItemID1`, `ItemID2`, `ItemID3`, `VerifiedBuild`) VALUES (45432, 1, 34874, 0, 0, 18019);
 
--- PvP Enchant Transmog - Armas
-INSERT INTO `1acore_world`.`creature_equip_template`(`CreatureID`, `ID`, `ItemID1`, `ItemID2`, `ItemID3`, `VerifiedBuild`) VALUES (93078, 1, 29437, 29437, 0, 18019);
-
--- NPC Vip Transmog Weapon Enchant (cores diferentes em cada mao)
-INSERT INTO `1acore_world`.`creature_equip_template`(`CreatureID`, `ID`, `ItemID1`, `ItemID2`, `ItemID3`, `VerifiedBuild`) VALUES (190065, 1, 29433, 29413, 0, 18019);
+-- PvP Enchant Transmogrifier - Armas
+INSERT INTO `1acore_world`.`creature_equip_template`(`CreatureID`, `ID`, `ItemID1`, `ItemID2`, `ItemID3`, `VerifiedBuild`) VALUES (93078, 1, 80764, 80765, 0, 18019);
+-- Transmog Weapon Enchant Transmogrifier - Vip
+INSERT INTO `1acore_world`.`creature_equip_template`(`CreatureID`, `ID`, `ItemID1`, `ItemID2`, `ItemID3`, `VerifiedBuild`) VALUES (190065, 1, 29437, 29437, 0, 18019);
 
 
 -- NPC Queue Arena (Orc de armadura/axe dourado)
@@ -48,7 +47,7 @@ UPDATE `creature_template` SET `scale` = '1.52' WHERE `entry` = '190010';
 
 
 -- ==============
--- P DELETAR APOS CREATEMPLATE NOVOS ATUALIZADOS (apenas creature novos)
+-- P DELETAR APOS CREATEMPLATE NOVOS ATUALIZADOS (apenas creature novos[ID>=70000) 
 -- auctioneer 3111766, display 22884, male c regata
 UPDATE `creature_template` SET `modelid1` = '18967' WHERE `entry` = '93070';
 
