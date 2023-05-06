@@ -104,8 +104,9 @@ INSERT INTO `1acore_world`.`spell_proc_event`(`entry`, `SchoolMask`, `SpellFamil
 
 --
 -- ▸▸ Warrior      ---
--- * custom Spell - MS aumenta duraçao do rend em 3s (NAO TA FUNCIONANDO N SEI PQ)
-INSERT INTO `1acore_world`.`spell_proc_event`(`entry`, `SchoolMask`, `SpellFamilyName`, `SpellFamilyMask0`, `SpellFamilyMask1`, `SpellFamilyMask2`, `procFlags`, `procEx`, `procPhase`, `ppmRate`, `CustomChance`, `Cooldown`) VALUES (83266, 0, 4, 4, 0, 0, 65536, 0, 0, 0, 0, 0);
+-- * custom Spell - MS aumenta duraçao do rend em 3s
+INSERT INTO `1acore_world`.`spell_proc_event`(`entry`, `SchoolMask`, `SpellFamilyName`, `SpellFamilyMask0`, `SpellFamilyMask1`, `SpellFamilyMask2`, `procFlags`, `procEx`, `procPhase`, `ppmRate`, `CustomChance`, `Cooldown`) VALUES (83266, 0, 4, 33554432, 0, 0, 16, 0, 0, 0, 0, 0);
+
 
 -- ▸▸ Death Knight ---
 -- 

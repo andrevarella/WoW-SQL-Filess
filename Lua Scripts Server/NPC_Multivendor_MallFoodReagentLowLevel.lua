@@ -20,7 +20,7 @@ if(intid == 2) then
    end
 
 if(intid == 3) then
-   player:SendListInventory(creature, 3090)
+   player:SendListInventory(creature, 94152)
    end
 
 if(intid == 4) then

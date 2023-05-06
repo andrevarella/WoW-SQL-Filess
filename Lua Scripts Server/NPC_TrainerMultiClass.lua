@@ -13,84 +13,113 @@ function On_Top_Select(event, player, creature, sender, intid, code)
 
 -- Warrior
 if(intid == 1 and player:GetClass() == 1) then
-   --player:LearnSpell(54753) --
-   player:LearnSpell(58096) -- Glyph of Bloodrage
-   player:SendBroadcastMessage("You have learned all available spells.")
-   player:GossipComplete()
+   if not player:HasSpell(1715) then -- Hamstring
+       player:LearnSpell(1715)
+   else
+   	   player:SendBroadcastMessage("You already know all available spells.")
    end
+   player:GossipComplete()
+end
 
 
 --Paladin
 if(intid == 1 and player:GetClass() == 2) then
-   player:LearnSpell(54753)
-   player:SendBroadcastMessage("You have learned all available spells.")
-   player:GossipComplete()
+   if not player:HasSpell(4987) then -- Cleanse
+       player:LearnSpell(4987)
+   else
+   	   player:SendBroadcastMessage("You already know all available spells.")
    end
+   player:GossipComplete()
+end
 
 
 -- Hunter
 if(intid == 1 and player:GetClass() == 3) then
-   player:LearnSpell(54753)
-   player:SendBroadcastMessage("You have learned all available spells.")
-   player:GossipComplete()
+   if not player:HasSpell(34600) then -- Snake Trap
+       player:LearnSpell(34600)
+   else
+   	   player:SendBroadcastMessage("You already know all available spells.")
    end
+   player:GossipComplete()
+end
    
    
 -- Rogue
 if(intid == 1 and player:GetClass() == 4) then
-   player:LearnSpell(54753)
-   player:SendBroadcastMessage("You have learned all available spells.")
-   player:GossipComplete()
+   if not player:HasSpell(1784) then -- Stealth
+       player:LearnSpell(1784)
+   else
+   	   player:SendBroadcastMessage("You already know all available spells.")
    end
+   player:GossipComplete()
+end
    
    
 -- Priest
 if(intid == 1 and player:GetClass() == 5) then
-   player:LearnSpell(54753)
-   player:SendBroadcastMessage("You have learned all available spells.")
-   player:GossipComplete()
+   if not player:HasSpell(6346) then -- Fear Ward
+       player:LearnSpell(6346)
+   else
+   	   player:SendBroadcastMessage("You already know all available spells.")
    end
+   player:GossipComplete()
+end
    
    
 -- Death Knight
 if(intid == 1 and player:GetClass() == 6) then
-   player:LearnSpell(54753)
-   player:LearnSpell(60200) -- glyph of raise dead
-   player:SendBroadcastMessage("You have learned all available spells.")
-   player:GossipComplete()
+   if not player:HasSpell(48707) then -- Anti Magic Shell
+       player:LearnSpell(48707)
+   else
+   	   player:SendBroadcastMessage("You already know all available spells.")
    end
+   player:GossipComplete()
+end
    
    
 -- Shaman
 if(intid == 1 and player:GetClass() == 7) then 
-   player:LearnSpell(54753)
-   player:SendBroadcastMessage("You have learned all available spells.")
-   player:GossipComplete()
+   if not player:HasSpell(33736) then -- Water Shield rank 8
+       player:LearnSpell(33736)
+   else
+   	   player:SendBroadcastMessage("You already know all available spells.")
    end
+   player:GossipComplete()
+end
    
    
 -- Mage   
 if(intid == 1 and player:GetClass() == 8) then 
-   player:LearnSpell(54753)
-   player:SendBroadcastMessage("You have learned all available spells.")
-   player:GossipComplete()
+   if not player:HasSpell(1459) then -- Arcane Intelect (Rank 1)
+       player:LearnSpell(1459)
+   else
+   	   player:SendBroadcastMessage("You already know all available spells.")
    end
+   player:GossipComplete()
+end
    
    
 -- Warlock
 if(intid == 1 and player:GetClass() == 9) then
-   player:LearnSpell(54753)
-   player:SendBroadcastMessage("You have learned all available spells.")
-   player:GossipComplete()
+   if not player:HasSpell(5500) then -- Sense Demons
+   	   player:LearnSpell(5500)
+   else
+   	   player:SendBroadcastMessage("You already know all available spells.")
    end
+   player:GossipComplete()
+end
    
    
 -- Druid
 if(intid == 1 and player:GetClass() == 11) then
-   player:LearnSpell(54753)
-   player:SendBroadcastMessage("You have learned all available spells.")
-   player:GossipComplete()
+   player:LearnSpell(22812)           -- Barkskin
+   if player:HasSpell(34091) then     -- 300 Riding (280%)
+   	    player:LearnSpell(40120)      -- Swift Flight Form
+   else
+       player:SendBroadcastMessage("You already know all available spells.")
    end
+   player:GossipComplete()
+end
 
 
 -- Reset Player Talents

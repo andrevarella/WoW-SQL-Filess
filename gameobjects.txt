@@ -65,7 +65,6 @@ INSERT INTO `new_acore_world`.`gameobject` (`guid`, `id`, `map`, `zoneId`, `area
 
 -- tendas mall
 INSERT INTO `new_acore_world`.`gameobject` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecs`, `animprogress`, `state`, `ScriptName`, `VerifiedBuild`) VALUES (2137674, 250207, 571, 0, 0, 1, 1, 2881.85, -2697.92, 84.6769, 2.19014, 0, 0, -0.888961, -0.457982, 300, 0, 1, '', 0);
-INSERT INTO `new_acore_world`.`gameobject` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecs`, `animprogress`, `state`, `ScriptName`, `VerifiedBuild`) VALUES (2137600, 250207, 571, 0, 0, 1, 1, 2890.88, -2691.92, 84.681, 2.11399, 0, 0, -0.870881, -0.491493, 300, 0, 1, '', 0);
 
 -- cabelereiros
 INSERT INTO `new_acore_world`.`gameobject` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecs`, `animprogress`, `state`, `ScriptName`, `VerifiedBuild`) VALUES (2137753, 191029, 571, 0, 0, 1, 1, 2917.79, -2680.29, 94.264, 2.71399, 0, 0, -0.977232, -0.212174, 300, 0, 1, '', 0);
