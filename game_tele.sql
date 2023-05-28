@@ -40,3 +40,5 @@ INSERT INTO `new_acore_world`.`game_tele` (`id`, `position_x`, `position_y`, `po
 INSERT INTO `new_acore_world`.`game_tele` (`id`, `position_x`, `position_y`, `position_z`, `orientation`, `map`, `name`) VALUES (1537, 5467.77, -3726.04, 1593.44, 1.09405, 1, 'vip');
 INSERT INTO `new_acore_world`.`game_tele` (`id`, `position_x`, `position_y`, `position_z`, `orientation`, `map`, `name`) VALUES (1538, -11826.2, -4792.36, 5.92142, 4.73192, 1, 'vipAT');
 INSERT INTO `new_acore_world`.`game_tele` (`id`, `position_x`, `position_y`, `position_z`, `orientation`, `map`, `name`) VALUES (1539, 6244.48, 5792.15, -6.13054, 1.26967, 571, 'proff2');
+INSERT INTO `1acore_world`.`game_tele`(`id`, `position_x`, `position_y`, `position_z`, `orientation`, `map`, `name`) VALUES (1541, -117.555, -195.67, -423.224, 4.72384, 13, 'teste2');
+INSERT INTO `1acore_world`.`game_tele`(`id`, `position_x`, `position_y`, `position_z`, `orientation`, `map`, `name`) VALUES (1542, -8569.11, 1997.43, 100.721, 0.378044, 1, 'AhnqirajShop');

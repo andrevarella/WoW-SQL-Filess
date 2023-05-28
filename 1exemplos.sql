@@ -33,7 +33,28 @@ ALTER TABLE `creature_template`
 ALTER TABLE `creature_template` DROP `InhabitType`;
 
 
-teste
-test2
-test3
-test4
+--teste
+--test2
+--test3
+--test4
+
+-- para colocar/mudar o extendedcost para 1500 em todos os items do entry 102345
+UPDATE npc_vendor
+SET extendedcost = 1500
+WHERE entry = 1012345;
+
+
+-- para adicionar no npc_vendor items com ilvl 251, com nome lasherweave e statscount not 0
+SET @Entry := 1001040;
+SET @iLvL := '251';
+
+INSERT INTO npc_vendor (entry, slot, item, maxcount, incrtime, ExtendedCost)
+SELECT @Entry, 0, entry, 0, 0, 0
+FROM item_template
+WHERE ItemLevel = @iLvL
+    AND name LIKE '%lasherweave%'
+    AND StatsCount NOT LIKE '%0%';
+	
+	
+-- para colocar ' tem que colocar dois ', exemplo:
+-- AND name LIKE '%Frost Witch''s%'
