@@ -79,3 +79,4 @@ INSERT INTO `1acore_world`.`player_factionchange_spells`(`alliance_id`, `allianc
 INSERT INTO `1acore_world`.`player_factionchange_spells`(`alliance_id`, `alliance_comment`, `horde_id`, `horde_comment`) VALUES (84435, 'Blue Dragonhawk', 84433, 'Red Dragonhawk');
 INSERT INTO `1acore_world`.`player_factionchange_spells`(`alliance_id`, `alliance_comment`, `horde_id`, `horde_comment`) VALUES (84439, 'Silver Covenant Hippogryph', 84437, 'Sunreaver Dragonhawk');
 INSERT INTO `1acore_world`.`player_factionchange_spells`(`alliance_id`, `alliance_comment`, `horde_id`, `horde_comment`) VALUES (85105, 'Vicious War Spider - ally', 85104, 'Vicious War Spider - horde');
+INSERT INTO `1acore_world`.`player_factionchange_spells`(`alliance_id`, `alliance_comment`, `horde_id`, `horde_comment`) VALUES (85147, 'Paladin Dwarf Ram', 85145, 'Paladin Tauren Sunwalker Kodo');
