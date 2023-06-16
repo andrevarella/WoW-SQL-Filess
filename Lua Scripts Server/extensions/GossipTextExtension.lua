@@ -18,3 +18,10 @@ function Player:GossipSetText(text, textID)
     end
     self:SendPacket(data)
 end
+
+--[[ Example:
+	player:GossipMenuAddItem(0, "asd", 0, 0)
+	player:GossipMenuAddItem(0, "asd", 0, 0)
+	player:GossipSetText("Testing "..math.random()) -- Will show as top text within the gossip menu
+	player:GossipSendMenu(0x7FFFFFFF, creature) -- Use 0x7FFFFFFF as the ManuId instead of the normal database based MenuId's
+]]
