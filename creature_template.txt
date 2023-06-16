@@ -22,6 +22,7 @@ UPDATE `creature_template` SET `name` = 'Arena Queue',`subname` = 'Arena Battlem
 UPDATE `creature_equip_template` SET `ItemID1` = '19354' WHERE `CreatureID` = '19859';
 
 ----------------------------------------
+----------------------------------------
 -- npc mount trainer  roxy ramrocket id 3111838
 UPDATE `creature_template` SET `modelid1` = '27534' WHERE `entry` = '31247';
 INSERT INTO `1acore_world`.`creature_addon`(`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES (3111838, 0, 23656, 0, 0, 0, 0, '');
@@ -100,6 +101,10 @@ UPDATE `creature_template` SET `flags_extra` = '8388628' WHERE `entry` = '24207'
 UPDATE `creature_template` SET `flags_extra` = '20' WHERE `entry` = '19668';
 
 -- ---------------------------------------------------
+-- MOBS BLACK TEMPLE RELIQUARY OF THE LOST (com aparencia de infernais pequenos)
+-- Angered Soul Fragment
+UPDATE `creature_template` SET `modelid1` = '11686', `modelid2` = '0' WHERE `entry` = '23398';
+-- ---------------------------------------------------
 -- MOBS RUBY
 -- charscale assaulter 50/175 > 25/37
 UPDATE `creature_template` SET `healthmodifier` = '25' WHERE `entry` = '40419';
@@ -121,6 +126,7 @@ UPDATE `creature_template` SET `speed_run` = '0.47' WHERE `entry` = '39190';
 UPDATE `creature_template` SET `speed_run` = '0.47' WHERE `entry` = '39287';
 UPDATE `creature_template` SET `speed_run` = '0.47' WHERE `entry` = '39288';
 UPDATE `creature_template` SET `speed_run` = '0.47' WHERE `entry` = '39289';
+-- Inicio ICC
 -- The Damned 38/125 > 16/35
 UPDATE `creature_template` SET `healthmodifier` = '16' WHERE `entry` = '37011';
 UPDATE `creature_template` SET `healthmodifier` = '35' WHERE `entry` = '38061';
@@ -136,6 +142,7 @@ UPDATE `creature_template` SET `healthmodifier` = '27' WHERE `entry` = '38059';
 -- Deathbound Ward 125/400 >
 UPDATE `creature_template` SET `healthmodifier` = '40' WHERE `entry` = '37007';
 UPDATE `creature_template` SET `healthmodifier` = '70' WHERE `entry` = '38031';
+-- Testar se HP dos mobs sumonados do segundo boss são reduzidos tbm
 -- Risen Deathspeaker Servant 35/75 >
 UPDATE `creature_template` SET `healthmodifier` = '15' WHERE `entry` = '36844';
 UPDATE `creature_template` SET `healthmodifier` = '35' WHERE `entry` = '38077';
