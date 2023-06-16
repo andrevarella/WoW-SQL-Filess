@@ -11,7 +11,7 @@
  Target Server Version : 50739
  File Encoding         : 65001
 
- Date: 25/02/2023 10:03:58
+ Date: 15/06/2023 22:41:28
 */
 
 SET NAMES utf8mb4;
@@ -137,7 +137,7 @@ INSERT INTO `achievement_reward` VALUES (4602, 0, 0, 51954, 37120, 'Glory of the
 INSERT INTO `achievement_reward` VALUES (4603, 0, 0, 51955, 37120, 'Glory of the Icecrown Raider', '$N,$B$BAs the Lich King\'s influence wanes, some of his more powerful minions have wrested free of his grasp.$B$BThis frost wyrm drake my men captured is a prime example. She has a will of her own and then some.$B$BOne of my men lost an arm breaking her in, but she now takes to riders fairly well -- provided they themselves are skilled and strong willed.$B$BPlease accept this magnificent beast as a gift from the Knights of the Ebon Blade. It was an honor to fight along your side in this greatest of battles.$B$BWith honor,$BDarion Mograine.', 0);
 INSERT INTO `achievement_reward` VALUES (4784, 0, 0, 0, 37942, 'Emblem Quartermasters in Dalaran\'s Silver Enclave', 'Your achievements in Northrend have not gone unnoticed, friend.$B$BThe Emblems you have earned may be used to purchase equipment from the various Emblem Quartermasters in Dalaran.$B$BYou may find us there, in the Silver Enclave, where each variety of Emblem has its own quartermaster.$B$BWe look forward to your arrival!', 0);
 INSERT INTO `achievement_reward` VALUES (4785, 0, 0, 0, 37941, 'Emblem Quartermasters in Dalaran\'s Sunreaver Sanctuary', 'Your achievements in Northrend have not gone unnoticed, friend.$B$BThe Emblems you have earned may be used to purchase equipment from the various Emblem Quartermasters in Dalaran.$B$BYou may find us there, in the Sunreaver Sanctuary, where each variety of Emblem has its own quartermaster.$B$BWe look forward to your arrival!', 0);
-INSERT INTO `achievement_reward` VALUES (686, 10034, 10034, 0, 0, 'Ragnaros (Firelord title)', NULL, 0);
+INSERT INTO `achievement_reward` VALUES (686, 10018, 10018, 0, 0, 'Ragnaros (Firelord title)', NULL, 0);
 INSERT INTO `achievement_reward` VALUES (239, 0, 0, 0, 0, '25.000 Honorable Kills', NULL, 0);
 INSERT INTO `achievement_reward` VALUES (1415, 96, 96, 0, 0, 'Realm First! Grand Master Alchemist', NULL, 0);
 INSERT INTO `achievement_reward` VALUES (1419, 101, 101, 0, 0, 'Realm First! First Aid Grand Master', NULL, 0);
@@ -167,14 +167,14 @@ INSERT INTO `achievement_reward` VALUES (459, 0, 0, 44151, 81000, 'Realm First! 
 INSERT INTO `achievement_reward` VALUES (4576, 10095, 10095, 71636, 81000, 'Realm First! Fall of the Lich King', 'The king has been dethroned. Congratulations for being the Realm First! Here is your reward.', 0);
 INSERT INTO `achievement_reward` VALUES (1160, 94, 94, 20221, 81000, 'Three\'s Company: 2200', 'Parabens por alcançar 2200 rating em arenas 3v3! Aproveite seu novo titulo Warbringer e sua montaria.', 0);
 INSERT INTO `achievement_reward` VALUES (10036, 0, 0, 0, 0, 'Just the Two of Us: 2400', '', 0);
-INSERT INTO `achievement_reward` VALUES (10003, 10000, 10000, 30609, 81000, 'Infernal Gladiator Mount', '', 0);
-INSERT INTO `achievement_reward` VALUES (418, 62, 62, 34092, 81000, 'Merciless Gladiator Mount', '', 0);
-INSERT INTO `achievement_reward` VALUES (419, 71, 71, 37676, 81000, 'Vengeful Gladiator Mount', '', 0);
-INSERT INTO `achievement_reward` VALUES (420, 80, 80, 43516, 81000, 'Brutal Gladiator Mount', '', 0);
-INSERT INTO `achievement_reward` VALUES (3336, 157, 157, 46708, 81000, 'Deadly Gladiator Mount', '', 0);
-INSERT INTO `achievement_reward` VALUES (3436, 167, 167, 46171, 81000, 'Furious Gladiator Mount', '', 0);
-INSERT INTO `achievement_reward` VALUES (3758, 169, 169, 47840, 81000, 'Relentless Gladiator Mount', '', 0);
-INSERT INTO `achievement_reward` VALUES (4599, 177, 177, 50435, 81000, 'Wrathful Gladiator Mount', '', 0);
+INSERT INTO `achievement_reward` VALUES (10003, 10000, 10000, 0, 0, 'Infernal Gladiator Mount', '', 0);
+INSERT INTO `achievement_reward` VALUES (418, 62, 62, 0, 0, 'Merciless Gladiator Mount', '', 0);
+INSERT INTO `achievement_reward` VALUES (419, 71, 71, 0, 0, 'Vengeful Gladiator Mount', '', 0);
+INSERT INTO `achievement_reward` VALUES (420, 80, 80, 0, 0, 'Brutal Gladiator Mount', '', 0);
+INSERT INTO `achievement_reward` VALUES (3336, 157, 157, 0, 0, 'Deadly Gladiator Mount', '', 0);
+INSERT INTO `achievement_reward` VALUES (3436, 167, 167, 0, 0, 'Furious Gladiator Mount', '', 0);
+INSERT INTO `achievement_reward` VALUES (3758, 169, 169, 0, 0, 'Relentless Gladiator Mount', '', 0);
+INSERT INTO `achievement_reward` VALUES (4599, 177, 177, 0, 0, 'Wrathful Gladiator Mount', '', 0);
 INSERT INTO `achievement_reward` VALUES (2091, 42, 42, 0, 0, 'Gladiator', '', 0);
 INSERT INTO `achievement_reward` VALUES (2092, 43, 43, 0, 0, 'Duelist', '', 0);
 INSERT INTO `achievement_reward` VALUES (2093, 44, 44, 0, 0, 'Rival', '', 0);
@@ -186,9 +186,9 @@ INSERT INTO `achievement_reward` VALUES (10007, 10004, 10004, 0, 0, 'Malevolent 
 INSERT INTO `achievement_reward` VALUES (10008, 10005, 10005, 0, 0, 'Tyrannical Gladiator Mount', '', 0);
 INSERT INTO `achievement_reward` VALUES (10009, 10006, 10006, 0, 0, 'Grievous Gladiator Mount', '', 0);
 INSERT INTO `achievement_reward` VALUES (10010, 10007, 10007, 0, 0, 'Prideful Gladiator Mount', '', 0);
-INSERT INTO `achievement_reward` VALUES (10011, 10008, 10008, 0, 0, 'Primal Gladiator Mount', '', 0);
-INSERT INTO `achievement_reward` VALUES (10012, 10009, 10009, 0, 0, 'Wild Gladiator Mount', '', 0);
-INSERT INTO `achievement_reward` VALUES (10013, 10010, 10010, 0, 0, 'Warmongering Gladiator Mount', '', 0);
+INSERT INTO `achievement_reward` VALUES (10011, 10008, 10008, 0, 0, 'Primal Gladiator Mount (Custom Drake?)', '', 0);
+INSERT INTO `achievement_reward` VALUES (10012, 10009, 10009, 0, 0, 'Wild Gladiator Mount (Custom Drake?)', '', 0);
+INSERT INTO `achievement_reward` VALUES (10013, 10010, 10010, 0, 0, 'Warmongering Gladiator Mount (Custom Drake?)', '', 0);
 INSERT INTO `achievement_reward` VALUES (10014, 10011, 10011, 0, 0, 'Vindictive Gladiator Mount', '', 0);
 INSERT INTO `achievement_reward` VALUES (10015, 10012, 10012, 0, 0, 'Fearless Gladiator Mount', '', 0);
 INSERT INTO `achievement_reward` VALUES (10016, 10013, 10013, 0, 0, 'Cruel Gladiator Mount', '', 0);
@@ -215,7 +215,7 @@ INSERT INTO `achievement_reward` VALUES (10046, 0, 0, 0, 0, 'Just the Two of Us:
 INSERT INTO `achievement_reward` VALUES (405, 0, 0, 0, 0, 'Three\'s Company: 2000', NULL, 0);
 INSERT INTO `achievement_reward` VALUES (10047, 0, 0, 0, 0, 'Three\'s Company: 3000 - the Supreme', '', 0);
 INSERT INTO `achievement_reward` VALUES (513, 0, 0, 0, 0, '100 Honorable Kills', NULL, 0);
-INSERT INTO `achievement_reward` VALUES (685, 10053, 10053, 0, 0, 'Nefarian - Dragonslayer - DELETAR', NULL, 0);
+INSERT INTO `achievement_reward` VALUES (685, 10038, 10038, 0, 0, 'Nefarian - Dragonslayer - DELETAR ?', NULL, 0);
 INSERT INTO `achievement_reward` VALUES (515, 0, 0, 0, 0, '500 Honorable Kills', NULL, 0);
 INSERT INTO `achievement_reward` VALUES (516, 0, 0, 0, 0, '1000 Honorable Kills', NULL, 0);
 INSERT INTO `achievement_reward` VALUES (512, 0, 0, 0, 0, '5000 Honorable Kills', NULL, 0);
@@ -226,19 +226,27 @@ INSERT INTO `achievement_reward` VALUES (10042, 0, 0, 0, 0, '200.000 Honorable K
 INSERT INTO `achievement_reward` VALUES (10043, 0, 0, 0, 0, '300.000 Honorable Kills', NULL, 0);
 INSERT INTO `achievement_reward` VALUES (10044, 0, 0, 0, 0, '400.000 Honorable Kills', NULL, 0);
 INSERT INTO `achievement_reward` VALUES (10045, 0, 0, 0, 0, '500.000 Honorable Kills', NULL, 0);
-INSERT INTO `achievement_reward` VALUES (10078, 10036, 0, 0, 32216, 'Lord of the Reins (300) A', '', 0);
-INSERT INTO `achievement_reward` VALUES (10075, 0, 0, 0, 32216, 'Mountacular (250) H', '', 0);
-INSERT INTO `achievement_reward` VALUES (10077, 0, 10036, 0, 32216, 'Lord of the Reins (300) H', '', 0);
-INSERT INTO `achievement_reward` VALUES (10082, 0, 0, 80455, 32216, 'A Horde of Hoofbeats (400) A', '', 0);
-INSERT INTO `achievement_reward` VALUES (10081, 0, 0, 80455, 32216, 'A Horde of Hoofbeats (400) H', '', 0);
-INSERT INTO `achievement_reward` VALUES (10076, 0, 0, 0, 32216, 'Mountacular (250) A', '', 0);
-INSERT INTO `achievement_reward` VALUES (10083, 0, 0, 0, 32216, 'Thanks for the Carry! (500) H', '', 0);
-INSERT INTO `achievement_reward` VALUES (10071, 0, 0, 0, 32216, 'We\'re Going to Need More Saddles (150) H', '', 0);
-INSERT INTO `achievement_reward` VALUES (10073, 0, 0, 0, 32216, 'Mount Parade (200) H', '', 0);
-INSERT INTO `achievement_reward` VALUES (10072, 0, 0, 0, 32216, 'We\'re Going to Need More Saddles (150) A', '', 0);
-INSERT INTO `achievement_reward` VALUES (10074, 0, 0, 0, 32216, 'Mount Parade (200) A', '', 0);
-INSERT INTO `achievement_reward` VALUES (10079, 0, 0, 80466, 32216, 'No Stable Big Enough (350) H', '', 0);
-INSERT INTO `achievement_reward` VALUES (10080, 0, 0, 80466, 32216, 'No Stable Big Enough (350) A', '', 0);
-INSERT INTO `achievement_reward` VALUES (10084, 0, 0, 0, 32216, 'Thanks for the Carry! (500) A', '', 0);
+INSERT INTO `achievement_reward` VALUES (10078, 10036, 0, 80655, 32216, 'Lord of the Reins', '', 0);
+INSERT INTO `achievement_reward` VALUES (10075, 0, 0, 80571, 32216, 'Mountacular', '', 0);
+INSERT INTO `achievement_reward` VALUES (10077, 0, 10036, 80655, 32216, 'Lord of the Reins', '', 0);
+INSERT INTO `achievement_reward` VALUES (10082, 0, 0, 80455, 32216, 'A Horde of Hoofbeats', '', 0);
+INSERT INTO `achievement_reward` VALUES (10081, 0, 0, 80455, 32216, 'A Horde of Hoofbeats', '', 0);
+INSERT INTO `achievement_reward` VALUES (10076, 0, 0, 80571, 32216, 'Mountacular', '', 0);
+INSERT INTO `achievement_reward` VALUES (10083, 0, 0, 80453, 32216, 'Thanks for the Carry!', '', 0);
+INSERT INTO `achievement_reward` VALUES (10071, 0, 0, 80608, 32216, 'We\'re Going to Need More Saddles', '', 0);
+INSERT INTO `achievement_reward` VALUES (10073, 0, 0, 80588, 32216, 'Mount Parade', '', 0);
+INSERT INTO `achievement_reward` VALUES (10072, 0, 0, 80608, 32216, 'We\'re Going to Need More Saddles', '', 0);
+INSERT INTO `achievement_reward` VALUES (10074, 0, 0, 80587, 32216, 'Mount Parade', '', 0);
+INSERT INTO `achievement_reward` VALUES (10079, 0, 0, 80466, 32216, 'No Stable Big Enough', '', 0);
+INSERT INTO `achievement_reward` VALUES (10080, 0, 0, 80466, 32216, 'No Stable Big Enough', '', 0);
+INSERT INTO `achievement_reward` VALUES (10084, 0, 0, 80453, 32216, 'Thanks for the Carry!', '', 0);
+INSERT INTO `achievement_reward` VALUES (10054, 10024, 10024, 0, 0, 'Cosmic Gladiator Mount', '', 0);
+INSERT INTO `achievement_reward` VALUES (10055, 10027, 10027, 0, 0, 'Eternal Gladiator Mount', '', 0);
+INSERT INTO `achievement_reward` VALUES (10056, 10029, 10029, 0, 0, 'Crimson Gladiator Mount', '', 0);
+INSERT INTO `achievement_reward` VALUES (10085, 0, 0, 0, 0, 'DF S2 Gladiator Mount', '', 0);
+INSERT INTO `achievement_reward` VALUES (10086, 0, 0, 0, 0, 'DF S3 Gladiator Mount', '', 0);
+INSERT INTO `achievement_reward` VALUES (10087, 0, 0, 0, 0, 'DF S4 Gladiator Mount', '', 0);
+INSERT INTO `achievement_reward` VALUES (10088, 0, 0, 0, 0, 'DF S5 Gladiator Mount', '', 0);
+INSERT INTO `achievement_reward` VALUES (10089, 0, 0, 0, 0, 'DF S6 Gladiator Mount', '', 0);
 
 SET FOREIGN_KEY_CHECKS = 1;
