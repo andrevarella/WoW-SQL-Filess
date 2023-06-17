@@ -58,3 +58,20 @@ WHERE ItemLevel = @iLvL
 	
 -- para colocar ' tem que colocar dois ', exemplo:
 -- AND name LIKE '%Frost Witch''s%'
+
+
+-- do carlin
+-- Para mudar o custo de itens no multivendor
+UPDATE npc_vendor SET extendedcost=2619 WHERE entry in(80261);
+--executar no console no navicat (na tabela world)
+.reload npc_vendor 
+=======================================================
+SET @Entry :=80264;
+SET @iLvL :='264';
+INSERT INTO npc_vendor (entry, slot, item, maxcount, incrtime, ExtendedCost)
+SELECT @Entry, 0, entry, 0, 0, 0 FROM item_template WHERE ItemLevel=@iLvL and  not name like "%Wrathful Gladiator's%" and (InventoryType='11');
+
+--not name like = Items que você quer ignorar, quando for adicionar no npc;
+@Entry = ID do npc;
+@Ilvl, item do level que você quer adicionar
+--InventoryType = Id do slot do item
