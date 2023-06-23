@@ -29,8 +29,9 @@ Eradication proca vs absorb
 
 -- ▸▸ Druid:   ---
 --
--- * Omen of Clarity/Clearcasting - procFlags 87060, se quiser tirar melee spells = 87044
-UPDATE `spell_proc_event` SET `procEx` = '65536' WHERE `entry` = '16864';    -- procEx tava 2162688
+-- * Omen of Clarity/Clearcasting
+-- UPDATE `spell_proc_event` SET `procFlags` = '87044' WHERE `entry` = '16864'; -- para funcionar sem melee spells, se nao usa 87060 (tava 87060)
+UPDATE `spell_proc_event` SET `procEx` = '65536' WHERE `entry` = '16864';    -- (para fazer x coisa) / procEx tava 2162688
 UPDATE `spell_proc_event` SET `ppmRate` = '4.5' WHERE `entry` = '16864';   -- ppmRate tava 3,5
 UPDATE `spell_proc_event` SET `Cooldown` = '2000' WHERE `entry` = '16864';   -- Cooldown tava 0
 --
@@ -59,10 +60,14 @@ INSERT INTO `1acore_world`.`spell_proc_event`(`entry`, `SchoolMask`, `SpellFamil
 --
 -- ▸▸ Shaman:    ---
 --
+-- ?? (tava nos updates da core antiga) - elemental mastery
+UPDATE `spell_proc_event` SET `SpellFamilyName`=11, `SpellFamilyMask0`=0x00000003, `SpellFamilyMask1`=0x00001000 WHERE `entry`=16166;
+
+--
 -- * Custom 3.3.5b AT based Enhance Spell -4s Cooldown Feral Spirit on Stormstrike use
 INSERT INTO `1acore_world`.`spell_proc_event`(`entry`, `SchoolMask`, `SpellFamilyName`, `SpellFamilyMask0`, `SpellFamilyMask1`, `SpellFamilyMask2`, `procFlags`, `procEx`, `procPhase`, `ppmRate`, `CustomChance`, `Cooldown`) VALUES (83252, 0, 11, 0, 16777216, 0, 16, 0, 1, 0, 0, 0);
 --
--- * Flame Shock new (Custom) 2% chance de proc Lava Surge nos ticks
+-- * (Custom) 2% chance de proc Lava Surge nos ticks do flame shock
 INSERT INTO `1acore_world`.`spell_proc_event`(`entry`, `SchoolMask`, `SpellFamilyName`, `SpellFamilyMask0`, `SpellFamilyMask1`, `SpellFamilyMask2`, `procFlags`, `procEx`, `procPhase`, `ppmRate`, `CustomChance`, `Cooldown`) VALUES (83242, 4, 11, 268435456, 0, 0, 262144, 1027, 0, 0, 2, 0);
 --
 -- * Lava Burst new (Custom) passive buff 5% chance de procar Lava burst (c/ half damage) ao castar Lava Burst

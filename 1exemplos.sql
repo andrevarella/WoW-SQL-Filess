@@ -4,7 +4,18 @@ DELETE FROM `spell_proc_event` WHERE `entry` = '71845';
 
 UPDATE `command` SET `security` = '4' WHERE `name` = 'dismount';
 
+
+--
+ALTER TABLE `creature_template` DROP `InhabitType`;
+--
 ALTER TABLE mail DROP COLUMN auctionId;
+--
+ALTER TABLE `creature_template`
+    ADD COLUMN `speed_swim` FLOAT NOT NULL DEFAULT '1' AFTER `speed_run`,
+    ADD COLUMN `speed_flight` FLOAT NOT NULL DEFAULT '1' AFTER `speed_swim`;
+	
+--
+
 
 
 p add coluna em tabela na DB com comment só pegar exemplo do spell regulator
@@ -12,6 +23,7 @@ p add coluna em tabela na DB com comment só pegar exemplo do spell regulator
 ALTER TABLE npc_vendor ADD COLUMN Comment varchar(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL AFTER VerifiedBuild;
 - funciona mas pode bugar algumas tabelas, por exemplo npc_vendor n adicionava items ingame - sumia apos resetar o sv
 
+--
 
 UPDATE `item_template` SET `spellppmRate_1` = 10 WHERE (`entry` = '50353');
 UPDATE `item_template` SET `spellppmRate_1` = 10 WHERE (`entry` = '50348');
@@ -25,18 +37,7 @@ DELETE FROM `spell_custom_attr` WHERE `entry` IN (99, 1735, 5729, 43530,52744);
 INSERT INTO `spell_custom_attr` (`entry`, `attributes`)
 
 
-ALTER TABLE `creature_template`
-    ADD COLUMN `speed_swim` FLOAT NOT NULL DEFAULT '1' AFTER `speed_run`,
-    ADD COLUMN `speed_flight` FLOAT NOT NULL DEFAULT '1' AFTER `speed_swim`;
 
-
-ALTER TABLE `creature_template` DROP `InhabitType`;
-
-
---teste
---test2
---test3
---test4
 
 -- para colocar/mudar o extendedcost para 1500 em todos os items do entry 102345
 UPDATE npc_vendor
@@ -75,3 +76,9 @@ SELECT @Entry, 0, entry, 0, 0, 0 FROM item_template WHERE ItemLevel=@iLvL and  n
 @Entry = ID do npc;
 @Ilvl, item do level que você quer adicionar
 --InventoryType = Id do slot do item
+
+
+-- update creature_template para setar/mudar o flags_extra para 8388628 (no parry/dodge/block), filtrando o type = 1 (beast) e type_flags = 65537 (tameable e tameable exotic)
+UPDATE creature_template
+SET flags_extra = 8388628
+WHERE type = 1 AND type_flags = 65537;
