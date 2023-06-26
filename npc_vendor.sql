@@ -11,7 +11,7 @@
  Target Server Version : 50739
  File Encoding         : 65001
 
- Date: 15/06/2023 22:55:57
+ Date: 26/06/2023 00:54:30
 */
 
 SET NAMES utf8mb4;
@@ -36491,6 +36491,7 @@ INSERT INTO `npc_vendor` VALUES (80009, 0, 42414, 0, 0, 0, 0);
 INSERT INTO `npc_vendor` VALUES (80009, 0, 42415, 0, 0, 0, 0);
 INSERT INTO `npc_vendor` VALUES (80009, 0, 42416, 0, 0, 0, 0);
 INSERT INTO `npc_vendor` VALUES (80009, 0, 42417, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` VALUES (80279, 0, 80792, 0, 0, 0, 0);
 INSERT INTO `npc_vendor` VALUES (80009, 0, 45753, 0, 0, 0, 0);
 INSERT INTO `npc_vendor` VALUES (80009, 0, 45755, 0, 0, 0, 0);
 INSERT INTO `npc_vendor` VALUES (80009, 0, 45756, 0, 0, 0, 0);
