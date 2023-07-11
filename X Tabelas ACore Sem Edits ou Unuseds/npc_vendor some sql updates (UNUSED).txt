@@ -1,0 +1,7 @@
+-- tokens npc pvp alliance
+DELETE FROM `npc_vendor` WHERE `entry` IN (15351);
+INSERT INTO `new_acore_world`.`npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES (15351, 0, 54637, 0, 0, 2993, 0);
+
+-- tokens npc pvp horde
+DELETE FROM `npc_vendor` WHERE `entry` IN (15350);
+INSERT INTO `new_acore_world`.`npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES (15350, 0, 54637, 0, 0, 2993, 0);

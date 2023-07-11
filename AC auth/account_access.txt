@@ -1,0 +1,1 @@
+INSERT INTO `acore_auth`.`account_access`(`id`, `gmlevel`, `RealmID`, `comment`) VALUES (1, 4, -1, 'ADM1');

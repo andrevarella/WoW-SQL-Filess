@@ -1,0 +1,3 @@
+-- Glyph of Ferocious Bite no Inscription Trainer (spell 83287)
+-- add só futuramente se os glyphs custom forem adicionados mesmo
+-- INSERT INTO `npc_trainer`(`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (201023, 83287, 50000, 773, 375, 0, 0);

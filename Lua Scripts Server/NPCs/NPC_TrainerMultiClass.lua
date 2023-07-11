@@ -4,7 +4,9 @@ local function On_Top_Hello(event, player, creature)
 player:GossipSetText(string.format(" "))
     player:GossipMenuAddItem(3,"Train me.",0, 1) 
     player:GossipMenuAddItem(2,"I wish to unlearn my talents.",0, 2, false, "Do you want to unlearn all your talents? This will unsummon any controlled pet.")
-    --player:GossipMenuAddItem(2,"Unlearn pet talents.",0, 3, false, "Do you want to unlearn all your pet talents?") -- DA FATAL ERROR DPS DE UNS SEGS
+    if (player:GetClass() == 3) then
+    player:GossipMenuAddItem(2,"Unlearn pet talents.",0, 3, false, "Do you want to unlearn all your pet talents?")
+    end
     player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)
 end
 

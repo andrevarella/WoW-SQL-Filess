@@ -1,0 +1,436 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Inspiraçao:
+Patch 3.3.5b do AT e Skills outras Expancoes
+
+Bark indispelavel     (x)
+Svg roar indispelavel (x)
+CoS 100% (x)
+Sacred cleansing 10/20/30% chance dispelar 2 magic em vez de 1 (rework) (x)
+Prismatic Cloak 10% (x)
+owlkin frenzy 48389/48392/48393 immune a dispel enrage  e dobro de mana ganho (4%) (x)
+Furious attacks: normal attacks 50% chance procar (x)
+improved blink reduz cd do blink em 5s 
+holy concentration proca c qlqr heal
+body and soul remove movement impairing
+glyph of sinister strike: sinister strike tem 50% chance de dar mais um CP
+Killing Spree nao bate em targets de CC (poly sap etc)
+Wyrmhide 4 piece bonus proca com dots tbm (X)
+Refound 20/40/60% MF/IS em dispel em algum talent
+Heroic Fury 30s cd
+Retri: Mana do judg atravessa absorb (X)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+▶Talvez:
+remover ice armor e remover demon skin 696 (remover?)
+Buffar hunter survival
+pet shadow bite causando gcd chato p upar cs 54053, claw ghoul 47468, feral spirit stun, talvez de hunter
+pet shadow bite remover gcd 54053, talvez buffar 1 pouco o dmg
+blazing speed ou fiery payback cd no disarm
+swiftmend 18562
+Primal Gore (lacerate e rip critam) 63503
+weapon mastery 29086 - aumentar o dmg? (talent enhance)
+
+
+
+Scripts:
+Players 80 nao podem atacar players lvl baixo
+
+
+PARA TESTAR APOS NOVO PATCH DBC:
+
+
+==========================================================================================================================================================================================================================================
+==========================================================================================================================================================================================================================================
+==========================================================================================================================================================================================================================================
+
+													Patch 3.3.5b (custom):
+
+
+Projeto feito por mim - laasker, cansado de servers privates brasileiros sem vontade de melhorar
+Core AzerothCore
+
+
+
+
+General:
+Comeca lvl 70, (facil para alts) pvp solto em Northrend. Conteudo do WoW Vanilla enjoativo, comecando lvl 70 vc ja comeca no conteudo da melhor expansao de WoW, e como todo mundo comeca lvl 70 no mesmo continente, o World PvP pode ser bom denovo. E ainda pode ganhar XP matando jogadores em BGs. 
+Flush de arena a cada 5 dias
+(Mais coisas no notepad)
+Reagents pala, souls, etc stacka ate 250 no mesmo slot da bag
+Buffs na arma duram X tempo e nao saem em arena
+NPCs Custom
+Criacao de uma Cidade
+Comunicar com a outra faccao
+Profissoes comecam 350. Por comecar lvl 70, faz mais do que sentido as profissoes comecarem do inicio da expansao, desse jeito todos os reagents sao do WotLK
+PvE Custom ?
+
+
+Sistema Vip
+Comandos que pode utilizar, itens para comprar na sala vip. Citar que infelizmente e necessario de vip e itens donate para o server ficar ativo (e tbm gastei tempo, dedicacao etc)
+
+
+PvP
+Dampening em Arena a partir dos 8~10m
+Arena Draw 20m
+Season Resets
+Tabards, Mounts, Items PvE, Toys, Transmogs por rating
+No inicio max ilvl 232~251, dps aumenta
+Criaçao de uma Shirt para burlar RNG escrotos (caster dodge kidney, miss etc)
+
+
+
+▶ Bug Fixes:
+taunt ta quebrando totems (ok)
+wound poison modificado dura 10s
+clearcasting 15s em vez de 8 (veio com a core)
+corrigido bug que nao pegava combat caso bufasse/healasse amigo que tivesse com auto attack desligado
+corrigido bug channeling que nao pegava combat (pelo menos com divine himn funciona)
+corrigido auto attack atravessando los
+corrigido demonic circle: teleport removia root, agora apenas remove slows
+healthstone crit chance
+pets de lock nao teleporta mais caso sumone o mesmo pet enqnt ta vivo (aparentemente)
+hp mirror image arrumado (tinha 9k+) agora ta 4k~5k depende da stamina
+macro !cast moonkin form agora remove root
+
+
+
+*Changes:
+Barkskin indispelavel
+Savage roar usavel em stealth e indispelavel e nao da combat mais
+Swipe (cat) pega nas costas tbm 
+Backstab e Shred atravessam deter
+sacred cleansing 1/2/3 mudado para 10/20/30% chance de dispelar 1 magic a mais
+lava lash dmg aumentado em 2.4x	
+cos 100% aparentemente
+desecration 30%/12s
+Death coil, fears de warlock, warrior, priest, hunter scare beast e pala turn agora dao slow de 30%
+Prismatic Cloak 10% (up from 6%)
+PS 65% > 100% dispel resist (testar mais)
+taunt de pala mata totems
+revive pet hunter  custo de mana reduzido de 4k pra 1k
+owlkin frenzy 48389/48392/48393 dobro de mana ganho (4% base em vez de 2%) e enrage indispelavel
+Death wish nao aumenta o dano tomado mais
+create spellstone/firestone cast reduzido para 1,5s e nao sai ao entrar em arena
+create healthstone cast reduzido p 1,5s
+poisons de rogue cast reduzido p 1,5s, nao sai em arena e pode usar em stealth
+Enchants na arma de shaman
+pets de lock nao dao block/parry/dodge mais (colocar em outros pets depois)
+Arena Prep da buff 350% haste
+Earthliving Weapon chance aumentada de 20% para 25%
+PS da 100% dispel resist no target, nao soh no buff do PS
+unleashed fury 19620 (aumenta dmg dos pets em 15%) - 30% agr
+Nerf slow arcane pra 10s
+
+poisons, enchant arma lock e shaman n saem em arena (rogue pode usar stealth)
+
+agony dot 1.65 (stealth)
+tempo pra trocar de spec 5>3s
+
+Set Feral PvP ativa indoor agr (stealth)
+ua cast 1400 stealth
+
+
+
+aveger shield, testar mana cost(12%)   2002 > 1528
+consecration testar mana (15% agr)  2696 > 2118 (desc diz 869) consecration
+Holy Wrath 20%>12% mana          1588 > 1114 
+holy wrath 48817 (790 mana)     30~35% (stealth?)
+consecration 48819 (869 mana)      30~40%
+avenger shield 48827 (1027 mana??) 50% - aumentar
+
+
+
+
+
+$#%#!#^#!!^#!$##!%!!@#!@#()!@*&#
+Futuros:
+buff no enrage de assassination? idk alguma coisa de assassin pve
+glyph of sinister strike: sinister strike tem 50% chance de dar mais um CP - talvez?
+48562 swipe bear-  trocar pra ficar igual thunderclap ou tricks, porem com range, damage, som e animacao do swipe cat - fan of knives 51723, tclap 47502, 62078 swipe cat
+glacier rot 49791 (ganhar runa ao dispelar disease?)
+holy concentration proca qlqr heal
+Body and Soul 64129 - dispel slow tbm (algum talent ou skill q tira slow) earthen power 51524
+Refound 20/40/60% MoonFire/InsectS em dispel em algum talent (copiar talent spriest dot)
+Furious attacks: normal attacks 50% chance procar (copiar wound poison) / furious attacks 46911 - aumentar chance proc ou colocar pro bloodthirst aplicar
+buff no felguard ou glyph do felguard - procurar quais glyphs demo usa pve
+bloodthirst 23881 - aplicar furious attacks (46911) 
+owlkin frenzy   > ta indispelavel, 104 ou 139 mana por seg
+48389 > 48391  7/14/20%
+      > 48391 (die sides 3) testar se ta indispelavel e proc da 3 ou 4% mana  (linebr da 59 mana por seg)
+
+
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+* Stealth changes: (nem todos vao ser implementados)
+
+
+(Atravessar LoS - gift of the wild 48470 wild spineleaf
+buffs DK 57623
+Warr shouts 
+buffs priest prayer of shadow 48170 atravessa los e sem reagent mana nerfado
+mag intelect aoe
+buff warr/dk/druid/pala/priest/ atravessa 
+talvez buffs de pala, 
+
+
+kings, might, wisdom, sanct atravessam los e n precisa de reagent - testar se literalmente pode usar atras de uma parede e buffar algm
+buff mage arcane brilliance - 
+
+
+Priest:
+
+
+
+Pala
+buff no hammer talvez pala prot
+Shield rightness 61411 mana
+hammer of rightenoussess 53595 - 236 mana
+hand of reckoning 6214 (117 mana)
+Talent ret wings ignora wall 50% colocar 40%
+buffar hammer dmg ou one handed wp spec - 20198
+blessed life 31829/31830 (chance de tomar dano half) deixar 2/4/7
+
+
+Warr
+imp mortal strike (3%/6/10) 35446/35448/35449
+glyph of mortal 43421 - 58368
+
+strength of arms (4% str e stamina, talvez nerfar p 1~2%) 46866
+
+
+Druid
+
+Predatory instincts +10% crit dmg 33859/33866/33867
+king of the jungle 48492/48494/48495 (20/40/60% mana reduction cat e bear nerf talvez p buffar natural shapeshift)
+Heart of the Wild (+20% stam/aP cat) 24894
+Naturalist 5/5 (+10% dmg physical) 17071/17072/17073 (rank 3,4,5) 
+Natural Shapeshifter 16833/16834/16835 (-10/20/30% mana cost, talvez buffar p 20/40/60%) (cat - 489/366/244/122 feral)
+Protector of the pack 2/4/6% AP 4/8/12 bear reduction 57873/57876/57877 >  5/10/15%, 3/6/9%?
+
+
+
+(reduzir mana cost das formas, talent stealth swipe e + dmg swipe em outro lugar - build 1/2/3 com talent 1/3, ponto 2/3 em outro lugar
+feral instinct 16947/16948/16949   (improved stealth e +swipe dmg)
+hurricane 48467 - 2831 mana
+
+
+thorns 53307 (duracao 10m soh) msm id buff
+
+sem talents de reducao de mana
+768 cat  1223	
+9634 bear  1223
+783 travel   454
+24858 moonkin  454
+33891 tree 454
+1066 aquatic 454
+40120 swift flight form 454  
+
+Moonkin Form
+Dire Bear form 9634 (1223 mana)
+Cat form 768 (1223 mana)
+Travel form 783 (454 mana) os 3 com talent de 30% mana reduction em formas
+Tree Form
+Flight Form
+Aquatic form 1066 (454 mana)
+
+starfall 53201  - 1186 mana    (~30%) talvez n
+typhoon rank5 61384 - 874 mana (30~40%)
+
+resto talvez buff no proc lifebloom em algum talent ? (idol pvp)
+
+
+
+
+Lock
+
+shadowflame 61290 (964 mana cost?)
+hellfire rank1 1949 (2467 mana mt alto), rank 2 11683 (2246 mana)
+UA buff dot, talvez UA dispel dmg e deixar immune a crit
+Unstable affiction 47843, talvez buffar dot, ua silence 31117 - dando DR com outros silences - 566 mana
+
+imp 688 (1480 mana)
+succubus 712 (1850)
+voidwalker 697 (1850 mana) ~741 mana
+teleport lock sem custo
+nerf molten skin (6% dmg reduction) > 3%
+imp agony 18829 > 20%
+imp corruption 17814
+
+Fear 6215 - 452 mana
+Corruption 47813 - 528 mana
+drain mana 5138 - 641 mana??
+drain life 47857 641 mana
+Drain soul 47855 - 528 mana
+buff searing pain ~8%
+
+lifetap rank1 1454, custa 27, recupera 1134 mana buffar a qntdd de mana
+lifetap rank8 57946, 2579 hp, 3502 mana
+stealth nerf emberstorm (+15%>+8~10%) fire dmg spells 17958
+
+Haunt 59164 - 452 mana
+agony 47864 - 377 mana
+elements 47865 - 377 mana
+tongues 11719 - 150 mana top
+incinerate 47838 (539 mana cost)
+immolate 47811 (655 mana)
+shadow bolt 47809 (655 mana)
+searing pain 47815 (308)
+Chaos Bolt
+Conflagrate
+
+
+
+implementados
+unrelenting = -35%
+nerf ice armor melee atack speed (15% agora acho)
+MC nao da mais slow attack speed (era 25%)
+Demonic Circle Summon 0 mana 
+Demon Armor 521 mana / 30m 
+soul link  sem custo de mana
+Fel armor 521 mana
+Charge bear 0 rage
+create healthstone 47878 custo reduzido
+Savage Roar custa 15 energy acho
+Prowl 5215 (10s cd / -20% move speed)
+Pounce 40
+Swipe cat 35 energy
+gift of the wild 1118 mana 64% > 41%
+mark of the wild 419 mana 24% > 18%
+Prayer of ofrtitude 48162                 (2665 mana) > 69%>37%
+Prayer of spirit 48074 - devout candle  (2665 mana)  32%
+Prayer of Shadow protect 48170           (2251 mana) 35%
+
+
+
+=====================================
+Pounce 49803 - dot
+52610 - svg roar - tentar deixar usavel sem cp
+
+
+
+
+
+==========================================================================================================================================================================================================================================
+==========================================================================================================================================================================================================================================
+=============================================================================================================================================================================================================================================
+													Patch 3.3.5c:
+General:
+Tempo de craftar itens prof 350 mais rapidos
+
+
+Talvez:
+▶ talvez:
+hunter survival slow?
+kings minor 30m
+colocar food persistente em death
+nerf free action se for colocar 
+cd master call reduzido mby?
+
+
+Bug Fixes:
+
+
+
+Class Changes:
+Priest
+Imp DP talent 63627 (14>7%) testar - batia 1900~2100 testar no shaman (batendo 2025>2003 sem proc) / DP 48300
+Shadow Form: remover custo de mana caso tenha
+
+
+Druid
+Prowl cd 6~8s
+charge bear 16979 removido custo
+feral charge cat 49376 removido energy cost
+
+
+Hunter
+entrapment 4>3s root talvez
+mend pet 48990 - 454 mana wtf
+Talvez reducao de custo de mana de algumas skills
+
+
+Shaman
+wind shear 57994 - aumentar cd 1s
+TALVEZ ghost wolf indispelavel
+grouding totem 8177 - reducao de gcd caso possivel, stoneclaw totem tbm
+bloodlust 2825 / hero - desabilitar em arena?
+
+
+Rogue:
+Dismantle 51722 sem custo
+shadowstep 36554 sem custo
+kick 1766  (25>0) Sem custo de energy
+Shiv dispelar Enrage
+
+
+Warrior
+Battle Shout 47436 (aumentar p ~20m duracao) e 10 rage
+Commanding 47440 (20+ min) 10 rage - tirar custo
+Shattering Throw 64382 (rage e nao da p usar em berserker stance)
+proibir stack orc+talent warr stun reduction - hardiness 20573 / iron will 12960  rank3(stun reduction warr) 
+disarm 676 (15 rage)
+spell reflection 23920 (15 rage, n da p usar em berserker stance2458, def 71, battle 2457)  warbringer 57499 (charge intercept vene em qlqr stance)
+bash 72 (10 rage)
+pummel (10 rage)   6552 
+intercept (10 rage)  20252 
+enraged regen 55694 (15 rage)
+Usar spell reflection de Berserk stance
+
+
+Paladin
+seal of light 20165 (553 mana os 3)
+seal of wisdom 20166
+seal of corruption 53733 
+seal of vengeance 31801 (553 mana)
+seal of rightenoussness 21084 (553 mana)
+seal of stun esqueci o nome
+aura mastery pra party toda (id 31821, concentration 19746, improved conc 20256) - para se basear divine sacrifice 64205(buff aoe tbm) - unity party
+
+
+Warlock
+demonic circle 48018 duracao 6m>15m
+demon armor 47889 (1195 mana, 30m) modificado duracao infinita 0 mana
+fel armor 47893 (1079 mana, 30m duration)
+improved succubus pra 0,8
+buff metamorphosis duracao p 34s ou buffar o glyph (checar cd do immo aura) (reducao a fear tbm talvez)
+
+
+Mage
+nerf mage armor 40% e armors, sem custo de mana e dura pra sempre
+nerf disarm fire (talvez)
+Counterspell stealth buff sem custo de mana
+
+
+Death Knight
+Horn of Winter 57623 - 2m duration aumentar p 10~15m
+proibir stack orc+talent warr stun reduction - hardiness 20573 / iron will 12960  rank3(stun reduction warr) 
+
+
+Priest
+Shadow Form sem custo de mana (caso tenha)
+
+
+=======================================================================================================================================================================================================================================
+=======================================================================================================================================================================================================================================
+=======================================================================================================================================================================================================================================
+Patch 3.3.5d:
+Ideias:
+Naturalist aumenta o damage de physical 10% > 30%, savage roar 30%>10%
+GCD de algumas spells com patch (berserk, cos, berserk rage, shamanistic rage, reducao gcd grouding)
+Set S9?
+Set T11?
+Raids antigas com drop custom?
+Raid atuais melhores
+=======================================================================================================================================================================================================================================
+=======================================================================================================================================================================================================================================
+======================================================================================================================================================================================================================================
+============================== CLASSES ===============================================================================================================================================================================================
+=====================  	 	       =============================================================================================================================================================================================
+
+
+
+
+
