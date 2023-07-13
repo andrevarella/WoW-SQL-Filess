@@ -236,7 +236,7 @@ UPDATE `creature_template` SET `healthmodifier` = '27' WHERE `entry` = '38059';
 -- Deathbound Ward 125/400 >
 UPDATE `creature_template` SET `healthmodifier` = '40' WHERE `entry` = '37007';
 UPDATE `creature_template` SET `healthmodifier` = '70' WHERE `entry` = '38031';
--- Testar se HP dos mobs sumonados do segundo boss são reduzidos tbm
+-- Sala Lady Deathwhisper
 -- Risen Deathspeaker Servant 35/75 >
 UPDATE `creature_template` SET `healthmodifier` = '15' WHERE `entry` = '36844';
 UPDATE `creature_template` SET `healthmodifier` = '35' WHERE `entry` = '38077';
@@ -255,9 +255,11 @@ UPDATE `creature_template` SET `healthmodifier` = '33' WHERE `entry` = '38072';
 -- Deathspeaker High Priest 75/215 >
 UPDATE `creature_template` SET `healthmodifier` = '35' WHERE `entry` = '36829';
 UPDATE `creature_template` SET `healthmodifier` = '55' WHERE `entry` = '38074';
+-- Dragao antes do Barco
 -- Spire Frostwyrm 80/400 >
 UPDATE `creature_template` SET `healthmodifier` = '40' WHERE `entry` = '37230';
 UPDATE `creature_template` SET `healthmodifier` = '88' WHERE `entry` = '38444';
+-- Sala do meio
 -- Val'kyr Herald 80/220 > 
 UPDATE `creature_template` SET `healthmodifier` = '36' WHERE `entry` = '37098';
 UPDATE `creature_template` SET `healthmodifier` = '70' WHERE `entry` = '38418';
