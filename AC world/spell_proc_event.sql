@@ -28,6 +28,8 @@ INSERT INTO `spell_proc_event`(`entry`, `SchoolMask`, `SpellFamilyName`, `SpellF
 
 -- 
 -- ▸▸ Priest:  ---
+-- * Fix Inspiration talent nao procando com Crit do Prayer of Mending
+UPDATE `spell_proc_event` SET `SpellFamilyMask1` = '65572' WHERE `entry` = '-14892';   -- tava 65540
 --
 -- ========= LEATHER ==============
 --
