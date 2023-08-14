@@ -21,34 +21,16 @@ PWS + proc spell power e tentar renovar o PWS
 divine sac/hand of sac vs hungering
 
 testados:
-frenzied regen n crita - fixado
-hunter's mark quebra grouding totem? s - fixado
 
 as vezes ao entrar na arena com o pet, o arena frame de amigo buga - reportado
 party nao recebe replenishment em arena - blizzlike
 Pestilence revela stealth perto - fixado
 hc throw atravessa deter? - sim, testar dps
-cast suc insta se tiver fora do range e ela tiver que andar - reportado ja
-da pra usar stealth de hex
-usar racial de smeld/deter/bop - arrumado
-bop + smeld - arrumado
-deter + racial - os 3 nao da - arrumado
 
 bugs:
 shield block dmg de prot nao crita, deveria - fixado
-slow animation - vou reportar
 hammer de pala prot n pega em pets (aoe) - fixado
-a ultima pessoa viva do time de arena, ao quitar, nao perde personal rating - reportado
-pets guardians (lobo enhance, se pa water elemental, sfiend etc nao salva auto toggle) - reportado
 primeiro hit de spells AoE (blizzard, rain of fire, consecration, DnDcay etc) nao revela stealth caso tenha absorb
-cat form sofre com debuff de slow no cast
 spells q aumenta cast nao deveria aumentar o gcd (n tenho ctz)
-viper sting quebra trap e scatter (blizzlike mas fodasi)
-arena nao da hk/honor em kills (nao e bug mas queria mudar)
-
-
-
-adicionar mais mobs p nao dar dodge/parry/block (voidwalker, ghol, gargoyle, spirit wolf mby, imp, succubus, felhunter, viper, venomous viper, ravage, carb)
-
 
 adicionar chance de ganhar gema, reagent enchant, enchant cinto, enchant resil calca na caixa de arena

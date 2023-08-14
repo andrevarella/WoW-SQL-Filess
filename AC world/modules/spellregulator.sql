@@ -41,5 +41,7 @@ INSERT INTO `spellregulator` VALUES (11117, 100, 'Lava Burst');
 INSERT INTO `spellregulator` VALUES (26654, 50, 'Sweeping Strikes (dmg bizarro)');
 INSERT INTO `spellregulator` VALUES (31117, 136.5, 'Dispel UA R5 (scalling diminuído SP 1,8 > 1,3)');
 INSERT INTO `spellregulator` VALUES (83245, 50, 'Lava Burst Custom (Proc on Proc)');
+INSERT INTO `spellregulator` (`spellId`, `percentage`, `nome da spell`) VALUES (51963, 183, 'Ebon Gargoyle Coeficiente nerfado (dmg tava baixo)');
+
 
 SET FOREIGN_KEY_CHECKS = 1;

@@ -1,5 +1,5 @@
 testados e aprovados
-test damage snake traps - n consegui nerfar
+Xtest damage snake traps - n consegui nerfar
 PWS de holy remove slow - copiar racial gnome
 Xdodge chance classes + nerf talent dodge feral + mudar talent enhance do parry, colocar dodge no dual wield
 Xmaelstrom weapon (stealth buff) - agora tem chance de procar mesmo se o hit for absorvido
@@ -67,32 +67,18 @@ XNPC Mall
 
 NPC Talent Template falta:
 Glyphs
-Talents (rogue sub ta com talent de combat)
-copiar chaos bolt passive no Conjure Flame (bug prince com PWS)
 Add zonas p duel resetar nas pvpzone tbm mod duel
 testar se insta 70 spells estao certos (parece q ganha trap lvl 78 no lvl 70) - .list aura ao criar
 rogue sub ta ganhando blade twisting (combat) - npc template
-Prayer of mending da combat qnd pula/heala? deveria pular msm com absorb ?
-vip duel zone - ilha tanaris ou na bg de azshara tb
-enrage arms/fury/prot remover atraves de spell linked spell
-testar procs clearcasting 7% proc 4s cd vs 3,5 PPM sem cd
-mount wolf horde alteracver se da p aprender na ally?
-se nao tirar opcao de pet no spectate = players podem ver o pet ? testar
 
 
 Creatures:
-HP Felhunter e felguard e armor
-arma azgalor no npc (boss de hyjal) - add no npc p transmog
 trinket trovao proibir  em arena
 https://github.com/azerothcore/azerothcore-wotlk/issues/8126 - taLvez eh a outra pot q dura 5s ? (dispelavel)
 
 
 faltando opcao de fechar bg sozinho qnd ta sem player (talvez eh por causa do debug)
 Spell linked spell (remover wings de cat/bear/shaman/travel/talvez esqueleto)
-NPC Weapon spell enchant visual por rating (legion e mop so)
-Fix patch item (scale algumas armas axes) e creature (inseto mount)
-testar anticheat/pqr/macro
-procurar mecanica dual wielding miss chance msm com hit cap
 
 -------------------------------------------------------
 spells q nao proca com BoP

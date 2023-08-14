@@ -40,6 +40,11 @@ INSERT INTO `acore_world`.`spell_bonus_data`(`entry`, `direct_bonus`, `dot_bonus
 -- Retri Aura (core atualmente nao tem o spell_bonus_data)
 INSERT INTO `acore_world`.`spell_bonus_data` (`entry`, `direct_bonus`, `dot_bonus`, `ap_bonus`, `ap_dot_bonus`, `comments`) VALUES (54043, 0.033, 0, 0, 0, 'Retribution Aura');
 
+-- Death Knight:
+-- Ebon Gargoyle dmg fix temporario direct_bonus tava 0,453 antes
+-- (ta muito baixo atualmente) - aumentar 1 pouco o scalling e no spellregulator
+UPDATE `spell_bonus_data` SET `direct_bonus` = '0,41' WHERE `entry` = '51963';
+
 -- -----------------------
 
 
