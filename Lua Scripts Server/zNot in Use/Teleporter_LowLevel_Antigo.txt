@@ -1,4 +1,4 @@
-﻿local UnitEntry = 93057
+local UnitEntry = 93057
 
 
 
@@ -65,8 +65,12 @@ end
 
 function Teleporter_Event(event, player, creature, sender, intid, code)
     if (intid == 25) then
-	    player:Teleport(1, 5459.22980, -3722.648438, 1593.443726, 3.032393)
-	end	
+		if(player:GetLevel() >= 67) then
+			player:Teleport(1, 5459.22980, -3722.648438, 1593.443726, 3.032393)
+		else
+			player:SendBroadcastMessage("Você precisa ser pelo menos level 67 para utilizar essa função.")
+		end	
+	end
 
 end
 

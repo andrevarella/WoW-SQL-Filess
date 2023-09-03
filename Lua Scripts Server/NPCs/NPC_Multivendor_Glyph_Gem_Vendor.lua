@@ -1,7 +1,7 @@
 local UnitEntry = 94133
 
 local function On_Top_Hello(event, player, creature)
-	player:GossipSetText(string.format("test"))
+	player:GossipSetText(string.format(" "))
 	
     if player:GetClass() == 5 then
     player:GossipMenuAddItem(6,"Glyphs",0, 1) -- Priest
@@ -34,8 +34,8 @@ local function On_Top_Hello(event, player, creature)
 	player:GossipMenuAddItem(6,"Glyphs",0, 10) -- Death Knight
 	end
     player:GossipMenuAddItem(6,"Gems",0, 11)
-    player:GossipMenuAddItem(6,"Enchants",0, 12)
-    player:GossipMenuAddItem(6,"Prof Reagents",0, 13)
+    --player:GossipMenuAddItem(6,"Enchants",0, 12)
+    --player:GossipMenuAddItem(6,"Prof Reagents",0, 13)
 	--player:GossipMenuAddItem(6,"Change Faction, Race or Name",0, 14)
     player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)
 end

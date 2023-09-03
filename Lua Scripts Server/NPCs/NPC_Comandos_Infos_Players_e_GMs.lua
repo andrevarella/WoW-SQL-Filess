@@ -1,4 +1,4 @@
-local UnitEntry = 94127
+﻿local UnitEntry = 94127
 
 
 
@@ -33,7 +33,7 @@ end
 
 -- Comandos
 if intid == 3 then
-   player:GossipSetText(string.format("Comandos disponiveis:  (sem os <  >)\n\n .chat <on/off> (para desativar o Global Chat) \n .chat TEXTO (para falar no chat) \n\n .settings announcer <arena/bg/autobroadcast> <on/off> \n(para desativar anuncio de Arena/BG/Autobroadcast no chat) \n\n .transmog <on/off> \n(relogue para ativar/desativar) \n\n .sp para utilizar o spectate arena \n /g .leave para sair do spectate) \n\n .cfbg race (apenas disponivel quando estiver jogando na outra facção em crossfaction BGs) \n\n .show arena/bg/skirmish (para ver a quantidade de pessoas no queue) \n\n .gear stats (com um target, para ver o average ilvl de alguém) \n\n .rbg queue (apenas do lvl 70 até 79) \n\n .account password SenhaAntiga NovaSenha NovaSenha "))
+   player:GossipSetText(string.format("Comandos disponiveis: \n\n 'g \n ('g + texto, para falar no chat global)\n\n .settings announcer <arena/bg/autobroadcast> <on/off> \n(para desativar anuncio de Arena/BG/Autobroadcast no chat) \n\n .transmog <on/off> \n(relogue para ativar/desativar) \n\n .sp (para utilizar o spectate arena) \n /g .leave (para sair do spectate) \n\n .cfbg race (apenas disponivel quando estiver jogando na outra facção em crossfaction BGs) \n\n .show arena/bg/skirmish (para ver a quantidade de pessoas no queue) \n\n .gear stats (com um target, para ver o average ilvl de alguém) \n\n .rbg queue (a partir do level 51) \n\n .account password SenhaAntiga NovaSenha NovaSenha "))
    player:GossipMenuAddItem(4,"|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:27:27:0:0|t Voltar",0,998)
    player:GossipMenuAddItem(4,"|TInterface\\RaidFrame\\ReadyCheck-NotReady:22:22:0:0|t |cFF8B0000Sair",0,999)
    player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)
@@ -41,7 +41,7 @@ end
 
 -- Comandos GM
 if intid == 4 then
-   player:GossipSetText(string.format("Comandos GM: \n \n .character changeaccount \n .reload conf \n .ad i ou .ad i -1 p remove o item do target \n .pinfo (talvez pode crashar com mod anti hack) \n .freeze \n .morph \n .item restore \n .chat reload (module censure) \nobs: nao adicionar ou deletar palavras ingame, dá crash, apenas reload e adicionar atraves da database\n .skirmish \n .premiaçao de arena = .achiev add (vai dar title mount e achiev)\n .gob scale / .npc_scale \n .anticheat libertar, anticheat jail \n.npc guid \n .acc set gmlevel $account level (1 ate 3) -1 \n .server restart 30 Reason \n(tempo + motivo para o restart)\n .send items Aric ''Text'' ''Text'' 51571:1  (nome player, mail, textmail, itemID:quantidade) \n .da pra dar .gm fly on/off em players tbm e .mod speed tbm  \n .account set password Account SenhaAntiga NovaSenha NovaSenha \n .instance unbind all"))
+   player:GossipSetText(string.format("Comandos GM: \n \n .character changeaccount \n .reload conf \n .ad i ou .ad i -1 p remove o item do target \n .pinfo (talvez pode crashar com mod anti hack) \n .freeze \n .morph \n .item restore \n\n .skirmish \n\n .premiaçao de arena = .achiev add (vai dar title mount e achiev)\n .gob scale / .npc_scale \n\n .anticheat libertar, anticheat jail \n.npc guid \n .acc set gmlevel $account level (1 ate 3) -1 \n .server restart 30 Reason \n(tempo + motivo para o restart)\n\n .send items Aric ''Text'' ''Text'' 51571:1  (nome player, mail, textmail, itemID:quantidade) \n\n .da pra dar .gm fly on/off em players tbm e .mod speed tbm  \n\n .des \n(para remover deserter) \n\n .account set password Account SenhaAntiga NovaSenha NovaSenha \n\n .instance unbind all\n .instance (listbinds) / unbind <mapID> difficulty"))
    player:GossipMenuAddItem(4,"|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:27:27:0:0|t Voltar",0,998)
    player:GossipMenuAddItem(4,"|TInterface\\RaidFrame\\ReadyCheck-NotReady:22:22:0:0|t |cFF8B0000Sair",0,999)
    player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)

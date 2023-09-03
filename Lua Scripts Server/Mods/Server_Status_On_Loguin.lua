@@ -6,10 +6,11 @@ local TosCooldownId = 0
 local TosTitle = ""
  
  
-local function OnLogin(event, player)
+--local function OnLogin(event, player)
+local function OnFirstLogin(event, player)
     player:SetLuaCooldown(TosCooldown, TosCooldownId) -- 2 seconds
     SystemTos.ShowTos(event, player)
-	--player:RegisterEvent(SystemTos.SendTos, 1000, player:GetLuaCooldown(TosCooldownId)) -- refresh para pegar quantidade de players, mas é chato imo
+	player:RegisterEvent(SystemTos.SendTos, 4000, player:GetLuaCooldown(TosCooldownId)) -- refresh para pegar quantidade de players, mas é chato imo
 end
  
 function SystemTos.ShowTos(event, player)
@@ -18,7 +19,7 @@ function SystemTos.ShowTos(event, player)
     local allianceCount = #alliancePlayers
     local hordeCount = #hordePlayers
     local totalCount = allianceCount + hordeCount
-    local TosRules = "|TInterface\\icons\\Achievement_bg_masterofallbgs.60:60|t\n|cffffffffBem vindo ao |cffffff00[Eluna WoW]\n\n|cffffffffSite: |cffffff00Eluna-wow.com\n\n|cffffffffDiscord: |cffffff00discord.gg/8Gh7Y8BZRD\n\n|cffffffff------------------------------\n|cff00ccffInformations:\n|cffffffff------------------------------\n\n|cffffff00Level Cap: |cffff000080\n\n|cffffffff------------------------------\n|cff00ccffServer Status:\n|cffffffff------------------------------\n\n|cffffff00Online Players: |cffffffff[|cffff0000"..totalCount.."|cffffffff]\n\n|cffffff00 |TInterface\\PVPFrame\\Pvp-Currency-Alliance.png:18:18:-2:-2|tAlliance Online: |cffffffff[|cffff0000"..allianceCount.."|cffffffff]\n\n|cffffff00|TInterface\\PVPFrame\\Pvp-Currency-Horde.png:18:18:-2:-2|t Horde Online: |cffffffff[|cffff0000"..hordeCount.."|cffffffff]\n\n|cffffffffWould you like to talk in global chat?\n|cffffff00.chat(message)"
+    local TosRules = "|TInterface\\icons\\Achievement_bg_masterofallbgs.60:60|t\n|cffffffffBem vindo ao |cffffff00[Battleborn]\n\n|cffffffffSite: |cffffff00Nao existe ainda\n\n|cffffffffDiscord: |cffffff00discord.\n\n|cffffffff------------------------------\n|cff00ccffInformations:|r\n|cffffff00Teste\n|cffffffff------------------------------\n\n|cffffff00Level Cap: |cffff000080\n\n|cffffffff------------------------------\n|cff00ccffServer Status:\n|cffffffff------------------------------\n\n|cffffff00Online Players: |cffffffff[|cffff0000"..totalCount.."|cffffffff]\n\n|cffffff00 |TInterface\\PVPFrame\\Pvp-Currency-Alliance.png:18:18:-2:-2|tAlliance Online: |cffffffff[|cffff0000"..allianceCount.."|cffffffff]\n\n|cffffff00|TInterface\\PVPFrame\\Pvp-Currency-Horde.png:18:18:-2:-2|t Horde Online: |cffffffff[|cffff0000"..hordeCount.."|cffffffff]\n\n|cffffffffPara digitar no chat global digite:\n|cffffff00'g (message)"
     local FooterCooldownText = ""
     if (player:GetLuaCooldown(TosCooldownId) > 1) then
         FooterCooldownText = TosTitle..TosRules.."\n\n|rEspere "..player:GetLuaCooldown(TosCooldownId).." segundos para aceitar."
@@ -50,5 +51,6 @@ function SystemTos.OnGossipSelect(event, player, object, sender, intid, code, me
     end
 end
  
-RegisterPlayerEvent(3, OnLogin)
+RegisterPlayerEvent(30, OnFirstLogin)
+ --RegisterPlayerEvent(3, OnLogin)
 RegisterPlayerGossipEvent(MenuId, 2, SystemTos.OnGossipSelect)

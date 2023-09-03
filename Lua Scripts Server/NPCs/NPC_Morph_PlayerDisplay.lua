@@ -1,4 +1,4 @@
-local GOSSIP_EVENT_ON_HELLO = 1
+﻿local GOSSIP_EVENT_ON_HELLO = 1
 local GOSSIP_EVENT_ON_SELECT = 2
 local NPC_ID = 93131
 local MENU_ID = 1
@@ -8,7 +8,7 @@ local function morpherMenu(event, player, object)
     player:GossipMenuAddItem(9, "|TInterface\\icons\\Inv_bannerpvp_01:26|t Horde Races\n", 0, 6) -- |TInterface\\PVPFrame\\Pvp-Currency-Horde:28|t
     player:GossipMenuAddItem(9, "|TInterface\\icons\\Inv_bannerpvp_02:26|t Alliance Races\n", 0, 7)
     player:GossipMenuAddItem(9, "|TInterface\\icons\\Spell_shadow_raisedead:24|t Creature Displays", 0, 40)
-    player:GossipMenuAddItem(7, "|TInterface\\icons\\Ability_rogue_disguise:24|t  Insert Display", 0, 2, true)
+    --player:GossipMenuAddItem(7, "|TInterface\\icons\\Ability_rogue_disguise:24|t  Insert Display", 0, 2, true)
     player:GossipMenuAddItem(5, "|TInterface\\icons\\spell_holy_dispelmagic:24|t  Reset Display", 0, 5)
     player:GossipMenuAddItem(5, player:GetDisplayId() .. " <- Current Display ID\n", 0, 0)    -- tava '0, 4', mas acho que nao precisa aparecer no chat tb
     --player:GossipMenuAddItem(2, "Next DisplayID", 0, 1)

@@ -1,0 +1,15 @@
+local NPC_ID = 94149 -- Substitua pelo ID do NPC desejado
+local SPELLS_TO_CAST = {48470, 53307} -- Thorns/ Mark of the Wild
+
+local function OnGossip(event, player, object)
+    for _, spellID in ipairs(SPELLS_TO_CAST) do
+        player:CastSpell(player, spellID, true)
+    end
+
+    player:ResetAllCooldowns() -- Reseta todos os cooldowns do jogador
+    player:RemoveAura(57724) -- Sated ou Exhaustion
+    player:RemoveAura(57723) -- Sated ou Exhaustion
+    player:GossipComplete()
+end
+
+RegisterCreatureGossipEvent(NPC_ID, 1, OnGossip)
