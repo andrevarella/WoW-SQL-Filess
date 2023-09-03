@@ -1,8 +1,0 @@
-INSERT INTO `acore_world`.`game_graveyard` (`ID`, `Map`, `x`, `y`, `z`, `Comment`) VALUES (1721, 571, 1976.51, -4161.35, 216.73, 'Howling Fjord, Skorn (Mall)');
-INSERT INTO `acore_world`.`game_graveyard` (`ID`, `Map`, `x`, `y`, `z`, `Comment`) VALUES (1722, 1, 5089.47, -1435.41, 1341.25, 'Hyjal, Pet Zone');
-INSERT INTO `acore_world`.`game_graveyard` (`ID`, `Map`, `x`, `y`, `z`, `Comment`) VALUES (1723, 530, -737.93, 6995.15, 36.03, 'Nagrand,   Throne of the Elements (duel zone)');
-INSERT INTO `acore_world`.`game_graveyard` (`ID`, `Map`, `x`, `y`, `z`, `Comment`) VALUES (1724, 1, -10278.9, -3902.38, 0.6, 'Tanaris, Land\'s End Beach (duel zone 2)');
-INSERT INTO `acore_world`.`game_graveyard` (`ID`, `Map`, `x`, `y`, `z`, `Comment`) VALUES (1725, 1, 8006.07, -3893.39, 687.02, 'Winterspring, Frostsaber Rock (duel zone 3)');
-INSERT INTO `acore_world`.`game_graveyard` (`ID`, `Map`, `x`, `y`, `z`, `Comment`) VALUES (1726, 1, -10723.1, 2420.06, 7.6, 'Silithus, The Veiled Sea (Talvez PvP Zone 4 ou Shop Zone)');
-INSERT INTO `acore_world`.`game_graveyard` (`ID`, `Map`, `x`, `y`, `z`, `Comment`) VALUES (1727, 530, -2367.58, 3282.8, -0.59, 'Terokkar Forest, Firewing Point (Vip Zone)');
-INSERT INTO `acore_world`.`game_graveyard` (`ID`, `Map`, `x`, `y`, `z`, `Comment`) VALUES (1728, 0, -1810.77, -4188.62, 5.4, 'Arathi Highlands, PvP Zone');

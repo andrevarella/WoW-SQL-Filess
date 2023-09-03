@@ -24190,7 +24190,6 @@ INSERT INTO `creature_model_info` VALUES (50003, 2, 2.21, 0, 0);
 INSERT INTO `creature_model_info` VALUES (50002, 2, 2.21, 0, 0);
 INSERT INTO `creature_model_info` VALUES (50001, 2, 2.21, 0, 0);
 INSERT INTO `creature_model_info` VALUES (50000, 2, 2.21, 0, 0);
-INSERT INTO `creature_model_info` VALUES (32755, 0, 0, 2, 0);
 INSERT INTO `creature_model_info` VALUES (29407, 0.315, 1.35, 0, 0);
 INSERT INTO `creature_model_info` VALUES (50005, 2, 2.21, 0, 0);
 INSERT INTO `creature_model_info` VALUES (50006, 2, 2.21, 0, 0);

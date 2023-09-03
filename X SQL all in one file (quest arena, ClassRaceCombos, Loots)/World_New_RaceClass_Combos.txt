@@ -7,6 +7,8 @@
 ########################################################################
 ########################################################################
 -- playercreateinfo (lugar onde o char é criado)
+
+-- no mall:
 -- nelf mage
 INSERT INTO `acore_world`.`playercreateinfo`(`race`, `class`, `map`, `zone`, `position_x`, `position_y`, `position_z`, `orientation`) VALUES (4, 8, 571, 394, 2787.87, -2732.06, 89.6718, 0.410484);
 -- undead  hunter:
@@ -20,6 +22,19 @@ INSERT INTO `acore_world`.`playercreateinfo`(`race`, `class`, `map`, `zone`, `po
 -- troll druid
 INSERT INTO `acore_world`.`playercreateinfo`(`race`, `class`, `map`, `zone`, `position_x`, `position_y`, `position_z`, `orientation`) VALUES (8, 11, 571, 394, 2787.87, -2732.06, 89.6718, 0.410484);
 
+-- nas areas normais iniciais:
+-- night elf mage
+INSERT INTO `playercreateinfo` (`race`, `class`, `map`, `zone`, `position_x`, `position_y`, `position_z`, `orientation`) VALUES (4, 8, 1, 141, 10311.3, 832.463, 1326.41, 5.69632);
+-- undead hunter
+INSERT INTO `playercreateinfo` (`race`, `class`, `map`, `zone`, `position_x`, `position_y`, `position_z`, `orientation`) VALUES (5, 3, 0, 85, 1676.71, 1678.31, 121.67, 2.70526);
+-- tauren pala:
+INSERT INTO `playercreateinfo` (`race`, `class`, `map`, `zone`, `position_x`, `position_y`, `position_z`, `orientation`) VALUES (6, 2, 1, 215, -2917.58, -257.98, 52.9968, 0);
+-- gnome priest
+INSERT INTO `playercreateinfo` (`race`, `class`, `map`, `zone`, `position_x`, `position_y`, `position_z`, `orientation`) VALUES (7, 5, 0, 1, -6240.32, 331.033, 382.758, 0);
+--troll lock:
+INSERT INTO `playercreateinfo` (`race`, `class`, `map`, `zone`, `position_x`, `position_y`, `position_z`, `orientation`) VALUES (8, 9, 1, 14, -618.518, -4251.67, 38.718, 0);
+--troll druid:
+INSERT INTO `playercreateinfo` (`race`, `class`, `map`, `zone`, `position_x`, `position_y`, `position_z`, `orientation`) VALUES (8, 11, 1, 14, -618.518, -4251.67, 38.718, 0);
 
 
 ########################################################################
