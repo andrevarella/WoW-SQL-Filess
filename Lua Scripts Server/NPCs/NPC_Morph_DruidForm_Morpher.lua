@@ -9,8 +9,8 @@ druidMorph.druidMorhValid = {
         {"|TInterface\\icons\\Ability_druid_catform.png:29|t Cat", 3},
         {"|TInterface\\icons\\Ability_racial_bearform.png:29|t Bear", 1},
         {"|TInterface\\icons\\Ability_druid_travelform.png:29|t Travel", 4},
-        {"|TInterface\\icons\\Ability_druid_improvedmoonkinform.png:29|t Moonkin", 5}
-        --{"|TInterface\\icons\\Ability_druid_aquaticform.png:29|t Aquatic", 2}
+        {"|TInterface\\icons\\Ability_druid_improvedmoonkinform.png:29|t Moonkin", 5},
+		{"|TInterface\\icons\\Ability_druid_aquaticform.png:29|t Aquatic", 2}
     },
 
     [3] = { -- Cat Form
@@ -244,10 +244,11 @@ function druidMorph.menu(event, player, object)
     local class = player:GetClass()
     player:GossipClearMenu()
     for _, menuName in ipairs(druidMorph.druidMorhValid["Menu"]) do
-        player:GossipMenuAddItem(10, menuName[1] .. " Form.", 0, menuName[2])   -- print(menuName[1], menuName[2])
+        player:GossipMenuAddItem(3, menuName[1] .. " Form.", 0, menuName[2])   -- print(menuName[1], menuName[2])
     end
     player:GossipSendMenu(1, player, MENU_ID)
 end
+
 
 function druidMorph.selectionMorph(event, player, object, sender, intid, code, menu_id)
 
@@ -263,18 +264,18 @@ function druidMorph.selectionMorph(event, player, object, sender, intid, code, m
         if (player:GetRace() == 4) then   -- Night Elf Bear
         -- set form
             for _, menuName in ipairs(druidMorph.druidMorhValid[1][1]) do
-                player:GossipMenuAddItem(10, menuName[1], 0, menuName[2])
+                player:GossipMenuAddItem(2, menuName[1], 0, menuName[2])
         -- print(menuName[1], menuName[2])
             end
             
         elseif (player:GetRace() == 6) then   -- Tauren Bear
             for _, menuName in ipairs(druidMorph.druidMorhValid[1][2]) do
-                player:GossipMenuAddItem(10, menuName[1], 0, menuName[2])
+                player:GossipMenuAddItem(2, menuName[1], 0, menuName[2])
             end
 
         elseif (player:GetRace() == 8) then   -- troll Bear
             for _, menuName in ipairs(druidMorph.druidMorhValid[1][3]) do
-                player:GossipMenuAddItem(10, menuName[1], 0, menuName[2])
+                player:GossipMenuAddItem(2, menuName[1], 0, menuName[2])
             end
         end
         player:SetData("currentForm", 1)
@@ -292,22 +293,21 @@ function druidMorph.selectionMorph(event, player, object, sender, intid, code, m
 
         if (player:GetRace() == 4) then -- Night Elf Aquatic
             for _, menuName in ipairs(druidMorph.druidMorhValid[2][1]) do
-                player:GossipMenuAddItem(10, menuName[1], 0, menuName[2])
+                player:GossipMenuAddItem(2, menuName[1], 0, menuName[2])
             end
 
         elseif (player:GetRace() == 6) then -- Tauren Aquatic
             for _, menuName in ipairs(druidMorph.druidMorhValid[2][2]) do
-                player:GossipMenuAddItem(10, menuName[1], 0, menuName[2])
+                player:GossipMenuAddItem(2, menuName[1], 0, menuName[2])
             end
 
         elseif (player:GetRace() == 8) then -- Troll Aquatic
             for _, menuName in ipairs(druidMorph.druidMorhValid[2][3]) do
-            player:GossipMenuAddItem(10, menuName[1], 0, menuName[2])
+            player:GossipMenuAddItem(2, menuName[1], 0, menuName[2])
             end
         end
         player:SetData("currentForm", 2)
         player:GossipSendMenu(1, player, MENU_ID)
-
 
     -- CAT
     elseif intid == 3 then
@@ -320,17 +320,17 @@ function druidMorph.selectionMorph(event, player, object, sender, intid, code, m
  
         if (player:GetRace() == 4) then -- Nelf Cat Form
             for _, menuName in ipairs(druidMorph.druidMorhValid[3][1]) do
-                player:GossipMenuAddItem(10, menuName[1], 0, menuName[2])
+                player:GossipMenuAddItem(2, menuName[1], 0, menuName[2])
             end
 
         elseif (player:GetRace() == 6) then -- Tauren Cat Form
             for _, menuName in ipairs(druidMorph.druidMorhValid[3][2]) do
-                player:GossipMenuAddItem(10, menuName[1], 0, menuName[2])
+                player:GossipMenuAddItem(2, menuName[1], 0, menuName[2])
             end
 
         elseif (player:GetRace() == 8) then -- Troll Cat Form
             for _, menuName in ipairs(druidMorph.druidMorhValid[3][3]) do
-                player:GossipMenuAddItem(10, menuName[1], 0, menuName[2])
+                player:GossipMenuAddItem(2, menuName[1], 0, menuName[2])
             end
         end
         player:SetData("currentForm", 3)
@@ -347,17 +347,17 @@ function druidMorph.selectionMorph(event, player, object, sender, intid, code, m
 
          if (player:GetRace() == 4) then   -- Night Elf Travel Form
             for _, menuName in ipairs(druidMorph.druidMorhValid[4][1]) do
-                player:GossipMenuAddItem(10, menuName[1], 0, menuName[2])
+                player:GossipMenuAddItem(2, menuName[1], 0, menuName[2])
             end
 
         elseif (player:GetRace() == 6) then   -- Tauren Travel Form
             for _, menuName in ipairs(druidMorph.druidMorhValid[4][2]) do
-                player:GossipMenuAddItem(10, menuName[1], 0, menuName[2])
+                player:GossipMenuAddItem(2, menuName[1], 0, menuName[2])
             end
         
         elseif (player:GetRace() == 8) then   -- Troll Travel Form
             for _, menuName in ipairs(druidMorph.druidMorhValid[4][3]) do
-                player:GossipMenuAddItem(10, menuName[1], 0, menuName[2])
+                player:GossipMenuAddItem(2, menuName[1], 0, menuName[2])
             end
         end
         player:SetData("currentForm", 4)
@@ -374,92 +374,140 @@ function druidMorph.selectionMorph(event, player, object, sender, intid, code, m
 
         if (player:GetRace() == 4) then   -- Night Elf Moonkin
             for _, menuName in ipairs(druidMorph.druidMorhValid[5][1]) do          -- set form
-                player:GossipMenuAddItem(10, menuName[1], 0, menuName[2])
+                player:GossipMenuAddItem(2, menuName[1], 0, menuName[2])
                 -- print(menuName[1], menuName[2])
             end
 
         elseif (player:GetRace() == 6) then   -- Tauren Moonkin
             for _, menuName in ipairs(druidMorph.druidMorhValid[5][2]) do
-                player:GossipMenuAddItem(10, menuName[1], 0, menuName[2])
+                player:GossipMenuAddItem(2, menuName[1], 0, menuName[2])
             end
 
         elseif (player:GetRace() == 8) then   -- Troll Moonkin
             for _, menuName in ipairs(druidMorph.druidMorhValid[5][3]) do
-                player:GossipMenuAddItem(10, menuName[1], 0, menuName[2])
+                player:GossipMenuAddItem(2, menuName[1], 0, menuName[2])
             end
         end
         player:SetData("currentForm", 5)
         player:GossipSendMenu(1, player, MENU_ID)
     end
+	
     
  
     if intid ~= 1 and intid ~= 2 and intid ~= 3 and intid ~= 4 and intid ~= 5 then
         player:SetDisplayId(intid)
  
-        -- player:SetData("bearFormId", intid)
-        -- player:SetData("catFormId", intid)
-        -- player:SetData("aquaticFormId", intid)
-        -- player:SetData("travelFormId", intid)
-        -- player:SetData("moonkinFormId", intid)
- 
-        -- Get the current form
         local currentForm = player:GetData("currentForm")
+        local formName
         if currentForm == 1 then
-            print("bear")
-            player:SetData("bearFormId", intid)
-
+            formName = "DisplayBearForm"
+            player:SaveToDB() 
+		elseif currentForm == 2 then
+            formName = "DisplayAquaticForm"
+            player:SaveToDB() 
         elseif currentForm == 3 then
-            player:SetData("catFormId", intid)
-
-        elseif currentForm == 2 then
-            player:SetData("aquaticFormId", intid)
-
+            formName = "DisplayCatForm"
+            player:SaveToDB() 
         elseif currentForm == 4 then
-            player:SetData("travelFormId", intid)
-
+            formName = "DisplayTravelForm"
+            player:SaveToDB() 
         elseif currentForm == 5 then
-            player:SetData("moonkinFormId", intid)
+            formName = "DisplayMoonkinForm"
+            player:SaveToDB() 
         end
+        CharDBExecute("INSERT INTO custom_druid_form_display (player_guid, "..formName..") VALUES ("..player:GetGUIDLow()..","..intid..") ON DUPLICATE KEY UPDATE "..formName.."="..intid)
  
-        -- player:GossipComplete()
-        -- player:GossipClearMenu()
         druidMorph.menu(event, player, object)
     end
 end
- 
-function druidMorph.callMenu(event, player, msg, lang, type)
-    if (msg:find(druidMorph.chatMsg)) then
-        druidMorph.menu(event, player)
-        return false
+
+
+function druidMorph.castDisplay(event, player, spell, skipCheck)
+
+    local LuaIsNull = function(val, default)
+	if val ~= nil and val ~= 0 then
+		return val
+	else
+		return default
+		end
+	end
+	
+
+    local Query = CharDBQuery("SELECT * FROM custom_druid_form_display WHERE player_guid = "..player:GetGUIDLow())
+    
+    if(Query) then
+        local DisplayCatForm = LuaIsNull(Query:GetUInt32(1), nil)
+        local DisplayBearForm = LuaIsNull(Query:GetUInt32(2), nil)
+		local DisplayTravelForm = LuaIsNull(Query:GetUInt32(3), nil)
+		local DisplayMoonkinForm = LuaIsNull(Query:GetUInt32(4), nil)
+        local DisplayAquaticForm = LuaIsNull(Query:GetUInt32(5), nil)
+
+        
+        -- Checa a raça para determinar qual será o DisplayID padrão
+        local race = player:GetRace()
+        local defaultCatForm
+        local defaultBearForm
+        local defaultMoonkinForm
+        local defaultAquaticForm
+        local defaultTravelForm
+
+        if race == 4 then -- Night Elf
+            defaultCatForm = 29406
+            defaultBearForm = 29417
+            defaultMoonkinForm = 15374
+            defaultAquaticForm = 2428
+            defaultTravelForm = 918
+        elseif race == 6 then -- Tauren
+            defaultCatForm = 29411
+            defaultBearForm = 29420
+            defaultMoonkinForm = 15375
+            defaultAquaticForm = 2428
+            defaultTravelForm = 918
+        elseif race == 8 then -- Troll
+            defaultCatForm = 50595
+            defaultBearForm = 50580
+            defaultMoonkinForm = 50590
+            defaultAquaticForm = 2428
+            defaultTravelForm = 918
+        end
+
+        if player:HasAura(768) then   -- Cat Form
+            player:SetDisplayId(DisplayCatForm or defaultCatForm)
+        end
+        if player:HasAura(9634) then  -- Bear Form
+            player:SetDisplayId(DisplayBearForm or defaultBearForm)
+        end
+        if player:HasAura(24858) then -- Moonkin Form
+            player:SetDisplayId(DisplayMoonkinForm or defaultMoonkinForm)
+        end
+        if player:HasAura(1066) then  -- Aquatic Form
+            player:SetDisplayId(DisplayAquaticForm or defaultAquaticForm)
+        end
+        if player:HasAura(783) then   -- Travel Form
+            player:SetDisplayId(DisplayTravelForm or defaultTravelForm)
+        end
     end
 end
- 
-function druidMorph.castDisplay(event, player, spell, skipCheck)
-    -- print(spell:GetEntry())
- 
-    if player:HasAura(768) then
-        if player:GetData("catFormId") ~= nil then
-            player:SetDisplayId(player:GetData("catFormId"))
-        end
-    end
-    if player:HasAura(9634) then
-        if player:GetData("bearFormId") ~= nil then
-            player:SetDisplayId(player:GetData("bearFormId"))
-        end
-    end
-    if player:HasAura(1066) then -- 1066 spellId
-        if player:GetData("aquaticFormId") ~= nil then
-            player:SetDisplayId(player:GetData("aquaticFormId"))
-        end
-    end
-    if player:HasAura(783) then
-        if player:GetData("travelFormId") ~= nil then
-            player:SetDisplayId(player:GetData("travelFormId"))
-        end
-    end
-    if player:HasAura(24858) then
-        if player:GetData("moonkinFormId") ~= nil then
-            player:SetDisplayId(player:GetData("moonkinFormId"))
+
+
+-- fix, não aplicava o customdisplay ao logar, tinha que renovar a forma
+function druidMorph.applyCatFormOnLogin(event, player)
+    if player:GetClass() == 11 then -- Druids Only
+        if player:HasAura(768) then -- Cat Form
+            player:RemoveAura(768) --
+            player:AddAura(768, player)
+        elseif player:HasAura(9634) then -- Bear
+            player:RemoveAura(9634)
+            player:AddAura(9634, player)
+        elseif player:HasAura(783) then -- Travel
+            player:RemoveAura(783)
+            player:AddAura(783, player)
+        elseif player:HasAura(24858) then -- Moonkin
+            player:RemoveAura(24858)
+            player:AddAura(24858, player)
+        elseif player:HasAura(1066) then -- Aquatic
+            player:RemoveAura(1066)
+            player:AddAura(1066, player)
         end
     end
 end
@@ -467,3 +515,4 @@ end
 RegisterPlayerEvent(PLAYER_EVENT_ON_SPELL_CAST, druidMorph.castDisplay)
 RegisterPlayerGossipEvent(MENU_ID, GOSSIP_EVENT_ON_SELECT, druidMorph.selectionMorph)
 RegisterCreatureGossipEvent(NPC_ID, GOSSIP_EVENT_ON_HELLO, druidMorph.menu)
+RegisterPlayerEvent(3, druidMorph.applyCatFormOnLogin)
