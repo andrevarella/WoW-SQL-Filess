@@ -2,10 +2,11 @@
 -- AUTO LEARN SKILLS MOD
 ------------------------------------------------------------------------------------------------
 local EnableModule = true
-local AnnounceModule = true -- Announce module on player login ?
+local AnnounceModule = false -- Announce module on player login ?
 
 local MaxLevel = true -- Set to true to enable max level skills instantly when login
-local MaxPlayerLevel = 80 -- Starting player level change to your liking.
+local StartPlayerLevel = 10 -- Starting player level change to your liking.
+local StartDKLevel = 55 -- Starting level for Death Knights.
 
 local AutoDualSpec = true -- Auto learn Dual Specialization
 local AutoRiding = true -- Auto learn Riding
@@ -54,6 +55,18 @@ local CLASS_SHAMAN = 7
 local CLASS_MAGE = 8
 local CLASS_WARLOCK = 9
 local CLASS_DRUID = 11
+
+
+local RACE_HUMAN = 1
+local RACE_ORC = 2
+local RACE_DWARF = 3
+local RACE_NIGHTELF = 4
+local RACE_UNDEAD_PLAYER = 5
+local RACE_TAUREN = 6
+local RACE_GNOME = 7
+local RACE_TROLL = 8
+local RACE_BLOODELF = 10
+local RACE_DRAENEI = 11
 
 -- class.level
 local SKILL = {
@@ -915,22 +928,93 @@ local TALENTSKILL = {
     }
 }
 
+-- race.level
+local RACE = {
+    [RACE_HUMAN] = {
+        [20] = {470},
+        [40] = {23229, 23227, 23228},
+        [60] = {32240} -- Snowy Gryphon
+    },
+    [RACE_DWARF] = {
+        [20] = {6898},
+        [40] = {23238, 23239, 23240},
+        [60] = {32240} -- Snowy Gryphon
+    },
+    [RACE_NIGHTELF] = {
+        [20] = {66847},
+        [40] = {23221, 23219, 23338},
+        [60] = {32240} -- Snowy Gryphon
+    },
+    [RACE_GNOME] = {
+        [20] = {10969},
+        [40] = {23225, 23223, 23222},
+        [60] = {32240} -- Snowy Gryphon
+    },
+    [RACE_DRAENEI] = {
+        [20] = {35711},
+        [40] = {35713, 35712, 35714},
+        [60] = {32240} -- Snowy Gryphon
+    },
+	-- Hordes:
+    [RACE_ORC] = {
+        [20] = {6654},
+        [40] = {23250, 23252, 23251},
+        [60] = {32243} -- Tawny Wind Rider
+    },
+    [RACE_UNDEAD_PLAYER] = {
+        [20] = {17462},
+        [40] = {17465, 66846, 23246},
+        [60] = {32243} -- Tawny Wind Rider
+    },
+    [RACE_TAUREN] = {
+        [20] = {64657},
+        [40] = {23249, 23248, 23247},
+        [60] = {32243} -- Tawny Wind Rider
+    },
+    [RACE_TROLL] = {
+        [20] = {10796},
+        [40] = {23241, 23242, 23243},
+        [60] = {32243} -- Tawny Wind Rider
+    },
+    [RACE_BLOODELF] = {
+        [20] = {35020},
+        [40] = {35025, 35660, 35027},
+        [60] = {32243} -- Tawny Wind Rider
+    }
+}
+
+
 local RIDING = {
     [20] = {33388}, -- Apprentince Riding (75)
     [40] = {33391}, -- Journeyman Riding (150)
     [60] = {34090}, -- Expert Riding (225)
     [NorthrendFlyLevel] = {54197}, -- Cold Weather Flying
-    [70] = {34090} -- Artisan Riding (300) Id = 34091
+    [70] = {34091} -- Artisan Riding (300) Id = 34091
 }
 
 local function onLevelChange(event, player, oldLevel)
+    local Prace = player:GetRace()
+	local RaceSkills = RACE[Prace]
+
     local Pclass = player:GetClass()
+	local ClassSkills = SKILL[Pclass]
+	
     local level = player:GetLevel()
     local team = player:GetTeam()
-    local ClassSkills = SKILL[Pclass]
     local TeamSkills = TEAMSKILL[team][Pclass]
     local TalentSkills = TALENTSKILL[Pclass]
 
+    if (RaceSkills) then
+        for i = oldLevel + 1, level do
+            local LevelSkills = RaceSkills[i] or {}
+            for _, v in pairs(LevelSkills) do
+
+                if (not player:HasSpell(v)) then -- If the player doesn't already know the skill
+                    player:LearnSpell(v)
+                end
+            end
+        end
+    end
     if (ClassSkills) then
         for i = oldLevel + 1, level do
             local LevelSkills = ClassSkills[i] or {}
@@ -1005,12 +1089,20 @@ local function onLogin(event, player)
     player:SendBroadcastMessage("This server is running the |cff4CFF00" .. FILE_NAME .. "|r module loaded.")
 end
 
+
 local function onFirstLogin(event, player)
-    if (MaxLevel) then
-        player:SetLevel(MaxPlayerLevel)
+    if player:GetClass() == CLASS_DEATHKNIGHT then -- Verifica se é um Death Knight
+        if (MaxLevel) then
+            player:SetLevel(StartDKLevel)
+        end
+    else
+        if (MaxLevel) then
+            player:SetLevel(StartPlayerLevel)
+        end
+        onLevelChange(1, player, 0)
     end
-    onLevelChange(1, player, 0)
 end
+
 
 RegisterPlayerEvent(13, onLevelChange) -- PLAYER_EVENT_ON_LEVEL_CHANGE
 RegisterPlayerEvent(39, onLearnTalent) -- PLAYER_EVENT_ON_LEARN_TALENTS
