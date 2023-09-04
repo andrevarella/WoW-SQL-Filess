@@ -9,8 +9,8 @@ druidMorph.druidMorhValid = {
         {"|TInterface\\icons\\Ability_druid_catform.png:29|t Cat", 3},
         {"|TInterface\\icons\\Ability_racial_bearform.png:29|t Bear", 1},
         {"|TInterface\\icons\\Ability_druid_travelform.png:29|t Travel", 4},
-        {"|TInterface\\icons\\Ability_druid_improvedmoonkinform.png:29|t Moonkin", 5},
-		{"|TInterface\\icons\\Ability_druid_aquaticform.png:29|t Aquatic", 2}
+        {"|TInterface\\icons\\Ability_druid_improvedmoonkinform.png:29|t Moonkin", 5}
+		--{"|TInterface\\icons\\Ability_druid_aquaticform.png:29|t Aquatic", 2}
     },
 
     [3] = { -- Cat Form
@@ -251,6 +251,8 @@ end
 
 
 function druidMorph.selectionMorph(event, player, object, sender, intid, code, menu_id)
+local formName = ""  -- Inicializa formName como uma string vazia
+
 
     -- BEAR
     if intid == 1 then
@@ -416,6 +418,7 @@ function druidMorph.selectionMorph(event, player, object, sender, intid, code, m
             player:SaveToDB() 
         end
         CharDBExecute("INSERT INTO custom_druid_form_display (player_guid, "..formName..") VALUES ("..player:GetGUIDLow()..","..intid..") ON DUPLICATE KEY UPDATE "..formName.."="..intid)
+		
  
         druidMorph.menu(event, player, object)
     end
