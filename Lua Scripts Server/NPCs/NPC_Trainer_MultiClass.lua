@@ -5,8 +5,14 @@ player:GossipSetText(string.format(" "))
     player:GossipMenuAddItem(3,"Train me.",0, 1) 
     player:GossipMenuAddItem(2,"I wish to unlearn my talents.",0, 2, false, "Do you want to unlearn all your talents? This will unsummon any controlled pet.")
     if (player:GetClass() == 3) then
-    player:GossipMenuAddItem(2,"Unlearn pet talents.",0, 3, false, "Do you want to unlearn all your pet talents?")
+		player:GossipMenuAddItem(2,"Unlearn pet talents.",0, 3, false, "Do you want to unlearn all your pet talents?")
     end
+	if player:GetClass() == 11 then
+		if not player:HasSpell(40120) then -- checka se nao tem Swift Flight Form aprendido, entao mostra o gossip
+			player:GossipMenuAddItem(3, "Treinar Swift Flight Form", 0, 4)
+		end
+	end
+	
     player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)
 end
 
@@ -124,13 +130,22 @@ if(intid == 1 and player:GetClass() == 11) then
 end
 
 
+if(intid == 4 and player:GetClass() == 11) then
+   if player:HasSpell(34091) then     -- 300 Riding (280%)
+   	    player:LearnSpell(40120)      -- Swift Flight Form
+   else
+       player:SendBroadcastMessage("Você precisa do riding de 280% para aprender a Swift Flight Form.")
+   end
+   player:GossipComplete()
+end
+
+
 -- Reset Player Talents
 if (intid == 2) then
     player:ResetTalents()
     player:GossipComplete()
     end
 end
-
 
 
 

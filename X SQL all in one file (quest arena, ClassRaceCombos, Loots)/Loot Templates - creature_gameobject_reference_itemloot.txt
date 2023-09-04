@@ -228,13 +228,19 @@ UPDATE `acore_world`.`creature_loot_template` SET `Reference` = 34234, `Chance` 
 UPDATE `acore_world`.`creature_loot_template` SET `Reference` = 34258, `Chance` = 100, `QuestRequired` = 0, `LootMode` = 1, `GroupId` = 0, `MinCount` = 6, `MaxCount` = 6, `Comment` = 'Professor Putricide (2) - (ReferenceTable) 10hc - itens' WHERE `Entry` = 38585 AND `Item` = 1;
 UPDATE `acore_world`.`creature_loot_template` SET `Reference` = 34278, `Chance` = 10, `QuestRequired` = 0, `LootMode` = 1, `GroupId` = 0, `MinCount` = 3, `MaxCount` = 3, `Comment` = 'Professor Putricide (2) - (ReferenceTable) 10hc - mark' WHERE `Entry` = 38585 AND `Item` = 2;
 -- PP 25N
-INSERT INTO `acore_world`.`creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES (38431, 1, 55000, 100, 0, 1, 0, 3, 3, 'Professor Putricide (1) - (ReferenceTable) 25n - [Loot Novo]');
-INSERT INTO `acore_world`.`creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES (38431, 2, 34278, 10, 0, 1, 0, 3, 3, 'Professor Putricide (1) - (ReferenceTable) 25n - mark normal');
 DELETE FROM `creature_loot_template` WHERE `entry` = '38431' and `Item` = '50067'; -- Del Astrylian's Sutured Cinch 25n
 DELETE FROM `creature_loot_template` WHERE `entry` = '38431' and `Item` = '50179'; -- Del Last Word 25n
 DELETE FROM `creature_loot_template` WHERE `entry` = '38431' and `Item` = '50069'; -- Del Professor's Bloodied Smock 25n
 DELETE FROM `creature_loot_template` WHERE `entry` = '38431' and `Item` = '50068'; -- Del Rigormortis 25n
 DELETE FROM `creature_loot_template` WHERE `entry` = '38431' and `Item` = '50351'; -- Del TAJ trinket 25n
+DELETE FROM `creature_loot_template` WHERE `entry` = '38431';
+INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES (38431, 1, 55000, 100, 0, 1, 0, 3, 3, 'Professor Putricide (1) - (ReferenceTable) 25n - [Loot Novo]');
+INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES (38431, 2, 34278, 10, 0, 1, 0, 3, 3, 'Professor Putricide (1) - (ReferenceTable) 25n - mark normal');
+INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES (38431, 49426, 0, 100, 0, 1, 0, 2, 2, 'Professor Putricide (1) - Emblem of Frost');
+INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES (38431, 49908, 0, 38, 0, 1, 0, 1, 1, 'Professor Putricide (1) - Primordial Saronite');
+INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES (38431, 50274, 0, 38, 1, 1, 0, 1, 1, 'Professor Putricide (1) - Shadowfrost Shard');
+
+-- reference pp 25n
 INSERT INTO `reference_loot_template`(`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES (55000, 50067, 0, 0, 0, 1, 1, 1, 1, 'Astrylian\'s Sutured Cinch');
 INSERT INTO `reference_loot_template`(`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES (55000, 50068, 0, 0, 0, 1, 1, 1, 1, 'Rigormortis');
 INSERT INTO `reference_loot_template`(`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES (55000, 50069, 0, 0, 0, 1, 1, 1, 1, 'Professor\'s Bloodied Smock');
@@ -242,14 +248,20 @@ INSERT INTO `reference_loot_template`(`Entry`, `Item`, `Reference`, `Chance`, `Q
 INSERT INTO `reference_loot_template`(`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES (55000, 50351, 0, 0, 0, 1, 1, 1, 1, 'Tiny Abomination in a Jar');
 
 -- PP 25H
-UPDATE `acore_world`.`creature_loot_template` SET `Chance` = 100, `QuestRequired` = 0, `LootMode` = 1, `MinCount` = 3, `MaxCount` = 3, `Comment` = 'Professor Putricide (1) - (ReferenceTable) 25H - [Loot Novo]' WHERE `Entry` = 38586 AND `Item` = 1 AND `Reference` = 56000 AND `GroupId` = 0;
-UPDATE `acore_world`.`creature_loot_template` SET `Chance` = 100, `QuestRequired` = 0, `LootMode` = 1, `MinCount` = 3, `MaxCount` = 3, `Comment` = 'Professor Putricide (3) - (ReferenceTable) 25hc - mark hc' WHERE `Entry` = 38586 AND `Item` = 2 AND `Reference` = 34279 AND `GroupId` = 0;
-UPDATE `acore_world`.`creature_loot_template` SET `Chance` = 10, `QuestRequired` = 0, `LootMode` = 1, `MinCount` = 2, `MaxCount` = 2, `Comment` = 'Professor Putricide (3) - (ReferenceTable) 25hc - mark normal' WHERE `Entry` = 38586 AND `Item` = 3 AND `Reference` = 34278 AND `GroupId` = 0;
+DELETE FROM `creature_loot_template` WHERE `entry` = '38586';
+INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES (38586, 1, 56000, 100, 0, 1, 0, 3, 3, 'Professor Putricide (1) - (ReferenceTable) 25H - [Loot Novo]');
+INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES (38586, 2, 34279, 100, 0, 1, 0, 3, 3, 'Professor Putricide (3) - (ReferenceTable) 25hc - mark hc');
+INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES (38586, 3, 34278, 10, 0, 1, 0, 2, 2, 'Professor Putricide (3) - (ReferenceTable) 25hc - mark normal');
+INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES (38586, 49426, 0, 100, 0, 1, 0, 2, 2, 'Professor Putricide (3) - Emblem of Frost');
+INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES (38586, 49908, 0, 38, 0, 1, 0, 1, 1, 'Professor Putricide (3) - Primordial Saronite');
+INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES (38586, 50274, 0, 68, 1, 1, 0, 1, 1, 'Professor Putricide (3) - Shadowfrost Shard');
+
 DELETE FROM `creature_loot_template` WHERE `entry` = '38586' and `Item` = '50707'; -- Del Astrylian's Sutured Cinch 25H
 DELETE FROM `creature_loot_template` WHERE `entry` = '38586' and `Item` = '50708'; -- Del Last Word 25H
 DELETE FROM `creature_loot_template` WHERE `entry` = '38586' and `Item` = '50705'; -- Del Professor's Bloodied Smock 25H
 DELETE FROM `creature_loot_template` WHERE `entry` = '38586' and `Item` = '50704'; -- Del Rigormortis 25H
 DELETE FROM `creature_loot_template` WHERE `entry` = '38586' and `Item` = '50706'; -- Del TAJ trinket 25H
+-- reference_loot pp 25h
 INSERT INTO `reference_loot_template`(`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES (56000, 50704, 0, 0, 0, 1, 1, 1, 1, 'Rigormortis Hc');
 INSERT INTO `reference_loot_template`(`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES (56000, 50705, 0, 0, 0, 1, 1, 1, 1, 'Professor\'s Bloodied Smock Hc');
 INSERT INTO `reference_loot_template`(`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES (56000, 50706, 0, 0, 0, 1, 1, 1, 1, 'Tiny Abomination in a Jar Hc');
@@ -259,23 +271,23 @@ INSERT INTO `reference_loot_template`(`Entry`, `Item`, `Reference`, `Chance`, `Q
 
 -- #######
 -- Prince 10n
-UPDATE `acore_world`.`creature_loot_template` SET `Reference` = 34235, `Chance` = 100, `QuestRequired` = 0, `LootMode` = 1, `GroupId` = 0, `MinCount` = 8, `MaxCount` = 8, `Comment` = 'Prince Valanar - (ReferenceTable) - 10n' WHERE `Entry` = 37970 AND `Item` = 1;
+UPDATE `creature_loot_template` SET `Reference` = 34235, `Chance` = 100, `QuestRequired` = 0, `LootMode` = 1, `GroupId` = 0, `MinCount` = 8, `MaxCount` = 8, `Comment` = 'Prince Valanar - (ReferenceTable) - 10n' WHERE `Entry` = 37970 AND `Item` = 1;
 -- Prince 10hc
-UPDATE `acore_world`.`creature_loot_template` SET `Reference` = 34259, `Chance` = 100, `QuestRequired` = 0, `LootMode` = 1, `GroupId` = 0, `MinCount` = 6, `MaxCount` = 6, `Comment` = 'Prince Valanar (2) - (ReferenceTable) - 10hc' WHERE `Entry` = 38784 AND `Item` = 1;
+UPDATE `creature_loot_template` SET `Reference` = 34259, `Chance` = 100, `QuestRequired` = 0, `LootMode` = 1, `GroupId` = 0, `MinCount` = 6, `MaxCount` = 6, `Comment` = 'Prince Valanar (2) - (ReferenceTable) - 10hc' WHERE `Entry` = 38784 AND `Item` = 1;
 -- Prince 25n
-UPDATE `acore_world`.`creature_loot_template` SET `Reference` = 34248, `Chance` = 100, `QuestRequired` = 0, `LootMode` = 1, `GroupId` = 0, `MinCount` = 6, `MaxCount` = 7, `Comment` = 'Prince Valanar (1) - (ReferenceTable) - 25n' WHERE `Entry` = 38401 AND `Item` = 1;
+UPDATE `creature_loot_template` SET `Reference` = 34248, `Chance` = 100, `QuestRequired` = 0, `LootMode` = 1, `GroupId` = 0, `MinCount` = 6, `MaxCount` = 7, `Comment` = 'Prince Valanar (1) - (ReferenceTable) - 25n' WHERE `Entry` = 38401 AND `Item` = 1;
 -- Prince 25hc
-UPDATE `acore_world`.`creature_loot_template` SET `Reference` = 34271, `Chance` = 100, `QuestRequired` = 0, `LootMode` = 1, `GroupId` = 0, `MinCount` = 6, `MaxCount` = 6, `Comment` = 'Prince Valanar (3) - (ReferenceTable) - 25hc' WHERE `Entry` = 38785 AND `Item` = 1;
+UPDATE `creature_loot_template` SET `Reference` = 34271, `Chance` = 100, `QuestRequired` = 0, `LootMode` = 1, `GroupId` = 0, `MinCount` = 6, `MaxCount` = 6, `Comment` = 'Prince Valanar (3) - (ReferenceTable) - 25hc' WHERE `Entry` = 38785 AND `Item` = 1;
 
 -- #######
 -- BQ 10N
-UPDATE `acore_world`.`creature_loot_template` SET `Reference` = 34236, `Chance` = 100, `QuestRequired` = 0, `LootMode` = 1, `GroupId` = 0, `MinCount` = 8, `MaxCount` = 8, `Comment` = 'Blood-Queen Lana\'thel - (ReferenceTable) 10n' WHERE `Entry` = 37955 AND `Item` = 1;
+UPDATE `creature_loot_template` SET `Reference` = 34236, `Chance` = 100, `QuestRequired` = 0, `LootMode` = 1, `GroupId` = 0, `MinCount` = 8, `MaxCount` = 8, `Comment` = 'Blood-Queen Lana\'thel - (ReferenceTable) 10n' WHERE `Entry` = 37955 AND `Item` = 1;
 -- BQ 10hc
-UPDATE `acore_world`.`creature_loot_template` SET `Reference` = 34260, `Chance` = 100, `QuestRequired` = 0, `LootMode` = 1, `GroupId` = 0, `MinCount` = 7, `MaxCount` = 7, `Comment` = 'Blood-Queen Lana\'thel (2) - (ReferenceTable) 10hc' WHERE `Entry` = 38435 AND `Item` = 1;
-UPDATE `acore_world`.`creature_loot_template` SET `Reference` = 34278, `Chance` = 100, `QuestRequired` = 0, `LootMode` = 1, `GroupId` = 0, `MinCount` = 2, `MaxCount` = 2, `Comment` = 'Blood-Queen Lana\'thel (2) - (ReferenceTable) 10hc - mark normal' WHERE `Entry` = 38435 AND `Item` = 2;
+UPDATE `creature_loot_template` SET `Reference` = 34260, `Chance` = 100, `QuestRequired` = 0, `LootMode` = 1, `GroupId` = 0, `MinCount` = 7, `MaxCount` = 7, `Comment` = 'Blood-Queen Lana\'thel (2) - (ReferenceTable) 10hc' WHERE `Entry` = 38435 AND `Item` = 1;
+UPDATE `creature_loot_template` SET `Reference` = 34278, `Chance` = 100, `QuestRequired` = 0, `LootMode` = 1, `GroupId` = 0, `MinCount` = 2, `MaxCount` = 2, `Comment` = 'Blood-Queen Lana\'thel (2) - (ReferenceTable) 10hc - mark normal' WHERE `Entry` = 38435 AND `Item` = 2;
 -- BQ 25n
 UPDATE `creature_loot_template` SET `Reference` = 34247, `Chance` = 100, `QuestRequired` = 0, `LootMode` = 1, `GroupId` = 0, `MinCount` = 3, `MaxCount` = 3, `Comment` = 'Blood-Queen Lana\'thel (1) - (ReferenceTable) 25n - loot' WHERE `Entry` = 38434 AND `Item` = 1;
-UPDATE `acore_world`.`creature_loot_template` SET `Reference` = 34278, `Chance` = 100, `QuestRequired` = 0, `LootMode` = 1, `GroupId` = 0, `MinCount` = 3, `MaxCount` = 3, `Comment` = 'Blood-Queen Lana\'thel (1) - (ReferenceTable) 25n - mark normal' WHERE `Entry` = 38434 AND `Item` = 2;
+UPDATE `creature_loot_template` SET `Reference` = 34278, `Chance` = 100, `QuestRequired` = 0, `LootMode` = 1, `GroupId` = 0, `MinCount` = 3, `MaxCount` = 3, `Comment` = 'Blood-Queen Lana\'thel (1) - (ReferenceTable) 25n - mark normal' WHERE `Entry` = 38434 AND `Item` = 2;
 -- BQ 25H
 UPDATE `creature_loot_template` SET `Reference` = 34272, `Chance` = 100, `QuestRequired` = 0, `LootMode` = 1, `GroupId` = 0, `MinCount` = 3, `MaxCount` = 3, `Comment` = 'Blood-Queen Lana\'thel (3) - (ReferenceTable) 25hc - loot' WHERE `Entry` = 38436 AND `Item` = 1;
 UPDATE `creature_loot_template` SET `Reference` = 34279, `Chance` = 100, `QuestRequired` = 0, `LootMode` = 1, `GroupId` = 0, `MinCount` = 2, `MaxCount` = 2, `Comment` = 'Blood-Queen Lana\'thel (3) - (ReferenceTable) 25hc - mark hc' WHERE `Entry` = 38436 AND `Item` = 3;
