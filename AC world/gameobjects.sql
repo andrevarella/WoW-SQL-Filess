@@ -45,6 +45,10 @@ UPDATE `gameobject_template` SET `Data2` = 2 WHERE (`entry` = 186668);
 UPDATE `gameobject_template` SET `Data2` = 2 WHERE (`entry` = 189321);
 UPDATE `gameobject_template` SET `Data2` = 2 WHERE (`entry` = 189322);
 
+-- Shadow Sight Arenas [default é 5y]
+UPDATE `gameobject_template` SET `Data2` = 1 WHERE (`entry` = 184663);
+UPDATE `gameobject_template` SET `Data2` = 1 WHERE (`entry` = 184664);
+
 ------------------------------------------------------------
 -- GAMEOBJECT
 

@@ -38,8 +38,12 @@ UPDATE `spell_proc_event` SET `SpellFamilyMask1` = '65572' WHERE `entry` = '-148
 --
 -- * Omen of Clarity/Clearcasting
 -- UPDATE `spell_proc_event` SET `procFlags` = '87044' WHERE `entry` = '16864'; -- para funcionar sem melee spells(shred etc), se nao usa 87060 (melee spells + auto attack) (tava 87060)
-UPDATE `spell_proc_event` SET `ppmRate` = '4.5' WHERE `entry` = '16864';   -- ppmRate tava 3,5
+--UPDATE `spell_proc_event` SET `ppmRate` = '3.8' WHERE `entry` = '16864';   -- ppmRate tava 3,5
 UPDATE `spell_proc_event` SET `Cooldown` = '2000' WHERE `entry` = '16864';   -- Cooldown tava 0
+
+-- glyph of omen of clarity
+INSERT INTO `acore_world`.`spell_proc_event` (`entry`, `SchoolMask`, `SpellFamilyName`, `SpellFamilyMask0`, `SpellFamilyMask1`, `SpellFamilyMask2`, `procFlags`, `procEx`, `procPhase`, `ppmRate`, `CustomChance`, `Cooldown`) VALUES (83293, 0, 0, 1024, 0, 0, 65536, 65536, 0, 0, 101, 6000);
+
 
 --
 -- =Balance
@@ -73,6 +77,14 @@ INSERT INTO `spell_proc_event`(`entry`, `SchoolMask`, `SpellFamilyName`, `SpellF
 -- MM auto attack (nature's dmg) proc chance, surv 3 stacks explosive shot, 
 -- ▸▸ Shaman:    ---
 --
+-- * custom Glyph of Searing Flames (Searing Totem aplica debuff) - n funciona
+--INSERT INTO `acore_world`.`spell_proc_event` (`entry`, `SchoolMask`, `SpellFamilyName`, `SpellFamilyMask0`, `SpellFamilyMask1`, `SpellFamilyMask2`, `procFlags`, `procEx`, `procPhase`, `ppmRate`, `CustomChance`, `Cooldown`) VALUES (83302, 0, 11, 1073741824, 0, 0, 65536, 1027, 2, 0, 0, 0);
+--
+-- stormblast (40% do stormstrike/WFury/LavaLash crit em 6s) -  [problema no dmg da off weapon do stormstrike, que da metade do dano, ta dando override no dano da main]
+INSERT INTO `acore_world`.`spell_proc_event` (`entry`, `SchoolMask`, `SpellFamilyName`, `SpellFamilyMask0`, `SpellFamilyMask1`, `SpellFamilyMask2`, `procFlags`, `procEx`, `procPhase`, `ppmRate`, `CustomChance`, `Cooldown`) VALUES (83332, 0, 11, 8388608, 16777232, 4, 16, 2, 0, 0, 100, 0);
+--
+-- Passiva que proca [Maelstrom Weapon (Lava Burst)] ao procar [Maelstrom Weapon]
+INSERT INTO `acore_world`.`spell_proc_event` (`entry`, `SchoolMask`, `SpellFamilyName`, `SpellFamilyMask0`, `SpellFamilyMask1`, `SpellFamilyMask2`, `procFlags`, `procEx`, `procPhase`, `ppmRate`, `CustomChance`, `Cooldown`) VALUES (83340, 0, 11, 0, 0, 512, 16384, 0, 1, 0, 101, 0);
 --
 -- * Custom 3.3.5b AT based Enhance Spell -4s Cooldown Feral Spirit on Stormstrike use
 INSERT INTO `spell_proc_event`(`entry`, `SchoolMask`, `SpellFamilyName`, `SpellFamilyMask0`, `SpellFamilyMask1`, `SpellFamilyMask2`, `procFlags`, `procEx`, `procPhase`, `ppmRate`, `CustomChance`, `Cooldown`) VALUES (83252, 0, 11, 0, 16777216, 0, 16, 0, 1, 0, 0, 0);
@@ -87,6 +99,10 @@ INSERT INTO `spell_proc_event`(`entry`, `SchoolMask`, `SpellFamilyName`, `SpellF
 UPDATE `spell_proc_event` SET `ProcEx` = '1095' WHERE `entry` = '33757';
 -- * enhance Maeltrom Weapon (rank 5) ignora absorbs
 UPDATE `spell_proc_event` SET `ProcEx` = '9287' WHERE `entry` = '51532';
+
+-- * Futuro custom Glyph of Searing Flames (Searing Totem aplica debuff) - n funciona
+INSERT INTO `acore_world`.`spell_proc_event` (`entry`, `SchoolMask`, `SpellFamilyName`, `SpellFamilyMask0`, `SpellFamilyMask1`, `SpellFamilyMask2`, `procFlags`, `procEx`, `procPhase`, `ppmRate`, `CustomChance`, `Cooldown`) VALUES (83302, 0, 11, 1073741824, 0, 0, 65536, 1027, 2, 0, 0, 0);
+
 
 /*
 -- P test com bop/absorb/ou versus absorb:

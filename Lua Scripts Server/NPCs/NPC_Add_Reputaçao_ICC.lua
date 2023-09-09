@@ -2,7 +2,7 @@ local unitEntry = 94125
 
 local function OnGossipHello(event, player, object)
     player:GossipClearMenu()
-    player:GossipMenuAddItem(0, "Honored em Ashen Verdict", 0, 1)
+    player:GossipMenuAddItem(0, "Exalted em Ashen Verdict", 0, 1)
     player:GossipSendMenu(1, object)
 end
 
@@ -17,13 +17,13 @@ end
 local function OnGossipSelect(event, player, object, sender, intid, code)
     if (intid == 1) then
         local currentReputation = player:GetReputation(1156)
-        local reputationToAdd = 9000
+        local reputationToAdd = 42000
 
         if currentReputation < reputationToAdd then
             player:SetReputation(1156, reputationToAdd)
             player:GossipComplete()
         else
-            player:SendBroadcastMessage("Você já é honored com Ashen Verdict.")
+            player:SendBroadcastMessage("Você já é exalted com Ashen Verdict.")
         end
     end
 end

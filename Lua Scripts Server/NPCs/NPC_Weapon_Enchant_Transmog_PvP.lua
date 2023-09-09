@@ -67,109 +67,93 @@ local function On_Gossip_Open(event, player, creature, sender, intid, code)
     if(intid == 33) then
 end
  
-
 -- MAIN Hand Gossip 
 if(intid == 300) then
     player:GossipSetText(string.format("Main-Hand Enchantments."))
-    -- Verifica se o jogador possui a conquista ID 401
-    if(player:HasAchieved(401)) then
-    player:GossipMenuAddItem(9,"|TInterface\\icons\\Inv_rod_enchantedfelsteel:27|t |cFF008000Demonic Tyranny |cFF000000(|cFFFFFF002000 Rating 2v2|cFF000000)",0, 482, false, "")
-    else
-    player:GossipMenuAddItem(9,"|TInterface\\icons\\Inv_rod_enchantedfelsteel:27|t |cFF008000Demonic Tyranny |cFF000000(|cFFFFFF002000 Rating 2v2|cFF000000)", 0, 0, false, "Você não possui a conquista necessária.")
-end
-    -- Verifica se o jogador possui a conquista ID 405
-    if(player:HasAchieved(405)) then
-        player:GossipMenuAddItem(9,"|TInterface\\icons\\Inv_spear_09:27|t |cFFFF0000Glorious Tyranny |cFF000000(|cFFFFFF002000 Rating 3v3|cFF000000)\n",0, 472, false, "")
-else
-    player:GossipMenuAddItem(9,"|TInterface\\icons\\Inv_spear_09:27|t |cFFFF0000Glorious Tyranny |cFF000000(|cFFFFFF002000 Rating 3v3|cFF000000)\n", 0, 0, false, "Você não possui a conquista necessária.")
-end
+    player:GossipMenuAddItem(9,"|TInterface\\icons\\Inv_rod_enchantedfelsteel:27|t |cFF008000Demonic Tyranny |cFF000000(|cFFFFFF002000 Rating 2v2|cFF000000)",0, 482)
+    player:GossipMenuAddItem(9,"|TInterface\\icons\\Inv_spear_09:27|t |cFFFF0000Glorious Tyranny |cFF000000(|cFFFFFF002000 Rating 3v3|cFF000000)\n",0, 472)
     player:GossipMenuAddItem(5,"|TInterface\\icons\\spell_holy_dispelmagic:27|t Remover Enchant Visual (Main Hand)\n",0, 1003)
     player:GossipMenuAddItem(3,"|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:27:27:0:0|t Voltar",0,998)
     player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)
 end
-
 -- OFF Hand Gossip
 if(intid == 302) then
     player:GossipSetText(string.format("Off-Hand Enchantments."))
-    -- Verifica se o jogador possui a conquista ID 401
-    if(player:HasAchieved(401)) then
-    player:GossipMenuAddItem(9,"|TInterface\\icons\\Inv_rod_enchantedfelsteel:27|t |cFF008000Demonic Tyranny |cFF000000(|cFFFFFF002000 Rating 3v3|cFF000000)",0, 552, false, "")
-else
-    player:GossipMenuAddItem(9,"|TInterface\\icons\\Inv_rod_enchantedfelsteel:27|t |cFF008000Demonic Tyranny |cFF000000(|cFFFFFF002000 Rating 3v3|cFF000000)", 0, 0, false, "Você não possui a conquista necessária.")
-end
-    -- Verifica se o jogador possui a conquista ID 405
-    if(player:HasAchieved(405)) then
-    player:GossipMenuAddItem(9,"|TInterface\\icons\\Inv_spear_09:27|t |cFFFF0000Glorious Tyranny |cFF000000(|cFFFFFF002000 Rating 3v3|cFF000000)\n",0, 538, false, "")
-else
-    player:GossipMenuAddItem(9,"|TInterface\\icons\\Inv_spear_09:27|t |cFFFF0000Glorious Tyranny |cFF000000(|cFFFFFF002000 Rating 3v3|cFF000000)\n", 0, 0, false, "Você não possui a conquista necessária.")
-end
+    player:GossipMenuAddItem(9,"|TInterface\\icons\\Inv_rod_enchantedfelsteel:27|t |cFF008000Demonic Tyranny |cFF000000(|cFFFFFF002000 Rating 3v3|cFF000000)",0, 552)
+    player:GossipMenuAddItem(9,"|TInterface\\icons\\Inv_spear_09:27|t |cFFFF0000Glorious Tyranny |cFF000000(|cFFFFFF002000 Rating 3v3|cFF000000)\n",0, 538)
     player:GossipMenuAddItem(5,"|TInterface\\icons\\spell_holy_dispelmagic:27|t Remover Enchant Visual (Off Hand)\n",0, 1002)
     player:GossipMenuAddItem(3,"|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:27:27:0:0|t Voltar",0,998)
     player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)
 end
 
-
 -- Glorious Tiranny Main Hand
 if(intid == 472) then
-    local item = player:GetEquippedItemBySlot(15)
-    if(player:GetEquippedItemBySlot(15)) then
-    setVisual(player, item, 4012)
-    player:GossipComplete()
-    end
-end
+	if player:HasAchieved(405) then --     -- Verifica se o jogador possui o achievement ID 405
+		local item = player:GetEquippedItemBySlot(15)
+		if(player:GetEquippedItemBySlot(15)) then
+			setVisual(player, item, 4012)
+			player:GossipComplete()
+		end
+	else
+		player:SendBroadcastMessage("É necessário o achievement de 2000 de rating em 3v3 para adicionar esse enchant.")
+		player:GossipComplete()
+	end
 -- Demonic Tiranny Main Hand
-    if(intid == 482) then
-    local item = player:GetEquippedItemBySlot(15)
-    if(player:GetEquippedItemBySlot(15)) then
-    setVisual(player, item, 4013)
-    player:GossipComplete()
+elseif(intid == 482) then
+	if(player:HasAchieved(401)) then
+		local item = player:GetEquippedItemBySlot(15)
+		if(player:GetEquippedItemBySlot(15)) then
+			setVisual(player, item, 4013)
+			player:GossipComplete()
+		end
+	else
+	    player:SendBroadcastMessage("É necessário o achievement de 2000 de rating em 2v2 para adicionar esse enchant.")
+		player:GossipComplete()
     end
-end
-    
 -- Glorious Tiranny Off Hand
-    if(intid == 538) then
-    local item = player:GetEquippedItemBySlot(16)
-    if(player:GetEquippedItemBySlot(16)) then
-    setVisual(player, item, 4012)
-    player:GossipComplete()
-    end
-end
+elseif(intid == 538) then
+	if(player:HasAchieved(405)) then
+		local item = player:GetEquippedItemBySlot(16)
+		if(player:GetEquippedItemBySlot(16)) then
+			setVisual(player, item, 4012)
+			player:GossipComplete()
+        end
+	else
+		player:SendBroadcastMessage("É necessário o achievement de 2000 de rating em 3v3 para adicionar esse enchant.")
+		player:GossipComplete()
+	end
 -- Demonic Tiranny Off Hand
-    if(intid == 552) then
-    local item = player:GetEquippedItemBySlot(16)
-    if(player:GetEquippedItemBySlot(16)) then
-    setVisual(player, item, 4013)
-    player:GossipComplete()
-    end
-end
-
+elseif(intid == 552) then
+	if(player:HasAchieved(401)) then
+		local item = player:GetEquippedItemBySlot(16)
+		if(player:GetEquippedItemBySlot(16)) then
+			setVisual(player, item, 4013)
+			player:GossipComplete()
+		end
+	else
+		player:SendBroadcastMessage("É necessário o achievement de 2000 de rating em 2v2 para adicionar esse enchant.")
+		player:GossipComplete()
+	end
 -- REMOVER Enchant Main Hand
-if(intid == 1003) then
+elseif(intid == 1003) then
     local item = player:GetEquippedItemBySlot(15)
-    if(player:GetEquippedItemBySlot(15)) then
-    setVisual(player, item, 0)
-    player:SendBroadcastMessage("Relogue para restaurar o visual original do enchant equipado na sua main hand weapon.")
-    player:GossipComplete()
-    end
-end
+	if(player:GetEquippedItemBySlot(15)) then
+			setVisual(player, item, 0)
+			player:SendBroadcastMessage("Relogue para restaurar o visual original do enchant equipado na sua main hand weapon.")
+			player:GossipComplete()
+	end
 -- Remover Enchant Off hand
-    if(intid == 1002) then
+elseif(intid == 1002) then
     local item = player:GetEquippedItemBySlot(16)
-    if(player:GetEquippedItemBySlot(16)) then
-    setVisual(player, item, 0)
-    player:SendBroadcastMessage("Relogue para restaurar o visual original do enchant equipado na sua off hand weapon.")
-    player:GossipComplete()
-    end
-end
+	if(player:GetEquippedItemBySlot(16)) then
+		setVisual(player, item, 0)
+		player:SendBroadcastMessage("Relogue para restaurar o visual original do enchant equipado na sua off hand weapon.")
+		player:GossipComplete()
+	end
 
-
-if (intid == 998) then
-    On_Gossip_Select(unit, player, creature)
-end
- 
-if (intid == 999) then
-    player:GossipComplete()
-    end
+elseif(intid == 998) then
+	On_Gossip_Select(unit, player, creature)
+	end
 end
  
 RegisterCreatureGossipEvent(NpcId, 1, On_Gossip_Select)

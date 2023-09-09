@@ -17,6 +17,8 @@ INSERT INTO `spell_script_names`(`spell_id`, `ScriptName`) VALUES (83089, 'spell
 -- ▸▸ Druid: ---
 -- * Custom Savage Roar que proca ao sair do prowl
 INSERT INTO `spell_script_names`(`spell_id`, `ScriptName`) VALUES (83122, 'spell_dru_savage_roar');
+-- glyph of omen of clarity
+INSERT INTO `acore_world`.`spell_script_names` (`spell_id`, `ScriptName`) VALUES (83293, 'spell_druid_glyph_omen_of_clarity');
 
 --
 -- * Custom Passive Spell - ao ganhar Wrath of Elune, reduz o cd do starfall em 3s (Wrath of Elune só é renovado se o buff é consumido)

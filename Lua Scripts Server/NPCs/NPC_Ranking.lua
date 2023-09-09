@@ -76,7 +76,7 @@ local function On_Top_Hello(event, player, creature)
     player:GossipSetText(string.format(" "))
 	player:GossipMenuAddItem(9,"|TInterface\\icons\\Achievement_bg_killxenemies_generalsroom:30|t Top 10 Killers |cFF000000- [Each Class] \n", 0, 3)
 	player:GossipMenuAddItem(9,"|TInterface\\icons\\Achievement_bg_kill_flag_carrier:30|t Top 10 Killers |cFF000000- [All]\n", 0, 2)
-      -- player:GossipMenuAddItem(9,"|TInterface\\icons\\Achievement_featsofstrength_gladiator_10:30|t Top 10 |cFF000000- [Arena Rating]", 0, 1)
+    --player:GossipMenuAddItem(9,"|TInterface\\icons\\Achievement_featsofstrength_gladiator_10:30|t Top 10 |cFF000000- [Arena Rating]", 0, 1)
     player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)
 end
 
@@ -85,7 +85,7 @@ if(intid == 1) then
     player:GossipSetText(string.format("\n"))
     player:GossipMenuAddItem(9,"|TInterface\\icons\\Achievement_arena_2v2_7:30|t Top 10 - 2v2 |cFF000000Teams\n", 0, 5)
     player:GossipMenuAddItem(9,"|TInterface\\icons\\Achievement_arena_3v3_7:30|t Top 10 - 3v3 |cFF000000Teams\n", 0, 6)
-    --player:GossipMenuAddItem(9,"|TInterface\\icons\\Achievement_arena_5v5_7:30|t Top 10 - 5v5 |cFF000000Teams\n ", 0, 7)  
+    player:GossipMenuAddItem(9,"|TInterface\\icons\\Achievement_arena_5v5_7:30|t Top 10 - 5v5 |cFF000000Teams\n ", 0, 7)  
     player:GossipMenuAddItem(5,"|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:22:22:0:0|t |cFF8B0000Voltar",0,499)	
 	player:GossipMenuAddItem(5,"|TInterface\\RaidFrame\\ReadyCheck-NotReady:27:27:0:0|t |cFF8B0000Sair",0,500)	
     player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)
@@ -277,6 +277,90 @@ end
 
 ---- PRA BAIXO = ARENA TEAM ----
 
+--[[ -- gpt-4 - tentando adicionar integrantes do time/score time/nome time/classes etc
+if(intid == 5) then
+    player:GossipSetText(string.format(" n Aqui estao os top 10 times de arena 2v2."))
+    local score = CharDBQuery("SELECT arenaTeamId, name, rating, seasonWins, seasonGames FROM arena_team WHERE type = 2 ORDER BY rating DESC LIMIT 10")
+
+    while (score:NextRow()) do
+        local teamId = score:GetUInt32(0)
+        local time = score:GetString(1)
+        local pontos = score:GetUInt32(2)
+        local seasonGames = score:GetUInt32(4)
+        local seasonWins = score:GetUInt32(3)
+
+        --player:GossipMenuAddItem(9,"|cFF000000Time : |r|cff0000ff".. time ..", |cFF8B4513Rating: |r|cffffff00" .. pontos .. ", n|cFF000000Jogos Totais: |r "..seasonGames..", Vit rias: |r |cFFFFDEAD" ..seasonWins, 5, 1)
+		player:GossipMenuAddItem(9,"|cFF000000Time : |r |cff0000ff".. time ..",  |cFF8B4513Rating: |r|cffffff00" .. pontos .. ", \n|cFF000000Jogos Totais: |r |cffffff00"..seasonGames..", Vitórias: |r |cFFFFDEAD"..seasonWins.."", 5, 1)
+
+        -- Aqui pegamos os membros da equipe
+        local members = CharDBQuery(string.format("SELECT  a.guid, a.personalRating, a.weekWins, a.weekGames - a.weekWins, a.seasonWins, a.seasonGames - a.seasonWins, c.name, c.race, c.class, c.level FROM arena_team_member a LEFT JOIN characters c ON c.guid = a.guid WHERE arenaTeamId = '%d' ORDER BY a.personalRating DESC, a.seasonGames DESC, c.name ASC", teamId))
+
+        while (members:NextRow()) do
+            local memberGuid = members:GetUInt32(0)
+            local personalRating = members:GetUInt32(1)
+            local weekWins = members:GetUInt32(2)
+            local memberWeekGames = members:GetUInt32(3)
+            local seasonWins = members:GetUInt32(4)
+            local memberSeasonGames = members:GetUInt32(5)
+            local memberName = members:GetString(6)
+            local race = members:GetUInt32(7)
+            local class = members:GetUInt32(8)
+            local level = members:GetUInt32(9)
+
+            -- Mostre as informações do membro da equipe aqui
+            -- Coloque o código que mostre as informações do membro da equipe
+			player:GossipMenuAddItem(9,"|cFF000000Time : |r |cff0000ff".. time ..",  |cFF8B4513Rating: |r|cffffff00" .. pontos .. ", \n|cFF000000Jogos Totais: |r |cffffff00"..seasonGames..", Vitórias: |r |cFFFFDEAD"..seasonWins.."", 5, 1)
+			until not score:NextRow() 
+			player:GossipComplete()
+			player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)
+        end
+    end
+end
+
+
+
+
+if(intid == 5) then
+    player:GossipSetText(string.format("\n Aqui estao os top 10 times de arena 2v2."))
+    local score = CharDBQuery("SELECT arenaTeamId, name, rating, seasonWins, seasonGames FROM arena_team WHERE type = 2 ORDER BY rating DESC LIMIT 10")
+
+
+    while (score:NextRow()) do
+	--[[
+        local teamId = score:GetUInt32(0)
+        local time = score:GetString(1)
+        local pontos = score:GetUInt32(2)
+        local seasonGames = score:GetUInt32(4)
+        local seasonWins = score:GetUInt32(3)
+		--player:GossipMenuAddItem(9, "|cFF000000Time : |r |cff0000ff".. time ..",  |cFF8B4513Rating: |r|cffffff00" .. pontos .. ", \n|cFF000000Jogos Totais: |r |cffffff00"..seasonGames..", Vitórias: |r |cFFFFDEAD"..seasonWins.."", 5, 1)
+		player:GossipMenuAddItem(9, "Time : ".. time ..",  Rating: " .. pontos .. ", \nJogos Totais: "..seasonGames..", Vitórias: "..seasonWins.."", 5, 1)
+    
+		local time = score:GetString(0)
+        local pontos = score:GetUInt32(1)
+        player:GossipMenuAddItem(9, "Time: ".. time ..", Rating: " .. pontos, 5, 1)
+	end
+
+		--[[
+		local members = CharDBQuery(string.format("SELECT  a.guid, a.personalRating, a.weekWins, a.weekGames - a.weekWins, a.seasonWins, a.seasonGames - a.seasonWins, c.name, c.race, c.class, c.level FROM arena_team_member a LEFT JOIN characters c ON c.guid = a.guid WHERE arenaTeamId = '%d' ORDER BY a.personalRating DESC, a.seasonGames DESC, c.name ASC", teamId))
+
+        while (members:NextRow()) do
+            memberGuid = members:GetUInt32(0)
+            local personalRating = members:GetUInt32(1)
+            local weekWins = members:GetUInt32(2)
+            local memberWeekGames = members:GetUInt32(3)
+            local seasonWins = members:GetUInt32(4)
+            local memberSeasonGames = members:GetUInt32(5)
+            local memberName = members:GetString(6)
+            local race = members:GetUInt32(7)
+            local class = members:GetUInt32(8)
+            local level = members:GetUInt32(9)
+		end
+
+		--player:GossipMenuAddItem(9, "|cFF000000Nome: |r |cffffff00".. memberName ..", \n|cFF000000Raça: |r |cffffff00"..race..", Classe: |r |cffffff00"..class..",\n|cFF000Jogos pessoais totais: |r "..memberSeasonGames..", Vitórias: |r |cFFFFDEAD"..seasonWins.."\n|cFF000000Rating pessoal: |r |cFFFFDEAD"..personalRating, 5, 1)
+		player:GossipComplete()
+		player:GossipSendMenu(0x7FFFFFFF, creature, menu_id) 
+end--]]
+
 
 if(intid == 5) then
     player:GossipSetText(string.format("\n Aqui estão os top 10 times de arena 2v2."))
@@ -292,7 +376,7 @@ if(intid == 5) then
         player:GossipMenuAddItem(5,"|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:22:22:0:0|t |cFF8B0000Inicio",0,499)    
 	    player:GossipMenuAddItem(5,"|TInterface\\RaidFrame\\ReadyCheck-NotReady:27:27:0:0|t |cFF8B0000Sair",0,500)	
         player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)
-end			
+end
 
 if(intid == 6) then
     player:GossipSetText(string.format("\n Aqui estão os top 10 times de arena 3v3."))
@@ -323,7 +407,7 @@ if(intid == 7) then
         player:GossipMenuAddItem(5,"|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:22:22:0:0|t |cFF8B0000Inicio",0,499)    
 	    player:GossipMenuAddItem(5,"|TInterface\\RaidFrame\\ReadyCheck-NotReady:27:27:0:0|t |cFF8B0000Sair",0,500)	
         player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)
-end	
+end
 
 
 

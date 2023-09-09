@@ -1,27 +1,71 @@
 local UnitEntry = 94150
 
-function Teleporter_Gossip(unit, player, creature)
-	player:GossipSetText(string.format("Aqui você pode escolher o level que quiser!\n\nPerfeito para quem gosta de ter um personagem twink ou para quem não gosta de upar. Mas também opcional para quem curte upar ;)"))
-    player:GossipMenuAddItem(6," Comprar Heirlooms |TInterface\\icons\\inv_chest_cloth_49:25|t", 0, 10)
-	player:GossipMenuAddItem(6," Comprar Armas Heirlooms |TInterface\\icons\\inv_sword_43:25|t", 0, 11)
-    if (player:GetFaction() == 1) then -- Alliance Gossips only:
-    player:GossipMenuAddItem(2, "Quero upar para o level 20  |TInterface\\icons\\Achievement_zone_redridgemountains.png:29|t", 1, 1, false, "Você será teleportado para Redridge Mountains, tem certeza que quer upar para o level 20?")
-	player:GossipMenuAddItem(2, "Quero upar para o level 30  |TInterface\\icons\\Achievement_zone_stranglethorn_01.png:29|t", 1, 3, false, "Você será teleportado para Stranglethorn(North), tem certeza que quer upar para o level 30?")
-	else -- Horde Gossips only:
-	player:GossipMenuAddItem(2, "Quero upar para o level 20  |TInterface\\icons\\Achievement_zone_stonetalon_01.png:29|t", 1, 2, false, "Você será teleportado para Stonetalon Mountain, tem certeza que quer upar para o level 20?")
-	player:GossipMenuAddItem(2, "Quero upar para o level 30  |TInterface\\icons\\Achievement_zone_stranglethorn_01.png:29|t", 1, 4, false, "Você será teleportado para Stranglethorn(North), tem certeza que quer upar para o level 30?")
-	end -- Gossip para ambas Facções:
-	player:GossipMenuAddItem(2, "Quero upar para o level 40  |TInterface\\icons\\Achievement_zone_tanaris_01.png:29|t", 1, 5, false, "Você será teleportado para Tanaris, tem certeza que quer upar para o level 40?")
-	player:GossipMenuAddItem(2, "Quero upar para o level 50  |TInterface\\icons\\Achievement_zone_ungorocrater_01.png:29|t", 1, 6, false, "Você será teleportado para Un'Goro, tem certeza que quer upar para o level 50?")
-	player:GossipMenuAddItem(2, "Quero upar para o level 60  |TInterface\\icons\\Achievement_zone_blastedlands_01.png:29|t", 1, 7, false, "Você será teleportado para o Dark Portal, tem certeza que quer upar para o level 60?")
-	player:GossipMenuAddItem(2, "Quero upar para o level 70  |TInterface\\icons\\Achievement_zone_grizzlyhills_01.png:29|t", 1, 8, false, "Você será teleportado para Northrend, tem certeza que quer upar para o level 70?")
+function TeleporterLow_Gossip(unit, player, creature)
+	player:GossipSetText(string.format("Escolha o level que quiser!\n\nPerfeito para quem gosta de ter um personagem twink ou para quem não gosta de upar. Mas também opcional para quem curte upar ;)"))
+    player:GossipMenuAddItem(6," Comprar Heirlooms |TInterface\\icons\\inv_chest_cloth_49:24|t", 0, 10)
+	
+	-- Alliance Races
+    if (player:GetRace()) == 1 then -- Human
+		player:GossipMenuAddItem(2, "Quero ir para (Human)", 1, 13, false, "Você será teleportado para X tem certeza?")
+	elseif (player:GetRace()) == 3 then -- Dwarf
+		player:GossipMenuAddItem(2, "Quero ir para (Dwarf)", 1, 14, false, "Você será teleportado para X tem certeza?")
+	elseif (player:GetRace()) == 4 then -- Night Elf
+		player:GossipMenuAddItem(2, "Quero ir para (Nelf)", 1, 15, false, "Você será teleportado para X tem certeza?")
+	elseif (player:GetRace()) == 7 then -- Gnome
+		player:GossipMenuAddItem(2, "Quero ir para (Gnome)", 1, 16, false, "Você será teleportado para X tem certeza?")
+	elseif (player:GetRace()) == 11 then -- Draenei
+		player:GossipMenuAddItem(2, "Quero ir para (Draenei)", 1, 17, false, "Você será teleportado para X tem certeza?")
+	
+	-- Horde Races
+	elseif (player:GetRace()) == 2 then -- Orc
+		player:GossipMenuAddItem(2, "Quero ir para (Orc)", 1, 18, false, "Você será teleportado para X tem certeza?")
+	elseif (player:GetRace()) == 5 then -- Undead
+		player:GossipMenuAddItem(2, "Quero ir para (undead)", 1, 19, false, "Você será teleportado para X tem certeza?")
+	elseif (player:GetRace()) == 6 then -- Tauren
+		player:GossipMenuAddItem(2, "Quero ir para (tauren)", 1, 20, false, "Você será teleportado para X tem certeza?")
+	elseif (player:GetRace()) == 8 then -- Troll
+		player:GossipMenuAddItem(2, "Quero ir para (troll)", 1, 21, false, "Você será teleportado para X tem certeza?")
+	elseif (player:GetRace()) == 10 then -- Blood Elf
+		player:GossipMenuAddItem(2, "Quero ir para (blood elf)", 1, 22, false, "Você será teleportado para X tem certeza?")
+	end
+	
+    if (player:IsAlliance()) then
+		player:GossipMenuAddItem(2, "Quero upar para o level 20  |TInterface\\icons\\Achievement_zone_redridgemountains.png:24|t", 1, 1, false, "Você será teleportado para Redridge Mountains, tem certeza que quer upar para o level 20?")
+		player:GossipMenuAddItem(2, "Quero upar para o level 30  |TInterface\\icons\\Achievement_zone_stranglethorn_01.png:24|t", 1, 3, false, "Você será teleportado para Stranglethorn(North), tem certeza que quer upar para o level 30?")
+	elseif (player:IsHorde()) then
+		player:GossipMenuAddItem(2, "Quero upar para o level 20  |TInterface\\icons\\Achievement_zone_stonetalon_01.png:24|t", 1, 2, false, "Você será teleportado para Stonetalon Mountain, tem certeza que quer upar para o level 20?")
+		player:GossipMenuAddItem(2, "Quero upar para o level 30  |TInterface\\icons\\Achievement_zone_stranglethorn_01.png:24|t", 1, 4, false, "Você será teleportado para Stranglethorn(North), tem certeza que quer upar para o level 30?")
+	end
+	
+	-- Gossip para ambas Facções:
+	player:GossipMenuAddItem(2, "Quero upar para o level 40  |TInterface\\icons\\Achievement_zone_tanaris_01.png:24|t", 1, 5, false, "Você será teleportado para Tanaris, tem certeza que quer upar para o level 40?")
+	player:GossipMenuAddItem(2, "Quero upar para o level 50  |TInterface\\icons\\Achievement_zone_ungorocrater_01.png:24|t", 1, 6, false, "Você será teleportado para Un'Goro, tem certeza que quer upar para o level 50?")
+	player:GossipMenuAddItem(2, "Quero upar para o level 60  |TInterface\\icons\\Achievement_zone_blastedlands_01.png:24|t", 1, 7, false, "Você será teleportado para o Dark Portal, tem certeza que quer upar para o level 60?")
+	player:GossipMenuAddItem(2, "Quero upar para o level 70  |TInterface\\icons\\Achievement_zone_grizzlyhills_01.png:24|t", 1, 8, false, "Você será teleportado para Northrend, tem certeza que quer upar para o level 70?")
 	player:GossipMenuAddItem(4, "Quero upar para o level 80 (Fase de teste)", 1, 9, false, "Você será teleportado para Northrend, tem certeza que quer upar para o level 80?")
     player:GossipSendMenu(0x7FFFFFFF, creature, menuid)
 end
 
-RegisterCreatureGossipEvent(UnitEntry, 1, Teleporter_Gossip)
+RegisterCreatureGossipEvent(UnitEntry, 1, TeleporterLow_Gossip)
 
 function Teleporter_Event(event, player, creature, sender, intid, code)
+	
+	if(intid == 10) then
+		player:GossipSetText(string.format(" "))
+		player:GossipMenuAddItem(6,"|TInterface\\icons\\inv_chest_cloth_49:28|t Set Heirloom ",0, 11)
+		player:GossipMenuAddItem(6,"|TInterface\\icons\\inv_sword_43:28|t Armas Heirloom ",0, 12)
+		player:GossipMenuAddItem(2,"|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Voltar",0,499)
+		player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)	
+	end
+	
+   if(intid == 11) then -- Heirloom Set
+   player:SendListInventory(creature, 80049)
+   end
+   if(intid == 12) then -- Heirloom Armas
+   player:SendListInventory(creature, 80271)
+   end
+
+
 	-- level 20 (Redridge Mountains) Alliance
 	if(intid == 1) then
         if(player:GetLevel() < 20) then
@@ -32,6 +76,7 @@ function Teleporter_Event(event, player, creature, sender, intid, code)
         end
         player:GossipComplete()
     end
+	
 	
 	-- level 20 (Stonetalon Mountain) Horde
 	if(intid == 2) then
@@ -120,16 +165,10 @@ function Teleporter_Event(event, player, creature, sender, intid, code)
         end
         player:GossipComplete()
     end
-	
-	-- heirloom
-	if(intid == 10) then   
-   player:SendListInventory(creature, 80049)
-   end
-   
-   -- heirloom armas
-   if(intid == 11) then   
-   player:SendListInventory(creature, 80271)
-   end
+
+	if(intid == 499) then -- Voltar
+		TeleporterLow_Gossip(event, player, creature)
+	end
 	
 end
 

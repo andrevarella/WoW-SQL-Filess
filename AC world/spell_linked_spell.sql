@@ -43,7 +43,30 @@ INSERT INTO `spell_linked_spell`(`spell_trigger`, `spell_effect`, `type`, `comme
 INSERT INTO `spell_linked_spell`(`spell_trigger`, `spell_effect`, `type`, `comment`) VALUES (-83121, 83122, 0, 'Perder [Buff Temporario Prowl PvP Set] ganha [Savage Roar 10s]');
 INSERT INTO `spell_linked_spell`(`spell_trigger`, `spell_effect`, `type`, `comment`) VALUES (-5215, -83121, 0, 'Perder [Prowl] perde [Buff Temporario Prowl PvP Set]');
 
+-- glyph of lunar inspiration
+INSERT INTO `acore_world`.`spell_linked_spell` (`spell_trigger`, `spell_effect`, `type`, `comment`) VALUES (-83299, 83325, 0, 'Perder [Glyph of Lunar Inspiration] proca [Unlearn Glyph of Lunar Inspiration]');
+-- glyph of prowl - unlearn
+INSERT INTO `acore_world`.`spell_linked_spell` (`spell_trigger`, `spell_effect`, `type`, `comment`) VALUES (-83311, 83315, 0, 'Perder [Glyph of Prowl] proca [Unlearn Glyph of Prowl Hidden Aura]');
+-- glyph of versatile predator - da Unlearn na hidden aura após perder o glyph (hidden aura p fazer spells castar em cat)
+INSERT INTO `spell_linked_spell` (`spell_trigger`, `spell_effect`, `type`, `comment`) VALUES (-83321, 83328, 0, 'Perder [Glyph of Versatile Predator] proca [Unlearn Glyph of Versatile Predator]');
+-- glyph of versatile predator - perder predatory swiftness perde proc hidden (insta spells usaveis em qlqr forma)
+INSERT INTO `spell_linked_spell` (`spell_trigger`, `spell_effect`, `type`, `comment`) VALUES (-69369, -83327, 0, 'Perder [Predator\'s Swiftness] perde [Glyph of Versatile Predator Hidden Aura]');
+-- nao inserido - Glyph of versatile predator [da unlearn na spell que aumenta cd do cyc após perder a Hidden Aura do Versatile Predator]
+-- INSERT INTO `spell_linked_spell` (`spell_trigger`, `spell_effect`, `type`, `comment`) VALUES (-83327, 83331, 0, 'Perder [Aura Glyph of Versa Predator] proca [Unlearn Glyph +5s Cyclone CD]');
+
 -- Shaman
+-- Maelstrom Weapon (Lava Burst) remove buff do Maelstrom Weapon e vice-versa
+INSERT INTO `acore_world`.`spell_linked_spell` (`spell_trigger`, `spell_effect`, `type`, `comment`) VALUES (-53817, -83341, 0, 'Perder [Maelstrom Weapon] Perde [Maelstrom Weapon Lava Burst]');
+INSERT INTO `acore_world`.`spell_linked_spell` (`spell_trigger`, `spell_effect`, `type`, `comment`) VALUES (-83341, -53817, 0, 'Perder [Maelstrom Weapon Lava Burst] Perde [Maelstrom Weapon]');
+
+-- NAO INSERIDOS:
+-- glyph of stormstrike / stormblast dot
+--INSERT INTO `acore_world`.`spell_linked_spell` (`spell_trigger`, `spell_effect`, `type`, `comment`) VALUES (55446, 83334, 0, 'Ganhar [Glyph of Stormstrike] proca [Learn Stormblast Passive]');
+--INSERT INTO `acore_world`.`spell_linked_spell` (`spell_trigger`, `spell_effect`, `type`, `comment`) VALUES (-55446, 83335, 0, 'Perder [Glyph of Stormstrike] proca [Unlearn Stormblast Passive]');
+-- Maelstrom Weapon Learn/unlearn
+--INSERT INTO `acore_world`.`spell_linked_spell` (`spell_trigger`, `spell_effect`, `type`, `comment`) VALUES (51532, 83338, 0, 'Learn no talent 5/5 [Maelstrom Weapon] proca [Learn Maelstrom Weapon 83340]');
+--INSERT INTO `acore_world`.`spell_linked_spell` (`spell_trigger`, `spell_effect`, `type`, `comment`) VALUES (-51532, 83339, 0, 'Unlearn no talent 5/5 [Maelstrom Weapon] proca [Unlearn Maelstrom Weapon 83340]');
+
 -- Hunter
 
 

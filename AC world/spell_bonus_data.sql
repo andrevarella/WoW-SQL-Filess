@@ -22,6 +22,10 @@ INSERT INTO `acore_world`.`spell_bonus_data`(`entry`, `direct_bonus`, `dot_bonus
 -- Pounce DoT (nao tem na tabela)
 INSERT INTO `acore_world`.`spell_bonus_data` (`entry`, `direct_bonus`, `dot_bonus`, `ap_bonus`, `ap_dot_bonus`, `comments`) VALUES (49804, 0, 0, 0, 0.018, 'Druid - Pounce DoT');
 
+-- custom cat moonfire
+INSERT INTO `acore_world`.`spell_bonus_data` (`entry`, `direct_bonus`, `dot_bonus`, `ap_bonus`, `ap_dot_bonus`, `comments`) VALUES (83319, 0.13, 0.15, 0.025, 0.1, 'Druid - Moonfire (Cat)');
+
+
 -- Lacerate (antes AP bonus tava 0)
 -- UPDATE `spell_bonus_data` SET `ap_bonus` = '0,05' WHERE `entry` = '48568';
 
@@ -32,6 +36,10 @@ INSERT INTO `acore_world`.`spell_bonus_data` (`entry`, `direct_bonus`, `dot_bonu
 
 -- Custom Lava Bust (mastery proc)
 INSERT INTO `acore_world`.`spell_bonus_data`(`entry`, `direct_bonus`, `dot_bonus`, `ap_bonus`, `ap_dot_bonus`, `comments`) VALUES (83245, 0.5714, 0, 0, 0, 'Shaman - Lava Burst');
+
+-- flametongue weapon (nao tem nenhum valor, só p futuro)
+INSERT INTO `spell_bonus_data` (`entry`, `direct_bonus`, `dot_bonus`, `ap_bonus`, `ap_dot_bonus`, `comments`) VALUES (10444, 0, 0, 0, 0, 'Flametongue Weapon - Rank 10');
+
 
 -- XXXXX
 -- Plate Classes:

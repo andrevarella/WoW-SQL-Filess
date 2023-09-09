@@ -1,17 +1,17 @@
 /*
  Navicat Premium Data Transfer
 
- Source Server         : acore
+ Source Server         : 127.0.0.1
  Source Server Type    : MySQL
- Source Server Version : 50739
+ Source Server Version : 80034 (8.0.34)
  Source Host           : localhost:3306
- Source Schema         : 1acore_world
+ Source Schema         : acore_world
 
  Target Server Type    : MySQL
- Target Server Version : 50739
+ Target Server Version : 80034 (8.0.34)
  File Encoding         : 65001
 
- Date: 15/06/2023 22:41:28
+ Date: 07/09/2023 00:59:05
 */
 
 SET NAMES utf8mb4;
@@ -22,16 +22,16 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP TABLE IF EXISTS `achievement_reward`;
 CREATE TABLE `achievement_reward`  (
-  `ID` mediumint(8) UNSIGNED NOT NULL DEFAULT 0,
-  `TitleA` mediumint(8) UNSIGNED NOT NULL DEFAULT 0,
-  `TitleH` mediumint(8) UNSIGNED NOT NULL DEFAULT 0,
-  `ItemID` mediumint(8) UNSIGNED NOT NULL DEFAULT 0,
-  `Sender` mediumint(8) UNSIGNED NOT NULL DEFAULT 0,
-  `Subject` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `Body` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
-  `MailTemplateID` mediumint(8) UNSIGNED NULL DEFAULT 0,
+  `ID` mediumint UNSIGNED NOT NULL DEFAULT 0,
+  `TitleA` mediumint UNSIGNED NOT NULL DEFAULT 0,
+  `TitleH` mediumint UNSIGNED NOT NULL DEFAULT 0,
+  `ItemID` mediumint UNSIGNED NOT NULL DEFAULT 0,
+  `Sender` mediumint UNSIGNED NOT NULL DEFAULT 0,
+  `Subject` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL,
+  `Body` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL,
+  `MailTemplateID` mediumint UNSIGNED NULL DEFAULT 0,
   PRIMARY KEY (`ID`) USING BTREE
-) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Loot System' ROW_FORMAT = FIXED;
+) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci COMMENT = 'Loot System' ROW_FORMAT = FIXED;
 
 -- ----------------------------
 -- Records of achievement_reward
@@ -164,7 +164,7 @@ INSERT INTO `achievement_reward` VALUES (458, 0, 0, 44151, 81000, 'Realm First! 
 INSERT INTO `achievement_reward` VALUES (467, 0, 0, 44151, 81000, 'Realm First! Level 80 Shaman', 'Parabens por ser o primeiro da sua classe a alcançar o level 80! Visite o correio para ver sua recompensa.', 0);
 INSERT INTO `achievement_reward` VALUES (463, 0, 0, 44151, 81000, 'Realm First! Level 80 Warlock', 'Parabens por ser o primeiro da sua classe a alcançar o level 80! Visite o correio para ver sua recompensa.', 0);
 INSERT INTO `achievement_reward` VALUES (459, 0, 0, 44151, 81000, 'Realm First! Level 80 Warrior', 'Parabens por ser o primeiro da sua classe a alcançar o level 80! Visite o correio para ver sua recompensa.', 0);
-INSERT INTO `achievement_reward` VALUES (4576, 10095, 10095, 71636, 81000, 'Realm First! Fall of the Lich King', 'The king has been dethroned. Congratulations for being the Realm First! Here is your reward.', 0);
+INSERT INTO `achievement_reward` VALUES (4576, 0, 0, 71636, 81000, 'Realm First! Fall of the Lich King', 'The king has been dethroned. Congratulations for being the Realm First! Here is your reward.', 0);
 INSERT INTO `achievement_reward` VALUES (1160, 94, 94, 20221, 81000, 'Three\'s Company: 2200', 'Parabens por alcançar 2200 rating em arenas 3v3! Aproveite seu novo titulo Warbringer e sua montaria.', 0);
 INSERT INTO `achievement_reward` VALUES (10036, 0, 0, 0, 0, 'Just the Two of Us: 2400', '', 0);
 INSERT INTO `achievement_reward` VALUES (10003, 10000, 10000, 0, 0, 'Infernal Gladiator Mount', '', 0);
@@ -203,19 +203,18 @@ INSERT INTO `achievement_reward` VALUES (10024, 10021, 10021, 0, 0, 'Corrupted G
 INSERT INTO `achievement_reward` VALUES (10025, 10022, 10022, 0, 0, 'Sinful Gladiator Mount', '', 0);
 INSERT INTO `achievement_reward` VALUES (10026, 10023, 10023, 0, 0, 'Unchained Gladiator Mount', '', 0);
 INSERT INTO `achievement_reward` VALUES (10037, 0, 0, 0, 0, 'Just the Two of Us: 2700', '', 0);
-INSERT INTO `achievement_reward` VALUES (10038, 10090, 10090, 0, 0, 'Three\'s Company: 2400 - the Tactician', '', 0);
+INSERT INTO `achievement_reward` VALUES (10038, 0, 0, 0, 0, 'Three\'s Company: 2400', '', 0);
 INSERT INTO `achievement_reward` VALUES (10039, 0, 0, 0, 0, 'Three\'s Company: 2700 - the Legend', '', 0);
 INSERT INTO `achievement_reward` VALUES (10034, 128, 128, 0, 0, 'Hot Hot Hot Streak (Flawless Victor)', '', 0);
 INSERT INTO `achievement_reward` VALUES (1159, 163, 163, 0, 81000, 'Just the Two of Us: 2200', 'Parabens pelos 2200 de rating em x2! Aproveite seu novo titulo Vanquisher.', 0);
 INSERT INTO `achievement_reward` VALUES (2536, 0, 0, 44843, 32216, 'Mountain o\' Mounts', 'I\'ve heard your stables are nearly as extensive as mine, now. Impressive! Perhaps we can help one another.. I\'ve one too many dragonhawks, and hoped you could give this one a home. Naturally its been trained as a mount and not a hunting pet, and you\'ll find it as loyal and tireless as any other steed I raise. $B Yours again,Mei', 0);
 INSERT INTO `achievement_reward` VALUES (2537, 0, 0, 44842, 32216, 'Mountain o\' Mounts', 'I\'ve heard your stables are nearly as extensive as mine, now. Impressive! Perhaps we can help one another.. I\'ve one too many dragonhawks, and hoped you could give this one a home. Naturally its been trained as a mount and not a hunting pet, and you\'ll find it as loyal and tireless as any other steed I raise. $B Yours again,Mei', 0);
-INSERT INTO `achievement_reward` VALUES (10028, 10038, 10038, 0, 0, 'Realm First! Halion 25h (Dragonslayer Title)', NULL, 0);
+INSERT INTO `achievement_reward` VALUES (10028, 10038, 10038, 0, 0, 'Realm First! Halion 25 Heroic', NULL, 0);
 INSERT INTO `achievement_reward` VALUES (401, 0, 0, 0, 0, 'Just the Two of Us: 2000', NULL, 0);
 INSERT INTO `achievement_reward` VALUES (10046, 0, 0, 0, 0, 'Just the Two of Us: 3000', '', 0);
 INSERT INTO `achievement_reward` VALUES (405, 0, 0, 0, 0, 'Three\'s Company: 2000', NULL, 0);
 INSERT INTO `achievement_reward` VALUES (10047, 0, 0, 0, 0, 'Three\'s Company: 3000 - the Supreme', '', 0);
 INSERT INTO `achievement_reward` VALUES (513, 0, 0, 0, 0, '100 Honorable Kills', NULL, 0);
-INSERT INTO `achievement_reward` VALUES (685, 10038, 10038, 0, 0, 'Nefarian - Dragonslayer - DELETAR ?', NULL, 0);
 INSERT INTO `achievement_reward` VALUES (515, 0, 0, 0, 0, '500 Honorable Kills', NULL, 0);
 INSERT INTO `achievement_reward` VALUES (516, 0, 0, 0, 0, '1000 Honorable Kills', NULL, 0);
 INSERT INTO `achievement_reward` VALUES (512, 0, 0, 0, 0, '5000 Honorable Kills', NULL, 0);

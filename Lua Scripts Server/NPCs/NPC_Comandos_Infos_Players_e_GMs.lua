@@ -25,7 +25,7 @@ end
 
 -- Rates do Servidor
 if intid == 2 then
-   player:GossipSetText(string.format(" Rate de Gold = x10 \n Rate de Prof = x1 \n Rate de Drop = x1 \n Rate de Honor = X2 (rate de honor aumenta o ganho de XP em bg tbm) \n\nRates de XP: \n Kill = 8x, Quest = 5x"))
+   player:GossipSetText(string.format(" Rate de Gold = 1.5x \n Rate Reputation = 1.5x \n Rate de Prof = x1 \n Rate de Drop = x1 \n Rate de Honor = X4 \n\nRates de XP: \n Kill = 2x, Quest = 9x"))
    player:GossipMenuAddItem(4,"|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:27:27:0:0|t Voltar",0,998)
    player:GossipMenuAddItem(4,"|TInterface\\RaidFrame\\ReadyCheck-NotReady:22:22:0:0|t |cFF8B0000Sair",0,999)
    player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)
