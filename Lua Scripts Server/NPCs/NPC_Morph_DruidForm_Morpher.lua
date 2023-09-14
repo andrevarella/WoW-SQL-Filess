@@ -1,3 +1,5 @@
+
+
 local GOSSIP_EVENT_ON_SELECT = 2
 local PLAYER_EVENT_ON_SPELL_CAST = 5
 local GOSSIP_EVENT_ON_HELLO = 1
@@ -9,230 +11,256 @@ druidMorph.druidMorhValid = {
         {"|TInterface\\icons\\Ability_druid_catform.png:29|t Cat", 3},
         {"|TInterface\\icons\\Ability_racial_bearform.png:29|t Bear", 1},
         {"|TInterface\\icons\\Ability_druid_travelform.png:29|t Travel", 4},
-        {"|TInterface\\icons\\Ability_druid_improvedmoonkinform.png:29|t Moonkin", 5}
-		--{"|TInterface\\icons\\Ability_druid_aquaticform.png:29|t Aquatic", 2}
+        {"|TInterface\\icons\\Ability_druid_improvedmoonkinform.png:29|t Moonkin", 5},
+		{"|TInterface\\icons\\Ability_druid_aquaticform.png:29|t Aquatic", 2},
+		{"|TInterface\\icons\\Ability_druid_TreeofLife.png:29|t Tree", 6}
+
     },
 
     [3] = { -- Cat Form
         [1] = {  -- Night Elf    -  Limite = 33, mais que isso dá erro
-            {"Fire Cat Armored (1)", 50207},
-            {"Fire Cat (2)", 50208},
-            {"Armored Cat Black (3)", 50209},
-            {"Armored Cat White (4)", 50213},
-            {"Armored Cat Blue (5)", 50210},
-            {"Armored Cat Purple (6)", 50211},
-            {"Armored Cat Pink (7)", 50212},
-            {"Cat Form Challenge Blue (8)", 50227},
-            {"Cat Form Challenge Red (9)", 50230},
-            {"Cat Form Challenge Green (10)", 50228},
-            {"Cat Form Challenge Purple (11)", 50229},
-            {"Cat Form Honor Red (12)", 50244},
-            {"Cat Form Honor Orange (13)", 50243},
-            {"Cat Form Honor Blue (14)", 50241},
-            {"Cat Form Honor Green (15)", 50242},
-            {"Cat Form Artifact 4 Purple (16)", 50239},
-            {"Cat Form Artifact 4 White (17)", 50240},
-            {"Cat Form Artifact 4 Orange (18)", 50238},
-            {"Cat Form Artifact 4 Green (19)", 50237},
-            {"Cat Form Artifact 3 Purple (20)", 50235},
-            {"Cat Form Artifact 3 Blue (21)", 50232},
-            {"Cat Form Artifact 3 Orange (22)", 50234},
-            {"Cat Form Artifact 3 Green (23)", 50233},
-            {"Cat Form Artifact 1 White (24)", 50226},
-            {"Cat Form Artifact 1 Blue (25)", 50225},
-            {"Cat Form Artifact 1 Black (26)", 50219},
-            {"Cat Form Artifact 1 Brown (27)", 50222},
-            {"Owl Cat Form Black (28)", 50245},
-            {"Owl Cat Form White (29)", 50246}
+            {"Fire Cat Armored", 50207},
+			{"Fire Cat", 50208},
+			{"Armored Cat Black", 50209},
+			{"Armored Cat White", 50213},
+			{"Armored Cat Blue", 50210},
+			{"Armored Cat Purple", 50211},
+			{"Armored Cat Pink", 50212},
+			{"Cat Form Challenge Blue", 50227},
+			{"Cat Form Challenge Red", 50230},
+			{"Cat Form Challenge Green", 50228},
+			{"Cat Form Challenge Purple", 50229},
+			{"Cat Form Honor Red", 50244},
+			{"Cat Form Honor Orange", 50243},
+			{"Cat Form Honor Blue", 50241},
+			{"Cat Form Honor Green", 50242},
+			{"Cat Form Artifact 4 Purple", 50239},
+			{"Cat Form Artifact 4 White", 50240},
+			{"Cat Form Artifact 4 Orange", 50238},
+			{"Cat Form Artifact 4 Green", 50237},
+			{"Cat Form Artifact 3 Purple", 50235},
+			{"Cat Form Artifact 3 Blue", 50232},
+			{"Cat Form Artifact 3 Orange", 50234},
+			{"Cat Form Artifact 3 Green", 50233},
+			{"Cat Form Artifact 1 White", 50226},
+			{"Cat Form Artifact 1 Blue", 50225},
+			{"Cat Form Artifact 1 Black", 50219},
+			{"Cat Form Artifact 1 Brown", 50222},
+			{"Owl Cat Form Black", 50245},
+			{"Owl Cat Form White", 50246}
         },
         [2] = {  -- Tauren Cat Forms
-            {"Fire Cat Armored (1)", 50207},
-            {"Fire Cat (2)", 50208},
-            {"Armored Cat Black (3)", 50215},
-            {"Armored Cat White (4)", 50217},
-            {"Armored Cat Brown (5)", 50216},
-            {"Armored Cat Light Brown (6)", 50214},
-            {"Armored Cat Yellow (7)", 50218},
-            {"Cat Form Challenge Blue (8)", 50227},
-            {"Cat Form Challenge Red (9)", 50230},
-            {"Cat Form Challenge Green (10)", 50228},
-            {"Cat Form Challenge Purple (11)", 50229},
-            {"Cat Form Honor Red (12)", 50244},
-            {"Cat Form Honor Orange (13)", 50243},
-            {"Cat Form Honor Blue (14)", 50241},
-            {"Cat Form Honor Green (15)", 50242},
-            {"Cat Form Artifact 4 Purple (16)", 50239},
-            {"Cat Form Artifact 4 White (17)", 50240},
-            {"Cat Form Artifact 4 Orange (18)", 50238},
-            {"Cat Form Artifact 4 Green (19)", 50237},
-            {"Cat Form Artifact 3 Purple (20)", 50235},
-            {"Cat Form Artifact 3 Blue (21)", 50232},
-            {"Cat Form Artifact 3 Orange (22)", 50234},
-            {"Cat Form Artifact 3 Green (23)", 50233},
-            {"Cat Form Artifact 1 White (24)", 50226},
-            {"Cat Form Artifact 1 Blue (25)", 50225},
-            {"Cat Form Artifact 1 Black (26)", 50219},
-            {"Cat Form Artifact 1 Brown (27)", 50222},
-            {"Owl Cat Form Black (28)", 50245},
-            {"Owl Cat Form White (29)", 50246}
+             {"Fire Cat Armored", 50207},
+			{"Fire Cat", 50208},
+			{"Armored Cat Black", 50215},
+			{"Armored Cat White", 50217},
+			{"Armored Cat Brown", 50216},
+			{"Armored Cat Light Brown", 50214},
+			{"Armored Cat Yellow", 50218},
+			{"Cat Form Challenge Blue", 50227},
+			{"Cat Form Challenge Red", 50230},
+			{"Cat Form Challenge Green", 50228},
+			{"Cat Form Challenge Purple", 50229},
+			{"Cat Form Honor Red", 50244},
+ 			{"Cat Form Honor Orange", 50243},
+ 			{"Cat Form Honor Blue", 50241},
+ 			{"Cat Form Honor Green", 50242},
+ 			{"Cat Form Artifact 4 Purple", 50239},
+ 			{"Cat Form Artifact 4 White", 50240},
+ 			{"Cat Form Artifact 4 Orange", 50238},
+ 			{"Cat Form Artifact 4 Green", 50237},
+ 			{"Cat Form Artifact 3 Purple", 50235},
+ 			{"Cat Form Artifact 3 Blue", 50232},
+ 			{"Cat Form Artifact 3 Orange", 50234},
+ 			{"Cat Form Artifact 3 Green", 50233},
+			{"Cat Form Artifact 1 White", 50226},
+		    {"Cat Form Artifact 1 Blue", 50225},
+ 			{"Cat Form Artifact 1 Black", 50219},
+ 			{"Cat Form Artifact 1 Brown", 50222},
+ 			{"Owl Cat Form Black", 50245},
+		    {"Owl Cat Form White", 50246}
         },
 	  [3] = {  -- Troll Cat Forms
-            {"Fire Cat Armored (1)", 50207},
-            {"Fire Cat (2)", 50208},
-            {"Armored Cat Blue (3)", 50600},
-            {"Armored Cat White (4)", 50596},
-            {"Armored Cat Red (5)", 50598},
-            {"Armored Cat Yellow (6)", 50599},
-            {"Armored Cat Green (7)", 50597},
-            {"Cat Form Challenge Blue (8)", 50227},
-            {"Cat Form Challenge Red (9)", 50230},
-            {"Cat Form Challenge Green (10)", 50228},
-            {"Cat Form Challenge Purple (11)", 50229},
-            {"Cat Form Honor Red (12)", 50244},
-            {"Cat Form Honor Orange (13)", 50243},
-            {"Cat Form Honor Blue (14)", 50241},
-            {"Cat Form Honor Green (15)", 50242},
-            {"Cat Form Artifact 4 Purple (16)", 50239},
-            {"Cat Form Artifact 4 White (17)", 50240},
-            {"Cat Form Artifact 4 Orange (18)", 50238},
-            {"Cat Form Artifact 4 Green (19)", 50237},
-            {"Cat Form Artifact 3 Purple (20)", 50235},
-            {"Cat Form Artifact 3 Blue (21)", 50232},
-            {"Cat Form Artifact 3 Orange (22)", 50234},
-            {"Cat Form Artifact 3 Green (23)", 50233},
-            {"Cat Form Artifact 1 White (24)", 50226},
-            {"Cat Form Artifact 1 Blue (25)", 50225},
-            {"Cat Form Artifact 1 Black (26)", 50219},
-            {"Cat Form Artifact 1 Brown (27)", 50222},
-            {"Owl Cat Form Black (28)", 50245},
-            {"Owl Cat Form White (29)", 50246}
+            {"Fire Cat Armored", 50207},
+            {"Fire Cat", 50208},
+            {"Armored Cat Blue", 50600},
+            {"Armored Cat White", 50596},
+            {"Armored Cat Red", 50598},
+            {"Armored Cat Yellow", 50599},
+            {"Armored Cat Green", 50597},
+            {"Cat Form Challenge Blue", 50227},
+            {"Cat Form Challenge Red", 50230},
+            {"Cat Form Challenge Green", 50228},
+            {"Cat Form Challenge Purple", 50229},
+            {"Cat Form Honor Red", 50244},
+            {"Cat Form Honor Orange", 50243},
+            {"Cat Form Honor Blue", 50241},
+            {"Cat Form Honor Green", 50242},
+            {"Cat Form Artifact 4 Purple", 50239},
+            {"Cat Form Artifact 4 White", 50240},
+            {"Cat Form Artifact 4 Orange", 50238},
+            {"Cat Form Artifact 4 Green", 50237},
+            {"Cat Form Artifact 3 Purple", 50235},
+            {"Cat Form Artifact 3 Blue", 50232},
+            {"Cat Form Artifact 3 Orange", 50234},
+            {"Cat Form Artifact 3 Green", 50233},
+            {"Cat Form Artifact 1 White", 50226},
+            {"Cat Form Artifact 1 Blue", 50225},
+            {"Cat Form Artifact 1 Black", 50219},
+            {"Cat Form Artifact 1 Brown", 50222},
+            {"Owl Cat Form Black", 50245},
+            {"Owl Cat Form White", 50246}
         }
     },
     [1] = {  -- Bear Form
         [1] = {  -- Night Elf Bears
-            {"Challenge Bear Red (1)", 50513},
-            {"Challenge Bear Blue (2)", 50510},
-            {"Challenge Bear Purple (3)", 50512},
-            {"Challenge Bear Green (4)", 50511},
-            {"Spiked Bear Red (5)", 50517},
-            {"Spiked Bear Orange (6)", 50515},
-            {"Spiked Bear Blue (7)", 50514},
-            {"Spiked Bear Green (8)", 50516},
-            {"Boned Bear Black (9)", 50518},
-            {"Boned Bear Brown (10)", 50519},
-            {"Boned Bear Orange (11)", 50520},
-            {"Boned Bear White (12)", 50521},
-            {"Bear Artifact Black (13)", 50495},
-            {"Bear Artifact White (14)", 50493},
-            {"Bear Artifact Brown (15)", 50496},
-            {"Bear Artifact Blue (16)", 50492},
-            {"Werebear Black (17)", 50203},
-            {"Werebear White (18)", 50206},
-            {"Werebear Brown (19)", 50205},
-            {"Werebear Yellow (20)", 50204},
-            {"Stone Bear Black (21)", 50506},
-            {"Stone Bear Brown (22)", 50508},
-            {"Stone Bear Purple (23)", 50509},
-            {"Stone Bear Grey (24)", 50507}
+            {"Challenge Bear Red", 50513},
+            {"Challenge Bear Blue", 50510},
+            {"Challenge Bear Purple", 50512},
+            {"Challenge Bear Green", 50511},
+            {"Spiked Bear Red", 50517},
+            {"Spiked Bear Orange", 50515},
+            {"Spiked Bear Blue", 50514},
+            {"Spiked Bear Green", 50516},
+            {"Boned Bear Black", 50518},
+            {"Boned Bear Brown", 50519},
+            {"Boned Bear Orange", 50520},
+            {"Boned Bear White", 50521},
+            {"Bear Artifact Black", 50495},
+            {"Bear Artifact White", 50493},
+            {"Bear Artifact Brown", 50496},
+            {"Bear Artifact Blue", 50492},
+            {"Werebear Black", 50203},
+            {"Werebear White", 50206},
+            {"Werebear Brown", 50205},
+            {"Werebear Yellow", 50204},
+            {"Stone Bear Black", 50506},
+            {"Stone Bear Brown", 50508},
+            {"Stone Bear Purple", 50509},
+            {"Stone Bear Grey", 50507}
         },
         [2] = {  -- Tauren Bears
-            {"Challenge Bear Red (1)", 50513},
-            {"Challenge Bear Blue (2)", 50510},
-            {"Challenge Bear Purple (3)", 50512},
-            {"Challenge Bear Green (4)", 50511},
-            {"Spiked Bear Red (5)", 50517},
-            {"Spiked Bear Orange (6)", 50515},
-            {"Spiked Bear Blue (7)", 50514},
-            {"Spiked Bear Green (8)", 50516},
-            {"Boned Bear Black (9)", 50518},
-            {"Boned Bear Brown (10)", 50519},
-            {"Boned Bear Orange (11)", 50520},
-            {"Boned Bear White (12)", 50521},
-            {"Bear Artifact Black (13)", 50495},
-            {"Bear Artifact White (14)", 50493},
-            {"Bear Artifact Brown (15)", 50496},
-            {"Bear Artifact Blue (16)", 50492},
-            {"Werebear Black (17)", 50203},
-            {"Werebear White (18)", 50206},
-            {"Werebear Brown (19)", 50205},
-            {"Werebear Yellow (20)", 50204},
-            {"Stone Bear Black (21)", 50506},
-            {"Stone Bear Brown (22)", 50508},
-            {"Stone Bear Purple (23)", 50509},
-            {"Stone Bear Grey (24)", 50507}
+            {"Challenge Bear Red", 50513},
+            {"Challenge Bear Blue", 50510},
+            {"Challenge Bear Purple", 50512},
+            {"Challenge Bear Green", 50511},
+            {"Spiked Bear Red", 50517},
+            {"Spiked Bear Orange", 50515},
+            {"Spiked Bear Blue", 50514},
+            {"Spiked Bear Green", 50516},
+            {"Boned Bear Black", 50518},
+            {"Boned Bear Brown", 50519},
+            {"Boned Bear Orange", 50520},
+            {"Boned Bear White", 50521},
+            {"Bear Artifact Black", 50495},
+            {"Bear Artifact White", 50493},
+            {"Bear Artifact Brown", 50496},
+            {"Bear Artifact Blue", 50492},
+            {"Werebear Black", 50203},
+            {"Werebear White", 50206},
+            {"Werebear Brown", 50205},
+            {"Werebear Yellow", 50204},
+            {"Stone Bear Black", 50506},
+            {"Stone Bear Brown", 50508},
+            {"Stone Bear Purple", 50509},
+            {"Stone Bear Grey", 50507}
         },
         [3] = {  -- Troll Bears
-            {"Challenge Bear Red (1)", 50513},    -- 1
-            {"Challenge Bear Blue (2)", 50510},   -- 2
-            {"Challenge Bear Purple (3)", 50512}, -- 3
-            {"Challenge Bear Green (4)", 50511},  -- 4
-            {"Spiked Bear Red (5)", 50517},       -- 5
-            {"Spiked Bear Orange (6)", 50515},    -- 6
-            {"Spiked Bear Blue (7)", 50514},      -- 7
-            {"Spiked Bear Green (8)", 50516},     -- 8
-            {"Boned Bear Black (9)", 50518},      -- 9
-            {"Boned Bear Brown (10)", 50519},     -- 10
-            {"Boned Bear Orange (11)", 50520},    -- 11
-            {"Boned Bear White (12)", 50521},     -- 12
-            {"Bear Artifact Black (13)", 50495},  -- 13
-            {"Bear Artifact White (14)", 50493},  -- 14
-            {"Bear Artifact Brown (15)", 50496},  -- 15
-            {"Bear Artifact Blue (16)", 50492},   -- 16
-            {"Werebear Black (17)", 50203},       -- 17
-            {"Werebear White (18)", 50206},       -- 18
-            {"Werebear Brown (19)", 50205},       -- 19
-            {"Werebear Yellow (20)", 50204},      -- 20
-            {"Stone Bear Black (21)", 50506},     -- 21
-            {"Stone Bear Brown (22)", 50508},     -- 22
-            {"Stone Bear Purple (23)", 50509},    -- 23
-            {"Stone Bear Grey (24)", 50507},
-            {"Armored Bear White (25)", 50588},
-            {"Armored Bear Blue (26)", 50585},
-            {"Armored Bear Red (27)", 50587},
-            {"Armored Bear Purple (28)", 50586},
-            {"Armored Bear Yellow (29)", 50589}
+            {"Challenge Bear Red", 50513},
+            {"Challenge Bear Blue", 50510},
+            {"Challenge Bear Purple", 50512},
+            {"Challenge Bear Green", 50511},
+            {"Spiked Bear Red", 50517},
+            {"Spiked Bear Orange", 50515},
+            {"Spiked Bear Blue", 50514},
+            {"Spiked Bear Green", 50516},
+            {"Boned Bear Black", 50518},
+            {"Boned Bear Brown", 50519},
+            {"Boned Bear Orange", 50520},
+            {"Boned Bear White", 50521},
+            {"Bear Artifact Black", 50495},
+            {"Bear Artifact White", 50493},
+            {"Bear Artifact Brown", 50496},
+            {"Bear Artifact Blue", 50492},
+            {"Werebear Black", 50203},
+            {"Werebear White", 50206},
+            {"Werebear Brown", 50205},
+            {"Werebear Yellow", 50204},
+            {"Stone Bear Black", 50506},
+            {"Stone Bear Brown", 50508},
+            {"Stone Bear Purple", 50509},
+            {"Stone Bear Grey", 50507},
+            {"Armored Bear White", 50588},
+            {"Armored Bear Blue", 50585},
+            {"Armored Bear Red", 50587},
+            {"Armored Bear Purple", 50586},
+            {"Armored Bear Yellow", 50589}
         }
     },
     [2] = {
         [1] = {  -- Night Elf - Aquatic Form
             {"Orca", 50494},
-            {"Original Aquatic", 2428}
+            {"Default Aquatic Form", 2428}
         },
         [2] = {  -- Tauren - Aquatic Form
             {"Orca", 50494},
-            {"Original Aquatic", 2428}
+            {"Default Aquatic Form", 2428}
         },
         [3] = {  -- Troll - Aquatic Form
             {"Orca", 50494},
-            {"Original Aquatic", 2428}
+            {"Default Aquatic Form", 2428}
         }
     },
     [5] = {
         [1] = {   -- Night Elf Moonkin
-            {"Armored Moonkin", 50503},
-            {"Night Elf Moonkin", 15374}
+            {"Armored Moonkin Form", 50503},
+            {"Default Moonkin Form", 15374}
         },
         [2] = {   -- Tauren Moonkin
-            {"Armored Moonkin", 50502},
-            {"Original Moonkin", 15375}
+            {"Armored Moonkin Form", 50502},
+            {"Default Moonkin Form", 15375}
         },
         [3] = {   -- Troll Moonkin
-            {"Armored Moonkin", 50502},
-            {"Original Moonkin", 50590}
+            {"Armored Moonkin Form", 50502},
+            {"Default Moonkin Form", 50590}
         }
     },
+	[6] = {
+	    [1] = {  -- Night Elf - Tree Form
+            {"Cataclysm Tree Form (Green)", 50672},
+			{"Cataclysm Tree Form (Orange)", 50673},
+			{"Cataclysm Tree Form (Purple)", 50674},
+		    {"Cataclysm Tree Form (Red)", 50675},
+            {"Default Tree Form", 864}
+        },
+        [2] = {  -- Tauren - Tree Form
+            {"Cataclysm Tree Form (Green)", 50672},
+			{"Cataclysm Tree Form (Orange)", 50673},
+			{"Cataclysm Tree Form (Purple)", 50674},
+		    {"Cataclysm Tree Form (Red)", 50675},
+            {"Default Tree Form", 864}
+        },
+        [3] = {  -- Troll - Tree Form
+            {"Cataclysm Tree Form (Green)", 50672},
+			{"Cataclysm Tree Form (Orange)", 50673},
+			{"Cataclysm Tree Form (Purple)", 50674},
+		    {"Cataclysm Tree Form (Red)", 50675},
+            {"Default Tree Form", 864}
+        }
+	},
     [4] = {
         [1] = { -- Night Elf - Travel Form
-            {"Stag", 50504},
-            {"Original Travel", 918}
+            {"Night Elf Stag", 50504},
+            {"Default Travel Form", 918}
         },
         [2] = { -- Tauren - Travel Form
-            {"Stag", 50504},
-            {"Original Travel", 918}
+            {"Tauren Stag", 50505},
+			{"Highmountain Tauren Stag", 50676},
+            {"Default Travel Form", 918}
         },
         [3] = { -- Troll - Travel Form
-            {"Stag", 50504},
-            {"Original Travel", 918}
+            {"Zandalari Raptor", 50677},
+            {"Default Travel Form", 918}
         }
     }
 }
@@ -392,11 +420,38 @@ local formName = ""  -- Inicializa formName como uma string vazia
         end
         player:SetData("currentForm", 5)
         player:GossipSendMenu(1, player, MENU_ID)
+	-- Tree Form
+	elseif intid == 6 then
+        -- print("Tree")
+        player:GossipClearMenu()
+        if not player:HasAura(33891) then
+            player:SendBroadcastMessage("You are not in Tree form.")
+            return druidMorph.menu(event, player, object)
+        end
+
+        if (player:GetRace() == 4) then   -- Night Elf Tree Form
+            for _, menuName in ipairs(druidMorph.druidMorhValid[6][1]) do          -- set form
+                player:GossipMenuAddItem(2, menuName[1], 0, menuName[2])
+                -- print(menuName[1], menuName[2])
+            end
+
+        elseif (player:GetRace() == 6) then   -- Tauren Tree Form
+            for _, menuName in ipairs(druidMorph.druidMorhValid[6][2]) do
+                player:GossipMenuAddItem(2, menuName[1], 0, menuName[2])
+            end
+
+        elseif (player:GetRace() == 8) then   -- Troll Tree Form
+            for _, menuName in ipairs(druidMorph.druidMorhValid[6][3]) do
+                player:GossipMenuAddItem(2, menuName[1], 0, menuName[2])
+            end
+        end
+        player:SetData("currentForm", 6)
+        player:GossipSendMenu(1, player, MENU_ID)
     end
 	
     
  
-    if intid ~= 1 and intid ~= 2 and intid ~= 3 and intid ~= 4 and intid ~= 5 then
+    if intid ~= 1 and intid ~= 2 and intid ~= 3 and intid ~= 4 and intid ~= 5 and intid ~= 6 then
         player:SetDisplayId(intid)
  
         local currentForm = player:GetData("currentForm")
@@ -415,6 +470,9 @@ local formName = ""  -- Inicializa formName como uma string vazia
             player:SaveToDB() 
         elseif currentForm == 5 then
             formName = "DisplayMoonkinForm"
+            player:SaveToDB() 
+		elseif currentForm == 6 then
+            formName = "DisplayTreeForm"
             player:SaveToDB() 
         end
         CharDBExecute("INSERT INTO custom_druid_form_display (player_guid, "..formName..") VALUES ("..player:GetGUIDLow()..","..intid..") ON DUPLICATE KEY UPDATE "..formName.."="..intid)
@@ -444,34 +502,39 @@ function druidMorph.castDisplay(event, player, spell, skipCheck)
 		local DisplayTravelForm = LuaIsNull(Query:GetUInt32(3), nil)
 		local DisplayMoonkinForm = LuaIsNull(Query:GetUInt32(4), nil)
         local DisplayAquaticForm = LuaIsNull(Query:GetUInt32(5), nil)
+		local DisplayTreeForm = LuaIsNull(Query:GetUInt32(6), nil)
 
         
         -- Checa a raça para determinar qual será o DisplayID padrão
         local race = player:GetRace()
         local defaultCatForm
         local defaultBearForm
+	    local defaultTravelForm
         local defaultMoonkinForm
         local defaultAquaticForm
-        local defaultTravelForm
+		local defaultTreeForm
 
         if race == 4 then -- Night Elf
             defaultCatForm = 29406
             defaultBearForm = 29417
+			defaultTravelForm = 918
             defaultMoonkinForm = 15374
             defaultAquaticForm = 2428
-            defaultTravelForm = 918
+			defaultTreeForm = 864
         elseif race == 6 then -- Tauren
             defaultCatForm = 29411
             defaultBearForm = 29420
+			defaultTravelForm = 918
             defaultMoonkinForm = 15375
             defaultAquaticForm = 2428
-            defaultTravelForm = 918
+			defaultTreeForm = 864
         elseif race == 8 then -- Troll
             defaultCatForm = 50595
             defaultBearForm = 50580
+		    defaultTravelForm = 918
             defaultMoonkinForm = 50590
             defaultAquaticForm = 2428
-            defaultTravelForm = 918
+			defaultTreeForm = 864
         end
 
         if player:HasAura(768) then   -- Cat Form
@@ -480,14 +543,17 @@ function druidMorph.castDisplay(event, player, spell, skipCheck)
         if player:HasAura(9634) then  -- Bear Form
             player:SetDisplayId(DisplayBearForm or defaultBearForm)
         end
+		if player:HasAura(783) then   -- Travel Form
+            player:SetDisplayId(DisplayTravelForm or defaultTravelForm)
+        end
         if player:HasAura(24858) then -- Moonkin Form
             player:SetDisplayId(DisplayMoonkinForm or defaultMoonkinForm)
         end
         if player:HasAura(1066) then  -- Aquatic Form
             player:SetDisplayId(DisplayAquaticForm or defaultAquaticForm)
         end
-        if player:HasAura(783) then   -- Travel Form
-            player:SetDisplayId(DisplayTravelForm or defaultTravelForm)
+		if player:HasAura(33891) then   -- Tree Form
+            player:SetDisplayId(DisplayTreeForm or defaultTreeForm)
         end
     end
 end
@@ -511,6 +577,9 @@ function druidMorph.applyCatFormOnLogin(event, player)
         elseif player:HasAura(1066) then -- Aquatic
             player:RemoveAura(1066)
             player:AddAura(1066, player)
+		elseif player:HasAura(33891) then -- Tree
+            player:RemoveAura(33891)
+            player:AddAura(33891, player)
         end
     end
 end
