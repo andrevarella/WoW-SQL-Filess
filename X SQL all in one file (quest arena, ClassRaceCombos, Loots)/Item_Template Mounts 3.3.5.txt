@@ -1,0 +1,210 @@
+
+-- item template - old mounts
+UPDATE `item_template` SET `spellid_2` = '84405' WHERE `entry` = '35225'; -- x-51 - old spell 46197
+UPDATE `item_template` SET `spellid_2` = '84405' WHERE `entry` = '49285'; -- x-51 - old spell 46197
+UPDATE `item_template` SET `spellid_2` = '84407' WHERE `entry` = '35226'; -- x-51 xt - old spell 46199
+UPDATE `item_template` SET `spellid_2` = '84407' WHERE `entry` = '49286'; -- x-51 xt - old spell 46199
+UPDATE `item_template` SET `spellid_2` = '84411' WHERE `entry` = '49636'; -- onyxian - old spell 69395
+UPDATE `item_template` SET `spellid_2` = '84413' WHERE `entry` = '32458'; -- ashes of alar - old spell 40192
+UPDATE `item_template` SET `spellid_2` = '84415' WHERE `entry` = '45693'; -- mimiron - old spell 63796
+UPDATE `item_template` SET `spellid_2` = '84417' WHERE `entry` = '30609'; -- nether drake - old spell 37015
+UPDATE `item_template` SET `spellid_2` = '84419' WHERE `entry` = '34092'; -- s2 - old spell 44744
+UPDATE `item_template` SET `spellid_2` = '84421' WHERE `entry` = '37676'; -- s3 - old spell 49193
+UPDATE `item_template` SET `spellid_2` = '84423' WHERE `entry` = '43516'; -- s4 - old spell 58615
+UPDATE `item_template` SET `spellid_2` = '84425' WHERE `entry` = '46708'; -- s5 - old spell 64927
+UPDATE `item_template` SET `spellid_2` = '84427' WHERE `entry` = '46171'; -- s6 - old spell 65439
+UPDATE `item_template` SET `spellid_2` = '84429' WHERE `entry` = '47840'; -- s7 - old spell 67336
+UPDATE `item_template` SET `spellid_2` = '84431' WHERE `entry` = '50435'; -- s8 - old spell 71810
+UPDATE `item_template` SET `spellid_2` = '84480' WHERE `entry` = '44842'; -- red dragonhawk - old spell 61997
+UPDATE `item_template` SET `spellid_2` = '84482' WHERE `entry` = '44843'; -- blue dragonhawk - old spell 61996
+UPDATE `item_template` SET `spellid_2` = '84437' WHERE `entry` = '44814'; -- sunreaver drag - old spell 66088
+UPDATE `item_template` SET `spellid_2` = '84439' WHERE `entry` = '46813'; -- silver covenant hi - old spell 66087
+UPDATE `item_template` SET `spellid_2` = '84443' WHERE `entry` = '33999'; -- cenarion war hi - old spell 43927
+UPDATE `item_template` SET `spellid_2` = '84445' WHERE `entry` = '44168'; -- time-lost pr - old spell 60002
+UPDATE `item_template` SET `spellid_2` = '84447' WHERE `entry` = '44151'; -- blue proto - old spell 59996
+UPDATE `item_template` SET `spellid_2` = '84449' WHERE `entry` = '44160'; -- red proto - old spell 59961
+UPDATE `item_template` SET `spellid_2` = '84451' WHERE `entry` = '45801'; -- ironbound pr - old spell 63956
+UPDATE `item_template` SET `spellid_2` = '84453' WHERE `entry` = '45802'; -- rusted proto - old spell 63963
+UPDATE `item_template` SET `spellid_2` = '84458' WHERE `entry` = '44177'; -- violet proto - old spell 60024
+UPDATE `item_template` SET `spellid_2` = '84460' WHERE `entry` = '44175'; -- plagued proto - old spell 60021
+UPDATE `item_template` SET `spellid_2` = '84462' WHERE `entry` = '44164'; -- black proto - old spell 59976
+UPDATE `item_template` SET `spellid_2` = '84464' WHERE `entry` = '44707'; -- green proto - old spell 61294
+UPDATE `item_template` SET `spellid_2` = '84466' WHERE `entry` = '44178'; -- albino drake - old spell 60025
+UPDATE `item_template` SET `spellid_2` = '84468' WHERE `entry` = '43951'; -- bronze drake - old spell 59569
+UPDATE `item_template` SET `spellid_2` = '84470' WHERE `entry` = '43952'; -- azure drake - old spell 59567
+UPDATE `item_template` SET `spellid_2` = '84476' WHERE `entry` = '43954'; -- twilight drake - old spell 59571
+UPDATE `item_template` SET `spellid_2` = '84478' WHERE `entry` = '43986'; -- black drake - old spell 59650
+UPDATE `item_template` SET `spellid_2` = '84480' WHERE `entry` = '43955'; -- red drake - old spell 59570
+UPDATE `item_template` SET `spellid_2` = '84482' WHERE `entry` = '43953'; -- blue drake - old spell 59568
+UPDATE `item_template` SET `spellid_2` = '84484' WHERE `entry` = '32857'; -- onyx netherwing - old spell 41513
+UPDATE `item_template` SET `spellid_2` = '84486' WHERE `entry` = '32860'; -- purple netherwing - old spell 41516
+UPDATE `item_template` SET `spellid_2` = '84488' WHERE `entry` = '32859'; -- cobalt netherwing - old spell 41515
+UPDATE `item_template` SET `spellid_2` = '84490' WHERE `entry` = '32862'; -- violet netherwing - old spell 41518
+UPDATE `item_template` SET `spellid_2` = '84492' WHERE `entry` = '32861'; -- veridian netherwing - old spell 41517
+UPDATE `item_template` SET `spellid_2` = '84494' WHERE `entry` = '32858'; -- azure netherwing - old spell 41514
+UPDATE `item_template` SET `spellid_2` = '84496' WHERE `entry` = '34061'; -- turbo-charged - old spell 44151
+UPDATE `item_template` SET `spellid_2` = '84498' WHERE `entry` = '44558'; -- magnificent flying - old spell 61309
+UPDATE `item_template` SET `spellid_2` = '84500' WHERE `entry` = '54797'; -- frosty flying - old spell 75596
+UPDATE `item_template` SET `spellid_2` = '84502' WHERE `entry` = '54798'; -- flying carpet - old spell 75597
+UPDATE `item_template` SET `spellid_2` = '84504' WHERE `entry` = '32316'; -- purple nether - old spell 39801
+UPDATE `item_template` SET `spellid_2` = '84506' WHERE `entry` = '32319'; -- blue nether - old spell 39803
+UPDATE `item_template` SET `spellid_2` = '84508' WHERE `entry` = '32318'; -- silver nether ray - old spell 39802
+UPDATE `item_template` SET `spellid_2` = '84510' WHERE `entry` = '32317'; -- red nether ray - old spell 39800
+UPDATE `item_template` SET `spellid_2` = '84512' WHERE `entry` = '32314'; -- green nether ray - old spell 39798
+
+
+-- mounts wotlk
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84411, 'spell_onyxian');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84413, 'spell_ashes');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84415, 'spell_mimiron');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84417, 'spell_s1');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84419, 'spell_s2');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84421, 'spell_s3');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84423, 'spell_s4');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84425, 'spell_s5');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84427, 'spell_s6');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84429, 'spell_s7');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84431, 'spell_s8');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84433, 'spell_redDRAGONHAWK');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84435, 'spell_BLUEDRAGONHAWK');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84437, 'spell_SUNREAVERDRAG');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84439, 'spell_SILVERCOVENANT');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84441, 'spell_ARGENTHIPPO');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84443, 'spell_CENARIONWAR');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84445, 'spell_TIMELOST');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84447, 'spell_BLUEPROTO');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84449, 'spell_REDPROTO');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84451, 'spell_IRONBOUNDPROTODRAKE');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84453, 'spell_RUSTEDPROTODRAKE');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84458, 'spell_VIOLETPROTODRAKE');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84460, 'spell_PLAGUEDPROTODRAKE');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84462, 'spell_BLACKPROTODRAKE');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84464, 'spell_GREENPROTODRAKE');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84466, 'spell_ALBINODRAKE');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84468, 'spell_BRONZEDRAKE');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84470, 'spell_AZUREDRAKE');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84472, 'spell_TWILIGHTPURPLEDRAKE');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84474, 'spell_TWILIGHTREDDRAKE');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84476, 'spell_TWILIGHTDRAKE');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84478, 'spell_BLACKDRAKE');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84480, 'spell_REDDRAKE');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84482, 'spell_BLUEDRAKE');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84484, 'spell_NETHERWING1');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84486, 'spell_NETHERWING2');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84488, 'spell_NETHERWING3');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84490, 'spell_NETHERWING4');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84492, 'spell_NETHERWING5');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84494, 'spell_NETHERWING6');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84496, 'spell_TURBOCHARGED');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84498, 'spell_MAGNIFICENTCARPET');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84500, 'spell_FROSTYFLYING');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84502, 'spell_FLYINGCARPET');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84504, 'spell_NETHERRAY1');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84506, 'spell_NETHERRAY2');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84508, 'spell_NETHERRAY3');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84510, 'spell_NETHERRAY4');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84512, 'spell_NETHERRAY5');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84405, 'spell_X51');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84407, 'spell_X51XT');
+
+--  mounts cata+   -- UPDATES A PARTIR DE 08/03 SERAO ATUALIZADOS SÓ PELO SPELL_SCRIPT_NAMES SQL
+/*
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84010, 'spell_tyraelcharger');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84015, 'spell_sinfulglad');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84021, 'spell_COSMICGLAD');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84024, 'spell_ETERNALGLAD');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84030, 'spell_UNCHAINEDGLAD');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84033, 'spell_VINDICTIVEGLAD');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84036, 'spell_FEARLESSGLAD');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84039, 'spell_CRUELGLAD');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84042, 'spell_FEROCIOUSGLAD');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84045, 'spell_FIERCEGLAD');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84048, 'spell_DOMINANTGLAD');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84054, 'spell_VICIOUSGLAD');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84057, 'spell_RUTHLESSGLAD');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84060, 'spell_CATAGLAD');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84063, 'spell_VICIOUSGLADBRONZE');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84066, 'spell_VICIOUSGLADBLUE');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84069, 'spell_VICIOUSGLADAZURE');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84072, 'spell_VICIOUSGLADAQUA');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84075, 'spell_VICIOUSGLADEMERALD');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84078, 'spell_VICIOUSGLADALBINO');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84081, 'spell_VICIOUSGLADBLACK');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84087, 'spell_VICIOUSGLADPINK');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84090, 'spell_VICIOUSGLADRED');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84093, 'spell_LEGIONDARKBLUEGLAD');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84096, 'spell_LEGIONBLUEGLAD');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84099, 'spell_LEGIONGLADLIGHT');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84102, 'spell_LEGIONGLADWHITE');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84105, 'spell_LEGIONGLADEMERALD');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84108, 'spell_LEGIONGLADGREEN');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84111, 'spell_LEGIONGLADBLACK');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84114, 'spell_LEGIONGLADRED');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84117, 'spell_BLAZINGDRAKE');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84120, 'spell_LIFEBINDERHANDMAIDEN');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84123, 'spell_TWILIGHTHARBINGER');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84126, 'spell_INFINITETIMEREAVER');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84129, 'spell_OBSIDIANWORLDBREAKER');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84132, 'spell_FELDRAKE');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84135, 'spell_TAZAVESHGEARGLIDER');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84138, 'spell_PILFEREDGEARGLIDER');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84141, 'spell_CARTELMASTERGEARGLIDER');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84144, 'spell_CARTELMASTERGEARGLIDERSILVER');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84147, 'spell_HUNTMASTERLOYALWOLFHAWK1');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84151, 'spell_HUNTMASTERLOYALWOLFHAWK2');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84154, 'spell_HUNTMASTERLOYALWOLFHAWK3');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84157, 'spell_WINGEDGUARDIAN');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84160, 'spell_HEARTHSTEED');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84163, 'spell_CINDERMANECHARGER');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84166, 'spell_PUREBLOODFIREHAWK');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84169, 'spell_FELFIREHAWK');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84172, 'spell_CORRUPTEDFIREHAWK');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84175, 'spell_FELHOUNDMOUNTRED');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84178, 'spell_FELHOUNDMOUNTPURPLE');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84182, 'spell_JCPANTHERBLACK');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84185, 'spell_JCPANTHERRED');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84188, 'spell_JCPANTHERBLUE');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84191, 'spell_JCPANTHERGREEN');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84194, 'spell_JCPANTHERYELLOW');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84197, 'spell_DREADRAVEN');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84200, 'spell_KARAZHANDRAKE');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84203, 'spell_VENGEANCE');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84206, 'spell_GLACIALTIDESTORM');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84209, 'spell_TIDESTORMGREEN');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84212, 'spell_TIDESTORMPURPLE');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84215, 'spell_TIDESTORMRED');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84218, 'spell_WARFORGEDNIGHTMARE');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84221, 'spell_HEAVENLYONYX');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84224, 'spell_HEAVENLYGOLDEN');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84227, 'spell_HEAVENLYBLUE');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84230, 'spell_HEAVENLYGREEN');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84233, 'spell_HEAVENLYRED');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84236, 'spell_THUNDERINGCOBALT');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84239, 'spell_RAJANIWARSERPENT');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84242, 'spell_THUNDERINGAUGUST');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84245, 'spell_THUNDERINGJADE');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84248, 'spell_THUNDERINGONYX');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84251, 'spell_THUNDERINGRUBY');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84254, 'spell_S12GLAD');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84257, 'spell_S13GLAD');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84260, 'spell_S14GLAD');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84263, 'spell_S15GLAD');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84266, 'spell_DREADGLAD');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84269, 'spell_SINISTERGLADIATOR');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84272, 'spell_NOTORIOUSGLADIATOR');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84275, 'spell_CORRUPTEDGLADIATOR');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84278, 'spell_SOULTWISTEDDEATHWALKER');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84281, 'spell_SINTOUCHEDDEATHWALKER');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84284, 'spell_SOULTWISTEDDEATHWALKERRECOLOR');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84287, 'spell_WASTEWARPEDDEATHWALKER');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84290, 'spell_RESTORATIONDEATHWALKER');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84293, 'spell_RAGINGTEMPESTFIRE');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84296, 'spell_RAGINGTEMPESTRESTO');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84299, 'spell_CATAFLYINGPANTHER');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84302, 'spell_RAVAGERMOUNT');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84305, 'spell_DREADSTEEDGREEN');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84308, 'spell_DREADSTEEDRED');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84311, 'spell_DREADSTEEDPURPLE');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84373, 'spell_SQUEAKERS');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84402, 'spell_ASTRALCLOUD');
+*/

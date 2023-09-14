@@ -1,3 +1,5 @@
+
+--[[
 local function RemoveEquippedItems(event, player)
     if event == 30 then
         -- Delete all equiped items from new character
@@ -11,3 +13,4 @@ local function RemoveEquippedItems(event, player)
 end
 
 RegisterPlayerEvent(30, RemoveEquippedItems)
+--]]

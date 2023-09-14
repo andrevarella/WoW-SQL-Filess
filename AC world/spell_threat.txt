@@ -1,0 +1,1 @@
+UPDATE `spell_threat` SET `flatMod` = 0, `pctMod` = 1, `apPctMod` = 0 WHERE `entry` = 29166;

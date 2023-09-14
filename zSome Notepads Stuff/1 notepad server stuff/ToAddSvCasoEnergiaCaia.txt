@@ -1,5 +1,4 @@
 testados e aprovados
-Xtest damage snake traps - n consegui nerfar
 PWS de holy remove slow - copiar racial gnome
 Xdodge chance classes + nerf talent dodge feral + mudar talent enhance do parry, colocar dodge no dual wield
 Xmaelstrom weapon (stealth buff) - agora tem chance de procar mesmo se o hit for absorvido
@@ -54,27 +53,11 @@ Xwicked spirits (frostmourne dentro)
 Xvile spirit (fora)
 XDiminuir move speed catchup pet (ta indo mt rapido dispelar)
 XTrinket Greatness ta procando com dmg taken(periodic)
-XDisplay robos robo roxo 19301 verde 23240 laranja 17972 (displayid acho)
-Xicon smourne e frostmourne (ja tem no client)
-XArrumar multivendor LUA
-XNPC Ranking melhorado
-XNpc morph
-XNPC Beastmaster (pet hunter)
-XNPC Mall
 
-
-
-
-NPC Talent Template falta:
-Glyphs
-Add zonas p duel resetar nas pvpzone tbm mod duel
-testar se insta 70 spells estao certos (parece q ganha trap lvl 78 no lvl 70) - .list aura ao criar
-rogue sub ta ganhando blade twisting (combat) - npc template
 
 
 Creatures:
 trinket trovao proibir  em arena
-https://github.com/azerothcore/azerothcore-wotlk/issues/8126 - taLvez eh a outra pot q dura 5s ? (dispelavel)
 
 
 faltando opcao de fechar bg sozinho qnd ta sem player (talvez eh por causa do debug)
@@ -89,17 +72,6 @@ haste affli ?
 
 ==============
 ---------------------
-
----------------------------------------
-damage_doesnt_break_auras ou (ex)
-cant_target_crowd_controlled (ex6)
---------------------
-attributes3
-SPELL_ATTR3_TREAT_AS_PERIODIC = n da pushback - procurar isso por c++ e add nas spell do PP?
-
-
-(Algumas mudanças n falar pros players, q tem tooltip de damage, tipo do enhance stacks - proca vs absorb)
-
 
 =================================================================
 Testar mais coisas de proc vs absorb:  
@@ -241,51 +213,7 @@ deep wounds/ignite etc as vezes ignoram reducao de dano (dispersion, shield wall
 https://www.youtube.com/watch?v=TPfWkBxPNMo 30 36 flamestrike no stealth de shield
 
 
-(64695, Earthgrab Totem) - agr ta ignorando cos no root e no pulse
-
 
 
 58857 enhance pet growl n remove stealth
 
-
-
-
-UPDATE `spell_proc_event` SET `procPhase`=1 WHERE `entry` IN (-16880 natures grace
-32748deadly throw interru,
-59887,-51521borrowed time(n adicionei)
-36032arcaneblast,
-59630 black magic,65005ElementalFocusStone
-,673862T9 Ele Shaman,673892T10 Resto Shaman
-,67667Tears of the Vanquished,67670Abyssal Rune
-,67698Solace 25n,67752Solace 25H,69762Unchained Magic
-,70811 2T10 Ele,71585 Purified Lunar Dust,
-71602 Dislodged Foreign Object, 71645 DFO Hc,
-75465 Charred 25n, 75474Charred 25H);
-72419 Ring Heal,74396Fingers of Frost procChance,
-
-
-UPDATE `spell_proc_event` SET `procPhase`=3 WHERE `entry` IN (44543,44545); fingers of frost buff
-UPDATE `spell_proc_event` SET `procPhase`=4 WHERE `entry` IN 
-(-59088, imp spell reflec (n adicionei esse e os debaixo)
--56342,  lock and load
--31571,  arcane potency
--19184,  entrapment
--14156,  ruthlessness (add CP % finisher rogue)
-32216,   victorious
-37168,   finisher combo t4 ou t5 rogue
-46916,   slam! fury
-51698,   honor among thieves
-51700,   honor among
-51701,   honor among
-52437);  sudden death
-
-DELETE FROM `spell_proc_event` WHERE `entry` IN (16166,16188,16246,16886,17116,4341,28200,63280,65007);
-INSERT INTO `spell_proc_event` (`entry`,`SchoolMask`,`SpellFamilyName`,`procPhase`) VALUES
-(16166,0,0,1),  elemental mastery
-(16188,8,11,1), nature's grace
-(16246,0,0,1), clearcasting shaman (buff consumir, e nao proc crit)
-(16886,0,0,1), nature's grace
-(17116,8,7,1), NS druid
-(4341,0,0,1), explodo-rockets left
-(63280,0,11,1), glyph of totem of wrath
-(65007,0,0,1); eye of the broodmother, 25 trinket

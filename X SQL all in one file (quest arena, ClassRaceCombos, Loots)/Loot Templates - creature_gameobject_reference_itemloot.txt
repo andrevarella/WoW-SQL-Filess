@@ -180,7 +180,7 @@ UPDATE `acore_world`.`gameobject_loot_template` SET `Reference` = 12036, `Chance
 -- Gunship 10h
 UPDATE `acore_world`.`gameobject_loot_template` SET `Reference` = 34263, `Chance` = 100, `QuestRequired` = 0, `LootMode` = 1, `GroupId` = 0, `MinCount` = 6, `MaxCount` = 6, `Comment` = 'Gunship Armory - (ReferenceTable) 10H barco' WHERE `Entry` = 28057 AND `Item` = 1;
 -- Gunship 25n
-UPDATE `acore_world`.`gameobject_loot_template` SET `Reference` = 34251, `Chance` = 100, `QuestRequired` = 0, `LootMode` = 1, `GroupId` = 0, `MinCount` = 6, `MaxCount` = 6, `Comment` = 'Gunship Armory - (ReferenceTable) 25N barco' WHERE `Entry` = 28072 AND `Item` = 1;
+UPDATE `acore_world`.`gameobject_loot_template` SET `Reference` = 34251, `Chance` = 100, `QuestRequired` = 0, `LootMode` = 1, `GroupId` = 0, `MinCount` = 5, `MaxCount` = 5, `Comment` = 'Gunship Armory - (ReferenceTable) 25N barco' WHERE `Entry` = 28072 AND `Item` = 1;
 -- Gunship 25h
 UPDATE `acore_world`.`gameobject_loot_template` SET `Reference` = 34275, `Chance` = 100, `QuestRequired` = 0, `LootMode` = 1, `GroupId` = 0, `MinCount` = 4, `MaxCount` = 5, `Comment` = 'Gunship Armory - (ReferenceTable) 25H barco' WHERE `Entry` = 28090 AND `Item` = 1;
 

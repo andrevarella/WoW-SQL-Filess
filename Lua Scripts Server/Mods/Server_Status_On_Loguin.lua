@@ -1,3 +1,5 @@
+
+--[[
 SystemTos = {}
  
 local MenuId = 999
@@ -54,3 +56,4 @@ end
 RegisterPlayerEvent(30, OnFirstLogin)
  --RegisterPlayerEvent(3, OnLogin)
 RegisterPlayerGossipEvent(MenuId, 2, SystemTos.OnGossipSelect)
+--]]
