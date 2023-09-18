@@ -1,0 +1,415 @@
+﻿<Ui xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.blizzard.com/wow/ui/">
+	<Script file="baroptions.lua" />
+	<Frame name="BarSettingsFrame" hidden="true" parent="UIParent" toplevel="true" movable="true">
+		<Size>
+			<AbsDimension x="513" y="327" />
+		</Size>
+		<Anchors>
+			<Anchor point="CENTER" />
+		</Anchors>
+		<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" edgeFile="Interface\DialogFrame\UI-DialogBox-Border" tile="true">
+			<BackgroundInsets>
+				<AbsInset left="11" right="12" top="12" bottom="11" />
+			</BackgroundInsets>
+			<TileSize>
+				<AbsValue val="32" />
+			</TileSize>
+			<EdgeSize>
+				<AbsValue val="32" />
+			</EdgeSize>
+		</Backdrop>
+		<Frames>
+			<Button name="BarSettingsFinishedButton" inherits="UIPanelButtonTemplate" text="Finished">
+				<Size>
+					<AbsDimension x="75" y="23" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="357" y="-271" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>BarSettingsFinishedButton_OnClick();</OnClick>
+				</Scripts>
+			</Button>
+			<Slider name="FontSizeSlider" minValue="8" maxValue="15" defaultValue="10" valueStep="1" orientation="HORIZONTAL">
+				<Size>
+					<AbsDimension x="324" y="15" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="114" y="-180" />
+					</Anchor>
+				</Anchors>
+				<Backdrop bgFile="Interface\Buttons\UI-SliderBar-Background" edgeFile="Interface\Buttons\UI-SliderBar-Border" tile="true">
+					<BackgroundInsets>
+						<AbsInset left="3" right="3" top="6" bottom="6" />
+					</BackgroundInsets>
+					<TileSize>
+						<AbsValue val="8" />
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="8" />
+					</EdgeSize>
+				</Backdrop>
+				<HitRectInsets>
+					<AbsInset left="0" right="0" top="-10" bottom="-10" />
+				</HitRectInsets>
+				<Scripts>
+					<OnValueChanged>FontSizeSlider_OnValueChanged();</OnValueChanged>
+				</Scripts>
+				<ThumbTexture name="$parentThumb" file="Interface\Buttons\UI-SliderBar-Button-Horizontal">
+					<Size>
+						<AbsDimension x="32" y="32" />
+					</Size>
+				</ThumbTexture>
+			</Slider>
+			<Slider name="TextureSlider" minValue="1" maxValue="7" defaultValue="4" valueStep="1" orientation="HORIZONTAL">
+				<Size>
+					<AbsDimension x="324" y="15" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="114" y="-201" />
+					</Anchor>
+				</Anchors>
+				<Backdrop bgFile="Interface\Buttons\UI-SliderBar-Background" edgeFile="Interface\Buttons\UI-SliderBar-Border" tile="true">
+					<BackgroundInsets>
+						<AbsInset left="3" right="3" top="6" bottom="6" />
+					</BackgroundInsets>
+					<TileSize>
+						<AbsValue val="8" />
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="8" />
+					</EdgeSize>
+				</Backdrop>
+				<HitRectInsets>
+					<AbsInset left="0" right="0" top="-10" bottom="-10" />
+				</HitRectInsets>
+				<Scripts>
+					<OnValueChanged>TextureSlider_OnValueChanged();</OnValueChanged>
+				</Scripts>
+				<ThumbTexture name="$parentThumb" file="Interface\Buttons\UI-SliderBar-Button-Horizontal">
+					<Size>
+						<AbsDimension x="32" y="32" />
+					</Size>
+				</ThumbTexture>
+			</Slider>
+			<Slider name="WidthSlider" minValue="100" maxValue="400" defaultValue="300" valueStep="1" orientation="HORIZONTAL">
+				<Size>
+					<AbsDimension x="324" y="15" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="114" y="-138" />
+					</Anchor>
+				</Anchors>
+				<Backdrop bgFile="Interface\Buttons\UI-SliderBar-Background" edgeFile="Interface\Buttons\UI-SliderBar-Border" tile="true">
+					<BackgroundInsets>
+						<AbsInset left="3" right="3" top="6" bottom="6" />
+					</BackgroundInsets>
+					<TileSize>
+						<AbsValue val="8" />
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="8" />
+					</EdgeSize>
+				</Backdrop>
+				<HitRectInsets>
+					<AbsInset left="0" right="0" top="-10" bottom="-10" />
+				</HitRectInsets>
+				<Scripts>
+					<OnValueChanged>WidthSlider_OnValueChanged();</OnValueChanged>
+				</Scripts>
+				<ThumbTexture name="$parentThumb" file="Interface\Buttons\UI-SliderBar-Button-Horizontal">
+					<Size>
+						<AbsDimension x="32" y="32" />
+					</Size>
+				</ThumbTexture>
+			</Slider>
+			<Slider name="HeightSlider" minValue="10" maxValue="30" defaultValue="15" valueStep="1" orientation="HORIZONTAL">
+				<Size>
+					<AbsDimension x="324" y="15" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="114" y="-117" />
+					</Anchor>
+				</Anchors>
+				<Backdrop bgFile="Interface\Buttons\UI-SliderBar-Background" edgeFile="Interface\Buttons\UI-SliderBar-Border" tile="true">
+					<BackgroundInsets>
+						<AbsInset left="3" right="3" top="6" bottom="6" />
+					</BackgroundInsets>
+					<TileSize>
+						<AbsValue val="8" />
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="8" />
+					</EdgeSize>
+				</Backdrop>
+				<HitRectInsets>
+					<AbsInset left="0" right="0" top="-10" bottom="-10" />
+				</HitRectInsets>
+				<Scripts>
+					<OnValueChanged>HeightSlider_OnValueChanged();</OnValueChanged>
+				</Scripts>
+				<ThumbTexture name="$parentThumb" file="Interface\Buttons\UI-SliderBar-Button-Horizontal">
+					<Size>
+						<AbsDimension x="32" y="32" />
+					</Size>
+				</ThumbTexture>
+			</Slider>
+			<Slider name="MaxBarsSlider" minValue="5" maxValue="20" defaultValue="20" valueStep="1" orientation="HORIZONTAL">
+				<Size>
+					<AbsDimension x="324" y="15" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="114" y="-159" />
+					</Anchor>
+				</Anchors>
+				<Backdrop bgFile="Interface\Buttons\UI-SliderBar-Background" edgeFile="Interface\Buttons\UI-SliderBar-Border" tile="true">
+					<BackgroundInsets>
+						<AbsInset left="3" right="3" top="6" bottom="6" />
+					</BackgroundInsets>
+					<TileSize>
+						<AbsValue val="8" />
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="8" />
+					</EdgeSize>
+				</Backdrop>
+				<HitRectInsets>
+					<AbsInset left="0" right="0" top="-10" bottom="-10" />
+				</HitRectInsets>
+				<Scripts>
+					<OnValueChanged>MaxBarsSlider_OnValueChanged();</OnValueChanged>
+				</Scripts>
+				<ThumbTexture name="$parentThumb" file="Interface\Buttons\UI-SliderBar-Button-Horizontal">
+					<Size>
+						<AbsDimension x="32" y="32" />
+					</Size>
+				</ThumbTexture>
+			</Slider>
+			<Button name="SettingsBackButton" inherits="UIPanelButtonTemplate" text="&lt;&lt;">
+				<Size>
+					<AbsDimension x="40" y="14" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="209" y="-41" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>SettingsBackButton_OnClick();</OnClick>
+				</Scripts>
+			</Button>
+			<Button name="SettingsForwardButton" inherits="UIPanelButtonTemplate" text="&gt;&gt;">
+				<Size>
+					<AbsDimension x="40" y="14" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="255" y="-41" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>SettingsForwardButton_OnClick();</OnClick>
+				</Scripts>
+			</Button>
+			<CheckButton name="BarDirectionCheckbox" inherits="UICheckButtonTemplate" text="">
+				<Size>
+					<AbsDimension x="20" y="20" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="114" y="-227" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>BarDirectionCheckbox_OnClick();</OnClick>
+				</Scripts>
+			</CheckButton>
+			<Button name="ToggleAnchorsButton" inherits="UIPanelButtonTemplate" text="Toggle Anchors">
+				<Size>
+					<AbsDimension x="113" y="23" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="86" y="-271" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>ToggleAnchorsButton_OnClick();</OnClick>
+				</Scripts>
+			</Button>
+			<Button name="ToggleTestBars" inherits="UIPanelButtonTemplate" text="Toggle Test Timers">
+				<Size>
+					<AbsDimension x="142" y="23" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="209" y="-271" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>ToggleTestBars_OnClick();</OnClick>
+				</Scripts>
+			</Button>
+		</Frames>
+		<Layers>
+			<Layer level="OVERLAY">
+				<FontString name="FontString8" inherits="GameFontNormalSmall" text="Font Size:" justifyH="LEFT">
+					<Size x="72" y="15" />
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="36" y="-180" />
+						</Anchor>
+					</Anchors>
+					<FontHeight>
+						<AbsValue val="11" />
+					</FontHeight>
+					<Color r="1" g="1" b="0.5" />
+				</FontString>
+				<FontString name="FontString6" inherits="GameFontNormalSmall" text="Texture:" justifyH="LEFT">
+					<Size x="72" y="15" />
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="36" y="-201" />
+						</Anchor>
+					</Anchors>
+					<FontHeight>
+						<AbsValue val="11" />
+					</FontHeight>
+					<Color r="1" g="1" b="0.5" />
+				</FontString>
+				<FontString name="MaxBarText" inherits="GameFontHighlightSmall" text="100">
+					<Size x="28" y="15" />
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="444" y="-159" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="HeightText" inherits="GameFontHighlightSmall" text="100">
+					<Size x="28" y="15" />
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="444" y="-117" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="FontString1" inherits="GameFontNormalSmall" text="Height:" justifyH="LEFT">
+					<Size x="72" y="15" />
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="36" y="-117" />
+						</Anchor>
+					</Anchors>
+					<FontHeight>
+						<AbsValue val="11" />
+					</FontHeight>
+					<Color r="1" g="1" b="0.5" />
+				</FontString>
+				<FontString name="FontString2" inherits="GameFontNormalSmall" text="Width:" justifyH="LEFT">
+					<Size x="72" y="15" />
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="36" y="-138" />
+						</Anchor>
+					</Anchors>
+					<FontHeight>
+						<AbsValue val="11" />
+					</FontHeight>
+					<Color r="1" g="1" b="0.5" />
+				</FontString>
+				<FontString name="WidthText" inherits="GameFontHighlightSmall" text="100">
+					<Size x="28" y="15" />
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="444" y="-138" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="FontString4" inherits="GameFontNormalSmall" text="Max Bars:" justifyH="LEFT">
+					<Size x="72" y="15" />
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="36" y="-159" />
+						</Anchor>
+					</Anchors>
+					<FontHeight>
+						<AbsValue val="11" />
+					</FontHeight>
+					<Color r="1" g="1" b="0.5" />
+				</FontString>
+				<FontString name="FontSizeText" inherits="GameFontHighlightSmall" text="100">
+					<Size x="28" y="15" />
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="444" y="-180" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="$parentText" inherits="GameFontNormalSmall">
+					<Anchors>
+						<Anchor point="LEFT" relativePoint="RIGHT">
+							<Offset x="5" y="4" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="FontString9" inherits="GameFontNormal" text="Choose group to adjust:  " justifyH="LEFT">
+					<Size>
+						<AbsDimension x="153" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="36" y="-38" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="BarGroupsTitle" inherits="GameFontNormal" text="" justifyH="LEFT">
+					<Size>
+						<AbsDimension x="263" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="36" y="-87" />
+						</Anchor>
+					</Anchors>
+					<Color r="1" g="1" b="1" />
+				</FontString>
+				<FontString name="FontString10" inherits="GameFontNormal" text="Timers Stack Upwards" justifyH="LEFT">
+					<Size>
+						<AbsDimension x="155" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="140" y="-227" />
+						</Anchor>
+					</Anchors>
+					<FontHeight>
+						<AbsValue val="11" />
+					</FontHeight>
+					<Color r="1" g="1" b="0.5" />
+				</FontString>
+			</Layer>
+			<Layer>
+				<Texture name="GroupTexture">
+					<Size x="18" y="16" />
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="450" y="-201" />
+						</Anchor>
+					</Anchors>
+				</Texture>
+			</Layer>
+		</Layers>
+		<Scripts>
+			<OnLoad>self:RegisterForDrag("LeftButton");</OnLoad>
+			<OnDragStart>self:StartMoving();</OnDragStart>
+			<OnDragStop>self:StopMovingOrSizing();</OnDragStop>
+		</Scripts>
+	</Frame>
+</Ui>

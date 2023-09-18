@@ -1,0 +1,9 @@
+## Interface: 30300
+## Title: ErrorFilter
+## Notes: Filters the errors dislayed in the UIErrorsFrame.
+## Version: 1.6
+## Author: General
+## SavedVariables: DB_Options, DB_Filters
+## DefaultState: enabled
+
+ErrorFilter.lua

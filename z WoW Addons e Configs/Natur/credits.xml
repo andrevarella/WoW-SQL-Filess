@@ -1,0 +1,71 @@
+﻿<Ui xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.blizzard.com/wow/ui/">
+	<Script file="credits.lua" />
+	<Frame name="NaturCreditsFrame" hidden="true" parent="UIParent" toplevel="true">
+		<Size>
+			<AbsDimension x="497" y="315" />
+		</Size>
+		<Anchors>
+			<Anchor point="CENTER" />
+		</Anchors>
+		<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" edgeFile="Interface\DialogFrame\UI-DialogBox-Border" tile="true">
+			<BackgroundInsets>
+				<AbsInset left="11" right="12" top="12" bottom="11" />
+			</BackgroundInsets>
+			<TileSize>
+				<AbsValue val="32" />
+			</TileSize>
+			<EdgeSize>
+				<AbsValue val="32" />
+			</EdgeSize>
+		</Backdrop>
+		<Frames>
+			<Button name="CloseCreditsFrame" inherits="UIPanelButtonTemplate" text="&lt;&lt; Back">
+				<Size x="72" y="22" />
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="209" y="-256" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<PostClick>CloseCreditsFrame_PostClick();</PostClick>
+				</Scripts>
+			</Button>
+		</Frames>
+		<Layers>
+			<Layer>
+				<FontString name="FontString2" inherits="GameFontHighlight" text="This version of Natur Enemy Castbar is developed by one of the developers at Softrix Studios in his spare time, and is a complete rewrite based on the original addon by Naturfreund.  Id like to also credit Krycek for the additional work on the spells.">
+					<Size x="443" y="70" />
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="26" y="-67" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="FontString1" inherits="NumberFontNormalHuge" text="Natur Enemy Castbar">
+					<Size x="443" y="21" />
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="26" y="-28" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="FontString4" inherits="GameFontHighlight" text="You can also find me in game on alliance called Afterlife and Amarantine on the Aszune (EU) Realm.">
+					<Size x="441" y="35" />
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="28" y="-143" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="FontString5" inherits="GameFontHighlight" text="Please use the Wowinterface pages for support.">
+					<Size x="443" y="20" />
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="26" y="-199" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+			</Layer>
+		</Layers>
+	</Frame>
+</Ui>

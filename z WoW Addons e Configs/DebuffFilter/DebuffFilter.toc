@@ -1,0 +1,10 @@
+## Interface: 40000
+## Version: 2.00
+## Title: Debuff Filter
+## Notes: Filter out specific debuffs and buffs into separate frames.
+## Author: Action Bars
+## SavedVariables: DebuffFilterDB, DebuffFilter_Config
+## OptionalDeps: ButtonFacade
+localization.lua
+embeds.xml
+DebuffFilter.xml

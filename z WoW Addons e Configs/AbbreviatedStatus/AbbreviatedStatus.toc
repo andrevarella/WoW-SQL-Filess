@@ -1,0 +1,12 @@
+## Interface: 30300
+## Title: Abbreviated Status Text
+## Author: 2. Backported Frames
+## Version: 1.2.1
+## Notes: Shortens the text on Health and Mana bars.
+## Notes-enEU: Shortens the text on Health and Mana bars.
+## Notes-ruRU: Замена стандартного отображения текста здоровья и маны.
+## SavedVariables: AbbreviatedStatusDB
+
+locale\load.xml
+embeds.xml
+AbbreviatedStatus.xml

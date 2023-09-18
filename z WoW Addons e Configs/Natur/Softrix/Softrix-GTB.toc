@@ -1,0 +1,8 @@
+## Interface: 30000
+## Title: Graphical Timer Bars
+## Notes: Graphical timer bars library
+## Author: Softrix, Mayen
+## OptionalDeps: LibStub
+
+LibStub.lua
+Softrix-GTB.xml

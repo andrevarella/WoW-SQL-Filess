@@ -1,0 +1,141 @@
+tag v2.0.16-beta
+1418259313ea3150ddc6b917e104b293d9757281
+root <root@db06.curselive.local>
+2011-05-07 00:54:37 +0000
+
+Tagging as v2.0.16-beta
+
+
+--------------------
+
+Proditor:
+	- - Added hideCaster to COMBAT_LOG_EVENT_UNFILTERED parameters.
+Rinu:
+	- fixed class icon aura list, when aura module is not enabled
+	- added target bar target change event
+	- fixed dr tracker icons not hidden fixed random aura bug fixed random health bar bug
+	- fixed some more aura stuff fixed announcement typo
+	- fixed class icon and target icon
+	- fixed aura update frame
+	- fixed aura bug again
+	- fixed aura reset nil bug
+	- fixed tags upvalues
+	- added upvalues added aura module once again (disabled by default) added some new spells to the aura list fixed timer display bug
+	- fixed class nil bug
+	- class icon aura blah
+	- fixed Gladius modules typo
+	- fixed target bar typo
+	- fixed class icon aura (again) fixed dr tracker fixed class icon and target bar icon
+	- fixed auras which don't expire
+Proditor:
+	- Fixed typo that killed class icon module.
+	- Added Combat Readiness to aura list.
+	- - Added Freezing Trap (trap launcher version) to aura list.
+Rinu:
+	- fixed gladius background visibility
+	- added Psychic Horror to the auralist
+	- updated background visibility on arena start updated gladius frame strata updated class icon important aura display updated SetTimer function to support a start value fixed HideTimer frame not found bug
+	- fixed module name
+	- fixed frame background and anchor not being displayed in arena fixed announcement throttle fixed some DRTracker issues fixed tag update on disabled modules fixed trinket reset timer updated health announcement throttle to 10 seconds updated timer module (omnicc and spiral display support) updated trinket test added localization removed cat form from spec list
+	- fixed clique frame register
+	- updated the module and event system
+	- fixing gladius event bug
+	- fixed event bug
+	- removed AceAddon and AceEvent
+	- added old test commands fixed frame nil bugs (hopefully)
+	- added omnicc timer option
+	- fixed debug print
+	- fixed frame nil bug for now fixed target bar typo added layout text nil check
+	- fixed leaked globals!
+	- fixed layout import
+	- fixed buff spec detection, when unitcaster is not a valid arena unit fixed showunit update on stealth class alpha changes fixed gladius call on disabled modules fixed target bar class icon for pets and other non player classes updated target bar background color default added target bar icon crop option
+	- added layout module added clique support fixed timer format and text overlay updated dr tracker and tirnket module to support timer module updated dr tracker text position removed unit died event crap
+	- fixed spec detection fixed showunit spam fixed class icon auras updated spec detection spell list
+	- updated enemy announcement updated trinket announcement added infinity symbol to timer module if duration is 0
+	- fixed enemy announcement spam fixed spec announcement spam updated aura list
+	- fixed anchor hide
+	- added timer module added frame anchor (movable in combat) added gladius print function and a cute welcome message! added gladius test frame on first start fixed buttons not found bug fixed highlight frame not found bug fixed class icon frame not found bug fixed dr tracker frame hide on disable updated class icon to support timer module updated trinket and class icon hitrect, so they don't affect top and bottom
+Proditor:
+	- Fixed Low Health announcement (which in turn stops the resurrection announcement spam).
+Rinu:
+	- added position option for class icon, trinket and dr tracker
+Proditor:
+	- Trinket announcement fix again.
+	- Fixed trinket announcement displaying "test (test)". Used quotes on a variable, clever.
+Rinu:
+	- fixed trinket grid style icon added Gladius test toggle
+Proditor:
+	- Fixed CastBar Test().
+	- Shortened the default bar width.
+Rinu:
+	- fixed target bar color, when someone targets a pet or totem
+Proditor:
+	- Changed defaults slightly.
+Rinu:
+	- added arena team size added db reset based on version added tag default reset based on module version added option to disable cooldown spiral for trinket, dr tracker and class icon modules fixed spec:short tag, when spec is empty fixed clicks typo, which screw up the whole module fixed highlight border size updated defaults
+Proditor:
+	- Changed the look of the DR text and added coloring.
+	- Added options for Class Icon and Trinket Icon border cropping.
+	- Added "Grid style power bar" template to Trinket.
+	- Changed default bar background color to something visible to imitate the look that people are used to from 1.0. - Fixed background frame not scaling. - Added a background to the Cast Bar Icon as it was looking funky otherwise. Now looks like a single entity. - Removed button background as it was messing with the bar backgrounds coloring.
+Rinu:
+	- disabled auras module
+	- fixed class icon, not showing important auras, when the auras module is disabled added hit rectangle reset on update frame added trinket grid style template
+	- fixed tags setalpha bug fixed castbar frame not found bug
+	- fixed announcement typo fixed tags spec nil value fixed enemy player count constant, which destroyed the whole addon because blizz removed it!
+	- stupid infinite loop
+Proditor:
+	- Fixed DR tracker calculating DRs incorrectly. - Changed DR defaults slightly. - Fixed background not hiding.
+	- Fixed path to Minimalist.tga
+	- Fixing packager
+	- Fixing packager
+	- Fixing packager
+	- Fixing packager
+	- Fixing packager
+	- Fixing packager
+	- Fixing packager
+	- Fixing packager
+	- Fixing packager
+	- Renaming AGAIN because I'm dumb and the packager is smart.
+	- Renaming toc again because the packager is dumb.
+	- Renamed toc
+	- Added Aura template.
+	- Added class:short and spec:short tags. - Changed default tags.
+Rinu:
+	- added dr tracker module!
+	- added speclist!
+	- added background
+	- updated announcement to support spec detection updated tags to support spec detection updated tags to support custom events added spec detection
+	- target bar module is disabled by default fixed tags module frame not found bug fixed target bar visibility bug added DR Tracker module added reset db command (/gladius reset)
+	- fixed frame height bug updated adjust height stuff added sort function to the option module list added global templates added target bar module
+Proditor:
+	- Added global font support to Tags (Fixed #8) Fixed so that Tags colors the texts on Update Fixed setColorOption() in Tags.
+	- Added a new module event called "OptionsLoad" that gets called in between the options getting created and displayed. - Added Trinket announcement.
+	- Added Announcements module.
+Rinu:
+	- fixed aura buff frame position fixed module update bug, when parent module is disabled updated adjust height stuff updated db default values updated db options change only calls the update method of the specific module added module template system (+ target bar templates) added target bar
+Proditor:
+	- Added name:status to localization.
+	- Added "name:status" tag and made it default instead of "name".
+	- Now circumvents Blizzards fail on not returning bracket size. - Fixed anchoring/frame sizing errors in Auras module. - Fixed other small things.
+Rinu:
+	- highlight frame includes offset now fixed bracket size fixed unit died
+	- fixed frame hide fucking up the click actions
+Proditor:
+	- Cleaned up Clicks module.
+	- Changed GetSpellTexture arg to SpellID in Auras module.
+	- Added Clicks module.
+Rinu:
+	- updated aura list
+	- added aura module fixed bugs and changed things!
+	- added highlight options added tags options added separator to the options updating db local on update frame increased option frame width to fit tag options fixed cast bar background fixed highlight color
+	- fixed gloss typo
+	- added highlight module (highlight bars on hover, border on target/focus/assist/raid player target) added tags module added gloss on trinket and class icon added health bar class color options added advanced options option added global font/font size option added background color for frame, health bar, power bar and cast bar added module reset option added trinket and class icon affecting mouse interactable area height fixed the messed up option layout fixed trinket and class icon adjust width
+	- fixed gladius test showing the corrent number of frames fixed gladius hide fixed classicon and trinket mouse-interactable area for secure frame fixed secure frame highlight added health and power bar update on show
+	- fixed power bar colors fixed toc
+	- added cataclysm support added /gladius hide added image folder fixed class icon frame level fixed class icon set aura list on get options fixed cast bar disable text changed some default option values
+	- added power bar default colors tab added class icon aura list and new aura option updated options to open in new window updated language variables updated modules to not reset frame on disable updated health bar set point changed default values to better ones changed test mage to test warrior changed trinket reset function to reset the cooldown
+	- added test hp/power values added bar highlight added cast bar inverse function added cast bar anchor option added class icon and trinket setting frame mouse interactable area added health and powerbar offsetX/Y fixed aura using expiration time instead of duration fixed aura display fixed secure frame strata changed option color set/get to Gladius functions instead of local functions changed option subgroups to tab instead of inline
+	- fixed taint issues fixed class icon aura added trinket grid style icon added scale added minimalist bar texture
+	- disable test environment on opponent update when used in arena increased offset to -100/100 from -20/20 added frame level for indicators indicator adjusted height is now based on attached frame added trinket width option
+	- first alpha

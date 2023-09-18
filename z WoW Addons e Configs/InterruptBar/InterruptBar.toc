@@ -1,0 +1,9 @@
+## Interface: 40000
+## Title: Interrupt Bar
+## Notes: Tracks interrupts and important cooldowns
+## Version: 2.3
+## Author: .PvP
+## DefaultState: Enabled
+## SavedVariables: InterruptBarDB
+
+InterruptBar.lua

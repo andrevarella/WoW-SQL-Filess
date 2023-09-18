@@ -1,0 +1,940 @@
+﻿<Ui xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.blizzard.com/wow/ui/">
+	<Script file="options.lua" />
+	<Frame name="MainOptionsFrame" hidden="true" parent="UIParent" toplevel="true" movable="true">
+		<Size>
+			<AbsDimension x="760" y="470" />
+		</Size>
+		<Anchors>
+			<Anchor point="CENTER" />
+		</Anchors>
+		<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" edgeFile="Interface\DialogFrame\UI-DialogBox-Border" tile="true">
+			<BackgroundInsets>
+				<AbsInset left="11" right="12" top="12" bottom="11" />
+			</BackgroundInsets>
+			<TileSize>
+				<AbsValue val="32" />
+			</TileSize>
+			<EdgeSize>
+				<AbsValue val="32" />
+			</EdgeSize>
+		</Backdrop>
+		<Frames>
+			<CheckButton name="EnableAddonCheck" inherits="UICheckButtonTemplate" text="">
+				<Size>
+					<AbsDimension x="20" y="20" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="37" y="-77" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>Process_EnableAddon();</OnClick>
+				</Scripts>
+			</CheckButton>
+			<Button name="BarSettingsButton" inherits="UIPanelButtonTemplate" text="Bar Settings">
+				<Size>
+					<AbsDimension x="95" y="25" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="170" y="-404" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>BarSettingsButton_OnClick();</OnClick>
+				</Scripts>
+			</Button>
+			<Button name="OptionsCloseButton" inherits="UIPanelButtonTemplate" text="Close">
+				<Size>
+					<AbsDimension x="75" y="25" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="588" y="-404" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>OptionsCloseButton_OnClick();</OnClick>
+				</Scripts>
+			</Button>
+			<Button name="AboutAddonButton" inherits="UIPanelButtonTemplate" text="About">
+				<Size>
+					<AbsDimension x="75" y="25" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="89" y="-404" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>AboutAddonButton_OnClick();</OnClick>
+				</Scripts>
+			</Button>
+			<CheckButton name="GroupUpTimersCheck" inherits="UICheckButtonTemplate" text="">
+				<Size>
+					<AbsDimension x="20" y="20" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="37" y="-103" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>GroupUpTimersCheck_OnClick();</OnClick>
+				</Scripts>
+			</CheckButton>
+			<CheckButton name="ShowFriendlyCastsCheck" inherits="UICheckButtonTemplate" text="">
+				<Size>
+					<AbsDimension x="20" y="20" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="37" y="-129" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>ShowFriendlyCastsCheck_OnClick();</OnClick>
+				</Scripts>
+			</CheckButton>
+			<CheckButton name="ShowTargetGainsCheck" inherits="UICheckButtonTemplate" text="">
+				<Size>
+					<AbsDimension x="20" y="20" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="37" y="-191" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>ShowTargetGainsCheck_OnClick();</OnClick>
+				</Scripts>
+			</CheckButton>
+			<CheckButton name="ShowTargetDebuffsCheck" inherits="UICheckButtonTemplate" text="">
+				<Size>
+					<AbsDimension x="20" y="20" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="37" y="-170" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>ShowTargetDebuffsCheck_OnClick();</OnClick>
+				</Scripts>
+			</CheckButton>
+			<CheckButton name="ShowPlayerCooldowns" inherits="UICheckButtonTemplate" text="">
+				<Size>
+					<AbsDimension x="20" y="20" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="37" y="-233" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>ShowPlayerCooldowns_OnClick();</OnClick>
+				</Scripts>
+			</CheckButton>
+			<CheckButton name="ShowMyBuffsDebuffsCheck" inherits="UICheckButtonTemplate" text="">
+				<Size>
+					<AbsDimension x="20" y="20" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="37" y="-296" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>ShowMyBuffsDebuffsCheck_OnClick();</OnClick>
+				</Scripts>
+			</CheckButton>
+			<CheckButton name="ShowHostileCastsCheck" inherits="UICheckButtonTemplate" text="">
+				<Size>
+					<AbsDimension x="20" y="20" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="37" y="-149" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>ShowHostileCastsCheck_OnClick();</OnClick>
+				</Scripts>
+			</CheckButton>
+			<CheckButton name="ShowHostileCooldownsCheck" inherits="UICheckButtonTemplate" text="">
+				<Size>
+					<AbsDimension x="20" y="20" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="37" y="-212" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>ShowHostileCooldownsCheck_OnClick();</OnClick>
+				</Scripts>
+			</CheckButton>
+			<CheckButton name="ShowDiminishReturnsCheck" inherits="UICheckButtonTemplate" text="">
+				<Size>
+					<AbsDimension x="20" y="20" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="37" y="-253" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>ShowDiminishReturnsCheck_OnClick();</OnClick>
+				</Scripts>
+			</CheckButton>
+			<CheckButton name="AnnounceAppliedCC" inherits="UICheckButtonTemplate" text="">
+				<Size>
+					<AbsDimension x="20" y="20" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="253" y="-133" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>AnnounceAppliedCC_OnClick();</OnClick>
+				</Scripts>
+			</CheckButton>
+			<CheckButton name="AnnounceOnCCBreaks" inherits="UICheckButtonTemplate" text="CheckButton2">
+				<Size>
+					<AbsDimension x="20" y="20" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="279" y="-151" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>AnnounceOnCCBreaks_OnClick();</OnClick>
+				</Scripts>
+			</CheckButton>
+			<CheckButton name="PlaySoundOnCCBreak" inherits="UICheckButtonTemplate" text="CheckButton3">
+				<Size>
+					<AbsDimension x="20" y="20" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="305" y="-168" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>PlaySoundOnCCBreak_OnClick();</OnClick>
+				</Scripts>
+			</CheckButton>
+			<CheckButton name="FlashUIOnCCBreak" inherits="UICheckButtonTemplate" text="CheckButton4">
+				<Size>
+					<AbsDimension x="20" y="20" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="305" y="-186" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>FlashUIOnCCBreak_OnClick();</OnClick>
+				</Scripts>
+			</CheckButton>
+			<CheckButton name="ShowCastsWithoutTF" inherits="UICheckButtonTemplate" text="CheckButton6">
+				<Size>
+					<AbsDimension x="20" y="20" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="253" y="-101" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>ShowCastsWithoutTF_OnClick();</OnClick>
+				</Scripts>
+			</CheckButton>
+			<CheckButton name="ShowOnlyMyTargetsSpells" inherits="UICheckButtonTemplate" text="">
+				<Size>
+					<AbsDimension x="20" y="20" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="37" y="-317" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>ShowOnlyMyTargetsSpells_OnClick();</OnClick>
+				</Scripts>
+			</CheckButton>
+			<CheckButton name="AnnounceSpellMisses" inherits="UICheckButtonTemplate" text="CheckButton2">
+				<Size>
+					<AbsDimension x="20" y="20" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="253" y="-212" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>AnnounceSpellMisses_OnClick();</OnClick>
+				</Scripts>
+			</CheckButton>
+			<CheckButton name="SpellMissPlaySound" inherits="UICheckButtonTemplate" text="CheckButton3">
+				<Size>
+					<AbsDimension x="20" y="20" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="279" y="-232" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>SpellMissPlaySound_OnClick();</OnClick>
+				</Scripts>
+			</CheckButton>
+			<CheckButton name="SpellMissFlashGUI" inherits="UICheckButtonTemplate" text="CheckButton4">
+				<Size>
+					<AbsDimension x="20" y="20" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="279" y="-252" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>SpellMissFlashGUI_OnClick();</OnClick>
+				</Scripts>
+			</CheckButton>
+			<CheckButton name="ShowRogueWarning" inherits="UICheckButtonTemplate" text="CheckButton5">
+				<Size>
+					<AbsDimension x="20" y="20" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="253" y="-278" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>ShowRogueWarning_OnClick();</OnClick>
+				</Scripts>
+			</CheckButton>
+			<CheckButton name="PlayRogueSound" inherits="UICheckButtonTemplate" text="CheckButton6">
+				<Size>
+					<AbsDimension x="20" y="20" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="279" y="-297" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>PlayRogueSound_OnClick();</OnClick>
+				</Scripts>
+			</CheckButton>
+			<CheckButton name="RogueFlashGUI" inherits="UICheckButtonTemplate" text="CheckButton7">
+				<Size>
+					<AbsDimension x="20" y="20" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="279" y="-315" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>RogueFlashGUI_OnClick();</OnClick>
+				</Scripts>
+			</CheckButton>
+			<CheckButton name="DKDeathGripSound" inherits="UICheckButtonTemplate" text="CheckButton8">
+				<Size>
+					<AbsDimension x="20" y="20" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="513" y="-105" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>DKDeathGripSound_OnClick();</OnClick>
+				</Scripts>
+			</CheckButton>
+			<CheckButton name="PlayUnrealPvPSounds" inherits="UICheckButtonTemplate" text="CheckButton1">
+				<Size>
+					<AbsDimension x="20" y="20" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="513" y="-138" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>PlayUnrealPvPSounds_OnClick();</OnClick>
+				</Scripts>
+			</CheckButton>
+			<CheckButton name="UseMaleUnrealSounds" inherits="UICheckButtonTemplate" text="">
+				<Size>
+					<AbsDimension x="20" y="20" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="539" y="-156" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>UseMaleUnrealSounds_OnClick();</OnClick>
+				</Scripts>
+			</CheckButton>
+			<CheckButton name="PlayUnrealPvPOnNPC" inherits="UICheckButtonTemplate" text="">
+				<Size>
+					<AbsDimension x="20" y="20" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="539" y="-174" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>PlayUnrealPvPOnNPC_OnClick();</OnClick>
+				</Scripts>
+			</CheckButton>
+			<CheckButton name="MaxCombosFinishHimSound" inherits="UICheckButtonTemplate" text="CheckButton4">
+				<Size>
+					<AbsDimension x="20" y="20" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="513" y="-214" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>MaxCombosFinishHimSound_OnClick();</OnClick>
+				</Scripts>
+			</CheckButton>
+			<CheckButton name="PlayFinishHimOnNPC" inherits="UICheckButtonTemplate" text="CheckButton5">
+				<Size>
+					<AbsDimension x="20" y="20" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="539" y="-233" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>PlayFinishHimOnNPC_OnClick();</OnClick>
+				</Scripts>
+			</CheckButton>
+			<CheckButton name="AutoReputationBarChange" inherits="UICheckButtonTemplate" text="CheckButton6">
+				<Size>
+					<AbsDimension x="20" y="20" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="253" y="-347" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>AutoReputationBarChange_OnClick();</OnClick>
+				</Scripts>
+			</CheckButton>
+			<CheckButton name="ShowAllDRAroundMe" inherits="UICheckButtonTemplate" text="">
+				<Size>
+					<AbsDimension x="20" y="20" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="63" y="-272" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>ShowAllDRAroundMe_OnClick();</OnClick>
+				</Scripts>
+			</CheckButton>
+			<Button name="Button1" inherits="UIPanelButtonTemplate" text="Ignore Spell/Ability">
+				<Size>
+					<AbsDimension x="149" y="25" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="433" y="-404" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>Button1_OnClick();</OnClick>
+				</Scripts>
+			</Button>
+			<Button name="MonitorSpellSettingsButton" inherits="UIPanelButtonTemplate" text="Monitor Spell/Ability">
+				<Size>
+					<AbsDimension x="156" y="25" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="271" y="-404" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>MonitorSpellSettingsButton_OnClick();</OnClick>
+				</Scripts>
+			</Button>
+			<CheckButton name="SpellMonitoringCheck" inherits="UICheckButtonTemplate" text="CheckButton1">
+				<Size>
+					<AbsDimension x="20" y="20" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="513" y="-272" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>SpellMonitoringCheck_OnClick();</OnClick>
+				</Scripts>
+			</CheckButton>
+		</Frames>
+		<Layers>
+			<Layer level="OVERLAY">
+				<FontString name="OptionsTitle" inherits="NumberFontNormalHuge" text="Natur Enemy Castbar" justifyH="LEFT">
+					<Size x="341" y="41" />
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="37" y="-21" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="EnableAddonText" inherits="GameFontNormal" text="Enable Addon" justifyH="LEFT">
+					<Size>
+						<AbsDimension x="134" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="63" y="-77" />
+						</Anchor>
+					</Anchors>
+					<Color r="1" g="1" b="0" />
+				</FontString>
+				<FontString name="FontString1" inherits="GameFontNormal" text="Split Timer Groups" justifyH="LEFT">
+					<Size>
+						<AbsDimension x="173" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="63" y="-103" />
+						</Anchor>
+					</Anchors>
+					<FontHeight>
+						<AbsValue val="11" />
+					</FontHeight>
+					<Color r="1" g="1" b="1" />
+				</FontString>
+				<FontString name="FontString2" inherits="GameFontNormal" text="Show Friendly Casts" justifyH="LEFT">
+					<Size>
+						<AbsDimension x="173" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="63" y="-129" />
+						</Anchor>
+					</Anchors>
+					<FontHeight>
+						<AbsValue val="11" />
+					</FontHeight>
+					<Color r="1" g="1" b="0.5" />
+				</FontString>
+				<FontString name="FontString3" inherits="GameFontNormal" text="Show T/F Gains" justifyH="LEFT">
+					<Size>
+						<AbsDimension x="173" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="63" y="-191" />
+						</Anchor>
+					</Anchors>
+					<FontHeight>
+						<AbsValue val="11" />
+					</FontHeight>
+					<Color r="1" g="1" b="0.5" />
+				</FontString>
+				<FontString name="FontString4" inherits="GameFontNormal" text="Show T/F Debuffs" justifyH="LEFT">
+					<Size>
+						<AbsDimension x="173" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="63" y="-170" />
+						</Anchor>
+					</Anchors>
+					<FontHeight>
+						<AbsValue val="11" />
+					</FontHeight>
+					<Color r="1" g="1" b="0.5" />
+				</FontString>
+				<FontString name="FontString6" inherits="GameFontNormal" text="Show My Cooldowns" justifyH="LEFT">
+					<Size>
+						<AbsDimension x="173" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="63" y="-233" />
+						</Anchor>
+					</Anchors>
+					<FontHeight>
+						<AbsValue val="11" />
+					</FontHeight>
+					<Color r="1" g="1" b="0.5" />
+				</FontString>
+				<FontString name="FontString7" inherits="GameFontNormal" text="Show Buffs/Debuffs on me" justifyH="LEFT">
+					<Size>
+						<AbsDimension x="173" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="63" y="-297" />
+						</Anchor>
+					</Anchors>
+					<FontHeight>
+						<AbsValue val="11" />
+					</FontHeight>
+					<Color r="1" g="1" b="0.5" />
+				</FontString>
+				<FontString name="FontString8" inherits="GameFontNormal" text="Show Hostile Casts" justifyH="LEFT">
+					<Size>
+						<AbsDimension x="173" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="63" y="-149" />
+						</Anchor>
+					</Anchors>
+					<FontHeight>
+						<AbsValue val="11" />
+					</FontHeight>
+					<Color r="1" g="1" b="0.5" />
+				</FontString>
+				<FontString name="FontString11" inherits="GameFontNormal" text="Show Target Cooldowns" justifyH="LEFT">
+					<Size>
+						<AbsDimension x="173" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="63" y="-212" />
+						</Anchor>
+					</Anchors>
+					<FontHeight>
+						<AbsValue val="11" />
+					</FontHeight>
+					<Color r="1" g="1" b="0.5" />
+				</FontString>
+				<FontString name="FontString12" inherits="GameFontNormal" text="Show Diminish Returns" justifyH="LEFT">
+					<Size>
+						<AbsDimension x="173" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="63" y="-253" />
+						</Anchor>
+					</Anchors>
+					<FontHeight>
+						<AbsValue val="11" />
+					</FontHeight>
+					<Color r="1" g="1" b="0.5" />
+				</FontString>
+				<FontString name="FontString14" inherits="GameFontNormal" text="Announce applied crowd controls" justifyH="LEFT">
+					<Size>
+						<AbsDimension x="216" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="279" y="-133" />
+						</Anchor>
+					</Anchors>
+					<FontHeight>
+						<AbsValue val="11" />
+					</FontHeight>
+					<Color r="1" g="1" b="0.5" />
+				</FontString>
+				<FontString name="FontString15" inherits="GameFontNormal" text="Announce when it breaks" justifyH="LEFT">
+					<Size>
+						<AbsDimension x="190" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="305" y="-151" />
+						</Anchor>
+					</Anchors>
+					<FontHeight>
+						<AbsValue val="11" />
+					</FontHeight>
+					<Color r="1" g="1" b="0.5" />
+				</FontString>
+				<FontString name="FontString16" inherits="GameFontNormal" text="Play Sound" justifyH="LEFT">
+					<Size>
+						<AbsDimension x="164" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="331" y="-168" />
+						</Anchor>
+					</Anchors>
+					<FontHeight>
+						<AbsValue val="11" />
+					</FontHeight>
+					<Color r="1" g="1" b="0.5" />
+				</FontString>
+				<FontString name="FontString17" inherits="GameFontNormal" text="Flash GUI" justifyH="LEFT">
+					<Size>
+						<AbsDimension x="164" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="331" y="-186" />
+						</Anchor>
+					</Anchors>
+					<FontHeight>
+						<AbsValue val="11" />
+					</FontHeight>
+					<Color r="1" g="1" b="0.5" />
+				</FontString>
+				<FontString name="FontString19" inherits="GameFontNormal" text="Show casts without T/F" justifyH="LEFT">
+					<Size>
+						<AbsDimension x="173" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="279" y="-101" />
+						</Anchor>
+					</Anchors>
+					<FontHeight>
+						<AbsValue val="11" />
+					</FontHeight>
+					<Color r="1" g="1" b="0.5" />
+				</FontString>
+				<FontString name="FontString20" inherits="GameFontNormal" text="Show everyones buffs/debuffs on target/focus and not just mine" justifyH="LEFT">
+					<Size>
+						<AbsDimension x="173" y="47" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="63" y="-317" />
+						</Anchor>
+					</Anchors>
+					<FontHeight>
+						<AbsValue val="11" />
+					</FontHeight>
+					<Color r="1" g="1" b="0.5" />
+				</FontString>
+				<FontString name="FontString21" inherits="GameFontNormal" text="Announce Crowd Control Immune" justifyH="LEFT">
+					<Size>
+						<AbsDimension x="216" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="279" y="-212" />
+						</Anchor>
+					</Anchors>
+					<FontHeight>
+						<AbsValue val="11" />
+					</FontHeight>
+					<Color r="1" g="1" b="0.5" />
+				</FontString>
+				<FontString name="FontString22" inherits="GameFontNormal" text="Play Sound" justifyH="LEFT">
+					<Size>
+						<AbsDimension x="190" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="305" y="-232" />
+						</Anchor>
+					</Anchors>
+					<FontHeight>
+						<AbsValue val="11" />
+					</FontHeight>
+					<Color r="1" g="1" b="0.5" />
+				</FontString>
+				<FontString name="FontString23" inherits="GameFontNormal" text="Flash GUI" justifyH="LEFT">
+					<Size>
+						<AbsDimension x="190" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="305" y="-252" />
+						</Anchor>
+					</Anchors>
+					<FontHeight>
+						<AbsValue val="11" />
+					</FontHeight>
+					<Color r="1" g="1" b="0.5" />
+				</FontString>
+				<FontString name="FontString24" inherits="GameFontNormal" text="Display Rogue Warning" justifyH="LEFT">
+					<Size>
+						<AbsDimension x="216" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="279" y="-278" />
+						</Anchor>
+					</Anchors>
+					<FontHeight>
+						<AbsValue val="11" />
+					</FontHeight>
+					<Color r="1" g="1" b="0.5" />
+				</FontString>
+				<FontString name="FontString25" inherits="GameFontNormal" text="Play Sound" justifyH="LEFT">
+					<Size>
+						<AbsDimension x="190" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="305" y="-297" />
+						</Anchor>
+					</Anchors>
+					<FontHeight>
+						<AbsValue val="11" />
+					</FontHeight>
+					<Color r="1" g="1" b="0.5" />
+				</FontString>
+				<FontString name="FontString26" inherits="GameFontNormal" text="Flash GUI" justifyH="LEFT">
+					<Size>
+						<AbsDimension x="190" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="305" y="-315" />
+						</Anchor>
+					</Anchors>
+					<FontHeight>
+						<AbsValue val="11" />
+					</FontHeight>
+					<Color r="1" g="1" b="0.5" />
+				</FontString>
+				<FontString name="FontString27" inherits="GameFontNormal" text="Play a fun sound when using Deathknight Deathgrip" justifyH="LEFT">
+					<Size>
+						<AbsDimension x="180" y="37" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="539" y="-101" />
+						</Anchor>
+					</Anchors>
+					<FontHeight>
+						<AbsValue val="11" />
+					</FontHeight>
+					<Color r="1" g="1" b="0.5" />
+				</FontString>
+				<FontString name="FontString28" inherits="GameFontNormal" text="Play PvP Death Sounds" justifyH="LEFT">
+					<Size>
+						<AbsDimension x="180" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="539" y="-138" />
+						</Anchor>
+					</Anchors>
+					<FontHeight>
+						<AbsValue val="11" />
+					</FontHeight>
+					<Color r="1" g="1" b="0.5" />
+				</FontString>
+				<FontString name="FontString29" inherits="GameFontNormal" text="Use Male Sounds" justifyH="LEFT">
+					<Size>
+						<AbsDimension x="151" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="565" y="-156" />
+						</Anchor>
+					</Anchors>
+					<FontHeight>
+						<AbsValue val="11" />
+					</FontHeight>
+					<Color r="1" g="1" b="0.5" />
+				</FontString>
+				<FontString name="FontString30" inherits="GameFontNormal" text="Include NPC's" justifyH="LEFT">
+					<Size>
+						<AbsDimension x="154" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="565" y="-174" />
+						</Anchor>
+					</Anchors>
+					<FontHeight>
+						<AbsValue val="11" />
+					</FontHeight>
+					<Color r="1" g="1" b="0.5" />
+				</FontString>
+				<FontString name="FontString31" inherits="GameFontNormal" text="Combos &quot;Finish Him&quot; sound" justifyH="LEFT">
+					<Size>
+						<AbsDimension x="180" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="539" y="-214" />
+						</Anchor>
+					</Anchors>
+					<FontHeight>
+						<AbsValue val="11" />
+					</FontHeight>
+					<Color r="1" g="1" b="0.5" />
+				</FontString>
+				<FontString name="FontString32" inherits="GameFontNormal" text="Include NPC's" justifyH="LEFT">
+					<Size>
+						<AbsDimension x="154" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="565" y="-233" />
+						</Anchor>
+					</Anchors>
+					<FontHeight>
+						<AbsValue val="11" />
+					</FontHeight>
+					<Color r="1" g="1" b="0.5" />
+				</FontString>
+				<FontString name="FontString33" inherits="GameFontNormal" text="Auto Reputation Bar" justifyH="LEFT">
+					<Size>
+						<AbsDimension x="180" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="279" y="-347" />
+						</Anchor>
+					</Anchors>
+					<FontHeight>
+						<AbsValue val="11" />
+					</FontHeight>
+					<Color r="1" g="1" b="0.5" />
+				</FontString>
+				<FontString name="FontString34" inherits="GameFontNormal" text="Show Others DR's" justifyH="LEFT">
+					<Size>
+						<AbsDimension x="147" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="89" y="-272" />
+						</Anchor>
+					</Anchors>
+					<FontHeight>
+						<AbsValue val="11" />
+					</FontHeight>
+					<Color r="1" g="1" b="0.5" />
+				</FontString>
+				<FontString name="FontString35" inherits="GameFontNormal" text="Spell fade monitoring" justifyH="LEFT">
+					<Size>
+						<AbsDimension x="155" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="539" y="-272" />
+						</Anchor>
+					</Anchors>
+					<FontHeight>
+						<AbsValue val="11" />
+					</FontHeight>
+					<Color r="1" g="1" b="0.5" />
+				</FontString>
+			</Layer>
+		</Layers>
+		<Scripts>
+			<OnLoad>self:RegisterForDrag("LeftButton");</OnLoad>
+			<OnDragStart>self:StartMoving();</OnDragStart>
+			<OnDragStop>self:StopMovingOrSizing();</OnDragStop>
+		</Scripts>
+	</Frame>
+</Ui>

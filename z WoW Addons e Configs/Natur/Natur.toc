@@ -1,0 +1,44 @@
+## Author: Michael Boyle (Softrix)
+## Interface: 30300
+## Notes: Natur Enemy Castbar (081209-R1) - Released 9th December 2009.  For support issues please use the wowinterface.com or curse.com pages.  Thank you for using this addon.
+## SavedVariables: Natur_AccountOptions,Natur_IgnoredTimers,Natur_PerCharOptions,Natur_MonitoredSpells
+## Title: Natur Enemy Castbar
+## Author: General poucos utilizados
+## Version: 081209-R1
+Softrix\LibStub.lua
+Softrix\Softrix-GTB.xml
+Softrix\Softrix-GTB.lua
+Localisation\Natur-zhTW.lua
+Localisation\Natur-zhCN.lua
+Localisation\Natur-ruRU.lua
+Localisation\Natur-koKR.lua
+Localisation\Natur-frFR.lua
+Localisation\Natur-esMX.lua
+Localisation\Natur-esES.lua
+Localisation\Natur-enUS.lua
+Localisation\Natur-deDE.lua
+Groups\primary.lua
+Groups\diminish.lua
+Groups\debuffs.lua
+Groups\cooldowns.lua
+Groups\ccontrol.lua
+Groups\casts.lua
+Groups\buffs.lua
+Sounds\sounds.lua
+tellme.xml
+tellme.lua
+options.xml
+options.lua
+ignore.xml
+ignore.lua
+guiflash.xml
+guiflash.lua
+credits.xml
+credits.lua
+baroptions.xml
+baroptions.lua
+spells.lua
+failures.lua
+dispell.lua
+Natur.xml
+core.lua

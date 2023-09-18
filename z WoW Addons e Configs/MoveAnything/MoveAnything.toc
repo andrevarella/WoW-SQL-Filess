@@ -1,0 +1,12 @@
+## Interface: 30300
+## Title: MoveAnything
+## Notes: 11.b1 by Wagthaa
+## Version: 11.b1
+## Author: .Essenciais
+## SavedVariables: MoveAnything_CustomFrames, MoveAnything_CharacterSettings, MoveAnything_UseCharacterSettings, MADB
+
+localization.en.lua
+MoveAnything.lua
+MoveAnythingBlizzardOptions.xml
+MoveAnything.xml
+UserVariables.lua

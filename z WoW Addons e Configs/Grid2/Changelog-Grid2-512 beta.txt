@@ -1,0 +1,429 @@
+------------------------------------------------------------------------
+r513 | azethoth | 2010-04-15 18:56:44 +0000 (Thu, 15 Apr 2010) | 1 line
+Changed paths:
+   A /tags/512 beta (from /trunk:512)
+
+Tagging as 512 beta
+------------------------------------------------------------------------
+r512 | AZETHOTH | 2010-04-15 14:18:43 +0000 (Thu, 15 Apr 2010) | 1 line
+Changed paths:
+   M /trunk/Options/GridIndicators.lua
+
+break from loop
+------------------------------------------------------------------------
+r511 | AZETHOTH | 2010-04-14 00:48:59 +0000 (Wed, 14 Apr 2010) | 1 line
+Changed paths:
+   M /trunk/RaidDebuffsOptions/Grid2StatusRaidDebuffsOptions.lua
+
+Add UnBound Plague and Sickness to center left & right icons.
+------------------------------------------------------------------------
+r509 | AZETHOTH | 2010-04-12 23:39:05 +0000 (Mon, 12 Apr 2010) | 1 line
+Changed paths:
+   M /trunk/modules/IndicatorBar.lua
+
+Restore transparency for inverted color so class color can bleed through.  Note that this means the green from heals will affect this as well.  Probably need a setting to use a toned down class color.
+------------------------------------------------------------------------
+r508 | AZETHOTH | 2010-04-12 22:54:42 +0000 (Mon, 12 Apr 2010) | 2 lines
+Changed paths:
+   M /trunk/Options/GridLocations.lua
+
+Fix field name clash preventing new location creation.
+Fixes ticket #153
+------------------------------------------------------------------------
+r507 | AZETHOTH | 2010-04-12 10:26:38 +0000 (Mon, 12 Apr 2010) | 1 line
+Changed paths:
+   M /trunk/RaidDebuffs/Grid2StatusRaidDebuffs.lua
+
+Dream State
+------------------------------------------------------------------------
+r506 | AZETHOTH | 2010-04-12 10:26:12 +0000 (Mon, 12 Apr 2010) | 1 line
+Changed paths:
+   M /trunk/RaidDebuffsOptions/Grid2StatusRaidDebuffsOptions.lua
+
+Add harvest soul to center-left for extra urgency
+------------------------------------------------------------------------
+r504 | AZETHOTH | 2010-04-11 21:49:44 +0000 (Sun, 11 Apr 2010) | 1 line
+Changed paths:
+   M /trunk/modules/IndicatorBar.lua
+
+remove some commented code
+------------------------------------------------------------------------
+r503 | AZETHOTH | 2010-04-11 10:34:25 +0000 (Sun, 11 Apr 2010) | 1 line
+Changed paths:
+   M /trunk/modules/IndicatorBar.lua
+
+Make heals-incoming color setting work for invertColor heals
+------------------------------------------------------------------------
+r502 | AZETHOTH | 2010-04-11 10:02:30 +0000 (Sun, 11 Apr 2010) | 1 line
+Changed paths:
+   M /trunk/Options/GridFrame.lua
+
+Fix invertColor
+------------------------------------------------------------------------
+r501 | AZETHOTH | 2010-04-11 10:02:14 +0000 (Sun, 11 Apr 2010) | 1 line
+Changed paths:
+   M /trunk/Options/GridDefaults.lua
+
+move shaman cures to center-left and center-right icons
+------------------------------------------------------------------------
+r500 | AZETHOTH | 2010-04-11 09:56:44 +0000 (Sun, 11 Apr 2010) | 1 line
+Changed paths:
+   M /trunk/GridFrame.lua
+   M /trunk/modules/IndicatorBar.lua
+
+Make invertColor work more better
+------------------------------------------------------------------------
+r499 | AZETHOTH | 2010-04-10 00:24:44 +0000 (Sat, 10 Apr 2010) | 10 lines
+Changed paths:
+   M /trunk/Options/GridDefaults.lua
+
+Paladin Only (requires reset to see changes)
+* side-top buff-FlashOfLight-mine
+* icon-center buff-DivineIntervention
+* corner-bottom-right debuff-Forbearance
+* corner-top-left -> text
+* corner-bottom-left buff-HandOfSalvation
+* center-left debuff-Magic and debuff-Poison
+* center-right debuff-Disease
+* commented out buff-LightsBeacon-mine, supposedly does not show up
+
+------------------------------------------------------------------------
+r498 | AZETHOTH | 2010-04-08 22:41:24 +0000 (Thu, 08 Apr 2010) | 3 lines
+Changed paths:
+   M /trunk/Options/GridDefaults.lua
+
+For BeaconOfLight and EarthShield provide both all and mine versions so overwrites can be detected / avoided.
+
+Requires reset.
+------------------------------------------------------------------------
+r497 | AZETHOTH | 2010-04-08 03:31:11 +0000 (Thu, 08 Apr 2010) | 2 lines
+Changed paths:
+   M /trunk/RaidDebuffsOptions/Grid2StatusRaidDebuffsOptions.lua
+
+Move boiling blood to separate icon.
+Needs reset.
+------------------------------------------------------------------------
+r496 | AZETHOTH | 2010-04-08 03:30:52 +0000 (Thu, 08 Apr 2010) | 1 line
+Changed paths:
+   M /trunk/RaidDebuffs/Grid2StatusRaidDebuffs.lua
+
+Move boiling blood to separate icon.
+------------------------------------------------------------------------
+r495 | AZETHOTH | 2010-04-04 06:30:45 +0000 (Sun, 04 Apr 2010) | 2 lines
+Changed paths:
+   M /trunk/Options/GridStatuses.lua
+
+For delete status remove its mappings from all current indicators.
+Fixes ticket 145
+------------------------------------------------------------------------
+r494 | AZETHOTH | 2010-04-04 06:24:07 +0000 (Sun, 04 Apr 2010) | 1 line
+Changed paths:
+   M /trunk/locales/deDE.lua
+   M /trunk/locales/enUS.lua
+   M /trunk/locales/esES.lua
+   M /trunk/locales/esMX.lua
+   M /trunk/locales/frFR.lua
+   M /trunk/locales/koKR.lua
+   M /trunk/locales/ruRU.lua
+   M /trunk/locales/zhCN.lua
+   M /trunk/locales/zhTW.lua
+
+"Default" translation
+------------------------------------------------------------------------
+r493 | AZETHOTH | 2010-04-04 01:53:24 +0000 (Sun, 04 Apr 2010) | 1 line
+Changed paths:
+   M /trunk/GridDefaults.lua
+
+more debug info
+------------------------------------------------------------------------
+r492 | AZETHOTH | 2010-04-04 01:40:05 +0000 (Sun, 04 Apr 2010) | 2 lines
+Changed paths:
+   M /trunk/Options/GridIndicators.lua
+   M /trunk/Options/GridStatuses.lua
+
+Change SetObjectLayer to use the collapsed dbx to populate an empty layer.
+Fixes ticket 145, tx Artdeux!
+------------------------------------------------------------------------
+r491 | AZETHOTH | 2010-04-02 22:54:41 +0000 (Fri, 02 Apr 2010) | 1 line
+Changed paths:
+   M /trunk/modules/StatusAuras.lua
+
+more debug info for nil spellName case
+------------------------------------------------------------------------
+r490 | AZETHOTH | 2010-04-02 22:53:47 +0000 (Fri, 02 Apr 2010) | 1 line
+Changed paths:
+   M /trunk/modules/StatusAuras.lua
+
+more debug info for nil spellName case
+------------------------------------------------------------------------
+r489 | AZETHOTH | 2010-04-02 21:03:15 +0000 (Fri, 02 Apr 2010) | 1 line
+Changed paths:
+   M /trunk/RaidDebuffs/Grid2StatusRaidDebuffs.lua
+
+Shadow Prison
+------------------------------------------------------------------------
+r488 | AZETHOTH | 2010-04-01 23:34:12 +0000 (Thu, 01 Apr 2010) | 1 line
+Changed paths:
+   M /trunk/modules/StatusName.lua
+
+Add LuaTexts formatting hook
+------------------------------------------------------------------------
+r487 | AZETHOTH | 2010-04-01 23:15:05 +0000 (Thu, 01 Apr 2010) | 1 line
+Changed paths:
+   M /trunk/Options/GridDefaults.lua
+
+Remove buff-AncestralFortitude.  Now handled as a group aura
+------------------------------------------------------------------------
+r486 | AZETHOTH | 2010-04-01 23:13:50 +0000 (Thu, 01 Apr 2010) | 2 lines
+Changed paths:
+   M /trunk/GridStatus.lua
+
+remove dubug print
+bulletproof
+------------------------------------------------------------------------
+r485 | AZETHOTH | 2010-04-01 23:11:51 +0000 (Thu, 01 Apr 2010) | 1 line
+Changed paths:
+   M /trunk/modules/StatusMana.lua
+
+register as text type as well
+------------------------------------------------------------------------
+r484 | AZETHOTH | 2010-04-01 23:03:10 +0000 (Thu, 01 Apr 2010) | 1 line
+Changed paths:
+   M /trunk/Options/GridStatuses.lua
+
+Catch some errors + feedback
+------------------------------------------------------------------------
+r483 | AZETHOTH | 2010-04-01 21:34:48 +0000 (Thu, 01 Apr 2010) | 1 line
+Changed paths:
+   M /trunk/modules/StatusAuras.lua
+
+change assert message
+------------------------------------------------------------------------
+r482 | jerry | 2010-04-01 11:57:45 +0000 (Thu, 01 Apr 2010) | 2 lines
+Changed paths:
+   M /trunk/modules/IndicatorText.lua
+
+Fix Ticket-148
+
+------------------------------------------------------------------------
+r481 | AZETHOTH | 2010-04-01 10:47:54 +0000 (Thu, 01 Apr 2010) | 1 line
+Changed paths:
+   M /trunk/modules/StatusMana.lua
+
+Add LuaTexts for mana
+------------------------------------------------------------------------
+r480 | jerry | 2010-04-01 08:40:00 +0000 (Thu, 01 Apr 2010) | 2 lines
+Changed paths:
+   M /trunk/modules/IndicatorText.lua
+
+Provide a cheaper implementation of IndicatorText:Update() when neither stack nor duration is selected.
+
+------------------------------------------------------------------------
+r479 | jerry | 2010-04-01 08:39:14 +0000 (Thu, 01 Apr 2010) | 2 lines
+Changed paths:
+   M /trunk/Options/GridStatuses.lua
+   M /trunk/modules/StatusAuras.lua
+   M /trunk/modules/StatusHeals.lua
+
+Rename :UpdateProfileData() to :UpdateDB() for consistency.
+
+------------------------------------------------------------------------
+r478 | AZETHOTH | 2010-04-01 04:37:26 +0000 (Thu, 01 Apr 2010) | 1 line
+Changed paths:
+   M /trunk/modules/IndicatorText.lua
+
+Fix set font.  Tixket# 147
+------------------------------------------------------------------------
+r477 | AZETHOTH | 2010-04-01 03:29:38 +0000 (Thu, 01 Apr 2010) | 1 line
+Changed paths:
+   M /trunk/modules/StatusAuras.lua
+
+Make assert print bad spell name.
+------------------------------------------------------------------------
+r476 | AZETHOTH | 2010-03-31 20:31:50 +0000 (Wed, 31 Mar 2010) | 1 line
+Changed paths:
+   M /trunk/Options/GridStatuses.lua
+
+Split out a MakeStatusHandlers so options handlers can be added before iterating statuses.
+------------------------------------------------------------------------
+r475 | AZETHOTH | 2010-03-31 20:29:44 +0000 (Wed, 31 Mar 2010) | 1 line
+Changed paths:
+   M /trunk/GridUtils.lua
+
+Change GetShortNumber calling method
+------------------------------------------------------------------------
+r474 | AZETHOTH | 2010-03-31 20:29:24 +0000 (Wed, 31 Mar 2010) | 1 line
+Changed paths:
+   M /trunk/modules/StatusHeals.lua
+   M /trunk/modules/StatusHealth.lua
+   M /trunk/modules/StatusMana.lua
+
+Change GetShortNumber calling method
+------------------------------------------------------------------------
+r473 | AZETHOTH | 2010-03-31 09:22:24 +0000 (Wed, 31 Mar 2010) | 1 line
+Changed paths:
+   M /trunk/locales/esES.lua
+   M /trunk/locales/esMX.lua
+
+Some Spanish
+------------------------------------------------------------------------
+r472 | AZETHOTH | 2010-03-31 03:08:11 +0000 (Wed, 31 Mar 2010) | 1 line
+Changed paths:
+   M /trunk/Options/core.lua
+
+GetOptionHandler(typeKey)
+------------------------------------------------------------------------
+r471 | AZETHOTH | 2010-03-31 00:50:30 +0000 (Wed, 31 Mar 2010) | 2 lines
+Changed paths:
+   M /trunk/modules/IndicatorText.lua
+   M /trunk/modules/StatusHealth.lua
+
+Some refactoring to help LuaTexts
+Some morphing changes for text indicators
+------------------------------------------------------------------------
+r470 | AZETHOTH | 2010-03-31 00:49:01 +0000 (Wed, 31 Mar 2010) | 1 line
+Changed paths:
+   M /trunk/GridDefaults.lua
+
+MakeTextHandler
+------------------------------------------------------------------------
+r469 | AZETHOTH | 2010-03-24 20:11:17 +0000 (Wed, 24 Mar 2010) | 1 line
+Changed paths:
+   M /trunk/modules/StatusAuras.lua
+
+Clean up comments for missing status init
+------------------------------------------------------------------------
+r468 | AZETHOTH | 2010-03-22 01:06:39 +0000 (Mon, 22 Mar 2010) | 1 line
+Changed paths:
+   M /trunk/Options/GridIndicators.lua
+
+Make morphing between icon and square work.
+------------------------------------------------------------------------
+r467 | AZETHOTH | 2010-03-22 00:53:31 +0000 (Mon, 22 Mar 2010) | 1 line
+Changed paths:
+   M /trunk/modules/IndicatorIcon.lua
+   M /trunk/modules/IndicatorSquare.lua
+   M /trunk/modules/IndicatorText.lua
+
+Update the morph code.
+------------------------------------------------------------------------
+r466 | AZETHOTH | 2010-03-20 00:01:49 +0000 (Sat, 20 Mar 2010) | 1 line
+Changed paths:
+   M /trunk/Options/GridDefaults.lua
+
+Adjust some of the priest defaults.  Thanks Eudori
+------------------------------------------------------------------------
+r465 | AZETHOTH | 2010-03-19 18:58:53 +0000 (Fri, 19 Mar 2010) | 1 line
+Changed paths:
+   M /trunk/GridLayoutLayouts.lua
+
+Enable more pvp layouts
+------------------------------------------------------------------------
+r464 | AZETHOTH | 2010-03-19 05:05:30 +0000 (Fri, 19 Mar 2010) | 1 line
+Changed paths:
+   M /trunk/GridFrame.lua
+
+Handle raidpet1 exiting a vehicle.
+------------------------------------------------------------------------
+r463 | AZETHOTH | 2010-03-19 05:04:08 +0000 (Fri, 19 Mar 2010) | 1 line
+Changed paths:
+   M /trunk/Options/GridIndicators.lua
+
+change order.  still needs to be enforced
+------------------------------------------------------------------------
+r462 | Sayclub | 2010-03-18 23:17:46 +0000 (Thu, 18 Mar 2010) | 1 line
+Changed paths:
+   M /trunk/Options/locales/koKR.lua
+   M /trunk/locales/koKR.lua
+
+koKR update
+------------------------------------------------------------------------
+r461 | StingerSoft | 2010-03-18 22:17:20 +0000 (Thu, 18 Mar 2010) | 1 line
+Changed paths:
+   M /trunk/Options/locales/ruRU.lua
+   M /trunk/locales/ruRU.lua
+
+ruRU update
+------------------------------------------------------------------------
+r460 | AZETHOTH | 2010-03-17 21:04:43 +0000 (Wed, 17 Mar 2010) | 1 line
+Changed paths:
+   M /trunk/modules/StatusAuras.lua
+
+Fix initialization issue with missing icons.  Needs some followup.
+------------------------------------------------------------------------
+r459 | AZETHOTH | 2010-03-17 02:47:28 +0000 (Wed, 17 Mar 2010) | 1 line
+Changed paths:
+   M /trunk/GridRoster.lua
+
+Clean up GridRoster some more
+------------------------------------------------------------------------
+r458 | AZETHOTH | 2010-03-16 21:34:47 +0000 (Tue, 16 Mar 2010) | 1 line
+Changed paths:
+   M /trunk/RaidDebuffs/Grid2StatusRaidDebuffs.lua
+
+A few missing icc trash and boss debuffs
+------------------------------------------------------------------------
+r457 | AZETHOTH | 2010-03-16 21:15:46 +0000 (Tue, 16 Mar 2010) | 1 line
+Changed paths:
+   M /trunk/Options/GridDefaults.lua
+
+Move the dk HornOfWinter buff to AuraGroup.
+------------------------------------------------------------------------
+r456 | AZETHOTH | 2010-03-16 20:59:38 +0000 (Tue, 16 Mar 2010) | 1 line
+Changed paths:
+   M /trunk/Options/locales/frFR.lua
+
+frFR Thanks Strigx!
+------------------------------------------------------------------------
+r455 | AZETHOTH | 2010-03-15 23:24:35 +0000 (Mon, 15 Mar 2010) | 1 line
+Changed paths:
+   M /trunk/GridFrame.lua
+   M /trunk/modules/IndicatorBar.lua
+
+-- Move invert bar color to frame settings since it is global to multiple bars
+------------------------------------------------------------------------
+r454 | AZETHOTH | 2010-03-15 23:23:22 +0000 (Mon, 15 Mar 2010) | 1 line
+Changed paths:
+   M /trunk/Options/GridDefaults.lua
+   M /trunk/Options/GridFrame.lua
+   M /trunk/Options/GridIndicators.lua
+
+-- Move invert bar color to frame settings since it is global to multiple bars
+------------------------------------------------------------------------
+r453 | mundi4 | 2010-03-15 20:29:03 +0000 (Mon, 15 Mar 2010) | 1 line
+Changed paths:
+   M /trunk/Options/GridDefaults.lua
+   M /trunk/Options/GridStatuses.lua
+
+add 'health-current' status color option and default 'health-current' color(green). - fix the error thrown when uncheck 'classcolor' option from 'health-color' indicator.
+------------------------------------------------------------------------
+r452 | AZETHOTH | 2010-03-15 19:39:16 +0000 (Mon, 15 Mar 2010) | 1 line
+Changed paths:
+   M /trunk/Options/GridStatuses.lua
+
+possibly fix classcolor translation issues.
+------------------------------------------------------------------------
+r451 | mundi4 | 2010-03-15 19:36:09 +0000 (Mon, 15 Mar 2010) | 1 line
+Changed paths:
+   M /trunk/Options/locales/koKR.lua
+
+koKR localization
+------------------------------------------------------------------------
+r450 | AZETHOTH | 2010-03-15 17:38:09 +0000 (Mon, 15 Mar 2010) | 1 line
+Changed paths:
+   M /trunk/locales/koKR.lua
+
+koKR by mundi4
+------------------------------------------------------------------------
+r449 | AZETHOTH | 2010-03-15 05:17:33 +0000 (Mon, 15 Mar 2010) | 1 line
+Changed paths:
+   M /trunk/Options/locales/deDE.lua
+
+deDE thanks to Vilogity
+------------------------------------------------------------------------
+r448 | AZETHOTH | 2010-03-14 19:10:20 +0000 (Sun, 14 Mar 2010) | 1 line
+Changed paths:
+   M /trunk/modules/IndicatorIcon.lua
+
+Reverse Cooldown shading.
+------------------------------------------------------------------------

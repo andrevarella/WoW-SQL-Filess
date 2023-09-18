@@ -1,0 +1,5 @@
+## Interface: 40300
+## Title: Frames Nickname Changer
+## Notes: Name Changing Scripts
+## Author: General
+NameChangeScripts.lua

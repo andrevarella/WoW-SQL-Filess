@@ -1,0 +1,52 @@
+AdiBags display the content bag in one view, gather into several sections using smart filters.
+
+It is heavily inspired by Nargiddley's Baggins.
+
+Configuration is available through Blizzard addon panel, /adibags chat command or right-clicking on the LDB plugin.
+
+*Important note about translation*: some filters may not works properly because of missing translations. Translators, please take a look at the "translations pages":http://www.wowace.com/addons/adibags/localization/ for the following phrases : "Consummable":http://www.wowace.com/addons/adibags/localization/phrases/31-consumable/, "Miscellaneous":http://www.wowace.com/addons/adibags/localization/phrases/62-miscellaneous/, "Trade Goods":http://www.wowace.com/addons/adibags/localization/phrases/108-trade-goods/, "Gem":http://www.wowace.com/addons/adibags/localization/phrases/48-gem/, "Glyph":http://www.wowace.com/addons/adibags/localization/phrases/142-glyph/, "Quest":http://www.wowace.com/addons/adibags/localization/phrases/82-quest/, "Recipe":http://www.wowace.com/addons/adibags/localization/phrases/143-recipe/ and "Junk":http://www.wowace.com/addons/adibags/localization/phrases/55-junk/. Moreover, these translated strings should match exacly the auction house categories. I am manually updating the localization file, so send a PM when you change something.
+
+Related pages:
+
+"WoWace forum thread":http://forums.wowace.com/showthread.php?p=301168
+"WoWace project page":http://www.wowace.com/addons/adibags/
+"Bug tracker":http://www.wowace.com/addons/adibags/tickets/
+
+h2. Features
+
+* smart filters are used to dispatch items into several sections, including:
+** item sets of the Blizzard's gear manager (one section per set),
+** junk items,
+** quest items,
+** equipment (items your character can wear),
+** sections based on item category: trade goods, consumables, recipes, ...
+** manual filtering,
+** ammunition and warlocks' soul shards,
+** free space.
+* smart item sorting inside each section,
+* smart section layout,
+* new item tracker,
+* bag tidy,
+* name-based search,
+* equipped bag panel,
+* display character money in the backpack,
+* display character tokens in the backpack,
+* LDB data source displaying free space,
+* two bag layout modes:
+** anchored: unlock and move the anchor,
+** manual: move the bags by dragging their title.
+
+h2. Things that likely will not be implemented
+
+* anything else than the existing "all-in-one" views,
+* guild bank,
+* alt bags and bank,
+* bag skinning,
+* complete in-game filter/section editor; though the built-in filters have some options.
+
+h2. Tips & tricks
+
+* you can create your own sections using the "manual filter" in filter configuration. You can then
+drag and drop items on section titles to reassign them ; this works for any section.
+* if you want to highlight new items without putting them into a specific section, edit the "new items"
+filter priority to put it at the end of the filter list.

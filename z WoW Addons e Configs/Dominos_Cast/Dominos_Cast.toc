@@ -1,0 +1,8 @@
+## Interface: 30300
+## Title: Dominos Cast
+## Author: zz desativados
+## Title-zhCN: |cFF0099FF[Dominos]|r 施法条模块
+## Notes: A movable casting bar, with timer
+## Dependencies: Dominos
+localization.lua
+castBar.xml

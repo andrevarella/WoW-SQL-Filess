@@ -1,0 +1,113 @@
+<Ui xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.blizzard.com/wow/ui/">
+	<Script file="tellme.lua" />
+	<Frame name="MonitorAbilityInformFrame" hidden="true" parent="UIParent" toplevel="true" movable="true">
+		<Size>
+			<AbsDimension x="568" y="220" />
+		</Size>
+		<Anchors>
+			<Anchor point="CENTER" />
+		</Anchors>
+		<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" edgeFile="Interface\DialogFrame\UI-DialogBox-Border" tile="true">
+			<BackgroundInsets>
+				<AbsInset left="11" right="12" top="12" bottom="11" />
+			</BackgroundInsets>
+			<TileSize>
+				<AbsValue val="32" />
+			</TileSize>
+			<EdgeSize>
+				<AbsValue val="32" />
+			</EdgeSize>
+		</Backdrop>
+		<Frames>
+			<EditBox name="SpellNameMonitoredEditBox" inherits="InputBoxTemplate">
+				<Size>
+					<AbsDimension x="244" y="41" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="140" y="-68" />
+					</Anchor>
+				</Anchors>
+			</EditBox>
+			<Button name="AddSpellButton" inherits="UIPanelButtonTemplate" text="Add">
+				<Size>
+					<AbsDimension x="63" y="20" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="403" y="-77" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>AddMonitoredSpellButton_OnClick();</OnClick>
+				</Scripts>
+			</Button>
+			<Button name="RemoveSpellButton" inherits="UIPanelButtonTemplate" text="Remove">
+				<Size>
+					<AbsDimension x="63" y="20" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="472" y="-77" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>RemoveMonitoredSpellButton_OnClick();</OnClick>
+				</Scripts>
+			</Button>
+			<Button name="CloseWarnMeFrame" inherits="UIPanelButtonTemplate" text="Finished">
+				<Size>
+					<AbsDimension x="75" y="22" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="243" y="-157" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>CloseWarnMeFrame_OnClick();</OnClick>
+				</Scripts>
+			</Button>
+		</Frames>
+		<Layers>
+			<Layer level="OVERLAY">
+				<FontString name="FontString1" inherits="GameFontNormal" text="Spell/Ability:">
+					<Size>
+						<AbsDimension x="107" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="27" y="-77" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="FontString2" inherits="GameFontNormal" text="This screen allows you to setup spells or abilities that you would like to be informed when they have expired or have been dispelled from you.  Enter the spell or ability then click add or remove." justifyH="LEFT">
+					<Size>
+						<AbsDimension x="495" y="40" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="40" y="-22" />
+						</Anchor>
+					</Anchors>
+					<Color r="1" g="1" b="1" />
+				</FontString>
+				<FontString name="MonitoredStatusText" inherits="GameFontNormal" text="" justifyV="TOP" justifyH="LEFT">
+					<Size>
+						<AbsDimension x="395" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="140" y="-103" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+			</Layer>
+		</Layers>
+		<Scripts>
+			<OnLoad>self:RegisterForDrag("LeftButton");</OnLoad>
+			<OnDragStart>self:StartMoving();</OnDragStart>
+			<OnDragStop>self:StopMovingOrSizing();</OnDragStop>
+		</Scripts>
+	</Frame>
+</Ui>

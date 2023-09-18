@@ -1,0 +1,13 @@
+﻿<Ui xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.blizzard.com/wow/ui/">
+	<Script file="core.lua" />
+	<Frame name="NaturFrame" alpha="0" parent="UIParent" toplevel="true" movable="true" enableMouse="true">
+		<Size>
+			<AbsDimension x="64" y="64" />
+		</Size>
+		<Scripts>
+			<OnEvent>Natur_EventHandler(event);</OnEvent>
+			<OnUpdate>Natur_OnUpdate();</OnUpdate>
+			<OnLoad>Natur_OnLoad();</OnLoad>
+		</Scripts>
+	</Frame>
+</Ui>

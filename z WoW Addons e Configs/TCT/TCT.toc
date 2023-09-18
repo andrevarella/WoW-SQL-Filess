@@ -1,0 +1,7 @@
+﻿## Interface: 30300
+## Author: .PvP
+## Version: 1.1
+## Title: Trinket CD Tracker
+## Notes: NotesTest
+
+TCT.lua

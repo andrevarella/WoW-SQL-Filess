@@ -1,0 +1,37 @@
+﻿<Ui xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.blizzard.com/wow/ui/">
+	<Script file="UIFlash.lua" />
+	<Frame name="Natur_UIFlashFrame" hidden="true" parent="UIParent" toplevel="true" frameStrata="FULLSCREEN_DIALOG">
+		<Size>
+			<AbsDimension x="200" y="200" />
+		</Size>
+		<Anchors>
+			<Anchor point="CENTER" />
+		</Anchors>
+		<Scripts>
+			<OnShow>Natur_UIOnFlash(self);</OnShow>
+			<OnUpdate>Natur_UIOnFlashUpdate(self, elapsed);</OnUpdate>
+		</Scripts>
+		<Layers>
+			<Layer level="BORDER">
+				<Texture name="Natur_FlashTexture" file="Interface\AddOns\Natur\Graphics\Other\Natur_GuiRedFlash.tga" alphaMode="ADD">
+					<Size x="91" y="82" />
+					<Anchors>
+						<Anchor point="TOPLEFT" />
+						<Anchor point="BOTTOMRIGHT" />
+					</Anchors>
+				</Texture>
+			</Layer>
+		</Layers>
+		<Backdrop tile="true">
+			<BackgroundInsets>
+				<AbsInset left="11" right="12" top="12" bottom="11" />
+			</BackgroundInsets>
+			<TileSize>
+				<AbsValue val="32" />
+			</TileSize>
+			<EdgeSize>
+				<AbsValue val="32" />
+			</EdgeSize>
+		</Backdrop>
+	</Frame>
+</Ui>

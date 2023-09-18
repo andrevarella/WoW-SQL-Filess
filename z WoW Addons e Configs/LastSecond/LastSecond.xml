@@ -1,0 +1,5278 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemalocation="http://www.blizzard.com/wow/ui/ ..\FrameXML\UI.xsd">
+	<Frame name="LastSecondFrame" parent="UIParent">
+		<Scripts>
+			<OnUpdate>
+				LastSecondOnUpdate()
+			</OnUpdate>
+			<OnEvent>
+				LastSecondOnEvent(self, event, ...)
+			</OnEvent>
+			<OnLoad>
+				LastSecondOnLoad()
+			</OnLoad>
+		</Scripts>
+	</Frame>
+	<Button name="LastSecondTest" text="Test" inherits="UIPanelButtonTemplate" parent="UIParent" movable="true">
+		<Anchors>
+			<Anchor point="CENTER" relativePoint="CENTER">
+				<Offset>
+					<AbsDimension x="500" y="0"/>
+				</Offset>
+			</Anchor>
+		</Anchors>
+		<Scripts>
+			<OnDragStart>
+				self:StartMoving()
+			</OnDragStart>
+			<OnDragStop>
+				self:StopMovingOrSizing()
+			</OnDragStop>
+			<OnClick>
+				buttontest(msg, editbox)
+			</OnClick>
+		</Scripts>
+		<Size>
+			<AbsDimension x="70" y="35"/>
+		</Size>
+	</Button>
+
+
+	<Button name="LastSecondLoginButton" text="Configuration Window" inherits="UIPanelButtonTemplate">
+		<Anchors>
+			<Anchor point="CENTER" relativePoint="CENTER">
+				<Offset>
+					<AbsDimension x="0" y="0"/>
+				</Offset>
+			</Anchor>
+		</Anchors>
+		<Scripts>
+			<OnClick>
+				OpenWindow()
+			</OnClick>
+		</Scripts>
+		<Size>
+			<AbsDimension x="175" y="25"/>
+		</Size>
+	</Button>
+
+	<Frame name="LastSecondLoginBackground">
+		<Anchors>
+			<Anchor point="CENTER" relativePoint="CENTER">
+				<Offset>
+					<AbsDimension x="0" y="-0"/>
+				</Offset>
+			</Anchor>
+		</Anchors>
+		<Size>
+			<AbsDimension x="200" y="100"/>
+		</Size>
+		<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+		edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+			<TileSize>
+				<AbsValue val="31"/>
+			</TileSize>
+			<EdgeSize>
+				<AbsValue val="31"/>
+			</EdgeSize>
+			<BackgroundInsets>
+				<AbsInset left="10" right="10" top="10" bottom="10"/>
+			</BackgroundInsets>
+		</Backdrop>
+	</Frame>
+
+	<Frame name="LastSecondLoginText">
+		<Anchors>
+			<Anchor point="CENTER" relativePoint="CENTER">
+				<Offset>
+					<AbsDimension x="0" y="25"/>
+				</Offset>
+			</Anchor>
+		</Anchors>
+		<Size>
+			<AbsDimension x="150" y="150"/>
+		</Size>
+		<Layers>
+			<Layer level="OVERLAY">
+				<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="LEFT" setAllPoints="true"
+				text="Welcome to Last Second Diminishing Return Display"/>
+			</Layer>
+		</Layers>
+	</Frame>
+
+	<CheckButton name="LastSecondLoginCheckbox" inherit="OptionsCheckButtonTemplate">
+		<Anchors>
+			<Anchor point="CENTER" relativePoint="CENTER">
+				<Offset>
+					<AbsDimension x="-70" y="-28"/>
+				</Offset>
+			</Anchor>
+		</Anchors>
+		<Size>
+			<AbsDimension x="25" y="25"/>
+		</Size>
+		<Scripts>
+			<OnClick>
+				LoginCheckbox()
+			</OnClick>
+		</Scripts>
+		<Layers>
+			<Layer>
+				<FontString name="$parentText" font="Fonts\FRIZQT__.TTF" text="Dont show me this again">
+					<Anchors>
+						<Anchor point="LEFT" relativePoint="RIGHT">
+							<Offset>
+								<AbsDimension x="-2" y="0" />
+							</Offset>
+						</Anchor>
+					</Anchors>
+					<FontHeight>
+						<AbsValue val="10" />
+					</FontHeight>
+				<Color r="1" g="0.8196079" b="0" />
+					<Shadow>
+						<Color r="0" g="0" b="0" />
+						<Offset>
+							<AbsDimension x="1" y="-1" />
+						</Offset>
+					</Shadow>
+				</FontString>
+			</Layer>
+		</Layers>
+		<NormalTexture file="Interface\Buttons\UI-CheckBox-Up" />
+		<PushedTexture file="Interface\Buttons\UI-CheckBox-Down" />
+		<HighlightTexture file="Interface\Buttons\UI-CheckBox-Highlight" alphaMode="ADD" />
+		<CheckedTexture file="Interface\Buttons\UI-CheckBox-Check" />
+		<DisabledCheckedTexture file="Interface\Buttons\UI-CheckBox-Check-Disabled" />
+	</CheckButton>
+
+
+	<Frame name="LastSecondDisplay" parent="UIParent" movable="true">
+		<Frames>
+			<Frame name="LastSecondDisplayAnchor" movable="true" parent="UIParent">
+				<Anchors>
+					<Anchor point="CENTER" relativePoint="CENTER">
+						<Offset>
+							<AbsDimension x="-420" y="250"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="100" y="250"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Scripts>
+					<OnLoad>
+						self:RegisterForDrag("LeftButton")
+					</OnLoad>
+					<OnDragStart>
+						self:StartMoving()
+					</OnDragStart>
+					<OnDragStop>
+						self:StopMovingOrSizing()
+					</OnDragStop>
+				</Scripts>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true" text="Self Anchor"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondDisplay17" movable="true" parent="LastSecondDisplayAnchor">
+				<Anchors>
+					<Anchor point="LEFT" relativePoint="LEFT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondDisplay16" movable="true" parent="LastSecondDisplay17">
+				<Anchors>
+					<Anchor point="LEFT" relativePoint="RIGHT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondDisplay15" movable="true" parent="LastSecondDisplay16">
+				<Anchors>
+					<Anchor point="LEFT" relativePoint="RIGHT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondDisplay14" movable="true" parent="LastSecondDisplay15">
+				<Anchors>
+					<Anchor point="LEFT" relativePoint="RIGHT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondDisplay13" movable="true" parent="LastSecondDisplay14">
+				<Anchors>
+					<Anchor point="LEFT" relativePoint="RIGHT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondDisplay12" movable="true" parent="LastSecondDisplay13">
+				<Anchors>
+					<Anchor point="LEFT" relativePoint="RIGHT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondDisplay11" movable="true" parent="LastSecondDisplay12">
+				<Anchors>
+					<Anchor point="LEFT" relativePoint="RIGHT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondDisplay10" movable="true" parent="LastSecondDisplay11">
+				<Anchors>
+					<Anchor point="LEFT" relativePoint="RIGHT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+		</Frames>
+	</Frame>
+
+
+
+
+
+
+
+
+	<Frame name="LastSecondParty1Display" parent="UIParent" movable="true">
+		<Frames>
+			<Frame name="LastSecondParty1DisplayAnchor" movable="true" parent="UIParent">
+				<Anchors>
+					<Anchor point="CENTER" relativePoint="CENTER">
+						<Offset>
+							<AbsDimension x="-420" y="200"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="100" y="250"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Scripts>
+					<OnLoad>
+						self:RegisterForDrag("LeftButton")
+					</OnLoad>
+					<OnDragStart>
+						self:StartMoving()
+					</OnDragStart>
+					<OnDragStop>
+						self:StopMovingOrSizing()
+					</OnDragStop>
+				</Scripts>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true" text="Party1 Anchor"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondParty1Display17" movable="true" parent="LastSecondParty1DisplayAnchor">
+				<Anchors>
+					<Anchor point="LEFT" relativePoint="LEFT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondParty1Display16" movable="true" parent="LastSecondParty1Display17">
+				<Anchors>
+					<Anchor point="LEFT" relativePoint="RIGHT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondParty1Display15" movable="true" parent="LastSecondParty1Display16">
+				<Anchors>
+					<Anchor point="LEFT" relativePoint="RIGHT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondParty1Display14" movable="true" parent="LastSecondParty1Display15">
+				<Anchors>
+					<Anchor point="LEFT" relativePoint="RIGHT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondParty1Display13" movable="true" parent="LastSecondParty1Display14">
+				<Anchors>
+					<Anchor point="LEFT" relativePoint="RIGHT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondParty1Display12" movable="true" parent="LastSecondParty1Display13">
+				<Anchors>
+					<Anchor point="LEFT" relativePoint="RIGHT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondParty1Display11" movable="true" parent="LastSecondParty1Display12">
+				<Anchors>
+					<Anchor point="LEFT" relativePoint="RIGHT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondParty1Display10" movable="true" parent="LastSecondParty1Display11">
+				<Anchors>
+					<Anchor point="LEFT" relativePoint="RIGHT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+		</Frames>
+	</Frame>
+
+
+
+
+
+
+	<Frame name="LastSecondParty2Display" parent="UIParent" movable="true">
+		<Frames>
+			<Frame name="LastSecondParty2DisplayAnchor" movable="true" parent="UIParent">
+				<Anchors>
+					<Anchor point="CENTER" relativePoint="CENTER">
+						<Offset>
+							<AbsDimension x="-420" y="150"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="100" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Scripts>
+					<OnLoad>
+						self:RegisterForDrag("LeftButton")
+					</OnLoad>
+					<OnDragStart>
+						self:StartMoving()
+					</OnDragStart>
+					<OnDragStop>
+						self:StopMovingOrSizing()
+					</OnDragStop>
+				</Scripts>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true" text="Party2 Anchor"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondParty2Display17" movable="true" parent="LastSecondParty2DisplayAnchor">
+				<Anchors>
+					<Anchor point="LEFT" relativePoint="LEFT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondParty2Display16" movable="true" parent="LastSecondParty2Display17">
+				<Anchors>
+					<Anchor point="LEFT" relativePoint="RIGHT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondParty2Display15" movable="true" parent="LastSecondParty2Display16">
+				<Anchors>
+					<Anchor point="LEFT" relativePoint="RIGHT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondParty2Display14" movable="true" parent="LastSecondParty2Display15">
+				<Anchors>
+					<Anchor point="LEFT" relativePoint="RIGHT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondParty2Display13" movable="true" parent="LastSecondParty2Display14">
+				<Anchors>
+					<Anchor point="LEFT" relativePoint="RIGHT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondParty2Display12" movable="true" parent="LastSecondParty2Display13">
+				<Anchors>
+					<Anchor point="LEFT" relativePoint="RIGHT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondParty2Display11" movable="true" parent="LastSecondParty2Display12">
+				<Anchors>
+					<Anchor point="LEFT" relativePoint="RIGHT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondParty2Display10" movable="true" parent="LastSecondParty2Display11">
+				<Anchors>
+					<Anchor point="LEFT" relativePoint="RIGHT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+		</Frames>
+	</Frame>
+
+	<Frame name="LastSecondParty3Display" parent="UIParent" movable="true">
+		<Frames>
+			<Frame name="LastSecondParty3DisplayAnchor" movable="true" parent="UIParent">
+				<Anchors>
+					<Anchor point="CENTER" relativePoint="CENTER">
+						<Offset>
+							<AbsDimension x="-420" y="100"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="100" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Scripts>
+					<OnLoad>
+						self:RegisterForDrag("LeftButton")
+					</OnLoad>
+					<OnDragStart>
+						self:StartMoving()
+					</OnDragStart>
+					<OnDragStop>
+						self:StopMovingOrSizing()
+					</OnDragStop>
+				</Scripts>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true" text="Party3 Anchor"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondParty3Display17" movable="true" parent="LastSecondParty3DisplayAnchor">
+				<Anchors>
+					<Anchor point="LEFT" relativePoint="LEFT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondParty3Display16" movable="true" parent="LastSecondParty3Display17">
+				<Anchors>
+					<Anchor point="LEFT" relativePoint="RIGHT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondParty3Display15" movable="true" parent="LastSecondParty3Display16">
+				<Anchors>
+					<Anchor point="LEFT" relativePoint="RIGHT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondParty3Display14" movable="true" parent="LastSecondParty3Display15">
+				<Anchors>
+					<Anchor point="LEFT" relativePoint="RIGHT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondParty3Display13" movable="true" parent="LastSecondParty3Display14">
+				<Anchors>
+					<Anchor point="LEFT" relativePoint="RIGHT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondParty3Display12" movable="true" parent="LastSecondParty3Display13">
+				<Anchors>
+					<Anchor point="LEFT" relativePoint="RIGHT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondParty3Display11" movable="true" parent="LastSecondParty3Display12">
+				<Anchors>
+					<Anchor point="LEFT" relativePoint="RIGHT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondParty3Display10" movable="true" parent="LastSecondParty3Display11">
+				<Anchors>
+					<Anchor point="LEFT" relativePoint="RIGHT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+		</Frames>
+	</Frame>
+
+
+
+
+
+	<Frame name="LastSecondParty4Display" parent="UIParent" movable="true">
+		<Frames>
+			<Frame name="LastSecondParty4DisplayAnchor" movable="true" parent="UIParent">
+				<Anchors>
+					<Anchor point="CENTER" relativePoint="CENTER">
+						<Offset>
+							<AbsDimension x="-420" y="50"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="100" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Scripts>
+					<OnLoad>
+						self:RegisterForDrag("LeftButton")
+					</OnLoad>
+					<OnDragStart>
+						self:StartMoving()
+					</OnDragStart>
+					<OnDragStop>
+						self:StopMovingOrSizing()
+					</OnDragStop>
+				</Scripts>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true" text="Party4 Anchor"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondParty4Display17" movable="true" parent="LastSecondParty4DisplayAnchor">
+				<Anchors>
+					<Anchor point="LEFT" relativePoint="LEFT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondParty4Display16" movable="true" parent="LastSecondParty4Display17">
+				<Anchors>
+					<Anchor point="LEFT" relativePoint="RIGHT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondParty4Display15" movable="true" parent="LastSecondParty4Display16">
+				<Anchors>
+					<Anchor point="LEFT" relativePoint="RIGHT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondParty4Display14" movable="true" parent="LastSecondParty4Display15">
+				<Anchors>
+					<Anchor point="LEFT" relativePoint="RIGHT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondParty4Display13" movable="true" parent="LastSecondParty4Display14">
+				<Anchors>
+					<Anchor point="LEFT" relativePoint="RIGHT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondParty4Display12" movable="true" parent="LastSecondParty4Display13">
+				<Anchors>
+					<Anchor point="LEFT" relativePoint="RIGHT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondParty4Display11" movable="true" parent="LastSecondParty4Display12">
+				<Anchors>
+					<Anchor point="LEFT" relativePoint="RIGHT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondParty4Display10" movable="true" parent="LastSecondParty4Display11">
+				<Anchors>
+					<Anchor point="LEFT" relativePoint="RIGHT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+		</Frames>
+	</Frame>
+
+
+
+
+
+
+
+
+
+
+
+	<Frame name="LastSecondArena1Display" parent="UIParent" movable="true">
+		<Frames>
+			<Frame name="LastSecondArena1DisplayAnchor" movable="true" parent="UIParent">
+				<Anchors>
+					<Anchor point="CENTER" relativePoint="CENTER">
+						<Offset>
+							<AbsDimension x="420" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="100" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Scripts>
+					<OnLoad>
+						self:RegisterForDrag("LeftButton")
+					</OnLoad>
+					<OnDragStart>
+						self:StartMoving()
+					</OnDragStart>
+					<OnDragStop>
+						self:StopMovingOrSizing()
+					</OnDragStop>
+				</Scripts>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true" text="Arena1 Anchor"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondArena1Display17" movable="true" parent="LastSecondArena1DisplayAnchor">
+				<Anchors>
+					<Anchor point="RIGHT" relativePoint="RIGHT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondArena1Display16" movable="true" parent="LastSecondArena1Display17">
+				<Anchors>
+					<Anchor point="RIGHT" relativePoint="LEFT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondArena1Display15" movable="true" parent="LastSecondArena1Display16">
+				<Anchors>
+					<Anchor point="RIGHT" relativePoint="LEFT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondArena1Display14" movable="true" parent="LastSecondArena1Display15">
+				<Anchors>
+					<Anchor point="RIGHT" relativePoint="LEFT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondArena1Display13" movable="true" parent="LastSecondArena1Display14">
+				<Anchors>
+					<Anchor point="RIGHT" relativePoint="LEFT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondArena1Display12" movable="true" parent="LastSecondArena1Display13">
+				<Anchors>
+					<Anchor point="RIGHT" relativePoint="LEFT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondArena1Display11" movable="true" parent="LastSecondArena1Display12">
+				<Anchors>
+					<Anchor point="RIGHT" relativePoint="LEFT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondArena1Display10" movable="true" parent="LastSecondArena1Display11">
+				<Anchors>
+					<Anchor point="RIGHT" relativePoint="LEFT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+		</Frames>
+	</Frame>
+
+
+
+
+
+
+	<Frame name="LastSecondArena2Display" parent="UIParent" movable="true">
+		<Frames>
+			<Frame name="LastSecondArena2DisplayAnchor" movable="true" parent="UIParent">
+				<Anchors>
+					<Anchor point="CENTER" relativePoint="CENTER">
+						<Offset>
+							<AbsDimension x="420" y="-50"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="100" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Scripts>
+					<OnLoad>
+						self:RegisterForDrag("LeftButton")
+					</OnLoad>
+					<OnDragStart>
+						self:StartMoving()
+					</OnDragStart>
+					<OnDragStop>
+						self:StopMovingOrSizing()
+					</OnDragStop>
+				</Scripts>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true" text="Arena2 Anchor"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondArena2Display17" movable="true" parent="LastSecondArena2DisplayAnchor">
+				<Anchors>
+					<Anchor point="RIGHT" relativePoint="RIGHT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondArena2Display16" movable="true" parent="LastSecondArena2Display17">
+				<Anchors>
+					<Anchor point="RIGHT" relativePoint="LEFT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondArena2Display15" movable="true" parent="LastSecondArena2Display16">
+				<Anchors>
+					<Anchor point="RIGHT" relativePoint="LEFT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondArena2Display14" movable="true" parent="LastSecondArena2Display15">
+				<Anchors>
+					<Anchor point="RIGHT" relativePoint="LEFT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondArena2Display13" movable="true" parent="LastSecondArena2Display14">
+				<Anchors>
+					<Anchor point="RIGHT" relativePoint="LEFT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondArena2Display12" movable="true" parent="LastSecondArena2Display13">
+				<Anchors>
+					<Anchor point="RIGHT" relativePoint="LEFT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondArena2Display11" movable="true" parent="LastSecondArena2Display12">
+				<Anchors>
+					<Anchor point="RIGHT" relativePoint="LEFT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondArena2Display10" movable="true" parent="LastSecondArena2Display11">
+				<Anchors>
+					<Anchor point="RIGHT" relativePoint="LEFT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+		</Frames>
+	</Frame>
+
+
+
+
+
+	<Frame name="LastSecondArena3Display" parent="UIParent" movable="true">
+		<Frames>
+			<Frame name="LastSecondArena3DisplayAnchor" movable="true" parent="UIParent">
+				<Anchors>
+					<Anchor point="CENTER" relativePoint="CENTER">
+						<Offset>
+							<AbsDimension x="420" y="-100"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="100" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Scripts>
+					<OnLoad>
+						self:RegisterForDrag("LeftButton")
+					</OnLoad>
+					<OnDragStart>
+						self:StartMoving()
+					</OnDragStart>
+					<OnDragStop>
+						self:StopMovingOrSizing()
+					</OnDragStop>
+				</Scripts>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true" text="Arena3 Anchor"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondArena3Display17" movable="true" parent="LastSecondArena3DisplayAnchor">
+				<Anchors>
+					<Anchor point="RIGHT" relativePoint="RIGHT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondArena3Display16" movable="true" parent="LastSecondArena3Display17">
+				<Anchors>
+					<Anchor point="RIGHT" relativePoint="LEFT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondArena3Display15" movable="true" parent="LastSecondArena3Display16">
+				<Anchors>
+					<Anchor point="RIGHT" relativePoint="LEFT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondArena3Display14" movable="true" parent="LastSecondArena3Display15">
+				<Anchors>
+					<Anchor point="RIGHT" relativePoint="LEFT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondArena3Display13" movable="true" parent="LastSecondArena3Display14">
+				<Anchors>
+					<Anchor point="RIGHT" relativePoint="LEFT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondArena3Display12" movable="true" parent="LastSecondArena3Display13">
+				<Anchors>
+					<Anchor point="RIGHT" relativePoint="LEFT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondArena3Display11" movable="true" parent="LastSecondArena3Display12">
+				<Anchors>
+					<Anchor point="RIGHT" relativePoint="LEFT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondArena3Display10" movable="true" parent="LastSecondArena3Display11">
+				<Anchors>
+					<Anchor point="RIGHT" relativePoint="LEFT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+		</Frames>
+	</Frame>
+
+
+
+
+	<Frame name="LastSecondArena4Display" parent="UIParent" movable="true">
+		<Frames>
+			<Frame name="LastSecondArena4DisplayAnchor" movable="true" parent="UIParent">
+				<Anchors>
+					<Anchor point="CENTER" relativePoint="CENTER">
+						<Offset>
+							<AbsDimension x="420" y="-150"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="100" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Scripts>
+					<OnLoad>
+						self:RegisterForDrag("LeftButton")
+					</OnLoad>
+					<OnDragStart>
+						self:StartMoving()
+					</OnDragStart>
+					<OnDragStop>
+						self:StopMovingOrSizing()
+					</OnDragStop>
+				</Scripts>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true" text="Arena4 Anchor"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondArena4Display17" movable="true" parent="LastSecondArena4DisplayAnchor">
+				<Anchors>
+					<Anchor point="RIGHT" relativePoint="RIGHT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondArena4Display16" movable="true" parent="LastSecondArena4Display17">
+				<Anchors>
+					<Anchor point="RIGHT" relativePoint="LEFT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondArena4Display15" movable="true" parent="LastSecondArena4Display16">
+				<Anchors>
+					<Anchor point="RIGHT" relativePoint="LEFT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondArena4Display14" movable="true" parent="LastSecondArena4Display15">
+				<Anchors>
+					<Anchor point="RIGHT" relativePoint="LEFT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondArena4Display13" movable="true" parent="LastSecondArena4Display14">
+				<Anchors>
+					<Anchor point="RIGHT" relativePoint="LEFT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondArena4Display12" movable="true" parent="LastSecondArena4Display13">
+				<Anchors>
+					<Anchor point="RIGHT" relativePoint="LEFT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondArena4Display11" movable="true" parent="LastSecondArena4Display12">
+				<Anchors>
+					<Anchor point="RIGHT" relativePoint="LEFT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondArena4Display10" movable="true" parent="LastSecondArena4Display11">
+				<Anchors>
+					<Anchor point="RIGHT" relativePoint="LEFT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+		</Frames>
+	</Frame>
+
+
+
+
+
+
+	<Frame name="LastSecondArena5Display" parent="UIParent" movable="true">
+		<Frames>
+			<Frame name="LastSecondArena5DisplayAnchor" movable="true" parent="UIParent">
+				<Anchors>
+					<Anchor point="CENTER" relativePoint="CENTER">
+						<Offset>
+							<AbsDimension x="420" y="-200"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="100" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Scripts>
+					<OnLoad>
+						self:RegisterForDrag("LeftButton")
+					</OnLoad>
+					<OnDragStart>
+						self:StartMoving()
+					</OnDragStart>
+					<OnDragStop>
+						self:StopMovingOrSizing()
+					</OnDragStop>
+				</Scripts>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true" text="Arena5 Anchor"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondArena5Display17" movable="true" parent="LastSecondArena5DisplayAnchor">
+				<Anchors>
+					<Anchor point="RIGHT" relativePoint="RIGHT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondArena5Display16" movable="true" parent="LastSecondArena5Display17">
+				<Anchors>
+					<Anchor point="RIGHT" relativePoint="LEFT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondArena5Display15" movable="true" parent="LastSecondArena5Display16">
+				<Anchors>
+					<Anchor point="RIGHT" relativePoint="LEFT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondArena5Display14" movable="true" parent="LastSecondArena5Display15">
+				<Anchors>
+					<Anchor point="RIGHT" relativePoint="LEFT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondArena5Display13" movable="true" parent="LastSecondArena5Display14">
+				<Anchors>
+					<Anchor point="RIGHT" relativePoint="LEFT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondArena5Display12" movable="true" parent="LastSecondArena5Display13">
+				<Anchors>
+					<Anchor point="RIGHT" relativePoint="LEFT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondArena5Display11" movable="true" parent="LastSecondArena5Display12">
+				<Anchors>
+					<Anchor point="RIGHT" relativePoint="LEFT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondArena5Display10" movable="true" parent="LastSecondArena5Display11">
+				<Anchors>
+					<Anchor point="RIGHT" relativePoint="LEFT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+		</Frames>
+	</Frame>
+
+
+
+
+
+
+
+	<Frame name="LastSecondTargetDisplay" parent="UIParent" movable="true">
+		<Frames>
+			<Frame name="LastSecondTargetDisplayAnchor" movable="true" parent="UIParent">
+				<Anchors>
+					<Anchor point="CENTER" relativePoint="CENTER">
+						<Offset>
+							<AbsDimension x="-420" y="300"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="100" y="250"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Scripts>
+					<OnLoad>
+						self:RegisterForDrag("LeftButton")
+					</OnLoad>
+					<OnDragStart>
+						self:StartMoving()
+					</OnDragStart>
+					<OnDragStop>
+						self:StopMovingOrSizing()
+					</OnDragStop>
+				</Scripts>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true" text="Target Anchor"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondTargetDisplay17" movable="true" parent="LastSecondTargetDisplayAnchor">
+				<Anchors>
+					<Anchor point="LEFT" relativePoint="LEFT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondTargetDisplay16" movable="true" parent="LastSecondTargetDisplay17">
+				<Anchors>
+					<Anchor point="LEFT" relativePoint="RIGHT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondTargetDisplay15" movable="true" parent="LastSecondTargetDisplay16">
+				<Anchors>
+					<Anchor point="LEFT" relativePoint="RIGHT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondTargetDisplay14" movable="true" parent="LastSecondTargetDisplay15">
+				<Anchors>
+					<Anchor point="LEFT" relativePoint="RIGHT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondTargetDisplay13" movable="true" parent="LastSecondTargetDisplay14">
+				<Anchors>
+					<Anchor point="LEFT" relativePoint="RIGHT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondTargetDisplay12" movable="true" parent="LastSecondTargetDisplay13">
+				<Anchors>
+					<Anchor point="LEFT" relativePoint="RIGHT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondTargetDisplay11" movable="true" parent="LastSecondTargetDisplay12">
+				<Anchors>
+					<Anchor point="LEFT" relativePoint="RIGHT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondTargetDisplay10" movable="true" parent="LastSecondTargetDisplay11">
+				<Anchors>
+					<Anchor point="LEFT" relativePoint="RIGHT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+		</Frames>
+	</Frame>
+	<Frame name="LastSecondFocusDisplay" parent="UIParent" movable="true">
+		<Frames>
+			<Frame name="LastSecondFocusDisplayAnchor" movable="true" parent="UIParent">
+				<Anchors>
+					<Anchor point="CENTER" relativePoint="CENTER">
+						<Offset>
+							<AbsDimension x="-420" y="350"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="100" y="250"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Scripts>
+					<OnLoad>
+						self:RegisterForDrag("LeftButton")
+					</OnLoad>
+					<OnDragStart>
+						self:StartMoving()
+					</OnDragStart>
+					<OnDragStop>
+						self:StopMovingOrSizing()
+					</OnDragStop>
+				</Scripts>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true" text="Target Anchor"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondFocusDisplay17" movable="true" parent="LastSecondFocusDisplayAnchor">
+				<Anchors>
+					<Anchor point="LEFT" relativePoint="LEFT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondFocusDisplay16" movable="true" parent="LastSecondFocusDisplay17">
+				<Anchors>
+					<Anchor point="LEFT" relativePoint="RIGHT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondFocusDisplay15" movable="true" parent="LastSecondFocusDisplay16">
+				<Anchors>
+					<Anchor point="LEFT" relativePoint="RIGHT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondFocusDisplay14" movable="true" parent="LastSecondFocusDisplay15">
+				<Anchors>
+					<Anchor point="LEFT" relativePoint="RIGHT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondFocusDisplay13" movable="true" parent="LastSecondFocusDisplay14">
+				<Anchors>
+					<Anchor point="LEFT" relativePoint="RIGHT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondFocusDisplay12" movable="true" parent="LastSecondFocusDisplay13">
+				<Anchors>
+					<Anchor point="LEFT" relativePoint="RIGHT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondFocusDisplay11" movable="true" parent="LastSecondFocusDisplay12">
+				<Anchors>
+					<Anchor point="LEFT" relativePoint="RIGHT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="LastSecondFocusDisplay10" movable="true" parent="LastSecondFocusDisplay11">
+				<Anchors>
+					<Anchor point="LEFT" relativePoint="RIGHT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="50"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="CENTER" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+		</Frames>
+	</Frame>
+	
+	
+	
+	<Frame name="LastSecondWindow">
+		<Frames>
+			<Frame name="LastSecondWindowText">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativePoint="TOPLEFT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="400" y="50"/>
+				</Size>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="LEFT" setAllPoints="true"
+						text="After checking the 'Display/Hide Anchors' checkbox, move the frames where you would like the DR icons to show up, then uncheck Display/Hide Anchors.
+						Typing /lastsecond will reopen this screen.  The anchors for arena1-5 represent the dr of your arena opponents, and will only show up during an arena match."/>
+					</Layer>
+				</Layers>
+			</Frame>
+
+			<Frame name="LastSecondWindowSignatureText">
+				<Anchors>
+					<Anchor point="BOTTOM" relativePoint="BOTTOM">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="400" y="20"/>
+				</Size>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="LEFT" setAllPoints="true"
+						text="Created by Toxiktraktor, of Dalvengyr"/>
+					</Layer>
+				</Layers>
+			</Frame>
+
+			<CheckButton name="LastSecondAnchorButton" inherit="OptionsCheckButtonTemplate">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativePoint="TOPLEFT">
+						<Offset>
+							<AbsDimension x="25" y="-39"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="35" y="35"/>
+				</Size>
+				<Scripts>
+					<OnClick>
+						LastSecondCheckboxHandler(msg, editbox)
+					</OnClick>
+				</Scripts>
+				<Layers>
+					<Layer>
+						<FontString name="$parentText" font="Fonts\FRIZQT__.TTF" text="Display/Hide Anchors">
+							<Anchors>
+								<Anchor point="LEFT" relativePoint="RIGHT">
+									<Offset>
+										<AbsDimension x="-2" y="0" />
+									</Offset>
+								</Anchor>
+							</Anchors>
+							<FontHeight>
+								<AbsValue val="10" />
+							</FontHeight>
+						<Color r="1" g="0.8196079" b="0" />
+							<Shadow>
+								<Color r="0" g="0" b="0" />
+								<Offset>
+									<AbsDimension x="1" y="-1" />
+								</Offset>
+							</Shadow>
+						</FontString>
+					</Layer>
+				</Layers>
+				<NormalTexture file="Interface\Buttons\UI-CheckBox-Up" />
+				<PushedTexture file="Interface\Buttons\UI-CheckBox-Down" />
+				<HighlightTexture file="Interface\Buttons\UI-CheckBox-Highlight" alphaMode="ADD" />
+				<CheckedTexture file="Interface\Buttons\UI-CheckBox-Check" />
+				<DisabledCheckedTexture file="Interface\Buttons\UI-CheckBox-Check-Disabled" />
+			</CheckButton>
+			<CheckButton name="LastSecondExampleButton" inherit="OptionsCheckButtonTemplate">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativePoint="TOPLEFT">
+						<Offset>
+							<AbsDimension x="25" y="-62"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="35" y="35"/>
+				</Size>
+				<Scripts>
+					<OnClick>
+						LastSecondCheckboxHandler(msg, editbox)
+					</OnClick>
+				</Scripts>
+				<Layers>
+					<Layer>
+						<FontString name="$parentText" font="Fonts\FRIZQT__.TTF" text="Display/Hide Example">
+							<Anchors>
+								<Anchor point="LEFT" relativePoint="RIGHT">
+									<Offset>
+										<AbsDimension x="-2" y="0" />
+									</Offset>
+								</Anchor>
+							</Anchors>
+							<FontHeight>
+								<AbsValue val="10" />
+							</FontHeight>
+						<Color r="1" g="0.8196079" b="0" />
+							<Shadow>
+								<Color r="0" g="0" b="0" />
+								<Offset>
+									<AbsDimension x="1" y="-1" />
+								</Offset>
+							</Shadow>
+						</FontString>
+					</Layer>
+				</Layers>
+				<NormalTexture file="Interface\Buttons\UI-CheckBox-Up" />
+				<PushedTexture file="Interface\Buttons\UI-CheckBox-Down" />
+				<HighlightTexture file="Interface\Buttons\UI-CheckBox-Highlight" alphaMode="ADD" />
+				<CheckedTexture file="Interface\Buttons\UI-CheckBox-Check" />
+				<DisabledCheckedTexture file="Interface\Buttons\UI-CheckBox-Check-Disabled" />
+			</CheckButton>
+			<Button name="LastSecondIncreaseIconSize" text="Larger Icons" inherits="UIPanelButtonTemplate">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativePoint="TOPLEFT">
+						<Offset>
+							<AbsDimension x="175" y="-50"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						increasesize()
+					</OnClick>
+				</Scripts>
+				<Size>
+					<AbsDimension x="105" y="35"/>
+				</Size>
+			</Button>
+
+			<Button name="LastSecondDecreaseIconSize" text="Smaller Icons" inherits="UIPanelButtonTemplate">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativePoint="TOPLEFT">
+						<Offset>
+							<AbsDimension x="280" y="-50"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						decreasesize()
+					</OnClick>
+				</Scripts>
+				<Size>
+					<AbsDimension x="105" y="35"/>
+				</Size>
+			</Button>
+
+			<Frame name="LastSecondListBackground">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativePoint="TOPLEFT">
+						<Offset>
+							<AbsDimension x="207" y="-90"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="200" y="325"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Frames>
+					<CheckButton name="ControlledRootCheckbox" inherit="OptionsCheckButtonTemplate">
+						<Anchors>
+							<Anchor point="TOPLEFT" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="30" y="-10"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Size>
+							<AbsDimension x="20" y="20"/>
+						</Size>
+						<Scripts>
+							<OnClick>
+								LastSecondCheckboxHandler(msg, editbox)
+							</OnClick>
+						</Scripts>
+						<Layers>
+							<Layer>
+								<FontString name="$parentText" font="Fonts\FRIZQT__.TTF" text="Controlled Root">
+									<Anchors>
+										<Anchor point="LEFT" relativePoint="RIGHT">
+											<Offset>
+												<AbsDimension x="-2" y="0" />
+											</Offset>
+										</Anchor>
+									</Anchors>
+									<FontHeight>
+										<AbsValue val="10" />
+									</FontHeight>
+								<Color r="1" g="0.8196079" b="0" />
+									<Shadow>
+										<Color r="0" g="0" b="0" />
+										<Offset>
+											<AbsDimension x="1" y="-1" />
+										</Offset>
+									</Shadow>
+								</FontString>
+							</Layer>
+						</Layers>
+						<NormalTexture file="Interface\Buttons\UI-CheckBox-Up" />
+						<PushedTexture file="Interface\Buttons\UI-CheckBox-Down" />
+						<HighlightTexture file="Interface\Buttons\UI-CheckBox-Highlight" alphaMode="ADD" />
+						<CheckedTexture file="Interface\Buttons\UI-CheckBox-Check" />
+						<DisabledCheckedTexture file="Interface\Buttons\UI-CheckBox-Check-Disabled" />
+					</CheckButton>
+					<CheckButton name="ControlledStunCheckbox" inherit="OptionsCheckButtonTemplate">
+						<Anchors>
+							<Anchor point="TOPLEFT" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="30" y="-26"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Size>
+							<AbsDimension x="20" y="20"/>
+						</Size>
+						<Scripts>
+							<OnClick>
+								LastSecondCheckboxHandler(msg, editbox)
+							</OnClick>
+						</Scripts>
+						<Layers>
+							<Layer>
+								<FontString name="$parentText" font="Fonts\FRIZQT__.TTF" text="Controlled Stun">
+									<Anchors>
+										<Anchor point="LEFT" relativePoint="RIGHT">
+											<Offset>
+												<AbsDimension x="-2" y="0" />
+											</Offset>
+										</Anchor>
+									</Anchors>
+									<FontHeight>
+										<AbsValue val="10" />
+									</FontHeight>
+								<Color r="1" g="0.8196079" b="0" />
+									<Shadow>
+										<Color r="0" g="0" b="0" />
+										<Offset>
+											<AbsDimension x="1" y="-1" />
+										</Offset>
+									</Shadow>
+								</FontString>
+							</Layer>
+						</Layers>
+						<NormalTexture file="Interface\Buttons\UI-CheckBox-Up" />
+						<PushedTexture file="Interface\Buttons\UI-CheckBox-Down" />
+						<HighlightTexture file="Interface\Buttons\UI-CheckBox-Highlight" alphaMode="ADD" />
+						<CheckedTexture file="Interface\Buttons\UI-CheckBox-Check" />
+						<DisabledCheckedTexture file="Interface\Buttons\UI-CheckBox-Check-Disabled" />
+					</CheckButton>
+					<CheckButton name="DisarmCheckbox" inherit="OptionsCheckButtonTemplate">
+						<Anchors>
+							<Anchor point="TOPLEFT" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="30" y="-42"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Size>
+							<AbsDimension x="20" y="20"/>
+						</Size>
+						<Scripts>
+							<OnClick>
+								LastSecondCheckboxHandler(msg, editbox)
+							</OnClick>
+						</Scripts>
+						<Layers>
+							<Layer>
+								<FontString name="$parentText" font="Fonts\FRIZQT__.TTF" text="Disarm">
+									<Anchors>
+										<Anchor point="LEFT" relativePoint="RIGHT">
+											<Offset>
+												<AbsDimension x="-2" y="0" />
+											</Offset>
+										</Anchor>
+									</Anchors>
+									<FontHeight>
+										<AbsValue val="10" />
+									</FontHeight>
+								<Color r="1" g="0.8196079" b="0" />
+									<Shadow>
+										<Color r="0" g="0" b="0" />
+										<Offset>
+											<AbsDimension x="1" y="-1" />
+										</Offset>
+									</Shadow>
+								</FontString>
+							</Layer>
+						</Layers>
+						<NormalTexture file="Interface\Buttons\UI-CheckBox-Up" />
+						<PushedTexture file="Interface\Buttons\UI-CheckBox-Down" />
+						<HighlightTexture file="Interface\Buttons\UI-CheckBox-Highlight" alphaMode="ADD" />
+						<CheckedTexture file="Interface\Buttons\UI-CheckBox-Check" />
+						<DisabledCheckedTexture file="Interface\Buttons\UI-CheckBox-Check-Disabled" />
+					</CheckButton>
+					<CheckButton name="DisorientCheckbox" inherit="OptionsCheckButtonTemplate">
+						<Anchors>
+							<Anchor point="TOPLEFT" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="30" y="-58"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Size>
+							<AbsDimension x="20" y="20"/>
+						</Size>
+						<Scripts>
+							<OnClick>
+								LastSecondCheckboxHandler(msg, editbox)
+							</OnClick>
+						</Scripts>
+						<Layers>
+							<Layer>
+								<FontString name="$parentText" font="Fonts\FRIZQT__.TTF" text="Disorient">
+									<Anchors>
+										<Anchor point="LEFT" relativePoint="RIGHT">
+											<Offset>
+												<AbsDimension x="-2" y="0" />
+											</Offset>
+										</Anchor>
+									</Anchors>
+									<FontHeight>
+										<AbsValue val="10" />
+									</FontHeight>
+								<Color r="1" g="0.8196079" b="0" />
+									<Shadow>
+										<Color r="0" g="0" b="0" />
+										<Offset>
+											<AbsDimension x="1" y="-1" />
+										</Offset>
+									</Shadow>
+								</FontString>
+							</Layer>
+						</Layers>
+						<NormalTexture file="Interface\Buttons\UI-CheckBox-Up" />
+						<PushedTexture file="Interface\Buttons\UI-CheckBox-Down" />
+						<HighlightTexture file="Interface\Buttons\UI-CheckBox-Highlight" alphaMode="ADD" />
+						<CheckedTexture file="Interface\Buttons\UI-CheckBox-Check" />
+						<DisabledCheckedTexture file="Interface\Buttons\UI-CheckBox-Check-Disabled" />
+					</CheckButton>
+					<CheckButton name="FearCheckbox" inherit="OptionsCheckButtonTemplate">
+						<Anchors>
+							<Anchor point="TOPLEFT" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="30" y="-74"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Size>
+							<AbsDimension x="20" y="20"/>
+						</Size>
+						<Scripts>
+							<OnClick>
+								LastSecondCheckboxHandler(msg, editbox)
+							</OnClick>
+						</Scripts>
+						<Layers>
+							<Layer>
+								<FontString name="$parentText" font="Fonts\FRIZQT__.TTF" text="Fear">
+									<Anchors>
+										<Anchor point="LEFT" relativePoint="RIGHT">
+											<Offset>
+												<AbsDimension x="-2" y="0" />
+											</Offset>
+										</Anchor>
+									</Anchors>
+									<FontHeight>
+										<AbsValue val="10" />
+									</FontHeight>
+								<Color r="1" g="0.8196079" b="0" />
+									<Shadow>
+										<Color r="0" g="0" b="0" />
+										<Offset>
+											<AbsDimension x="1" y="-1" />
+										</Offset>
+									</Shadow>
+								</FontString>
+							</Layer>
+						</Layers>
+						<NormalTexture file="Interface\Buttons\UI-CheckBox-Up" />
+						<PushedTexture file="Interface\Buttons\UI-CheckBox-Down" />
+						<HighlightTexture file="Interface\Buttons\UI-CheckBox-Highlight" alphaMode="ADD" />
+						<CheckedTexture file="Interface\Buttons\UI-CheckBox-Check" />
+						<DisabledCheckedTexture file="Interface\Buttons\UI-CheckBox-Check-Disabled" />
+					</CheckButton>
+					<CheckButton name="HorrorCheckbox" inherit="OptionsCheckButtonTemplate">
+						<Anchors>
+							<Anchor point="TOPLEFT" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="30" y="-90"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Size>
+							<AbsDimension x="20" y="20"/>
+						</Size>
+						<Scripts>
+							<OnClick>
+								LastSecondCheckboxHandler(msg, editbox)
+							</OnClick>
+						</Scripts>
+						<Layers>
+							<Layer>
+								<FontString name="$parentText" font="Fonts\FRIZQT__.TTF" text="Horror">
+									<Anchors>
+										<Anchor point="LEFT" relativePoint="RIGHT">
+											<Offset>
+												<AbsDimension x="-2" y="0" />
+											</Offset>
+										</Anchor>
+									</Anchors>
+									<FontHeight>
+										<AbsValue val="10" />
+									</FontHeight>
+								<Color r="1" g="0.8196079" b="0" />
+									<Shadow>
+										<Color r="0" g="0" b="0" />
+										<Offset>
+											<AbsDimension x="1" y="-1" />
+										</Offset>
+									</Shadow>
+								</FontString>
+							</Layer>
+						</Layers>
+						<NormalTexture file="Interface\Buttons\UI-CheckBox-Up" />
+						<PushedTexture file="Interface\Buttons\UI-CheckBox-Down" />
+						<HighlightTexture file="Interface\Buttons\UI-CheckBox-Highlight" alphaMode="ADD" />
+						<CheckedTexture file="Interface\Buttons\UI-CheckBox-Check" />
+						<DisabledCheckedTexture file="Interface\Buttons\UI-CheckBox-Check-Disabled" />
+					</CheckButton>
+					<CheckButton name="OpenerStunCheckbox" inherit="OptionsCheckButtonTemplate">
+						<Anchors>
+							<Anchor point="TOPLEFT" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="30" y="-106"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Size>
+							<AbsDimension x="20" y="20"/>
+						</Size>
+						<Scripts>
+							<OnClick>
+								LastSecondCheckboxHandler(msg, editbox)
+							</OnClick>
+						</Scripts>
+						<Layers>
+							<Layer>
+								<FontString name="$parentText" font="Fonts\FRIZQT__.TTF" text="Opener Stun">
+									<Anchors>
+										<Anchor point="LEFT" relativePoint="RIGHT">
+											<Offset>
+												<AbsDimension x="-2" y="0" />
+											</Offset>
+										</Anchor>
+									</Anchors>
+									<FontHeight>
+										<AbsValue val="10" />
+									</FontHeight>
+								<Color r="1" g="0.8196079" b="0" />
+									<Shadow>
+										<Color r="0" g="0" b="0" />
+										<Offset>
+											<AbsDimension x="1" y="-1" />
+										</Offset>
+									</Shadow>
+								</FontString>
+							</Layer>
+						</Layers>
+						<NormalTexture file="Interface\Buttons\UI-CheckBox-Up" />
+						<PushedTexture file="Interface\Buttons\UI-CheckBox-Down" />
+						<HighlightTexture file="Interface\Buttons\UI-CheckBox-Highlight" alphaMode="ADD" />
+						<CheckedTexture file="Interface\Buttons\UI-CheckBox-Check" />
+						<DisabledCheckedTexture file="Interface\Buttons\UI-CheckBox-Check-Disabled" />
+					</CheckButton>
+					<CheckButton name="RandomRootCheckbox" inherit="OptionsCheckButtonTemplate">
+						<Anchors>
+							<Anchor point="TOPLEFT" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="30" y="-122"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Size>
+							<AbsDimension x="20" y="20"/>
+						</Size>
+						<Scripts>
+							<OnClick>
+								LastSecondCheckboxHandler(msg, editbox)
+							</OnClick>
+						</Scripts>
+						<Layers>
+							<Layer>
+								<FontString name="$parentText" font="Fonts\FRIZQT__.TTF" text="Random Root">
+									<Anchors>
+										<Anchor point="LEFT" relativePoint="RIGHT">
+											<Offset>
+												<AbsDimension x="-2" y="0" />
+											</Offset>
+										</Anchor>
+									</Anchors>
+									<FontHeight>
+										<AbsValue val="10" />
+									</FontHeight>
+								<Color r="1" g="0.8196079" b="0" />
+									<Shadow>
+										<Color r="0" g="0" b="0" />
+										<Offset>
+											<AbsDimension x="1" y="-1" />
+										</Offset>
+									</Shadow>
+								</FontString>
+							</Layer>
+						</Layers>
+						<NormalTexture file="Interface\Buttons\UI-CheckBox-Up" />
+						<PushedTexture file="Interface\Buttons\UI-CheckBox-Down" />
+						<HighlightTexture file="Interface\Buttons\UI-CheckBox-Highlight" alphaMode="ADD" />
+						<CheckedTexture file="Interface\Buttons\UI-CheckBox-Check" />
+						<DisabledCheckedTexture file="Interface\Buttons\UI-CheckBox-Check-Disabled" />
+					</CheckButton>
+					<CheckButton name="RandomStunCheckbox" inherit="OptionsCheckButtonTemplate">
+						<Anchors>
+							<Anchor point="TOPLEFT" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="30" y="-138"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Size>
+							<AbsDimension x="20" y="20"/>
+						</Size>
+						<Scripts>
+							<OnClick>
+								LastSecondCheckboxHandler(msg, editbox)
+							</OnClick>
+						</Scripts>
+						<Layers>
+							<Layer>
+								<FontString name="$parentText" font="Fonts\FRIZQT__.TTF" text="Random Stun">
+									<Anchors>
+										<Anchor point="LEFT" relativePoint="RIGHT">
+											<Offset>
+												<AbsDimension x="-2" y="0" />
+											</Offset>
+										</Anchor>
+									</Anchors>
+									<FontHeight>
+										<AbsValue val="10" />
+									</FontHeight>
+								<Color r="1" g="0.8196079" b="0" />
+									<Shadow>
+										<Color r="0" g="0" b="0" />
+										<Offset>
+											<AbsDimension x="1" y="-1" />
+										</Offset>
+									</Shadow>
+								</FontString>
+							</Layer>
+						</Layers>
+						<NormalTexture file="Interface\Buttons\UI-CheckBox-Up" />
+						<PushedTexture file="Interface\Buttons\UI-CheckBox-Down" />
+						<HighlightTexture file="Interface\Buttons\UI-CheckBox-Highlight" alphaMode="ADD" />
+						<CheckedTexture file="Interface\Buttons\UI-CheckBox-Check" />
+						<DisabledCheckedTexture file="Interface\Buttons\UI-CheckBox-Check-Disabled" />
+					</CheckButton>
+					<CheckButton name="SilenceCheckbox" inherit="OptionsCheckButtonTemplate">
+						<Anchors>
+							<Anchor point="TOPLEFT" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="30" y="-154"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Size>
+							<AbsDimension x="20" y="20"/>
+						</Size>
+						<Scripts>
+							<OnClick>
+								LastSecondCheckboxHandler(msg, editbox)
+							</OnClick>
+						</Scripts>
+						<Layers>
+							<Layer>
+								<FontString name="$parentText" font="Fonts\FRIZQT__.TTF" text="Silence">
+									<Anchors>
+										<Anchor point="LEFT" relativePoint="RIGHT">
+											<Offset>
+												<AbsDimension x="-2" y="0" />
+											</Offset>
+										</Anchor>
+									</Anchors>
+									<FontHeight>
+										<AbsValue val="10" />
+									</FontHeight>
+								<Color r="1" g="0.8196079" b="0" />
+									<Shadow>
+										<Color r="0" g="0" b="0" />
+										<Offset>
+											<AbsDimension x="1" y="-1" />
+										</Offset>
+									</Shadow>
+								</FontString>
+							</Layer>
+						</Layers>
+						<NormalTexture file="Interface\Buttons\UI-CheckBox-Up" />
+						<PushedTexture file="Interface\Buttons\UI-CheckBox-Down" />
+						<HighlightTexture file="Interface\Buttons\UI-CheckBox-Highlight" alphaMode="ADD" />
+						<CheckedTexture file="Interface\Buttons\UI-CheckBox-Check" />
+						<DisabledCheckedTexture file="Interface\Buttons\UI-CheckBox-Check-Disabled" />
+					</CheckButton>
+					<CheckButton name="BanishCheckbox" inherit="OptionsCheckButtonTemplate">
+						<Anchors>
+							<Anchor point="TOPLEFT" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="30" y="-170"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Size>
+							<AbsDimension x="20" y="20"/>
+						</Size>
+						<Scripts>
+							<OnClick>
+								LastSecondCheckboxHandler(msg, editbox)
+							</OnClick>
+						</Scripts>
+						<Layers>
+							<Layer>
+								<FontString name="$parentText" font="Fonts\FRIZQT__.TTF" text="Banish">
+									<Anchors>
+										<Anchor point="LEFT" relativePoint="RIGHT">
+											<Offset>
+												<AbsDimension x="-2" y="0" />
+											</Offset>
+										</Anchor>
+									</Anchors>
+									<FontHeight>
+										<AbsValue val="10" />
+									</FontHeight>
+								<Color r="1" g="0.8196079" b="0" />
+									<Shadow>
+										<Color r="0" g="0" b="0" />
+										<Offset>
+											<AbsDimension x="1" y="-1" />
+										</Offset>
+									</Shadow>
+								</FontString>
+							</Layer>
+						</Layers>
+						<NormalTexture file="Interface\Buttons\UI-CheckBox-Up" />
+						<PushedTexture file="Interface\Buttons\UI-CheckBox-Down" />
+						<HighlightTexture file="Interface\Buttons\UI-CheckBox-Highlight" alphaMode="ADD" />
+						<CheckedTexture file="Interface\Buttons\UI-CheckBox-Check" />
+						<DisabledCheckedTexture file="Interface\Buttons\UI-CheckBox-Check-Disabled" />
+					</CheckButton>
+					<CheckButton name="ChargeCheckbox" inherit="OptionsCheckButtonTemplate">
+						<Anchors>
+							<Anchor point="TOPLEFT" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="30" y="-186"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Size>
+							<AbsDimension x="20" y="20"/>
+						</Size>
+						<Scripts>
+							<OnClick>
+								LastSecondCheckboxHandler(msg, editbox)
+							</OnClick>
+						</Scripts>
+						<Layers>
+							<Layer>
+								<FontString name="$parentText" font="Fonts\FRIZQT__.TTF" text="Charge">
+									<Anchors>
+										<Anchor point="LEFT" relativePoint="RIGHT">
+											<Offset>
+												<AbsDimension x="-2" y="0" />
+											</Offset>
+										</Anchor>
+									</Anchors>
+									<FontHeight>
+										<AbsValue val="10" />
+									</FontHeight>
+								<Color r="1" g="0.8196079" b="0" />
+									<Shadow>
+										<Color r="0" g="0" b="0" />
+										<Offset>
+											<AbsDimension x="1" y="-1" />
+										</Offset>
+									</Shadow>
+								</FontString>
+							</Layer>
+						</Layers>
+						<NormalTexture file="Interface\Buttons\UI-CheckBox-Up" />
+						<PushedTexture file="Interface\Buttons\UI-CheckBox-Down" />
+						<HighlightTexture file="Interface\Buttons\UI-CheckBox-Highlight" alphaMode="ADD" />
+						<CheckedTexture file="Interface\Buttons\UI-CheckBox-Check" />
+						<DisabledCheckedTexture file="Interface\Buttons\UI-CheckBox-Check-Disabled" />
+					</CheckButton>
+					<CheckButton name="CycloneCheckbox" inherit="OptionsCheckButtonTemplate">
+						<Anchors>
+							<Anchor point="TOPLEFT" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="30" y="-202"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Size>
+							<AbsDimension x="20" y="20"/>
+						</Size>
+						<Scripts>
+							<OnClick>
+								LastSecondCheckboxHandler(msg, editbox)
+							</OnClick>
+						</Scripts>
+						<Layers>
+							<Layer>
+								<FontString name="$parentText" font="Fonts\FRIZQT__.TTF" text="Cyclone">
+									<Anchors>
+										<Anchor point="LEFT" relativePoint="RIGHT">
+											<Offset>
+												<AbsDimension x="-2" y="0" />
+											</Offset>
+										</Anchor>
+									</Anchors>
+									<FontHeight>
+										<AbsValue val="10" />
+									</FontHeight>
+								<Color r="1" g="0.8196079" b="0" />
+									<Shadow>
+										<Color r="0" g="0" b="0" />
+										<Offset>
+											<AbsDimension x="1" y="-1" />
+										</Offset>
+									</Shadow>
+								</FontString>
+							</Layer>
+						</Layers>
+						<NormalTexture file="Interface\Buttons\UI-CheckBox-Up" />
+						<PushedTexture file="Interface\Buttons\UI-CheckBox-Down" />
+						<HighlightTexture file="Interface\Buttons\UI-CheckBox-Highlight" alphaMode="ADD" />
+						<CheckedTexture file="Interface\Buttons\UI-CheckBox-Check" />
+						<DisabledCheckedTexture file="Interface\Buttons\UI-CheckBox-Check-Disabled" />
+					</CheckButton>
+					<CheckButton name="HibernateCheckbox" inherit="OptionsCheckButtonTemplate">
+						<Anchors>
+							<Anchor point="TOPLEFT" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="30" y="-218"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Size>
+							<AbsDimension x="20" y="20"/>
+						</Size>
+						<Scripts>
+							<OnClick>
+								LastSecondCheckboxHandler(msg, editbox)
+							</OnClick>
+						</Scripts>
+						<Layers>
+							<Layer>
+								<FontString name="$parentText" font="Fonts\FRIZQT__.TTF" text="Hibernate">
+									<Anchors>
+										<Anchor point="LEFT" relativePoint="RIGHT">
+											<Offset>
+												<AbsDimension x="-2" y="0" />
+											</Offset>
+										</Anchor>
+									</Anchors>
+									<FontHeight>
+										<AbsValue val="10" />
+									</FontHeight>
+								<Color r="1" g="0.8196079" b="0" />
+									<Shadow>
+										<Color r="0" g="0" b="0" />
+										<Offset>
+											<AbsDimension x="1" y="-1" />
+										</Offset>
+									</Shadow>
+								</FontString>
+							</Layer>
+						</Layers>
+						<NormalTexture file="Interface\Buttons\UI-CheckBox-Up" />
+						<PushedTexture file="Interface\Buttons\UI-CheckBox-Down" />
+						<HighlightTexture file="Interface\Buttons\UI-CheckBox-Highlight" alphaMode="ADD" />
+						<CheckedTexture file="Interface\Buttons\UI-CheckBox-Check" />
+						<DisabledCheckedTexture file="Interface\Buttons\UI-CheckBox-Check-Disabled" />
+					</CheckButton>
+					<CheckButton name="EntrapmentCheckbox" inherit="OptionsCheckButtonTemplate">
+						<Anchors>
+							<Anchor point="TOPLEFT" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="30" y="-234"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Size>
+							<AbsDimension x="20" y="20"/>
+						</Size>
+						<Scripts>
+							<OnClick>
+								LastSecondCheckboxHandler(msg, editbox)
+							</OnClick>
+						</Scripts>
+						<Layers>
+							<Layer>
+								<FontString name="$parentText" font="Fonts\FRIZQT__.TTF" text="Entrapment">
+									<Anchors>
+										<Anchor point="LEFT" relativePoint="RIGHT">
+											<Offset>
+												<AbsDimension x="-2" y="0" />
+											</Offset>
+										</Anchor>
+									</Anchors>
+									<FontHeight>
+										<AbsValue val="10" />
+									</FontHeight>
+								<Color r="1" g="0.8196079" b="0" />
+									<Shadow>
+										<Color r="0" g="0" b="0" />
+										<Offset>
+											<AbsDimension x="1" y="-1" />
+										</Offset>
+									</Shadow>
+								</FontString>
+							</Layer>
+						</Layers>
+						<NormalTexture file="Interface\Buttons\UI-CheckBox-Up" />
+						<PushedTexture file="Interface\Buttons\UI-CheckBox-Down" />
+						<HighlightTexture file="Interface\Buttons\UI-CheckBox-Highlight" alphaMode="ADD" />
+						<CheckedTexture file="Interface\Buttons\UI-CheckBox-Check" />
+						<DisabledCheckedTexture file="Interface\Buttons\UI-CheckBox-Check-Disabled" />
+					</CheckButton>
+					<CheckButton name="ScattershotCheckbox" inherit="OptionsCheckButtonTemplate">
+						<Anchors>
+							<Anchor point="TOPLEFT" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="30" y="-250"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Size>
+							<AbsDimension x="20" y="20"/>
+						</Size>
+						<Scripts>
+							<OnClick>
+								LastSecondCheckboxHandler(msg, editbox)
+							</OnClick>
+						</Scripts>
+						<Layers>
+							<Layer>
+								<FontString name="$parentText" font="Fonts\FRIZQT__.TTF" text="Scattershot">
+									<Anchors>
+										<Anchor point="LEFT" relativePoint="RIGHT">
+											<Offset>
+												<AbsDimension x="-2" y="0" />
+											</Offset>
+										</Anchor>
+									</Anchors>
+									<FontHeight>
+										<AbsValue val="10" />
+									</FontHeight>
+								<Color r="1" g="0.8196079" b="0" />
+									<Shadow>
+										<Color r="0" g="0" b="0" />
+										<Offset>
+											<AbsDimension x="1" y="-1" />
+										</Offset>
+									</Shadow>
+								</FontString>
+							</Layer>
+						</Layers>
+						<NormalTexture file="Interface\Buttons\UI-CheckBox-Up" />
+						<PushedTexture file="Interface\Buttons\UI-CheckBox-Down" />
+						<HighlightTexture file="Interface\Buttons\UI-CheckBox-Highlight" alphaMode="ADD" />
+						<CheckedTexture file="Interface\Buttons\UI-CheckBox-Check" />
+						<DisabledCheckedTexture file="Interface\Buttons\UI-CheckBox-Check-Disabled" />
+					</CheckButton>
+					<CheckButton name="MindControlCheckbox" inherit="OptionsCheckButtonTemplate">
+						<Anchors>
+							<Anchor point="TOPLEFT" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="30" y="-266"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Size>
+							<AbsDimension x="20" y="20"/>
+						</Size>
+						<Scripts>
+							<OnClick>
+								LastSecondCheckboxHandler(msg, editbox)
+							</OnClick>
+						</Scripts>
+						<Layers>
+							<Layer>
+								<FontString name="$parentText" font="Fonts\FRIZQT__.TTF" text="Mind Control">
+									<Anchors>
+										<Anchor point="LEFT" relativePoint="RIGHT">
+											<Offset>
+												<AbsDimension x="-2" y="0" />
+											</Offset>
+										</Anchor>
+									</Anchors>
+									<FontHeight>
+										<AbsValue val="10" />
+									</FontHeight>
+								<Color r="1" g="0.8196079" b="0" />
+									<Shadow>
+										<Color r="0" g="0" b="0" />
+										<Offset>
+											<AbsDimension x="1" y="-1" />
+										</Offset>
+									</Shadow>
+								</FontString>
+							</Layer>
+						</Layers>
+						<NormalTexture file="Interface\Buttons\UI-CheckBox-Up" />
+						<PushedTexture file="Interface\Buttons\UI-CheckBox-Down" />
+						<HighlightTexture file="Interface\Buttons\UI-CheckBox-Highlight" alphaMode="ADD" />
+						<CheckedTexture file="Interface\Buttons\UI-CheckBox-Check" />
+						<DisabledCheckedTexture file="Interface\Buttons\UI-CheckBox-Check-Disabled" />
+					</CheckButton>
+				</Frames>
+			</Frame>
+			<Frame name="LastSecondLeftListBackground">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativePoint="TOPLEFT">
+						<Offset>
+							<AbsDimension x="5" y="-90"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="200" y="325"/>
+				</Size>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" title="true"
+				edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+					<TileSize>
+						<AbsValue val="11"/>
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="11"/>
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Frames>
+					<Frame name="LastSecondLeftListText1">
+						<Anchors>
+							<Anchor point="TOP" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="0" y="0"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Size>
+							<AbsDimension x="250" y="20"/>
+						</Size>
+						<Layers>
+							<Layer level="OVERLAY">
+								<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="LEFT" setAllPoints="true"
+								text="                               In The Arena"/>
+							</Layer>
+						</Layers>
+					</Frame>
+					<CheckButton name="SelfEnableArenaCheckbox" inherit="OptionsCheckButtonTemplate">
+						<Anchors>
+							<Anchor point="TOPLEFT" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="30" y="-16"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Size>
+							<AbsDimension x="20" y="20"/>
+						</Size>
+						<Scripts>
+							<OnClick>
+								LastSecondCheckboxHandler(msg, editbox)
+							</OnClick>
+						</Scripts>
+						<Layers>
+							<Layer>
+								<FontString name="$parentText" font="Fonts\FRIZQT__.TTF" text="Show DR for self">
+									<Anchors>
+										<Anchor point="LEFT" relativePoint="RIGHT">
+											<Offset>
+												<AbsDimension x="-2" y="0" />
+											</Offset>
+										</Anchor>
+									</Anchors>
+									<FontHeight>
+										<AbsValue val="10" />
+									</FontHeight>
+								<Color r="1" g="0.8196079" b="0" />
+									<Shadow>
+										<Color r="0" g="0" b="0" />
+										<Offset>
+											<AbsDimension x="1" y="-1" />
+										</Offset>
+									</Shadow>
+								</FontString>
+							</Layer>
+						</Layers>
+						<NormalTexture file="Interface\Buttons\UI-CheckBox-Up" />
+						<PushedTexture file="Interface\Buttons\UI-CheckBox-Down" />
+						<HighlightTexture file="Interface\Buttons\UI-CheckBox-Highlight" alphaMode="ADD" />
+						<CheckedTexture file="Interface\Buttons\UI-CheckBox-Check" />
+						<DisabledCheckedTexture file="Interface\Buttons\UI-CheckBox-Check-Disabled" />
+					</CheckButton>
+					<CheckButton name="PartyEnableArenaCheckbox" inherit="OptionsCheckButtonTemplate">
+						<Anchors>
+							<Anchor point="TOPLEFT" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="30" y="-32"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Size>
+							<AbsDimension x="20" y="20"/>
+						</Size>
+						<Scripts>
+							<OnClick>
+								LastSecondCheckboxHandler(msg, editbox)
+							</OnClick>
+						</Scripts>
+						<Layers>
+							<Layer>
+								<FontString name="$parentText" font="Fonts\FRIZQT__.TTF" text="Show DR for party">
+									<Anchors>
+										<Anchor point="LEFT" relativePoint="RIGHT">
+											<Offset>
+												<AbsDimension x="-2" y="0" />
+											</Offset>
+										</Anchor>
+									</Anchors>
+									<FontHeight>
+										<AbsValue val="10" />
+									</FontHeight>
+								<Color r="1" g="0.8196079" b="0" />
+									<Shadow>
+										<Color r="0" g="0" b="0" />
+										<Offset>
+											<AbsDimension x="1" y="-1" />
+										</Offset>
+									</Shadow>
+								</FontString>
+							</Layer>
+						</Layers>
+						<NormalTexture file="Interface\Buttons\UI-CheckBox-Up" />
+						<PushedTexture file="Interface\Buttons\UI-CheckBox-Down" />
+						<HighlightTexture file="Interface\Buttons\UI-CheckBox-Highlight" alphaMode="ADD" />
+						<CheckedTexture file="Interface\Buttons\UI-CheckBox-Check" />
+						<DisabledCheckedTexture file="Interface\Buttons\UI-CheckBox-Check-Disabled" />
+					</CheckButton>
+					<CheckButton name="OpponentEnableArenaCheckbox" inherit="OptionsCheckButtonTemplate">
+						<Anchors>
+							<Anchor point="TOPLEFT" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="30" y="-48"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Size>
+							<AbsDimension x="20" y="20"/>
+						</Size>
+						<Scripts>
+							<OnClick>
+								LastSecondCheckboxHandler(msg, editbox)
+							</OnClick>
+						</Scripts>
+						<Layers>
+							<Layer>
+								<FontString name="$parentText" font="Fonts\FRIZQT__.TTF" text="Show DR for opponents">
+									<Anchors>
+										<Anchor point="LEFT" relativePoint="RIGHT">
+											<Offset>
+												<AbsDimension x="-2" y="0" />
+											</Offset>
+										</Anchor>
+									</Anchors>
+									<FontHeight>
+										<AbsValue val="10" />
+									</FontHeight>
+								<Color r="1" g="0.8196079" b="0" />
+									<Shadow>
+										<Color r="0" g="0" b="0" />
+										<Offset>
+											<AbsDimension x="1" y="-1" />
+										</Offset>
+									</Shadow>
+								</FontString>
+							</Layer>
+						</Layers>
+						<NormalTexture file="Interface\Buttons\UI-CheckBox-Up" />
+						<PushedTexture file="Interface\Buttons\UI-CheckBox-Down" />
+						<HighlightTexture file="Interface\Buttons\UI-CheckBox-Highlight" alphaMode="ADD" />
+						<CheckedTexture file="Interface\Buttons\UI-CheckBox-Check" />
+						<DisabledCheckedTexture file="Interface\Buttons\UI-CheckBox-Check-Disabled" />
+					</CheckButton>
+					<CheckButton name="TargetEnableArenaCheckbox" inherit="OptionsCheckButtonTemplate">
+						<Anchors>
+							<Anchor point="TOPLEFT" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="30" y="-64"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Size>
+							<AbsDimension x="20" y="20"/>
+						</Size>
+						<Scripts>
+							<OnClick>
+								LastSecondCheckboxHandler(msg, editbox)
+							</OnClick>
+						</Scripts>
+						<Layers>
+							<Layer>
+								<FontString name="$parentText" font="Fonts\FRIZQT__.TTF" text="Show DR for target">
+									<Anchors>
+										<Anchor point="LEFT" relativePoint="RIGHT">
+											<Offset>
+												<AbsDimension x="-2" y="0" />
+											</Offset>
+										</Anchor>
+									</Anchors>
+									<FontHeight>
+										<AbsValue val="10" />
+									</FontHeight>
+								<Color r="1" g="0.8196079" b="0" />
+									<Shadow>
+										<Color r="0" g="0" b="0" />
+										<Offset>
+											<AbsDimension x="1" y="-1" />
+										</Offset>
+									</Shadow>
+								</FontString>
+							</Layer>
+						</Layers>
+						<NormalTexture file="Interface\Buttons\UI-CheckBox-Up" />
+						<PushedTexture file="Interface\Buttons\UI-CheckBox-Down" />
+						<HighlightTexture file="Interface\Buttons\UI-CheckBox-Highlight" alphaMode="ADD" />
+						<CheckedTexture file="Interface\Buttons\UI-CheckBox-Check" />
+						<DisabledCheckedTexture file="Interface\Buttons\UI-CheckBox-Check-Disabled" />
+					</CheckButton>
+					<CheckButton name="FocusEnableArenaCheckbox" inherit="OptionsCheckButtonTemplate">
+						<Anchors>
+							<Anchor point="TOPLEFT" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="30" y="-80"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Size>
+							<AbsDimension x="20" y="20"/>
+						</Size>
+						<Scripts>
+							<OnClick>
+								LastSecondCheckboxHandler(msg, editbox)
+							</OnClick>
+						</Scripts>
+						<Layers>
+							<Layer>
+								<FontString name="$parentText" font="Fonts\FRIZQT__.TTF" text="Show DR for focus">
+									<Anchors>
+										<Anchor point="LEFT" relativePoint="RIGHT">
+											<Offset>
+												<AbsDimension x="-2" y="0" />
+											</Offset>
+										</Anchor>
+									</Anchors>
+									<FontHeight>
+										<AbsValue val="10" />
+									</FontHeight>
+								<Color r="1" g="0.8196079" b="0" />
+									<Shadow>
+										<Color r="0" g="0" b="0" />
+										<Offset>
+											<AbsDimension x="1" y="-1" />
+										</Offset>
+									</Shadow>
+								</FontString>
+							</Layer>
+						</Layers>
+						<NormalTexture file="Interface\Buttons\UI-CheckBox-Up" />
+						<PushedTexture file="Interface\Buttons\UI-CheckBox-Down" />
+						<HighlightTexture file="Interface\Buttons\UI-CheckBox-Highlight" alphaMode="ADD" />
+						<CheckedTexture file="Interface\Buttons\UI-CheckBox-Check" />
+						<DisabledCheckedTexture file="Interface\Buttons\UI-CheckBox-Check-Disabled" />
+					</CheckButton>
+					<Frame name="LastSecondLeftListText2">
+						<Anchors>
+							<Anchor point="TOP" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="0" y="-92"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Size>
+							<AbsDimension x="250" y="20"/>
+						</Size>
+						<Layers>
+							<Layer level="OVERLAY">
+								<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="LEFT" setAllPoints="true"
+								text="                                       Outside The Arena"/>
+							</Layer>
+						</Layers>
+					</Frame>
+					<CheckButton name="SelfEnableOtherCheckbox" inherit="OptionsCheckButtonTemplate">
+						<Anchors>
+							<Anchor point="TOPLEFT" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="30" y="-106"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Size>
+							<AbsDimension x="20" y="20"/>
+						</Size>
+						<Scripts>
+							<OnClick>
+								LastSecondCheckboxHandler(msg, editbox)
+							</OnClick>
+						</Scripts>
+						<Layers>
+							<Layer>
+								<FontString name="$parentText" font="Fonts\FRIZQT__.TTF" text="Show DR for self">
+									<Anchors>
+										<Anchor point="LEFT" relativePoint="RIGHT">
+											<Offset>
+												<AbsDimension x="-2" y="0" />
+											</Offset>
+										</Anchor>
+									</Anchors>
+									<FontHeight>
+										<AbsValue val="10" />
+									</FontHeight>
+								<Color r="1" g="0.8196079" b="0" />
+									<Shadow>
+										<Color r="0" g="0" b="0" />
+										<Offset>
+											<AbsDimension x="1" y="-1" />
+										</Offset>
+									</Shadow>
+								</FontString>
+							</Layer>
+						</Layers>
+						<NormalTexture file="Interface\Buttons\UI-CheckBox-Up" />
+						<PushedTexture file="Interface\Buttons\UI-CheckBox-Down" />
+						<HighlightTexture file="Interface\Buttons\UI-CheckBox-Highlight" alphaMode="ADD" />
+						<CheckedTexture file="Interface\Buttons\UI-CheckBox-Check" />
+						<DisabledCheckedTexture file="Interface\Buttons\UI-CheckBox-Check-Disabled" />
+					</CheckButton>
+					<CheckButton name="PartyEnableOtherCheckbox" inherit="OptionsCheckButtonTemplate">
+						<Anchors>
+							<Anchor point="TOPLEFT" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="30" y="-122"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Size>
+							<AbsDimension x="20" y="20"/>
+						</Size>
+						<Scripts>
+							<OnClick>
+								LastSecondCheckboxHandler(msg, editbox)
+							</OnClick>
+						</Scripts>
+						<Layers>
+							<Layer>
+								<FontString name="$parentText" font="Fonts\FRIZQT__.TTF" text="Show DR for party">
+									<Anchors>
+										<Anchor point="LEFT" relativePoint="RIGHT">
+											<Offset>
+												<AbsDimension x="-2" y="0" />
+											</Offset>
+										</Anchor>
+									</Anchors>
+									<FontHeight>
+										<AbsValue val="10" />
+									</FontHeight>
+								<Color r="1" g="0.8196079" b="0" />
+									<Shadow>
+										<Color r="0" g="0" b="0" />
+										<Offset>
+											<AbsDimension x="1" y="-1" />
+										</Offset>
+									</Shadow>
+								</FontString>
+							</Layer>
+						</Layers>
+						<NormalTexture file="Interface\Buttons\UI-CheckBox-Up" />
+						<PushedTexture file="Interface\Buttons\UI-CheckBox-Down" />
+						<HighlightTexture file="Interface\Buttons\UI-CheckBox-Highlight" alphaMode="ADD" />
+						<CheckedTexture file="Interface\Buttons\UI-CheckBox-Check" />
+						<DisabledCheckedTexture file="Interface\Buttons\UI-CheckBox-Check-Disabled" />
+					</CheckButton>
+					<CheckButton name="TargetEnableOtherCheckbox" inherit="OptionsCheckButtonTemplate">
+						<Anchors>
+							<Anchor point="TOPLEFT" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="30" y="-138"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Size>
+							<AbsDimension x="20" y="20"/>
+						</Size>
+						<Scripts>
+							<OnClick>
+								LastSecondCheckboxHandler(msg, editbox)
+							</OnClick>
+						</Scripts>
+						<Layers>
+							<Layer>
+								<FontString name="$parentText" font="Fonts\FRIZQT__.TTF" text="Show DR for target">
+									<Anchors>
+										<Anchor point="LEFT" relativePoint="RIGHT">
+											<Offset>
+												<AbsDimension x="-2" y="0" />
+											</Offset>
+										</Anchor>
+									</Anchors>
+									<FontHeight>
+										<AbsValue val="10" />
+									</FontHeight>
+								<Color r="1" g="0.8196079" b="0" />
+									<Shadow>
+										<Color r="0" g="0" b="0" />
+										<Offset>
+											<AbsDimension x="1" y="-1" />
+										</Offset>
+									</Shadow>
+								</FontString>
+							</Layer>
+						</Layers>
+						<NormalTexture file="Interface\Buttons\UI-CheckBox-Up" />
+						<PushedTexture file="Interface\Buttons\UI-CheckBox-Down" />
+						<HighlightTexture file="Interface\Buttons\UI-CheckBox-Highlight" alphaMode="ADD" />
+						<CheckedTexture file="Interface\Buttons\UI-CheckBox-Check" />
+						<DisabledCheckedTexture file="Interface\Buttons\UI-CheckBox-Check-Disabled" />
+					</CheckButton>
+					<CheckButton name="FocusEnableOtherCheckbox" inherit="OptionsCheckButtonTemplate">
+						<Anchors>
+							<Anchor point="TOPLEFT" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="30" y="-154"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Size>
+							<AbsDimension x="20" y="20"/>
+						</Size>
+						<Scripts>
+							<OnClick>
+								LastSecondCheckboxHandler(msg, editbox)
+							</OnClick>
+						</Scripts>
+						<Layers>
+							<Layer>
+								<FontString name="$parentText" font="Fonts\FRIZQT__.TTF" text="Show DR for focus">
+									<Anchors>
+										<Anchor point="LEFT" relativePoint="RIGHT">
+											<Offset>
+												<AbsDimension x="-2" y="0" />
+											</Offset>
+										</Anchor>
+									</Anchors>
+									<FontHeight>
+										<AbsValue val="10" />
+									</FontHeight>
+								<Color r="1" g="0.8196079" b="0" />
+									<Shadow>
+										<Color r="0" g="0" b="0" />
+										<Offset>
+											<AbsDimension x="1" y="-1" />
+										</Offset>
+									</Shadow>
+								</FontString>
+							</Layer>
+						</Layers>
+						<NormalTexture file="Interface\Buttons\UI-CheckBox-Up" />
+						<PushedTexture file="Interface\Buttons\UI-CheckBox-Down" />
+						<HighlightTexture file="Interface\Buttons\UI-CheckBox-Highlight" alphaMode="ADD" />
+						<CheckedTexture file="Interface\Buttons\UI-CheckBox-Check" />
+						<DisabledCheckedTexture file="Interface\Buttons\UI-CheckBox-Check-Disabled" />
+					</CheckButton>
+					<CheckButton name="ReEnableLoginScreenCheckbox" inherit="OptionsCheckButtonTemplate">
+						<Anchors>
+							<Anchor point="TOPLEFT" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="30" y="-303"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Size>
+							<AbsDimension x="20" y="20"/>
+						</Size>
+						<Scripts>
+							<OnClick>
+								LastSecondCheckboxHandler(msg, editbox)
+							</OnClick>
+						</Scripts>
+						<Layers>
+							<Layer>
+								<FontString name="$parentText" font="Fonts\FRIZQT__.TTF" text="Re Enable Login Window">
+									<Anchors>
+										<Anchor point="LEFT" relativePoint="RIGHT">
+											<Offset>
+												<AbsDimension x="-2" y="0" />
+											</Offset>
+										</Anchor>
+									</Anchors>
+									<FontHeight>
+										<AbsValue val="10" />
+									</FontHeight>
+								<Color r="1" g="0.8196079" b="0" />
+									<Shadow>
+										<Color r="0" g="0" b="0" />
+										<Offset>
+											<AbsDimension x="1" y="-1" />
+										</Offset>
+									</Shadow>
+								</FontString>
+							</Layer>
+						</Layers>
+						<NormalTexture file="Interface\Buttons\UI-CheckBox-Up" />
+						<PushedTexture file="Interface\Buttons\UI-CheckBox-Down" />
+						<HighlightTexture file="Interface\Buttons\UI-CheckBox-Highlight" alphaMode="ADD" />
+						<CheckedTexture file="Interface\Buttons\UI-CheckBox-Check" />
+						<DisabledCheckedTexture file="Interface\Buttons\UI-CheckBox-Check-Disabled" />
+					</CheckButton>
+					<Frame name="LastSecondLeftListText3">
+						<Anchors>
+							<Anchor point="TOP" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="0" y="-169"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Size>
+							<AbsDimension x="250" y="20"/>
+						</Size>
+						<Layers>
+							<Layer level="OVERLAY">
+								<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="LEFT" setAllPoints="true"
+								text="                                       Display Orientation"/>
+							</Layer>
+						</Layers>
+					</Frame>
+					<Frame name="SelfText">
+						<Anchors>
+							<Anchor point="TOP" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="0" y="-185"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Size>
+							<AbsDimension x="250" y="20"/>
+						</Size>
+						<Layers>
+							<Layer level="OVERLAY">
+								<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="LEFT" setAllPoints="true"
+								text="                                       Self Display"/>
+							</Layer>
+						</Layers>
+					</Frame>
+					<Button name="SelfLeftAlign" text="Left" inherits="UIPanelButtonTemplate">
+						<Anchors>
+							<Anchor point="TOP" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="120" y="-185"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Scripts>
+							<OnClick>
+								SelfLeftAlign()
+							</OnClick>
+						</Scripts>
+						<Size>
+							<AbsDimension x="50" y="25"/>
+						</Size>
+					</Button>
+					<Button name="SelfRightAlign" text="Right" inherits="UIPanelButtonTemplate">
+						<Anchors>
+							<Anchor point="TOP" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="170" y="-185"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Scripts>
+							<OnClick>
+								SelfRightAlign()
+							</OnClick>
+						</Scripts>
+						<Size>
+							<AbsDimension x="50" y="25"/>
+						</Size>
+					</Button>
+					<Frame name="PartyText">
+						<Anchors>
+							<Anchor point="TOP" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="0" y="-209"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Size>
+							<AbsDimension x="250" y="20"/>
+						</Size>
+						<Layers>
+							<Layer level="OVERLAY">
+								<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="LEFT" setAllPoints="true"
+								text="                                       Party Display"/>
+							</Layer>
+						</Layers>
+					</Frame>
+					<Button name="PartyLeftAlign" text="Left" inherits="UIPanelButtonTemplate">
+						<Anchors>
+							<Anchor point="TOP" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="120" y="-209"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Scripts>
+							<OnClick>
+								PartyLeftAlign()
+							</OnClick>
+						</Scripts>
+						<Size>
+							<AbsDimension x="50" y="25"/>
+						</Size>
+					</Button>
+					<Button name="PartyRightAlign" text="Right" inherits="UIPanelButtonTemplate">
+						<Anchors>
+							<Anchor point="TOP" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="170" y="-209"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Scripts>
+							<OnClick>
+								PartyRightAlign()
+							</OnClick>
+						</Scripts>
+						<Size>
+							<AbsDimension x="50" y="25"/>
+						</Size>
+					</Button>
+					<Frame name="TargetText">
+						<Anchors>
+							<Anchor point="TOP" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="0" y="-233"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Size>
+							<AbsDimension x="250" y="20"/>
+						</Size>
+						<Layers>
+							<Layer level="OVERLAY">
+								<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="LEFT" setAllPoints="true"
+								text="                                       Target Display"/>
+							</Layer>
+						</Layers>
+					</Frame>
+					<Button name="TargetLeftAlign" text="Left" inherits="UIPanelButtonTemplate">
+						<Anchors>
+							<Anchor point="TOP" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="120" y="-233"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Scripts>
+							<OnClick>
+								TargetLeftAlign()
+							</OnClick>
+						</Scripts>
+						<Size>
+							<AbsDimension x="50" y="25"/>
+						</Size>
+					</Button>
+					<Button name="TargetRightAlign" text="Right" inherits="UIPanelButtonTemplate">
+						<Anchors>
+							<Anchor point="TOP" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="170" y="-233"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Scripts>
+							<OnClick>
+								TargetRightAlign()
+							</OnClick>
+						</Scripts>
+						<Size>
+							<AbsDimension x="50" y="25"/>
+						</Size>
+					</Button>
+					<Frame name="ArenaText">
+						<Anchors>
+							<Anchor point="TOP" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="0" y="-257"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Size>
+							<AbsDimension x="250" y="20"/>
+						</Size>
+						<Layers>
+							<Layer level="OVERLAY">
+								<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="LEFT" setAllPoints="true"
+								text="                                       Arena Display"/>
+							</Layer>
+						</Layers>
+					</Frame>
+					<Button name="ArenaLeftAlign" text="Left" inherits="UIPanelButtonTemplate">
+						<Anchors>
+							<Anchor point="TOP" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="120" y="-257"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Scripts>
+							<OnClick>
+								ArenaLeftAlign()
+							</OnClick>
+						</Scripts>
+						<Size>
+							<AbsDimension x="50" y="25"/>
+						</Size>
+					</Button>
+					<Button name="ArenaRightAlign" text="Right" inherits="UIPanelButtonTemplate">
+						<Anchors>
+							<Anchor point="TOP" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="170" y="-257"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Scripts>
+							<OnClick>
+								ArenaRightAlign()
+							</OnClick>
+						</Scripts>
+						<Size>
+							<AbsDimension x="50" y="25"/>
+						</Size>
+					</Button>
+					<Frame name="FocusText">
+						<Anchors>
+							<Anchor point="TOP" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="0" y="-282"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Size>
+							<AbsDimension x="250" y="20"/>
+						</Size>
+						<Layers>
+							<Layer level="OVERLAY">
+								<FontString name="$parentText" inherits="GameFontNormalSmall" justrifyH="LEFT" setAllPoints="true"
+								text="                                       Focus Display"/>
+							</Layer>
+						</Layers>
+					</Frame>
+					<Button name="FocusLeftAlign" text="Left" inherits="UIPanelButtonTemplate">
+						<Anchors>
+							<Anchor point="TOP" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="120" y="-282"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Scripts>
+							<OnClick>
+								FocusLeftAlign()
+							</OnClick>
+						</Scripts>
+						<Size>
+							<AbsDimension x="50" y="25"/>
+						</Size>
+					</Button>
+					<Button name="FocusRightAlign" text="Right" inherits="UIPanelButtonTemplate">
+						<Anchors>
+							<Anchor point="TOP" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="170" y="-282"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Scripts>
+							<OnClick>
+								FocusRightAlign()
+							</OnClick>
+						</Scripts>
+						<Size>
+							<AbsDimension x="50" y="25"/>
+						</Size>
+					</Button>
+				</Frames>
+			</Frame>
+		</Frames>
+        <Scripts>
+            <OnLoad>
+                LastSecondWindow(self)
+            </OnLoad>
+        </Scripts>
+	</Frame>
+</Ui>

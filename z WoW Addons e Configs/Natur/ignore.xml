@@ -1,0 +1,113 @@
+<Ui xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.blizzard.com/wow/ui/">
+	<Script file="ignore.lua" />
+	<Frame name="TimerIgnoreFrame" hidden="true" parent="UIParent" toplevel="true" movable="true">
+		<Size>
+			<AbsDimension x="568" y="220" />
+		</Size>
+		<Anchors>
+			<Anchor point="CENTER" />
+		</Anchors>
+		<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" edgeFile="Interface\DialogFrame\UI-DialogBox-Border" tile="true">
+			<BackgroundInsets>
+				<AbsInset left="11" right="12" top="12" bottom="11" />
+			</BackgroundInsets>
+			<TileSize>
+				<AbsValue val="32" />
+			</TileSize>
+			<EdgeSize>
+				<AbsValue val="32" />
+			</EdgeSize>
+		</Backdrop>
+		<Frames>
+			<EditBox name="SpellNameEditBox" inherits="InputBoxTemplate">
+				<Size>
+					<AbsDimension x="244" y="41" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="140" y="-68" />
+					</Anchor>
+				</Anchors>
+			</EditBox>
+			<Button name="AddSpellButton" inherits="UIPanelButtonTemplate" text="Ignore">
+				<Size>
+					<AbsDimension x="63" y="20" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="403" y="-77" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>AddSpellButton_OnClick();</OnClick>
+				</Scripts>
+			</Button>
+			<Button name="RemoveSpellButton" inherits="UIPanelButtonTemplate" text="Remove">
+				<Size>
+					<AbsDimension x="63" y="20" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="472" y="-77" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>RemoveSpellButton_OnClick();</OnClick>
+				</Scripts>
+			</Button>
+			<Button name="BarSettingsClose" inherits="UIPanelButtonTemplate" text="Finished">
+				<Size>
+					<AbsDimension x="75" y="22" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="244" y="-158" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>BarSettingsClose_OnClick();</OnClick>
+				</Scripts>
+			</Button>
+		</Frames>
+		<Layers>
+			<Layer level="OVERLAY">
+				<FontString name="FontString1" inherits="GameFontNormal" text="Spell/Ability:">
+					<Size>
+						<AbsDimension x="107" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="27" y="-77" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="FontString2" inherits="GameFontNormal" text="Enter the spells full name or ability you wish to be ignored or removed from the ignore list then press the appropriate button to complete the process." justifyH="LEFT">
+					<Size>
+						<AbsDimension x="514" y="40" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="40" y="-22" />
+						</Anchor>
+					</Anchors>
+					<Color r="1" g="1" b="1" />
+				</FontString>
+				<FontString name="IgnoreStatusText" inherits="GameFontNormal" text="" justifyV="TOP" justifyH="LEFT">
+					<Size>
+						<AbsDimension x="395" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="140" y="-103" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+			</Layer>
+		</Layers>
+		<Scripts>
+			<OnLoad>self:RegisterForDrag("LeftButton");</OnLoad>
+			<OnDragStart>self:StartMoving();</OnDragStart>
+			<OnDragStop>self:StopMovingOrSizing();</OnDragStop>
+		</Scripts>
+	</Frame>
+</Ui>

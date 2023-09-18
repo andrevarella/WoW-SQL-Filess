@@ -1,0 +1,6 @@
+## Interface: 30300
+## Title: Spell ID and Item Id
+## Version: 1.01
+## Notes: Adds IDs to Spell and Items in various tooltips ingame
+## Author: General poucos utilizados
+core.lua
