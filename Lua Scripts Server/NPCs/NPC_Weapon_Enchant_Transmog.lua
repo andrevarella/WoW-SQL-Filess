@@ -1555,6 +1555,19 @@ elseif intid == 703 then
    player:GossipComplete()
 
  
+-- achievements de arena:
+-- 401   = 2000 2v2
+-- 1159  = 2200 2v2
+-- 10036 = 2400 2v2
+-- 10037 = 2700 2v2
+-- 10046 = 3000 2v2
+
+-- 405   = 2000 3v3
+-- 1160  = 2200 3v3
+-- 10038 = 2400 3v3
+-- 13039 = 2700 3v3
+-- 10047 = 3000 3v3
+ 
 
  --[[
 Isso é um comentário  -- para "bloquear" varias linhas em lua utiliza: (em c++ é /* */)
