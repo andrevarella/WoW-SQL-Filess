@@ -1,0 +1,849 @@
+local PRETTY_PATCH_LOCALIZATION = {
+	-- class female
+	["SHARED_DEATHKNIGHT_FEMALE"] = {
+		ruRU = "Рыцарь смерти",
+		enGB = "Death Knight",
+		deDE = "Todesritter",
+		esES = "Caballero de la muerte",
+		frFR = "Chevalier de la mort",
+		itIT = "",
+		koKR = "죽음의 기사",
+		ptBR = "",
+		zhCN = "死亡骑士",
+		zhTW = "死亡騎士"
+	},
+	["SHARED_WARRIOR_FEMALE"] = {
+		ruRU = "Воин",
+		enGB = "Warrior",
+		deDE = "Kriegerin",
+		esES = "Guerrera",
+		frFR = "Guerrière",
+		itIT = "",
+		koKR = "전사",
+		ptBR = "",
+		zhCN = "战士",
+		zhTW = "戰士"
+	},
+	["SHARED_ROGUE_FEMALE"] = {
+		ruRU = "Разбойница",
+		enGB = "Rogue",
+		deDE = "Schurkin",
+		esES = "Pícara",
+		frFR = "Voleuse",
+		itIT = "",
+		koKR = "도적",
+		ptBR = "",
+		zhCN = "潜行者",
+		zhTW = "盜賊"
+	},
+	["SHARED_MAGE_FEMALE"] = {
+		ruRU = "Маг",
+		enGB = "Mage",
+		deDE = "Magierin",
+		esES = "Maga",
+		frFR = "Mage",
+		itIT = "",
+		koKR = "마법사",
+		ptBR = "",
+		zhCN = "法师",
+		zhTW = "法師"
+	},
+	["SHARED_PRIEST_FEMALE"] = {
+		ruRU = "Жрица",
+		enGB = "Priest",
+		deDE = "Priesterin",
+		esES = "Sacerdotisa",
+		frFR = "Prêtresse",
+		itIT = "",
+		koKR = "사제",
+		ptBR = "",
+		zhCN = "牧师",
+		zhTW = "牧師"
+	},
+	["SHARED_WARLOCK_FEMALE"] = {
+		ruRU = "Чернокнижница",
+		enGB = "Warlock",
+		deDE = "Hexenmeisterin",
+		esES = "Bruja",
+		frFR = "Démoniste",
+		itIT = "",
+		koKR = "흑마법사",
+		ptBR = "",
+		zhCN = "术士",
+		zhTW = "術士"
+	},
+	["SHARED_HUNTER_FEMALE"] = {
+		ruRU = "Охотница",
+		enGB = "Hunter",
+		deDE = "Jägerin",
+		esES = "Cazadora",
+		frFR = "Chasseresse",
+		itIT = "",
+		koKR = "사냥꾼",
+		ptBR = "",
+		zhCN = "猎人",
+		zhTW = "獵人"
+	},
+	["SHARED_DRUID_FEMALE"] = {
+		ruRU = "Друид",
+		enGB = "Druid",
+		deDE = "Druidin",
+		esES = "Druida",
+		frFR = "Druidesse",
+		itIT = "",
+		koKR = "드루이드",
+		ptBR = "",
+		zhCN = "德鲁伊",
+		zhTW = "德魯伊"
+	},
+	["SHARED_SHAMAN_FEMALE"] = {
+		ruRU = "Шаманка",
+		enGB = "Shaman",
+		deDE = "Schamanin",
+		esES = "Chamán",
+		frFR = "Chamane",
+		itIT = "",
+		koKR = "주술사",
+		ptBR = "",
+		zhCN = "萨满祭司",
+		zhTW = "薩滿"
+	},
+	["SHARED_PALADIN_FEMALE"] = {
+		ruRU = "Паладин",
+		enGB = "Paladin",
+		deDE = "Paladin",
+		esES = "Paladín",
+		frFR = "Paladin",
+		itIT = "",
+		koKR = "성기사",
+		ptBR = "",
+		zhCN = "圣骑士",
+		zhTW = "聖騎士"
+	},
+	-- class male
+	["SHARED_DEATHKNIGHT_MALE"] = {
+		ruRU = "Рыцарь смерти",
+		enGB = "Death Knight",
+		deDE = "Todesritter",
+		esES = "Caballero de la muerte",
+		frFR = "Chevalier de la mort",
+		itIT = "Cavalliere della Morte",
+		koKR = "죽음의 기사",
+		ptBR = "Cavaleiro da Morte",
+		zhCN = "死亡骑士",
+		zhTW = "死亡騎士"
+	},
+	["SHARED_WARRIOR_MALE"] = {
+		ruRU = "Воин",
+		enGB = "Warrior",
+		deDE = "Krieger",
+		esES = "Guerrero",
+		frFR = "Guerrier",
+		itIT = "Guerriero",
+		koKR = "전사",
+		ptBR = "Guerreiro",
+		zhCN = "战士",
+		zhTW = "戰士"
+	},
+	["SHARED_ROGUE_MALE"] = {
+		ruRU = "Разбойник",
+		enGB = "Rogue",
+		deDE = "Schurke",
+		esES = "Pícaro",
+		frFR = "Voleur",
+		itIT = "Ladro",
+		koKR = "도적",
+		ptBR = "Ladino",
+		zhCN = "潜行者",
+		zhTW = "盜賊"
+	},
+	["SHARED_MAGE_MALE"] = {
+		ruRU = "Маг",
+		enGB = "Mage",
+		deDE = "Magier",
+		esES = "Mago",
+		frFR = "Mage",
+		itIT = "Mago",
+		koKR = "마법사",
+		ptBR = "Mago",
+		zhCN = "法师",
+		zhTW = "法師"
+	},
+	["SHARED_PRIEST_MALE"] = {
+		ruRU = "Жрец",
+		enGB = "Priest",
+		deDE = "Priester",
+		esES = "Sacerdote",
+		frFR = "Prêtre",
+		itIT = "Sacerdote",
+		koKR = "사제",
+		ptBR = "Sacerdote",
+		zhCN = "牧师",
+		zhTW = "牧師"
+	},
+	["SHARED_WARLOCK_MALE"] = {
+		ruRU = "Чернокнижник",
+		enGB = "Warlock",
+		deDE = "Hexenmeister",
+		esES = "Brujo",
+		frFR = "Démoniste",
+		itIT = "Stregone",
+		koKR = "흑마법사",
+		ptBR = "Bruxo",
+		zhCN = "术士",
+		zhTW = "術士"
+	},
+	["SHARED_HUNTER_MALE"] = {
+		ruRU = "Охотник",
+		enGB = "Hunter",
+		deDE = "Jäger",
+		esES = "Cazador",
+		frFR = "Chasseur",
+		itIT = "Cacciatore",
+		koKR = "사냥꾼",
+		ptBR = "Caçador",
+		zhCN = "猎人",
+		zhTW = "獵人"
+	},
+	["SHARED_DRUID_MALE"] = {
+		ruRU = "Друид",
+		enGB = "Druid",
+		deDE = "Druide",
+		esES = "Druida",
+		frFR = "Druide",
+		itIT = "Druido",
+		koKR = "드루이드",
+		ptBR = "Druida",
+		zhCN = "德鲁伊",
+		zhTW = "德魯伊"
+	},
+	["SHARED_SHAMAN_MALE"] = {
+		ruRU = "Шаман",
+		enGB = "Shaman",
+		deDE = "Schamane",
+		esES = "Chamán",
+		frFR = "Chaman",
+		itIT = "Sciamano",
+		koKR = "주술사",
+		ptBR = "Xamã",
+		zhCN = "萨满祭司",
+		zhTW = "薩滿"
+	},
+	["SHARED_PALADIN_MALE"] = {
+		ruRU = "Паладин",
+		enGB = "Paladin",
+		deDE = "Paladin",
+		esES = "Paladín",
+		frFR = "Paladin",
+		itIT = "Paladino",
+		koKR = "성기사",
+		ptBR = "Paladino",
+		zhCN = "圣骑士",
+		zhTW = "聖騎士"
+	},
+	["RACE_HUMAN"] = {
+		ruRU = "Человек",
+		enGB = "Human",
+		deDE = "Mensch",
+		esES = "Humano",
+		frFR = "Humain",
+		itIT = "Umano",
+		koKR = "인간",
+		ptBR = "Humano",
+		zhCN = "人类",
+		zhTW = "人類"
+	},
+	["RACE_ORC"] = {
+		ruRU = "Орк",
+		enGB = "Orc",
+		deDE = "Orc",
+		esES = "Orco",
+		frFR = "Orc",
+		itIT = "Orco",
+		koKR = "오크",
+		ptBR = "Orc",
+		zhCN = "兽人",
+		zhTW = "獸人"
+	},
+	["RACE_DWARF"] = {
+		ruRU = "Дворф",
+		enGB = "Dwarf",
+		deDE = "Zwerg",
+		esES = "Enano",
+		frFR = "Nain",
+		itIT = "Nano",
+		koKR = "드워프",
+		ptBR = "Anão",
+		zhCN = "矮人",
+		zhTW = "矮人"
+	},
+	["RACE_NIGHTELF"] = {
+		ruRU = "Ночной эльф",
+		enGB = "Night Elf",
+		deDE = "Nachtelf",
+		esES = "Elfo de la noche",
+		frFR = "Elfe de la nuit",
+		itIT = "Elfo della Notte",
+		koKR = "나이트 엘프",
+		ptBR = "Elfo Noturno",
+		zhCN = "暗夜精灵",
+		zhTW = "夜精靈"
+	},
+	["RACE_SCOURGE"] = {
+		ruRU = "Нежить",
+		enGB = "Undead",
+		deDE = "Untoter",
+		esES = "No-muerto",
+		frFR = "Mort-vivant",
+		itIT = "Non Morto",
+		koKR = "언데드",
+		ptBR = "Morto-vivo",
+		zhCN = "亡灵",
+		zhTW = "不死族"
+	},
+	["RACE_TAUREN"] = {
+		ruRU = "Таурен",
+		enGB = "Tauren",
+		deDE = "Tauren",
+		esES = "Tauren",
+		frFR = "Tauren",
+		itIT = "Tauren",
+		koKR = "타우렌",
+		ptBR = "Tauren",
+		zhCN = "牛头人",
+		zhTW = "牛頭人"
+	},
+	["RACE_GNOME"] = {
+		ruRU = "Гном",
+		enGB = "Gnome",
+		deDE = "Gnom",
+		esES = "Gnomo",
+		frFR = "Gnome",
+		itIT = "Gnomo",
+		koKR = "노움",
+		ptBR = "Gnomo",
+		zhCN = "侏儒",
+		zhTW = "地精"
+	},
+	["RACE_TROLL"] = {
+		ruRU = "Тролль",
+		enGB = "Troll",
+		deDE = "Troll",
+		esES = "Trol",
+		frFR = "Troll",
+		itIT = "Troll",
+		koKR = "트롤",
+		ptBR = "Troll",
+		zhCN = "巨魔",
+		zhTW = "食人妖"
+	},
+	["RACE_BLOODELF"] = {
+		ruRU = "Эльф крови",
+		enGB = "Blood Elf",
+		deDE = "Blutelf",
+		esES = "Elfo de sangre",
+		frFR = "Elfe de sang",
+		itIT = "Elfo del Sangue",
+		koKR = "블러드 엘프",
+		ptBR = "Elfo Sangrento",
+		zhCN = "血精灵",
+		zhTW = "血精靈"
+	},
+	["RACE_DRAENEI"] = {
+		ruRU = "Дреней",
+		enGB = "Draenei",
+		deDE = "Draenei",
+		esES = "Draenei",
+		frFR = "Draeneï",
+		itIT = "Draenei",
+		koKR = "드레나이",
+		ptBR = "Draenei",
+		zhCN = "德莱尼",
+		zhTW = "德萊尼"
+	},
+	-- female
+	["RACE_HUMAN_FEMALE"] = {
+		ruRU = "",
+		enGB = "",
+		deDE = "",
+		esES = "Humana",
+		frFR = "Humaine",
+		itIT = "Umana",
+		koKR = "",
+		ptBR = "Humana",
+		zhCN = "",
+		zhTW = ""
+	},
+	["RACE_ORC_FEMALE"] = {
+		ruRU = "Орчиха",
+		enGB = "",
+		deDE = "",
+		esES = "",
+		frFR = "Orque",
+		itIT = "Orchessa",
+		koKR = "",
+		ptBR = "Orquisa",
+		zhCN = "",
+		zhTW = ""
+	},
+	["RACE_DWARF_FEMALE"] = {
+		ruRU = "Дворфийка",
+		enGB = "",
+		deDE = "Zwergin",
+		esES = "Enana",
+		frFR = "Naine",
+		itIT = "Nana",
+		koKR = "",
+		ptBR = "Anã",
+		zhCN = "",
+		zhTW = ""
+	},
+	["RACE_NIGHTELF_FEMALE"] = {
+		ruRU = "Ночная эльфийка",
+		enGB = "",
+		deDE = "Nachtelfe",
+		esES = "Elfa de la noche",
+		frFR = "Elfe de la nuit",
+		itIT = "Elfa della Notte",
+		koKR = "",
+		ptBR = "Elfa Noturna",
+		zhCN = "",
+		zhTW = ""
+	},
+	["RACE_SCOURGE_FEMALE"] = {
+		ruRU = "",
+		enGB = "",
+		deDE = "Untote",
+		esES = "No-muerta",
+		frFR = "Morte-vivante",
+		itIT = "Non Morta",
+		koKR = "",
+		ptBR = "Morta-viva",
+		zhCN = "",
+		zhTW = ""
+	},
+
+	["RACE_TAUREN_FEMALE"] = {
+		ruRU = "Тауренка",
+		enGB = "",
+		deDE = "",
+		esES = "",
+		frFR = "Taurène",
+		itIT = "Non Morta",
+		koKR = "",
+		ptBR = "Taurena",
+		zhCN = "",
+		zhTW = ""
+	},
+	["RACE_GNOME_FEMALE"] = {
+		ruRU = "Гномка",
+		enGB = "",
+		deDE = "",
+		esES = "Gnoma",
+		frFR = "",
+		itIT = "Gnoma",
+		koKR = "",
+		ptBR = "Gnomida",
+		zhCN = "",
+		zhTW = ""
+	},
+	["RACE_TROLL_FEMALE"] = {
+		ruRU = "",
+		enGB = "",
+		deDE = "",
+		esES = "",
+		frFR = "Trollesse",
+		itIT = "",
+		koKR = "",
+		ptBR = "Trolesa",
+		zhCN = "",
+		zhTW = ""
+	},
+
+	["RACE_BLOODELF_FEMALE"] = {
+		ruRU = "Эльфийка крови",
+		enGB = "",
+		deDE = "Blutelfe",
+		esES = "Elfa de sangre",
+		frFR = "",
+		itIT = "Elfa del Sangue",
+		koKR = "",
+		ptBR = "Elfa Sangrenta",
+		zhCN = "",
+		zhTW = ""
+	},
+	["RACE_DRAENEI_FEMALE"] = {
+		ruRU = "Дренейка",
+		enGB = "",
+		deDE = "",
+		esES = "",
+		frFR = "",
+		itIT = "",
+		koKR = "",
+		ptBR = "Draenaia",
+		zhCN = "",
+		zhTW = ""
+	},
+	-- creature
+	["RACE_HUMAN_CREATURE"] = {
+		ruRU = "Человек",
+		enGB = "Human",
+		deDE = "Mensch",
+		esES = "Humano",
+		frFR = "Humain",
+		itIT = "Umano",
+		koKR = "인간",
+		ptBR = "Humano",
+		zhCN = "人类",
+		zhTW = "人類"
+	},
+	["RACE_ORC_CREATURE"] = {
+		ruRU = "Орк",
+		enGB = "Orc",
+		deDE = "Orc",
+		esES = "Orco",
+		frFR = "Orc",
+		itIT = "Orco",
+		koKR = "오크",
+		ptBR = "Orc",
+		zhCN = "兽人",
+		zhTW = "獸人"
+	},
+	["RACE_DWARF_CREATURE"] = {
+		ruRU = "Дворф",
+		enGB = "Dwarf",
+		deDE = "Zwerg",
+		esES = "Enano",
+		frFR = "Nain",
+		itIT = "Nano",
+		koKR = "드워프",
+		ptBR = "Anão",
+		zhCN = "矮人",
+		zhTW = "矮人"
+	},
+	["RACE_NIGHTELF_CREATURE"] = {
+		ruRU = "Ночной эльф",
+		enGB = "Night Elf",
+		deDE = "Nachtelf",
+		esES = "Elfo de la noche",
+		frFR = "Elfe de la nuit",
+		itIT = "Elfo della Notte",
+		koKR = "나이트 엘프",
+		ptBR = "Elfo Noturno",
+		zhCN = "暗夜精灵",
+		zhTW = "夜精靈"
+	},
+	["RACE_SCOURGE_CREATURE"] = {
+		ruRU = "Нежить",
+		enGB = "Undead",
+		deDE = "Untoter",
+		esES = "No-muerto",
+		frFR = "Mort-vivant",
+		itIT = "Non Morto",
+		koKR = "언데드",
+		ptBR = "Morto-vivo",
+		zhCN = "亡灵",
+		zhTW = "不死族"
+	},
+	["RACE_TAUREN_CREATURE"] = {
+		ruRU = "Таурен",
+		enGB = "Tauren",
+		deDE = "Tauren",
+		esES = "Tauren",
+		frFR = "Tauren",
+		itIT = "Tauren",
+		koKR = "타우렌",
+		ptBR = "Tauren",
+		zhCN = "牛头人",
+		zhTW = "牛頭人"
+	},
+	["RACE_GNOME_CREATURE"] = {
+		ruRU = "Гном",
+		enGB = "Gnome",
+		deDE = "Gnom",
+		esES = "Gnomo",
+		frFR = "Gnome",
+		itIT = "Gnomo",
+		koKR = "노움",
+		ptBR = "Gnomo",
+		zhCN = "侏儒",
+		zhTW = "地精"
+	},
+	["RACE_TROLL_CREATURE"] = {
+		ruRU = "Тролль",
+		enGB = "Troll",
+		deDE = "Troll",
+		esES = "Trol",
+		frFR = "Troll",
+		itIT = "Troll",
+		koKR = "트롤",
+		ptBR = "Troll",
+		zhCN = "巨魔",
+		zhTW = "食人妖"
+	},
+	["RACE_BLOODELF_CREATURE"] = {
+		ruRU = "Эльф крови",
+		enGB = "Blood Elf",
+		deDE = "Blutelf",
+		esES = "Elfo de sangre",
+		frFR = "Elfe de sang",
+		itIT = "Elfo del Sangue",
+		koKR = "블러드 엘프",
+		ptBR = "Elfo Sangrento",
+		zhCN = "血精灵",
+		zhTW = "血精靈"
+	},
+	["RACE_DRAENEI_CREATURE"] = {
+		ruRU = "Дреней",
+		enGB = "Draenei",
+		deDE = "Draenei",
+		esES = "Draenei",
+		frFR = "Draeneï",
+		itIT = "Draenei",
+		koKR = "드레나이",
+		ptBR = "Draenei",
+		zhCN = "德莱尼",
+		zhTW = "德萊尼"
+	},
+	-- creature female
+	["RACE_HUMAN_CREATURE_FEMALE"] = {
+		ruRU = "",
+		enGB = "",
+		deDE = "",
+		esES = "Humana",
+		frFR = "Humaine",
+		itIT = "Umana",
+		koKR = "",
+		ptBR = "Humana",
+		zhCN = "",
+		zhTW = ""
+	},
+	["RACE_ORC_CREATURE_FEMALE"] = {
+		ruRU = "Орчиха",
+		enGB = "",
+		deDE = "",
+		esES = "",
+		frFR = "Orque",
+		itIT = "Orchessa",
+		koKR = "",
+		ptBR = "Orquisa",
+		zhCN = "",
+		zhTW = ""
+	},
+	["RACE_DWARF_CREATURE_FEMALE"] = {
+		ruRU = "Дворфийка",
+		enGB = "",
+		deDE = "Zwergin",
+		esES = "Enana",
+		frFR = "Naine",
+		itIT = "Nana",
+		koKR = "",
+		ptBR = "Anã",
+		zhCN = "",
+		zhTW = ""
+	},
+	["RACE_NIGHTELF_CREATURE_FEMALE"] = {
+		ruRU = "Ночная эльфийка",
+		enGB = "",
+		deDE = "Nachtelfe",
+		esES = "Elfa de la noche",
+		frFR = "Elfe de la nuit",
+		itIT = "Elfa della Notte",
+		koKR = "",
+		ptBR = "Elfa Noturna",
+		zhCN = "",
+		zhTW = ""
+	},
+	["RACE_SCOURGE_CREATURE_FEMALE"] = {
+		ruRU = "",
+		enGB = "",
+		deDE = "Untote",
+		esES = "No-muerta",
+		frFR = "Morte-vivante",
+		itIT = "Non Morta",
+		koKR = "",
+		ptBR = "Morta-viva",
+		zhCN = "",
+		zhTW = ""
+	},
+
+	["RACE_TAUREN_CREATURE_FEMALE"] = {
+		ruRU = "Тауренка",
+		enGB = "",
+		deDE = "",
+		esES = "",
+		frFR = "Taurène",
+		itIT = "Non Morta",
+		koKR = "",
+		ptBR = "Taurena",
+		zhCN = "",
+		zhTW = ""
+	},
+	["RACE_GNOME_CREATURE_FEMALE"] = {
+		ruRU = "Гномка",
+		enGB = "",
+		deDE = "",
+		esES = "Gnoma",
+		frFR = "",
+		itIT = "Gnoma",
+		koKR = "",
+		ptBR = "Gnomida",
+		zhCN = "",
+		zhTW = ""
+	},
+	["RACE_TROLL_CREATURE_FEMALE"] = {
+		ruRU = "",
+		enGB = "",
+		deDE = "",
+		esES = "",
+		frFR = "Trollesse",
+		itIT = "",
+		koKR = "",
+		ptBR = "Trolesa",
+		zhCN = "",
+		zhTW = ""
+	},
+
+	["RACE_BLOODELF_CREATURE_FEMALE"] = {
+		ruRU = "Эльфийка крови",
+		enGB = "",
+		deDE = "Blutelfe",
+		esES = "Elfa de sangre",
+		frFR = "",
+		itIT = "Elfa del Sangue",
+		koKR = "",
+		ptBR = "Elfa Sangrenta",
+		zhCN = "",
+		zhTW = ""
+	},
+	["RACE_DRAENEI_CREATURE_FEMALE"] = {
+		ruRU = "Дренейка",
+		enGB = "",
+		deDE = "",
+		esES = "",
+		frFR = "",
+		itIT = "",
+		koKR = "",
+		ptBR = "Draenaia",
+		zhCN = "",
+		zhTW = ""
+	},
+	["RANDOMIZE_APPEARANCE"] = {
+		ruRU = "Случайная внешность",
+		enGB = "Randomize appearance",
+		deDE = "Zufälliges Aussehen",
+		esES = "Apariencia aleatoria",
+		frFR = "Apparence aléatoire",
+		itIT = "Aspetto casuale",
+		koKR = "외형 무작위 설정",
+		ptBR = "Aparência aleatória",
+		zhCN = "随机外观",
+		zhTW = "隨機選擇外觀"
+	},
+	["RANDOMIZE_CHARACTER_NAME"] = {
+		ruRU = "Случайное имя персонажа",
+		enGB = "Randomize character name",
+		deDE = "Zufälliger Charaktername",
+		esES = "Nombre de personaje aleatorio",
+		frFR = "Nom de personnage aléatoire",
+		itIT = "Nome del personaggio casuale",
+		koKR = "임의의 캐릭터 이름",
+		ptBR = "Nome de personagem aleatório",
+		zhCN = "随机角色名称",
+		zhTW = "隨機角色名稱"
+	},
+	["CUSTOMIZE"] = {
+		ruRU = "Далее",
+		enGB = "Customize",
+		deDE = "Anpassen",
+		esES = "Personalizar",
+		frFR = "Apparence",
+		itIT = "Avanti",
+		koKR = "설정",
+		ptBR = "Personalizar",
+		zhCN = "自定外观",
+		zhTW = "角色造型"
+	},
+	["FINISH"] = {
+		ruRU = "Завершить",
+		enGB = "Finish",
+		deDE = "Beenden",
+		esES = "Terminar",
+		frFR = "Terminer",
+		itIT = "Fine",
+		koKR = "완료",
+		ptBR = "Concluir",
+		zhCN = "完成",
+		zhTW = "完成"
+	},
+	["BACK"] = {
+		ruRU = "Назад",
+		enGB = "Back",
+		deDE = "Zurück",
+		esES = "Atrás",
+		frFR = "Retour",
+		itIT = "Indietro",
+		koKR = "뒤로",
+		ptBR = "Voltar",
+		zhCN = "后退",
+		zhTW = "上頁"
+	},
+	["SAVE_PASSWORD_NOTICE"] = {
+		ruRU = "Вы действительно хотите сохранить свой пароль? \Небезопасно, если кто-то получит доступ к вашим файлам, так как данные хранятся в виде текста!",
+		enGB = "Do you really want to save your Password? \nIt's not safe if someone has access to your files as it get's saved in plain text!",
+		deDE = "Möchten Sie Ihr Passwort wirklich speichern? \Es ist nicht sicher, wenn jemand Zugriff auf Ihre Dateien hat, da diese im Klartext gespeichert werden!",
+		esES = "¿Realmente desea guardar su contraseña? \¡No es seguro si alguien tiene acceso a sus archivos, ya que se guardan en texto sin formato!",
+		frFR = "Voulez-vous vraiment enregistrer votre mot de passe ? \Ce n'est pas sûr si quelqu'un a accès à vos fichiers car ils sont enregistrés en texte brut !",
+		itIT = "Vuoi davvero salvare la tua Password? \Non è sicuro se qualcuno ha accesso ai tuoi file perché vengono salvati in testo normale!",
+		koKR = "비밀번호를 저장하시겠습니까? \일반 텍스트로 저장되기 때문에 다른 사람이 파일에 액세스하는 것은 안전하지 않습니다!",
+		ptBR = "Você realmente deseja salvar sua senha? \Não é seguro se alguém tiver acesso aos seus arquivos, pois eles são salvos em texto simples!",
+		zhCN = "您真的要保存密码吗？ \如果有人可以访问您的文件，这是不安全的，因为它以纯文本格式保存！",
+		zhTW = "您真的要保存密碼嗎？ \如果有人可以訪問您的文件，這是不安全的，因為它以純文本格式保存！"
+	},
+	["REMEMBER_PASSWORDS"] = {
+		ruRU = "Запомнить пароль",
+		enGB = "Remember Password",
+		deDE = "Passwort merken",
+		esES = "Recordar contraseña",
+		frFR = "Se souvenir du mot de passe",
+		itIT = "Ricordare la password",
+		koKR = "비밀번호 기억",
+		ptBR = "Lembrar senha",
+		zhCN = "记住密码",
+		zhTW = "記住密碼"
+	},
+};
+
+setmetatable(PRETTY_PATCH_LOCALIZATION, {
+	__call = function(self, key)
+		if not self[key] then
+			return "NOT LOCALE"
+		end
+
+		if GetLocale() == "ruRU" then
+			return self[key].ruRU;
+		elseif GetLocale() == "esMX" or GetLocale() == "esES" then
+			return self[key].esES;
+		elseif GetLocale() == "deDE" then
+			return self[key].deDE;
+		elseif GetLocale() == "frFR" then
+			return self[key].frFR;
+		elseif GetLocale() == "itIT" then
+			return self[key].itIT;
+		elseif GetLocale() == "koKR" then
+			return self[key].koKR;
+		elseif GetLocale() == "ptBR" or GetLocale() == "ptPT" then
+			return self[key].ptBR;
+		elseif GetLocale() == "zhCN" then
+			return self[key].zhCN;
+		elseif GetLocale() == "zhTW" then
+			return self[key].zhTW;
+		else
+			return self[key].enGB;
+		end
+	end
+});
+
+for key in next, PRETTY_PATCH_LOCALIZATION do
+	setglobal(key, PRETTY_PATCH_LOCALIZATION(key));
+end

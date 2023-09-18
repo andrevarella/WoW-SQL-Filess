@@ -1,0 +1,184 @@
+function ScrollFrameTemplate_OnMouseWheel(self, value, scrollBar)
+	scrollBar = scrollBar or _G[self:GetName() .. "ScrollBar"];
+	if ( value > 0 ) then
+		scrollBar:SetValue(scrollBar:GetValue() - (scrollBar:GetHeight() / 2));
+	else
+		scrollBar:SetValue(scrollBar:GetValue() + (scrollBar:GetHeight() / 2));
+	end
+end
+
+-- Function to handle the update of manually calculated scrollframes.  Used mostly for listings with an indeterminate number of items
+function FauxScrollFrame_Update(frame, numItems, numToDisplay, valueStep, button, smallWidth, bigWidth, highlightFrame, smallHighlightWidth, bigHighlightWidth, alwaysShowScrollBar, heightOnDisplay )
+	-- If more than one screen full of skills then show the scrollbar
+	local frameName = frame:GetName();
+	local scrollBar = _G[ frameName.."ScrollBar" ]
+	local showScrollBar;
+	if ( numItems > numToDisplay or alwaysShowScrollBar ) then
+		frame:Show();
+		showScrollBar = 1;
+	else
+		scrollBar:SetValue(0);
+		frame:Hide();
+	end
+	if ( frame:IsShown() ) then
+		local scrollChildFrame = _G[ frameName.."ScrollChildFrame" ];
+		local scrollUpButton = _G[ frameName.."ScrollBarScrollUpButton" ];
+		local scrollDownButton = _G[ frameName.."ScrollBarScrollDownButton" ];
+		local scrollFrameHeight = 0;
+		local scrollChildHeight = 0;
+
+		if ( numItems > 0 ) then
+			scrollFrameHeight = (numItems - numToDisplay) * valueStep;
+			if heightOnDisplay then
+				scrollChildHeight = numToDisplay * valueStep;
+			else
+				scrollChildHeight = numItems * valueStep;
+			end
+			if ( scrollFrameHeight < 0 ) then
+				scrollFrameHeight = 0;
+			end
+			scrollChildFrame:Show();
+		else
+			scrollChildFrame:Hide();
+		end
+		scrollBar:SetMinMaxValues(0, scrollFrameHeight);
+		scrollBar:SetValueStep(valueStep);
+		scrollChildFrame:SetHeight(scrollChildHeight);
+
+		-- Arrow button handling
+		if ( scrollBar:GetValue() == 0 ) then
+			scrollUpButton:Disable();
+		else
+			scrollUpButton:Enable();
+		end
+		if ((scrollBar:GetValue() - scrollFrameHeight) == 0) then
+			scrollDownButton:Disable();
+		else
+			scrollDownButton:Enable();
+		end
+
+		-- Shrink because scrollbar is shown
+		if ( highlightFrame ) then
+			highlightFrame:SetWidth(smallHighlightWidth);
+		end
+		if ( button ) then
+			for i=1, numToDisplay do
+				_G[button..i]:SetWidth(smallWidth);
+			end
+		end
+	else
+		-- Widen because scrollbar is hidden
+		if ( highlightFrame ) then
+			highlightFrame:SetWidth(bigHighlightWidth);
+		end
+		if ( button ) then
+			for i=1, numToDisplay do
+				_G[button..i]:SetWidth(bigWidth);
+			end
+		end
+	end
+	return showScrollBar;
+end
+
+function FauxScrollFrame_OnVerticalScroll(self, value, itemHeight, updateFunction)
+	local scrollbar = _G[self:GetName().."ScrollBar"];
+	scrollbar:SetValue(value);
+	self.offset = floor((value / itemHeight) + 0.5);
+	if ( updateFunction ) then
+		updateFunction(self);
+	end
+end
+
+function FauxScrollFrame_GetOffset(frame)
+	return frame.offset;
+end
+
+function FauxScrollFrame_SetOffset(frame, offset)
+	frame.offset = offset;
+end
+
+-- Scrollframe functions
+function ScrollFrame_OnLoad(self)
+	_G[self:GetName().."ScrollBarScrollDownButton"]:Disable();
+	_G[self:GetName().."ScrollBarScrollUpButton"]:Disable();
+
+	local scrollbar = _G[self:GetName().."ScrollBar"];
+	scrollbar:SetMinMaxValues(0, 0);
+	scrollbar:SetValue(0);
+	self.offset = 0;
+
+	if ( self.scrollBarHideable ) then
+		_G[self:GetName().."ScrollBar"]:Hide();
+		_G[scrollbar:GetName().."ScrollDownButton"]:Hide();
+		_G[scrollbar:GetName().."ScrollUpButton"]:Hide();
+	else
+		_G[scrollbar:GetName().."ScrollDownButton"]:Disable();
+		_G[scrollbar:GetName().."ScrollUpButton"]:Disable();
+		_G[scrollbar:GetName().."ScrollDownButton"]:Show();
+		_G[scrollbar:GetName().."ScrollUpButton"]:Show();
+	end
+end
+
+function ScrollFrame_OnScrollRangeChanged(self, xrange, yrange)
+	local scrollbar = _G[self:GetName().."ScrollBar"];
+	if ( not yrange ) then
+		yrange = self:GetVerticalScrollRange();
+	end
+	local value = scrollbar:GetValue();
+	if ( value > yrange ) then
+		value = yrange;
+	end
+	scrollbar:SetMinMaxValues(0, yrange);
+	scrollbar:SetValue(value);
+	if ( floor(yrange) == 0 ) then
+		if ( self.scrollBarHideable ) then
+			_G[self:GetName().."ScrollBar"]:Hide();
+			_G[scrollbar:GetName().."ScrollDownButton"]:Hide();
+			_G[scrollbar:GetName().."ScrollUpButton"]:Hide();
+			if ( self.haveTrack ) then
+				_G[self:GetName().."Track"]:Hide();
+			end
+		else
+			_G[scrollbar:GetName().."ScrollDownButton"]:Disable();
+			_G[scrollbar:GetName().."ScrollUpButton"]:Disable();
+			_G[scrollbar:GetName().."ScrollDownButton"]:Show();
+			_G[scrollbar:GetName().."ScrollUpButton"]:Show();
+		end
+		_G[scrollbar:GetName().."ThumbTexture"]:Hide();
+	else
+		_G[scrollbar:GetName().."ScrollDownButton"]:Show();
+		_G[scrollbar:GetName().."ScrollUpButton"]:Show();
+		_G[self:GetName().."ScrollBar"]:Show();
+		_G[scrollbar:GetName().."ThumbTexture"]:Show();
+		if ( self.haveTrack ) then
+			_G[self:GetName().."Track"]:Show();
+		end
+		-- The 0.005 is to account for precision errors
+		if ( yrange - value > 0.005 ) then
+			_G[scrollbar:GetName().."ScrollDownButton"]:Enable();
+		else
+			_G[scrollbar:GetName().."ScrollDownButton"]:Disable();
+		end
+	end
+
+	-- Hide/show scrollframe borders
+	local top = _G[self:GetName().."Top"];
+	local bottom = _G[self:GetName().."Bottom"];
+	local middle = _G[self:GetName().."Middle"];
+	if ( top and bottom and self.scrollBarHideable ) then
+		if ( self:GetVerticalScrollRange() == 0 ) then
+			top:Hide();
+			bottom:Hide();
+		else
+			top:Show();
+			bottom:Show();
+		end
+	end
+	if ( middle and self.scrollBarHideable ) then
+		if ( self:GetVerticalScrollRange() == 0 ) then
+			middle:Hide();
+		else
+			middle:Show();
+		end
+	end
+end
