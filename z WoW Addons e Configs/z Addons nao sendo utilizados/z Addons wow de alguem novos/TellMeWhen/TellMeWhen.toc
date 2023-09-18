@@ -1,0 +1,7 @@
+## Interface: 30300
+## Title: TellMeWhen
+## Version: 1.2.2
+## Author: Nephthys of Hyjal, ( Modified by Oozebull of Twisting Nether ( Modified by Sweetums of Shadowmoon ))
+## Notes: Notifications about cooldowns, buffs, etc. 
+## SavedVariablesPerCharacter: TellMeWhen_Settings
+TellMeWhen.xml

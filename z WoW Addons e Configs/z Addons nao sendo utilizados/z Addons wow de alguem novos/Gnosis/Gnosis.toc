@@ -1,0 +1,42 @@
+## Interface: 30300
+## Title: Gnosis |cff00ff00(Castbars)|r v1.90
+## Notes: Castbars with extended support for channeled spell.
+## Author: elchefe
+## Version: v1.90
+## SavedVariables: GnosisDB, GnosisConfigs
+## SavedVariablesPerCharacter: GnosisChar
+## OptionalDeps: Ace3, LibSharedMedia-3.0
+## X-Embeds: Ace3, LibSharedMedia-3.0
+## LoadOnDemand: 0
+## DefaultState: enabled
+## X-Curse-Packaged-Version: v1.90
+## X-Curse-Project-Name: Gnosis Castbars
+## X-Curse-Project-ID: gnosis
+## X-Curse-Repository-ID: wow/gnosis/mainline
+
+# Libraries
+#@no-lib-strip@
+Libs\LibStub\LibStub.lua
+Libs\CallbackHandler-1.0\CallbackHandler-1.0.xml
+Libs\AceAddon-3.0\AceAddon-3.0.xml
+Libs\AceGUI-3.0\AceGUI-3.0.xml
+Libs\AceConfig-3.0\AceConfig-3.0.xml
+Libs\AceConsole-3.0\AceConsole-3.0.xml
+Libs\AceDB-3.0\AceDB-3.0.xml
+Libs\AceEvent-3.0\AceEvent-3.0.xml
+Libs\LibSharedMedia-3.0\lib.xml
+#@end-no-lib-strip@
+
+# xml
+Gnosis.xml
+
+# lua
+Gnosis.lua
+Locale.lua
+Callback.lua
+Options.lua
+Variables.lua
+Bars.lua
+
+# Gnosis' StatusBar implementation
+CreateStatusBar.lua

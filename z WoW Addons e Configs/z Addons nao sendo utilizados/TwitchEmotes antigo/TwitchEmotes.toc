@@ -1,0 +1,11 @@
+## Interface: 70000
+## Title: TwitchEmotes
+## Notes: Lootman-TheVentureCo has taken your dog.
+## Notes-deDE: Zeigt Twitch.tv Emoticons im Chat und Post
+## Author: Skye @ Sargeras US
+## Version: v2
+## SavedVariablesPerCharacter: Emoticons_Settings Emoticons_Eyecandy
+UIDropDownMenuTemplates.xml
+UIDropDownMenu.lua
+TwitchEmotes.lua
+TwitchEmotes.xml

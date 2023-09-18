@@ -1,0 +1,126 @@
+------------------------------------------------------------------------
+r52 | elchefe | 2010-07-08 07:26:30 +0000 (Thu, 08 Jul 2010) | 2 lines
+Changed paths:
+   A /tags/v1.90 (from /trunk:51)
+
+tag as v1.90 release
+
+------------------------------------------------------------------------
+r51 | elchefe | 2010-07-06 04:33:08 +0000 (Tue, 06 Jul 2010) | 1 line
+Changed paths:
+   M /trunk/Gnosis.lua
+
+bug fix
+------------------------------------------------------------------------
+r50 | elchefe | 2010-07-06 04:27:34 +0000 (Tue, 06 Jul 2010) | 1 line
+Changed paths:
+   M /trunk/Callback.lua
+   M /trunk/Gnosis.lua
+   M /trunk/Options.lua
+   M /trunk/Variables.lua
+
+added combat text combining of channeled heals
+------------------------------------------------------------------------
+r49 | elchefe | 2010-07-06 00:02:42 +0000 (Tue, 06 Jul 2010) | 1 line
+Changed paths:
+   M /trunk/Locale.lua
+
+added french locale (even though close to nothing is translated by now)
+------------------------------------------------------------------------
+r48 | elchefe | 2010-07-05 23:57:40 +0000 (Mon, 05 Jul 2010) | 1 line
+Changed paths:
+   M /trunk/Bars.lua
+   M /trunk/Options.lua
+   M /trunk/Variables.lua
+
+behavioral corrections for mirror bars
+------------------------------------------------------------------------
+r46 | elchefe | 2010-07-02 07:13:24 +0000 (Fri, 02 Jul 2010) | 1 line
+Changed paths:
+   M /trunk/Bars.lua
+   M /trunk/Callback.lua
+   M /trunk/Gnosis.lua
+   M /trunk/Variables.lua
+
+fixed tradeskill merge error with single item
+------------------------------------------------------------------------
+r44 | elchefe | 2010-07-02 01:48:11 +0000 (Fri, 02 Jul 2010) | 1 line
+Changed paths:
+   M /trunk/Gnosis.toc
+
+toc updates
+------------------------------------------------------------------------
+r43 | elchefe | 2010-07-02 01:20:30 +0000 (Fri, 02 Jul 2010) | 1 line
+Changed paths:
+   M /trunk/.pkgmeta
+
+explicitly state nolib creation in .pkgmeta
+------------------------------------------------------------------------
+r42 | elchefe | 2010-07-02 01:14:11 +0000 (Fri, 02 Jul 2010) | 1 line
+Changed paths:
+   M /trunk/.pkgmeta
+   M /trunk/Bars.lua
+   M /trunk/Callback.lua
+   M /trunk/Gnosis.lua
+   M /trunk/Gnosis.toc
+   M /trunk/Gnosis.xml
+   M /trunk/Options.lua
+   M /trunk/Variables.lua
+
+reworked tradeskill merge, add option to hide pet/vehicle castbar; readd nolib creation
+------------------------------------------------------------------------
+r40 | elchefe | 2010-06-12 21:10:46 +0000 (Sat, 12 Jun 2010) | 1 line
+Changed paths:
+   M /trunk/Bars.lua
+   M /trunk/Callback.lua
+
+fixes, added "who" to name format string
+------------------------------------------------------------------------
+r39 | elchefe | 2010-06-11 01:36:41 +0000 (Fri, 11 Jun 2010) | 1 line
+Changed paths:
+   M /trunk/Bars.lua
+   M /trunk/Callback.lua
+
+fix relating bar removal
+------------------------------------------------------------------------
+r38 | elchefe | 2010-06-11 01:29:26 +0000 (Fri, 11 Jun 2010) | 1 line
+Changed paths:
+   M /trunk/Bars.lua
+   M /trunk/Callback.lua
+   M /trunk/Options.lua
+
+slight change to automatic text resize, fixes relating performance improvements
+------------------------------------------------------------------------
+r37 | elchefe | 2010-06-09 16:57:10 +0000 (Wed, 09 Jun 2010) | 1 line
+Changed paths:
+   M /trunk/Bars.lua
+   M /trunk/Gnosis.lua
+
+bugfixes, changed rain of fire to tick 4 instead of 8 times (correct manually or reset player data and only load castbars, etc. but not channeled spells from stored configuration)
+------------------------------------------------------------------------
+r36 | elchefe | 2010-06-09 12:30:11 +0000 (Wed, 09 Jun 2010) | 1 line
+Changed paths:
+   M /trunk/Bars.lua
+   M /trunk/Callback.lua
+   M /trunk/Variables.lua
+
+bug fixes
+------------------------------------------------------------------------
+r35 | elchefe | 2010-06-08 16:22:57 +0000 (Tue, 08 Jun 2010) | 1 line
+Changed paths:
+   M /trunk/Bars.lua
+   M /trunk/Callback.lua
+
+bugfixes
+------------------------------------------------------------------------
+r34 | elchefe | 2010-06-08 15:35:55 +0000 (Tue, 08 Jun 2010) | 2 lines
+Changed paths:
+   M /trunk/Bars.lua
+   M /trunk/Callback.lua
+   M /trunk/Gnosis.lua
+   M /trunk/Options.lua
+   M /trunk/Variables.lua
+
+extensive performance improvements
+not thoroughly tested yet
+------------------------------------------------------------------------

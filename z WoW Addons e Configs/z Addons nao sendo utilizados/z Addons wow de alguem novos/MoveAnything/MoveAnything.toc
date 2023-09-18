@@ -1,0 +1,15 @@
+## Interface: 40000
+## Title: MoveAnything
+## Notes: 11.4.5 by Wagthaa
+## Version: 11.4.5
+## Author: Classic: Skrag - Mod: Jason - TBC: Vincent - WotLK & Cataclysm: Wagthaa @ Earthen Ring EU wagthaa@gmail.com
+## SavedVariables: MADB
+
+localization.en.lua
+MoveAnything.lua
+MoveAnything.xml
+MoveAnythingBlizzardOptions.xml
+MoveAnythingFrameEditor.lua
+MoveAnythingPortDialog.lua
+MoveAnythingVirtualMovers.lua
+UserMods.lua
