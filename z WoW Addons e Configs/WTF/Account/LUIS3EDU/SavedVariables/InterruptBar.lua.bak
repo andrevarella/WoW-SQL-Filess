@@ -1,0 +1,12 @@
+
+InterruptBarDB = {
+	["colsPrio"] = 6,
+	["scale"] = 1,
+	["bgOnly"] = false,
+	["hidden"] = false,
+	["cols"] = 6,
+	["prio"] = false,
+	["lock"] = false,
+	["smart"] = false,
+	["arenaOnly"] = false,
+}

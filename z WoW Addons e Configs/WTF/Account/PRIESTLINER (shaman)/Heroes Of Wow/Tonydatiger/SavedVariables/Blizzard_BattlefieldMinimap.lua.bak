@@ -1,0 +1,10 @@
+
+BattlefieldMinimapOptions = {
+	["locked"] = false,
+	["opacity"] = 0.1299999952316284,
+	["position"] = {
+		["y"] = 371.5684560028302,
+		["x"] = 1406.058940362976,
+	},
+	["showPlayers"] = true,
+}

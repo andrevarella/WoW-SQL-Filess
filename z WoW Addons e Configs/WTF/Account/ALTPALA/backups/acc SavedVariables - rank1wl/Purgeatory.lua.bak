@@ -1,0 +1,10 @@
+
+PurgeatoryDB = {
+	["profileKeys"] = {
+		["Blackoutz - Heroes Of Wow"] = "Default",
+	},
+	["profiles"] = {
+		["Default"] = {
+		},
+	},
+}

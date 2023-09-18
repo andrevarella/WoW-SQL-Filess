@@ -1,0 +1,686 @@
+
+RecountPerCharDB = {
+	["version"] = "1.3",
+	["combatants"] = {
+		["Alterëgo"] = {
+			["GUID"] = "0x000000000000008F",
+			["LastEventHealth"] = {
+				"34044 (100%)", -- [1]
+				"34044 (100%)", -- [2]
+				"34044 (100%)", -- [3]
+				"34044 (100%)", -- [4]
+				"34044 (100%)", -- [5]
+			},
+			["LastEventType"] = {
+				"HEAL", -- [1]
+				"HEAL", -- [2]
+				"HEAL", -- [3]
+				"HEAL", -- [4]
+				"HEAL", -- [5]
+			},
+			["enClass"] = "PALADIN",
+			["unit"] = "Alterëgo",
+			["level"] = 80,
+			["LastFightIn"] = 0,
+			["LastEventNum"] = {
+				31.81764774997063, -- [1]
+				31.81764774997063, -- [2]
+				31.81764774997063, -- [3]
+				31.81764774997063, -- [4]
+				31.81764774997063, -- [5]
+			},
+			["type"] = "Self",
+			["Owner"] = false,
+			["NextEventNum"] = 6,
+			["LastEventHealthNum"] = {
+				100, -- [1]
+				100, -- [2]
+				100, -- [3]
+				100, -- [4]
+				100, -- [5]
+			},
+			["LastEvents"] = {
+				"Vandre Rejuvenation Alterëgo Tick +10832 (10832 overheal)", -- [1]
+				"Vandre Rejuvenation Alterëgo Tick +10832 (10832 overheal)", -- [2]
+				"Vandre Rejuvenation Alterëgo Tick +10832 (10832 overheal)", -- [3]
+				"Vandre Rejuvenation Alterëgo Tick +10832 (10832 overheal)", -- [4]
+				"Vandre Rejuvenation Alterëgo Tick +10832 (10832 overheal)", -- [5]
+			},
+			["Name"] = "Alterëgo",
+			["LastEventIncoming"] = {
+				true, -- [1]
+				true, -- [2]
+				true, -- [3]
+				true, -- [4]
+				true, -- [5]
+			},
+			["LastEventTimes"] = {
+				154560.217, -- [1]
+				154563.238, -- [2]
+				154566.248, -- [3]
+				154569.259, -- [4]
+				154572.248, -- [5]
+			},
+			["Fights"] = {
+			},
+			["UnitLockout"] = 1657759191,
+			["LastActive"] = 1657759203,
+		},
+		["Vandre"] = {
+			["GUID"] = "0x0000000000000019",
+			["LastEventHealth"] = {
+				"17471 (100%)", -- [1]
+				"17471 (100%)", -- [2]
+				"17471 (100%)", -- [3]
+				"17471 (100%)", -- [4]
+				"14703 (84%)", -- [5]
+				"17471 (100%)", -- [6]
+				"100000 (100%)", -- [7]
+				"39307 (39%)", -- [8]
+				"48578 (48%)", -- [9]
+				"57885 (57%)", -- [10]
+				"64761 (64%)", -- [11]
+				"71637 (71%)", -- [12]
+				"78477 (78%)", -- [13]
+				"85353 (85%)", -- [14]
+				"92193 (92%)", -- [15]
+				"92229 (92%)", -- [16]
+				"92265 (92%)", -- [17]
+				"92337 (92%)", -- [18]
+				"92373 (92%)", -- [19]
+				"100000 (100%)", -- [20]
+				"100000 (100%)", -- [21]
+				"100000 (100%)", -- [22]
+				"100000 (100%)", -- [23]
+				"100000 (100%)", -- [24]
+				"100000 (100%)", -- [25]
+				"100000 (100%)", -- [26]
+				"100000 (100%)", -- [27]
+				"100000 (100%)", -- [28]
+				"100000 (100%)", -- [29]
+				"100000 (100%)", -- [30]
+				"100000 (100%)", -- [31]
+				"100000 (100%)", -- [32]
+				"100000 (100%)", -- [33]
+				"100000 (100%)", -- [34]
+				"100000 (100%)", -- [35]
+			},
+			["LastEventType"] = {
+				"DAMAGE", -- [1]
+				"HEAL", -- [2]
+				"HEAL", -- [3]
+				"HEAL", -- [4]
+				"HEAL", -- [5]
+				"HEAL", -- [6]
+				"HEAL", -- [7]
+				"HEAL", -- [8]
+				"HEAL", -- [9]
+				"HEAL", -- [10]
+				"HEAL", -- [11]
+				"HEAL", -- [12]
+				"HEAL", -- [13]
+				"HEAL", -- [14]
+				"HEAL", -- [15]
+				"HEAL", -- [16]
+				"HEAL", -- [17]
+				"HEAL", -- [18]
+				"HEAL", -- [19]
+				"HEAL", -- [20]
+				"HEAL", -- [21]
+				"HEAL", -- [22]
+				"HEAL", -- [23]
+				"HEAL", -- [24]
+				"HEAL", -- [25]
+				"HEAL", -- [26]
+				"HEAL", -- [27]
+				"HEAL", -- [28]
+				"HEAL", -- [29]
+				"HEAL", -- [30]
+				"HEAL", -- [31]
+				"HEAL", -- [32]
+				"HEAL", -- [33]
+				"HEAL", -- [34]
+				"HEAL", -- [35]
+			},
+			["TimeWindows"] = {
+				["TimeHeal"] = {
+					7, -- [1]
+				},
+				["HOT_Time"] = {
+					30, -- [1]
+				},
+				["ActiveTime"] = {
+					10.5, -- [1]
+				},
+				["Overhealing"] = {
+					90202, -- [1]
+				},
+				["Healing"] = {
+					2248, -- [1]
+				},
+				["TimeDamage"] = {
+					3.5, -- [1]
+				},
+				["Damage"] = {
+					203, -- [1]
+				},
+			},
+			["enClass"] = "WARRIOR",
+			["unit"] = "Vandre",
+			["level"] = 80,
+			["LastFightIn"] = 0,
+			["LastEventNum"] = {
+				nil, -- [1]
+				56.2646671627268, -- [2]
+				56.2646671627268, -- [3]
+				41.3943105718047, -- [4]
+				41.3943105718047, -- [5]
+				41.3943105718047, -- [6]
+				7.232, -- [7]
+				9.234999999999999, -- [8]
+				9.234999999999999, -- [9]
+				9.234999999999999, -- [10]
+				6.804, -- [11]
+				6.804, -- [12]
+				6.804, -- [13]
+				6.804, -- [14]
+				6.804, -- [15]
+				[20] = 9.039999999999999,
+				[22] = 9.039999999999999,
+				[23] = 9.039999999999999,
+				[25] = 9.039999999999999,
+				[27] = 9.039999999999999,
+			},
+			["type"] = "Grouped",
+			["TimeLast"] = {
+				["Overhealing"] = 1657759230,
+				["TimeHeal"] = 1657759218,
+				["HOT_Time"] = 1657759230,
+				["ActiveTime"] = 1657759218,
+				["Healing"] = 1657759218,
+				["OVERALL"] = 1657759230,
+				["TimeDamage"] = 1657759124,
+				["Damage"] = 1657759124,
+			},
+			["Owner"] = false,
+			["LastAbility"] = 154587.048,
+			["NextEventNum"] = 36,
+			["LastEventHealthNum"] = {
+				100, -- [1]
+				100, -- [2]
+				100, -- [3]
+				100, -- [4]
+				84.15660236964112, -- [5]
+				100, -- [6]
+				100, -- [7]
+				39.307, -- [8]
+				48.578, -- [9]
+				57.885, -- [10]
+				64.761, -- [11]
+				71.637, -- [12]
+				78.477, -- [13]
+				85.35299999999999, -- [14]
+				92.193, -- [15]
+				92.229, -- [16]
+				92.265, -- [17]
+				92.337, -- [18]
+				92.37300000000001, -- [19]
+				100, -- [20]
+				100, -- [21]
+				100, -- [22]
+				100, -- [23]
+				100, -- [24]
+				100, -- [25]
+				100, -- [26]
+				100, -- [27]
+				100, -- [28]
+				100, -- [29]
+				100, -- [30]
+				100, -- [31]
+				100, -- [32]
+				100, -- [33]
+				100, -- [34]
+				100, -- [35]
+			},
+			["LastEvents"] = {
+				"Vandre Melee Grandmaster's Training Dummy Hit -203 (Physical)", -- [1]
+				"Vandre Rejuvenation Vandre Tick +9830 (9830 overheal)", -- [2]
+				"Vandre Rejuvenation Vandre Tick +9830 (6830 overheal)", -- [3]
+				"Vandre Rejuvenation Vandre Tick +7232 (7232 overheal)", -- [4]
+				"Vandre Rejuvenation Vandre Tick +7232", -- [5]
+				"Vandre Rejuvenation Vandre Tick +7232 (4536 overheal)", -- [6]
+				"Vandre Rejuvenation Vandre Tick +7232 (7232 overheal)", -- [7]
+				"Vandre Rejuvenation Vandre Tick +9235", -- [8]
+				"Vandre Rejuvenation Vandre Tick +9235", -- [9]
+				"Vandre Rejuvenation Vandre Tick +9235", -- [10]
+				"Vandre Rejuvenation Vandre Tick +6804", -- [11]
+				"Vandre Rejuvenation Vandre Tick +6804", -- [12]
+				"Vandre Rejuvenation Vandre Tick +6804", -- [13]
+				"Vandre Rejuvenation Vandre Tick +6804", -- [14]
+				"Vandre Rejuvenation Vandre Tick +6804", -- [15]
+				"Vandre Rejuvenation Alterëgo Tick +10832 (10832 overheal)", -- [16]
+				"Vandre Rejuvenation Alterëgo Tick +10832 (10832 overheal)", -- [17]
+				"Vandre Rejuvenation Alterëgo Tick +10832 (10832 overheal)", -- [18]
+				"Vandre Rejuvenation Alterëgo Tick +10832 (10832 overheal)", -- [19]
+				"Vandre Rejuvenation Vandre Tick +9040 (1449 overheal)", -- [20]
+				"Vandre Rejuvenation Alterëgo Tick +10832 (10832 overheal)", -- [21]
+				"Vandre Rejuvenation Vandre Tick +9040 (9040 overheal)", -- [22]
+				"Vandre Rejuvenation Vandre Tick +9040 (9040 overheal)", -- [23]
+				"Vandre Rejuvenation Tegezz Tick +10117 (8114 overheal)", -- [24]
+				"Vandre Rejuvenation Vandre Tick +9040 (9040 overheal)", -- [25]
+				"Vandre Rejuvenation Tegezz Tick +10117 (10117 overheal)", -- [26]
+				"Vandre Rejuvenation Vandre Tick +9040 (9040 overheal)", -- [27]
+				"Vandre Rejuvenation Tegezz Tick +10117 (10117 overheal)", -- [28]
+				"Vandre Rejuvenation Fearless Tick +8373 (8128 overheal)", -- [29]
+				"Vandre Rejuvenation Tegezz Tick +10117 (10117 overheal)", -- [30]
+				"Vandre Rejuvenation Fearless Tick +8373 (8373 overheal)", -- [31]
+				"Vandre Rejuvenation Tegezz Tick +10117 (10117 overheal)", -- [32]
+				"Vandre Rejuvenation Fearless Tick +8373 (8373 overheal)", -- [33]
+				"Vandre Rejuvenation Fearless Tick +8373 (8373 overheal)", -- [34]
+				"Vandre Rejuvenation Fearless Tick +8373 (8373 overheal)", -- [35]
+			},
+			["Name"] = "Vandre",
+			["LastEventIncoming"] = {
+				false, -- [1]
+				true, -- [2]
+				true, -- [3]
+				true, -- [4]
+				true, -- [5]
+				true, -- [6]
+				true, -- [7]
+				true, -- [8]
+				true, -- [9]
+				true, -- [10]
+				true, -- [11]
+				true, -- [12]
+				true, -- [13]
+				true, -- [14]
+				true, -- [15]
+				false, -- [16]
+				false, -- [17]
+				false, -- [18]
+				false, -- [19]
+				true, -- [20]
+				false, -- [21]
+				true, -- [22]
+				true, -- [23]
+				false, -- [24]
+				true, -- [25]
+				false, -- [26]
+				true, -- [27]
+				false, -- [28]
+				false, -- [29]
+				false, -- [30]
+				false, -- [31]
+				false, -- [32]
+				false, -- [33]
+				false, -- [34]
+				false, -- [35]
+			},
+			["LastEventTimes"] = {
+				154492.845, -- [1]
+				154514.293, -- [2]
+				154517.266, -- [3]
+				154521.442, -- [4]
+				154524.453, -- [5]
+				154527.472, -- [6]
+				154530.449, -- [7]
+				154536.415, -- [8]
+				154539.426, -- [9]
+				154542.406, -- [10]
+				154546.912, -- [11]
+				154549.891, -- [12]
+				154552.937, -- [13]
+				154555.93, -- [14]
+				154558.922, -- [15]
+				154560.217, -- [16]
+				154563.238, -- [17]
+				154566.248, -- [18]
+				154569.259, -- [19]
+				154571.047, -- [20]
+				154572.248, -- [21]
+				154574.044, -- [22]
+				154577.069, -- [23]
+				154579.488, -- [24]
+				154580.058, -- [25]
+				154582.497, -- [26]
+				154583.066, -- [27]
+				154585.512, -- [28]
+				154587.048, -- [29]
+				154588.499, -- [30]
+				154590.061, -- [31]
+				154591.521, -- [32]
+				154593.081, -- [33]
+				154596.1, -- [34]
+				154599.017, -- [35]
+			},
+			["Fights"] = {
+				["CurrentFightData"] = {
+					["TimeHealing"] = {
+						["Fearless"] = {
+							["Details"] = {
+								["Rejuvenation"] = {
+									["count"] = 3.5,
+								},
+							},
+							["amount"] = 3.5,
+						},
+						["Tegezz"] = {
+							["Details"] = {
+								["Rejuvenation"] = {
+									["count"] = 3.5,
+								},
+							},
+							["amount"] = 3.5,
+						},
+					},
+					["OverHeals"] = {
+						["Rejuvenation"] = {
+							["Details"] = {
+								["Tick"] = {
+									["max"] = 10117,
+									["min"] = 8114,
+									["count"] = 10,
+									["amount"] = 90202,
+								},
+							},
+							["count"] = 10,
+							["amount"] = 90202,
+						},
+					},
+					["TimeSpent"] = {
+						["Grandmaster's Training Dummy"] = {
+							["Details"] = {
+								["Melee"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Fearless"] = {
+							["Details"] = {
+								["Rejuvenation"] = {
+									["count"] = 3.5,
+								},
+							},
+							["amount"] = 3.5,
+						},
+						["Tegezz"] = {
+							["Details"] = {
+								["Rejuvenation"] = {
+									["count"] = 3.5,
+								},
+							},
+							["amount"] = 3.5,
+						},
+					},
+					["HealedWho"] = {
+						["Fearless"] = {
+							["Details"] = {
+								["Rejuvenation"] = {
+									["count"] = 245,
+								},
+							},
+							["amount"] = 245,
+						},
+						["Tegezz"] = {
+							["Details"] = {
+								["Rejuvenation"] = {
+									["count"] = 2003,
+								},
+							},
+							["amount"] = 2003,
+						},
+					},
+					["HOT_Time"] = 30,
+					["ActiveTime"] = 7,
+					["HOTs"] = {
+						["Rejuvenation"] = {
+							["Details"] = {
+								["Fearless"] = {
+									["count"] = 15,
+								},
+								["Tegezz"] = {
+									["count"] = 15,
+								},
+							},
+							["amount"] = 30,
+						},
+					},
+					["Damage"] = 0,
+					["Heals"] = {
+						["Rejuvenation"] = {
+							["Details"] = {
+								["Tick"] = {
+									["max"] = 2003,
+									["min"] = 245,
+									["count"] = 2,
+									["amount"] = 2248,
+								},
+							},
+							["count"] = 2,
+							["amount"] = 2248,
+						},
+					},
+					["Healing"] = 2248,
+					["Attacks"] = {
+						["Melee"] = {
+							["Details"] = {
+								["Hit"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 0,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 0,
+							["amount"] = 0,
+						},
+					},
+					["Overhealing"] = 90202,
+					["DamagedWho"] = {
+						["Grandmaster's Training Dummy"] = {
+							["Details"] = {
+								["Melee"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+					},
+					["TimeDamage"] = 0,
+					["TimeDamaging"] = {
+						["Grandmaster's Training Dummy"] = {
+							["Details"] = {
+								["Melee"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+					},
+					["TimeHeal"] = 7,
+					["ElementDone"] = {
+						["Melee"] = 0,
+					},
+					["ElementHitsDone"] = {
+						["Melee"] = {
+							["Details"] = {
+								["Hit"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+					},
+				},
+				["OverallData"] = {
+					["TimeHealing"] = {
+						["Fearless"] = {
+							["Details"] = {
+								["Rejuvenation"] = {
+									["count"] = 3.5,
+								},
+							},
+							["amount"] = 3.5,
+						},
+						["Tegezz"] = {
+							["Details"] = {
+								["Rejuvenation"] = {
+									["count"] = 3.5,
+								},
+							},
+							["amount"] = 3.5,
+						},
+					},
+					["OverHeals"] = {
+						["Rejuvenation"] = {
+							["Details"] = {
+								["Tick"] = {
+									["max"] = 10117,
+									["min"] = 8114,
+									["count"] = 10,
+									["amount"] = 90202,
+								},
+							},
+							["count"] = 10,
+							["amount"] = 90202,
+						},
+					},
+					["TimeSpent"] = {
+						["Grandmaster's Training Dummy"] = {
+							["Details"] = {
+								["Melee"] = {
+									["count"] = 3.5,
+								},
+							},
+							["amount"] = 3.5,
+						},
+						["Fearless"] = {
+							["Details"] = {
+								["Rejuvenation"] = {
+									["count"] = 3.5,
+								},
+							},
+							["amount"] = 3.5,
+						},
+						["Tegezz"] = {
+							["Details"] = {
+								["Rejuvenation"] = {
+									["count"] = 3.5,
+								},
+							},
+							["amount"] = 3.5,
+						},
+					},
+					["HealedWho"] = {
+						["Fearless"] = {
+							["Details"] = {
+								["Rejuvenation"] = {
+									["count"] = 245,
+								},
+							},
+							["amount"] = 245,
+						},
+						["Tegezz"] = {
+							["Details"] = {
+								["Rejuvenation"] = {
+									["count"] = 2003,
+								},
+							},
+							["amount"] = 2003,
+						},
+					},
+					["HOT_Time"] = 30,
+					["ActiveTime"] = 10.5,
+					["HOTs"] = {
+						["Rejuvenation"] = {
+							["Details"] = {
+								["Fearless"] = {
+									["count"] = 15,
+								},
+								["Tegezz"] = {
+									["count"] = 15,
+								},
+							},
+							["amount"] = 30,
+						},
+					},
+					["Damage"] = 203,
+					["Heals"] = {
+						["Rejuvenation"] = {
+							["Details"] = {
+								["Tick"] = {
+									["max"] = 2003,
+									["min"] = 245,
+									["count"] = 2,
+									["amount"] = 2248,
+								},
+							},
+							["count"] = 2,
+							["amount"] = 2248,
+						},
+					},
+					["Healing"] = 2248,
+					["Attacks"] = {
+						["Melee"] = {
+							["Details"] = {
+								["Hit"] = {
+									["max"] = 203,
+									["min"] = 203,
+									["count"] = 1,
+									["amount"] = 203,
+								},
+							},
+							["count"] = 1,
+							["amount"] = 203,
+						},
+					},
+					["Overhealing"] = 90202,
+					["DamagedWho"] = {
+						["Grandmaster's Training Dummy"] = {
+							["Details"] = {
+								["Melee"] = {
+									["count"] = 203,
+								},
+							},
+							["amount"] = 203,
+						},
+					},
+					["TimeDamage"] = 3.5,
+					["TimeDamaging"] = {
+						["Grandmaster's Training Dummy"] = {
+							["Details"] = {
+								["Melee"] = {
+									["count"] = 3.5,
+								},
+							},
+							["amount"] = 3.5,
+						},
+					},
+					["TimeHeal"] = 7,
+					["ElementDone"] = {
+						["Melee"] = 203,
+					},
+					["ElementHitsDone"] = {
+						["Melee"] = {
+							["Details"] = {
+								["Hit"] = {
+									["count"] = 1,
+								},
+							},
+							["amount"] = 1,
+						},
+					},
+				},
+			},
+			["UnitLockout"] = 1657759124,
+			["LastActive"] = 1657759230,
+		},
+	},
+	["FightNum"] = 0,
+	["CombatTimes"] = {
+	},
+	["FoughtWho"] = {
+	},
+}

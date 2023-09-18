@@ -1,0 +1,15 @@
+Version: 1
+Frame: MAMover1
+FrameLevel: 27
+Anchor: TOPLEFT
+X: 308
+Y: -131
+W: 232
+H: 100
+Frame: GladiusFrame
+FrameLevel: 1
+Anchor: RIGHT
+X: -164
+Y: -19
+W: 205
+H: 307

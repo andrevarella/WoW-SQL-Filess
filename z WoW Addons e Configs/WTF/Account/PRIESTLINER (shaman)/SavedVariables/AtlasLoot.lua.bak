@@ -1,0 +1,29 @@
+
+AtlasLootOptions = nil
+AtlasLootDB = {
+	["profileKeys"] = {
+		["Nevershock - Heroes Of Wow"] = "Nevershock - Heroes Of Wow",
+	},
+	["profiles"] = {
+		["Nevershock - Heroes Of Wow"] = {
+			["AtlasType"] = "Unknown",
+		},
+	},
+}
+AtlasLootWishList = {
+	["Options"] = {
+		["Nevershock"] = {
+			["AllowShareWishlistInCombat"] = true,
+			["UseDefaultWishlist"] = false,
+			["Mark"] = true,
+			["markInTable"] = "own",
+			["AllowShareWishlist"] = true,
+		},
+	},
+	["Shared"] = {
+	},
+	["Own"] = {
+		["Nevershock"] = {
+		},
+	},
+}

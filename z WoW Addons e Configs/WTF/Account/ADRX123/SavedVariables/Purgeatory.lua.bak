@@ -1,0 +1,10 @@
+
+PurgeatoryDB = {
+	["profileKeys"] = {
+		["Howtoferal - Heroes Of Wow"] = "Default",
+	},
+	["profiles"] = {
+		["Default"] = {
+		},
+	},
+}

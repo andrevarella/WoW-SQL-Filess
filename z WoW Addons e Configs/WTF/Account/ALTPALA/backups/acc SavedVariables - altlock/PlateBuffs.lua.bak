@@ -1,0 +1,10 @@
+
+PB_DB = {
+	["profileKeys"] = {
+		["Filovirus - Heroes Of Wow"] = "Default",
+	},
+	["profiles"] = {
+		["Default"] = {
+		},
+	},
+}

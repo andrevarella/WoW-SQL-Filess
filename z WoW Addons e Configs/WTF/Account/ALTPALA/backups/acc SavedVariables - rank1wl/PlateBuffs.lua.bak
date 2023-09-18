@@ -1,0 +1,10 @@
+
+PB_DB = {
+	["profileKeys"] = {
+		["Blackoutz - Heroes Of Wow"] = "Default",
+	},
+	["profiles"] = {
+		["Default"] = {
+		},
+	},
+}

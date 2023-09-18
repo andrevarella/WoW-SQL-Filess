@@ -1,0 +1,123 @@
+
+PABDB = {
+	["abilities"] = {
+		["DEATHKNIGHT"] = {
+			["Strangulate"] = 120,
+			["Lichborne"] = 120,
+			["Mind Freeze"] = 10,
+			["PvP Trinket"] = 120,
+			["Anti-Magic Shell"] = 45,
+			["Death Pact"] = 120,
+			["Gnaw"] = 20,
+			["Summon Gargoyle"] = 180,
+			["Every Man for Himself"] = 120,
+			["Death Grip"] = 25,
+		},
+		["WARRIOR"] = {
+			["Shield Wall"] = 300,
+			["Every Man for Himself"] = 120,
+			["Bladestorm"] = 90,
+			["Shield Bash"] = 12,
+			["Disarm"] = 60,
+			["Charge"] = 15,
+			["Pummel"] = 10,
+			["Intercept"] = 20,
+		},
+		["PALADIN"] = {
+			["Divine Shield"] = 300,
+			["Every Man for Himself"] = 120,
+			["Hand of Protection"] = 180,
+			["Release of Light"] = 120,
+			["Hand of Freedom"] = 25,
+			["Divine Plea"] = 60,
+			["Hammer of Justice"] = 40,
+			["Divine Sacrifice"] = 120,
+		},
+		["MAGE"] = {
+			["Ice Block"] = 300,
+			["Blink"] = 15,
+			["Cold Snap"] = 384,
+			["Deep Freeze"] = 30,
+			["Counterspell"] = 24,
+			["Evocation"] = 240,
+			["Every Man for Himself"] = 120,
+			["PvP Trinket"] = 120,
+		},
+		["PRIEST"] = {
+			["Psychic Scream"] = 27,
+			["Every Man for Himself"] = 120,
+			["Pain Suppression"] = 144,
+			["Shadow Word: Death"] = 12,
+		},
+		["WARLOCK"] = {
+			["Fel Domination"] = 180,
+			["Shadowfury"] = 20,
+			["Every Man for Himself"] = 120,
+			["Demonic Circle: Teleport"] = 30,
+			["Death Coil"] = 120,
+			["Devour Magic"] = 8,
+			["Spell Lock"] = 24,
+			["PvP Trinket"] = 120,
+		},
+		["ROGUE"] = {
+			["Dismantle"] = 60,
+			["Cloak of Shadows"] = 60,
+			["Kidney Shot"] = 20,
+			["Vanish"] = 120,
+			["Kick"] = 10,
+			["Every Man for Himself"] = 120,
+			["Shadow Dance"] = 60,
+			["Blind"] = 120,
+		},
+		["DRUID"] = {
+			["Nature's Swiftness"] = 180,
+			["Swiftmend"] = 13,
+			["Release of Light"] = 120,
+			["PvP Trinket"] = 120,
+			["Innervate"] = 180,
+			["Bash"] = 60,
+			["Barkskin"] = 60,
+		},
+		["SHAMAN"] = {
+			["Hex"] = 45,
+			["Wind Shear"] = 6,
+			["Release of Light"] = 120,
+			["PvP Trinket"] = 120,
+			["Nature's Swiftness"] = 120,
+			["Grounding Totem"] = 15,
+		},
+		["HUNTER"] = {
+			["Deterrence"] = 90,
+			["Roar of Sacrifice"] = 60,
+			["PvP Trinket"] = 120,
+			["Scatter Shot"] = 30,
+			["Frost Trap"] = 28,
+			["Freezing Arrow"] = 28,
+			["Readiness"] = 180,
+			["Silencing Shot"] = 20,
+			["Master's Call"] = 60,
+		},
+	},
+	["lock"] = true,
+	["scale"] = 1,
+	["arena"] = true,
+	["hidden"] = false,
+	["positions"] = {
+		{
+			["y"] = -216.2331726134229,
+			["x"] = 6.047779039037476,
+		}, -- [1]
+		{
+			["y"] = -393.6027884562304,
+			["x"] = 6.994445795176707,
+		}, -- [2]
+		{
+			["y"] = -759.3024508759569,
+			["x"] = 1006.927914119956,
+		}, -- [3]
+		{
+			["y"] = -757.0139271884215,
+			["x"] = 1023.877593345942,
+		}, -- [4]
+	},
+}

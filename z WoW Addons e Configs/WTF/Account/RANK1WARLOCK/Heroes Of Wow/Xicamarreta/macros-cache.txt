@@ -1,0 +1,103 @@
+MACRO 16777222 "2 onePvP" INV_Misc_QuestionMark
+/petautocastoff Bash
+/petautocastoff Spirit Wolf Leap
+/equipslot 17 Wrathful Gladiator's Handaxe
+END
+MACRO 16777223 "2 Shield Enh" INV_Misc_QuestionMark
+#showtooltip Wrathful Gladiator's Shield Wall
+/petautocastoff Bash
+/petautocastoff Spirit Wolf Leap
+/equipslot 16 Havoc's Call, Blade of Lordaeron Kings
+/equipslot 17 Wrathful Gladiator's Shield Wall
+END
+MACRO 16777221 "2h Enh" INV_Misc_QuestionMark
+/petautocastoff Bash
+/petautocastoff Spirit Wolf Leap
+/equipslot 17 Havoc's Call, Blade of Lordaeron Kings
+END
+MACRO 16777224 "3 Bash" INV_Misc_QuestionMark
+#showtooltip Bash
+/petautocastoff Bash
+/petautocastoff Spirit Wolf Leap
+/cast Bash
+END
+MACRO 16777225 "3 fcs bash" INV_Misc_QuestionMark
+/petautocastoff Bash
+/petautocastoff Spirit Wolf Leap
+/cast [@focus] Bash
+END
+MACRO 16777239 "a" INV_Misc_QuestionMark
+/petautocastoff Bash
+/petautocastoff Spirit Wolf Leap
+/cancelaura hand of protection
+/cast Lava Lash
+END
+MACRO 16777242 "Fcs" INV_Misc_QuestionMark
+#showtooltip Spirit Wolf Leap
+/petautocastoff Bash
+/petautocastoff Spirit Wolf Leap
+/cast [@focus] Spirit Wolf Leap
+END
+MACRO 16777226 "Freedom" INV_Misc_QuestionMark
+#showtooltip Spirit Walk
+/petautocastoff Bash
+/petautocastoff Spirit Wolf Leap
+/cast Spirit Walk
+END
+MACRO 16777237 "Frost Shock" INV_Misc_QuestionMark
+/petautocastoff Bash
+/petautocastoff Spirit Wolf Leap
+/cast Frost Shock
+END
+MACRO 16777241 "Grounding" INV_Misc_QuestionMark
+/petautocastoff Bash
+/petautocastoff Spirit Wolf Leap
+/cast Grounding Totem
+END
+MACRO 16777240 "Howl" INV_Misc_QuestionMark
+#showtooltip Twin Howl
+/petautocastoff Bash
+/petautocastoff Spirit Wolf Leap
+/cast Twin Howl
+END
+MACRO 16777238 "Lava" INV_Misc_QuestionMark
+/startattack
+/cast lava burst
+END
+MACRO 16777227 "Leap" INV_Misc_QuestionMark
+#showtooltip Spirit Wolf Leap
+/petautocastoff Bash
+/petautocastoff Spirit Wolf Leap
+/cast Spirit Wolf Leap
+END
+MACRO 16777234 "pt1" INV_Misc_QuestionMark
+#showtooltip Spirit Wolf Leap
+/petautocastoff Bash
+/petautocastoff Spirit Wolf Leap
+/cast [@party1] Spirit Wolf Leap
+/petstay
+END
+MACRO 16777243 "Purge" INV_Misc_QuestionMark
+/petautocastoff Bash
+/petautocastoff Spirit Wolf Leap
+/cast Purge
+END
+MACRO 16777235 "Shear" INV_Misc_QuestionMark
+/petautocastoff Bash
+/petautocastoff Spirit Wolf Leap
+/cast Wind Shear
+END
+MACRO 16777233 "Storm" INV_Misc_QuestionMark
+/petautocastoff Bash
+/petautocastoff Spirit Wolf Leap
+/cancelaura hand of protection
+/cast Stormstrike
+END
+MACRO 16777236 "Wolf" INV_Misc_QuestionMark
+#showtooltip Feral Spirit
+/petdefensive
+/petautocastoff Bash
+/petautocastoff Spirit Wolf Leap
+/cast Blood Fury
+/cast Feral Spirit
+END

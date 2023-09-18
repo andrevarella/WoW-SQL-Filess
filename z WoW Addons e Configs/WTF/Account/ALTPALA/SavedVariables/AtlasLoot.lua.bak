@@ -1,0 +1,29 @@
+
+AtlasLootOptions = nil
+AtlasLootDB = {
+	["profileKeys"] = {
+		["Nevercleanse - Heroes Of Wow"] = "Nevercleanse - Heroes Of Wow",
+	},
+	["profiles"] = {
+		["Nevercleanse - Heroes Of Wow"] = {
+			["AtlasType"] = "Unknown",
+		},
+	},
+}
+AtlasLootWishList = {
+	["Options"] = {
+		["Nevercleanse"] = {
+			["AllowShareWishlistInCombat"] = true,
+			["UseDefaultWishlist"] = false,
+			["Mark"] = true,
+			["markInTable"] = "own",
+			["AllowShareWishlist"] = true,
+		},
+	},
+	["Shared"] = {
+	},
+	["Own"] = {
+		["Nevercleanse"] = {
+		},
+	},
+}

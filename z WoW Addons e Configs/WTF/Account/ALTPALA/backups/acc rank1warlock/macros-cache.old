@@ -1,0 +1,8 @@
+MACRO 2 "Focus" INV_Misc_QuestionMark
+/cast [@focus] Intimidating Shout
+END
+MACRO 1 "Focus" Ability_Hunter_SniperTraining
+/focus [@target,exists]
+/focus [@mouseover,exists] 
+/clearfocus [@focus,dead]
+END

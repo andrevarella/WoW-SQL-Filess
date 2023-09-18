@@ -1,0 +1,106 @@
+MACRO 2 " " INV_Misc_QuestionMark
+/cast Dire Bear Form(Shapeshift)
+/cast Dire Bear Form(Shapeshift)
+END
+MACRO 3 " " INV_Misc_QuestionMark
+/cast Cat Form(Shapeshift)
+/cast Cat Form(Shapeshift)
+END
+MACRO 11 " " INV_Misc_QuestionMark
+#showtooltip
+/cast [nomodifier] Healing Touch(Rank 15)
+/cast [modifier:alt, target=party1] Healing Touch(Rank 15)
+ 
+END
+MACRO 10 " " Ability_Creature_Cursed_01
+/cancelaura Tree of Life(Shapeshift)
+END
+MACRO 4 " " INV_Misc_QuestionMark
+#showtooltip
+/cast [stealth] Ravage
+/cast Mangle (Cat)
+END
+MACRO 6 " " INV_Misc_QuestionMark
+#showtooltip
+/cast [stance:3] Feral Charge - Cat
+/cast [stance:1] Feral Charge - Bear
+/cast [nostance:1/3] !Dire Bear Form(Shapeshift)
+END
+MACRO 9 " " INV_Misc_QuestionMark
+#showtooltip
+/cast [stealth] pounce
+/cast [nostealth] !prowl
+END
+MACRO 22 " " INV_Misc_QuestionMark
+#showtooltip
+/cast [nomodifier] Nourish(Rank 1)
+/cast [modifier:alt, target=party1] Nourish(Rank 1)
+END
+MACRO 12 " " INV_Misc_QuestionMark
+/cast [target=party1] Abolish Poison
+END
+MACRO 13 " " INV_Misc_QuestionMark
+/cast [target=focus] Entangling Roots(Rank 8)
+END
+MACRO 14 " " INV_Misc_QuestionMark
+/cast [target=focus] Hibernate(Rank 3)
+END
+MACRO 15 " " INV_Misc_QuestionMark
+#showtooltip
+/cast [nomodifier] Feral Charge - Bear
+/cast [modifier:alt, target=focus] Feral Charge - Bear
+END
+MACRO 16 " " INV_Misc_QuestionMark
+#showtooltip
+/cast [nomodifier] Feral Charge - Cat
+/cast [modifier:alt, target=focus] Feral Charge - Cat
+END
+MACRO 21 " " INV_Misc_QuestionMark
+#showtooltip
+/cast [nomodifier] Regrowth(Rank 12)
+/cast [modifier:alt, target=party1] Regrowth(Rank 12)
+END
+MACRO 18 " " INV_Misc_QuestionMark
+/cast Mangle (Bear)(Rank 5)
+/cast Maul(Rank 10)
+END
+MACRO 19 " " INV_Misc_QuestionMark
+#showtooltip
+/cast [nomodifier] Rejuvenation(Rank 15)
+/cast [modifier:alt, target=party1] Rejuvenation(Rank 15)
+END
+MACRO 23 " " INV_Misc_QuestionMark
+/cast [target=party1] Innervate
+END
+MACRO 17 "  " INV_Misc_QuestionMark
+/equip Trauma
+/equip Sundial of Eternal Dusk
+END
+MACRO 20 "  " INV_Misc_QuestionMark
+#showtooltip
+/cast [nomodifier] Lifebloom(Rank 3)
+/cast [modifier:alt, target=party1] Lifebloom(Rank 3)
+END
+MACRO 1 "  " INV_Misc_QuestionMark
+/cast [target=party1] Bauble of True Blood
+END
+MACRO 28 "/2 " Ability_BackStab
+/2 V>priest Horda Undead Male  5/5 Disc PVP Wrathfull 6.4 Shadow PvE Charred/Phyla HC Solace e Bauble 6.4 Disc/holy PvE 2 Proff>enginer/tailor  archus HC tá na loja:Devstbadiscx :7500
+END
+MACRO 26 "Bear form" INV_Misc_QuestionMark
+/cast Dire Bear Form(Shapeshift)
+/cast Enrage
+END
+MACRO 25 "macro pve 2" INV_Misc_QuestionMark
+/cast [@mouseover] Rebirth(Rank 7)
+END
+MACRO 24 "pve macro 1" INV_Misc_QuestionMark
+/cast [@mouseover] Innervate
+END
+MACRO 27 "Shred pve" INV_Misc_QuestionMark
+/cast Shred(Rank 9)
+/use Aldriana's Gloves of Secrecy
+END
+MACRO 29 "target mob/bos" Ability_Druid_EclipseOrange
+/target living Inferno
+END

@@ -1,0 +1,135 @@
+MACRO 16777245 " " Spell_Holy_SealOfProtection
+/cancelaura Hand of Protection
+/cancelaura Hand of Freedom
+/cancelaura spell reflection
+END
+MACRO 16777254 "block" INV_Misc_QuestionMark
+#showtooltip shield block
+#showtooltip shield slam
+/cancelaura bladestorm
+/cancelaura hand of protection
+/cast defensive stance
+/equipslot 16 Wrathful Gladiator's Cleaver
+/equipslot 17 Wrathful Gladiator's Shield Wall
+/cast shield block
+END
+MACRO 16777262 "BS" INV_Misc_QuestionMark
+/startattack
+/cancelaura hand of protection
+/cast bloodthirst
+/cast Heroic Strike(Rank 13)
+END
+MACRO 16777248 "charge" INV_Misc_QuestionMark
+#showtooltip charge
+/cancelaura bladestorm
+/cast battle stance
+/cancelaura hand of protection
+/cast Charge
+END
+MACRO 16777247 "fcs" INV_Misc_QuestionMark
+#showtooltip Hamstring
+/cancelaura bladestorm
+/cancelaura hand of protection
+/cast [stance:2] battle stance
+/cast [@focus] hamstring
+END
+MACRO 16777258 "focus" INV_Misc_QuestionMark
+#showtooltip overpower
+/cancelaura bladestorm
+/cancelaura hand of protection
+/cast battle stance
+/cast [@focus] overpower
+END
+MACRO 16777255 "hamst" INV_Misc_QuestionMark
+#showtooltip hamstring
+/cancelaura bladestorm
+/cancelaura hand of protection
+/startattack
+/cast [stance:2] battle stance
+/cast hamstring
+END
+MACRO 16777249 "intercept" INV_Misc_QuestionMark
+#showtooltip Intercept
+/cancelaura hand of protection
+/cancelaura bladestorm
+/cast Berserker Stance
+/cast Intercept
+END
+MACRO 16777257 "MS" INV_Misc_QuestionMark
+/cancelaura bladestorm
+/cancelaura hand of protection
+/startattack
+/cast mortal strike
+END
+MACRO 16777256 "overpower" INV_Misc_QuestionMark
+#showtooltip overpower
+/cancelaura bladestorm
+/cancelaura hand of protection
+/startattack
+/cast battle stance
+/cast overpower
+END
+MACRO 16777261 "pummel" INV_Misc_QuestionMark
+#showtoolt Pummel
+/cancelaura hand of protection
+/cancelaura bladestorm
+/startattack
+/cast Berserker Stance
+/cast Pummel
+END
+MACRO 16777260 "reflect" INV_Misc_QuestionMark
+#showtooltip Spell Reflection
+/cancelaura bladestorm
+/cancelaura hand of protection
+/cast [stance:3] Battle Stance
+/equipslot 16 Wrathful Gladiator's Cleaver
+/equipslot 17 Wrathful Gladiator's Shield Wall
+/cast Spell Reflection
+END
+MACRO 16777250 "rend" INV_Misc_QuestionMark
+#showtooltip rend
+/dismount
+/startattack
+/cancelaura bladestorm
+/cancelaura hand of protection
+/cast [stance:3] battle stance
+/cast rend
+END
+MACRO 16777251 "retaliation" INV_Misc_QuestionMark
+#showtooltip retaliation
+/cancelaura bladestorm
+/cancelaura hand of protection
+/cast battle stance
+/cast Retaliation
+END
+MACRO 16777259 "shattering" INV_Misc_QuestionMark
+#showtooltip Shattering Throw
+/cancelaura bladestorm
+/cancelaura hand of protection
+/startattack
+/cast battle stance
+/cast Shattering Throw
+END
+MACRO 16777244 "shield" INV_Misc_QuestionMark
+#showtoolt Wrathful Gladiator's Shield Wall
+/equip Wrathful Gladiator's Cleaver
+/equip Wrathful Gladiator's Shield Wall
+END
+MACRO 16777252 "shield slam" INV_Misc_QuestionMark
+#showtooltip shield slam
+/cancelaura bladestorm
+/cancelaura hand of protection
+/equipslot 16 Wrathful Gladiator's Cleaver
+/equipslot 17 Wrathful Gladiator's Shield Wall
+/cast shield slam
+END
+MACRO 16777253 "wall" INV_Misc_QuestionMark
+#showtooltip shield wall
+/cancelaura recklessness
+/cancelaura bladestorm
+/cancelaura hand of protection
+/cast defensive stance
+/equipslot 16 Wrathful Gladiator's Cleaver
+/equipslot 17 Wrathful Gladiator's Shield Wall
+/cast shield wall
+END

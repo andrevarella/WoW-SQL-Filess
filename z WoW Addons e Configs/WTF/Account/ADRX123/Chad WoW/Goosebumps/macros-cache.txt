@@ -1,0 +1,130 @@
+MACRO 16777232 "bash" INV_Misc_QuestionMark
+#showtooltip shield bash
+/cancelaura bladestorm
+/equipslot 16 Furious Gladiator's Slicer
+/equipslot 17 Furious Gladiator's Shield Wall
+/cast [stance:3] Battle Stance
+/cast shield bash
+END
+MACRO 16777218 "block" INV_Misc_QuestionMark
+#showtooltip shield block
+#showtooltip shield slam
+/cancelaura bladestorm
+/cancelaura hand of protection
+/cast defensive stance
+/equipslot 16 Furious Gladiator's Slicer
+/equipslot 17 Furious Gladiator's Shield Wall
+/cast shield block
+END
+MACRO 16777219 "charge" INV_Misc_QuestionMark
+#showtooltip charge
+/cancelaura bladestorm
+/cast battle stance
+/cancelaura hand of protection
+/cast Charge
+END
+MACRO 16777223 "cpt" INV_Misc_QuestionMark
+#showtooltip Intercept
+/cancelaura hand of protection
+/cancelaura bladestorm
+/cast Berserker Stance
+/cast Intercept
+END
+MACRO 16777220 "fcs" INV_Misc_QuestionMark
+#showtooltip Hamstring
+/cancelaura bladestorm
+/cancelaura hand of protection
+/cast [stance:2] battle stance
+/cast [@focus] hamstring
+END
+MACRO 16777231 "fcs" INV_Misc_QuestionMark
+#showtooltipe pummel
+/cancelaura bladestorm
+/cast berserker stance
+/cast [target=focus] pummel
+END
+MACRO 16777222 "hams" INV_Misc_QuestionMark
+#showtooltip hamstring
+/cancelaura bladestorm
+/cancelaura hand of protection
+/startattack
+/cast [stance:2] battle stance
+/cast hamstring
+END
+MACRO 16777224 "ms" INV_Misc_QuestionMark
+/cancelaura bladestorm
+/cancelaura hand of protection
+/startattack
+/cast mortal strike
+END
+MACRO 16777225 "op" INV_Misc_QuestionMark
+#showtooltip overpower
+/cancelaura bladestorm
+/cancelaura hand of protection
+/startattack
+/cast battle stance
+/cast overpower
+END
+MACRO 16777221 "op fcs" INV_Misc_QuestionMark
+#showtooltip overpower
+/cancelaura bladestorm
+/cancelaura hand of protection
+/cast battle stance
+/cast [@focus] overpower
+END
+MACRO 16777226 "pm" INV_Misc_QuestionMark
+#showtoolt Pummel
+/cancelaura hand of protection
+/cancelaura bladestorm
+/startattack
+/cast Berserker Stance
+/cast Pummel
+END
+MACRO 16777227 "refe" INV_Misc_QuestionMark
+#showtooltip Spell Reflection
+/cancelaura bladestorm
+/cancelaura hand of protection
+/cast [stance:3] Battle Stance
+/equipslot 16 Furious Gladiator's Slicer
+/equipslot 17 Furious Gladiator's Shield Wall
+/cast Spell Reflection
+END
+MACRO 16777228 "rend" INV_Misc_QuestionMark
+#showtooltip rend
+/dismount
+/startattack
+/cancelaura bladestorm
+/cancelaura hand of protection
+/cast [stance:3] battle stance
+/cast rend
+END
+MACRO 16777234 "S slm" INV_Misc_QuestionMark
+#showtooltip shield slam
+/cancelaura bladestorm
+/cancelaura hand of protection
+/equipslot 16 Furious Gladiator's Slicer
+/equipslot 17 Furious Gladiator's Shield Wall
+/cast shield slam
+END
+MACRO 16777229 "shat" INV_Misc_QuestionMark
+#showtooltip Shattering Throw
+/cancelaura bladestorm
+/cancelaura hand of protection
+/startattack
+/cast battle stance
+/cast Shattering Throw
+END
+MACRO 16777217 "shield" INV_Misc_QuestionMark
+/equipslot 16 Furious Gladiator's Slicer
+/equipslot 17 Furious Gladiator's Shield Wall
+END
+MACRO 16777230 "wall" INV_Misc_QuestionMark
+#showtooltip shield wall
+/cancelaura recklessness
+/cancelaura bladestorm
+/cancelaura hand of protection
+/cast defensive stance
+/equipslot 16 Furious Gladiator's Slicer
+/equipslot 17 Furious Gladiator's Shield Wall
+/cast shield wall
+END

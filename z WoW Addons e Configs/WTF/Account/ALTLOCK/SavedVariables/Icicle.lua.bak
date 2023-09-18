@@ -1,0 +1,10 @@
+
+Icicledb = {
+	["profileKeys"] = {
+		["Filovirus - Heroes Of Wow"] = "Default",
+	},
+	["profiles"] = {
+		["Default"] = {
+		},
+	},
+}

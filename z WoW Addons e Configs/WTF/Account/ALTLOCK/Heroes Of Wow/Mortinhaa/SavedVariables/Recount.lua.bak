@@ -1,0 +1,61 @@
+
+RecountPerCharDB = {
+	["version"] = "1.3",
+	["combatants"] = {
+		["Worstworld"] = {
+			["GUID"] = "0x0000000000227F1C",
+			["LastEventHealth"] = {
+				"7912 (31%)", -- [1]
+				"25372 (100%)", -- [2]
+				"25372 (100%)", -- [3]
+			},
+			["LastEventType"] = {
+				"HEAL", -- [1]
+				"HEAL", -- [2]
+				"HEAL", -- [3]
+			},
+			["enClass"] = "HUNTER",
+			["unit"] = "Worstworld",
+			["level"] = 80,
+			["LastFightIn"] = 0,
+			["LastEventNum"] = {
+				26.76572599716223, -- [1]
+				77.68800252246571, -- [2]
+				7.768406116979348, -- [3]
+			},
+			["type"] = "Self",
+			["Owner"] = false,
+			["NextEventNum"] = 4,
+			["LastEventHealthNum"] = {
+				31.18398234274003, -- [1]
+				100, -- [2]
+				100, -- [3]
+			},
+			["LastEvents"] = {
+				"Feitan Holy Shock Worstworld Hit +6791", -- [1]
+				"Feitan Holy Light Worstworld Crit +19711 (2271 overheal)", -- [2]
+				"Feitan Glyph of Holy Light Worstworld Hit +1971 (1971 overheal)", -- [3]
+			},
+			["Name"] = "Worstworld",
+			["LastEventIncoming"] = {
+				true, -- [1]
+				true, -- [2]
+				true, -- [3]
+			},
+			["LastEventTimes"] = {
+				35056.662, -- [1]
+				35060.404, -- [2]
+				35060.405, -- [3]
+			},
+			["Fights"] = {
+			},
+			["UnitLockout"] = 1481952259,
+			["LastActive"] = 1481952263,
+		},
+	},
+	["FightNum"] = 0,
+	["CombatTimes"] = {
+	},
+	["FoughtWho"] = {
+	},
+}

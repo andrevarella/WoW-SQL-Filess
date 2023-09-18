@@ -1,0 +1,11 @@
+
+SoundAlerterDB = {
+	["profileKeys"] = {
+		["Faceroller - Heroes Of Wow"] = "Default",
+	},
+	["profiles"] = {
+		["Default"] = {
+			["path"] = "Interface\\Addons\\SoundAlerter\\Voice\\",
+		},
+	},
+}

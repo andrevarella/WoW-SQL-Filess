@@ -1,0 +1,11 @@
+
+ButtonFacadeDB = {
+	["profileKeys"] = {
+		["Blackoutz - Heroes Of Wow"] = "Default",
+	},
+	["profiles"] = {
+		["Default"] = {
+			["Gloss"] = 0,
+		},
+	},
+}

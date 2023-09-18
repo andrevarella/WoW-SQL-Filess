@@ -1,0 +1,36 @@
+
+OmniBarDB = {
+	["version"] = 2,
+	["Default"] = {
+		["noAshran"] = false,
+		["noBattleground"] = false,
+		["border"] = true,
+		["noMultiple"] = false,
+		["center"] = false,
+		["noHighlightTarget"] = false,
+		["locked"] = false,
+		["size"] = 35,
+		["swipeAlpha"] = 0.65,
+		["growUpward"] = false,
+		["columns"] = 8,
+		["unusedAlpha"] = 0.45,
+		["adaptive"] = false,
+		["showUnused"] = true,
+		["noCooldownCount"] = false,
+		["noWorld"] = false,
+		["noGlow"] = true,
+		["noTooltips"] = false,
+		["padding"] = 2,
+		["position"] = {
+			["yOfs"] = 130.5980673355805,
+			["xOfs"] = 178.761486577192,
+			["point"] = "CENTER",
+			["relativePoint"] = "CENTER",
+		},
+		["cooldowns"] = {
+		},
+		["noArena"] = false,
+		["noHighlightFocus"] = true,
+		["noRatedBattleground"] = false,
+	},
+}

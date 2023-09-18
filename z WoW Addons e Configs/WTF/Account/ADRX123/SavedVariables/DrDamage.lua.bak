@@ -1,0 +1,10 @@
+
+DrDamageDB = {
+	["profileKeys"] = {
+		["Nevercleanse - Heroes Of Wow"] = "Nevercleanse - Heroes Of Wow",
+	},
+	["profiles"] = {
+		["Nevercleanse - Heroes Of Wow"] = {
+		},
+	},
+}

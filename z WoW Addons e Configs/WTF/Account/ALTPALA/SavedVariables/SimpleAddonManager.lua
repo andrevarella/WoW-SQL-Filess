@@ -1,0 +1,2 @@
+
+SimpleAddonManagerDB = nil

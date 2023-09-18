@@ -1,0 +1,29 @@
+
+AtlasLootOptions = nil
+AtlasLootDB = {
+	["profileKeys"] = {
+		["Nicetry - Heroes Of Wow"] = "Nicetry - Heroes Of Wow",
+	},
+	["profiles"] = {
+		["Nicetry - Heroes Of Wow"] = {
+			["AtlasType"] = "Unknown",
+		},
+	},
+}
+AtlasLootWishList = {
+	["Options"] = {
+		["Nicetry"] = {
+			["AllowShareWishlistInCombat"] = true,
+			["UseDefaultWishlist"] = false,
+			["Mark"] = true,
+			["markInTable"] = "own",
+			["AllowShareWishlist"] = true,
+		},
+	},
+	["Shared"] = {
+	},
+	["Own"] = {
+		["Nicetry"] = {
+		},
+	},
+}

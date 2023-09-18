@@ -1,0 +1,89 @@
+
+GS_Data = {
+	["CurrentTarget"] = {
+	},
+	["Heroes Of Wow"] = {
+		["Players"] = {
+			["Howtoferal"] = {
+				["Equip"] = {
+					"41678:3795", -- [1]
+					"50452:0", -- [2]
+					"48207:3793", -- [3]
+					nil, -- [4]
+					"48206:0", -- [5]
+					"41833:0", -- [6]
+					"48205:0", -- [7]
+					"47077:0", -- [8]
+					"51370:0", -- [9]
+					"48203:0", -- [10]
+					"47222:0", -- [11]
+					"50453:0", -- [12]
+					"40256:0", -- [13]
+					"51377:0", -- [14]
+					"40250:0", -- [15]
+					"47239:3827", -- [16]
+					"0:0", -- [17]
+					"42589:0", -- [18]
+				},
+				["Guild"] = "GOD IS FAIR",
+				["Scanned"] = "Howtoferal",
+				["Date"] = 201702212248,
+				["PVP"] = 1,
+				["Average"] = 246,
+				["Spec"] = 1,
+				["GearScore"] = 5513,
+				["Race"] = "NE",
+				["Name"] = "Howtoferal",
+				["Faction"] = "A",
+				["Location"] = "DAL",
+				["Level"] = 80,
+				["Class"] = "DR",
+				["Sex"] = 3,
+			},
+		},
+		["CurrentPlayer"] = {
+		},
+	},
+}
+GS_Settings = {
+	["Developer"] = 0,
+	["Ulduar"] = 3850,
+	["Special"] = 1,
+	["Item"] = 1,
+	["HUlduar"] = 4000,
+	["PVE"] = -1,
+	["OldVer"] = 30119,
+	["HCrusade"] = 4500,
+	["PVP"] = -1,
+	["HNaxx"] = 3500,
+	["Show"] = 1,
+	["Communication"] = 1,
+	["Sarth"] = 2950,
+	["Detail"] = -1,
+	["Malygos"] = 3400,
+	["Restrict"] = 2,
+	["DatabaseAgeSlider"] = 30,
+	["Average"] = -1,
+	["Naxx"] = 3000,
+	["AutoPrune"] = 1,
+	["KeepFaction"] = -1,
+	["Level"] = -1,
+	["ShowSpecScores"] = {
+	},
+	["Archavon"] = 2900,
+	["Emalon"] = 3650,
+	["Crusade"] = 4100,
+	["HEmalon"] = 3750,
+	["HSarth"] = 3450,
+	["Heroics"] = 2600,
+	["ShowHelp"] = 1,
+	["CHAT"] = -1,
+	["HArchavon"] = 3350,
+	["Player"] = 1,
+	["Compare"] = -1,
+	["Date2"] = 1,
+	["HMaly"] = 3800,
+	["MinLevel"] = 80,
+	["ML"] = -1,
+	["Slider"] = 10,
+}

@@ -1,0 +1,8 @@
+SET minimapZoom "2"
+SET questLogCollapseFilter "-1"
+SET trackedQuests "v"
+SET trackedAchievements "v"
+SET cameraSavedDistance "26.541628"
+SET cameraSavedPitch "38.049850"
+SET playerStatLeftDropdown "PLAYERSTAT_BASE_STATS"
+SET playerStatRightDropdown "PLAYERSTAT_MELEE_COMBAT"

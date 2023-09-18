@@ -1,0 +1,49 @@
+
+RangeDisplayDB3 = {
+	["namespaces"] = {
+		["LibDualSpec-1.0"] = {
+		},
+	},
+	["profileKeys"] = {
+		["Reksalz - Heroes Of Wow"] = "Default",
+	},
+	["profiles"] = {
+		["Default"] = {
+			["units"] = {
+				["playertarget"] = {
+					["enabled"] = false,
+				},
+				["mouseover"] = {
+					["y"] = -40.00000054709792,
+					["x"] = 11.99998003092608,
+					["enabled"] = false,
+				},
+				["focus"] = {
+					["mrSection"] = {
+						["enabled"] = false,
+					},
+					["point"] = "LEFT",
+					["maxRangeOnly"] = true,
+					["rangeLimit"] = 20,
+					["srSection"] = {
+						["range"] = 15,
+						["color"] = {
+							["r"] = 0.8745098039215686,
+							["g"] = 0,
+							["b"] = 0.04705882352941176,
+						},
+					},
+					["relPoint"] = "LEFT",
+					["y"] = 42.22196213795197,
+					["x"] = 282.1304468812033,
+					["oorSection"] = {
+						["range"] = 15,
+					},
+					["crSection"] = {
+						["range"] = 15,
+					},
+				},
+			},
+		},
+	},
+}

@@ -1,0 +1,153 @@
+
+Bartender4DB = {
+	["namespaces"] = {
+		["ActionBars"] = {
+			["profiles"] = {
+				["Nevershock - Heroes Of Wow"] = {
+					["actionbars"] = {
+						{
+							["version"] = 3,
+							["position"] = {
+								["x"] = -231.5000223166418,
+								["point"] = "CENTER",
+								["y"] = -204.9999966964341,
+							},
+						}, -- [1]
+						{
+							["version"] = 3,
+							["position"] = {
+								["x"] = -231.5000223166418,
+								["point"] = "CENTER",
+								["y"] = -189.4999873129013,
+							},
+						}, -- [2]
+						{
+							["version"] = 3,
+							["position"] = {
+								["x"] = -231.5000223166418,
+								["point"] = "CENTER",
+								["y"] = -151.5000121950782,
+							},
+						}, -- [3]
+						{
+							["version"] = 3,
+							["position"] = {
+								["x"] = -231.5000223166418,
+								["point"] = "CENTER",
+								["y"] = -113.4999561047472,
+							},
+						}, -- [4]
+						{
+							["version"] = 3,
+							["position"] = {
+								["x"] = -231.5000223166418,
+								["point"] = "CENTER",
+								["y"] = -75.4999719899788,
+							},
+						}, -- [5]
+						{
+							["version"] = 3,
+							["position"] = {
+								["x"] = -231.5000223166418,
+								["point"] = "CENTER",
+								["y"] = -37.49995188742906,
+							},
+						}, -- [6]
+						{
+						}, -- [7]
+						[9] = {
+						},
+						[10] = {
+						},
+					},
+				},
+			},
+		},
+		["MicroMenu"] = {
+			["profiles"] = {
+				["Nevershock - Heroes Of Wow"] = {
+					["version"] = 3,
+					["position"] = {
+						["x"] = -188.8001263776292,
+						["point"] = "CENTER",
+						["scale"] = 0.800000011920929,
+						["y"] = 42.39998382423966,
+					},
+				},
+			},
+		},
+		["XPBar"] = {
+		},
+		["MultiCast"] = {
+			["profiles"] = {
+				["Nevershock - Heroes Of Wow"] = {
+					["version"] = 3,
+					["position"] = {
+						["x"] = -114.5000205594259,
+						["point"] = "CENTER",
+						["y"] = 19.49999729388753,
+					},
+				},
+			},
+		},
+		["BlizzardArt"] = {
+		},
+		["BagBar"] = {
+			["profiles"] = {
+				["Nevershock - Heroes Of Wow"] = {
+					["version"] = 3,
+					["position"] = {
+						["x"] = 58.49986592442804,
+						["point"] = "CENTER",
+						["y"] = 1.500078688127303,
+					},
+				},
+			},
+		},
+		["Vehicle"] = {
+			["profiles"] = {
+				["Nevershock - Heroes Of Wow"] = {
+					["version"] = 3,
+					["position"] = {
+						["x"] = 53.49986754106669,
+						["point"] = "CENTER",
+						["y"] = 51.5000085400693,
+					},
+				},
+			},
+		},
+		["StanceBar"] = {
+			["profiles"] = {
+				["Nevershock - Heroes Of Wow"] = {
+					["version"] = 3,
+					["position"] = {
+						["x"] = -82.50003630408025,
+						["point"] = "CENTER",
+						["y"] = -14.99999964855681,
+					},
+				},
+			},
+		},
+		["PetBar"] = {
+			["profiles"] = {
+				["Nevershock - Heroes Of Wow"] = {
+					["version"] = 3,
+					["position"] = {
+						["x"] = -163.5001378711582,
+						["point"] = "CENTER",
+						["y"] = 89.50004663650952,
+					},
+				},
+			},
+		},
+		["RepBar"] = {
+		},
+	},
+	["profileKeys"] = {
+		["Nevershock - Heroes Of Wow"] = "Nevershock - Heroes Of Wow",
+	},
+	["profiles"] = {
+		["Nevershock - Heroes Of Wow"] = {
+		},
+	},
+}

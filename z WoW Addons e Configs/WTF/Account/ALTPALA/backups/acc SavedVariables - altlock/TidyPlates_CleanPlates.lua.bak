@@ -1,0 +1,10 @@
+
+CPDB = {
+	["profileKeys"] = {
+		["Worstworld - Heroes Of Wow"] = "Worstworld - Heroes Of Wow",
+	},
+	["profiles"] = {
+		["Worstworld - Heroes Of Wow"] = {
+		},
+	},
+}

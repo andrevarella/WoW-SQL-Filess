@@ -1,0 +1,21 @@
+MACRO 16777218 "fcs" INV_Misc_QuestionMark
+/cast [@focus] Psychic Horror
+END
+MACRO 16777219 "fcs" INV_Misc_QuestionMark
+/cast [@focus] Vampiric Touch
+END
+MACRO 16777220 "fcs" INV_Misc_QuestionMark
+/cast [@focus] Shadow Word: Pain
+END
+MACRO 16777221 "fcs" INV_Misc_QuestionMark
+/cast [@focus] Dispel Magic
+END
+MACRO 16777217 "fcs" INV_Misc_QuestionMark
+/cast [@focus] Silence
+END
+MACRO 16777223 "self" INV_Misc_QuestionMark
+/cast [@player] Dispel Magic
+END
+MACRO 16777222 "SWD" INV_Misc_QuestionMark
+/cast [@focus] Shadow word: Death
+END

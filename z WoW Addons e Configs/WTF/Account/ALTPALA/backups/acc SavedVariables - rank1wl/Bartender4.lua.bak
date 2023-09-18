@@ -1,0 +1,141 @@
+
+Bartender4DB = {
+	["namespaces"] = {
+		["ActionBars"] = {
+			["profiles"] = {
+				["Blackoutz - Heroes Of Wow"] = {
+					["actionbars"] = {
+						{
+							["version"] = 3,
+							["position"] = {
+								["x"] = -231.4999399218102,
+								["point"] = "CENTER",
+								["y"] = -205.0000049922685,
+							},
+						}, -- [1]
+						{
+							["version"] = 3,
+							["position"] = {
+								["x"] = -231.4999399218102,
+								["point"] = "CENTER",
+								["y"] = -189.5000120019606,
+							},
+						}, -- [2]
+						{
+							["version"] = 3,
+							["position"] = {
+								["x"] = -231.4999399218102,
+								["point"] = "CENTER",
+								["y"] = -151.5000088561475,
+							},
+						}, -- [3]
+						{
+							["version"] = 3,
+							["position"] = {
+								["x"] = -231.4999399218102,
+								["point"] = "CENTER",
+								["y"] = -113.5000407246012,
+							},
+						}, -- [4]
+						{
+							["version"] = 3,
+							["position"] = {
+								["x"] = -231.4999399218102,
+								["point"] = "CENTER",
+								["y"] = -75.50007259305471,
+							},
+						}, -- [5]
+						{
+							["version"] = 3,
+							["position"] = {
+								["x"] = -231.4999399218102,
+								["point"] = "CENTER",
+								["y"] = -37.50006944724169,
+							},
+						}, -- [6]
+						{
+						}, -- [7]
+						[9] = {
+						},
+						[10] = {
+						},
+					},
+				},
+			},
+		},
+		["MicroMenu"] = {
+			["profiles"] = {
+				["Blackoutz - Heroes Of Wow"] = {
+					["version"] = 3,
+					["position"] = {
+						["x"] = -188.7999422717192,
+						["point"] = "CENTER",
+						["scale"] = 0.800000011920929,
+						["y"] = 42.40001492255829,
+					},
+				},
+			},
+		},
+		["XPBar"] = {
+		},
+		["BlizzardArt"] = {
+		},
+		["BagBar"] = {
+			["profiles"] = {
+				["Blackoutz - Heroes Of Wow"] = {
+					["version"] = 3,
+					["position"] = {
+						["x"] = 58.50008592856636,
+						["point"] = "CENTER",
+						["y"] = 1.500011181313653,
+					},
+				},
+			},
+		},
+		["Vehicle"] = {
+			["profiles"] = {
+				["Blackoutz - Heroes Of Wow"] = {
+					["version"] = 3,
+					["position"] = {
+						["x"] = 53.50004865752089,
+						["point"] = "CENTER",
+						["y"] = 51.49992870630285,
+					},
+				},
+			},
+		},
+		["StanceBar"] = {
+			["profiles"] = {
+				["Blackoutz - Heroes Of Wow"] = {
+					["version"] = 3,
+					["position"] = {
+						["x"] = -159.7498952820396,
+						["point"] = "CENTER",
+						["y"] = 14.25003619394647,
+					},
+				},
+			},
+		},
+		["PetBar"] = {
+			["profiles"] = {
+				["Blackoutz - Heroes Of Wow"] = {
+					["version"] = 3,
+					["position"] = {
+						["x"] = -163.4998882210571,
+						["point"] = "CENTER",
+						["y"] = 89.50000188064905,
+					},
+				},
+			},
+		},
+		["RepBar"] = {
+		},
+	},
+	["profileKeys"] = {
+		["Blackoutz - Heroes Of Wow"] = "Blackoutz - Heroes Of Wow",
+	},
+	["profiles"] = {
+		["Blackoutz - Heroes Of Wow"] = {
+		},
+	},
+}

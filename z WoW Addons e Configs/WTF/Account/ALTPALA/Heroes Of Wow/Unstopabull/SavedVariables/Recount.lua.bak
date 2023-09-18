@@ -1,0 +1,79 @@
+
+RecountPerCharDB = {
+	["version"] = "1.3",
+	["combatants"] = {
+		["Reksalz"] = {
+			["GUID"] = "0x000000000023C41D",
+			["type"] = "Self",
+			["TimeLast"] = {
+				["EnergyGain"] = 1502355902,
+				["OVERALL"] = 1502355902,
+			},
+			["Owner"] = false,
+			["enClass"] = "DRUID",
+			["TimeWindows"] = {
+				["EnergyGain"] = {
+					240, -- [1]
+				},
+			},
+			["Name"] = "Reksalz",
+			["LastActive"] = 1502355902,
+			["Fights"] = {
+				["CurrentFightData"] = {
+					["EnergyGain"] = 240,
+					["EnergyGainedFrom"] = {
+						["Reksalz"] = {
+							["Details"] = {
+								["Furor"] = {
+									["count"] = 240,
+								},
+							},
+							["amount"] = 240,
+						},
+					},
+					["EnergyGained"] = {
+						["Furor"] = {
+							["Details"] = {
+								["Reksalz"] = {
+									["count"] = 240,
+								},
+							},
+							["amount"] = 240,
+						},
+					},
+				},
+				["OverallData"] = {
+					["EnergyGain"] = 240,
+					["EnergyGainedFrom"] = {
+						["Reksalz"] = {
+							["Details"] = {
+								["Furor"] = {
+									["count"] = 240,
+								},
+							},
+							["amount"] = 240,
+						},
+					},
+					["EnergyGained"] = {
+						["Furor"] = {
+							["Details"] = {
+								["Reksalz"] = {
+									["count"] = 240,
+								},
+							},
+							["amount"] = 240,
+						},
+					},
+				},
+			},
+			["level"] = 80,
+			["UnitLockout"] = 1502355760,
+			["LastFightIn"] = 0,
+		},
+	},
+	["FightNum"] = 0,
+	["CombatTimes"] = {
+	},
+	["FoughtWho"] = {
+	},
+}

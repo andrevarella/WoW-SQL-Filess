@@ -1,0 +1,16 @@
+
+MangAdminDb = {
+	["profiles"] = {
+		["Default"] = {
+			["detachedTooltip"] = {
+			},
+		},
+	},
+	["account"] = {
+		["buffer"] = {
+			["who"] = {
+			},
+		},
+		["language"] = "enUS",
+	},
+}

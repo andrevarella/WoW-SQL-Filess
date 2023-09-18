@@ -1,0 +1,77 @@
+MACRO 16777235 "charge" INV_Misc_QuestionMark
+/cast Charge
+END
+MACRO 16777217 "chimera" INV_Misc_QuestionMark
+/cancelaura deterrence
+/cancelaura hand of protection
+/startattack
+/cast chimera shot
+/cast aimed shot
+/cast arcane shot
+END
+MACRO 16777221 "fcs" INV_Misc_QuestionMark
+/cancelaura deterrence
+/cancelaura hand of protection
+/cast [@focus] scatter shot
+END
+MACRO 16777223 "fcs" INV_Misc_QuestionMark
+/cancelaura deterrence
+/cancelaura hand of protection
+/cast [@focus] Tranquilizing Shot
+END
+MACRO 16777224 "fcs" INV_Misc_QuestionMark
+/cancelaura deterrence
+/cancelaura hand of protection
+/cast [@focus] viper sting
+END
+MACRO 16777220 "fcs" INV_Misc_QuestionMark
+/cancelaura deterrence
+/cancelaura hand of protection
+/cast [@focus] silencing shot
+END
+MACRO 16777233 "fcs slow" INV_Misc_QuestionMark
+/cancelaura hand of protection
+/cancelaura deterrence
+/cast [@focus] Wing Clip
+END
+MACRO 16777237 "focus" INV_Misc_QuestionMark
+/cast [@focus] Charge
+END
+MACRO 16777230 "freedom1" INV_Misc_QuestionMark
+/cast [target=party1] master's call
+END
+MACRO 16777231 "freedom2" INV_Misc_QuestionMark
+/cast [target=party2] master's call
+END
+MACRO 16777225 "kill" INV_Misc_QuestionMark
+#showtooltip kill shot
+/cancelaura deterrence
+/cancelaura hand of protection
+/cancelaura aspect of the viper
+/cast !aspect of the dragonhawk
+/cast kill shot
+END
+MACRO 16777234 "pin" INV_Misc_QuestionMark
+/cast pin
+/cast web
+END
+MACRO 16777236 "pin fcs" INV_Misc_QuestionMark
+/cast [@focus] Pin
+/cast [@focus] Web
+END
+MACRO 16777218 "rapid" INV_Misc_QuestionMark
+/cast Rapid Fire
+/cast Kill Command
+END
+MACRO 16777228 "sac1" INV_Misc_QuestionMark
+/cast [@party1] roar of sacrifice
+END
+MACRO 16777229 "sac2" INV_Misc_QuestionMark
+/cast [@party2] roar of sacrifice
+END
+MACRO 16777226 "self call" INV_Misc_QuestionMark
+/cast [target=player] master's call
+END
+MACRO 16777232 "self RoS" INV_Misc_QuestionMark
+/cast [@player] roar of sacrifice
+END

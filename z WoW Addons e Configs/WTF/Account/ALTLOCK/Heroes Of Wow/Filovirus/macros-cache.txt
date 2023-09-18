@@ -1,0 +1,73 @@
+MACRO 16777238 "aparty2" INV_Misc_QuestionMark
+/cast [@party2] Devour Magic
+END
+MACRO 16777228 "Azde" INV_Misc_QuestionMark
+/cast [target=party1] devour magic
+END
+MACRO 16777241 "corruption" INV_Misc_QuestionMark
+/startattack
+/cast corruption
+END
+MACRO 16777224 "cs" INV_Misc_QuestionMark
+/dismount
+/cast spell lock
+/cast fire shield
+/cast sacrifice
+/cast Seduction
+/cast Demon Charge(Demon)
+/cast Immolation Aura(Demon)
+/cast Intercept
+END
+MACRO 16777222 "fcs" INV_Misc_QuestionMark
+/cast [target=focus] corruption
+END
+MACRO 16777218 "fcs" INV_Misc_QuestionMark
+/cast [target=focus] drain mana
+END
+MACRO 16777221 "fcs" INV_Misc_QuestionMark
+/cast [target=focus] curse of the elements
+END
+MACRO 16777220 "fcs" INV_Misc_QuestionMark
+/cast [target=focus] curse of agony
+END
+MACRO 16777223 "fcs" INV_Misc_QuestionMark
+/cast [target=focus] fear
+END
+MACRO 16777226 "Focus" INV_Misc_QuestionMark
+/dismount
+/cast [target=focus] spell lock
+/cast [target=focus] Seduction
+END
+MACRO 16777234 "focus" INV_Misc_QuestionMark
+/cast [target=focus] Curse of Tongues
+END
+MACRO 16777233 "focus" INV_Misc_QuestionMark
+/cast [target=focus] death coil
+END
+MACRO 16777232 "focus" INV_Misc_QuestionMark
+/cast [target=focus] banish
+END
+MACRO 16777231 "focus dispel" INV_Misc_QuestionMark
+/cast [target=focus] devour magic
+END
+MACRO 16777239 "meta" INV_Misc_QuestionMark
+/cast metamorphosis
+/cast Shadow Cleave(Demon)
+/use 10
+END
+MACRO 16777227 "pet" INV_Misc_QuestionMark
+/cast [target=pet] devour magic
+/cast Cripple
+END
+MACRO 16777225 "Self" INV_Misc_QuestionMark
+/cast [target=player] devour magic
+/cast [target=player] Dispel Magic
+/cast lesser invisibility
+/cast Consume Shadows
+END
+MACRO 16777230 "Target" INV_Misc_QuestionMark
+/cast Devour Magic
+/cast Dispel Magic
+/cast soothing kiss
+/cast Suffering
+END

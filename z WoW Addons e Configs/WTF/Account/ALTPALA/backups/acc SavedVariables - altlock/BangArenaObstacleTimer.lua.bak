@@ -1,0 +1,10 @@
+
+BangArenaObstacleTimerDB = {
+	["profileKeys"] = {
+		["Mightybeard - Heroes Of Wow"] = "Mightybeard - Heroes Of Wow",
+	},
+	["profiles"] = {
+		["Mightybeard - Heroes Of Wow"] = {
+		},
+	},
+}

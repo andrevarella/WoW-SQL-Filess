@@ -1,0 +1,12 @@
+
+GladiusDB = {
+	["profileKeys"] = {
+		["Blackoutz - Heroes Of Wow"] = "Blackoutz - Heroes Of Wow",
+	},
+	["profiles"] = {
+		["Blackoutz - Heroes Of Wow"] = {
+			["y"] = 366.2332349628504,
+			["x"] = 1147.216840467557,
+		},
+	},
+}

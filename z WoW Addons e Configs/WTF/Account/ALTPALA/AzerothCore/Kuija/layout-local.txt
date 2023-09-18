@@ -1,0 +1,15 @@
+Version: 1
+Frame: Recount_MainWindow
+FrameLevel: 30
+Anchor: CENTER
+X: 0
+Y: 0
+W: 140
+H: 200
+Frame: GladiusFrame
+FrameLevel: 1
+Anchor: RIGHT
+X: -294
+Y: 34
+W: 205
+H: 307

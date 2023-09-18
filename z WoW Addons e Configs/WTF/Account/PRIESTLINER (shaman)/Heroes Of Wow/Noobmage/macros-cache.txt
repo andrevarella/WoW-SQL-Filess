@@ -1,0 +1,72 @@
+MACRO 16777225 " Burst" INV_Misc_QuestionMark
+/use Potion of Wild Magic
+/use Flame Cap
+END
+MACRO 16777217 " Mount" INV_Misc_QuestionMark
+#showtooltip
+/dismount [mounted]
+/cast [flyable] Ashes of Al'ar
+/cast Magic Rooster
+/cast [@mouseover,exists,nodead,harm,combat][nomod,@target,combat] !Shoot
+/swh scale 1.6
+END
+MACRO 16777237 "arena" INV_Misc_QuestionMark
+/cast [target=arena1]polymorph
+END
+MACRO 16777238 "arena2" INV_Misc_QuestionMark
+/cast [target=arena2]polymorph
+END
+MACRO 16777235 "cancelaura" INV_Misc_QuestionMark
+/cancelaura Ice Block
+END
+MACRO 16777228 "d" INV_Misc_QuestionMark
+/cast Freeze
+END
+MACRO 16777230 "Deep focus" INV_Misc_QuestionMark
+/cast [target=focus]Deep Freeze
+END
+MACRO 16777226 "Fireball" INV_Misc_QuestionMark
+#showtooltip [nomod:shift] Fireball; [mod:shift] Arcane Blast
+/cancelaura Ice Block
+/cast [mod:shift] Arcane Blast
+/cast [nomod:shift] Fireball
+/cast [@target,exists,nodead,harm,combat] !Shoot
+/petattack [@target]
+END
+MACRO 16777223 "Flamestrike" INV_Misc_QuestionMark
+#showtooltip Flamestrike
+/cast !Flamestrike
+END
+MACRO 16777233 "focus" INV_Misc_QuestionMark
+/cast [target=focus]Frostbolt(Rank 1)
+END
+MACRO 16777232 "focus" INV_Misc_QuestionMark
+/cast [target=focus]Spellsteal
+END
+MACRO 16777224 "Icy Veins" INV_Misc_QuestionMark
+#showtooltip Combustion
+/cancelaura Ice Block
+/cast Combustion
+/use 10
+END
+MACRO 16777222 "Living Bomb" INV_Misc_QuestionMark
+#showtooltip Living Bomb
+/cast [@mouseover,exists,nodead,harm][nomod,@target] Living Bomb
+END
+MACRO 16777229 "party1" INV_Misc_QuestionMark
+/cast [target=party1]Remove Curse
+/cast [target=party2}remove curse
+END
+MACRO 16777236 "PET" INV_Misc_QuestionMark
+/cast Freeze
+END
+MACRO 16777234 "polly" INV_Misc_QuestionMark
+/cast [target=focus] Polymorph(Rank 4)
+END
+MACRO 16777218 "Portal: Dalaran" INV_Misc_QuestionMark
+/cast Arcane Power
+/cast Icy Veins
+END
+MACRO 16777231 "silenc" INV_Misc_QuestionMark
+/cast [target=focus]Counterspell
+END

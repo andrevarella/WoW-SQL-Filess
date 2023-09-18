@@ -1,0 +1,6 @@
+MACRO 16777217 "NS" INV_Misc_QuestionMark
+#showtooltip Nature's Swiftness
+/stopcasting
+/cast Nature's Swiftness
+/cast Healing Touch
+END

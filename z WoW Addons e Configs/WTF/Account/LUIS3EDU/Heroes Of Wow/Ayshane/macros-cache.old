@@ -1,0 +1,75 @@
+MACRO 16777269 " " INV_Misc_QuestionMark
+/cast Tree of Life(Shapeshift)
+/cast Tree of Life(Shapeshift)
+END
+MACRO 16777266 " " INV_Misc_QuestionMark
+/cast [@mouseover] Nourish(Rank 1)
+END
+MACRO 16777262 " " INV_Misc_QuestionMark
+/cast [@mouseover] Rejuvenation(Rank 15)
+END
+MACRO 16777219 " " INV_Misc_QuestionMark
+#showtooltip
+/cast [stance:0] !cat form;
+/cast [stance:1] !dire bear form;
+/cast [stance:2] !aquatic form;
+/cast [stance:3] !cat form;
+/cast [stance:4] !travel form
+/cast [flight form] !cat form
+END
+MACRO 16777265 " " INV_Misc_QuestionMark
+/cast [target=party1] Remove Curse
+END
+MACRO 16777264 " " Ability_Creature_Cursed_04
+/cancelaura cat form
+/cancelaura dire bear form
+/cancelaura travel form
+/cancelaura moonkin form
+END
+MACRO 16777267 " " INV_Misc_QuestionMark
+#showtooltip
+/cast [nomodifier] Wild Growth(Rank 4)
+/cast [modifier:alt, target=party1] Wild Growth(Rank 4)
+END
+MACRO 16777268 " " INV_Misc_QuestionMark
+/cast [@mouseover] Swiftmend
+END
+MACRO 16777259 "  " INV_Misc_QuestionMark
+/cast [target=party1] Healing Touch(Rank 15)
+END
+MACRO 16777258 "  " INV_Misc_QuestionMark
+/cast [target=focus] Cyclone
+END
+MACRO 16777256 "  " INV_Misc_QuestionMark
+/cast [@mouseover] Wild Growth(Rank 4)
+END
+MACRO 16777255 "**" INV_Misc_QuestionMark
+#showtooltip
+/cast [nomodifier] Nourish(Rank 1)
+/cast [modifier:alt, target=party1] Nourish(Rank 1)
+END
+MACRO 16777263 "--" INV_Misc_QuestionMark
+#showtooltip
+/cast Tiger's Fury(Rank 6)
+/use Goblin Weather Machine - Prototype 01-B
+END
+MACRO 16777252 "a" INV_Misc_QuestionMark
+#showtooltip Dash
+/cast [nostance:3] Cat Form
+/cast [stance:3] Dash
+END
+MACRO 16777242 "a" INV_Misc_QuestionMark
+/cast [@mouseover] Regrowth(Rank 12)
+END
+MACRO 16777243 "a" INV_Misc_QuestionMark
+/cast [@mouseover] Lifebloom(Rank 3)
+END
+MACRO 16777244 "a" INV_Misc_QuestionMark
+#showtooltip
+/cast enrage
+/cast bash
+END
+MACRO 16777253 "a" INV_Misc_QuestionMark
+#showtooltip
+/cast [mod:alt] Heavy Frostweave Bandage; Travel Form(Shapeshift)
+END

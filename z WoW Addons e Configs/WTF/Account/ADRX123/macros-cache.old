@@ -1,0 +1,109 @@
+MACRO 238 "a1" INV_Misc_QuestionMark
+/target arena1
+END
+MACRO 239 "a2" INV_Misc_QuestionMark
+/target arena2
+END
+MACRO 240 "a3" INV_Misc_QuestionMark
+/target arena3
+END
+MACRO 161 "bash fcs" INV_Misc_QuestionMark
+#showtooltip bash
+/cast [@focus] bash
+END
+MACRO 155 "bauble pt1" INV_Misc_QuestionMark
+/cast [target=party1] Bauble of True Blood
+END
+MACRO 94 "bone spike" Ability_Warrior_SwordandBoard
+/target bone spike
+/target darnavan
+/target infernal volcano
+/target Val'kyr Shadowguard
+/target volatile ooze
+END
+MACRO 206 "cancel form" Ability_FiegnDead
+/cancelaura dire bear form
+/cancelaura cat form
+/cancelaura travel form
+/cancelaura tree of life
+/cancelaura swift flight form
+END
+MACRO 173 "charge cat fcs" INV_Misc_QuestionMark
+/cast [target=focus] feral charge - cat
+END
+MACRO 157 "charge fcs" INV_Misc_QuestionMark
+#showtooltip dire bear form
+/cast [stance:3] Dire Bear form, [nostance] Dire Bear Form
+/cast [@focus] feral charge - bear
+END
+MACRO 164 "Charge succubus" INV_Misc_QuestionMark
+/target [@arenapet1, exists][@arenapet2, exists][@arenapet3, exists][harm]
+/cast Feral Charge - Bear
+END
+MACRO 38 "Faerie Fire" INV_Misc_QuestionMark
+/cast [nostance] Faerie Fire; [stance:4] faerie fire; [stance:2] Faerie Fire; Faerie Fire (Feral)
+END
+MACRO 248 "focus" INV_Misc_QuestionMark
+/cast [target=focus] pounce
+END
+MACRO 247 "inspect lol" Ability_CheapShot
+/inspect
+END
+MACRO 221 "mangle bear" INV_Misc_QuestionMark
+#showtooltip mangle (bear)
+/startattack
+/cancelaura hand of protection
+/cast [stance:1] mangle (bear)
+END
+MACRO 95 "mangle cat" INV_Misc_QuestionMark
+#showtooltip mangle (cat)
+/startattack
+/cancelaura hand of protection
+/cast [stance:3] mangle (cat)
+END
+MACRO 210 "maul" INV_Misc_QuestionMark
+/startattack
+/cast maul
+END
+MACRO 102 "prowl" INV_Misc_QuestionMark
+#showtooltip prowl
+/cast [nostealth] !prowl
+END
+MACRO 163 "racial pounce" INV_Misc_QuestionMark
+#showtooltip pounce
+/stopattack
+/cast [combat] Shadowmeld
+/cast [noform:3] !Cat Form
+/cast [form:3] !Prowl
+/cast pounce
+END
+MACRO 213 "rejuv pt1" INV_Misc_QuestionMark
+/cast [target=party1] rejuvenation
+END
+MACRO 249 "shred" INV_Misc_QuestionMark
+#showtooltip shred
+/startattack
+/cancelaura hand of protection
+/cast Shred
+END
+MACRO 250 "smeld" INV_Misc_QuestionMark
+/stopattack
+/cast shadowmeld
+END
+MACRO 194 "surv" INV_Misc_QuestionMark
+/cast survival instincts
+/use Fel Healthstone
+END
+MACRO 188 "targ marba" Ability_Druid_NaturalPerfection
+/target Marbinha
+END
+MACRO 160 "targ pet enemy " Ability_Creature_Disease_02
+/target [@arenapet1, exists][@arenapet2, exists][@arenapet3, exists][harm]
+END
+MACRO 227 "treinar skill" Ability_Creature_Cursed_03
+/run LoadAddOn"Blizzard_TrainerUI" f=ClassTrainerTrainButton f.e = 0 f:SetScript("OnUpdate", function(f,e) f.e=f.e+e if f.e>.01 then f.e=0 f:Click() end end)
+END
+MACRO 174 "trinket" INV_Misc_QuestionMark
+/use 13
+/use Lifeblood(Rank 6)
+END

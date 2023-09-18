@@ -1,0 +1,82 @@
+MACRO 16777237 "cancel" INV_Misc_QuestionMark
+/cancelform
+END
+MACRO 16777220 "fcs" INV_Misc_QuestionMark
+/cast [target=focus] cyclone
+END
+MACRO 16777221 "fcs" INV_Misc_QuestionMark
+/cast [target=focus] entangling roots
+END
+MACRO 16777222 "fcs" INV_Misc_QuestionMark
+/cast [target=focus] hibernate
+END
+MACRO 16777223 "FF/FFF fcs" INV_Misc_QuestionMark
+/cast [nostance:1/3, target=focus] Faerie Fire
+/cast [stance:1/3, target=focus] Faerie Fire (Feral)
+END
+MACRO 16777224 "healer" INV_Misc_QuestionMark
+/cast [target=party1] healing touch
+/cast [target=zaunimist] healing touch
+/cast [target=vwzqxlol] healing touch
+/cast [target=Hydramistv] healing touch
+END
+MACRO 16777225 "NS HT" INV_Misc_QuestionMark
+#showtooltip nature's swiftness
+#showtooltip healing touch
+/cast Nature's Swiftness
+/cast Healing Touch
+/stopcasting
+/stopcasting
+/stopcasting
+/use Ephemeral Snowflake
+END
+MACRO 16777236 "pet enemy" INV_Misc_QuestionMark
+/target [@arenapet1, exists][@arenapet2, exists][@arenapet3, exists][harm]
+END
+MACRO 16777227 "pt1" INV_Misc_QuestionMark
+/cast [target=party1] remove curse
+/cast [target=zaunimist] remove curse
+/cast [target=Hydramistv] remove curse
+END
+MACRO 16777226 "pt1" INV_Misc_QuestionMark
+/cast [target=party1] abolish poison
+/cast [target=zaunimist] abolish poison
+/cast [target=Hydramistv] abolish poison
+END
+MACRO 16777228 "pt2" INV_Misc_QuestionMark
+/cast [target=saltysham] abolish poison
+/cast [target=MARBINHAQt] abolish poison
+END
+MACRO 16777229 "pt2" INV_Misc_QuestionMark
+/cast [target=marbinhaqt] remove curse
+/cast [target=saltysham] remove curse
+END
+MACRO 16777230 "rake" INV_Misc_QuestionMark
+/cast [stealth] pounce; rake
+END
+MACRO 16777231 "rogue" INV_Misc_QuestionMark
+#showtooltip Pounce
+/cleartarget
+/console targetNearestDistance 1.000000
+/targetenemy [noharm][dead]
+/console targetNearestDistance 41.000000 
+/cast [harm,nodead] Pounce
+END
+MACRO 16777232 "shapeshift" INV_Misc_QuestionMark
+#showtooltip
+/cast maul
+/cast [nostance] Cat Form
+/cast [stance:1] !Dire Bear Form; [stance:4] !Travel form; [stance:3] !Cat Form; [stance:5] !Moonkin Form
+END
+MACRO 16777233 "spell" INV_Misc_QuestionMark
+#showtooltip Ironmender
+/equipslot 16 Constellus
+/equipslot 17 Ironmender
+END
+MACRO 16777235 "target" INV_Misc_QuestionMark
+/cast [nostance] Faerie Fire; [stance:4] faerie fire; [stance:2] Faerie Fire; Faerie Fire (Feral)
+END
+MACRO 16777234 "tg" INV_Misc_QuestionMark
+/cast [target=saltysham] healing touch
+/cast [target=marbinhaqt] healing touch
+END

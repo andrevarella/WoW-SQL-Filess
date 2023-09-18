@@ -1,0 +1,10 @@
+
+CPRDB2 = {
+	["profileKeys"] = {
+		["Feardotcom - Heroes Of Wow"] = "Default",
+	},
+	["profiles"] = {
+		["Default"] = {
+		},
+	},
+}

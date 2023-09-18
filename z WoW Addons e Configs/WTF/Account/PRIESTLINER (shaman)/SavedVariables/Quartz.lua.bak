@@ -1,0 +1,56 @@
+
+Quartz3DB = {
+	["namespaces"] = {
+		["Swing"] = {
+		},
+		["Buff"] = {
+		},
+		["Interrupt"] = {
+		},
+		["Flight"] = {
+		},
+		["Pet"] = {
+			["profiles"] = {
+				["Default"] = {
+					["x"] = 649.2683418369696,
+				},
+			},
+		},
+		["Player"] = {
+			["profiles"] = {
+				["Default"] = {
+					["x"] = 624.2683418369696,
+				},
+			},
+		},
+		["GCD"] = {
+		},
+		["Focus"] = {
+			["profiles"] = {
+				["Default"] = {
+					["x"] = 649.2683418369696,
+				},
+			},
+		},
+		["Target"] = {
+			["profiles"] = {
+				["Default"] = {
+					["x"] = 649.2683418369696,
+				},
+			},
+		},
+		["Range"] = {
+		},
+		["Mirror"] = {
+		},
+		["Latency"] = {
+		},
+	},
+	["profileKeys"] = {
+		["Nevershock - Heroes Of Wow"] = "Default",
+	},
+	["profiles"] = {
+		["Default"] = {
+		},
+	},
+}

@@ -1,0 +1,72 @@
+MACRO 16777245 " 1" INV_Misc_QuestionMark
+/cast [target=arena1] cyclone
+END
+MACRO 16777244 "2" INV_Misc_QuestionMark
+/cast [target=arena2] cyclone
+END
+MACRO 16777243 "3" INV_Misc_QuestionMark
+/cast [target=arena3] cyclone
+END
+MACRO 16777246 "fcs" INV_Misc_QuestionMark
+/cast [target=focus] cyclone
+END
+MACRO 16777234 "fcs" INV_Misc_QuestionMark
+/cast [target=focus] entangling roots
+END
+MACRO 16777241 "fcs" INV_Misc_QuestionMark
+/cast [target=focus] hibernate
+END
+MACRO 16777242 "FF/FFF fcs" INV_Misc_QuestionMark
+/cast [nostance:1/3, target=focus] Faerie Fire
+/cast [stance:1/3, target=focus] Faerie Fire (Feral)
+END
+MACRO 16777253 "healer" INV_Misc_QuestionMark
+/cast [target=demonpriestt] healing touch
+END
+MACRO 16777240 "NS HT" INV_Misc_QuestionMark
+#showtooltip nature's swiftness
+#showtooltip healing touch
+/cast Nature's Swiftness
+/stopcasting
+/cast [help] Healing Touch; [target=player] Healing Touch
+/stopcasting
+/stopcasting
+/use Ephemeral Snowflake
+END
+MACRO 16777238 "pounce rogue" INV_Misc_QuestionMark
+#showtooltip Pounce
+/cleartarget
+/console targetNearestDistance 1.000000
+/targetenemy [noharm][dead]
+/console targetNearestDistance 41.000000 
+/cast [harm,nodead] Pounce
+END
+MACRO 16777236 "pt1" INV_Misc_QuestionMark
+/cast [target=demonpriestt] abolish poison
+END
+MACRO 16777251 "pt1" INV_Misc_QuestionMark
+/cast [target=demonpriestt] remove curse
+END
+MACRO 16777250 "pt2" INV_Misc_QuestionMark
+/cast [target=tegetrapbad] abolish poison
+END
+MACRO 16777252 "pt2 hex" INV_Misc_QuestionMark
+/cast [target=tegetrapbad] remove curse
+END
+MACRO 16777235 "rake" INV_Misc_QuestionMark
+#showtooltip
+/cast [nostealth] rake; pounce
+END
+MACRO 16777237 "shapeshift" Spell_Frost_IceClaw
+#showtooltip
+/cast [nostance[ Cat Form
+/cast [stance:1] !Dire Bear Form; [stance:4] !Travel form; [stance:3] !Cat Form; [stance:5]
+END
+MACRO 16777233 "spell" INV_Misc_QuestionMark
+#showtooltip Wrathful Gladiator's Compendium
+/equip trauma
+/equip Wrathful Gladiator's Compendium
+END
+MACRO 16777239 "tg" INV_Misc_QuestionMark
+/cast [target=tegetrapbad] healing touch
+END

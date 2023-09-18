@@ -1,0 +1,65 @@
+MACRO 16777235 "charge" INV_Misc_QuestionMark
+/cast Charge
+END
+MACRO 16777217 "chimera" INV_Misc_QuestionMark
+/cancelaura deterrence
+/cancelaura hand of protection
+/cast chimera shot
+END
+MACRO 16777223 "fcs" INV_Misc_QuestionMark
+/cancelaura deterrence
+/cancelaura hand of protection
+/cast [@focus] Tranquilizing Shot
+END
+MACRO 16777237 "focus" INV_Misc_QuestionMark
+/cast [@focus] Charge
+END
+MACRO 16777231 "freedom2" INV_Misc_QuestionMark
+/cast Kill Command
+/cast Rapid Fire
+END
+MACRO 16777240 "Me" INV_Misc_QuestionMark
+/cast [@Player] intervene
+END
+MACRO 16777242 "party2" INV_Misc_QuestionMark
+/cast [@Party2] intervene
+END
+MACRO 16777234 "pin" INV_Misc_QuestionMark
+#showtooltip pin
+/cast pin
+/cast web
+/cast ravage
+/cast Poison Spit
+/cast pummel
+END
+MACRO 16777236 "pin fcs" INV_Misc_QuestionMark
+/cast [@focus] Pin
+/cast [@focus] Web
+/cast [@focus] Poison Spit
+/cast [@focus] Ravage
+/cast [@focus] pummel
+END
+MACRO 16777241 "rafa" INV_Misc_QuestionMark
+/cast [@party1] intervene
+END
+MACRO 16777228 "sac1" INV_Misc_QuestionMark
+/cast [@playfun] roar of sacrifice
+END
+MACRO 16777229 "sac2" INV_Misc_QuestionMark
+/cast [@Niko] roar of sacrifice
+END
+MACRO 16777226 "self call" INV_Misc_QuestionMark
+/cast [target=player] master's call
+END
+MACRO 16777232 "self RoS" INV_Misc_QuestionMark
+/cast [@player] roar of sacrifice
+END
+MACRO 16777243 "silence" INV_Misc_QuestionMark
+/cancelaura deterrence
+/cancelaura hand of protection
+/cast silencing shot
+END
+MACRO 16777239 "targ" INV_Misc_QuestionMark
+/cast Chimera Shot(Rank 1)
+/cast Silencing Shot
+END

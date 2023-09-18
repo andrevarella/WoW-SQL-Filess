@@ -1,0 +1,10 @@
+
+DispelBorderDB = {
+	["profileKeys"] = {
+		["Feardotcom - Heroes Of Wow"] = "Default",
+	},
+	["profiles"] = {
+		["Default"] = {
+		},
+	},
+}

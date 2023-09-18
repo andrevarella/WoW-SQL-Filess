@@ -1,0 +1,10 @@
+
+CPRDB2 = {
+	["profileKeys"] = {
+		["Nevershock - Heroes Of Wow"] = "Default",
+	},
+	["profiles"] = {
+		["Default"] = {
+		},
+	},
+}

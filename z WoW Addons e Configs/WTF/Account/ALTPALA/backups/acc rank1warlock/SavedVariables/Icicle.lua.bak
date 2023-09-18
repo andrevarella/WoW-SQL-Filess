@@ -1,0 +1,10 @@
+
+Icicledb = {
+	["profileKeys"] = {
+		["Png - Heroes Of Wow"] = "Default",
+	},
+	["profiles"] = {
+		["Default"] = {
+		},
+	},
+}

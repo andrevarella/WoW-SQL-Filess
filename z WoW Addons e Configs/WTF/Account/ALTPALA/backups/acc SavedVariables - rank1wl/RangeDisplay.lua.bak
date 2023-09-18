@@ -1,0 +1,33 @@
+
+RangeDisplayDB3 = {
+	["namespaces"] = {
+		["LibDualSpec-1.0"] = {
+		},
+	},
+	["profileKeys"] = {
+		["Png - Heroes Of Wow"] = "Default",
+	},
+	["profiles"] = {
+		["Default"] = {
+			["locked"] = true,
+			["units"] = {
+				["playertarget"] = {
+					["enabled"] = false,
+				},
+				["mouseover"] = {
+					["enabled"] = false,
+				},
+				["pet"] = {
+					["maxRangeOnly"] = true,
+				},
+				["focus"] = {
+					["point"] = "LEFT",
+					["maxRangeOnly"] = true,
+					["relPoint"] = "LEFT",
+					["y"] = 2.065155395298418,
+					["x"] = 93.89515018897788,
+				},
+			},
+		},
+	},
+}

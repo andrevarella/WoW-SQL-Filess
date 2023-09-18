@@ -1,0 +1,82 @@
+
+GladiusDB = {
+	["profileKeys"] = {
+		["Filovirus - Heroes Of Wow"] = "Filovirus - Heroes Of Wow",
+		["Mortinhaa - Heroes Of Wow"] = "Mortinhaa - Heroes Of Wow",
+		["Filovirusx - Heroes Of Wow"] = "Filovirusx - Heroes Of Wow",
+		["Feardotcom - Heroes Of Wow"] = "Feardotcom - Heroes Of Wow",
+		["Mightybeard - Heroes Of Wow"] = "Mightybeard - Heroes Of Wow",
+		["Hahalixin - Heroes Of Wow"] = "Hahalixin - Heroes Of Wow",
+		["Noobpriest - Heroes Of Wow"] = "Noobpriest - Heroes Of Wow",
+		["Worstworld - Heroes Of Wow"] = "Worstworld - Heroes Of Wow",
+	},
+	["profiles"] = {
+		["Filovirus - Heroes Of Wow"] = {
+			["showPets"] = true,
+			["focusBorder"] = false,
+			["raceText"] = false,
+			["auras"] = {
+				[58] = {
+					["name"] = "Fear Ward",
+					["priority"] = 2,
+				},
+			},
+			["y"] = 380.4557057762342,
+			["x"] = 933.179424693816,
+			["healthActual"] = true,
+			["locked"] = true,
+			["trinketDisplay"] = "bigIcon",
+			["resAnnounce"] = true,
+			["drinkAnnounce"] = true,
+		},
+		["Mortinhaa - Heroes Of Wow"] = {
+			["y"] = 500.6721634030719,
+			["x"] = 1085.497569604329,
+		},
+		["Filovirusx - Heroes Of Wow"] = {
+			["locked"] = true,
+		},
+		["Feardotcom - Heroes Of Wow"] = {
+			["locked"] = true,
+			["trinketDisplay"] = "bigIcon",
+			["y"] = 351.3000253045091,
+			["x"] = 969.4387342774494,
+		},
+		["Mightybeard - Heroes Of Wow"] = {
+			["locked"] = true,
+			["trinketDisplay"] = "bigIcon",
+			["y"] = 407.5165919741448,
+			["x"] = 1025.053193014347,
+		},
+		["Hahalixin - Heroes Of Wow"] = {
+		},
+		["Noobpriest - Heroes Of Wow"] = {
+			["barHeight"] = 28,
+			["raceText"] = false,
+			["locked"] = true,
+			["trinketDisplay"] = "bigIcon",
+			["castBarHeight"] = 16,
+			["y"] = 358.5602469629429,
+			["x"] = 933.3363227253784,
+			["resAnnounce"] = true,
+			["barWidth"] = 155,
+			["enemyAnnounce"] = true,
+			["manaMax"] = false,
+			["castBarFontSize"] = 13,
+			["petFontSize"] = 10,
+			["focusBorder"] = false,
+			["healthFontSize"] = 12,
+			["trinketUsedAnnounce"] = true,
+			["drinkAnnounce"] = true,
+			["specAnnounce"] = true,
+		},
+		["Worstworld - Heroes Of Wow"] = {
+			["y"] = 342.0944701553835,
+			["x"] = 1113.9421852,
+			["locked"] = true,
+			["trinketDisplay"] = "bigIcon",
+			["resAnnounce"] = true,
+			["bigTrinketScale"] = 1.1,
+		},
+	},
+}

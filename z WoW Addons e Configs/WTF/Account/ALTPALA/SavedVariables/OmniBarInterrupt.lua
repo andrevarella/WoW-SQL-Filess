@@ -1,0 +1,2 @@
+
+OmniBarInterruptDB = nil

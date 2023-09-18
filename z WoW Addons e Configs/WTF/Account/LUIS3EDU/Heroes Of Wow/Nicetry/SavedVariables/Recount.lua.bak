@@ -1,0 +1,9 @@
+
+RecountPerCharDB = {
+	["FoughtWho"] = {
+	},
+	["CombatTimes"] = {
+	},
+	["combatants"] = {
+	},
+}

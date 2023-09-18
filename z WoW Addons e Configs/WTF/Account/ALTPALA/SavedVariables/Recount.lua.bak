@@ -1,0 +1,33 @@
+
+RecountDB = {
+	["profileKeys"] = {
+		["Howtoferal - Heroes Of Wow"] = "Howtoferal - Heroes Of Wow",
+	},
+	["profiles"] = {
+		["Howtoferal - Heroes Of Wow"] = {
+			["GraphWindowY"] = 0,
+			["MainWindow"] = {
+				["Position"] = {
+					["y"] = -212.1483951121999,
+					["x"] = 615.9012296777913,
+					["w"] = 219.8025137918256,
+					["h"] = 241.8766279154933,
+				},
+			},
+			["Colors"] = {
+				["Bar"] = {
+					["Bar Text"] = {
+						["a"] = 1,
+					},
+				},
+			},
+			["DetailWindowY"] = 0,
+			["DetailWindowX"] = 0,
+			["MainWindowWidth"] = 219.8025137918256,
+			["MainWindowVis"] = false,
+			["MainWindowHeight"] = 241.8766279154933,
+			["GraphWindowX"] = 0,
+			["CurDataSet"] = "OverallData",
+		},
+	},
+}

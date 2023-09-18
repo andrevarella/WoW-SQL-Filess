@@ -1,0 +1,57 @@
+
+CPRDB2 = {
+	["profileKeys"] = {
+		["Alterëgo - Azeroth Legends"] = "Default",
+		["Priestbolado - Heroes Of Wow"] = "Default",
+		["Reksalz - Battleborn"] = "Default",
+		["Diabolic - Azeroth Legends"] = "Default",
+		["Dopelemon - Azeroth Legends"] = "Default",
+		["Vengeance - Azeroth Legends"] = "Default",
+		["Nuof - AzerothCore"] = "Default",
+		["Drdøøm - Azeroth Legends"] = "Default",
+		["Reksalz - AzerothCore"] = "Default",
+		["Unstopabull - Heroes Of Wow"] = "Default",
+		["Asdzx - Azeroth Legends"] = "Default",
+		["Reksalz - Heroes Of Wow"] = "Default",
+		["Easyclass - Heroes Of Wow"] = "Default",
+		["Evilbeauty - Azeroth Legends"] = "Default",
+		["Maedoazde - Heroes Of Wow"] = "Default",
+		["Reksalz - Azeroth Legends"] = "Default",
+		["Howtoferal - Heroes Of Wow"] = "Default",
+		["Nevercleanse - Heroes Of Wow"] = "Default",
+		["Goosebumps - Azeroth Legends"] = "Default",
+		["Brosaelsia - AzerothCore"] = "Default",
+		["Gertbrez - AzerothCore"] = "Default",
+		["Ilovewotlk - Azeroth Legends"] = "Default",
+		["Kuija - AzerothCore"] = "Default",
+		["Jethelip - AzerothCore"] = "Default",
+		["Meriladra - Battleborn"] = "Default",
+		["Ahqwas - AzerothCore"] = "Default",
+		["Laasker - Heroes Of Wow"] = "Default",
+	},
+	["profiles"] = {
+		["Default"] = {
+			["modules"] = {
+				["Combo Points"] = {
+					["textY"] = 402.2555928609119,
+					["graphicsPos"] = {
+						["y"] = -134,
+						["x"] = 340,
+						["point"] = "LEFT",
+						["anchor"] = "LEFT",
+					},
+					["textPos"] = {
+						["y"] = -113,
+						["x"] = -340,
+						["point"] = "CENTER",
+						["anchor"] = "CENTER",
+					},
+					["textX"] = 320.5888097969988,
+					["graphicsX"] = 182.6333050680142,
+					["graphicsY"] = 335.0277090610802,
+				},
+			},
+			["locked"] = true,
+		},
+	},
+}

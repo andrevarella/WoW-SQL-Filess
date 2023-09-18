@@ -1,0 +1,61 @@
+
+RecountPerCharDB = {
+	["version"] = "1.3",
+	["combatants"] = {
+		["Feardotcom"] = {
+			["GUID"] = "0x0000000000220534",
+			["LastEventHealth"] = {
+				"29495 (100%)", -- [1]
+				"29495 (100%)", -- [2]
+				"29495 (100%)", -- [3]
+			},
+			["LastEventType"] = {
+				"HEAL", -- [1]
+				"HEAL", -- [2]
+				"HEAL", -- [3]
+			},
+			["enClass"] = "WARLOCK",
+			["unit"] = "Feardotcom",
+			["level"] = 80,
+			["LastFightIn"] = 0,
+			["LastEventNum"] = {
+				2.593659942363113, -- [1]
+				2.593659942363113, -- [2]
+				2.593659942363113, -- [3]
+			},
+			["type"] = "Self",
+			["Owner"] = false,
+			["NextEventNum"] = 4,
+			["LastEventHealthNum"] = {
+				100, -- [1]
+				100, -- [2]
+				100, -- [3]
+			},
+			["LastEvents"] = {
+				"Feardotcom Fel Armor Feardotcom Tick +765 (765 overheal)", -- [1]
+				"Feardotcom Fel Armor Feardotcom Tick +765 (765 overheal)", -- [2]
+				"Feardotcom Fel Armor Feardotcom Tick +765 (765 overheal)", -- [3]
+			},
+			["Name"] = "Feardotcom",
+			["LastEventIncoming"] = {
+				true, -- [1]
+				true, -- [2]
+				true, -- [3]
+			},
+			["LastEventTimes"] = {
+				123713.846, -- [1]
+				123718.838, -- [2]
+				123723.837, -- [3]
+			},
+			["Fights"] = {
+			},
+			["UnitLockout"] = 1481692434,
+			["LastActive"] = 1481692444,
+		},
+	},
+	["FightNum"] = 0,
+	["CombatTimes"] = {
+	},
+	["FoughtWho"] = {
+	},
+}

@@ -1,0 +1,48 @@
+
+LootFilterVars = {
+	["Heroes Of Wow - Blackoutz"] = {
+		["confirmdel"] = false,
+		["autosell"] = false,
+		["tooltips"] = false,
+		["openList"] = {
+		},
+		["notifyopen"] = true,
+		["marketvalue"] = false,
+		["keepList"] = {
+			["VAValue"] = 0,
+			["names"] = {
+			},
+		},
+		["notifynomatch"] = true,
+		["calculate"] = 3,
+		["enabled"] = false,
+		["debug"] = false,
+		["caching"] = false,
+		["openbag"] = {
+			true, -- [1]
+			true, -- [2]
+			true, -- [3]
+			true, -- [4]
+			[0] = true,
+		},
+		["notifydelete"] = true,
+		["deleteList"] = {
+			["VAValue"] = 0,
+			["names"] = {
+			},
+		},
+		["openvendor"] = true,
+		["freebagslots"] = 5,
+		["notifykeep"] = true,
+		["notifynew"] = true,
+		["novalue"] = false,
+		["session"] = {
+			["start"] = 1532939662,
+			["itemCount"] = 16,
+			["end"] = 1532939864,
+			["itemValue"] = 0.7488,
+		},
+		["itemStack"] = {
+		},
+	},
+}

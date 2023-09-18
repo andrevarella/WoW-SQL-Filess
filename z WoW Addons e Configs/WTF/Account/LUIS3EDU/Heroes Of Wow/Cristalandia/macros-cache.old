@@ -1,0 +1,16 @@
+MACRO 16777218 "  " INV_Misc_QuestionMark
+/cast Mirror Image
+/cast Berserking(Racial)
+/use Sanctified Bloodmage Gloves
+END
+MACRO 16777217 "block" INV_Misc_QuestionMark
+/cast Ice Block
+/cancelaura Ice Block
+END
+MACRO 16777219 "Procs" INV_Misc_QuestionMark
+/use Sanctified Bloodmage Gloves
+/cast Berserking(Racial)
+END
+MACRO 16777220 "target" Ability_Druid_EclipseOrange
+/target The Lich king
+END

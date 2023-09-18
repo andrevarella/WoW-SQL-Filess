@@ -1,0 +1,10 @@
+
+CombatTimerDB = {
+	["profileKeys"] = {
+		["Reksalz - Heroes Of Wow"] = "Reksalz - Heroes Of Wow",
+	},
+	["profiles"] = {
+		["Reksalz - Heroes Of Wow"] = {
+		},
+	},
+}

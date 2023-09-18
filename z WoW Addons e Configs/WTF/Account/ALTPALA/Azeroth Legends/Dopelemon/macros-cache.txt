@@ -1,0 +1,119 @@
+MACRO 16777243 "2Bear" INV_Misc_QuestionMark
+#showtooltip Mangle (Bear)
+/startattack
+/cancelaura Hand of Protection
+/cast [@arenapet1] Growl
+/cast [@arenapet2] Growl
+/cast [@arenapet3] Growl
+/cast [stance:1] Mangle (Bear)
+END
+MACRO 16777244 "2Cat" INV_Misc_QuestionMark
+#showtooltip Mangle (Cat)
+/startattack
+/cancelaura Hand of Protection
+/cast [stance:3] Mangle (Cat)
+/cancelaura Rampart of Skulls Teleport
+/cancelaura Oratory of the Damned
+/cancelaura Upper Spire Teleport
+/cancelaura Frozen Throne Teleport
+END
+MACRO 16777251 "2char" INV_Misc_QuestionMark
+#showtooltip feral charge - cat
+/cast [form:1] feral charge - bear
+/cast [stealth] feral charge - cat
+/cast [form:3] feral charge - cat
+END
+MACRO 16777245 "2Fcs" INV_Misc_QuestionMark
+/cancelaura hand of protection
+/cast [target=focus] feral charge - cat
+END
+MACRO 16777246 "2Tar" INV_Misc_QuestionMark
+/cancelaura hand of protection
+/cast feral charge - cat
+/cast feral charge - bear
+END
+MACRO 16777247 "3Fcs" INV_Misc_QuestionMark
+/cast [target=focus] pounce
+END
+MACRO 16777250 "4Racial Pounce" INV_Misc_QuestionMark
+#showtooltip pounce
+/cancelaura shadowmeld
+/stopattack
+/cast [combat] Shadowmeld
+/cast [noform:3] !Cat Form
+/cast [form:3] !Prowl
+/cast pounce
+END
+MACRO 16777249 "5Shred" INV_Misc_QuestionMark
+#showtooltip Shred
+/startattack
+/cancelaura hand of protection
+/cancelaura divine intervention
+/cast Shred
+END
+MACRO 16777242 "fcs" INV_Misc_QuestionMark
+#showtooltip bash
+/cancelaura hand of protection
+/cast [target=arenapet1] Growl
+/cast [target=arenapet2] Growl
+/cast [target=arenapet3] Growl
+/cast [@focus] bash
+END
+MACRO 16777253 "FF" INV_Misc_QuestionMark
+/cast [nostance] Faerie Fire; [stance:4] faerie fire; [stance:2] Faerie Fire; Faerie Fire (Feral)
+END
+MACRO 16777236 "maul" INV_Misc_QuestionMark
+/cancelaura hand of protection
+/startattack
+/cast maul
+END
+MACRO 16777234 "NS" INV_Misc_QuestionMark
+#showtooltip nature's swiftness
+/use Ephemeral Snowflake
+/cast Nature's Swiftness
+/cast healing touch
+/stopcasting
+/stopcasting
+/stopcasting
+END
+MACRO 16777239 "pet" INV_Misc_QuestionMark
+#showtooltip Feral Charge - Bear
+/cancelaura hand of protection
+/target [@arenapet1, exists][@arenapet2, exists][@arenapet3, exists][harm]
+/cast [@arenapet1] Feral Charge - Bear
+/cast [@arenapet2] Feral Charge - Bear
+/cast [@arenapet3] Feral Charge - Bear
+END
+MACRO 16777230 "Rogue" INV_Misc_QuestionMark
+#showtooltip Pounce
+/cleartarget
+/console targetNearestDistance 1.000000
+/targetenemy [noharm][dead]
+/console targetNearestDistance 41.000000 
+/cast [harm,nodead] Pounce
+END
+MACRO 16777237 "steat" INV_Misc_QuestionMark
+#showtooltip Demoralizing Roar
+/cancelaura Hand of Protection
+/cast Demoralizing Roar
+END
+MACRO 16777252 "Surv" INV_Misc_QuestionMark
+#showtooltip survival instincts
+/cast survival instincts
+/use Fel Healthstone
+/use Battlemaster's Rage
+END
+MACRO 16777241 "tar" INV_Misc_QuestionMark
+#showtooltip feral charge - bear
+/cancelaura hand of protection
+/cast [nostance:1] dire bear form
+/cast [@arena1] Growl
+/cast [@arena2] Growl
+/cast [@arena3] Growl
+/cast feral charge - bear
+END
+MACRO 16777238 "taun" INV_Misc_QuestionMark
+#showtooltip Growl
+/cancelaura hand of protection
+/cast [@arena1] Growl
+END

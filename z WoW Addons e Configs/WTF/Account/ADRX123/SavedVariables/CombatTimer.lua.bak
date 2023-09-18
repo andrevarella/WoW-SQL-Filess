@@ -1,0 +1,14 @@
+
+CombatTimerDB = {
+	["profileKeys"] = {
+		["Hybridmind - Chad WoW"] = "Hybridmind - Chad WoW",
+	},
+	["profiles"] = {
+		["Hybridmind - Chad WoW"] = {
+			["position"] = {
+				["y"] = 437.2292045517726,
+				["x"] = 278.3617738309526,
+			},
+		},
+	},
+}

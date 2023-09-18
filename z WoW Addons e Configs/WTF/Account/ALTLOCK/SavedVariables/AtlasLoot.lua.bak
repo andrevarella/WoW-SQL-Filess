@@ -1,0 +1,29 @@
+
+AtlasLootOptions = nil
+AtlasLootDB = {
+	["profileKeys"] = {
+		["Feardotcom - Heroes Of Wow"] = "Feardotcom - Heroes Of Wow",
+	},
+	["profiles"] = {
+		["Feardotcom - Heroes Of Wow"] = {
+			["AtlasType"] = "Unknown",
+		},
+	},
+}
+AtlasLootWishList = {
+	["Options"] = {
+		["Feardotcom"] = {
+			["AllowShareWishlistInCombat"] = true,
+			["UseDefaultWishlist"] = false,
+			["Mark"] = true,
+			["markInTable"] = "own",
+			["AllowShareWishlist"] = true,
+		},
+	},
+	["Shared"] = {
+	},
+	["Own"] = {
+		["Feardotcom"] = {
+		},
+	},
+}

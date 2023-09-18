@@ -1,0 +1,11 @@
+
+SoundAlerterDB = {
+	["profileKeys"] = {
+		["Nevercleanse - Heroes Of Wow"] = "Default",
+	},
+	["profiles"] = {
+		["Default"] = {
+			["path"] = "Interface\\Addons\\SoundAlerter\\Voice\\",
+		},
+	},
+}

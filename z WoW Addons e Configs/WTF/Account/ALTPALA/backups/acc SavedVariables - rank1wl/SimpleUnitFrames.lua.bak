@@ -1,0 +1,10 @@
+
+SimpleUnitFramesDB = {
+	["profileKeys"] = {
+		["Blackoutz - Heroes Of Wow"] = "Blackoutz - Heroes Of Wow",
+	},
+	["profiles"] = {
+		["Blackoutz - Heroes Of Wow"] = {
+		},
+	},
+}

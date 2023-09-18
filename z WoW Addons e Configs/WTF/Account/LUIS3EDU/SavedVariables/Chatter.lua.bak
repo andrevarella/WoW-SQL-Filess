@@ -1,0 +1,54 @@
+
+ChatterDB = {
+	["namespaces"] = {
+		["PlayerNames"] = {
+		},
+		["AltLinks"] = {
+		},
+		["Scrollback"] = {
+		},
+		["Invite Links"] = {
+		},
+		["ChannelColors"] = {
+		},
+		["StickyChannels"] = {
+		},
+		["RealIdPolish"] = {
+		},
+		["ChatFrameBorders"] = {
+		},
+		["Buttons"] = {
+		},
+		["Server Positioning"] = {
+		},
+		["JustifyText"] = {
+		},
+		["Timestamps"] = {
+		},
+		["EditBox"] = {
+		},
+		["Highlight"] = {
+		},
+		["ChatTabs"] = {
+		},
+		["ChannelNames"] = {
+		},
+		["CopyChat"] = {
+		},
+		["UrlCopy"] = {
+		},
+		["Editbox History"] = {
+		},
+		["ChatFont"] = {
+		},
+		["Mousewheel Scroll"] = {
+		},
+	},
+	["profileKeys"] = {
+		["Nicetry - Heroes Of Wow"] = "Default",
+	},
+	["profiles"] = {
+		["Default"] = {
+		},
+	},
+}

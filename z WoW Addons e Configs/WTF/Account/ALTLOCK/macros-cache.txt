@@ -1,0 +1,128 @@
+MACRO 237 "14" INV_Misc_QuestionMark
+/use 14
+END
+MACRO 248 "1nastao" Ability_Creature_Cursed_01
+/target party2
+END
+MACRO 228 "a1" INV_Misc_QuestionMark
+/target arena1
+/use 8
+END
+MACRO 229 "a2" INV_Misc_QuestionMark
+/target arena2
+/use 6
+END
+MACRO 240 "aimed" INV_Misc_QuestionMark
+/cancelaura deterrence
+/cancelaura hand of protection
+/startattack
+/cast aimed shot
+END
+MACRO 109 "asd" Ability_CheapShot
+/inspect
+END
+MACRO 220 "bota" INV_Misc_QuestionMark
+/use 8
+END
+MACRO 227 "capa" INV_Misc_QuestionMark
+/use 15
+END
+MACRO 250 "Decursive" INV_Misc_QuestionMark
+/stopcasting
+/cast [target=mouseover,nomod,exists] Tranquilizing Shot;  [target=mouseover,exists,mod:ctrl] Tranquilizing Shot; [target=mouseover,exists,mod:shift] Tranquilizing Shot
+END
+MACRO 238 "deter" INV_Misc_QuestionMark
+/cancelaura hand of protection
+/cast deterrence
+END
+MACRO 234 "fcs" INV_Misc_QuestionMark
+/cancelaura deterrence
+/cancelaura hand of protection
+/cast [@focus] scatter shot
+END
+MACRO 235 "fcs" INV_Misc_QuestionMark
+/cancelaura deterrence
+/cancelaura hand of protection
+/cast [@focus] silencing shot
+END
+MACRO 232 "fcs" INV_Misc_QuestionMark
+/cancelaura deterrence
+/cancelaura hand of protection
+/cast [@focus] viper sting
+END
+MACRO 231 "fcs slow" INV_Misc_QuestionMark
+/cancelaura hand of protection
+/cancelaura deterrence
+/cast [@focus] Wing Clip
+END
+MACRO 221 "feldom" INV_Misc_QuestionMark
+#showtooltip Summon Felhunter
+/cast fel domination
+/cast summon felhunter
+END
+MACRO 184 "focus a1" Ability_Rogue_BloodyEye
+/focus [target=arena1]
+END
+MACRO 185 "focus a2" Ability_Rogue_BloodyEye
+/focus [target=arena2]
+END
+MACRO 186 "focus a3" Ability_Rogue_BloodyEye
+/focus [target=arena3]
+END
+MACRO 191 "gloves" INV_Misc_QuestionMark
+/use 10
+END
+MACRO 236 "kill" INV_Misc_QuestionMark
+#showtooltip kill shot
+/cancelaura deterrence
+/cancelaura hand of protection
+/cancelaura aspect of the viper
+/cast !aspect of the dragonhawk
+/cast kill shot
+END
+MACRO 209 "mouse ov  pet" Ability_Druid_ForceofNature
+/petattack [target=mouseover]
+END
+MACRO 126 "mouseov attack" INV_Misc_QuestionMark
+/cast [target=mouseover] Auto Attack
+END
+MACRO 133 "petattack fcs" Ability_Druid_ChallangingRoar
+/petattack [target=focus]
+END
+MACRO 244 "pt2" INV_Misc_QuestionMark
+/cast [@Fsympthy] Dispel Magic
+END
+MACRO 246 "racial" INV_Misc_QuestionMark
+/cancelaura hand of protection
+/cancelaura deterrence
+/cast Stoneform
+END
+MACRO 233 "rapid" INV_Misc_QuestionMark
+/cast Rapid Fire
+/cast Kill Command
+/cast Call of the Wild
+END
+MACRO 239 "scatter" INV_Misc_QuestionMark
+/cancelaura deterrence
+/cancelaura hand of protection
+/cast scatter shot
+END
+MACRO 241 "self" INV_Misc_QuestionMark
+/cast [@player] fear ward
+END
+MACRO 249 "Soul Link" INV_Misc_QuestionMark
+/run SetRaidTarget("playerpet",7)
+/cast soul link
+END
+MACRO 150 "targ pet enemy" Ability_Creature_Disease_04
+/target [@arenapet1, exists][@arenapet2, exists][@arenapet3, exists][harm]
+END
+MACRO 113 "trinket" INV_Misc_QuestionMark
+/use 13
+END
+MACRO 106 "wand" INV_Misc_QuestionMark
+/cast [target=mouseover] !shoot
+END
+MACRO 251 "zzDeath suc" INV_Misc_QuestionMark
+/cast [@arenapet1] [@arenapet2][@arenapet3][harm] Shadow Word: Death
+END

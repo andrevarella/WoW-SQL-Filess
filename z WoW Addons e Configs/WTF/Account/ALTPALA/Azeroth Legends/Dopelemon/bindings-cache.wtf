@@ -1,0 +1,166 @@
+BINDINGMODE 0
+bind BUTTON3 TOGGLEAUTORUN
+bind UP FOLLOWTARGET
+bind S CLICK BonusActionButton8:LeftButton
+bind A STRAFELEFT
+bind D STRAFERIGHT
+bind Q MULTIACTIONBAR2BUTTON5
+bind E ACTIONBUTTON6
+bind X CLICK DominosClassButton3:LeftButton
+bind Z CLICK DominosClassButton1:LeftButton
+bind NUMLOCK NONE
+bind BUTTON4 NONE
+bind INSERT NONE
+bind DELETE NONE
+bind NUMPADDIVIDE TOGGLERUN
+bind / OPENCHATSLASH
+bind PAGEUP NONE
+bind PAGEDOWN CLICK BindPadFastMacro:inspect
+bind SHIFT-PAGEDOWN NONE
+bind CTRL-PAGEUP NONE
+bind CTRL-PAGEDOWN NONE
+bind CTRL-SHIFT-PAGEDOWN NONE
+bind R CLICK BindPadFastMacro:shapeshift
+bind SHIFT-R CLICK BindPadFastMacro:fcs char
+bind 5 ACTIONBUTTON8
+bind 6 ACTIONBUTTON7
+bind 7 CLICK BindPadFastMacro:cancel Grasp
+bind 8 NONE
+bind 9 NONE
+bind 0 NONE
+bind - NONE
+bind = NONE
+bind CTRL-F1 NONE
+bind CTRL-F2 NONE
+bind CTRL-F3 NONE
+bind CTRL-F4 NONE
+bind CTRL-F5 NONE
+bind CTRL-F6 NONE
+bind CTRL-F7 NONE
+bind CTRL-F8 NONE
+bind CTRL-F9 NONE
+bind CTRL-F10 NONE
+bind CTRL-1 CLICK DominosActionButton20:LeftButton
+bind CTRL-2 CLICK DominosActionButton21:LeftButton
+bind CTRL-3 CLICK DominosActionButton22:LeftButton
+bind CTRL-4 MULTIACTIONBAR2BUTTON7
+bind CTRL-5 ACTIONBUTTON10
+bind CTRL-6 NONE
+bind CTRL-7 NONE
+bind CTRL-8 NONE
+bind CTRL-9 NONE
+bind CTRL-0 NONE
+bind SHIFT-1 CLICK BindPadFastMacro:fcs are1
+bind SHIFT-2 CLICK BindPadFastMacro:fcsare2
+bind SHIFT-3 CLICK BindPadFastMacro:fcs are3
+bind SHIFT-4 CLICK BindPadFastMacro:innervate pt1
+bind SHIFT-5 CLICK BindPadFastMacro:FFF FF fcs
+bind SHIFT-6 NONE
+bind SHIFT-UP NONE
+bind SHIFT-MOUSEWHEELUP MULTIACTIONBAR2BUTTON1
+bind SHIFT-DOWN NONE
+bind SHIFT-MOUSEWHEELDOWN MULTIACTIONBAR4BUTTON1
+bind SHIFT-TAB NONE
+bind CTRL-TAB NONE
+bind CTRL-SHIFT-TAB NONE
+bind F1 CLICK BindPadFastMacro:target a1
+bind SHIFT-F1 CLICK DominosActionButton13:LeftButton
+bind F2 CLICK BindPadFastMacro:targ a2 e cinto
+bind F3 CLICK BindPadFastMacro:targ a3
+bind F4 CLICK DominosActionButton24:LeftButton
+bind F5 CLICK BonusActionButton10:LeftButton
+bind SHIFT-F2 CLICK DominosActionButton14:LeftButton
+bind SHIFT-F3 CLICK DominosActionButton15:LeftButton
+bind SHIFT-F4 CLICK DominosActionButton16:LeftButton
+bind SHIFT-F5 NONE
+bind G MULTIACTIONBAR2BUTTON6
+bind F ACTIONBUTTON5
+bind V CLICK BindPadFastMacro:fcs cyc
+bind SHIFT-V CLICK BonusActionButton6:LeftButton
+bind CTRL-V NAMEPLATES
+bind T MULTIACTIONBAR3BUTTON5
+bind SHIFT-T CLICK BonusActionButton9:LeftButton
+bind C MULTIACTIONBAR3BUTTON6
+bind B CLICK BonusActionButton1:LeftButton
+bind F12 NONE
+bind F8 TOGGLEFPS
+bind F9 NONE
+bind F10 NONE
+bind F11 NONE
+bind SHIFT-SPACE NONE
+bind H MULTIACTIONBAR1BUTTON11
+bind Y MULTIACTIONBAR1BUTTON10
+bind SHIFT-Y CLICK BT4Button58:LeftButton
+bind SHIFT-C CLICK DominosClassButton4:LeftButton
+bind ESCAPE TOGGLEGAMEMENU
+bind NUMPADPLUS NONE
+bind NUMPADMINUS CLICK BT4Button45:LeftButton
+bind CTRL-M NONE
+bind CTRL-S CLICK BindPadFastMacro:a2 cyc
+bind CTRL-= NONE
+bind CTRL-- NONE
+bind MOUSEWHEELUP CAMERAZOOMIN
+bind END CLICK BT4Button30:LeftButton
+bind HOME NONE
+bind CTRL-R CLICK BindPadFastMacro:HT pt 1
+bind CTRL-Y MULTIACTIONBAR2BUTTON11
+bind CTRL-Q CLICK BindPadFastMacro:root a1
+bind CTRL-W CLICK BindPadFastMacro:roota2
+bind CTRL-E CLICK BindPadFastMacro:roota3
+bind CTRL-T CLICK DominosActionButton23:LeftButton
+bind ALT-B CLICK BonusActionButton11:LeftButton
+bind NUMPAD5 NONE
+bind NUMPAD1 NONE
+bind NUMPAD3 NONE
+bind CTRL-MOUSEWHEELUP NONE
+bind CTRL-MOUSEWHEELDOWN NONE
+bind SHIFT-G ACTIONBUTTON9
+bind ' TARGETSELF
+bind SHIFT-F ACTIONBUTTON11
+bind SHIFT-D NONE
+bind SHIFT-S NONE
+bind SHIFT-W NONE
+bind ALT-Q CLICK BonusActionButton12:LeftButton
+bind SHIFT-Z CLICK BonusActionButton7:LeftButton
+bind SHIFT-X CLICK BonusActionButton5:LeftButton
+bind SHIFT-Q CLICK BonusActionButton3:LeftButton
+bind SHIFT-E CLICK BonusActionButton4:LeftButton
+bind ALT-T CLICK BonusActionButton2:LeftButton
+bind ALT-MOUSEWHEELUP MULTIACTIONBAR2BUTTON3
+bind ALT-MOUSEWHEELDOWN MULTIACTIONBAR4BUTTON3
+bind ALT-2 CLICK BindPadFastMacro:fcs hiber
+bind ALT-1 CLICK BindPadFastMacro:fcs root
+bind ALT-3 CLICK BindPadFastMacro:Dispel 1
+bind CTRL-A CLICK BindPadFastMacro:a1 cyc
+bind CTRL-D CLICK BindPadFastMacro:a3 cyc
+bind ALT-R CLICK BindPadFastMacro:HT PT2
+bind CTRL-Z MULTIACTIONBAR2BUTTON12
+bind CTRL-X MULTIACTIONBAR2BUTTON8
+bind F6 MULTIACTIONBAR1BUTTON12
+bind ALT-4 CLICK BindPadFastMacro:Dispel 2
+bind ALT-5 CLICK BindPadFastMacro:Abolish 2
+bind CTRL-G CLICK BT4Button33:LeftButton
+bind SHIFT-H CLICK BindPadFastMacro:Abolish 1
+bind ALT-F CLICK BindPadFastMacro:cancelaura
+bind ALT-G CLICK BindPadFastMacro:Fcs ff
+bind CTRL-C CLICK BindPadFastMacro:FF
+bind ALT-V MULTIACTIONBAR1BUTTON2
+bind ALT-A CLICK BindPadFastMacro:charg a1
+bind ALT-S CLICK BindPadFastMacro:charg a2
+bind ALT-D CLICK BindPadFastMacro:charg a3
+bind SHIFT-F8 NONE
+bind ALT-Y TOGGLEACHIEVEMENT
+bind ALT-SPACE TOGGLEWORLDSTATESCORES
+bind ALT-C TOGGLECHARACTER0
+bind ALT-H TOGGLECHARACTER4
+bind CTRL-H TARGETFOCUS
+bind CTRL-F FOCUSTARGET
+bind ` TARGETSELF
+bind SHIFT-F10 NONE
+bind [ TOGGLESHEATH
+bind ] SITORSTAND
+bind ; OPENCHATSLASH
+bind ALT-E CLICK BT4Button27:LeftButton
+bind NUMPADMULTIPLY CLICK BindPadFastMacro:Flight Form
+bind SHIFT-F11 NONE
+bind SHIFT-F6 TOGGLEMUSIC

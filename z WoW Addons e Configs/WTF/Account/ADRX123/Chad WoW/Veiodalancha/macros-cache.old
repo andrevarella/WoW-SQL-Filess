@@ -1,0 +1,55 @@
+MACRO 16777251 "Antraxz" INV_Misc_QuestionMark
+/cast [target=party1] Hand of Protection
+END
+MACRO 16777253 "Antraxz" INV_Misc_QuestionMark
+/cast [target=party1] Hand of Sacrifice
+END
+MACRO 16777252 "Antraxz" INV_Misc_QuestionMark
+/cast [target=party1] Hand of Freedom
+END
+MACRO 16777250 "Antraxz" INV_Misc_QuestionMark
+/cast [target=party1] Cleanse
+END
+MACRO 16777255 "Aura Mastery" INV_Misc_QuestionMark
+/cast Aura Mastery
+/p >>AURA MASTERY<<
+END
+MACRO 16777265 "aura test" INV_Misc_QuestionMark
+/run if 0==GetSpellCooldown"Aura Mastery"then SendChatMessage(select(GetShapeshiftForm(),"Devotion","Retribution","Concentration","Shadow Resistance","Frost Resistance","Fire Resistance","Crusader").." Aura Mastery used!")end
+/use Aura Mastery
+END
+MACRO 16777247 "Dernan" Ability_Warrior_Bladestorm
+/Target Stancedance
+END
+MACRO 16777256 "guth" INV_Misc_QuestionMark
+/cast [target=party1] flash of light
+END
+MACRO 16777217 "Hammer" INV_Misc_QuestionMark
+/cast [target=focus] hammer of justice
+END
+MACRO 16777264 "mouseov raid" INV_Misc_QuestionMark
+/cast [target=mouseover] flash of light
+END
+MACRO 16777259 "paolo" INV_Misc_QuestionMark
+/cast [target=party1] sacred shield
+END
+MACRO 16777263 "pt1" Ability_BackStab
+/target spaynork
+END
+MACRO 16777262 "remove bauble" INV_Misc_QuestionMark
+/cancelaura divine shield7
+END
+MACRO 16777254 "rep" INV_Misc_QuestionMark
+/cast [target=focus] repentance
+END
+MACRO 16777261 "shield" INV_Misc_QuestionMark
+/equipslot 16 Blade of Savagery
+/equipslot 17 Bulwark of Azzinoth
+END
+MACRO 16777260 "spell" INV_Misc_QuestionMark
+/equip Fireball Gladiator's Salvation
+/equip Fireball Gladiator's Barrier
+END
+MACRO 16777257 "targ pet" INV_Misc_QuestionMark
+/target Fzuuphom
+END

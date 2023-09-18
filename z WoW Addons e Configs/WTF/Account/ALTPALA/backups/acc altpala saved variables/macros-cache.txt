@@ -1,0 +1,182 @@
+MACRO 16777278 "00Target" Spell_Nature_Preservation
+/target party1
+END
+MACRO 16777303 "0Stealth" INV_Misc_QuestionMark
+#showtooltip Demoralizing Roar
+/cancelaura Hand of Protection
+/cast Demoralizing Roar
+END
+MACRO 16777306 "0Taunt" INV_Misc_QuestionMark
+#showtooltip Growl
+/cancelaura hand of protection
+/cast [@arena1] Growl
+END
+MACRO 16777308 "14" INV_Misc_QuestionMark
+/use 14
+END
+MACRO 16777259 "1Fcs" INV_Misc_QuestionMark
+#showtooltip dire bear form
+/cancelaura hand of protection
+/cast [target=arenapet1] Growl
+/cast [target=arenapet2] Growl
+/cast [target=arenapet3] Growl
+/cast [nostance:1] Dire Bear Form
+/cast [@focus] feral charge - bear
+END
+MACRO 16777270 "1Pet" INV_Misc_QuestionMark
+#showtooltip Feral Charge - Bear
+/cancelaura hand of protection
+/target [@arenapet1, exists][@arenapet2, exists][@arenapet3, exists][harm]
+/cast [@arenapet1] Feral Charge - Bear
+/cast [@arenapet2] Feral Charge - Bear
+/cast [@arenapet3] Feral Charge - Bear
+END
+MACRO 16777300 "1Target" INV_Misc_QuestionMark
+#showtooltip feral charge - bear
+/cancelaura hand of protection
+/cast [nostance:1] dire bear form
+/cast [@arena1] Growl
+/cast [@arena2] Growl
+/cast [@arena3] Growl
+/cast feral charge - bear
+END
+MACRO 16777267 "22Maul" INV_Misc_QuestionMark
+/cancelaura hand of protection
+/startattack
+/cast maul
+END
+MACRO 16777255 "2Bash fcs" INV_Misc_QuestionMark
+#showtooltip bash
+/cancelaura hand of protection
+/cast [target=arenapet1] Growl
+/cast [target=arenapet2] Growl
+/cast [target=arenapet3] Growl
+/cast [@focus] bash
+END
+MACRO 16777265 "2Bear" INV_Misc_QuestionMark
+#showtooltip Mangle (Bear)
+/startattack
+/cancelaura Hand of Protection
+/cast [@arenapet1] Growl
+/cast [@arenapet2] Growl
+/cast [@arenapet3] Growl
+/cast [stance:1] Mangle (Bear)
+END
+MACRO 16777266 "2Cat" INV_Misc_QuestionMark
+#showtooltip Mangle (Cat)
+/startattack
+/cancelaura Hand of Protection
+/cast [stance:3] Mangle (Cat)
+/cancelaura Rampart of Skulls Teleport
+/cancelaura Oratory of the Damned
+/cancelaura Upper Spire Teleport
+/cancelaura Frozen Throne Teleport
+END
+MACRO 16777261 "2Fcs" INV_Misc_QuestionMark
+/cancelaura hand of protection
+/cast [target=focus] feral charge - cat
+END
+MACRO 16777305 "2Targ" INV_Misc_QuestionMark
+/cancelaura hand of protection
+/cast feral charge - cat
+/cast feral charge - bear
+END
+MACRO 16777262 "3Fcs" INV_Misc_QuestionMark
+/cast [target=focus] pounce
+END
+MACRO 16777272 "4 Pet" INV_Misc_QuestionMark
+/cast [target=arenapet1] Hibernate(Rank 3)
+/cast [target=arenapet2] Hibernate(Rank 3)
+/cast [target=arenapet3] Hibernate(Rank 3)
+END
+MACRO 16777271 "4 Pet" INV_Misc_QuestionMark
+/cast [@arenapet1] cyclone
+/cast [@arenapet2] cyclone
+/cast [@arenapet3] cyclone
+END
+MACRO 16777273 "4Prowl" Ability_Ambush
+#showtooltip prowl
+/cast [nostealth] !prowl
+END
+MACRO 16777274 "4Racial Pounce" INV_Misc_QuestionMark
+#showtooltip pounce
+/cancelaura shadowmeld
+/stopattack
+/cast [combat] Shadowmeld
+/cast [noform:3] !Cat Form
+/cast [form:3] !Prowl
+/cast pounce
+END
+MACRO 16777276 "4Smeld" Ability_Racial_ShadowMeld
+/stopattack
+/cancelaura hand of protection
+/cast shadowmeld
+END
+MACRO 16777275 "5Shred" INV_Misc_QuestionMark
+#showtooltip Shred
+/startattack
+/cancelaura hand of protection
+/cancelaura divine intervention
+/cast Shred
+END
+MACRO 16777317 "charge" INV_Misc_QuestionMark
+#showtooltip feral charge - cat
+/cast [form:1] feral charge - bear
+/cast [stealth] feral charge - cat
+/cast [form:3] feral charge - cat
+END
+MACRO 16777315 "pt2" Ability_CheapShot
+/target party2
+END
+MACRO 16777316 "Rake" INV_Misc_QuestionMark
+#showtooltip Rake
+/startattack
+/cancelaura hand of protection
+/cancelaura divine intervention
+/cast Rake
+END
+MACRO 16777268 "Reflect" INV_Misc_QuestionMark
+/cast [target=focus] Moonfire(Rank 1)
+END
+MACRO 16777277 "Survival" INV_Misc_QuestionMark
+#showtooltip survival instincts
+/cast survival instincts
+/use Fel Healthstone
+/use Battlemaster's Rage
+END
+MACRO 16777301 "Trees" INV_Misc_QuestionMark
+/petattack
+/cast Force of Nature
+END
+MACRO 16777282 "trinket" INV_Misc_QuestionMark
+/use 13
+END
+MACRO 16777310 "z Camera" Spell_Shadow_UnholyFrenzy
+/run SetCVar('CameraDistanceMaxFactor','4'); CameraZoomOut('500')
+END
+MACRO 16777264 "z Gloves" INV_Misc_QuestionMark
+/use 10
+END
+MACRO 16777256 "z Pt1" INV_Misc_QuestionMark
+/cast [target=party1] Bauble of True Blood
+END
+MACRO 16777302 "zPet MO" INV_Misc_QuestionMark
+/petattack [target=mouseover]
+END
+MACRO 16777311 "zzz Max FPS" INV_Misc_QuestionMark
+/console maxfps 100
+END
+MACRO 16777298 "ZZZZZZZZZZZZZZZ" Spell_Shaman_AncestralAwakening
+Ä Ÿ Š ÊË  Š ßö 2 ƒ
+MANDA NUDES
+ƒ 2 p ž 3 ƒ „ 1
+seu lysho
+ƒ 2 p Ä 2 ‡ ÊË
+seu MERDA
+„ Ÿ „ Ÿ
+H A H A
+Š 1 1 €
+noob
+Ä 1 ‡ 10 Š „ 1
+mortinho
+END

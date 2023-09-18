@@ -1,0 +1,10 @@
+
+EPGPLootMaster = {
+	["profileKeys"] = {
+		["Noobpriest - Heroes Of Wow"] = "Noobpriest - Heroes Of Wow",
+	},
+	["profiles"] = {
+		["Noobpriest - Heroes Of Wow"] = {
+		},
+	},
+}

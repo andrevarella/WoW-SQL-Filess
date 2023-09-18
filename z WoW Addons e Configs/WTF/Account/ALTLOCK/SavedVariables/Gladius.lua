@@ -1,0 +1,91 @@
+
+GladiusDB = {
+	["profileKeys"] = {
+		["Filovirus - Heroes Of Wow"] = "Filovirus - Heroes Of Wow",
+		["Filovirusx - Heroes Of Wow"] = "Filovirusx - Heroes Of Wow",
+		["Noobpriest - Heroes Of Wow"] = "Noobpriest - Heroes Of Wow",
+		["Mightybeard - Heroes Of Wow"] = "Mightybeard - Heroes Of Wow",
+		["Mortinhaa - Heroes Of Wow"] = "Mortinhaa - Heroes Of Wow",
+		["Worstworld - Heroes Of Wow"] = "Worstworld - Heroes Of Wow",
+		["Hahalixin - Heroes Of Wow"] = "Hahalixin - Heroes Of Wow",
+		["Easd - Heroes Of Wow"] = "Easd - Heroes Of Wow",
+		["Feardotcom - Heroes Of Wow"] = "Feardotcom - Heroes Of Wow",
+		["Crine - Heroes Of Wow"] = "Crine - Heroes Of Wow",
+	},
+	["profiles"] = {
+		["Filovirus - Heroes Of Wow"] = {
+			["raceText"] = false,
+			["auras"] = {
+				[58] = {
+					["priority"] = 2,
+					["name"] = "Fear Ward",
+				},
+			},
+			["locked"] = true,
+			["trinketDisplay"] = "bigIcon",
+			["showPets"] = true,
+			["y"] = 380.4557057762342,
+			["x"] = 933.179424693816,
+			["resAnnounce"] = true,
+			["drinkAnnounce"] = true,
+			["focusBorder"] = false,
+			["healthActual"] = true,
+		},
+		["Filovirusx - Heroes Of Wow"] = {
+			["locked"] = true,
+		},
+		["Noobpriest - Heroes Of Wow"] = {
+			["enemyAnnounce"] = true,
+			["barHeight"] = 28,
+			["raceText"] = false,
+			["manaMax"] = false,
+			["castBarFontSize"] = 13,
+			["locked"] = true,
+			["trinketDisplay"] = "bigIcon",
+			["healthFontSize"] = 12,
+			["castBarHeight"] = 16,
+			["trinketUsedAnnounce"] = true,
+			["petFontSize"] = 10,
+			["y"] = 421.1383594034327,
+			["x"] = 974.5812716927412,
+			["specAnnounce"] = true,
+			["drinkAnnounce"] = true,
+			["focusBorder"] = false,
+			["resAnnounce"] = true,
+			["barWidth"] = 155,
+		},
+		["Mightybeard - Heroes Of Wow"] = {
+			["locked"] = true,
+			["trinketDisplay"] = "bigIcon",
+			["x"] = 1025.053193014347,
+			["y"] = 407.5165919741448,
+		},
+		["Mortinhaa - Heroes Of Wow"] = {
+			["y"] = 500.6721634030719,
+			["x"] = 1085.497569604329,
+		},
+		["Worstworld - Heroes Of Wow"] = {
+			["y"] = 342.0944701553835,
+			["x"] = 1113.9421852,
+			["locked"] = true,
+			["trinketDisplay"] = "bigIcon",
+			["resAnnounce"] = true,
+			["bigTrinketScale"] = 1.1,
+		},
+		["Hahalixin - Heroes Of Wow"] = {
+		},
+		["Easd - Heroes Of Wow"] = {
+			["locked"] = true,
+			["x"] = 1195.183310818133,
+			["y"] = 363.0165960910721,
+		},
+		["Feardotcom - Heroes Of Wow"] = {
+			["locked"] = true,
+			["trinketDisplay"] = "bigIcon",
+			["x"] = 969.4387342774494,
+			["y"] = 351.3000253045091,
+		},
+		["Crine - Heroes Of Wow"] = {
+		},
+	},
+}
