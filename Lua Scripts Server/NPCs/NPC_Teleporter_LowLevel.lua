@@ -4,20 +4,22 @@ function Teleporter_Gossip(unit, player, creature)
     player:GossipSetText(string.format("Zonas de Upar (Level 68)"))
 
     if (player:IsAlliance()) then -- só ally:
-        player:GossipMenuAddItem(2, "|TInterface\\icons\\Achievement_zone_boreantundra_05.png:29|t Borean Tundra - Alliance", 1, 3, false, "Tem certeza que quer ir para Borean Tundra - Valliance Keep?")
-        player:GossipMenuAddItem(2, "|TInterface\\icons\\Achievement_zone_howlingfjord_08.png:29|t Howling Fjord - Alliance", 1, 4, false, "Tem certeza que quer ir para Howling Fjord - Valgarde")
+        player:GossipMenuAddItem(2, "|TInterface\\icons\\Achievement_zone_boreantundra_05.png:29|t |cFF0000FFBorean Tundra|r - |cFF0000FFAlliance", 1, 3, false, "Tem certeza que quer ir para Borean Tundra - Valliance Keep?")
+        player:GossipMenuAddItem(2, "|TInterface\\icons\\Achievement_zone_howlingfjord_08.png:29|t |cFF0000FFHowling Fjord|r - |cFF0000FFAlliance", 1, 4, false, "Tem certeza que quer ir para Howling Fjord - Valgarde")
+		
 		
     elseif (player:IsHorde()) then -- só horda:
-        player:GossipMenuAddItem(2, "|TInterface\\icons\\Achievement_zone_boreantundra_05.png:29|t Borean Tundra - Horde", 1, 1, false, "Tem certeza que quer ir para Borean Tundra - Warsong Hold?")
-        player:GossipMenuAddItem(2, "|TInterface\\icons\\Achievement_zone_howlingfjord_08.png:29|t Howling Fjord - Horde", 1, 2, false, "Tem certeza que quer ir para Howling Fjord - Vengeance Landing?")
+        player:GossipMenuAddItem(2, "|TInterface\\icons\\Achievement_zone_boreantundra_05.png:29|t |cFF0000FFBorean Tundra|r - |cffff0000Horde", 1, 1, false, "Tem certeza que quer ir para Borean Tundra - Warsong Hold?")
+        player:GossipMenuAddItem(2, "|TInterface\\icons\\Achievement_zone_howlingfjord_08.png:29|t |cFF0000FFHowling Fjord|r - |cffff0000Horde", 1, 2, false, "Tem certeza que quer ir para Howling Fjord - Vengeance Landing?")
     end -- ambas facções:
-    player:GossipMenuAddItem(3, "|TInterface\\icons\\Inv_enchant_formulagood_01.png:29|t Área de Profissões [falta terminar]", 1, 5, false, "Tem certeza que quer ir para a Área de Profissões?")
-    player:GossipSendMenu(0x7FFFFFFF, creature)
+    --player:GossipMenuAddItem(3, "|TInterface\\icons\\Inv_enchant_formulagood_01.png:26|t Área de Profissões [falta terminar]", 1, 5, false, "Tem certeza que quer ir para a Área de Profissões?")
+	player:GossipSendMenu(0x7FFFFFFF, creature)
 end
 
 RegisterCreatureGossipEvent(UnitEntry, 1, Teleporter_Gossip)
 
 function Teleporter_Event(event, player, creature, sender, intid, code)
+
 	
 	-- level 68 >= - Borean Tundra [Horda] - Warsong Hold
 	if(intid == 1) then
