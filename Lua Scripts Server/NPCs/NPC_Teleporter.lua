@@ -38,6 +38,8 @@ function Teleporter_Event(event, player, creature, sender, intid, code)
             player:GossipComplete()
             return
 		end
+		player:GossipComplete()
+		player:SendAreaTriggerMessage("Teleporting in 3 seconds.")
 		player:RegisterEvent(Timer.Teleport, 1000, 2) -- Feedback em segundos, no meio da tela
         player:RegisterEvent(function(e, d, r, p)
 			if not p:IsInCombat() then -- Se o jogador não está em combate, teleportar
@@ -45,7 +47,7 @@ function Teleporter_Event(event, player, creature, sender, intid, code)
 			else
 				p:SendAreaTriggerMessage("Teleporte cancelado, você entrou em combate.")
 			end
-		end, 3000, 1) -- tempo para o Teleport ocorrer
+		end, 2000, 1) -- tempo para o Teleport ocorrer
 	end
 	
 	
@@ -55,6 +57,8 @@ function Teleporter_Event(event, player, creature, sender, intid, code)
 			player:GossipComplete()
 			return
 		end
+		player:GossipComplete()
+	    player:SendAreaTriggerMessage("Teleporting in 3 seconds.")
 		player:RegisterEvent(Timer.Teleport, 1000, 2)
         player:RegisterEvent(function(e, d, r, p)
 			if not p:IsInCombat() then
@@ -62,7 +66,7 @@ function Teleporter_Event(event, player, creature, sender, intid, code)
 			else
 				p:SendAreaTriggerMessage("Teleporte cancelado, você entrou em combate.")
 			end
-		end, 3000, 1)
+		end, 2000, 1)
 	end
 	
 	
@@ -72,6 +76,8 @@ function Teleporter_Event(event, player, creature, sender, intid, code)
             player:GossipComplete()
             return
 		end
+		player:GossipComplete()
+	    player:SendAreaTriggerMessage("Teleporting in 3 seconds.")
 		player:RegisterEvent(Timer.Teleport, 1000, 2)
         player:RegisterEvent(function(e, d, r, p)
 			if not p:IsInCombat() then
@@ -79,7 +85,7 @@ function Teleporter_Event(event, player, creature, sender, intid, code)
 			else
 				p:SendAreaTriggerMessage("Teleporte cancelado, você entrou em combate.")
 			end
-		end, 3000, 1)
+		end, 2000, 1)
 	end
 	
 	if (intid == 13) then -- Orgrimmar
@@ -88,6 +94,8 @@ function Teleporter_Event(event, player, creature, sender, intid, code)
             player:GossipComplete()
             return
 		end
+		player:GossipComplete()
+		player:SendAreaTriggerMessage("Teleporting in 3 seconds.")
 		player:RegisterEvent(Timer.Teleport, 1000, 2)
         player:RegisterEvent(function(e, d, r, p)
 			if not p:IsInCombat() then
@@ -95,7 +103,7 @@ function Teleporter_Event(event, player, creature, sender, intid, code)
 			else
 				p:SendAreaTriggerMessage("Teleporte cancelado, você entrou em combate.")
 			end
-		end, 3000, 1)
+		end, 2000, 1)
 	end
 
     if (intid == 3) then -- Tanaris
@@ -104,6 +112,8 @@ function Teleporter_Event(event, player, creature, sender, intid, code)
             player:GossipComplete()
             return
 		end
+		player:GossipComplete()
+		player:SendAreaTriggerMessage("Teleporting in 3 seconds.")
 		player:RegisterEvent(Timer.Teleport, 1000, 2)
         player:RegisterEvent(function(e, d, r, p)
 			if not p:IsInCombat() then
@@ -111,7 +121,7 @@ function Teleporter_Event(event, player, creature, sender, intid, code)
 			else
 				p:SendAreaTriggerMessage("Teleporte cancelado, você entrou em combate.")
 			end
-		end, 3000, 1)
+		end, 2000, 1)
 	end
 
     if (intid == 4) then -- Nagrand 
@@ -120,6 +130,8 @@ function Teleporter_Event(event, player, creature, sender, intid, code)
             player:GossipComplete()
             return
 		end
+		player:GossipComplete()
+		player:SendAreaTriggerMessage("Teleporting in 3 seconds.")
 		player:RegisterEvent(Timer.Teleport, 1000, 2)
         player:RegisterEvent(function(e, d, r, p)
 			if not p:IsInCombat() then
@@ -127,7 +139,7 @@ function Teleporter_Event(event, player, creature, sender, intid, code)
 			else
 				p:SendAreaTriggerMessage("Teleporte cancelado, você entrou em combate.")
 			end
-		end, 3000, 1)
+		end, 2000, 1)
 	end
 
     if (intid == 5) then -- Winterspring 
@@ -136,6 +148,8 @@ function Teleporter_Event(event, player, creature, sender, intid, code)
             player:GossipComplete()
             return
 		end
+		player:GossipComplete()
+		player:SendAreaTriggerMessage("Teleporting in 3 seconds.")
 		player:RegisterEvent(Timer.Teleport, 1000, 2)
         player:RegisterEvent(function(e, d, r, p)
 			if not p:IsInCombat() then
@@ -143,7 +157,7 @@ function Teleporter_Event(event, player, creature, sender, intid, code)
 			else
 				p:SendAreaTriggerMessage("Teleporte cancelado, você entrou em combate.")
 			end
-		end, 3000, 1)
+		end, 2000, 1)
 	end
 
     if (intid == 6) then -- Silithus - Praia 
@@ -152,6 +166,8 @@ function Teleporter_Event(event, player, creature, sender, intid, code)
             player:GossipComplete()
             return
 		end
+		player:GossipComplete()
+		player:SendAreaTriggerMessage("Teleporting in 3 seconds.")
 		player:RegisterEvent(Timer.Teleport, 1000, 2)
         player:RegisterEvent(function(e, d, r, p)
 			if not p:IsInCombat() then
@@ -159,7 +175,7 @@ function Teleporter_Event(event, player, creature, sender, intid, code)
 			else
 				p:SendAreaTriggerMessage("Teleporte cancelado, você entrou em combate.")
 			end
-		end, 3000, 1)
+		end, 2000, 1)
 	end
 
     if (intid == 7) then -- Gurubashi Arena - Shop?
@@ -168,6 +184,8 @@ function Teleporter_Event(event, player, creature, sender, intid, code)
             player:GossipComplete()
             return
 		end
+		player:GossipComplete()
+		player:SendAreaTriggerMessage("Teleporting in 3 seconds.")
 		player:RegisterEvent(Timer.Teleport, 1000, 2)
         player:RegisterEvent(function(e, d, r, p)
 			if not p:IsInCombat() then
@@ -175,7 +193,7 @@ function Teleporter_Event(event, player, creature, sender, intid, code)
 			else
 				p:SendAreaTriggerMessage("Teleporte cancelado, você entrou em combate.")
 			end
-		end, 3000, 1)
+		end, 2000, 1)
 	end
 end
 

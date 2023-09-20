@@ -5,6 +5,11 @@ DELETE FROM `spell_proc_event` WHERE `entry` = '71845';
 UPDATE `command` SET `security` = '4' WHERE `name` = 'dismount';
 
 
+UPDATE `creature` SET `position_x` = 1678.99,`position_y` = 1667.86,`position_z` = 135.855, `orientation` = 3.76991 WHERE `id1` = 1568;
+
+UPDATE `creature_model_info` SET `BoundingRadius` = '2.9',`CombatReach` = '11.9' WHERE `DisplayID` = '31119';
+
+
 --
 ALTER TABLE `creature_template` DROP `InhabitType`;
 --
@@ -31,7 +36,6 @@ UPDATE `item_template` SET `spellppmRate_1` = 2 WHERE (`entry` = '49992');
 
 UPDATE `acore_string` SET `content_default` = 'test' WHERE `entry` = 726;
 
-UPDATE `creature` SET `position_x` = 1678.99,`position_y` = 1667.86,`position_z` = 135.855, `orientation` = 3.76991 WHERE `id1` = 1568;
 
 DELETE FROM `spell_custom_attr` WHERE `entry` IN (99, 1735, 5729, 43530,52744);
 INSERT INTO `spell_custom_attr` (`entry`, `attributes`)

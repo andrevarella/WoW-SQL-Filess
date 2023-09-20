@@ -6,6 +6,7 @@ function Timer.Teleport(eventid, delay, repeats, player)
 end
 
 local ItemEntry = 83550
+local ItemEntryEterno = 83555
 --local NPC_ID = 45432
 
 local GOSSIP_EVENT_ON_SELECT = 2
@@ -298,6 +299,7 @@ function TeleporterItem_Gossip(unit, player, creature)
 end
 
 RegisterItemGossipEvent(ItemEntry, 1, TeleporterItem_Gossip)
+RegisterItemGossipEvent(ItemEntryEterno, 1, TeleporterItem_Gossip)
 
 
 function Teleporter_Event(event, player, creature, sender, intid, code, menu_id)
@@ -322,6 +324,7 @@ function Teleporter_Event(event, player, creature, sender, intid, code, menu_id)
 			end
 			player:GossipMenuAddItem(2, "|TInterface\\icons\\Spell_Arcane_TeleportDalaran:29|t |cFF0000FFTeleport para Dalaran", 0, 32, false, "Tem certeza que quer ir para Dalaran?")
 			player:GossipMenuAddItem(2, "|TInterface\\icons\\Spell_Arcane_TeleportShattrath:29|t |cFF0000FFTeleport para Shattrath", 0, 33, false, "Tem certeza que quer ir para Shattrath?")
+			player:GossipMenuAddItem(2, "|TInterface\\icons\\Achievement_zone_grizzlyhills_01.png:29|t |cFF0000FFTeleport para o Mall (Grizzly Hills)", 0, 35, false, "Tem certeza que quer ir para o Mall?")
 			player:GossipMenuAddItem(2, "|TInterface\\icons\\Achievement_bg_masterofallbgs.png:29|t |cFF0000FFTeleport para Area Vip", 0, 34, false, "Tem certeza que quer ir para Area Vip?")
 			player:GossipMenuAddItem(5,"|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Voltar",0,499)		
 			player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)
@@ -335,6 +338,8 @@ function Teleporter_Event(event, player, creature, sender, intid, code, menu_id)
             player:GossipComplete()
             return
 		end
+		player:GossipComplete()
+		player:SendAreaTriggerMessage("Teleporting in 3 seconds.")
 		player:RegisterEvent(Timer.Teleport, 1000, 2) -- Feedback em segundos, no meio da tela
         player:RegisterEvent(function(e, d, r, p)
 			if not p:IsInCombat() then
@@ -342,7 +347,7 @@ function Teleporter_Event(event, player, creature, sender, intid, code, menu_id)
 			else
 				p:SendAreaTriggerMessage("Teleporte cancelado, você entrou em combate.")
 			end
-		end, 3000, 1) -- tempo para o Teleport ocorrer
+		end, 2000, 1) -- tempo para o Teleport ocorrer
 	end
 	
 	
@@ -352,6 +357,8 @@ function Teleporter_Event(event, player, creature, sender, intid, code, menu_id)
             player:GossipComplete()
             return
 		end
+		player:GossipComplete()
+		player:SendAreaTriggerMessage("Teleporting in 3 seconds.")
 		player:RegisterEvent(Timer.Teleport, 1000, 2)
         player:RegisterEvent(function(e, d, r, p)
 			if not p:IsInCombat() then
@@ -359,7 +366,7 @@ function Teleporter_Event(event, player, creature, sender, intid, code, menu_id)
 			else
 				p:SendAreaTriggerMessage("Teleporte cancelado, você entrou em combate.")
 			end
-		end, 3000, 1)
+		end, 2000, 1)
 	end
 	
 	
@@ -369,6 +376,8 @@ function Teleporter_Event(event, player, creature, sender, intid, code, menu_id)
             player:GossipComplete()
             return
 		end
+		player:GossipComplete()
+		player:SendAreaTriggerMessage("Teleporting in 3 seconds.")
 		player:RegisterEvent(Timer.Teleport, 1000, 2)
         player:RegisterEvent(function(e, d, r, p)
 			if not p:IsInCombat() then
@@ -376,7 +385,7 @@ function Teleporter_Event(event, player, creature, sender, intid, code, menu_id)
 			else
 				p:SendAreaTriggerMessage("Teleporte cancelado, você entrou em combate.")
 			end
-		end, 3000, 1)
+		end, 2000, 1)
 	end
 	
 	
@@ -386,6 +395,8 @@ function Teleporter_Event(event, player, creature, sender, intid, code, menu_id)
             player:GossipComplete()
             return
 		end
+		player:GossipComplete()
+		player:SendAreaTriggerMessage("Teleporting in 3 seconds.")
 		player:RegisterEvent(Timer.Teleport, 1000, 2)
         player:RegisterEvent(function(e, d, r, p)
 			if not p:IsInCombat() then
@@ -393,7 +404,7 @@ function Teleporter_Event(event, player, creature, sender, intid, code, menu_id)
 			else
 				p:SendAreaTriggerMessage("Teleporte cancelado, você entrou em combate.")
 			end
-		end, 3000, 1)
+		end, 2000, 1)
 	end
 	
 	
@@ -403,6 +414,8 @@ function Teleporter_Event(event, player, creature, sender, intid, code, menu_id)
             player:GossipComplete()
             return
 		end
+		player:GossipComplete()
+		player:SendAreaTriggerMessage("Teleporting in 3 seconds.")
 		player:RegisterEvent(Timer.Teleport, 1000, 2) -- Feedback em segundos, no meio da tela
         player:RegisterEvent(function(e, d, r, p)
 			if not p:IsInCombat() then -- Se o jogador não está em combate, teleportar
@@ -410,7 +423,24 @@ function Teleporter_Event(event, player, creature, sender, intid, code, menu_id)
 			else
 				p:SendAreaTriggerMessage("Teleporte cancelado, você entrou em combate.")
 			end
-		end, 3000, 1) -- tempo para o Teleport ocorrer
+		end, 2000, 1) -- tempo para o Teleport ocorrer
+	end
+    if(intid == 35) then -- Teleport Mall
+	    if player:IsInCombat() then
+            player:SendBroadcastMessage("Você não pode usar o teleporte enquanto estiver em combate.")
+            player:GossipComplete()
+            return
+		end
+		player:GossipComplete()
+		player:SendAreaTriggerMessage("Teleporting in 3 seconds.")
+		player:RegisterEvent(Timer.Teleport, 1000, 2) -- Feedback em segundos, no meio da tela
+        player:RegisterEvent(function(e, d, r, p)
+			if not p:IsInCombat() then -- Se o jogador não está em combate, teleportar
+				p:Teleport(571, 2884.257568, -2674.678955, 84.674553, 2.604867)
+			else
+				p:SendAreaTriggerMessage("Teleporte cancelado, você entrou em combate.")
+			end
+		end, 2000, 1) -- tempo para o Teleport ocorrer
 	end
 	
     if(intid == 2) then -- Usar Auction House
@@ -585,6 +615,7 @@ function Teleporter_Event(event, player, creature, sender, intid, code, menu_id)
 end	
 	
 RegisterItemGossipEvent(ItemEntry, 2, Teleporter_Event)
+RegisterItemGossipEvent(ItemEntryEterno, 2, Teleporter_Event)
 
 function druidMorph.menu(event, player, object)
     local race = player:GetRace()

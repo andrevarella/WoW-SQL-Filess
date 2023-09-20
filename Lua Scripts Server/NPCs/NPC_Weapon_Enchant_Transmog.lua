@@ -1,6 +1,7 @@
 local NpcId = 190065;
 local NpcIdSmall = 94164;
 local itemVIP = 83550
+local itemVIPeterno = 83555
  
 local EQUIPMENT_SLOT_MAINHAND = 15
 local EQUIPMENT_SLOT_OFFHAND = 16
@@ -65,7 +66,7 @@ end
  
 -- Weapon Enchant (Main Hand) - Menu de Cores
 if(intid == 300) then
-	if (player:HasItem(itemVIP) == false) then
+	if (player:HasItem(itemVIP) == false and player:HasItem(itemVIPeterno) == false) then
 		player:SendBroadcastMessage("Você precisa do Livro Vip para usar essa função.")
 		player:GossipComplete()
 	else
@@ -787,7 +788,7 @@ end
 --
 -- Weapon Enchant (Off Hand) - Menu de Cores
 if(intid == 302) then
-	if (player:HasItem(itemVIP) == false) then
+	if (player:HasItem(itemVIP) == false and player:HasItem(itemVIPeterno) == false) then
 		player:SendBroadcastMessage("Você precisa do Livro Vip para usar essa função.")
 		player:GossipComplete()
 	else

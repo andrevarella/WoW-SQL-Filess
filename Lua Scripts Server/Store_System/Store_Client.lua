@@ -502,7 +502,7 @@ function SHOP_UI.ServiceBoxes_Create(parent)
 			function(self)
 				if(self.Type == 1 and service.Flags == 1) then
 					SHOP_UI.ModelFrame_ShowPlayer(self.Rewards)
-				elseif((self.Type == 3 or self.Type == 4) and self.DisplayId > 0) then -- Handler for creatures with models
+				elseif((self.Type == 3 or self.Type == 4 or self.Type == 6) and self.DisplayId > 0) then -- Handler for creatures with models
 					SHOP_UI.ModelFrame_ShowCreature(self.DisplayId)
 				end
 				-- Parchment page sound
@@ -546,6 +546,16 @@ local function GetCategoryServiceIds()
 			end
 		end
 	end
+	
+	-- Add a new flag (flag 3) that includes all discounted items and all new items
+    if(SHOP_UI["Vars"].currentCategoryFlags == 3) then
+	
+        for k, v in pairs(SHOP_UI["Data"].services) do
+            if(v[KEYS.service.discount] > 0 or v[KEYS.service.new] == 1) then
+                table.insert(services, k)
+            end
+        end
+    end
 	
 	return services
 end

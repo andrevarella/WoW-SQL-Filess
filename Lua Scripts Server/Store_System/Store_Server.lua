@@ -34,7 +34,7 @@ local SHOP_UI = {
 		[3] = "MountHandler",		-- Okay
 		[4] = "PetHandler",  		-- Okay
 		[5] = "BuffHandler", 		-- Okay
-		[6] = "UnusedHandler",		-- UNUSED
+		[6] = "UnusedHandler",		-- Okay
 		[7] = "ServiceHandler", 	-- Okay
 		[8] = "LevelHandler", 		-- Okay
 		[9] = "TitleHandler",		-- Okay
@@ -382,10 +382,31 @@ function SHOP_UI.TitleHandler(player, data)
 	return true
 end
 
--- UNUSED
+
+
+-- WINGS
 function SHOP_UI.UnusedHandler(player, data)
 	local currency, amount = data[KEYS.service.currency], data[KEYS.service.price] - data[KEYS.service.discount]
 	
-	-- Since this is unused, always return false until the function is in use.
-	return false
+	-- Deduct currency
+	local deducted = SHOP_UI.DeductCurrency(player, currency, amount)
+	
+	-- If currency was not deducted from the player, abort and send message
+	if not(deducted) then
+		return false
+	end
+	
+	-- Fetch all the rewards and store them temporarily
+	local wings = {}
+	for i = 0, 7 do
+		if(data[KEYS.service.reward_1+i] > 0 and data[KEYS.service.rewardCount_1+i] > 0) then
+			table.insert(wings, data[KEYS.service.reward_1+i])
+			table.insert(wings, data[KEYS.service.rewardCount_1+i])
+		end
+	end
+	
+	-- Send reward mail
+	SendMail("Purchase of: "..data[KEYS.service.name], CONFIG.strings.mailBody, player:GetGUIDLow(), CONFIG.mailSenderGUID, 62, 0, 0, 0, unpack(wings))
+	return true
 end
+

@@ -137,7 +137,7 @@ function CreatureDisplays.Load()
 	-- fetch all entries for creature cache that needs to be sent to the client for preview
 	-- store these as a comma separated string to be used in the sql query below
 	for k, v in pairs(ServiceData.Cache) do
-		if ((v[KEYS.service.serviceType] == 3 or v[KEYS.service.serviceType] == 4) and v[KEYS.service.displayOrEntry] > 0) then
+		if ((v[KEYS.service.serviceType] == 3 or v[KEYS.service.serviceType] == 4 or v[KEYS.service.serviceType] == 6) and v[KEYS.service.displayOrEntry] > 0) then
 			-- first entry shouldn't append a comma
 			if(tmp ~= "") then
 				tmp = tmp .. ", "
