@@ -588,3 +588,5 @@ RegisterPlayerEvent(PLAYER_EVENT_ON_SPELL_CAST, druidMorph.castDisplay)
 RegisterPlayerGossipEvent(MENU_ID, GOSSIP_EVENT_ON_SELECT, druidMorph.selectionMorph)
 RegisterCreatureGossipEvent(NPC_ID, GOSSIP_EVENT_ON_HELLO, druidMorph.menu)
 RegisterPlayerEvent(3, druidMorph.applyCatFormOnLogin)
+
+return druidMorph
