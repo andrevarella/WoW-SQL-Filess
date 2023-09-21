@@ -1,6 +1,6 @@
 ﻿local UnitEntry = 93057
 
-function Teleporter_Gossip(unit, player, creature)
+function TeleporterLowLvl_Gossip(unit, player, creature)
     player:GossipSetText(string.format("Zonas de Upar (Level 68)"))
 
     if (player:IsAlliance()) then -- só ally:
@@ -12,11 +12,11 @@ function Teleporter_Gossip(unit, player, creature)
         player:GossipMenuAddItem(2, "|TInterface\\icons\\Achievement_zone_boreantundra_05.png:29|t |cFF0000FFBorean Tundra|r - |cffff0000Horde", 1, 1, false, "Tem certeza que quer ir para Borean Tundra - Warsong Hold?")
         player:GossipMenuAddItem(2, "|TInterface\\icons\\Achievement_zone_howlingfjord_08.png:29|t |cFF0000FFHowling Fjord|r - |cffff0000Horde", 1, 2, false, "Tem certeza que quer ir para Howling Fjord - Vengeance Landing?")
     end -- ambas facções:
-    --player:GossipMenuAddItem(3, "|TInterface\\icons\\Inv_enchant_formulagood_01.png:26|t Área de Profissões [falta terminar]", 1, 5, false, "Tem certeza que quer ir para a Área de Profissões?")
+    player:GossipMenuAddItem(3, "|TInterface\\icons\\Inv_enchant_formulagood_01.png:29|t |cFF0000FFÁrea de Profissões", 1, 5, false, "Tem certeza que quer ir para a Área de Profissões?")
 	player:GossipSendMenu(0x7FFFFFFF, creature)
 end
 
-RegisterCreatureGossipEvent(UnitEntry, 1, Teleporter_Gossip)
+RegisterCreatureGossipEvent(UnitEntry, 1, TeleporterLowLvl_Gossip)
 
 function Teleporter_Event(event, player, creature, sender, intid, code)
 
@@ -65,7 +65,7 @@ function Teleporter_Event(event, player, creature, sender, intid, code)
 	
 	-- Area de Profissões:
 	if(intid == 5) then
-		player:Teleport(1, 5459.22980, -3722.648438, 1593.443726, 3.032393)
+		player:Teleport(0, -4014.572754, -1408.043457, 155.503952, 0.894522)
     end
 	
 end

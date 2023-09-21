@@ -46,8 +46,8 @@ RegisterPlayerEvent(29, function(e,p,i,b,s) setVisual(p, i) end)
  
 local function On_Gossip_Select(unit, player, creature)
 	player:GossipSetText(string.format("Sistema Vip para customizar o visual do |cff0000ffEnchant|r da sua arma.\n\nOs |cff0000ffEnchants|r PvP não necessitam de Vip, mas de Arena Rating."))
-	player:GossipMenuAddItem(9,"|TInterface\\icons\\Inv_sword_01:27|t Main Hand |cff0000ffWeapon Enchant",0, 300)
-	player:GossipMenuAddItem(9,"|TInterface\\icons\\Inv_sword_67:27|t Off Hand |cff0000ffWeapon Enchant",0, 302)
+	player:GossipMenuAddItem(9,"|TInterface\\icons\\Inv_sword_01:27|t Main Hand |cff0000ffWeapon Enchant Vip",0, 300)
+	player:GossipMenuAddItem(9,"|TInterface\\icons\\Inv_sword_67:27|t Off Hand |cff0000ffWeapon Enchant Vip",0, 302)
 
 	player:GossipMenuAddItem(9," ",0, 999)
 	player:GossipMenuAddItem(9,"|TInterface\\icons\\Inv_sword_01:27|t Main Hand |cff0000ffWeapon Enchant PvP",0, 700)

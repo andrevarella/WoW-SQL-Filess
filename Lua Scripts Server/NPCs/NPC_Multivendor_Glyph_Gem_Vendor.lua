@@ -4,36 +4,36 @@ local function On_Top_Hello(event, player, creature)
 	player:GossipSetText(string.format(" "))
 	
     if player:GetClass() == 5 then
-    player:GossipMenuAddItem(6,"Glyphs",0, 1) -- Priest
+    player:GossipMenuAddItem(6,"|cFF0000FFGlyphs",0, 1) -- Priest
 	end
 	if player:GetClass() == 8 then
-	player:GossipMenuAddItem(6,"Glyphs",0, 2) -- Mage
+	player:GossipMenuAddItem(6,"|cFF0000FFGlyphs",0, 2) -- Mage
 	end
 	if player:GetClass() == 9 then
-    player:GossipMenuAddItem(6,"Glyphs",0, 3) -- Warlock
+    player:GossipMenuAddItem(6,"|cFF0000FFGlyphs",0, 3) -- Warlock
 	end
 	if player:GetClass() == 11 then
-	player:GossipMenuAddItem(6,"Glyphs",0, 4) -- Druid
+	player:GossipMenuAddItem(6,"|cFF0000FFGlyphs",0, 4) -- Druid
 	end
 	if player:GetClass() == 4 then
-    player:GossipMenuAddItem(6,"Glyphs",0, 5) -- Rogue
+    player:GossipMenuAddItem(6,"|cFF0000FFGlyphs",0, 5) -- Rogue
 	end
 	if player:GetClass() == 3 then
-	player:GossipMenuAddItem(6,"Glyphs",0, 6) -- Hunter
+	player:GossipMenuAddItem(6,"|cFF0000FFGlyphs",0, 6) -- Hunter
 	end
 	if player:GetClass() == 7 then
-    player:GossipMenuAddItem(6,"Glyphs",0, 7) -- Shaman
+    player:GossipMenuAddItem(6,"|cFF0000FFGlyphs",0, 7) -- Shaman
 	end
 	if player:GetClass() == 1 then
-	player:GossipMenuAddItem(6,"Glyphs",0, 8) -- Warrior
+	player:GossipMenuAddItem(6,"|cFF0000FFGlyphs",0, 8) -- Warrior
 	end
 	if player:GetClass() == 2 then
-    player:GossipMenuAddItem(6,"Glyphs",0, 9) -- Paladin
+    player:GossipMenuAddItem(6,"|cFF0000FFGlyphs",0, 9) -- Paladin
 	end
 	if player:GetClass() == 6 then
-	player:GossipMenuAddItem(6,"Glyphs",0, 10) -- Death Knight
+	player:GossipMenuAddItem(6,"|cFF0000FFGlyphs",0, 10) -- Death Knight
 	end
-    player:GossipMenuAddItem(6,"Gems",0, 11)
+    player:GossipMenuAddItem(6,"|cFF0000FFGems",0, 11)
     --player:GossipMenuAddItem(6,"Enchants",0, 12)
     --player:GossipMenuAddItem(6,"Prof Reagents",0, 13)
 	--player:GossipMenuAddItem(6,"Change Faction, Race or Name",0, 14)
@@ -45,10 +45,10 @@ function On_Top_Select(event, player, creature, sender, intid, code)
 
 if(intid == 1) then -- Priest Glyphs
 player:GossipSetText(string.format(" "))
-	player:GossipMenuAddItem(6,"Major Glyphs",0, 100)
-	player:GossipMenuAddItem(6,"Minor Glyphs",0, 101) -- Criar NPC Minor Glyphs
+	player:GossipMenuAddItem(6,"|cFF0000FFMajor Glyphs",0, 100)
+	player:GossipMenuAddItem(6,"|cFF0000FFMinor Glyphs",0, 101) -- Criar NPC |cFF0000FFMinor Glyphs
     player:GossipMenuAddItem(3,"|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Voltar",0,499)
-	player:GossipMenuAddItem(4,"|TInterface\\RaidFrame\\ReadyCheck-NotReady:22:22:0:0|t |cFF8B0000Sair",0,500)
+	--player:GossipMenuAddItem(4,"|TInterface\\RaidFrame\\ReadyCheck-NotReady:22:22:0:0|t |cFF8B0000Sair",0,500)
     player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)	
     end
 if(intid == 100) then
@@ -61,10 +61,10 @@ if(intid == 101) then
 
 if(intid == 2) then -- Mage Glyphs
 player:GossipSetText(string.format(" "))
-	player:GossipMenuAddItem(6,"Major Glyphs",0, 102)
-	player:GossipMenuAddItem(6,"Minor Glyphs",0, 103)
+	player:GossipMenuAddItem(6,"|cFF0000FFMajor Glyphs",0, 102)
+	player:GossipMenuAddItem(6,"|cFF0000FFMinor Glyphs",0, 103)
     player:GossipMenuAddItem(3,"|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Voltar",0,499)
-	player:GossipMenuAddItem(4,"|TInterface\\RaidFrame\\ReadyCheck-NotReady:22:22:0:0|t |cFF8B0000Sair",0,500)
+	--player:GossipMenuAddItem(4,"|TInterface\\RaidFrame\\ReadyCheck-NotReady:22:22:0:0|t |cFF8B0000Sair",0,500)
     player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)	
     end
 if(intid == 102) then
@@ -76,10 +76,10 @@ if(intid == 103) then
    
 if(intid == 3) then -- Warlock Glyphs
 player:GossipSetText(string.format(" "))
-	player:GossipMenuAddItem(6,"Major Glyphs",0, 104)
-	player:GossipMenuAddItem(6,"Minor Glyphs",0, 105)
+	player:GossipMenuAddItem(6,"|cFF0000FFMajor Glyphs",0, 104)
+	player:GossipMenuAddItem(6,"|cFF0000FFMinor Glyphs",0, 105)
     player:GossipMenuAddItem(3,"|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Voltar",0,499)
-	player:GossipMenuAddItem(4,"|TInterface\\RaidFrame\\ReadyCheck-NotReady:22:22:0:0|t |cFF8B0000Sair",0,500)
+	--player:GossipMenuAddItem(4,"|TInterface\\RaidFrame\\ReadyCheck-NotReady:22:22:0:0|t |cFF8B0000Sair",0,500)
     player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)	
     end
 if(intid == 104) then
@@ -91,10 +91,10 @@ if(intid == 105) then
 
 if(intid == 4) then -- Druid Glyphs
 player:GossipSetText(string.format(" "))
-	player:GossipMenuAddItem(6,"Major Glyphs",0, 106)
-	player:GossipMenuAddItem(6,"Minor Glyphs",0, 107)
+	player:GossipMenuAddItem(6,"|cFF0000FFMajor Glyphs",0, 106)
+	player:GossipMenuAddItem(6,"|cFF0000FFMinor Glyphs",0, 107)
     player:GossipMenuAddItem(3,"|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Voltar",0,499)
-	player:GossipMenuAddItem(4,"|TInterface\\RaidFrame\\ReadyCheck-NotReady:22:22:0:0|t |cFF8B0000Sair",0,500)
+	--player:GossipMenuAddItem(4,"|TInterface\\RaidFrame\\ReadyCheck-NotReady:22:22:0:0|t |cFF8B0000Sair",0,500)
     player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)	
     end
 if(intid == 106) then
@@ -106,10 +106,10 @@ if(intid == 107) then
 
 if(intid == 5) then -- Rogue Glyphs
 player:GossipSetText(string.format(" "))
-	player:GossipMenuAddItem(6,"Major Glyphs",0, 108)
-	player:GossipMenuAddItem(6,"Minor Glyphs",0, 109)
+	player:GossipMenuAddItem(6,"|cFF0000FFMajor Glyphs",0, 108)
+	player:GossipMenuAddItem(6,"|cFF0000FFMinor Glyphs",0, 109)
     player:GossipMenuAddItem(3,"|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Voltar",0,499)
-	player:GossipMenuAddItem(4,"|TInterface\\RaidFrame\\ReadyCheck-NotReady:22:22:0:0|t |cFF8B0000Sair",0,500)
+	--player:GossipMenuAddItem(4,"|TInterface\\RaidFrame\\ReadyCheck-NotReady:22:22:0:0|t |cFF8B0000Sair",0,500)
     player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)	
     end
 if(intid == 108) then
@@ -121,10 +121,10 @@ if(intid == 109) then
 	
 if(intid == 6) then -- Hunter Glyphs
 player:GossipSetText(string.format(" "))
-	player:GossipMenuAddItem(6,"Major Glyphs",0, 110)
-	player:GossipMenuAddItem(6,"Minor Glyphs",0, 111)
+	player:GossipMenuAddItem(6,"|cFF0000FFMajor Glyphs",0, 110)
+	player:GossipMenuAddItem(6,"|cFF0000FFMinor Glyphs",0, 111)
     player:GossipMenuAddItem(3,"|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Voltar",0,499)
-	player:GossipMenuAddItem(4,"|TInterface\\RaidFrame\\ReadyCheck-NotReady:22:22:0:0|t |cFF8B0000Sair",0,500)
+	--player:GossipMenuAddItem(4,"|TInterface\\RaidFrame\\ReadyCheck-NotReady:22:22:0:0|t |cFF8B0000Sair",0,500)
     player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)	
     end
 if(intid == 110) then
@@ -136,10 +136,10 @@ if(intid == 111) then
 	
 if(intid == 7) then -- Shaman Glyphs
 player:GossipSetText(string.format(" "))
-	player:GossipMenuAddItem(6,"Major Glyphs",0, 112)
-	player:GossipMenuAddItem(6,"Minor Glyphs",0, 113)
+	player:GossipMenuAddItem(6,"|cFF0000FFMajor Glyphs",0, 112)
+	player:GossipMenuAddItem(6,"|cFF0000FFMinor Glyphs",0, 113)
     player:GossipMenuAddItem(3,"|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Voltar",0,499)
-	player:GossipMenuAddItem(4,"|TInterface\\RaidFrame\\ReadyCheck-NotReady:22:22:0:0|t |cFF8B0000Sair",0,500)
+	--player:GossipMenuAddItem(4,"|TInterface\\RaidFrame\\ReadyCheck-NotReady:22:22:0:0|t |cFF8B0000Sair",0,500)
     player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)	
     end
 if(intid == 112) then
@@ -151,10 +151,10 @@ if(intid == 113) then
 
 if(intid == 8) then -- Warrior Glyphs
 player:GossipSetText(string.format(" "))
-	player:GossipMenuAddItem(6,"Major Glyphs",0, 114)
-	player:GossipMenuAddItem(6,"Minor Glyphs",0, 115)
+	player:GossipMenuAddItem(6,"|cFF0000FFMajor Glyphs",0, 114)
+	player:GossipMenuAddItem(6,"|cFF0000FFMinor Glyphs",0, 115)
     player:GossipMenuAddItem(3,"|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Voltar",0,499)
-	player:GossipMenuAddItem(4,"|TInterface\\RaidFrame\\ReadyCheck-NotReady:22:22:0:0|t |cFF8B0000Sair",0,500)
+	--player:GossipMenuAddItem(4,"|TInterface\\RaidFrame\\ReadyCheck-NotReady:22:22:0:0|t |cFF8B0000Sair",0,500)
     player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)	
     end
 if(intid == 114) then
@@ -166,10 +166,10 @@ if(intid == 115) then
    
 if(intid == 9) then -- Pala Glyphs
 player:GossipSetText(string.format(" "))
-	player:GossipMenuAddItem(6,"Major Glyphs",0, 116)
-	player:GossipMenuAddItem(6,"Minor Glyphs",0, 117)
+	player:GossipMenuAddItem(6,"|cFF0000FFMajor Glyphs",0, 116)
+	player:GossipMenuAddItem(6,"|cFF0000FFMinor Glyphs",0, 117)
     player:GossipMenuAddItem(3,"|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Voltar",0,499)
-	player:GossipMenuAddItem(4,"|TInterface\\RaidFrame\\ReadyCheck-NotReady:22:22:0:0|t |cFF8B0000Sair",0,500)
+	--player:GossipMenuAddItem(4,"|TInterface\\RaidFrame\\ReadyCheck-NotReady:22:22:0:0|t |cFF8B0000Sair",0,500)
     player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)	
     end
 if(intid == 116) then
@@ -181,10 +181,10 @@ if(intid == 117) then
 	
 if(intid == 10) then -- DK Glyphs
 player:GossipSetText(string.format(" "))
-	player:GossipMenuAddItem(6,"Major Glyphs",0, 118)
-	player:GossipMenuAddItem(6,"Minor Glyphs",0, 119)
+	player:GossipMenuAddItem(6,"|cFF0000FFMajor Glyphs",0, 118)
+	player:GossipMenuAddItem(6,"|cFF0000FFMinor Glyphs",0, 119)
     player:GossipMenuAddItem(3,"|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Voltar",0,499)
-	player:GossipMenuAddItem(4,"|TInterface\\RaidFrame\\ReadyCheck-NotReady:22:22:0:0|t |cFF8B0000Sair",0,500)
+	--player:GossipMenuAddItem(4,"|TInterface\\RaidFrame\\ReadyCheck-NotReady:22:22:0:0|t |cFF8B0000Sair",0,500)
     player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)	
     end
 if(intid == 118) then
@@ -197,16 +197,16 @@ if(intid == 119) then
 
 if(intid == 11) then -- Gemas
 player:GossipSetText(string.format(" "))
-	player:GossipMenuAddItem(6,"Yellow Gem",0, 200)
-	player:GossipMenuAddItem(6,"Red Gem",0, 201)
-	player:GossipMenuAddItem(6,"Orange Gem",0, 202)
-	player:GossipMenuAddItem(6,"Blue Gem",0, 203)
-	player:GossipMenuAddItem(6,"Purple Gem",0, 204)
-    player:GossipMenuAddItem(6,"Green Gem",0, 205)
-	player:GossipMenuAddItem(6,"Prismatic Gem",0, 206)
-	player:GossipMenuAddItem(6,"Meta Gem",0, 207)
+	player:GossipMenuAddItem(6,"|cFF0000FFYellow Gem",0, 200)
+	player:GossipMenuAddItem(6,"|cFF0000FFRed Gem",0, 201)
+	player:GossipMenuAddItem(6,"|cFF0000FFOrange Gem",0, 202)
+	player:GossipMenuAddItem(6,"|cFF0000FFBlue Gem",0, 203)
+	player:GossipMenuAddItem(6,"|cFF0000FFPurple Gem",0, 204)
+    player:GossipMenuAddItem(6,"|cFF0000FFGreen Gem",0, 205)
+	player:GossipMenuAddItem(6,"|cFF0000FFPrismatic Gem",0, 206)
+	player:GossipMenuAddItem(6,"|cFF0000FFMeta Gem",0, 207)
     player:GossipMenuAddItem(3,"|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Voltar",0,499)
-	player:GossipMenuAddItem(4,"|TInterface\\RaidFrame\\ReadyCheck-NotReady:22:22:0:0|t |cFF8B0000Sair",0,500)
+	--player:GossipMenuAddItem(4,"|TInterface\\RaidFrame\\ReadyCheck-NotReady:22:22:0:0|t |cFF8B0000Sair",0,500)
     player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)	
     end
 	
@@ -243,7 +243,7 @@ player:GossipSetText(string.format(" "))
 	player:GossipMenuAddItem(6,"Off Hand",0, 302)
 	player:GossipMenuAddItem(6,"Ranged Weapon",0, 303)
     player:GossipMenuAddItem(3,"|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Voltar",0,499)
-	player:GossipMenuAddItem(4,"|TInterface\\RaidFrame\\ReadyCheck-NotReady:22:22:0:0|t |cFF8B0000Sair",0,500)
+	--player:GossipMenuAddItem(4,"|TInterface\\RaidFrame\\ReadyCheck-NotReady:22:22:0:0|t |cFF8B0000Sair",0,500)
     player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)	
     end
 
@@ -256,7 +256,7 @@ player:GossipSetText(string.format(" "))
 	player:GossipMenuAddItem(6,"Ores",0, 400)
 	player:GossipMenuAddItem(6,"Herb",0, 401)
     player:GossipMenuAddItem(3,"|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Voltar",0,499)
-	player:GossipMenuAddItem(4,"|TInterface\\RaidFrame\\ReadyCheck-NotReady:22:22:0:0|t |cFF8B0000Sair",0,500)
+	--player:GossipMenuAddItem(4,"|TInterface\\RaidFrame\\ReadyCheck-NotReady:22:22:0:0|t |cFF8B0000Sair",0,500)
     player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)	
     end
 
@@ -270,7 +270,7 @@ player:GossipSetText(string.format(" "))
 	player:GossipMenuAddItem(6,"Change Race",0, 501)
     player:GossipMenuAddItem(6,"Change Faction",0, 502)
     player:GossipMenuAddItem(3,"|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Voltar",0,499)
-	player:GossipMenuAddItem(4,"|TInterface\\RaidFrame\\ReadyCheck-NotReady:22:22:0:0|t |cFF8B0000Sair",0,500)
+	--player:GossipMenuAddItem(4,"|TInterface\\RaidFrame\\ReadyCheck-NotReady:22:22:0:0|t |cFF8B0000Sair",0,500)
     player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)	
     end
 
