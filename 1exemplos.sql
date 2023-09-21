@@ -4,6 +4,9 @@ DELETE FROM `spell_proc_event` WHERE `entry` = '71845';
 
 UPDATE `command` SET `security` = '4' WHERE `name` = 'dismount';
 
+-- Npcs Dalaran (que falam ao chegar perto) usam SmartScripts, copiar e adicionar em alguns npcs no Mall?
+-- 
+
 
 UPDATE `creature` SET `position_x` = 1678.99,`position_y` = 1667.86,`position_z` = 135.855, `orientation` = 3.76991 WHERE `id1` = 1568;
 

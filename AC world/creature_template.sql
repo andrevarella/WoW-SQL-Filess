@@ -10,10 +10,10 @@ INSERT INTO `acore_world`.`creature_equip_template`(`CreatureID`, `ID`, `ItemID1
 -- NPC Druid Form Morpher - polearm na mao
 INSERT INTO `acore_world`.`creature_equip_template`(`CreatureID`, `ID`, `ItemID1`, `ItemID2`, `ItemID3`, `VerifiedBuild`) VALUES (45432, 1, 34874, 0, 0, 18019);
 
--- [Npc Pequeno] Weapon Enchant Transmogrifier:
 -- Weapon Enchant Transmogrifier
-INSERT INTO `acore_world`.`creature_equip_template`(`CreatureID`, `ID`, `ItemID1`, `ItemID2`, `ItemID3`, `VerifiedBuild`) VALUES (94132, 1, 80764, 80765, 0, 18019);
 UPDATE `creature_equip_template` SET `ItemID1` = '80764', `ItemID2` = '80765' WHERE `CreatureID` = '190065';
+-- Weapon Enchant Transmogrifier (pequeno) - Spawn Temporario
+INSERT INTO `acore_world`.`creature_equip_template` (`CreatureID`, `ID`, `ItemID1`, `ItemID2`, `ItemID3`, `VerifiedBuild`) VALUES (94164, 1, 80764, 80765, 0, 18019);
 
 -- Arma Branca Weapon Enchant Transmogrifier
 --INSERT INTO `acore_world`.`creature_equip_template`(`CreatureID`, `ID`, `ItemID1`, `ItemID2`, `ItemID3`, `VerifiedBuild`) VALUES (190065, 1, 29437, 29437, 0, 18019);

@@ -1,0 +1,1 @@
+INSERT INTO `store`.`store_currencies` (`id`, `type`, `name`, `icon`, `data`, `tooltip`) VALUES (1, 1, 'Gold', 'Inv_misc_coin_02', 0, 'This is normal gold.');
