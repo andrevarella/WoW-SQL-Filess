@@ -1,26 +1,21 @@
---[[
-    Script is done by Krisande#5411
-    If you have any questions, please contact me via discord!
-    You also can hire me if you want to for some lua scripts!
-]]-- 
-
 local NPC_MORPHER = 94135 
 
 local function MorpherOnGossipHello (event, player, creature)
     player:GossipClearMenu()
-    player:GossipMenuAddItem(0, "|TInterface/ICONS/racechange:45:45:-30:0|t Random Morph Myself|r", 0, 1)
-    player:GossipMenuAddItem(0, "|TInterface/ICONS/racechange:45:45:-30:0|t I want to have a specific Display ID|r", 0, 8, true, "Insert your wished Display ID")
-    player:GossipMenuAddItem(0, "|TInterface/ICONS/racechange:45:45:-30:0|t Demorph Myself|r", 0, 2)
+    player:GossipMenuAddItem(0, " Random Morph Myself|r", 0, 1)
+    player:GossipMenuAddItem(0, " I want to have a specific Display ID", 0, 8, true, "Insert your wished Display ID")
+    player:GossipMenuAddItem(0, " Demorph Myself|r", 0, 2)
+    player:GossipMenuAddItem(0, " Show me my Display ID|r", 0, 4)
+    player:GossipMenuAddItem(0, " ", 0, 0)
 
     if (player:GetClass() == 3) or (player:GetClass() == 9) or (player:GetClass() == 6 and player:HasSpell(52143)) then -- checks for hunter (class 3), for dk with permanent ghoul ability (class 6, spellid from talent 52143) and for warlock (class 9)
-        player:GossipMenuAddItem(0, "|TInterface/ICONS/ability_druid_healinginstincts:45:45:-30:0|t Random Morph my Pet|r", 0, 5)
-        player:GossipMenuAddItem(0, "|TInterface/ICONS/ability_druid_healinginstincts:45:45:-30:0|t I want to have a specific Display ID for my Pet|r", 0, 9, true, "Insert your wished Display ID")
-        player:GossipMenuAddItem(0, "|TInterface/ICONS/ability_druid_healinginstincts:45:45:-30:0|t Demorph my Pet|r", 0, 6)
-        player:GossipMenuAddItem(0, "|TInterface/ICONS/inv_misc_questionmark:45:45:-30:0|t Show me the Display ID of my Pet|r", 0, 7)
+        player:GossipMenuAddItem(0, " Random Morph my Pet|r", 0, 5)
+        player:GossipMenuAddItem(0, " I want to have a specific Display for my Pet|r", 0, 9, true, "Insert your wished Display ID")
+        player:GossipMenuAddItem(0, " Demorph my Pet|r", 0, 6)
+        player:GossipMenuAddItem(0, " Show me the Display ID of my Pet|r", 0, 7)
     end
-    player:GossipMenuAddItem(0, "|TInterface/ICONS/inv_misc_questionmark:45:45:-30:0|t Show me my Display ID|r", 0, 4)
-    player:GossipMenuAddItem(0, "|TInterface/ICONS/misc_arrowleft:45:45:-30:0|t Close|r", 0, 3)
-    
+
+    --player:GossipMenuAddItem(0, " Close|r", 0, 3)
     player:GossipSendMenu(1, creature, 100)
 end
 

@@ -139,8 +139,6 @@ function Teleporter_Event(event, player, creature, sender, intid, code)
 	-- Jewelcrafting
 	if(intid == 31) then
 		player:LearnSpell(25229)
-		--player:RemoveSpell(1459)
-		player:RemoveSpell(59572)
 	    player:GossipComplete()
 		if not player:HasItem(20815) then
 			player:AddItem(20815, 1) -- Jeweler's Kit

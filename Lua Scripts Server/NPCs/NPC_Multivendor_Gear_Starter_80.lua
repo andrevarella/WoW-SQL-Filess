@@ -68,7 +68,7 @@ player:GossipSetText(string.format("S6 PvP Gear"))
     player:GossipMenuAddItem(3,"|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:27:27:0:0|t |cFF800000Voltar",0,499)
 	player:GossipMenuAddItem(4,"|TInterface\\RaidFrame\\ReadyCheck-NotReady:22:22:0:0|t |cFF8B0000Sair",0,500)
     player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)	
-    end
+	end
 
 if(intid == 3) then   
    player:SendListInventory(creature, 80269)

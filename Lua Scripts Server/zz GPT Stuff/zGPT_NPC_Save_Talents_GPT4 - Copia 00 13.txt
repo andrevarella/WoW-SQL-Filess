@@ -1,0 +1,566 @@
+
+
+local NPC_ID = 94151
+
+-- AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+
+-- local talentSpells
+-- Warlock:
+
+
+function OnGossipHello(event, player, creature)
+	player:SaveToDB()
+    player:GossipMenuAddItem(3, " Salvar Talents Atuais", 1, 1) -- Salvar Talents Submenu
+	player:GossipMenuAddItem(3, " Aplicar Talents Salvos", 1, 2) -- Aplicar Talents Submenu
+    player:GossipMenuAddItem(3, " Resetar Talentos", 1, 500, false, "Tem certeza que quer Resetar os Talentos?") -- Reset Talents
+
+	player:GossipMenuAddItem(5, " ", 1, 74) -- Spacing
+	player:GossipMenuAddItem(5, " ", 1, 74) -- Spacing
+	player:GossipMenuAddItem(3, " Test - SQL Querry", 1, 75) -- Test
+	player:GossipMenuAddItem(3, " Test - player:LearnTalent", 1, 76) -- Test2 - Apply Spells
+	
+    player:GossipSendMenu(1, creature)
+end
+
+
+
+function OnGossipSelect(event, player, creature, sender, intid, code)
+    --player:GossipComplete()
+	
+	
+	if(intid == 1) then -- Salvar Talents - Submenu
+	player:GossipSetText(string.format(" "))
+		player:GossipMenuAddItem(3, "Salvar Talents - Slot 1", 1, 10)   -- Save Talents Primary Spec
+		player:GossipMenuAddItem(3, "Salvar Talents - Slot 2", 1, 11)
+		player:GossipMenuAddItem(3, "Salvar Talents - Slot 3", 1, 12)   -- Save Talents Primary Spec
+		player:GossipMenuAddItem(3, "Salvar Talents - Slot 4", 1, 13)
+		player:GossipMenuAddItem(3, "Salvar Talents - Slot 5", 1, 14)
+		--player:GossipMenuAddItem(3, "Salvar Talents - Slot 6", 1, 15)
+		--player:GossipMenuAddItem(3, "Salvar Talents - Slot 7", 1, 16)
+		--player:GossipMenuAddItem(3, "Salvar Talents - Slot 8", 1, 17)
+		--player:GossipMenuAddItem(3, "Salvar Talents - Slot 9", 1, 18)
+		--player:GossipMenuAddItem(3, "Salvar Talents - Slot 10", 1, 19)
+		player:GossipMenuAddItem(5,"|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Voltar",0,499)		
+		player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)	
+	end
+	
+	
+	if(intid == 2) then -- Aplicar Talents - Submenu
+	player:GossipSetText(string.format(" "))
+		player:GossipMenuAddItem(3, "Aplicar Talents - Slot 1", 1, 60, false, "Para aplicar os talents, será necessário relogar, tem certeza?")
+		player:GossipMenuAddItem(3, "Aplicar Talents - Slot 2", 1, 61, false, "Para aplicar os talents, será necessário relogar, tem certeza?") -- Apply Secondary Talents (needs a relog to Update the talents for the player)
+		player:GossipMenuAddItem(3, "Aplicar Talents - Slot 3", 1, 62, false, "Para aplicar os talents, será necessário relogar, tem certeza?")   -- Apply Primary Talents
+		player:GossipMenuAddItem(3, "Aplicar Talents - Slot 4", 1, 63, false, "Para aplicar os talents, será necessário relogar, tem certeza?")
+		player:GossipMenuAddItem(3, "Aplicar Talents - Slot 5", 1, 64, false, "Para aplicar os talents, será necessário relogar, tem certeza?")
+		--player:GossipMenuAddItem(3, "Aplicar Talents - Slot 6", 1, 65, false, "Para aplicar os talents, será necessário relogar, tem certeza?")
+		--player:GossipMenuAddItem(3, "Aplicar Talents - Slot 7", 1, 66, false, "Para aplicar os talents, será necessário relogar, tem certeza?")
+		--player:GossipMenuAddItem(3, "Aplicar Talents - Slot 8", 1, 67, false, "Para aplicar os talents, será necessário relogar, tem certeza?")
+		--player:GossipMenuAddItem(3, "Aplicar Talents - Slot 9", 1, 68, false, "Para aplicar os talents, será necessário relogar, tem certeza?")
+		--player:GossipMenuAddItem(3, "Aplicar Talents - Slot 10", 1, 69, false, "Para aplicar os talents, será necessário relogar, tem certeza?")
+		player:GossipMenuAddItem(0, "Adicionar Chat Feedback nos Talents Slots", 1, 70)
+		
+		player:GossipMenuAddItem(5,"|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Voltar",0,499)		
+		player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)	
+	end
+
+	if(intid == 70) then -- Renomear Gossips de Aplicar Talents
+	player:GossipSetText(string.format(" "))
+		player:GossipMenuAddItem(0, "Adicionar Chat Feedback Talent Slot 1", 0, 81, true, "Digite o que você deseja colocar para aparecer no Chat, Ex: 'Build PvE' ")
+		player:GossipMenuAddItem(0, "Adicionar Chat Feedback Talent Slot 2", 0, 82, true, "Digite o que você deseja colocar para aparecer no Chat, Ex: 'Build PvE' ")
+		player:GossipMenuAddItem(0, "Adicionar Chat Feedback Talent Slot 3", 0, 83, true, "Digite o que você deseja colocar para aparecer no Chat, Ex: 'Build PvE' ")
+		player:GossipMenuAddItem(0, "Adicionar Chat Feedback Talent Slot 4", 0, 84, true, "Digite o que você deseja colocar para aparecer no Chat, Ex: 'Build PvE' ")
+		player:GossipMenuAddItem(0, "Adicionar Chat Feedback Talent Slot 5", 0, 85, true, "Digite o que você deseja colocar para aparecer no Chat, Ex: 'Build PvE' ")
+		--player:GossipMenuAddItem(0, "Adicionar Chat Feedback Talent Slot 6", 0, 86, true, "Digite o que você deseja colocar para aparecer no Chat, Ex: 'Build PvE' ")
+		--player:GossipMenuAddItem(0, "Adicionar Chat Feedback Talent Slot 7", 0, 87, true, "Digite o que você deseja colocar para aparecer no Chat, Ex: 'Build PvE' ")
+		--player:GossipMenuAddItem(0, "Adicionar Chat Feedback Talent Slot 8", 0, 88, true, "Digite o que você deseja colocar para aparecer no Chat, Ex: 'Build PvE' ")
+		--player:GossipMenuAddItem(0, "Adicionar Chat Feedback Talent Slot 9", 0, 89, true, "Digite o que você deseja colocar para aparecer no Chat, Ex: 'Build PvE' ")
+		--player:GossipMenuAddItem(0, "Adicionar Chat Feedback Talent Slot 8", 0, 80, true, "Digite o que você deseja colocar para aparecer no Chat, Ex: 'Build PvE' ")
+		player:GossipMenuAddItem(5,"|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Voltar",0,499)		
+		player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)	
+	end
+	
+	if intid == 60 then -- Aplicar Talent 1 NomeCustom (Manda um BroadcastMessage com o Codigo que o player digitou)
+		local guid = player:GetGUIDLow()
+		local result = CharDBQuery("SELECT FeedBackCustomGossip FROM custom_saved_talents_gossip_names WHERE guid = " .. guid .. " AND intid = 1")
+		if result then
+			local FeedBackCustomGossip = result:GetString(0)
+			--player:GossipMenuAddItem(3, "TEST Salvar Talents - Primary Spec - " .. FeedBackCustomGossip, 1, 1) -- Modifica o gossip "Salvar Talents - Primary Spec" com o novo nome
+			player:SendBroadcastMessage("Você selecionou a build " .. FeedBackCustomGossip)
+		end
+	end
+	
+	if intid == 61 then -- Aplicar Talent 2 NomeCustom
+		local guid = player:GetGUIDLow()
+		local result = CharDBQuery("SELECT FeedBackCustomGossip FROM custom_saved_talents_gossip_names WHERE guid = " .. guid .. " AND intid = 2")
+		if result then
+			local FeedBackCustomGossip = result:GetString(0)
+			player:SendBroadcastMessage("Você selecionou a build " .. FeedBackCustomGossip)
+		end
+	end
+	
+	if intid == 81 then -- Salva Codigo - Inserir Talents 1 que o player digitou
+		local NomeFeedBackPlayer = code
+		local guid = player:GetGUIDLow()
+		CharDBExecute("REPLACE INTO custom_saved_talents_gossip_names (guid, intid, FeedBackCustomGossip) VALUES ("..guid..", 1, '"..NomeFeedBackPlayer.."')")
+	end
+	
+	if intid == 82 then -- Salva Codigo - Inserir Talents 2 que o player digitou
+		local NomeFeedBackPlayer = code
+		local guid = player:GetGUIDLow()
+		CharDBExecute("REPLACE INTO custom_saved_talents_gossip_names (guid, intid, FeedBackCustomGossip) VALUES ("..guid..", 2, '"..NomeFeedBackPlayer.."')")
+	end
+	
+	
+	--[[
+	-- Save Current Primary/Secondary Talents - Slot 1
+    if intid == 10 then
+		player:SaveToDB()
+        local guid = player:GetGUIDLow()
+        CharDBExecute("DELETE FROM custom_saved_talents WHERE guid = "..guid.." AND talentSlot = "..intid)
+        local result
+        --if intid == 10 then
+            result = CharDBQuery("SELECT spell, specMask FROM character_talent WHERE guid = "..guid.." AND (specMask = 1 OR specMask = 3)")
+        --elseif intid == 11 then
+		--player:SaveToDB()
+            --result = CharDBQuery("SELECT spell, specMask FROM character_talent WHERE guid = "..guid.." AND (specMask = 2 OR specMask = 3)")
+			player:GossipComplete()
+			player:SendBroadcastMessage("Talentos Salvados no Slot 1")
+        --end
+        if result then
+            repeat
+                local spell = result:GetUInt32(0)
+                local talentSlot = intid - 9
+                CharDBExecute("INSERT INTO custom_saved_talents (guid, spell, talentSlot) VALUES ("..guid..", "..spell..", "..talentSlot..")")
+            until not result:NextRow()
+        end--]]
+		
+	-- Save Current Primary/Secondary Talents - Slot 1 até 10
+    if intid >= 10 and intid <= 19 then
+		player:SaveToDB()
+        local guid = player:GetGUIDLow()
+        CharDBExecute("DELETE FROM custom_saved_talents WHERE guid = "..guid.." AND talentSlot = "..intid)
+
+        local result
+			result = CharDBQuery("SELECT spell FROM character_talent WHERE guid = "..guid)
+			player:GossipComplete()
+			player:SendBroadcastMessage("Talentos Salvados no Slot " .. (intid - 9))
+        if result then
+            repeat
+                local spell = result:GetUInt32(0)
+                local talentSlot = intid
+                CharDBExecute("INSERT INTO custom_saved_talents (guid, spell, talentSlot) VALUES ("..guid..", "..spell..", "..talentSlot..")")
+            until not result:NextRow()
+        end
+
+	-- Apply Stored Talents - Slot 1
+	elseif intid == 60 then
+		player:SaveToDB()
+		
+		local level = player:GetLevel()
+		local requiredTalentPoints = level - 9
+
+		if level >= 10 and player:GetFreeTalentPoints() < requiredTalentPoints then -- Needs to Not have talents unspent
+			player:SendBroadcastMessage("Você precisa resetar os talentos para usar essa opção.")
+			player:GossipComplete()
+			return
+		else
+			local guid = player:GetGUIDLow()
+
+			local result = CharDBQuery("SELECT spell FROM custom_saved_talents WHERE guid = "..guid.." AND talentSlot = 10")
+			if result then
+				repeat
+					local spell = result:GetUInt32(0)
+					local existingResult = CharDBQuery("SELECT specMask FROM character_talent WHERE guid = "..guid.." AND spell = "..spell)
+					if existingResult then
+						local specMask = existingResult:GetUInt32(0)
+						if specMask == 1 or specMask == 2 then
+							CharDBExecute("UPDATE character_talent SET specMask = 3 WHERE guid = "..guid.." AND spell = "..spell)
+						end
+					else
+						CharDBExecute("INSERT INTO character_talent (guid, spell, specMask) VALUES ("..guid..", "..spell..", 1)")
+					end
+				until not result:NextRow()
+			end
+			player:LogoutPlayer(true)
+		end
+	
+	-- Apply Stored Talents - Slot 2
+	elseif intid == 61 then
+		player:SaveToDB()
+		
+		local level = player:GetLevel()
+		local requiredTalentPoints = level - 9
+
+		if level >= 10 and player:GetFreeTalentPoints() < requiredTalentPoints then -- Needs to Not have talents unspent
+			player:SendBroadcastMessage("Você precisa resetar os talentos para usar essa opção.")
+			player:GossipComplete()
+			return
+		else
+			local guid = player:GetGUIDLow()
+
+			local result = CharDBQuery("SELECT spell FROM custom_saved_talents WHERE guid = "..guid.." AND talentSlot = 11")
+			if result then
+				repeat
+					local spell = result:GetUInt32(0)
+					local existingResult = CharDBQuery("SELECT specMask FROM character_talent WHERE guid = "..guid.." AND spell = "..spell)
+					if existingResult then
+						local specMask = existingResult:GetUInt32(0)
+						if specMask == 1 or specMask == 2 then
+							CharDBExecute("UPDATE character_talent SET specMask = 3 WHERE guid = "..guid.." AND spell = "..spell)
+						end
+					else
+						CharDBExecute("INSERT INTO character_talent (guid, spell, specMask) VALUES ("..guid..", "..spell..", 1)")
+					end
+				until not result:NextRow()
+			end
+			player:LogoutPlayer(true)
+		end
+	
+	-- Apply Stored Talents - Slot 3
+	elseif intid == 62 then
+		player:SaveToDB()
+		
+		local level = player:GetLevel()
+		local requiredTalentPoints = level - 9
+
+		if level >= 10 and player:GetFreeTalentPoints() < requiredTalentPoints then -- Needs to Not have talents unspent
+			player:SendBroadcastMessage("Você precisa resetar os talentos para usar essa opção.")
+			player:GossipComplete()
+			return
+		else
+			local guid = player:GetGUIDLow()
+
+			local result = CharDBQuery("SELECT spell FROM custom_saved_talents WHERE guid = "..guid.." AND talentSlot = 12")
+			if result then
+				repeat
+					local spell = result:GetUInt32(0)
+					local existingResult = CharDBQuery("SELECT specMask FROM character_talent WHERE guid = "..guid.." AND spell = "..spell)
+					if existingResult then
+						local specMask = existingResult:GetUInt32(0)
+						if specMask == 1 or specMask == 2 then
+							CharDBExecute("UPDATE character_talent SET specMask = 3 WHERE guid = "..guid.." AND spell = "..spell)
+						end
+					else
+						CharDBExecute("INSERT INTO character_talent (guid, spell, specMask) VALUES ("..guid..", "..spell..", 1)")
+					end
+				until not result:NextRow()
+			end
+			player:LogoutPlayer(true)
+		end
+	
+	-- Apply Stored Talents - Slot 4
+	elseif intid == 63 then
+		player:SaveToDB()
+		
+		local level = player:GetLevel()
+		local requiredTalentPoints = level - 9
+
+		if level >= 10 and player:GetFreeTalentPoints() < requiredTalentPoints then -- Needs to Not have talents unspent
+			player:SendBroadcastMessage("Você precisa resetar os talentos para usar essa opção.")
+			player:GossipComplete()
+			return
+		else
+			local guid = player:GetGUIDLow()
+
+			local result = CharDBQuery("SELECT spell FROM custom_saved_talents WHERE guid = "..guid.." AND talentSlot = 13")
+			if result then
+				repeat
+					local spell = result:GetUInt32(0)
+					local existingResult = CharDBQuery("SELECT specMask FROM character_talent WHERE guid = "..guid.." AND spell = "..spell)
+					if existingResult then
+						local specMask = existingResult:GetUInt32(0)
+						if specMask == 1 or specMask == 2 then
+							CharDBExecute("UPDATE character_talent SET specMask = 3 WHERE guid = "..guid.." AND spell = "..spell)
+						end
+					else
+						CharDBExecute("INSERT INTO character_talent (guid, spell, specMask) VALUES ("..guid..", "..spell..", 1)")
+					end
+				until not result:NextRow()
+			end
+			player:LogoutPlayer(true)
+		end
+	
+	-- Apply Stored Talents - Slot 5
+	elseif intid == 64 then
+		player:SaveToDB()
+		
+		local level = player:GetLevel()
+		local requiredTalentPoints = level - 9
+
+		if level >= 10 and player:GetFreeTalentPoints() < requiredTalentPoints then -- Needs to Not have talents unspent
+			player:SendBroadcastMessage("Você precisa resetar os talentos para usar essa opção.")
+			player:GossipComplete()
+			return
+		else
+			local guid = player:GetGUIDLow()
+
+			local result = CharDBQuery("SELECT spell FROM custom_saved_talents WHERE guid = "..guid.." AND talentSlot = 14")
+			if result then
+				repeat
+					local spell = result:GetUInt32(0)
+					local existingResult = CharDBQuery("SELECT specMask FROM character_talent WHERE guid = "..guid.." AND spell = "..spell)
+					if existingResult then
+						local specMask = existingResult:GetUInt32(0)
+						if specMask == 1 or specMask == 2 then
+							CharDBExecute("UPDATE character_talent SET specMask = 3 WHERE guid = "..guid.." AND spell = "..spell)
+						end
+					else
+						CharDBExecute("INSERT INTO character_talent (guid, spell, specMask) VALUES ("..guid..", "..spell..", 1)")
+					end
+				until not result:NextRow()
+			end
+			player:LogoutPlayer(true)
+		end
+
+	-- Apply Stored Talents - Slot 6
+	elseif intid == 65 then
+		player:SaveToDB()
+		
+		local level = player:GetLevel()
+		local requiredTalentPoints = level - 9
+
+		if level >= 10 and player:GetFreeTalentPoints() < requiredTalentPoints then -- Needs to Not have talents unspent
+			player:SendBroadcastMessage("Você precisa resetar os talentos para usar essa opção.")
+			player:GossipComplete()
+			return
+		else
+			local guid = player:GetGUIDLow()
+
+			local result = CharDBQuery("SELECT spell FROM custom_saved_talents WHERE guid = "..guid.." AND talentSlot = 15")
+			if result then
+				repeat
+					local spell = result:GetUInt32(0)
+					local existingResult = CharDBQuery("SELECT specMask FROM character_talent WHERE guid = "..guid.." AND spell = "..spell)
+					if existingResult then
+						local specMask = existingResult:GetUInt32(0)
+						if specMask == 1 or specMask == 2 then
+							CharDBExecute("UPDATE character_talent SET specMask = 3 WHERE guid = "..guid.." AND spell = "..spell)
+						end
+					else
+						CharDBExecute("INSERT INTO character_talent (guid, spell, specMask) VALUES ("..guid..", "..spell..", 1)")
+					end
+				until not result:NextRow()
+			end
+			player:LogoutPlayer(true)
+		end
+	
+	-- Apply Stored Talents - Slot 7
+	elseif intid == 66 then
+		player:SaveToDB()
+		
+		local level = player:GetLevel()
+		local requiredTalentPoints = level - 9
+
+		if level >= 10 and player:GetFreeTalentPoints() < requiredTalentPoints then -- Needs to Not have talents unspent
+			player:SendBroadcastMessage("Você precisa resetar os talentos para usar essa opção.")
+			player:GossipComplete()
+			return
+		else
+			local guid = player:GetGUIDLow()
+
+			local result = CharDBQuery("SELECT spell FROM custom_saved_talents WHERE guid = "..guid.." AND talentSlot = 16")
+			if result then
+				repeat
+					local spell = result:GetUInt32(0)
+					local existingResult = CharDBQuery("SELECT specMask FROM character_talent WHERE guid = "..guid.." AND spell = "..spell)
+					if existingResult then
+						local specMask = existingResult:GetUInt32(0)
+						if specMask == 1 or specMask == 2 then
+							CharDBExecute("UPDATE character_talent SET specMask = 3 WHERE guid = "..guid.." AND spell = "..spell)
+						end
+					else
+						CharDBExecute("INSERT INTO character_talent (guid, spell, specMask) VALUES ("..guid..", "..spell..", 1)")
+					end
+				until not result:NextRow()
+			end
+			player:LogoutPlayer(true)
+		end
+	
+	-- Apply Stored Talents - Slot 8
+	elseif intid == 67 then
+		player:SaveToDB()
+		
+		local level = player:GetLevel()
+		local requiredTalentPoints = level - 9
+
+		if level >= 10 and player:GetFreeTalentPoints() < requiredTalentPoints then -- Needs to Not have talents unspent
+			player:SendBroadcastMessage("Você precisa resetar os talentos para usar essa opção.")
+			player:GossipComplete()
+			return
+		else
+			local guid = player:GetGUIDLow()
+
+			local result = CharDBQuery("SELECT spell FROM custom_saved_talents WHERE guid = "..guid.." AND talentSlot = 17")
+			if result then
+				repeat
+					local spell = result:GetUInt32(0)
+					local existingResult = CharDBQuery("SELECT specMask FROM character_talent WHERE guid = "..guid.." AND spell = "..spell)
+					if existingResult then
+						local specMask = existingResult:GetUInt32(0)
+						if specMask == 1 or specMask == 2 then
+							CharDBExecute("UPDATE character_talent SET specMask = 3 WHERE guid = "..guid.." AND spell = "..spell)
+						end
+					else
+						CharDBExecute("INSERT INTO character_talent (guid, spell, specMask) VALUES ("..guid..", "..spell..", 1)")
+					end
+				until not result:NextRow()
+			end
+			player:LogoutPlayer(true)
+		end
+	
+	-- Apply Stored Talents - Slot 9
+	elseif intid == 68 then
+		player:SaveToDB()
+		
+		local level = player:GetLevel()
+		local requiredTalentPoints = level - 9
+
+		if level >= 10 and player:GetFreeTalentPoints() < requiredTalentPoints then -- Needs to Not have talents unspent
+			player:SendBroadcastMessage("Você precisa resetar os talentos para usar essa opção.")
+			player:GossipComplete()
+			return
+		else
+			local guid = player:GetGUIDLow()
+
+			local result = CharDBQuery("SELECT spell FROM custom_saved_talents WHERE guid = "..guid.." AND talentSlot = 18")
+			if result then
+				repeat
+					local spell = result:GetUInt32(0)
+					local existingResult = CharDBQuery("SELECT specMask FROM character_talent WHERE guid = "..guid.." AND spell = "..spell)
+					if existingResult then
+						local specMask = existingResult:GetUInt32(0)
+						if specMask == 1 or specMask == 2 then
+							CharDBExecute("UPDATE character_talent SET specMask = 3 WHERE guid = "..guid.." AND spell = "..spell)
+						end
+					else
+						CharDBExecute("INSERT INTO character_talent (guid, spell, specMask) VALUES ("..guid..", "..spell..", 1)")
+					end
+				until not result:NextRow()
+			end
+			player:LogoutPlayer(true)
+		end
+	
+	-- Apply Stored Talents - Slot 10
+	elseif intid == 69 then
+		player:SaveToDB()
+		
+		local level = player:GetLevel()
+		local requiredTalentPoints = level - 9
+
+		if level >= 10 and player:GetFreeTalentPoints() < requiredTalentPoints then -- Needs to Not have talents unspent
+			player:SendBroadcastMessage("Você precisa resetar os talentos para usar essa opção.")
+			player:GossipComplete()
+			return
+		else
+			local guid = player:GetGUIDLow()
+
+			local result = CharDBQuery("SELECT spell FROM custom_saved_talents WHERE guid = "..guid.." AND talentSlot = 19")
+			if result then
+				repeat
+					local spell = result:GetUInt32(0)
+					local existingResult = CharDBQuery("SELECT specMask FROM character_talent WHERE guid = "..guid.." AND spell = "..spell)
+					if existingResult then
+						local specMask = existingResult:GetUInt32(0)
+						if specMask == 1 or specMask == 2 then
+							CharDBExecute("UPDATE character_talent SET specMask = 3 WHERE guid = "..guid.." AND spell = "..spell)
+						end
+					else
+						CharDBExecute("INSERT INTO character_talent (guid, spell, specMask) VALUES ("..guid..", "..spell..", 1)")
+					end
+				until not result:NextRow()
+			end
+			player:LogoutPlayer(true)
+		end
+	end
+
+	if intid == 76 then
+		player:LearnTalent(342, 0)
+		player:GossipComplete()
+	end
+	
+	if intid == 500 then -- Reset Talents
+		player:ResetTalents()
+		player:SaveToDB()
+		player:SendBroadcastMessage("Seus Talentos foram resetados.")
+		player:GossipComplete()
+    end
+	if(intid == 499) then -- Back to Main Menu
+		OnGossipHello(event, player, creature)
+	end
+	
+	
+	if intid == 75 then
+    ApplyTalentsFromCustomTable(player)
+    player:GossipComplete()
+end
+
+
+end
+
+
+function SpellIDToTalentandRank(spellID)
+    local spellMap = {
+        [14522] = {talentID = 342, rank = 0},
+        [14788] = {talentID = 342, rank = 2},
+        [14789] = {talentID = 343, rank = 3},
+    }
+
+    return spellMap[spellID]
+end
+	
+function ApplyTalentsFromCustomTable(player)
+    local guid = player:GetGUIDLow()
+    --local result = CharDBQuery("SELECT spell, talentSlot FROM custom_saved_talents WHERE guid = "..guid)
+	local result = CharDBQuery("SELECT spell FROM custom_saved_talents WHERE guid = "..guid.." AND talentSlot = 10")
+
+    if result then
+        repeat
+            local spellID = result:GetUInt32(0)
+            local talentInfo = SpellIDToTalentandRank(spellID)
+
+            if talentInfo then
+                player:LearnTalent(talentInfo.talentID, talentInfo.rank)
+            end
+        until not result:NextRow()
+    end
+end
+
+
+
+RegisterCreatureGossipEvent(NPC_ID, 1, OnGossipHello)
+RegisterCreatureGossipEvent(NPC_ID, 2, OnGossipSelect)
+
+
+
+
+
+
+
+
+
+
+	--[[
+	elseif intid == 3 then
+		player:SaveToDB()
+		if player:GetFreeTalentPoints() > 0 then
+            player:SendBroadcastMessage("Você não pode usar o teleporte enquanto estiver em combate.")
+			player:GossipComplete()
+            return
+		else
+			local guid = player:GetGUIDLow()
+    
+			-- Atualize as spells existentes de specMask 2 para 3 apenas se estiverem na lista custom_saved_talents com talentSlot 1
+			CharDBExecute("UPDATE character_talent SET specMask = 3 WHERE guid = "..guid.." AND specMask = 2 AND spell IN (SELECT spell FROM custom_saved_talents WHERE guid = "..guid.." AND talentSlot = 1)")
+
+			local result = CharDBQuery("SELECT spell FROM custom_saved_talents WHERE guid = "..guid.." AND talentSlot = 1")
+			if result then
+				repeat
+					local spell = result:GetUInt32(0)
+					local specMask = 1
+					CharDBExecute("INSERT INTO character_talent (guid, spell, specMask) VALUES ("..guid..", "..spell..", "..specMask..")")
+				until not result:NextRow()
+			end
+			player:LogoutPlayer(true)
+		end
+	end--]]
+	

@@ -143,6 +143,7 @@ end
 -- Reset Player Talents
 if (intid == 2) then
     player:ResetTalents()
+	player:SendBroadcastMessage("Seus Talentos foram resetados.")
     player:GossipComplete()
     end
 end

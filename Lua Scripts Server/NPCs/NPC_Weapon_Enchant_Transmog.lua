@@ -44,7 +44,7 @@ end
 RegisterPlayerEvent(3, LOGIN)
 RegisterPlayerEvent(29, function(e,p,i,b,s) setVisual(p, i) end)
  
-local function On_Gossip_Select(unit, player, creature)
+local function OpenEnchantTransmog(unit, player, creature)
 	player:GossipSetText(string.format("Sistema Vip para customizar o visual do |cff0000ffEnchant|r da sua arma.\n\nOs |cff0000ffEnchants|r PvP não necessitam de Vip, mas de Arena Rating."))
 	player:GossipMenuAddItem(9,"|TInterface\\icons\\Inv_sword_01:27|t Main Hand |cff0000ffWeapon Enchant Vip",0, 300)
 	player:GossipMenuAddItem(9,"|TInterface\\icons\\Inv_sword_67:27|t Off Hand |cff0000ffWeapon Enchant Vip",0, 302)
@@ -60,18 +60,16 @@ end
  
  
 local function On_Gossip_Open(event, player, creature, sender, intid, code)
-	if(intid ==33) then
-end
  
  
 -- Weapon Enchant (Main Hand) - Menu de Cores
 if(intid == 300) then
 	if (player:HasItem(itemVIP) == false and player:HasItem(itemVIPeterno) == false) then
 		player:SendBroadcastMessage("Você precisa do Livro Vip para usar essa função.")
-		player:GossipComplete()
+		return OpenEnchantTransmog(unit, player, creature)
 	else
 		player:GossipSetText(string.format("Main-Hand Visual Enchants"))
-		player:GossipMenuAddItem(5,"|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:22:22:0:0|t Voltar",0,998)
+		player:GossipMenuAddItem(5,"|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t Inicio",0,998)
 		player:GossipMenuAddItem(5,"|TInterface\\icons\\spell_holy_dispelmagic:27|t Remover Enchant Visual (Main Hand)",0, 1003)
 		player:GossipMenuAddItem(9,"Visual Enchants - |cffffffffWhite|r",0,605)
 		player:GossipMenuAddItem(9,"Visual Enchants - |cff0000ffBlue|r",0,606)
@@ -90,10 +88,10 @@ if(intid == 1003) then
 	if(player:GetEquippedItemBySlot(15)) then
 		setVisual(player, item, 0)
 		player:SendBroadcastMessage("Relogue para restaurar o visual original do enchant equipado na sua main hand weapon.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 300, code)
 	else
 		player:SendBroadcastMessage("Você não tem uma Main Hand equipada para remover o Enchant.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 300, code)
 	end
 end
 
@@ -115,115 +113,118 @@ if(intid == 605) then -- Main-Hand White
 	player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)
 end
 
-if(intid == 450) then -- Crusader
+if(intid == 450) then -- Crusader Main
 local item = player:GetEquippedItemBySlot(15)
 	if(player:GetEquippedItemBySlot(15)) then
 		setVisual(player, item, 1900)
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 605, code)
 	else
 		player:SendBroadcastMessage("Você não tem uma Main Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 605, code)
 	end
 end
+
+--On_Gossip_Open(event, player, creature, sender, 300, code) -- Main Hand Weapon Enchant Vip",0, 300
+--On_Gossip_Open(event, player, creature, sender, 302, code) -- Off Hand |cff0000ffWeapon Enchant Vip",0, 302)
 
 if(intid == 122) then -- Battlemaster
 	local item = player:GetEquippedItemBySlot(15)
 	if(player:GetEquippedItemBySlot(15)) then
 		setVisual(player, item, 2675)
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 605, code)
 	else
 		player:SendBroadcastMessage("Você não tem uma Main Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 605, code)
 	end
 end
 if(intid == 117) then -- Deathfrost
 	local item = player:GetEquippedItemBySlot(15)
 	if(player:GetEquippedItemBySlot(15)) then
 		setVisual(player, item, 3273)
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 605, code)
 	else
 		player:SendBroadcastMessage("Você não tem uma Main Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 605, code)
 	end
 end
 if(intid == 129) then -- Icy Weapon
 	local item = player:GetEquippedItemBySlot(15)
 	if(player:GetEquippedItemBySlot(15)) then
 		setVisual(player, item, 1894)
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 605, code)
 	else
 		player:SendBroadcastMessage("Você não tem uma Main Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 605, code)
 	end
 end
 if(intid == 451) then -- AP vs Undead
 	local item = player:GetEquippedItemBySlot(15)
 	if(player:GetEquippedItemBySlot(15)) then
 		setVisual(player, item, 3093)
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 605, code)
 	else
 		player:SendBroadcastMessage("Você não tem uma Main Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 605, code)
 	end
 end
 if(intid == 454) then -- Avalanche
 	local item = player:GetEquippedItemBySlot(15)
 	if(player:GetEquippedItemBySlot(15)) then
 		setVisual(player, item, 4014)
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 605, code)
 	else
 		player:SendBroadcastMessage("Você não tem uma Main Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 605, code)
 	end
 end
 if(intid == 455) then -- Winter's Grasp
 	local item = player:GetEquippedItemBySlot(15)
 	if(player:GetEquippedItemBySlot(15)) then
 		setVisual(player, item, 4015)
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 605, code)
 	else
 		player:SendBroadcastMessage("Você não tem uma Main Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 605, code)
 	end
 end
 if(intid == 118) then -- Executioner
 	local item = player:GetEquippedItemBySlot(15)
 	if(player:GetEquippedItemBySlot(15)) then
 		setVisual(player, item, 3225)
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 605, code)
 	else
 		player:SendBroadcastMessage("Você não tem uma Main Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 605, code)
 	end
 end
 if(intid == 452) then -- Windwalk
 	local item = player:GetEquippedItemBySlot(15)
 	if(player:GetEquippedItemBySlot(15)) then
 		setVisual(player, item, 4005)
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 605, code)
 	else
 		player:SendBroadcastMessage("Você não tem uma Main Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 605, code)
 	end
 end
 if(intid == 453) then -- Elemental Slayer
 	local item = player:GetEquippedItemBySlot(15)
 	if(player:GetEquippedItemBySlot(15)) then
 		setVisual(player, item, 4008)
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 605, code)
 	else
 		player:SendBroadcastMessage("Você não tem uma Main Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 605, code)
 	end
 end
 if(intid == 488) then -- Sharpened
 	local item = player:GetEquippedItemBySlot(15)
 	if(player:GetEquippedItemBySlot(15)) then
 		setVisual(player, item, 13)
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 605, code)
 	else
 		player:SendBroadcastMessage("Você não tem uma Main Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 605, code)
 	end
 end
 
@@ -250,130 +251,140 @@ if(intid == 459) then -- Wraithchill
 	local item = player:GetEquippedItemBySlot(15)
 	if(player:GetEquippedItemBySlot(15)) then
 		setVisual(player, item, 4006)
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 606, code)
 	else
 		player:SendBroadcastMessage("Você não tem uma Main Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 606, code)
 	end
 end
 if(intid == 126) then -- Mongoose
 	local item = player:GetEquippedItemBySlot(15)
 	if(player:GetEquippedItemBySlot(15)) then
 		setVisual(player, item, 2673)
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 606, code)
 	else
 		player:SendBroadcastMessage("Você não tem uma Main Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 606, code)
 	end
 end
 if(intid == 456) then -- Mark of the Thunderlord
-local item = player:GetEquippedItemBySlot(15)
-if(player:GetEquippedItemBySlot(15)) then
-setVisual(player, item, 4010)
-player:GossipComplete()
-else
+	local item = player:GetEquippedItemBySlot(15)
+	if(player:GetEquippedItemBySlot(15)) then
+		setVisual(player, item, 4010)
+		On_Gossip_Open(event, player, creature, sender, 606, code)
+	else
 		player:SendBroadcastMessage("Você não tem uma Main Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 606, code)
 	end
 end
 if(intid == 457) then -- Colossus
 	local item = player:GetEquippedItemBySlot(15)
 	if(player:GetEquippedItemBySlot(15)) then
 		setVisual(player, item, 4011)
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 606, code)
 	else
 		player:SendBroadcastMessage("Você não tem uma Main Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 606, code)
 	end
 end
 if(intid == 458) then -- Blade Ward
 	local item = player:GetEquippedItemBySlot(15)
 	if(player:GetEquippedItemBySlot(15)) then
 		setVisual(player, item, 3869)
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 606, code)
 	else
 		player:SendBroadcastMessage("Você não tem uma Main Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 606, code)
 	end
 end
 if(intid == 460) then -- Heartsong
 	local item = player:GetEquippedItemBySlot(15)
 	if(player:GetEquippedItemBySlot(15)) then
 		setVisual(player, item, 1896)
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 606, code)
 	else
 		player:SendBroadcastMessage("Você não tem uma Main Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 606, code)
 	end
 end
 if(intid == 461) then -- Soulfrost
 	local item = player:GetEquippedItemBySlot(15)
 	if(player:GetEquippedItemBySlot(15)) then
 		setVisual(player, item, 26)
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 606, code)
 	else
 		player:SendBroadcastMessage("Você não tem uma Main Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 606, code)
 	end
 end
 if(intid == 462) then -- River's Song
 	local item = player:GetEquippedItemBySlot(15)
 	if(player:GetEquippedItemBySlot(15)) then
 		setVisual(player, item, 4024)
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 606, code)
 	else
 		player:SendBroadcastMessage("Você não tem uma Main Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 606, code)
 	end
 end
 if(intid == 463) then -- Jade Spirit
 	local item = player:GetEquippedItemBySlot(15)
 	if(player:GetEquippedItemBySlot(15)) then
 		setVisual(player, item, 4023)
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 606, code)
 	else
 		player:SendBroadcastMessage("Você não tem uma Main Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 606, code)
 	end
 end
 if(intid == 116) then -- Greater Spell Power
 	local item = player:GetEquippedItemBySlot(15)
 	if(player:GetEquippedItemBySlot(15)) then
 		setVisual(player, item, 3854)
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 606, code)
 	else
 		player:SendBroadcastMessage("Você não tem uma Main Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 606, code)
 	end
 end
 if(intid == 464) then -- Rune of Razorice
 	local item = player:GetEquippedItemBySlot(15)
 	if(player:GetEquippedItemBySlot(15)) then
 		setVisual(player, item, 25)
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 606, code)
 	else
 		player:SendBroadcastMessage("Você não tem uma Main Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 606, code)
 	end
 end
-if(intid == 133) then -- Frostbrand
+if(intid == 133) then -- Frostbrand 1
 	local item = player:GetEquippedItemBySlot(15)
 	if(player:GetEquippedItemBySlot(15)) then
 		setVisual(player, item, 2672)
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 606, code)
 	else
 		player:SendBroadcastMessage("Você não tem uma Main Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 606, code)
+	end
+end
+if(intid == 486) then -- Frostbrand II
+	local item = player:GetEquippedItemBySlot(15)
+	if(player:GetEquippedItemBySlot(15)) then
+		setVisual(player, item, 2)
+		On_Gossip_Open(event, player, creature, sender, 606, code)
+	else
+		player:SendBroadcastMessage("Você não tem uma Main Hand equipada para adicionar o Enchant Visual.")
+		On_Gossip_Open(event, player, creature, sender, 606, code)
 	end
 end
 if(intid == 485) then -- Windfury
 	local item = player:GetEquippedItemBySlot(15)
 	if(player:GetEquippedItemBySlot(15)) then
 		setVisual(player, item, 283)
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 606, code)
 	else
 		player:SendBroadcastMessage("Você não tem uma Main Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 606, code)
 	end
 end
 
@@ -389,7 +400,7 @@ if(intid == 600) then
 local item = player:GetEquippedItemBySlot(15)
 if(player:GetEquippedItemBySlot(15)) then
 setVisual(player, item, 4030)
-player:GossipComplete()
+return OpenEnchantTransmog(unit, player, creature)
 end
 end
 -- test wraithchills Ok, as particulas vao p esquerda
@@ -397,7 +408,7 @@ if(intid == 601) then
 local item = player:GetEquippedItemBySlot(15)
 if(player:GetEquippedItemBySlot(15)) then
 setVisual(player, item, 4031)
-player:GossipComplete()
+return OpenEnchantTransmog(unit, player, creature)
 end
 end
 -- test wraithchills ok, as particulas vao p direita
@@ -405,7 +416,7 @@ if(intid == 602) then
 local item = player:GetEquippedItemBySlot(15)
 if(player:GetEquippedItemBySlot(15)) then
 setVisual(player, item, 4032)
-player:GossipComplete()
+return OpenEnchantTransmog(unit, player, creature)
 end
 end
 -- test wraithchills ok, p direita tbm (na ponta a particula e maior)
@@ -413,7 +424,7 @@ if(intid == 603) then
 local item = player:GetEquippedItemBySlot(15)
 if(player:GetEquippedItemBySlot(15)) then
 setVisual(player, item, 4033)
-player:GossipComplete()
+return OpenEnchantTransmog(unit, player, creature)
 end
 end
 -- test wraithchills ok, particula p esquerda e na ponta p direita
@@ -421,7 +432,7 @@ if(intid == 604) then
 local item = player:GetEquippedItemBySlot(15)
 if(player:GetEquippedItemBySlot(15)) then
 setVisual(player, item, 4034)
-player:GossipComplete()
+return OpenEnchantTransmog(unit, player, creature)
 end
 end
 --]]
@@ -442,50 +453,50 @@ if(intid == 465) then -- Chronos
 	local item = player:GetEquippedItemBySlot(15)
 	if(player:GetEquippedItemBySlot(15)) then
 		setVisual(player, item, 4016)
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 607, code)
 	else
 		player:SendBroadcastMessage("Você não tem uma Main Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 607, code)
 	end
 end
 if(intid == 466) then -- Mark of Blackrock
 	local item = player:GetEquippedItemBySlot(15)
 	if(player:GetEquippedItemBySlot(15)) then
 		setVisual(player, item, 4017)
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 607, code)
 	else
 		player:SendBroadcastMessage("Você não tem uma Main Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 607, code)
 	end
 end
 if(intid == 467) then -- Mark of Shadowmoon (WoD)
 	local item = player:GetEquippedItemBySlot(15)
 	if(player:GetEquippedItemBySlot(15)) then
 		setVisual(player, item, 4025)
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 607, code)
 	else
 		player:SendBroadcastMessage("Você não tem uma Main Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 607, code)
 	end
 end
 if(intid == 468) then -- Mark of Shadowmoon
 	local item = player:GetEquippedItemBySlot(15)
 	if(player:GetEquippedItemBySlot(15)) then
 		setVisual(player, item, 1743)
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 607, code)
 	else
 		player:SendBroadcastMessage("Você não tem uma Main Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 607, code)
 	end
 end
 if(intid == 469) then -- Mark of Netherflame
 	local item = player:GetEquippedItemBySlot(15)
 	if(player:GetEquippedItemBySlot(15)) then
 		setVisual(player, item, 3855)
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 607, code)
 	else
 		player:SendBroadcastMessage("Você não tem uma Main Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 607, code)
 	end
 end
 
@@ -501,54 +512,54 @@ if(intid == 608) then -- Main-Hand Red
 end
 
 if(intid == 470) then -- Nightmare
-local item = player:GetEquippedItemBySlot(15)
-if(player:GetEquippedItemBySlot(15)) then
-setVisual(player, item, 4004)
-player:GossipComplete()
-else
+	local item = player:GetEquippedItemBySlot(15)
+	if(player:GetEquippedItemBySlot(15)) then
+		setVisual(player, item, 4004)
+		On_Gossip_Open(event, player, creature, sender, 608, code)
+	else
 		player:SendBroadcastMessage("Você não tem uma Main Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 608, code)
 	end
 end
 if(intid == 471) then -- Sinwrath
-local item = player:GetEquippedItemBySlot(15)
-if(player:GetEquippedItemBySlot(15)) then
-setVisual(player, item, 4026)
-player:GossipComplete()
-else
+	local item = player:GetEquippedItemBySlot(15)
+	if(player:GetEquippedItemBySlot(15)) then
+		setVisual(player, item, 4026)
+		On_Gossip_Open(event, player, creature, sender, 608, code)
+	else
 		player:SendBroadcastMessage("Você não tem uma Main Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 608, code)
 	end
 end
 
 if(intid == 115) then -- Berserking
-local item = player:GetEquippedItemBySlot(15)
-if(player:GetEquippedItemBySlot(15)) then
-setVisual(player, item, 3789)
-player:GossipComplete()
-else
+	local item = player:GetEquippedItemBySlot(15)
+	if(player:GetEquippedItemBySlot(15)) then
+		setVisual(player, item, 3789)
+		On_Gossip_Open(event, player, creature, sender, 608, code)
+	else
 		player:SendBroadcastMessage("Você não tem uma Main Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 608, code)
 	end
 end
 if(intid == 473) then -- Attack Power
-local item = player:GetEquippedItemBySlot(15)
-if(player:GetEquippedItemBySlot(15)) then
-setVisual(player, item, 1606)
-player:GossipComplete()
-else
+	local item = player:GetEquippedItemBySlot(15)
+	if(player:GetEquippedItemBySlot(15)) then
+		setVisual(player, item, 1606)
+		On_Gossip_Open(event, player, creature, sender, 608, code)
+	else
 		player:SendBroadcastMessage("Você não tem uma Main Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 608, code)
 	end
 end
 if(intid == 119) then -- Blood Draining
-local item = player:GetEquippedItemBySlot(15)
-if(player:GetEquippedItemBySlot(15)) then
-setVisual(player, item, 3870)
-player:GossipComplete()
-else
+	local item = player:GetEquippedItemBySlot(15)
+	if(player:GetEquippedItemBySlot(15)) then
+		setVisual(player, item, 3870)
+		On_Gossip_Open(event, player, creature, sender, 608, code)
+	else
 		player:SendBroadcastMessage("Você não tem uma Main Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 608, code)
 	end
 end
 
@@ -565,63 +576,63 @@ if(intid == 609) then -- Main-Hand Orange
 end
 
 if(intid == 472) then -- Power Torrent(Flames only)
-local item = player:GetEquippedItemBySlot(15)
-if(player:GetEquippedItemBySlot(15)) then
-setVisual(player, item, 4027)
-player:GossipComplete()
-else
+	local item = player:GetEquippedItemBySlot(15)
+	if(player:GetEquippedItemBySlot(15)) then
+	setVisual(player, item, 4027)
+		On_Gossip_Open(event, player, creature, sender, 609, code)
+	else
 		player:SendBroadcastMessage("Você não tem uma Main Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 609, code)
 	end
 end
 if(intid == 475) then -- Power Torrent
-local item = player:GetEquippedItemBySlot(15)
-if(player:GetEquippedItemBySlot(15)) then
-setVisual(player, item, 4000)
-player:GossipComplete()
-else
+	local item = player:GetEquippedItemBySlot(15)
+	if(player:GetEquippedItemBySlot(15)) then
+		setVisual(player, item, 4000)
+		On_Gossip_Open(event, player, creature, sender, 609, code)
+	else
 		player:SendBroadcastMessage("Você não tem uma Main Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 609, code)
 	end
 end
 if(intid == 474) then -- Flames of Ragnaros
-local item = player:GetEquippedItemBySlot(15)
-if(player:GetEquippedItemBySlot(15)) then
-setVisual(player, item, 4021)
-player:GossipComplete()
-else
+	local item = player:GetEquippedItemBySlot(15)
+	if(player:GetEquippedItemBySlot(15)) then
+		setVisual(player, item, 4021)
+		On_Gossip_Open(event, player, creature, sender, 609, code)
+	else
 		player:SendBroadcastMessage("Você não tem uma Main Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 609, code)
 	end
 end
 if(intid == 476) then -- Elemental Force
-local item = player:GetEquippedItemBySlot(15)
-if(player:GetEquippedItemBySlot(15)) then
-setVisual(player, item, 4001)
-player:GossipComplete()
-else
+	local item = player:GetEquippedItemBySlot(15)
+	if(player:GetEquippedItemBySlot(15)) then
+		setVisual(player, item, 4001)
+		On_Gossip_Open(event, player, creature, sender, 609, code)
+	else
 		player:SendBroadcastMessage("Você não tem uma Main Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 609, code)
 	end
 end
 if(intid == 136) then -- Fiery Weapon
-local item = player:GetEquippedItemBySlot(15)
-if(player:GetEquippedItemBySlot(15)) then
-setVisual(player, item, 803)
-player:GossipComplete()
-else
+	local item = player:GetEquippedItemBySlot(15)
+	if(player:GetEquippedItemBySlot(15)) then
+		setVisual(player, item, 803)
+		On_Gossip_Open(event, player, creature, sender, 609, code)
+	else
 		player:SendBroadcastMessage("Você não tem uma Main Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 609, code)
 	end
 end
 if(intid == 487) then -- Flametongue
-local item = player:GetEquippedItemBySlot(15)
-if(player:GetEquippedItemBySlot(15)) then
-setVisual(player, item, 3)
-player:GossipComplete()
-else
+	local item = player:GetEquippedItemBySlot(15)
+	if(player:GetEquippedItemBySlot(15)) then
+		setVisual(player, item, 3)
+		On_Gossip_Open(event, player, creature, sender, 609, code)
+	else
 		player:SendBroadcastMessage("Você não tem uma Main Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 609, code)
 	end
 end
 
@@ -642,72 +653,72 @@ end
 
 if(intid == 477) then -- Sunfire
 local item = player:GetEquippedItemBySlot(15)
-if(player:GetEquippedItemBySlot(15)) then
-setVisual(player, item, 2671)
-player:GossipComplete()
-else
+	if(player:GetEquippedItemBySlot(15)) then
+		setVisual(player, item, 2671)
+		On_Gossip_Open(event, player, creature, sender, 610, code)
+	else
 		player:SendBroadcastMessage("Você não tem uma Main Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 610, code)
 	end
 end
 if(intid == 478) then -- Landslide
-local item = player:GetEquippedItemBySlot(15)
-if(player:GetEquippedItemBySlot(15)) then
-setVisual(player, item, 4002)
-player:GossipComplete()
-else
+	local item = player:GetEquippedItemBySlot(15)
+	if(player:GetEquippedItemBySlot(15)) then
+	setVisual(player, item, 4002)
+		On_Gossip_Open(event, player, creature, sender, 610, code)
+	else
 		player:SendBroadcastMessage("Você não tem uma Main Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 610, code)
 	end
 end
 if(intid == 479) then -- Light of the Earth-Warder
-local item = player:GetEquippedItemBySlot(15)
-if(player:GetEquippedItemBySlot(15)) then
-setVisual(player, item, 4020)
-player:GossipComplete()
-else
+	local item = player:GetEquippedItemBySlot(15)
+	if(player:GetEquippedItemBySlot(15)) then
+		setVisual(player, item, 4020)
+		On_Gossip_Open(event, player, creature, sender, 610, code)
+	else
 		player:SendBroadcastMessage("Você não tem uma Main Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 610, code)
 	end
 end
 if(intid == 480) then --Titanguard
-local item = player:GetEquippedItemBySlot(15)
-if(player:GetEquippedItemBySlot(15)) then
-setVisual(player, item, 3846)
-player:GossipComplete()
-else
+	local item = player:GetEquippedItemBySlot(15)
+	if(player:GetEquippedItemBySlot(15)) then
+		setVisual(player, item, 3846)
+		On_Gossip_Open(event, player, creature, sender, 610, code)
+	else
 		player:SendBroadcastMessage("Você não tem uma Main Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 610, code)
 	end
 end
 if(intid == 481) then --Spirit
-local item = player:GetEquippedItemBySlot(15)
-if(player:GetEquippedItemBySlot(15)) then
-setVisual(player, item, 1903)
-player:GossipComplete()
-else
+	local item = player:GetEquippedItemBySlot(15)
+	if(player:GetEquippedItemBySlot(15)) then
+		setVisual(player, item, 1903)
+		On_Gossip_Open(event, player, creature, sender, 610, code)
+	else
 		player:SendBroadcastMessage("Você não tem uma Main Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 610, code)
 	end
 end
 if(intid == 127) then -- Spell Power II
-local item = player:GetEquippedItemBySlot(15)
-if(player:GetEquippedItemBySlot(15)) then
-setVisual(player, item, 2343)
-player:GossipComplete()
-else
+	local item = player:GetEquippedItemBySlot(15)
+	if(player:GetEquippedItemBySlot(15)) then
+		setVisual(player, item, 2343)
+		On_Gossip_Open(event, player, creature, sender, 610, code)
+	else
 		player:SendBroadcastMessage("Você não tem uma Main Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 610, code)
 	end
 end
 if(intid == 484) then -- Rockbiter
-local item = player:GetEquippedItemBySlot(15)
-if(player:GetEquippedItemBySlot(15)) then
-setVisual(player, item, 1)
-player:GossipComplete()
-else
+	local item = player:GetEquippedItemBySlot(15)
+	if(player:GetEquippedItemBySlot(15)) then
+		setVisual(player, item, 1)
+		On_Gossip_Open(event, player, creature, sender, 610, code)
+	else
 		player:SendBroadcastMessage("Você não tem uma Main Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 610, code)
 	end
 end
 
@@ -724,63 +735,53 @@ if(intid == 611) then -- Main-Hand Green
 end
 
 if(intid == 483) then -- Breath of Yu'lon
-local item = player:GetEquippedItemBySlot(15)
-if(player:GetEquippedItemBySlot(15)) then
-setVisual(player, item, 4019)
-player:GossipComplete()
-else
+	local item = player:GetEquippedItemBySlot(15)
+	if(player:GetEquippedItemBySlot(15)) then
+		setVisual(player, item, 4019)
+		On_Gossip_Open(event, player, creature, sender, 611, code)
+	else
 		player:SendBroadcastMessage("Você não tem uma Main Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 611, code)
 	end
 end
 if(intid == 132) then -- Earthliving
-local item = player:GetEquippedItemBySlot(15)
-if(player:GetEquippedItemBySlot(15)) then
-setVisual(player, item, 3345)
-player:GossipComplete()
-else
+	local item = player:GetEquippedItemBySlot(15)
+	if(player:GetEquippedItemBySlot(15)) then
+		setVisual(player, item, 3345)
+		On_Gossip_Open(event, player, creature, sender, 611, code)
+	else
 		player:SendBroadcastMessage("Você não tem uma Main Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 611, code)
 	end
 end
 if(intid == 131) then -- Agility
-local item = player:GetEquippedItemBySlot(15)
-if(player:GetEquippedItemBySlot(15)) then
-setVisual(player, item, 1103)
-player:GossipComplete()
-else
+	local item = player:GetEquippedItemBySlot(15)
+	if(player:GetEquippedItemBySlot(15)) then
+		setVisual(player, item, 1103)
+		On_Gossip_Open(event, player, creature, sender, 611, code)
+	else
 		player:SendBroadcastMessage("Você não tem uma Main Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 611, code)
 	end
 end
 if(intid == 120) then -- Unholy Weapon
-local item = player:GetEquippedItemBySlot(15)
-if(player:GetEquippedItemBySlot(15)) then
-setVisual(player, item, 1899)
-player:GossipComplete()
-else
+	local item = player:GetEquippedItemBySlot(15)
+	if(player:GetEquippedItemBySlot(15)) then
+		setVisual(player, item, 1899)
+		On_Gossip_Open(event, player, creature, sender, 611, code)
+	else
 		player:SendBroadcastMessage("Você não tem uma Main Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
-	end
-end
-if(intid == 486) then -- Frostbrand II
-local item = player:GetEquippedItemBySlot(15)
-if(player:GetEquippedItemBySlot(15)) then
-setVisual(player, item, 2)
-player:GossipComplete()
-else
-		player:SendBroadcastMessage("Você não tem uma Main Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 611, code)
 	end
 end
 if(intid == 489) then -- Deadly Poison
-local item = player:GetEquippedItemBySlot(15)
-if(player:GetEquippedItemBySlot(15)) then
-setVisual(player, item, 7)
-player:GossipComplete()
-else
+	local item = player:GetEquippedItemBySlot(15)
+	if(player:GetEquippedItemBySlot(15)) then
+		setVisual(player, item, 7)
+		On_Gossip_Open(event, player, creature, sender, 611, code)
+	else
 		player:SendBroadcastMessage("Você não tem uma Main Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 611, code)
 	end
 end
 
@@ -790,7 +791,7 @@ end
 if(intid == 302) then
 	if (player:HasItem(itemVIP) == false and player:HasItem(itemVIPeterno) == false) then
 		player:SendBroadcastMessage("Você precisa do Livro Vip para usar essa função.")
-		player:GossipComplete()
+		return OpenEnchantTransmog(unit, player, creature)
 	else
 		player:GossipSetText(string.format("Off-Hand Visual Enchants"))
 		player:GossipMenuAddItem(5,"|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:22:22:0:0|t Voltar",0,998)
@@ -813,10 +814,10 @@ if(intid == 1002) then
 	if(player:GetEquippedItemBySlot(16)) then
 		setVisual(player, item, 0)
 		player:SendBroadcastMessage("Relogue para restaurar o visual original do enchant equipado na sua off hand weapon.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 302, code)
 	else 
 		player:SendBroadcastMessage("Você não tem uma Off Hand equipada para remover o Enchant.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 302, code)
 	end
 end
 
@@ -839,115 +840,115 @@ if(intid == 612) then -- Off-Hand White
 end
 
 if(intid == 501) then -- Crusader Off
-local item = player:GetEquippedItemBySlot(16)
-if(player:GetEquippedItemBySlot(16)) then
-setVisual(player, item, 1900)
-player:GossipComplete()
+	local item = player:GetEquippedItemBySlot(16)
+	if(player:GetEquippedItemBySlot(16)) then
+		setVisual(player, item, 1900)
+		On_Gossip_Open(event, player, creature, sender, 612, code)
 	else
 		player:SendBroadcastMessage("Você não tem uma Off Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 612, code)
 	end
 end
 if(intid == 502) then -- Battlemaster Off
-local item = player:GetEquippedItemBySlot(16)
-if(player:GetEquippedItemBySlot(16)) then
-setVisual(player, item, 2675)
-player:GossipComplete()
+	local item = player:GetEquippedItemBySlot(16)
+	if(player:GetEquippedItemBySlot(16)) then
+		setVisual(player, item, 2675)
+		On_Gossip_Open(event, player, creature, sender, 612, code)
 	else
 		player:SendBroadcastMessage("Você não tem uma Off Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 612, code)
 	end
 end
 if(intid == 503) then -- Deathfrost Off
-local item = player:GetEquippedItemBySlot(16)
-if(player:GetEquippedItemBySlot(16)) then
-setVisual(player, item, 3273)
-player:GossipComplete()
+	local item = player:GetEquippedItemBySlot(16)
+	if(player:GetEquippedItemBySlot(16)) then
+		setVisual(player, item, 3273)
+		On_Gossip_Open(event, player, creature, sender, 612, code)
 	else
 		player:SendBroadcastMessage("Você não tem uma Off Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 612, code)
 	end
 end
 if(intid == 504) then -- Icy Weapon Off
-local item = player:GetEquippedItemBySlot(16)
-if(player:GetEquippedItemBySlot(16)) then
-setVisual(player, item, 1894)
-player:GossipComplete()
+	local item = player:GetEquippedItemBySlot(16)
+	if(player:GetEquippedItemBySlot(16)) then
+		setVisual(player, item, 1894)
+		On_Gossip_Open(event, player, creature, sender, 612, code)
 	else
 		player:SendBroadcastMessage("Você não tem uma Off Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 612, code)
 	end
 end
 if(intid == 505) then -- AP vs Undead Off
-local item = player:GetEquippedItemBySlot(16)
-if(player:GetEquippedItemBySlot(16)) then
-setVisual(player, item, 3093)
-player:GossipComplete()
+	local item = player:GetEquippedItemBySlot(16)
+	if(player:GetEquippedItemBySlot(16)) then
+		setVisual(player, item, 3093)
+		On_Gossip_Open(event, player, creature, sender, 612, code)
 	else
 		player:SendBroadcastMessage("Você não tem uma Off Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 612, code)
 	end
 end
 if(intid == 506) then -- Avalanche Off
-local item = player:GetEquippedItemBySlot(16)
-if(player:GetEquippedItemBySlot(16)) then
-setVisual(player, item, 4014)
-player:GossipComplete()
+	local item = player:GetEquippedItemBySlot(16)
+	if(player:GetEquippedItemBySlot(16)) then
+		setVisual(player, item, 4014)
+		On_Gossip_Open(event, player, creature, sender, 612, code)
 	else
 		player:SendBroadcastMessage("Você não tem uma Off Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 612, code)
 	end
 end
 if(intid == 507) then -- Winter's Grasp Off
-local item = player:GetEquippedItemBySlot(16)
-if(player:GetEquippedItemBySlot(16)) then
-setVisual(player, item, 4015)
-player:GossipComplete()
+	local item = player:GetEquippedItemBySlot(16)
+	if(player:GetEquippedItemBySlot(16)) then
+		setVisual(player, item, 4015)
+		On_Gossip_Open(event, player, creature, sender, 612, code)
 	else
 		player:SendBroadcastMessage("Você não tem uma Off Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 612, code)
 	end
 end
 if(intid == 508) then -- Executioner Off
-local item = player:GetEquippedItemBySlot(16)
-if(player:GetEquippedItemBySlot(16)) then
-setVisual(player, item, 3225)
-player:GossipComplete()
+	local item = player:GetEquippedItemBySlot(16)
+	if(player:GetEquippedItemBySlot(16)) then
+		setVisual(player, item, 3225)
+		On_Gossip_Open(event, player, creature, sender, 612, code)
 	else
 		player:SendBroadcastMessage("Você não tem uma Off Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 612, code)
 	end
 end
 if(intid == 509) then -- Windwalk Off
-local item = player:GetEquippedItemBySlot(16)
-if(player:GetEquippedItemBySlot(16)) then
-setVisual(player, item, 4005)
-player:GossipComplete()
+	local item = player:GetEquippedItemBySlot(16)
+	if(player:GetEquippedItemBySlot(16)) then
+		setVisual(player, item, 4005)
+		On_Gossip_Open(event, player, creature, sender, 612, code)
 	else
 		player:SendBroadcastMessage("Você não tem uma Off Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 612, code)
 	end
 end
 
 if(intid == 510) then -- Elemental Slayer Off
-local item = player:GetEquippedItemBySlot(16)
-if(player:GetEquippedItemBySlot(16)) then
-setVisual(player, item, 4008)
-player:GossipComplete()
+	local item = player:GetEquippedItemBySlot(16)
+	if(player:GetEquippedItemBySlot(16)) then
+		setVisual(player, item, 4008)
+		On_Gossip_Open(event, player, creature, sender, 612, code)
 	else
 		player:SendBroadcastMessage("Você não tem uma Off Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 612, code)
 	end
 end
 
 if(intid == 562) then -- Sharpened Off
-local item = player:GetEquippedItemBySlot(16)
-if(player:GetEquippedItemBySlot(16)) then
-setVisual(player, item, 13)
-player:GossipComplete()
+	local item = player:GetEquippedItemBySlot(16)
+	if(player:GetEquippedItemBySlot(16)) then
+		setVisual(player, item, 13)
+		On_Gossip_Open(event, player, creature, sender, 612, code)
 	else
 		player:SendBroadcastMessage("Você não tem uma Off Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 612, code)
 	end
 end
 
@@ -972,143 +973,143 @@ if(intid == 613) then -- Off-Hand Blue
 end
 
 if(intid == 511) then -- Wraithchill
-local item = player:GetEquippedItemBySlot(16)
-if(player:GetEquippedItemBySlot(16)) then
-setVisual(player, item, 4006)
-player:GossipComplete()
+	local item = player:GetEquippedItemBySlot(16)
+	if(player:GetEquippedItemBySlot(16)) then
+		setVisual(player, item, 4006)
+		On_Gossip_Open(event, player, creature, sender, 613, code)
 	else
 		player:SendBroadcastMessage("Você não tem uma Off Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 613, code)
 	end
 end
 if(intid == 512) then -- Mongoose
-local item = player:GetEquippedItemBySlot(16)
-if(player:GetEquippedItemBySlot(16)) then
-setVisual(player, item, 2673)
-player:GossipComplete()
+	local item = player:GetEquippedItemBySlot(16)
+	if(player:GetEquippedItemBySlot(16)) then
+		setVisual(player, item, 2673)
+		On_Gossip_Open(event, player, creature, sender, 613, code)
 	else
 		player:SendBroadcastMessage("Você não tem uma Off Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 613, code)
 	end
 end
 if(intid == 513) then -- Mark of the Thunderlord
-local item = player:GetEquippedItemBySlot(16)
-if(player:GetEquippedItemBySlot(16)) then
-setVisual(player, item, 4010)
-player:GossipComplete()
+	local item = player:GetEquippedItemBySlot(16)
+	if(player:GetEquippedItemBySlot(16)) then
+		setVisual(player, item, 4010)
+		On_Gossip_Open(event, player, creature, sender, 613, code)
 	else
 		player:SendBroadcastMessage("Você não tem uma Off Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 613, code)
 	end
 end
 if(intid == 514) then -- Colossus
-local item = player:GetEquippedItemBySlot(16)
-if(player:GetEquippedItemBySlot(16)) then
-setVisual(player, item, 4011)
-player:GossipComplete()
+	local item = player:GetEquippedItemBySlot(16)
+	if(player:GetEquippedItemBySlot(16)) then
+		setVisual(player, item, 4011)
+		On_Gossip_Open(event, player, creature, sender, 613, code)
 	else
 		player:SendBroadcastMessage("Você não tem uma Off Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 613, code)
 	end
 end
 if(intid == 515) then -- Blade Ward
-local item = player:GetEquippedItemBySlot(16)
-if(player:GetEquippedItemBySlot(16)) then
-setVisual(player, item, 3869)
-player:GossipComplete()
+	local item = player:GetEquippedItemBySlot(16)
+	if(player:GetEquippedItemBySlot(16)) then
+		setVisual(player, item, 3869)
+		On_Gossip_Open(event, player, creature, sender, 613, code)
 	else
 		player:SendBroadcastMessage("Você não tem uma Off Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 613, code)
 	end
 end
 if(intid == 516) then -- Heartsong
-local item = player:GetEquippedItemBySlot(16)
-if(player:GetEquippedItemBySlot(16)) then
-setVisual(player, item, 1896)
-player:GossipComplete()
+	local item = player:GetEquippedItemBySlot(16)
+	if(player:GetEquippedItemBySlot(16)) then
+		setVisual(player, item, 1896)
+		On_Gossip_Open(event, player, creature, sender, 613, code)
 	else
 		player:SendBroadcastMessage("Você não tem uma Off Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 613, code)
 	end
 end
 if(intid == 517) then -- Soulfrost
-local item = player:GetEquippedItemBySlot(16)
-if(player:GetEquippedItemBySlot(16)) then
-setVisual(player, item, 26)
-player:GossipComplete()
+	local item = player:GetEquippedItemBySlot(16)
+	if(player:GetEquippedItemBySlot(16)) then
+		setVisual(player, item, 26)
+		On_Gossip_Open(event, player, creature, sender, 613, code)
 	else
 		player:SendBroadcastMessage("Você não tem uma Off Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 613, code)
 	end
 end
 if(intid == 518) then -- River's Song
-local item = player:GetEquippedItemBySlot(16)
-if(player:GetEquippedItemBySlot(16)) then
-setVisual(player, item, 4024)
-player:GossipComplete()
+	local item = player:GetEquippedItemBySlot(16)
+	if(player:GetEquippedItemBySlot(16)) then
+		setVisual(player, item, 4024)
+		On_Gossip_Open(event, player, creature, sender, 613, code)
 	else
 		player:SendBroadcastMessage("Você não tem uma Off Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 613, code)
 	end
 end
 if(intid == 519) then -- Jade Spirit
-local item = player:GetEquippedItemBySlot(16)
-if(player:GetEquippedItemBySlot(16)) then
-setVisual(player, item, 4023)
-player:GossipComplete()
+	local item = player:GetEquippedItemBySlot(16)
+	if(player:GetEquippedItemBySlot(16)) then
+		setVisual(player, item, 4023)
+		On_Gossip_Open(event, player, creature, sender, 613, code)
 	else
 		player:SendBroadcastMessage("Você não tem uma Off Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 613, code)
 	end
 end
 if(intid == 520) then -- Greater Spell Power
-local item = player:GetEquippedItemBySlot(16)
-if(player:GetEquippedItemBySlot(16)) then
-setVisual(player, item, 3854)
-player:GossipComplete()
+	local item = player:GetEquippedItemBySlot(16)
+	if(player:GetEquippedItemBySlot(16)) then
+		setVisual(player, item, 3854)
+		On_Gossip_Open(event, player, creature, sender, 613, code)
 	else
 		player:SendBroadcastMessage("Você não tem uma Off Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 613, code)
 	end
 end
 if(intid == 521) then -- Rune of Razorice
-local item = player:GetEquippedItemBySlot(16)
-if(player:GetEquippedItemBySlot(16)) then
-setVisual(player, item, 25)
-player:GossipComplete()
+	local item = player:GetEquippedItemBySlot(16)
+	if(player:GetEquippedItemBySlot(16)) then
+		setVisual(player, item, 25)
+		On_Gossip_Open(event, player, creature, sender, 613, code)
 	else
 		player:SendBroadcastMessage("Você não tem uma Off Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 613, code)
 	end
 end
 if(intid == 522) then -- Frostbrand
-local item = player:GetEquippedItemBySlot(16)
-if(player:GetEquippedItemBySlot(16)) then
-setVisual(player, item, 2672)
-player:GossipComplete()
+	local item = player:GetEquippedItemBySlot(16)
+	if(player:GetEquippedItemBySlot(16)) then
+		setVisual(player, item, 2672)
+		On_Gossip_Open(event, player, creature, sender, 613, code)
 	else
 		player:SendBroadcastMessage("Você não tem uma Off Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 613, code)
 	end
 end
 if(intid == 560) then
-local item = player:GetEquippedItemBySlot(16)
-if(player:GetEquippedItemBySlot(16)) then
-setVisual(player, item, 2)
-player:GossipComplete()
+	local item = player:GetEquippedItemBySlot(16)
+	if(player:GetEquippedItemBySlot(16)) then
+		setVisual(player, item, 2)
+		On_Gossip_Open(event, player, creature, sender, 613, code)
 	else
 		player:SendBroadcastMessage("Você não tem uma Off Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 613, code)
 	end
 end
 if(intid == 559) then -- Windfury
-local item = player:GetEquippedItemBySlot(16)
-if(player:GetEquippedItemBySlot(16)) then
-setVisual(player, item, 283)
-player:GossipComplete()
+	local item = player:GetEquippedItemBySlot(16)
+	if(player:GetEquippedItemBySlot(16)) then
+		setVisual(player, item, 283)
+		On_Gossip_Open(event, player, creature, sender, 613, code)
 	else
 		player:SendBroadcastMessage("Você não tem uma Off Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 613, code)
 	end
 end
 
@@ -1126,53 +1127,53 @@ end
 
 
 if(intid == 531) then -- Chronos Off
-local item = player:GetEquippedItemBySlot(16)
-if(player:GetEquippedItemBySlot(16)) then
-setVisual(player, item, 4016)
-player:GossipComplete()
+	local item = player:GetEquippedItemBySlot(16)
+	if(player:GetEquippedItemBySlot(16)) then
+		setVisual(player, item, 4016)
+		On_Gossip_Open(event, player, creature, sender, 614, code)
 	else
 		player:SendBroadcastMessage("Você não tem uma Off Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 614, code)
 	end
 end
 if(intid == 532) then -- Blackrock Off
-local item = player:GetEquippedItemBySlot(16)
-if(player:GetEquippedItemBySlot(16)) then
-setVisual(player, item, 4017)
-player:GossipComplete()
+	local item = player:GetEquippedItemBySlot(16)
+	if(player:GetEquippedItemBySlot(16)) then
+		setVisual(player, item, 4017)
+		On_Gossip_Open(event, player, creature, sender, 614, code)
 	else
 		player:SendBroadcastMessage("Você não tem uma Off Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 614, code)
 	end
 end
 if(intid == 533) then -- Shadowmoon(WoD) Off
-local item = player:GetEquippedItemBySlot(16)
-if(player:GetEquippedItemBySlot(16)) then
-setVisual(player, item, 4025)
-player:GossipComplete()
+	local item = player:GetEquippedItemBySlot(16)
+	if(player:GetEquippedItemBySlot(16)) then
+		setVisual(player, item, 4025)
+		On_Gossip_Open(event, player, creature, sender, 614, code)
 	else
 		player:SendBroadcastMessage("Você não tem uma Off Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 614, code)
 	end
 end
 if(intid == 534) then -- Mark of Shadowmoon Off
-local item = player:GetEquippedItemBySlot(16)
-if(player:GetEquippedItemBySlot(16)) then
-setVisual(player, item, 1743)
-player:GossipComplete()
+	local item = player:GetEquippedItemBySlot(16)
+	if(player:GetEquippedItemBySlot(16)) then
+		setVisual(player, item, 1743)
+		On_Gossip_Open(event, player, creature, sender, 614, code)
 	else
 		player:SendBroadcastMessage("Você não tem uma Off Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 614, code)
 	end
 end
 if(intid == 535) then -- Netherflame Off
-local item = player:GetEquippedItemBySlot(16)
-if(player:GetEquippedItemBySlot(16)) then
-setVisual(player, item, 3855)
-player:GossipComplete()
+	local item = player:GetEquippedItemBySlot(16)
+	if(player:GetEquippedItemBySlot(16)) then
+		setVisual(player, item, 3855)
+		On_Gossip_Open(event, player, creature, sender, 614, code)
 	else
 		player:SendBroadcastMessage("Você não tem uma Off Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 614, code)
 	end
 end
 
@@ -1188,53 +1189,53 @@ if(intid == 615) then -- Off-Hand Red
 end
 
 if(intid == 536) then -- Nightmare Off
-local item = player:GetEquippedItemBySlot(16)
-if(player:GetEquippedItemBySlot(16)) then
-setVisual(player, item, 4004)
-player:GossipComplete()
+	local item = player:GetEquippedItemBySlot(16)
+	if(player:GetEquippedItemBySlot(16)) then
+		setVisual(player, item, 4004)
+		On_Gossip_Open(event, player, creature, sender, 615, code)
 	else
 		player:SendBroadcastMessage("Você não tem uma Off Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 615, code)
 	end
 end
 if(intid == 537) then -- Sinwrath Off
-local item = player:GetEquippedItemBySlot(16)
-if(player:GetEquippedItemBySlot(16)) then
-setVisual(player, item, 4026)
-player:GossipComplete()
+	local item = player:GetEquippedItemBySlot(16)
+	if(player:GetEquippedItemBySlot(16)) then
+		setVisual(player, item, 4026)
+		On_Gossip_Open(event, player, creature, sender, 615, code)
 	else
 		player:SendBroadcastMessage("Você não tem uma Off Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 615, code)
 	end
 end
 if(intid == 539) then -- Berserking
-local item = player:GetEquippedItemBySlot(16)
-if(player:GetEquippedItemBySlot(16)) then
-setVisual(player, item, 3789)
-player:GossipComplete()
+	local item = player:GetEquippedItemBySlot(16)
+	if(player:GetEquippedItemBySlot(16)) then
+		setVisual(player, item, 3789)
+		On_Gossip_Open(event, player, creature, sender, 615, code)
 	else
 		player:SendBroadcastMessage("Você não tem uma Off Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 615, code)
 	end
 end
 if(intid == 540) then -- Attack Power
-local item = player:GetEquippedItemBySlot(16)
-if(player:GetEquippedItemBySlot(16)) then
-setVisual(player, item, 1606)
-player:GossipComplete()
+	local item = player:GetEquippedItemBySlot(16)
+	if(player:GetEquippedItemBySlot(16)) then
+		setVisual(player, item, 1606)
+		On_Gossip_Open(event, player, creature, sender, 615, code)
 	else
 		player:SendBroadcastMessage("Você não tem uma Off Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 615, code)
 	end
 end
 if(intid == 543) then -- Blood Draining
-local item = player:GetEquippedItemBySlot(16)
-if(player:GetEquippedItemBySlot(16)) then
-setVisual(player, item, 3870)
-player:GossipComplete()
+	local item = player:GetEquippedItemBySlot(16)
+	if(player:GetEquippedItemBySlot(16)) then
+		setVisual(player, item, 3870)
+		On_Gossip_Open(event, player, creature, sender, 615, code)
 	else
 		player:SendBroadcastMessage("Você não tem uma Off Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 615, code)
 	end
 end
 
@@ -1251,63 +1252,63 @@ if(intid == 616) then -- Off-Hand Orange
 end
 
 if(intid == 538) then -- Power Torrent (Static) - Off
-local item = player:GetEquippedItemBySlot(16)
-if(player:GetEquippedItemBySlot(16)) then
-setVisual(player, item, 4027)
-player:GossipComplete()
+	local item = player:GetEquippedItemBySlot(16)
+	if(player:GetEquippedItemBySlot(16)) then
+		setVisual(player, item, 4027)
+		On_Gossip_Open(event, player, creature, sender, 616, code)
 	else
 		player:SendBroadcastMessage("Você não tem uma Off Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 616, code)
 	end
 end
 if(intid == 542) then -- Power Torrent
-local item = player:GetEquippedItemBySlot(16)
-if(player:GetEquippedItemBySlot(16)) then
-setVisual(player, item, 4000)
-player:GossipComplete()
+	local item = player:GetEquippedItemBySlot(16)
+	if(player:GetEquippedItemBySlot(16)) then
+		setVisual(player, item, 4000)
+		On_Gossip_Open(event, player, creature, sender, 616, code)
 	else
 		player:SendBroadcastMessage("Você não tem uma Off Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 616, code)
 	end
 end
 if(intid == 541) then -- Flames of Ragnaros
-local item = player:GetEquippedItemBySlot(16)
-if(player:GetEquippedItemBySlot(16)) then
-setVisual(player, item, 4021)
-player:GossipComplete()
+	local item = player:GetEquippedItemBySlot(16)
+	if(player:GetEquippedItemBySlot(16)) then
+		setVisual(player, item, 4021)
+		On_Gossip_Open(event, player, creature, sender, 616, code)
 	else
 		player:SendBroadcastMessage("Você não tem uma Off Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 616, code)
 	end
 end
 if(intid == 545) then -- Elemental Force
-local item = player:GetEquippedItemBySlot(16)
-if(player:GetEquippedItemBySlot(16)) then
-setVisual(player, item, 4001)
-player:GossipComplete()
+	local item = player:GetEquippedItemBySlot(16)
+	if(player:GetEquippedItemBySlot(16)) then
+		setVisual(player, item, 4001)
+		On_Gossip_Open(event, player, creature, sender, 616, code)
 	else
 		player:SendBroadcastMessage("Você não tem uma Off Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 616, code)
 	end
 end
 if(intid == 544) then -- Fiery Weapon
-local item = player:GetEquippedItemBySlot(16)
-if(player:GetEquippedItemBySlot(16)) then
-setVisual(player, item, 803)
-player:GossipComplete()
+	local item = player:GetEquippedItemBySlot(16)
+	if(player:GetEquippedItemBySlot(16)) then
+		setVisual(player, item, 803)
+		On_Gossip_Open(event, player, creature, sender, 616, code)
 	else
 		player:SendBroadcastMessage("Você não tem uma Off Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 616, code)
 	end
 end
 if(intid == 561) then -- Flametongue
-local item = player:GetEquippedItemBySlot(16)
-if(player:GetEquippedItemBySlot(16)) then
-setVisual(player, item, 3)
-player:GossipComplete()
+	local item = player:GetEquippedItemBySlot(16)
+	if(player:GetEquippedItemBySlot(16)) then
+		setVisual(player, item, 3)
+		On_Gossip_Open(event, player, creature, sender, 616, code)
 	else
 		player:SendBroadcastMessage("Você não tem uma Off Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 616, code)
 	end
 end
 
@@ -1327,73 +1328,73 @@ end
 
 
 if(intid == 546) then -- Sunfire Off
-local item = player:GetEquippedItemBySlot(16)
-if(player:GetEquippedItemBySlot(16)) then
-setVisual(player, item, 2671)
-player:GossipComplete()
+	local item = player:GetEquippedItemBySlot(16)
+	if(player:GetEquippedItemBySlot(16)) then
+		setVisual(player, item, 2671)
+		On_Gossip_Open(event, player, creature, sender, 617, code)
 	else
 		player:SendBroadcastMessage("Você não tem uma Off Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 617, code)
 	end
 end
 if(intid == 547) then -- Landslide Off
-local item = player:GetEquippedItemBySlot(16)
-if(player:GetEquippedItemBySlot(16)) then
-setVisual(player, item, 4002)
-player:GossipComplete()
+	local item = player:GetEquippedItemBySlot(16)
+	if(player:GetEquippedItemBySlot(16)) then
+		setVisual(player, item, 4002)
+		On_Gossip_Open(event, player, creature, sender, 617, code)
 	else
 		player:SendBroadcastMessage("Você não tem uma Off Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 617, code)
 	end
 end
 if(intid == 548) then -- Light of the Earth-Warder Off
-local item = player:GetEquippedItemBySlot(16)
-if(player:GetEquippedItemBySlot(16)) then
-setVisual(player, item, 4020)
-player:GossipComplete()
+	local item = player:GetEquippedItemBySlot(16)
+	if(player:GetEquippedItemBySlot(16)) then
+		setVisual(player, item, 4020)
+		On_Gossip_Open(event, player, creature, sender, 617, code)
 	else
 		player:SendBroadcastMessage("Você não tem uma Off Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 617, code)
 	end
 end
 if(intid == 549) then -- Titanguard Off
-local item = player:GetEquippedItemBySlot(16)
-if(player:GetEquippedItemBySlot(16)) then
-setVisual(player, item, 3846)
-player:GossipComplete()
+	local item = player:GetEquippedItemBySlot(16)
+	if(player:GetEquippedItemBySlot(16)) then
+		setVisual(player, item, 3846)
+		On_Gossip_Open(event, player, creature, sender, 617, code)
 	else
 		player:SendBroadcastMessage("Você não tem uma Off Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 617, code)
 	end
 end
 if(intid == 550) then -- Spirit Off
-local item = player:GetEquippedItemBySlot(16)
-if(player:GetEquippedItemBySlot(16)) then
-setVisual(player, item, 1903)
-player:GossipComplete()
+	local item = player:GetEquippedItemBySlot(16)
+	if(player:GetEquippedItemBySlot(16)) then
+		setVisual(player, item, 1903)
+		On_Gossip_Open(event, player, creature, sender, 617, code)
 	else
 		player:SendBroadcastMessage("Você não tem uma Off Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 617, code)
 	end
 end
 if(intid == 557) then -- Spell Power II Off
-local item = player:GetEquippedItemBySlot(16)
-if(player:GetEquippedItemBySlot(16)) then
-setVisual(player, item, 2343)
-player:GossipComplete()
+	local item = player:GetEquippedItemBySlot(16)
+	if(player:GetEquippedItemBySlot(16)) then
+		setVisual(player, item, 2343)
+		On_Gossip_Open(event, player, creature, sender, 617, code)
 	else
 		player:SendBroadcastMessage("Você não tem uma Off Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 617, code)
 	end
 end
 if(intid == 558) then -- Rockbiter Off
-local item = player:GetEquippedItemBySlot(16)
-if(player:GetEquippedItemBySlot(16)) then
-setVisual(player, item, 1)
-player:GossipComplete()
+	local item = player:GetEquippedItemBySlot(16)
+	if(player:GetEquippedItemBySlot(16)) then
+		setVisual(player, item, 1)
+		On_Gossip_Open(event, player, creature, sender, 617, code)
 	else
 		player:SendBroadcastMessage("Você não tem uma Off Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 617, code)
 	end
 end
 
@@ -1412,72 +1413,85 @@ if(intid == 553) then -- Breath of Yu'lon
 	local item = player:GetEquippedItemBySlot(16)
 	if(player:GetEquippedItemBySlot(16)) then
 		setVisual(player, item, 4019)
-	player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 618, code)
 	else
 		player:SendBroadcastMessage("Você não tem uma Off Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 618, code)
 	end
 end
 if(intid == 554) then -- Earthliving Off
 	local item = player:GetEquippedItemBySlot(16)
 	if(player:GetEquippedItemBySlot(16)) then
 		setVisual(player, item, 3345)
-	player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 618, code)
 	else
 		player:SendBroadcastMessage("Você não tem uma Off Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 618, code)
 	end
 end
 if(intid == 555) then -- Agility Off
 	local item = player:GetEquippedItemBySlot(16)
 	if(player:GetEquippedItemBySlot(16)) then
 		setVisual(player, item, 1103)
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 618, code)
 	else
 		player:SendBroadcastMessage("Você não tem uma Off Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 618, code)
 	end
 end
 if(intid == 556) then -- Unholy Weapon Off
 	local item = player:GetEquippedItemBySlot(16)
 	if(player:GetEquippedItemBySlot(16)) then
 		setVisual(player, item, 1899)
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 618, code)
 	else
 		player:SendBroadcastMessage("Você não tem uma Off Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 618, code)
 	end
 end
 if(intid == 563) then -- Deadly Poison Off
 	local item = player:GetEquippedItemBySlot(16)
 	if(player:GetEquippedItemBySlot(16)) then
 		setVisual(player, item, 7)
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 618, code)
 	else
 		player:SendBroadcastMessage("Você não tem uma Off Hand equipada para adicionar o Enchant Visual.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 618, code)
 	end
 end
 
 
 -- PvP Enchants:
--- Main Hand PvP Enchants
+-- Main Hand PvP Enchants - PvP
 if(intid == 700) then
     player:GossipSetText(string.format("Main-Hand PvP Enchantments."))
     player:GossipMenuAddItem(9,"|TInterface\\icons\\Inv_rod_enchantedfelsteel:27|t |cFF008000Demonic Tyranny |cFF000000(|cFFFFFF002000 Rating 2v2|cFF000000)",0, 750)
     player:GossipMenuAddItem(9,"|TInterface\\icons\\Inv_spear_09:27|t |cFFFF0000Glorious Tyranny |cFF000000(|cFFFFFF002000 Rating 3v3|cFF000000)\n",0, 751)
-    player:GossipMenuAddItem(5,"|TInterface\\icons\\spell_holy_dispelmagic:27|t Remover Enchant Visual (Main Hand)\n",0, 1003)
+    player:GossipMenuAddItem(5,"|TInterface\\icons\\spell_holy_dispelmagic:27|t Remover Enchant Visual (Main Hand)\n",0, 1004)
     player:GossipMenuAddItem(3,"|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:27:27:0:0|t Voltar",0,998)
     player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)
 end
--- OFF Hand PvP Enchants
+-- OFF Hand PvP Enchants - PvP
 if(intid == 701) then
     player:GossipSetText(string.format("Off-Hand PvP Enchantments."))
     player:GossipMenuAddItem(9,"|TInterface\\icons\\Inv_rod_enchantedfelsteel:27|t |cFF008000Demonic Tyranny |cFF000000(|cFFFFFF002000 Rating 3v3|cFF000000)",0, 752)
     player:GossipMenuAddItem(9,"|TInterface\\icons\\Inv_spear_09:27|t |cFFFF0000Glorious Tyranny |cFF000000(|cFFFFFF002000 Rating 3v3|cFF000000)\n",0, 753)
-    player:GossipMenuAddItem(5,"|TInterface\\icons\\spell_holy_dispelmagic:27|t Remover Enchant Visual (Off Hand)\n",0, 1002)
+    player:GossipMenuAddItem(5,"|TInterface\\icons\\spell_holy_dispelmagic:27|t Remover Enchant Visual (Off Hand)\n",0, 1005)
     player:GossipMenuAddItem(3,"|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:27:27:0:0|t Voltar",0,998)
     player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)
+end
+
+-- Remover Enchant Visual (Main Hand PvP)
+if(intid == 1004) then
+	local item = player:GetEquippedItemBySlot(15)
+	if(player:GetEquippedItemBySlot(15)) then
+		setVisual(player, item, 0)
+		player:SendBroadcastMessage("Relogue para restaurar o visual original do enchant equipado na sua main hand weapon.")
+		return On_Gossip_Open(event, player, creature, sender, 700, code)
+	else
+		player:SendBroadcastMessage("Você não tem uma Main Hand equipada para remover o Enchant.")
+		return On_Gossip_Open(event, player, creature, sender, 700, code)
+	end
 end
 
 -- Glorious Tiranny Main Hand
@@ -1486,14 +1500,14 @@ if(intid == 751) then
 		local item = player:GetEquippedItemBySlot(15)
 		if(player:GetEquippedItemBySlot(15)) then
 			setVisual(player, item, 4012)
-			player:GossipComplete()
+			return On_Gossip_Open(event, player, creature, sender, 700, code)
 		else
 			player:SendBroadcastMessage("Você não tem uma Main Hand equipada para adicionar o Enchant Visual.")
-			player:GossipComplete()
+			return On_Gossip_Open(event, player, creature, sender, 700, code)
 		end
 	else
 		player:SendBroadcastMessage("É necessário o achievement de 2000 de rating em 3v3 para adicionar esse enchant.")
-		player:GossipComplete()
+		return On_Gossip_Open(event, player, creature, sender, 700, code)
 	end
 -- Demonic Tiranny Main Hand
 elseif(intid == 750) then
@@ -1501,14 +1515,14 @@ elseif(intid == 750) then
 		local item = player:GetEquippedItemBySlot(15)
 		if(player:GetEquippedItemBySlot(15)) then
 			setVisual(player, item, 4013)
-			player:GossipComplete()
+			return On_Gossip_Open(event, player, creature, sender, 700, code)
 		else
 			player:SendBroadcastMessage("Você não tem uma Main Hand equipada para adicionar o Enchant Visual.")
-			player:GossipComplete()
+			return On_Gossip_Open(event, player, creature, sender, 700, code)
 		end
 	else
 		player:SendBroadcastMessage("É necessário o achievement de 2000 de rating em 2v2 para adicionar esse enchant.")
-		player:GossipComplete()
+		return On_Gossip_Open(event, player, creature, sender, 700, code)
 	end
 -- Glorious Tiranny Off Hand
 elseif(intid == 753) then
@@ -1516,14 +1530,14 @@ elseif(intid == 753) then
 		local item = player:GetEquippedItemBySlot(16)
 		if(player:GetEquippedItemBySlot(16)) then
 			setVisual(player, item, 4012)
-			player:GossipComplete()
+			On_Gossip_Open(event, player, creature, sender, 701, code)
 		else
 			player:SendBroadcastMessage("Você não tem uma Off Hand equipada para adicionar o Enchant Visual.")
-			player:GossipComplete()
+			On_Gossip_Open(event, player, creature, sender, 701, code)
 		end
 	else
 		player:SendBroadcastMessage("É necessário o achievement de 2000 de rating em 3v3 para adicionar esse enchant.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 701, code)
 	end
 -- Demonic Tiranny Off Hand
 elseif(intid == 752) then
@@ -1531,15 +1545,28 @@ elseif(intid == 752) then
 		local item = player:GetEquippedItemBySlot(16)
 		if(player:GetEquippedItemBySlot(16)) then
 			setVisual(player, item, 4013)
-			player:GossipComplete()
+			On_Gossip_Open(event, player, creature, sender, 701, code)
 		else
 			player:SendBroadcastMessage("Você não tem uma Off Hand equipada para adicionar o Enchant Visual.")
-			player:GossipComplete()
+			On_Gossip_Open(event, player, creature, sender, 701, code)
 		end
 	else
 		player:SendBroadcastMessage("É necessário o achievement de 2000 de rating em 2v2 para adicionar esse enchant.")
-		player:GossipComplete()
+		On_Gossip_Open(event, player, creature, sender, 701, code)
 	end
+
+-- Remover Enchant Visual PvP (Off Hand)
+elseif(intid == 1005) then
+	local item = player:GetEquippedItemBySlot(16)
+	if(player:GetEquippedItemBySlot(16)) then
+		setVisual(player, item, 0)
+		player:SendBroadcastMessage("Relogue para restaurar o visual original do enchant equipado na sua off hand weapon.")
+		On_Gossip_Open(event, player, creature, sender, 701, code)
+	else 
+		player:SendBroadcastMessage("Você não tem uma Off Hand equipada para remover o Enchant.")
+		On_Gossip_Open(event, player, creature, sender, 701, code)
+	end
+
 
 elseif intid == 702 then
    --player:GossipSetText(string.format("Para add achiev é:\n .Achiev add (Id) \n\n2v2:       Id Achievement:\n2000 = 401\n2200 = 1159\n2400 = 10036\n2700 = 10037\n3000 = 10046\n\n3v3:\n2000 = 405\n2200 = 1160\n2400 = 10038\n2700 = 13039\n3000 = 10047"))
@@ -1576,17 +1603,19 @@ de bloco em Lua
 --]]
  
  
-elseif (intid == 999) then
+elseif (intid == 999) then -- Fechar?
    player:GossipComplete()	
 
  
-elseif (intid == 998) then
-	On_Gossip_Select(unit, player, creature)
+elseif (intid == 998) then -- voltar
+	OpenEnchantTransmog(unit, player, creature)
 	end
 end
  
-RegisterCreatureGossipEvent(NpcId, 1, On_Gossip_Select)
+RegisterCreatureGossipEvent(NpcId, 1, OpenEnchantTransmog)
 RegisterCreatureGossipEvent(NpcId, 2, On_Gossip_Open)
 
-RegisterCreatureGossipEvent(NpcIdSmall, 1, On_Gossip_Select)
+RegisterCreatureGossipEvent(NpcIdSmall, 1, OpenEnchantTransmog)
 RegisterCreatureGossipEvent(NpcIdSmall, 2, On_Gossip_Open)
+
+return WeaponEnchantTransmog

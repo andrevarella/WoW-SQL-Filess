@@ -1,4 +1,7 @@
-local druidMorph = require("NPC_Morph_DruidForm_Morpher")
+local druidMorph     = require("NPC_Morph_DruidForm_Morpher")
+local zDruidMorphOLD = require("zNPC_Morph_DruidForm_Morpher_OLD")
+
+local WeaponEnchantTransmog = require("NPC_Weapon_Enchant_Transmog")
 
 Timer = {}
 
@@ -19,9 +22,11 @@ function TeleporterItem_Gossip(unit, player, creature)
 	player:GossipMenuAddItem(8," |TInterface/Icons/Inv_misc_enggizmos_17.png:28|t |cFF0000FFSummon Guild Vault", 0, 4)
 	player:GossipMenuAddItem(4," |TInterface\\icons\\inv_pet_lilsmoky.png:28|t |cFF0000FFSumonar Npcs Temporariamente|r", 0, 6)
 	player:GossipMenuAddItem(3," |TInterface\\icons\\Ability_marksmanship:28|t |cFF0000FFResetar Talents", 0, 7, false, "Tem certeza que quer resetar os Talents?")
-	if player:GetClass() == 11 then 
-		player:GossipMenuAddItem(3," |TInterface\\icons\\Ability_druid_healinginstincts:27|t |cFF0000FFDruid Form Customizer", 0, 8)
-	end
+	--if player:GetClass() == 11 then 
+	--	player:GossipMenuAddItem(3," |TInterface\\icons\\Ability_druid_healinginstincts:27|t |cFF0000FFDruid Form Customizer", 0, 750)
+	--end
+	--player:GossipMenuAddItem(3," |TInterface\\icons\\Inv_sword_01:29|t |cFF0000FFTransmog Weapon|r |cFFFF00FFEnchant (Gossip)", 0, 50) -- nao funciona ATM
+	--player:GossipMenuAddItem(3," |TInterface/Icons/Ability_rogue_disguise.png:29|t |cFF0000FFMorph (Gossip)", 0, 51) -- n funciona
 
 	if player:IsGMVisible() then -- Disponivel apenas para GMs
 		player:GossipMenuAddItem(5, "\n\n |TInterface\\icons\\Achievement_BG_winWSG:25|t Change Faction |cFF0000FF(Apenas p/ GM)", 0, 9, false, "Tem certeza que quer trocar a Facção do Personagem?")
@@ -199,6 +204,7 @@ function Teleporter_Event(event, player, creature, sender, intid, code, menu_id)
 		
 		if (player:IsInCombat() or player:GetMap():IsArena() or player:GetMap():IsBattleground()) then
 			player:SendBroadcastMessage("Você não pode sumonar o Guild Vault enquanto estiver em Combat ou em Battlegrounds.")
+			return TeleporterItem_Gossip(unit, player, creature)
 		else
 			local lastUsedGV = player:GetData("lastGuildVault") -- get the last time the player used this submenu
 			local timeLeftGV
@@ -210,9 +216,15 @@ function Teleporter_Event(event, player, creature, sender, intid, code, menu_id)
 				end
 			end
 			player:CastSpell(player, 83344, true)
-			player:GossipComplete()
 			player:SendBroadcastMessage("Você sumonou um Guild Vault por 30 segundos.")
 			player:SetData("lastGuildVault", currtimeGV)
+			player:RegisterEvent(function(e, d, r, p)
+				p:SendBroadcastMessage("O Guild Vault irá sumir em 10 segundos.")
+			end, 20000, 1)
+			player:RegisterEvent(function(e, d, r, p)
+				p:SendBroadcastMessage("O Guild Vault irá sumir em 5 segundos.")
+			end, 25000, 1) -- 15 segundos depois do início do summon
+			return TeleporterItem_Gossip(unit, player, creature)
 		end
 	end
 	if(intid == 5) then -- Usar Mail
@@ -222,15 +234,23 @@ function Teleporter_Event(event, player, creature, sender, intid, code, menu_id)
 	if(intid == 7) then -- Reset Talents
 		if (player:IsInCombat() or player:GetMap():IsArena() or player:GetMap():IsBattleground()) then
 			player:SendBroadcastMessage("Você não pode resetar os Talents enquanto estiver em Combat ou em Battlegrounds.")
+			return TeleporterItem_Gossip(unit, player, creature)
 		else
 			player:ResetTalents()
 			player:RemoveSpell(43039)
-			player:GossipComplete()
 			player:SendBroadcastMessage("Seus talentos foram resetados.")	
+			return TeleporterItem_Gossip(unit, player, creature)
 		end
 	end
-	if(intid == 8) then -- Mod Druid Form Customizer
-		druidMorph.menu(event, player, object)
+	if(intid == 750) then -- Mod Druid Form Customizer
+		druidMorphHello2(event, player, creature)
+		--druidMorph.menu(event, player, object) -- Druid Morph OLD
+	end
+	if(intid == 50) then -- Weapon Enchant
+		OpenEnchantTransmog(unit, player, creature)
+	end
+	if(intid == 51) then -- Morph
+		morpherMenu(event, player, object)
 	end
 
 	
@@ -265,9 +285,7 @@ function Teleporter_Event(event, player, creature, sender, intid, code, menu_id)
 			timeLeft = cooldown - (currtime - lastUsed)
 			if timeLeft > 0 then 
 				player:SendAreaTriggerMessage("Você poderá sumonar o NPC em "..timeLeft.." segundos. \n(Proteção contra Spam)") -- display remaining cooldown time
-				player:SendAreaTriggerMessage("Você poderá sumonar o NPC em "..timeLeftGV.." segundos.")
-				return
-				player:GossipComplete()
+				return TeleporterItem_Gossip(unit, player, creature)
 			end
 		end
 		local x, y, z, o = player:GetLocation()
@@ -277,9 +295,18 @@ function Teleporter_Event(event, player, creature, sender, intid, code, menu_id)
 			--Jeeves:MoveFollow(player)
 			Jeeves:DespawnOrUnsummon(20000)
 			player:SetData("lastMenu41", currtime) -- record current time as the last time this menu was used
-		    player:GossipComplete()
+			--Teleporter_Event(event, player, creature, sender, 6, code)
+			TeleporterItem_Gossip(unit, player, creature)
+			player:RegisterEvent(function(e, d, r, p)
+				p:SendBroadcastMessage("O Jeeves irá sumir em 10 segundos.")
+			end, 10000, 1)
+			player:RegisterEvent(function(e, d, r, p)
+				p:SendBroadcastMessage("O Jeeves irá sumir em 5 segundos.")
+			end, 15000, 1) -- 15 segundos depois do início do summon
 		end
 	end
+
+	
 	if(intid == 41) then -- Repair Gear
         player:DurabilityRepairAll(100,100)
 	    player:SendBroadcastMessage("Seus items foram reparados.")
@@ -292,8 +319,7 @@ function Teleporter_Event(event, player, creature, sender, intid, code, menu_id)
 			timeLeft = cooldown - (currtime - lastUsed)
 			if timeLeft > 0 then 
 				player:SendAreaTriggerMessage("Você poderá sumonar o NPC em "..timeLeft.." segundos. \n(Proteção contra Spam)")
-				return
-				player:GossipComplete()
+				return TeleporterItem_Gossip(unit, player, creature)
 			end
 		end
 		local x, y, z, o = player:GetLocation()
@@ -303,7 +329,13 @@ function Teleporter_Event(event, player, creature, sender, intid, code, menu_id)
 			--BankNPC:MoveFollow(player)
 			BankNPC:DespawnOrUnsummon(20000)
 			player:SetData("lastMenu41", currtime)
-		    player:GossipComplete()		
+			TeleporterItem_Gossip(unit, player, creature)
+			player:RegisterEvent(function(e, d, r, p)
+				p:SendBroadcastMessage("O NPC Banco irá sumir em 10 segundos.")
+			end, 10000, 1)
+			player:RegisterEvent(function(e, d, r, p)
+				p:SendBroadcastMessage("O NPC Banco irá sumir em 5 segundos.")
+			end, 15000, 1) -- 15 segundos depois do início do summon
 		end	
 	end
 	
@@ -314,8 +346,7 @@ function Teleporter_Event(event, player, creature, sender, intid, code, menu_id)
 			timeLeft = cooldown - (currtime - lastUsed)
 			if timeLeft > 0 then 
 				player:SendAreaTriggerMessage("Você poderá sumonar o NPC em "..timeLeft.." segundos. \n(Proteção contra Spam)")
-				return
-				player:GossipComplete()
+				return TeleporterItem_Gossip(unit, player, creature)
 			end
 		end
 		local x, y, z, o = player:GetLocation()
@@ -326,13 +357,25 @@ function Teleporter_Event(event, player, creature, sender, intid, code, menu_id)
 			--AuctionerNPC:MoveFollow(player)
 			AuctionerNPC:DespawnOrUnsummon(20000)
 			player:SetData("lastMenu41", currtime)
-		    player:GossipComplete()		
+			player:RegisterEvent(function(e, d, r, p)
+				p:SendBroadcastMessage("O Auctioneer irá sumir em 10 segundos.")
+			end, 10000, 1)
+			player:RegisterEvent(function(e, d, r, p)
+				p:SendBroadcastMessage("O Auctioneer irá sumir em 5 segundos.")
+			end, 15000, 1) -- 15 segundos depois do início do summon
+			TeleporterItem_Gossip(unit, player, creature)
 		end	
 	end
 	if(intid == 44) then -- Summon Mail - DESATIVADO
         player:CastSpell(player, 83345, true)
 		player:SendBroadcastMessage("Você sumonou um Mail por 30 segundos.")
-        player:GossipComplete()	
+			player:RegisterEvent(function(e, d, r, p)
+				p:SendBroadcastMessage("O Guild Vault irá sumir em 10 segundos.")
+			end, 20000, 1)
+			player:RegisterEvent(function(e, d, r, p)
+				p:SendBroadcastMessage("O Guild Vault irá sumir em 5 segundos.")
+			end, 25000, 1) -- 15 segundos depois do início do summon
+        	TeleporterItem_Gossip(unit, player, creature)
 	end
 	if(intid == 45) then -- Npc Join Arena		
 	    local lastUsed = player:GetData("lastMenu41")
@@ -341,8 +384,7 @@ function Teleporter_Event(event, player, creature, sender, intid, code, menu_id)
 			timeLeft = cooldown - (currtime - lastUsed)
 			if timeLeft > 0 then 
 				player:SendAreaTriggerMessage("Você poderá sumonar o NPC em "..timeLeft.." segundos. \n(Proteção contra Spam)")
-				return
-				player:GossipComplete()
+				return TeleporterItem_Gossip(unit, player, creature)
 			end
 		end
 		local x, y, z, o = player:GetLocation()
@@ -352,7 +394,13 @@ function Teleporter_Event(event, player, creature, sender, intid, code, menu_id)
 			NpcArenaJoin:MoveFollow(player)
 			NpcArenaJoin:DespawnOrUnsummon(20000)
 			player:SetData("lastMenu41", currtime)
-		    player:GossipComplete()
+			TeleporterItem_Gossip(unit, player, creature)
+			player:RegisterEvent(function(e, d, r, p)
+				p:SendBroadcastMessage("O npc de Joinar Arena irá sumir em 10 segundos.")
+			end, 10000, 1)
+			player:RegisterEvent(function(e, d, r, p)
+				p:SendBroadcastMessage("O npc de Joinar Arena irá sumir em 5 segundos.")
+			end, 15000, 1) -- 15 segundos depois do início do summon
 		end	
 	end
 	if(intid == 46) then -- Npc Create Arena Team
@@ -362,8 +410,7 @@ function Teleporter_Event(event, player, creature, sender, intid, code, menu_id)
 			timeLeft = cooldown - (currtime - lastUsed)
 			if timeLeft > 0 then 
 				player:SendAreaTriggerMessage("Você poderá sumonar o NPC em "..timeLeft.." segundos. \n(Proteção contra Spam)")
-				return
-				player:GossipComplete()
+				return TeleporterItem_Gossip(unit, player, creature)
 			end
 		end
 		local x, y, z, o = player:GetLocation()
@@ -373,7 +420,13 @@ function Teleporter_Event(event, player, creature, sender, intid, code, menu_id)
 			--NpcArenaTeam:MoveFollow(player)
 			NpcArenaTeam:DespawnOrUnsummon(20000)
 			player:SetData("lastMenu41", currtime)
-		    player:GossipComplete()		
+			TeleporterItem_Gossip(unit, player, creature)
+			player:RegisterEvent(function(e, d, r, p)
+				p:SendBroadcastMessage("O npc de Criar time de Arena irá sumir em 10 segundos.")
+			end, 10000, 1)
+			player:RegisterEvent(function(e, d, r, p)
+				p:SendBroadcastMessage("O npc de Criar time de Arena irá sumir em 5 segundos.")
+			end, 15000, 1) -- 15 segundos depois do início do summon
 		end	
 	end
 	if(intid == 47) then -- Npc Transmog
@@ -383,8 +436,7 @@ function Teleporter_Event(event, player, creature, sender, intid, code, menu_id)
 			timeLeft = cooldown - (currtime - lastUsed)
 			if timeLeft > 0 then 
 				player:SendAreaTriggerMessage("Você poderá sumonar o NPC em "..timeLeft.." segundos. \n(Proteção contra Spam)")
-				return
-				player:GossipComplete()
+				return TeleporterItem_Gossip(unit, player, creature)
 			end
 		end
 		local x, y, z, o = player:GetLocation()
@@ -394,7 +446,13 @@ function Teleporter_Event(event, player, creature, sender, intid, code, menu_id)
 			--NpcTransmog:MoveFollow(player)
 			NpcTransmog:DespawnOrUnsummon(20000)
 			player:SetData("lastMenu41", currtime)
-		    player:GossipComplete()		
+			TeleporterItem_Gossip(unit, player, creature)
+			player:RegisterEvent(function(e, d, r, p)
+				p:SendBroadcastMessage("O npc de Transmog irá sumir em 10 segundos.")
+			end, 10000, 1)
+			player:RegisterEvent(function(e, d, r, p)
+				p:SendBroadcastMessage("O npc de Transmog irá sumir em 5 segundos.")
+			end, 15000, 1) -- 15 segundos depois do início do summon
 		end	
 	end
 	if(intid == 48) then -- Npc Weapon Enchant
@@ -404,8 +462,7 @@ function Teleporter_Event(event, player, creature, sender, intid, code, menu_id)
 			timeLeft = cooldown - (currtime - lastUsed)
 			if timeLeft > 0 then 
 				player:SendAreaTriggerMessage("Você poderá sumonar o NPC em "..timeLeft.." segundos. \n(Proteção contra Spam)")
-				return
-				player:GossipComplete()
+				return TeleporterItem_Gossip(unit, player, creature)
 			end
 		end
 		local x, y, z, o = player:GetLocation()
@@ -415,7 +472,13 @@ function Teleporter_Event(event, player, creature, sender, intid, code, menu_id)
 			--NpcWeaponEnchant:MoveFollow(player)
 			NpcWeaponEnchant:DespawnOrUnsummon(20000)
 			player:SetData("lastMenu41", currtime)
-		    player:GossipComplete()
+			TeleporterItem_Gossip(unit, player, creature)
+			player:RegisterEvent(function(e, d, r, p)
+				p:SendBroadcastMessage("O npc Transmog de Enchant irá sumir em 10 segundos.")
+			end, 10000, 1)
+			player:RegisterEvent(function(e, d, r, p)
+				p:SendBroadcastMessage("O npc Transmog de Enchant irá sumir em 5 segundos.")
+			end, 15000, 1) -- 15 segundos depois do início do summon
 		end	
 	end
 	if(intid == 49) then -- Npc Player Morpher - DESATIVADO
@@ -425,8 +488,7 @@ function Teleporter_Event(event, player, creature, sender, intid, code, menu_id)
 			timeLeft = cooldown - (currtime - lastUsed)
 			if timeLeft > 0 then 
 				player:SendAreaTriggerMessage("Você poderá sumonar o NPC em "..timeLeft.." segundos. \n(Proteção contra Spam)")
-				return
-				player:GossipComplete()
+				return TeleporterItem_Gossip(unit, player, creature)
 			end
 		end
 		local NpcMorpherID = 93131
@@ -437,9 +499,16 @@ function Teleporter_Event(event, player, creature, sender, intid, code, menu_id)
 			--MorpherNPC:MoveFollow(player)
 			MorpherNPC:DespawnOrUnsummon(20000)
 			player:SetData("lastMenu41", currtime)
-		    player:GossipComplete()		
+			TeleporterItem_Gossip(unit, player, creature)
+			player:RegisterEvent(function(e, d, r, p)
+				p:SendBroadcastMessage("O npc Morpher irá sumir em 10 segundos.")
+			end, 10000, 1)
+			player:RegisterEvent(function(e, d, r, p)
+				p:SendBroadcastMessage("O npc Morpher irá sumir em 5 segundos.")
+			end, 15000, 1) -- 15 segundos depois do início do summon
 		end	
 	end
+	
 
 	
 	if (intid == 9) then -- Trocar Facção (GM Only)
@@ -469,3 +538,4 @@ RegisterItemGossipEvent(ItemEntry, 1, TeleporterItem_Gossip)
 RegisterItemGossipEvent(ItemEntryEterno, 1, TeleporterItem_Gossip)
 RegisterItemGossipEvent(ItemEntry, 2, Teleporter_Event)
 RegisterItemGossipEvent(ItemEntryEterno, 2, Teleporter_Event)
+
