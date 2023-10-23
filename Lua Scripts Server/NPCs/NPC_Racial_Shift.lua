@@ -36,11 +36,11 @@ local function OnPlayerLogin(event, player)
 		
 		-- Human
 		if raceValue == 1 then      
-			UnlearnSpells(player, {20574, 20572, 65222, 33702, 33697, 2481, 20596, 59224, 20594, 21009, 20583, 20582, 58984, 20585, 20577, 20579, 5227, 7744, 20552,
+			UnlearnSpells(player, {20595, 20574, 20572, 65222, 33702, 33697, 2481, 20596, 59224, 20594, 21009, 20583, 20582, 58984, 20585, 20577, 20579, 5227, 7744, 20552,
 			20550, 20551, 20549, 20592, 20593, 20589, 20591, 20557, 26297, 26290, 58943, 20555, 20558, 28730, 28877, 822, 25046, 50613, 28875, 59542, 6562, 59221, 59547, 59540})
 		-- Orc
 		elseif raceValue == 2 then 
-			UnlearnSpells(player, {20599, 59752, 20864, 58985, 20597, 20598, 2481, 20596, 59224, 20594, 21009, 20583, 20582, 58984, 20585, 20577, 20579, 5227, 7744, 20552, 20550,
+			UnlearnSpells(player, {20595, 20599, 59752, 20864, 58985, 20597, 20598, 2481, 20596, 59224, 20594, 21009, 20583, 20582, 58984, 20585, 20577, 20579, 5227, 7744, 20552, 20550,
 			20551, 20549, 20592, 20593, 20589, 20591, 20557, 26297, 26290, 58943, 20555, 20558, 28730, 28877, 822, 25046, 50613, 28875, 59542, 6562, 59221, 59547, 59540})
 		-- Dwarf
 		elseif raceValue == 3 then
@@ -48,31 +48,31 @@ local function OnPlayerLogin(event, player)
 			20550, 20551, 20549, 20592, 20593, 20589, 20591, 20557, 26297, 26290, 58943, 20555, 20558, 28730, 28877, 822, 25046, 50613, 28875, 59542, 6562, 59221, 59547, 59540})
 		-- Night Elf
 		elseif raceValue == 4 then
-			UnlearnSpells(player, {20599, 59752, 20864, 58985, 20597, 20598, 20574, 20572, 65222, 33702, 33697, 2481, 20596, 59224, 20594, 20577, 20579, 5227, 7744, 20552, 20550,
+			UnlearnSpells(player, {20595, 20599, 59752, 20864, 58985, 20597, 20598, 20574, 20572, 65222, 33702, 33697, 2481, 20596, 59224, 20594, 20577, 20579, 5227, 7744, 20552, 20550,
 			20551, 20549, 20592, 20593, 20589, 20591, 20557, 26297, 26290, 58943, 20555, 20558, 28730, 28877, 822, 25046, 50613, 28875, 59542, 6562, 59221, 59547, 59540})
 		-- Undead
 		elseif raceValue == 5 then
-			UnlearnSpells(player, {20599, 59752, 20864, 58985, 20597, 20598, 20574, 20572, 65222, 33702, 33697, 2481, 20596, 59224, 20594, 21009, 20583, 20582, 58984, 20585, 
+			UnlearnSpells(player, {20595, 20599, 59752, 20864, 58985, 20597, 20598, 20574, 20572, 65222, 33702, 33697, 2481, 20596, 59224, 20594, 21009, 20583, 20582, 58984, 20585, 
 			20552, 20550, 20551, 20549, 20592, 20593, 20589, 20591, 20557, 26297, 26290, 58943, 20555, 20558, 28730, 28877, 822, 25046, 50613, 28875, 59542, 6562, 59221, 59547, 59540})
 		-- Tauren
 		elseif raceValue == 6 then
-			UnlearnSpells(player, {20599, 59752, 20864, 58985, 20597, 20598, 20574, 20572, 65222, 33702, 33697, 2481, 20596, 59224, 20594, 21009, 20583, 20582, 58984, 20585, 20577, 
+			UnlearnSpells(player, {20595, 20599, 59752, 20864, 58985, 20597, 20598, 20574, 20572, 65222, 33702, 33697, 2481, 20596, 59224, 20594, 21009, 20583, 20582, 58984, 20585, 20577, 
 			20579, 5227, 7744, 20592, 20593, 20589, 20591, 20557, 26297, 26290, 58943, 20555, 20558, 28730, 28877, 822, 25046, 50613, 28875, 59542, 6562, 59221, 59547, 59540})
 		-- Gnome
 		elseif raceValue == 7 then
-			UnlearnSpells(player, {20599, 59752, 20864, 58985, 20597, 20598, 20574, 20572, 65222, 33702, 33697, 2481, 20596, 59224, 20594, 21009, 20583, 20582, 58984, 20585, 20577, 
+			UnlearnSpells(player, {20595, 20599, 59752, 20864, 58985, 20597, 20598, 20574, 20572, 65222, 33702, 33697, 2481, 20596, 59224, 20594, 21009, 20583, 20582, 58984, 20585, 20577, 
 			20579, 5227, 7744, 20552, 20550, 20551, 20549, 20557, 26297, 26290, 58943, 20555, 20558, 28730, 28877, 822, 25046, 50613, 28875, 59542, 6562, 59221, 59547, 59540})
 		-- Troll
 		elseif raceValue == 8 then 
-			UnlearnSpells(player, {20599, 59752, 20864, 58985, 20597, 20598, 20574, 20572, 65222, 33702, 33697, 2481, 20596, 59224, 20594, 21009, 20583, 20582, 58984, 20585,
+			UnlearnSpells(player, {20595, 20599, 59752, 20864, 58985, 20597, 20598, 20574, 20572, 65222, 33702, 33697, 2481, 20596, 59224, 20594, 21009, 20583, 20582, 58984, 20585,
 			20577, 20579, 5227, 7744, 20552, 20550, 20551, 20549, 20592, 20593, 20589, 20591, 28730, 28877, 822, 25046, 50613, 28875, 59542, 6562, 59221, 59547, 59540})
 		-- Blood Elf
 		elseif raceValue == 10 then 
-			UnlearnSpells(player, {20599, 59752, 20864, 58985, 20597, 20598, 20574, 20572, 65222, 33702, 33697, 2481, 20596, 59224, 20594, 21009, 20583, 20582, 58984, 20585, 20577, 20579, 
+			UnlearnSpells(player, {20595, 20599, 59752, 20864, 58985, 20597, 20598, 20574, 20572, 65222, 33702, 33697, 2481, 20596, 59224, 20594, 21009, 20583, 20582, 58984, 20585, 20577, 20579, 
 			5227, 7744, 20552, 20550, 20551, 20549, 20592, 20593, 20589, 20591, 20557, 26297, 26290, 58943, 20555, 20558, 28875, 59542, 6562, 59221, 59547, 59540, 28875})
 		-- Draenei
 		elseif raceValue == 11 then 
-			UnlearnSpells(player, {20599, 59752, 20864, 58985, 20597, 20598, 20574, 20572, 65222, 33702, 33697, 2481, 20596, 59224, 20594, 21009, 20583, 20582, 58984, 20585, 20577, 
+			UnlearnSpells(player, {20595, 20599, 59752, 20864, 58985, 20597, 20598, 20574, 20572, 65222, 33702, 33697, 2481, 20596, 59224, 20594, 21009, 20583, 20582, 58984, 20585, 20577, 
 			20579, 5227, 7744, 20552, 20550, 20551, 20549, 20592, 20593, 20589, 20591, 20557, 26297, 26290, 58943, 20555, 20558, 28730, 28877, 822, 25046, 50613})
 		end
 	end
@@ -246,7 +246,7 @@ local function OnGossipRacialSwitch(event, player, creature, sender, intid, code
 			elseif player:GetClass() == 1 or player:GetClass() == 3 or player:GetClass() == 4 or player:GetClass() == 6 then -- warrior, hunter, rogue, dk
 				player:LearnSpell(20572)
 			end
-			CharDBExecute("INSERT INTO custom_racialshift (guid, race) VALUES ("..player:GetGUIDLow()..", 1) ON DUPLICATE KEY UPDATE race = "..intid.." ;")
+			CharDBExecute("INSERT INTO custom_racialshift (guid, race) VALUES ("..player:GetGUIDLow()..", 2) ON DUPLICATE KEY UPDATE race = "..intid.." ;")
             for _, v in ipairs(Racial[2]) do
                 player:LearnSpell(v)
             end
@@ -266,7 +266,7 @@ local function OnGossipRacialSwitch(event, player, creature, sender, intid, code
             for k, v in ipairs(Racial[3]) do
                 player:LearnSpell(v)
             end
-			CharDBExecute("INSERT INTO custom_racialshift (guid, race) VALUES ("..player:GetGUIDLow()..", 1) ON DUPLICATE KEY UPDATE race = "..intid.." ;")
+			CharDBExecute("INSERT INTO custom_racialshift (guid, race) VALUES ("..player:GetGUIDLow()..", 3) ON DUPLICATE KEY UPDATE race = "..intid.." ;")
         else
             player:SendBroadcastMessage("|cFFFFFF9F" .. creature:GetName() .. " Says: You Got the Dwarf Traits Already")
         end
@@ -283,7 +283,7 @@ local function OnGossipRacialSwitch(event, player, creature, sender, intid, code
             for k, v in pairs(Racial[4]) do
                 player:LearnSpell(v)
             end
-			CharDBExecute("INSERT INTO custom_racialshift (guid, race) VALUES ("..player:GetGUIDLow()..", 1) ON DUPLICATE KEY UPDATE race = "..intid.." ;")
+			CharDBExecute("INSERT INTO custom_racialshift (guid, race) VALUES ("..player:GetGUIDLow()..", 4) ON DUPLICATE KEY UPDATE race = "..intid.." ;")
         else
             player:SendBroadcastMessage(
                 "|cFFFFFF9F" .. creature:GetName() .. " Says: You Got the Night Elf Traits Already"
@@ -302,7 +302,7 @@ local function OnGossipRacialSwitch(event, player, creature, sender, intid, code
             for k, v in pairs(Racial[5]) do
                 player:LearnSpell(v)
             end
-			CharDBExecute("INSERT INTO custom_racialshift (guid, race) VALUES ("..player:GetGUIDLow()..", 1) ON DUPLICATE KEY UPDATE race = "..intid.." ;")
+			CharDBExecute("INSERT INTO custom_racialshift (guid, race) VALUES ("..player:GetGUIDLow()..", 5) ON DUPLICATE KEY UPDATE race = "..intid.." ;")
         else
             player:SendBroadcastMessage(
                 "|cFFFFFF9F" .. creature:GetName() .. " Says: You Got the Undead Traits Already"
@@ -321,7 +321,7 @@ local function OnGossipRacialSwitch(event, player, creature, sender, intid, code
             for k, v in pairs(Racial[6]) do
                 player:LearnSpell(v)
             end
-			CharDBExecute("INSERT INTO custom_racialshift (guid, race) VALUES ("..player:GetGUIDLow()..", 1) ON DUPLICATE KEY UPDATE race = "..intid.." ;")
+			CharDBExecute("INSERT INTO custom_racialshift (guid, race) VALUES ("..player:GetGUIDLow()..", 6) ON DUPLICATE KEY UPDATE race = "..intid.." ;")
         else
             player:SendBroadcastMessage(
                 "|cFFFFFF9F" .. creature:GetName() .. " Says: You Got the Tauren Traits Already"
@@ -340,7 +340,7 @@ local function OnGossipRacialSwitch(event, player, creature, sender, intid, code
             for k, v in pairs(Racial[7]) do
                 player:LearnSpell(v)
             end
-			CharDBExecute("INSERT INTO custom_racialshift (guid, race) VALUES ("..player:GetGUIDLow()..", 1) ON DUPLICATE KEY UPDATE race = "..intid.." ;")
+			CharDBExecute("INSERT INTO custom_racialshift (guid, race) VALUES ("..player:GetGUIDLow()..", 7) ON DUPLICATE KEY UPDATE race = "..intid.." ;")
         else
             player:SendBroadcastMessage("|cFFFFFF9F" .. creature:GetName() .. " Says: You Got the Gnome Traits Already")
         end
@@ -357,7 +357,7 @@ local function OnGossipRacialSwitch(event, player, creature, sender, intid, code
             for k, v in pairs(Racial[8]) do
                 player:LearnSpell(v)
             end
-			CharDBExecute("INSERT INTO custom_racialshift (guid, race) VALUES ("..player:GetGUIDLow()..", 1) ON DUPLICATE KEY UPDATE race = "..intid.." ;")
+			CharDBExecute("INSERT INTO custom_racialshift (guid, race) VALUES ("..player:GetGUIDLow()..", 8) ON DUPLICATE KEY UPDATE race = "..intid.." ;")
         else
             player:SendBroadcastMessage("|cFFFFFF9F" .. creature:GetName() .. " Says: You Got the Troll Traits Already")
         end
@@ -378,7 +378,7 @@ local function OnGossipRacialSwitch(event, player, creature, sender, intid, code
             elseif player:GetPower(6) then -- death knight
                 player:LearnSpell(50613)
             end
-			CharDBExecute("INSERT INTO custom_racialshift (guid, race) VALUES ("..player:GetGUIDLow()..", 1) ON DUPLICATE KEY UPDATE race = "..intid.." ;")
+			CharDBExecute("INSERT INTO custom_racialshift (guid, race) VALUES ("..player:GetGUIDLow()..", 10) ON DUPLICATE KEY UPDATE race = "..intid.." ;")
             for k, v in pairs(Racial[10]) do
                 player:LearnSpell(v)
             end
@@ -401,7 +401,7 @@ local function OnGossipRacialSwitch(event, player, creature, sender, intid, code
             for k, v in pairs(Racial[11]) do
                 player:LearnSpell(v)
             end
-			CharDBExecute("INSERT INTO custom_racialshift (guid, race) VALUES ("..player:GetGUIDLow()..", 1) ON DUPLICATE KEY UPDATE race = "..intid.." ;")
+			CharDBExecute("INSERT INTO custom_racialshift (guid, race) VALUES ("..player:GetGUIDLow()..", 11) ON DUPLICATE KEY UPDATE race = "..intid.." ;")
         else
             player:SendBroadcastMessage(
                 "|cFFFFFF9F" .. creature:GetName() .. " Says: You Got the Draenei Traits Already"

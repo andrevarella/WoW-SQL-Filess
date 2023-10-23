@@ -3,7 +3,7 @@ local ItemEntryEterno = 83555
 
 local druidMorph     = require("NPC_Morph_DruidForm_Morpher")
 --local zDruidMorphOLD = require("zNPC_Morph_DruidForm_Morpher_OLD")
-local WeaponEnchantTransmog = require("NPC_Weapon_Enchant_Transmog")
+--local WeaponEnchantTransmog = require("NPC_Weapon_Enchant_Transmog")
 
 Timer = {}
 

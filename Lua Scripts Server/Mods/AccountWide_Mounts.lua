@@ -1,3 +1,5 @@
+--[[
+
 local Config            = {}
 Config.Database         = 'acore_characters' -- The database used to store tables for eluna
 Config.EnableGamemaster = true -- Allow GM characters to save and learn companions and mounts
@@ -704,3 +706,6 @@ local function OnLogin(event, player)
     end
 end
 RegisterPlayerEvent(Event.OnLogin, OnLogin)
+
+
+--]]
