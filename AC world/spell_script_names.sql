@@ -19,10 +19,15 @@ INSERT INTO `spell_script_names`(`spell_id`, `ScriptName`) VALUES (83089, 'spell
 INSERT INTO `spell_script_names`(`spell_id`, `ScriptName`) VALUES (83122, 'spell_dru_savage_roar');
 -- glyph of omen of clarity
 INSERT INTO `acore_world`.`spell_script_names` (`spell_id`, `ScriptName`) VALUES (83293, 'spell_druid_glyph_omen_of_clarity');
-
 --
 -- * Custom Passive Spell - ao ganhar Wrath of Elune, reduz o cd do starfall em 3s (Wrath of Elune só é renovado se o buff é consumido)
 INSERT INTO `spell_script_names`(`spell_id`, `ScriptName`) VALUES (83253, 'spell_druid_balance_starfall_custom_cdreduction');
+--
+-- skull_bash
+INSERT INTO `acore_world`.`spell_script_names` (`spell_id`, `ScriptName`) VALUES (83028, 'spell_druid_skull_bash');
+--
+-- wild charge
+INSERT INTO `acore_world`.`spell_script_names` (`spell_id`, `ScriptName`) VALUES (83369, 'spell_druid_wild_charge');
 --
 -- ========= MAIL ==============
 -- 
@@ -284,6 +289,26 @@ INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84135, 'spel
 INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84138, 'spell_PILFEREDGEARGLIDER');
 INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84141, 'spell_CARTELMASTERGEARGLIDER');
 INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84144, 'spell_CARTELMASTERGEARGLIDERSILVER');
+
+-- mounts DF/SL/BFA
+INSERT INTO `acore_world`.`spell_script_names` (`spell_id`, `ScriptName`) VALUES (85099, 'spell_ASHADAR');
+INSERT INTO `acore_world`.`spell_script_names` (`spell_id`, `ScriptName`) VALUES (85110, 'spell_DIVINEKISSOFOHNAHRA');
+INSERT INTO `acore_world`.`spell_script_names` (`spell_id`, `ScriptName`) VALUES (85113, 'spell_SUNWARMEDFURLINE');
+INSERT INTO `acore_world`.`spell_script_names` (`spell_id`, `ScriptName`) VALUES (85116, 'spell_VULPINEFAMILIAR');
+INSERT INTO `acore_world`.`spell_script_names` (`spell_id`, `ScriptName`) VALUES (85120, 'spell_PALADINHIGHLORDPURPLE');
+INSERT INTO `acore_world`.`spell_script_names` (`spell_id`, `ScriptName`) VALUES (85126, 'spell_PALADINHIGHLORDBLUE');
+INSERT INTO `acore_world`.`spell_script_names` (`spell_id`, `ScriptName`) VALUES (85123, 'spell_PALADINHIGHLORDRED');
+INSERT INTO `acore_world`.`spell_script_names` (`spell_id`, `ScriptName`) VALUES (85130, 'spell_PALADINHIGHLORDYELLOW');
+INSERT INTO `acore_world`.`spell_script_names` (`spell_id`, `ScriptName`) VALUES (85133, 'spell_VULPINEFAMILIARYELLOW');
+INSERT INTO `acore_world`.`spell_script_names` (`spell_id`, `ScriptName`) VALUES (85136, 'spell_ZENETHATCHLING');
+INSERT INTO `acore_world`.`spell_script_names` (`spell_id`, `ScriptName`) VALUES (85141, 'spell_ZENETHATCHLINGBLUE');
+INSERT INTO `acore_world`.`spell_script_names` (`spell_id`, `ScriptName`) VALUES (85149, 'spell_HIGHLAND_DRAKE_GREY');
+INSERT INTO `acore_world`.`spell_script_names` (`spell_id`, `ScriptName`) VALUES (85152, 'spell_HIGHLAND_DRAKE_YELLOW');
+INSERT INTO `acore_world`.`spell_script_names` (`spell_id`, `ScriptName`) VALUES (85155, 'spell_HIGHLAND_DRAKE_RED');
+INSERT INTO `acore_world`.`spell_script_names` (`spell_id`, `ScriptName`) VALUES (85158, 'spell_HIGHLAND_DRAKE_BLUE');
+INSERT INTO `acore_world`.`spell_script_names` (`spell_id`, `ScriptName`) VALUES (85165, 'spell_HIGHLAND_DRAKE_BLACK');
+INSERT INTO `acore_world`.`spell_script_names` (`spell_id`, `ScriptName`) VALUES (85168, 'spell_HIGHLAND_DRAKE_GREEN');
+INSERT INTO `acore_world`.`spell_script_names` (`spell_id`, `ScriptName`) VALUES (85161, 'spell_NZOTHSERP');
 
 -- -------------------------------------------------------------------------------------------------------------------------------------
 -- mounts dragonflight

@@ -42,6 +42,11 @@ INSERT INTO `spell_linked_spell`(`spell_trigger`, `spell_effect`, `type`, `comme
 INSERT INTO `spell_linked_spell`(`spell_trigger`, `spell_effect`, `type`, `comment`) VALUES (46832, 83009, 0, '[Moonkin Starfire Bonus Passive] proca [Learn Starfire DoT Bonus]');
 INSERT INTO `spell_linked_spell`(`spell_trigger`, `spell_effect`, `type`, `comment`) VALUES (-83121, 83122, 0, 'Perder [Buff Temporario Prowl PvP Set] ganha [Savage Roar 10s]');
 INSERT INTO `spell_linked_spell`(`spell_trigger`, `spell_effect`, `type`, `comment`) VALUES (-5215, -83121, 0, 'Perder [Prowl] perde [Buff Temporario Prowl PvP Set]');
+-- dash ativa cat [fora de cat]
+INSERT INTO `acore_world`.`spell_linked_spell` (`spell_trigger`, `spell_effect`, `type`, `comment`) VALUES (33357, 83355, 0, '[Dash] ativa [Dash Passive] que proca Cat Form');
+-- Aquatic/Travel - mudar som
+INSERT INTO `acore_world`.`spell_linked_spell` (`spell_trigger`, `spell_effect`, `type`, `comment`) VALUES (783, 83350, 0, '[Travel Form] casta [Passive Aura - Druids [To Mod Druid Form Sounds]]');
+INSERT INTO `acore_world`.`spell_linked_spell` (`spell_trigger`, `spell_effect`, `type`, `comment`) VALUES (1066, 83350, 0, '[Aquatic Form] casta [Passive Aura - Druids [To Mod Druid Form Sounds]]');
 
 -- glyph of lunar inspiration
 INSERT INTO `acore_world`.`spell_linked_spell` (`spell_trigger`, `spell_effect`, `type`, `comment`) VALUES (-83299, 83325, 0, 'Perder [Glyph of Lunar Inspiration] proca [Unlearn Glyph of Lunar Inspiration]');
@@ -58,6 +63,8 @@ INSERT INTO `spell_linked_spell` (`spell_trigger`, `spell_effect`, `type`, `comm
 -- Maelstrom Weapon (Lava Burst) remove buff do Maelstrom Weapon e vice-versa
 INSERT INTO `acore_world`.`spell_linked_spell` (`spell_trigger`, `spell_effect`, `type`, `comment`) VALUES (-53817, -83341, 0, 'Perder [Maelstrom Weapon] Perde [Maelstrom Weapon Lava Burst]');
 INSERT INTO `acore_world`.`spell_linked_spell` (`spell_trigger`, `spell_effect`, `type`, `comment`) VALUES (-83341, -53817, 0, 'Perder [Maelstrom Weapon Lava Burst] Perde [Maelstrom Weapon]');
+-- twin howl p quebrar vanish
+INSERT INTO `acore_world`.`spell_linked_spell` (`spell_trigger`, `spell_effect`, `type`, `comment`) VALUES (58857, 83367, 0, 'Pet Feral Spirit - Twin Howl casta [Custom Demoralizing Shout] - P/ Revelar Stealth');
 
 -- NAO INSERIDOS:
 -- glyph of stormstrike / stormblast dot
@@ -96,3 +103,13 @@ INSERT INTO `spell_linked_spell`(`spell_trigger`, `spell_effect`, `type`, `comme
 INSERT INTO `spell_linked_spell`(`spell_trigger`, `spell_effect`, `type`, `comment`) VALUES (-74410, -41406, 0, 'Perder [Arena Dampening], perde [Dampening (+1% DMG/Healing por stack)]');
 INSERT INTO `spell_linked_spell`(`spell_trigger`, `spell_effect`, `type`, `comment`) VALUES (-74410, -83027, 0, 'Perder [Arena Dampening], perde [Dampening a cada 8 segundos]');
 INSERT INTO `spell_linked_spell`(`spell_trigger`, `spell_effect`, `type`, `comment`) VALUES (-74410, -83026, 0, 'Perder [Arena Dampening], perde [Dampening depois de 8min]');
+
+---------------------------
+-- Custom Mounts
+INSERT INTO `acore_world`.`spell_linked_spell` (`spell_trigger`, `spell_effect`, `type`, `comment`) VALUES (85130, 31726, 0, 'Highlord\'s Valorous Charger (Blue)');
+INSERT INTO `acore_world`.`spell_linked_spell` (`spell_trigger`, `spell_effect`, `type`, `comment`) VALUES (85126, 31726, 0, 'Highlord\'s Golden Charger (golden)');
+INSERT INTO `acore_world`.`spell_linked_spell` (`spell_trigger`, `spell_effect`, `type`, `comment`) VALUES (85120, 31726, 0, 'Highlord\'s Vigilant Charger (purple)');
+INSERT INTO `acore_world`.`spell_linked_spell` (`spell_trigger`, `spell_effect`, `type`, `comment`) VALUES (85123, 31726, 0, 'Highlord\'s Vengeful Charger (red)');
+INSERT INTO `acore_world`.`spell_linked_spell` (`spell_trigger`, `spell_effect`, `type`, `comment`) VALUES (84308, 31725, 0, 'Summon Netherlord Wrathsteed (Red)');
+INSERT INTO `acore_world`.`spell_linked_spell` (`spell_trigger`, `spell_effect`, `type`, `comment`) VALUES (84311, 31725, 0, 'Summon Netherlord Wrathsteed (Purple)');
+INSERT INTO `acore_world`.`spell_linked_spell` (`spell_trigger`, `spell_effect`, `type`, `comment`) VALUES (84305, 31725, 0, 'Summon Netherlord Wrathsteed (Green)');

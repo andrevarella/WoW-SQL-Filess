@@ -1,0 +1,5 @@
+-- character warmode
+CREATE TABLE custom_character_warmode (
+    guid INT PRIMARY KEY,
+    state INT NOT NULL
+);

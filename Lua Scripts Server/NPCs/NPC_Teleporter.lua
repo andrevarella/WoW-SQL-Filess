@@ -162,7 +162,7 @@ function Teleporter_Event(event, player, creature, sender, intid, code)
 		--player:GossipMenuAddItem(4,"|TInterface\\icons\\Achievement_zone_winterspring.png:29|t Winterspring - |cFFFFFF00Duel Zone 5 ",0, 9, false, "Tem certeza que quer teleportar para Winterspring")
 		--player:GossipMenuAddItem(4,"|TInterface\\icons\\Achievement_zone_winterspring.png:29|t Winterspring - |cFFFFFF00Duel Zone 6 ",0, 10, false, "Tem certeza que quer teleportar para Winterspring")
 		player:GossipMenuAddItem(3,"|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Voltar",0,499)
-		player:GossipMenuAddItem(3,"|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000TeleporterLowLvl \n      (Gossip de outro Lua)",0,498)
+		--player:GossipMenuAddItem(3,"|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000TeleporterLowLvl \n      (Gossip de outro Lua)",0,498)
 		--player:GossipMenuAddItem(4,"|TInterface\\RaidFrame\\ReadyCheck-NotReady:22:22:0:0|t |cFF8B0000Sair",0,500)
 		player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)	
 	end

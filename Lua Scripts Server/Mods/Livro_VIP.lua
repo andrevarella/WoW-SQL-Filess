@@ -1,6 +1,8 @@
-local druidMorph     = require("NPC_Morph_DruidForm_Morpher")
-local zDruidMorphOLD = require("zNPC_Morph_DruidForm_Morpher_OLD")
+local ItemEntry = 83550
+local ItemEntryEterno = 83555
 
+local druidMorph     = require("NPC_Morph_DruidForm_Morpher")
+--local zDruidMorphOLD = require("zNPC_Morph_DruidForm_Morpher_OLD")
 local WeaponEnchantTransmog = require("NPC_Weapon_Enchant_Transmog")
 
 Timer = {}
@@ -9,19 +11,21 @@ function Timer.Teleport(eventid, delay, repeats, player)
     player:SendAreaTriggerMessage("Teleporting in " .. repeats .. " seconds.")
 end
 
-local ItemEntry = 83550
-local ItemEntryEterno = 83555
+function Timer.PeriodicApplyTalents(eventid, delay, repeats, player)
+    ApplyTalentsFromStoredTable(player)
+end
 
 function TeleporterItem_Gossip(unit, player, creature)
     player:GossipSetText(string.format(" "))
 
 	player:GossipMenuAddItem(2," |TInterface/Icons/Spell_Arcane_TeleportDalaran:28|t |cFF0000FFTeleports", 0, 1)
-    player:GossipMenuAddItem(6," |TInterface/Icons/Inv_misc_coin_02.png:28|t |cFF0000FFAuction House", 0, 2)
 	player:GossipMenuAddItem(2," |TInterface/Icons/Inv_letter_09.png:28|t |cFF0000FFMail",0, 5)
+    player:GossipMenuAddItem(6," |TInterface/Icons/Inv_misc_coin_02.png:28|t |cFF0000FFAuction House", 0, 2)
     player:GossipMenuAddItem(1," |TInterface/Icons/Inv_misc_enggizmos_17.png:28|t |cFF0000FFBank", 0, 3)
 	player:GossipMenuAddItem(8," |TInterface/Icons/Inv_misc_enggizmos_17.png:28|t |cFF0000FFSummon Guild Vault", 0, 4)
-	player:GossipMenuAddItem(4," |TInterface\\icons\\inv_pet_lilsmoky.png:28|t |cFF0000FFSumonar Npcs Temporariamente|r", 0, 6)
-	player:GossipMenuAddItem(3," |TInterface\\icons\\Ability_marksmanship:28|t |cFF0000FFResetar Talents", 0, 7, false, "Tem certeza que quer resetar os Talents?")
+	player:GossipMenuAddItem(3," |TInterface/Icons/INV_Misc_Book_04.png:28|t |cFF0000FFSummon Talent Archivist", 0, 52)
+	--player:GossipMenuAddItem(3," |TInterface\\icons\\Ability_marksmanship:28|t |cFF0000FFResetar Talents", 0, 7, false, "Tem certeza que quer resetar os Talents?")
+	player:GossipMenuAddItem(4," |TInterface\\icons\\inv_pet_lilsmoky.png:28|t |cFF0000FFSumonar Npcs Temporariamente ->|r", 0, 6)
 	--if player:GetClass() == 11 then 
 	--	player:GossipMenuAddItem(3," |TInterface\\icons\\Ability_druid_healinginstincts:27|t |cFF0000FFDruid Form Customizer", 0, 750)
 	--end
@@ -198,35 +202,80 @@ function Teleporter_Event(event, player, creature, sender, intid, code, menu_id)
         player:SendShowBank(player)
         player:GossipComplete()	
 	end
+	
 	if(intid == 4) then -- Summon Guild Bank
-		local cooldownGuildVault = 10 -- o cooldown em segundos
+		local cooldownGuildVault = 8 -- o cooldown em segundos
 		local currtimeGV = os.time() -- pega a hora atual do servidor
-		
 		if (player:IsInCombat() or player:GetMap():IsArena() or player:GetMap():IsBattleground()) then
 			player:SendBroadcastMessage("Você não pode sumonar o Guild Vault enquanto estiver em Combat ou em Battlegrounds.")
 			return TeleporterItem_Gossip(unit, player, creature)
-		else
-			local lastUsedGV = player:GetData("lastGuildVault") -- get the last time the player used this submenu
-			local timeLeftGV
-			if lastUsedGV then
-				timeLeftGV = cooldownGuildVault - (currtimeGV - lastUsedGV)
-				if timeLeftGV > 0 then 
-					player:SendAreaTriggerMessage("Você poderá sumonar o Guild Vault em "..timeLeftGV.." segundos. \n(Proteção contra Spam)") -- display remaining cooldown time
-					return
-				end
+		elseif playerArea ~= 4197 then -- Wintergrasp
+			if player:HasAura(74411) then -- Battleground - Dampening (Wintergrasp ativa apenas)
+				player:SendBroadcastMessage("Você não pode summonar o Guild Vault após a Wintergrasp começar.")
+				return TeleporterItem_Gossip(unit, player, creature)
 			end
-			player:CastSpell(player, 83344, true)
-			player:SendBroadcastMessage("Você sumonou um Guild Vault por 30 segundos.")
-			player:SetData("lastGuildVault", currtimeGV)
-			player:RegisterEvent(function(e, d, r, p)
-				p:SendBroadcastMessage("O Guild Vault irá sumir em 10 segundos.")
-			end, 20000, 1)
-			player:RegisterEvent(function(e, d, r, p)
-				p:SendBroadcastMessage("O Guild Vault irá sumir em 5 segundos.")
-			end, 25000, 1) -- 15 segundos depois do início do summon
+		end
+		local lastUsedGV = player:GetData("lastGuildVault") -- get the last time the player used this submenu
+		local timeLeftGV
+		if lastUsedGV then
+			timeLeftGV = cooldownGuildVault - (currtimeGV - lastUsedGV)
+			if timeLeftGV > 0 then 
+				player:SendAreaTriggerMessage("Você poderá sumonar o Guild Vault em "..timeLeftGV.." segundos. \n(Proteção contra Spam)") -- display remaining cooldown time
+				return
+			end
+		end
+		player:CastSpell(player, 83344, true)
+		player:SendBroadcastMessage("Você sumonou um Guild Vault por 30 segundos.")
+		player:SetData("lastGuildVault", currtimeGV)
+		player:RegisterEvent(function(e, d, r, p)
+			p:SendBroadcastMessage("O Guild Vault irá sumir em 10 segundos.")
+		end, 20000, 1)
+		player:RegisterEvent(function(e, d, r, p)
+			p:SendBroadcastMessage("O Guild Vault irá sumir em 5 segundos.")
+		end, 25000, 1) -- 15 segundos depois do início do summon
+		return TeleporterItem_Gossip(unit, player, creature)
+	end
+	
+	if(intid == 52) then -- Talent Saver
+		local cooldownTalentArchivist = 5 -- o cooldown em segundos
+		local currtimeTS = os.time() -- pega a hora atual do servidor
+		if (player:IsInCombat() or player:GetMap():IsArena()) then
+			player:SendBroadcastMessage("Você não pode summonar o Talent Archivist enquanto estiver em combate.")
+			return TeleporterItem_Gossip(unit, player, creature)
+			
+		elseif player:GetMap():IsBattleground() then
+			local hasAura = player:HasAura(44521) -- Battleground Preparation (antes de abrir a porta)
+			if not hasAura then
+				player:SendBroadcastMessage("Você não pode summonar o Talent Archivist após a Battleground começar.")
+				return TeleporterItem_Gossip(unit, player, creature)
+			end
+		end
+		if player:HasAura(74411) then -- Battleground - Dampening (Wintergrasp ativa apenas)
+			player:SendBroadcastMessage("Você não pode summonar o Talent Archivist após a Wintergrasp começar.")
 			return TeleporterItem_Gossip(unit, player, creature)
 		end
+		local lastUsedTS = player:GetData("lastTS") -- get the last time the player used this submenu
+		local timeLeftTS
+		if lastUsedTS then
+			timeLeftTS = cooldownTalentArchivist - (currtimeTS - lastUsedTS)
+			if timeLeftTS > 0 then 
+				player:SendAreaTriggerMessage("Você poderá summonar o Talent Archivist em "..timeLeftTS.." segundos. \n(Proteção contra Spam)") -- display remaining cooldown time
+				return
+			end
+		end
+		player:CastSpell(player, 83388, true)
+		player:SendBroadcastMessage("Você summonou o Talent Archivist por 30 segundos.")
+		player:SetData("lastTS", currtimeTS)
+		player:RegisterEvent(function(e, d, r, p)
+			p:SendBroadcastMessage("O Talent Archivist irá sumir em 10 segundos.")
+		end, 20000, 1)
+		player:RegisterEvent(function(e, d, r, p)
+			p:SendBroadcastMessage("O Talent Archivist irá sumir em 5 segundos.")
+		end, 25000, 1) -- 15 segundos depois do início do summon
+		return TeleporterItem_Gossip(unit, player, creature)
 	end
+
+
 	if(intid == 5) then -- Usar Mail
         player:SendShowMailBox(player:GetGUID())
 		player:GossipComplete()	
@@ -253,25 +302,31 @@ function Teleporter_Event(event, player, creature, sender, intid, code, menu_id)
 		morpherMenu(event, player, object)
 	end
 
+
 	
 	if(intid == 6) then -- Submenu Summon Npcs
 		if (player:IsInCombat() or player:GetMap():IsArena() or player:GetMap():IsBattleground()) then
 			player:SendBroadcastMessage("Você não pode sumonar Npcs enquanto estiver em Combat ou em Battlegrounds.")
-		else		
-			player:GossipSetText(string.format("Os npcs são sumonados por 20 segundos."))
-			player:GossipMenuAddItem(1," |TInterface\\icons\\inv_pet_lilsmoky.png:29|t |cFF0000FFJeeves", 0, 40)
-			--player:GossipMenuAddItem(6," |TInterface\\icons\\ability_repair:27|t |cFF0000FFReparar Equipamentos", 0, 41)	
-			--player:GossipMenuAddItem(1," |TInterface/Icons/Inv_misc_enggizmos_17.png:28|t |cFF0000FFBank", 0, 42)
-			--player:GossipMenuAddItem(6," |TInterface/Icons/Inv_misc_coin_02.png:28|t |cFF0000FFAuction House", 0, 43)
-			--player:GossipMenuAddItem(2," |TInterface/Icons/Inv_letter_09.png:28|t |cFF0000FFMail", 0, 44)
-			player:GossipMenuAddItem(9," |TInterface/Icons/Achievement_arena_2v2_7.png:29|t |cFF0000FFJoinar Arena", 0, 45)
-			player:GossipMenuAddItem(9," |TInterface/Icons/Inv_scroll_11.png:29|t |cFF0000FFCriar Time de Arena", 0, 46)
-			player:GossipMenuAddItem(9," |TInterface/Icons/Achievement_boss_nexus_prince_shaffar.png:29|t |cFF0000FFTransmogrification", 0, 47)
-			player:GossipMenuAddItem(9," |TInterface\\icons\\Inv_sword_01:29|t |cFF0000FFTransmog Weapon|r |cFFFF00FFEnchant", 0, 48)	
-			--player:GossipMenuAddItem(5," |TInterface/Icons/Ability_rogue_disguise.png:29|t |cFF0000FFMorph", 1, 49)
-			player:GossipMenuAddItem(5,"|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Voltar",0,499)		
-			player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)	
+			return TeleporterItem_Gossip(unit, player, creature)
 		end
+		if player:HasAura(74411) then -- Battleground - Dampening (Wintergrasp ativa apenas)
+			player:SendBroadcastMessage("Você não pode summonar npcs após a Wintergrasp começar.")
+			return TeleporterItem_Gossip(unit, player, creature)
+		end
+
+		player:GossipSetText(string.format("Os npcs são sumonados por 20 segundos."))
+		player:GossipMenuAddItem(1," |TInterface\\icons\\inv_pet_lilsmoky.png:29|t |cFF0000FFJeeves", 0, 40)
+		--player:GossipMenuAddItem(6," |TInterface\\icons\\ability_repair:27|t |cFF0000FFReparar Equipamentos", 0, 41)	
+		--player:GossipMenuAddItem(1," |TInterface/Icons/Inv_misc_enggizmos_17.png:28|t |cFF0000FFBank", 0, 42)
+		--player:GossipMenuAddItem(6," |TInterface/Icons/Inv_misc_coin_02.png:28|t |cFF0000FFAuction House", 0, 43)
+		--player:GossipMenuAddItem(2," |TInterface/Icons/Inv_letter_09.png:28|t |cFF0000FFMail", 0, 44)
+		player:GossipMenuAddItem(9," |TInterface/Icons/Achievement_arena_2v2_7.png:29|t |cFF0000FFJoinar Arena", 0, 45)
+		player:GossipMenuAddItem(9," |TInterface/Icons/Inv_scroll_11.png:29|t |cFF0000FFCriar Time de Arena", 0, 46)
+		player:GossipMenuAddItem(9," |TInterface/Icons/Achievement_boss_nexus_prince_shaffar.png:29|t |cFF0000FFTransmogrification", 0, 47)
+		player:GossipMenuAddItem(9," |TInterface\\icons\\Inv_sword_01:29|t |cFF0000FFTransmog Weapon|r |cFFFF00FFEnchant", 0, 48)	
+		--player:GossipMenuAddItem(5," |TInterface/Icons/Ability_rogue_disguise.png:29|t |cFF0000FFMorph", 1, 49)
+		player:GossipMenuAddItem(5,"|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Voltar",0,499)		
+		player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)	
 	end
 
 	local cooldown = 6 -- o cooldown em segundos

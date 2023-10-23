@@ -1,0 +1,10 @@
+local function OnPlayerLogin(event, player)
+    player:SendBroadcastMessage("Isso é um teste")
+    player:RegisterEvent(PeriodicTest, 30000, 0) -- para repetir a cada 30 segundos
+end
+
+function PeriodicTest(event, delay, repeats, player)
+    player:SendBroadcastMessage("Isso é um teste periodico")
+end
+
+RegisterPlayerEvent(3, OnPlayerLogin)

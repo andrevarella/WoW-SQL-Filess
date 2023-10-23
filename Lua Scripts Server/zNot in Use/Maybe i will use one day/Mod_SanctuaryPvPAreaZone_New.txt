@@ -1,0 +1,43 @@
+-- Removed by JadaDev Added Areas Also [ DO NOT REMOVE CREDITS ]
+
+-- PvP Zones & Areas works on all except Shattrath and Dalaran somehow ? who knows! Maybe DBC effects.
+
+
+
+-- PvP Zones:  Adicione os IDs das zonas onde o combate é permitido aqui.
+
+local PvPMapIDs =
+{
+	490
+}
+
+-- PvP Areas
+-- Em Ordem:
+-- BattleRing
+local PvPAreaIDs =
+{
+	490
+}
+
+local function MakeZonePvP(event, player, newZone)
+    if player:GetLevel() < 80 then
+        if PvPMapIDs[newZone] then
+            player:SetPvP(true)
+        else
+            player:SetSanctuary(true)
+        end
+    end
+end
+
+local function MakeAreaPvP(event, player, newArea)
+    if player:GetLevel() < 80 then
+        if PvPAreaIDs[newArea] then
+            player:SetFFA(true)
+        else
+            player:SetSanctuary(true)
+        end
+    end
+end
+
+RegisterPlayerEvent(27, MakeZonePvP)
+RegisterPlayerEvent(27, MakeAreaPvP)

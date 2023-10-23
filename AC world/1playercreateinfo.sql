@@ -1,7 +1,7 @@
 /*
  Navicat Premium Data Transfer
 
- Source Server         : 127.0.0.1
+ Source Server         : acore
  Source Server Type    : MySQL
  Source Server Version : 80034 (8.0.34)
  Source Host           : localhost:3306
@@ -11,7 +11,7 @@
  Target Server Version : 80034 (8.0.34)
  File Encoding         : 65001
 
- Date: 01/09/2023 18:44:12
+ Date: 22/10/2023 22:20:55
 */
 
 SET NAMES utf8mb4;

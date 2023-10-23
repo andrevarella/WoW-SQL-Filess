@@ -32,8 +32,8 @@ end
 
 --Paladin
 if(intid == 1 and player:GetClass() == 2) then
-   if not player:HasSpell(4987) then -- Cleanse
-       player:LearnSpell(4987)
+   if not player:HasSpell(853) then -- HoJ R1
+       player:LearnSpell(853)
    else
    	   player:SendBroadcastMessage("You already know all available spells.")
    end
@@ -43,8 +43,8 @@ end
 
 -- Hunter
 if(intid == 1 and player:GetClass() == 3) then
-   if not player:HasSpell(34600) then -- Snake Trap
-       player:LearnSpell(34600)
+   if not player:HasSpell(1494) then -- Track Beasts
+       player:LearnSpell(1494)
    else
    	   player:SendBroadcastMessage("You already know all available spells.")
    end
@@ -65,8 +65,8 @@ end
    
 -- Priest
 if(intid == 1 and player:GetClass() == 5) then
-   if not player:HasSpell(6346) then -- Fear Ward
-       player:LearnSpell(6346)
+   if not player:HasSpell(1243) then -- PW: Fortitude R1
+       player:LearnSpell(1243)
    else
    	   player:SendBroadcastMessage("You already know all available spells.")
    end
@@ -87,8 +87,8 @@ end
    
 -- Shaman
 if(intid == 1 and player:GetClass() == 7) then 
-   if not player:HasSpell(33736) then -- Water Shield rank 8
-       player:LearnSpell(33736)
+   if not player:HasSpell(324) then -- Lightning Shield
+       player:LearnSpell(324)
    else
    	   player:SendBroadcastMessage("You already know all available spells.")
    end
@@ -120,7 +120,7 @@ end
    
 -- Druid
 if(intid == 1 and player:GetClass() == 11) then
-   player:LearnSpell(22812)           -- Barkskin
+   player:LearnSpell(8924)           -- Moonfire R2
    if player:HasSpell(34091) then     -- 300 Riding (280%)
    	    player:LearnSpell(40120)      -- Swift Flight Form
    else
@@ -130,9 +130,9 @@ if(intid == 1 and player:GetClass() == 11) then
 end
 
 
-if(intid == 4 and player:GetClass() == 11) then
-   if player:HasSpell(34091) then     -- 300 Riding (280%)
-   	    player:LearnSpell(40120)      -- Swift Flight Form
+if(intid == 4 and player:GetClass() == 11) then -- Treinar Swift Flight Form
+   if player:HasSpell(34091) then -- 300 Riding (280%)
+   	    player:LearnSpell(40120)  -- Swift Flight Form
    else
        player:SendBroadcastMessage("Você precisa do riding de 280% para aprender a Swift Flight Form.")
    end

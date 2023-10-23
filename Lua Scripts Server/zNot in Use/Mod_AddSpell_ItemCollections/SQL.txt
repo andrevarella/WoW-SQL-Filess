@@ -1,0 +1,16 @@
+-- collections:
+CREATE TABLE `custom_transmog_collection_auras` (
+  `itemguid` INT(11) NOT NULL,
+  `comment` VARCHAR(255), -- Adicionando a nova coluna `comment`
+  `humanAura` INT(11) NOT NULL,
+  `dwarfAura` INT(11) NOT NULL,
+  `nightElfAura` INT(11) NOT NULL,
+  `gnomeAura` INT(11) NOT NULL,
+  `draeneiAura` INT(11) NOT NULL,
+  `OrcAura` INT(11) NOT NULL,
+  `UndeadAura` INT(11) NOT NULL,
+  `taurenAura` INT(11) NOT NULL,
+  `trollAura` INT(11) NOT NULL,
+  `bloodelfAura` INT(11) NOT NULL,
+  PRIMARY KEY (`itemguid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

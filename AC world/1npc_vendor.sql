@@ -3,15 +3,15 @@
 
  Source Server         : acore
  Source Server Type    : MySQL
- Source Server Version : 50739
+ Source Server Version : 80034 (8.0.34)
  Source Host           : localhost:3306
  Source Schema         : acore_world
 
  Target Server Type    : MySQL
- Target Server Version : 50739
+ Target Server Version : 80034 (8.0.34)
  File Encoding         : 65001
 
- Date: 24/07/2023 20:29:31
+ Date: 22/10/2023 22:19:07
 */
 
 SET NAMES utf8mb4;
@@ -22,16 +22,16 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP TABLE IF EXISTS `npc_vendor`;
 CREATE TABLE `npc_vendor`  (
-  `entry` mediumint(8) UNSIGNED NOT NULL DEFAULT 0,
-  `slot` smallint(6) NOT NULL DEFAULT 0,
-  `item` mediumint(8) NOT NULL DEFAULT 0,
-  `maxcount` tinyint(3) UNSIGNED NOT NULL DEFAULT 0,
-  `incrtime` int(10) UNSIGNED NOT NULL DEFAULT 0,
-  `ExtendedCost` mediumint(8) UNSIGNED NOT NULL DEFAULT 0,
-  `VerifiedBuild` smallint(5) NULL DEFAULT 0,
+  `entry` mediumint UNSIGNED NOT NULL DEFAULT 0,
+  `slot` smallint NOT NULL DEFAULT 0,
+  `item` mediumint NOT NULL DEFAULT 0,
+  `maxcount` tinyint UNSIGNED NOT NULL DEFAULT 0,
+  `incrtime` int UNSIGNED NOT NULL DEFAULT 0,
+  `ExtendedCost` mediumint UNSIGNED NOT NULL DEFAULT 0,
+  `VerifiedBuild` smallint NULL DEFAULT 0,
   PRIMARY KEY (`entry`, `item`, `ExtendedCost`) USING BTREE,
   INDEX `slot`(`slot`) USING BTREE
-) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Npc System' ROW_FORMAT = FIXED;
+) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci COMMENT = 'Npc System' ROW_FORMAT = FIXED;
 
 -- ----------------------------
 -- Records of npc_vendor
@@ -35154,16 +35154,16 @@ INSERT INTO `npc_vendor` VALUES (35580, 0, 48656, 0, 0, 2687, 0);
 INSERT INTO `npc_vendor` VALUES (35642, 10, 5565, 0, 0, 0, 0);
 INSERT INTO `npc_vendor` VALUES (35642, 6, 16583, 0, 0, 0, 0);
 INSERT INTO `npc_vendor` VALUES (35642, 8, 17020, 0, 0, 0, 0);
-INSERT INTO `npc_vendor` VALUES (35642, 12, 17030, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` VALUES (35642, 0, 6265, 0, 0, 0, 0);
 INSERT INTO `npc_vendor` VALUES (35642, 14, 17031, 0, 0, 0, 0);
 INSERT INTO `npc_vendor` VALUES (35642, 11, 17032, 0, 0, 0, 0);
 INSERT INTO `npc_vendor` VALUES (35642, 13, 17033, 0, 0, 0, 0);
 INSERT INTO `npc_vendor` VALUES (35642, 7, 21177, 0, 0, 0, 0);
-INSERT INTO `npc_vendor` VALUES (35642, 9, 37201, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` VALUES (35642, 0, 5237, 0, 0, 0, 0);
 INSERT INTO `npc_vendor` VALUES (35642, 1, 41584, 0, 0, 0, 0);
 INSERT INTO `npc_vendor` VALUES (35642, 2, 41586, 0, 0, 0, 0);
 INSERT INTO `npc_vendor` VALUES (35642, 3, 44605, 0, 0, 0, 0);
-INSERT INTO `npc_vendor` VALUES (35642, 4, 44614, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` VALUES (35642, 0, 3775, 0, 0, 0, 0);
 INSERT INTO `npc_vendor` VALUES (35642, 5, 44615, 0, 0, 0, 0);
 INSERT INTO `npc_vendor` VALUES (35790, 0, 40752, 0, 0, 2589, 0);
 INSERT INTO `npc_vendor` VALUES (35790, 0, 40753, 0, 0, 2637, 0);
@@ -37881,7 +37881,7 @@ INSERT INTO `npc_vendor` VALUES (80046, 0, 48438, 0, 0, 2995, 0);
 INSERT INTO `npc_vendor` VALUES (80046, 0, 48428, 0, 0, 2995, 0);
 INSERT INTO `npc_vendor` VALUES (80046, 0, 48426, 0, 0, 2995, 0);
 INSERT INTO `npc_vendor` VALUES (80046, 0, 48442, 0, 0, 2995, 0);
-INSERT INTO `npc_vendor` VALUES (93018, 0, 72222, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` VALUES (45547, 0, 80717, 0, 0, 0, 0);
 INSERT INTO `npc_vendor` VALUES (80311, 0, 42566, 0, 0, 2605, 0);
 INSERT INTO `npc_vendor` VALUES (80311, 0, 42515, 0, 0, 2605, 0);
 INSERT INTO `npc_vendor` VALUES (80311, 0, 49185, 0, 0, 2605, 0);
@@ -37904,7 +37904,7 @@ INSERT INTO `npc_vendor` VALUES (93197, 0, 51393, 0, 0, 5010, 0);
 INSERT INTO `npc_vendor` VALUES (93197, 0, 51481, 0, 0, 5016, 0);
 INSERT INTO `npc_vendor` VALUES (93197, 0, 51389, 0, 0, 5017, 0);
 INSERT INTO `npc_vendor` VALUES (93197, 0, 51391, 0, 0, 5016, 0);
-INSERT INTO `npc_vendor` VALUES (93018, 0, 72225, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` VALUES (45547, 0, 80714, 0, 0, 0, 0);
 INSERT INTO `npc_vendor` VALUES (93197, 0, 51401, 0, 0, 5018, 0);
 INSERT INTO `npc_vendor` VALUES (93197, 0, 51432, 0, 0, 5017, 0);
 INSERT INTO `npc_vendor` VALUES (80317, 0, 28825, 0, 0, 0, 0);
@@ -37936,9 +37936,9 @@ INSERT INTO `npc_vendor` VALUES (80046, 0, 48521, 0, 0, 2995, 0);
 INSERT INTO `npc_vendor` VALUES (80046, 0, 48412, 0, 0, 2995, 0);
 INSERT INTO `npc_vendor` VALUES (80046, 0, 48402, 0, 0, 2995, 0);
 INSERT INTO `npc_vendor` VALUES (80046, 0, 48420, 0, 0, 2995, 0);
-INSERT INTO `npc_vendor` VALUES (93018, 0, 72221, 0, 0, 0, 0);
-INSERT INTO `npc_vendor` VALUES (93018, 0, 72223, 0, 0, 0, 0);
-INSERT INTO `npc_vendor` VALUES (93018, 0, 72224, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` VALUES (45547, 0, 80718, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` VALUES (45547, 0, 80716, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` VALUES (45547, 0, 80715, 0, 0, 0, 0);
 INSERT INTO `npc_vendor` VALUES (80046, 0, 48511, 0, 0, 2995, 0);
 INSERT INTO `npc_vendor` VALUES (80046, 0, 48507, 0, 0, 2995, 0);
 INSERT INTO `npc_vendor` VALUES (80046, 0, 48513, 0, 0, 2995, 0);
@@ -42838,8 +42838,8 @@ INSERT INTO `npc_vendor` VALUES (93065, 0, 40851, 0, 0, 2956, 0);
 INSERT INTO `npc_vendor` VALUES (93077, 0, 51576, 0, 0, 2579, 0);
 INSERT INTO `npc_vendor` VALUES (93077, 0, 51573, 0, 0, 2579, 0);
 INSERT INTO `npc_vendor` VALUES (93077, 0, 51574, 0, 0, 2579, 0);
-INSERT INTO `npc_vendor` VALUES (80266, 0, 38873, 0, 0, 0, 0);
-INSERT INTO `npc_vendor` VALUES (80266, 0, 52021, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` VALUES (35642, 0, 35950, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` VALUES (35642, 0, 43235, 0, 0, 0, 0);
 INSERT INTO `npc_vendor` VALUES (80271, 0, 30611, 0, 0, 0, 0);
 INSERT INTO `npc_vendor` VALUES (80271, 0, 30612, 0, 0, 0, 0);
 INSERT INTO `npc_vendor` VALUES (93154, 0, 49888, 0, 0, 0, 0);
@@ -42903,7 +42903,7 @@ INSERT INTO `npc_vendor` VALUES (80014, 0, 6219, 0, 0, 0, 0);
 INSERT INTO `npc_vendor` VALUES (80238, 0, 22461, 0, 0, 0, 0);
 INSERT INTO `npc_vendor` VALUES (80238, 0, 5956, 0, 0, 0, 0);
 INSERT INTO `npc_vendor` VALUES (9000033, 0, 44455, 0, 0, 0, 0);
-INSERT INTO `npc_vendor` VALUES (80266, 0, 6265, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` VALUES (35642, 0, 33445, 0, 0, 0, 0);
 INSERT INTO `npc_vendor` VALUES (45566, 0, 80438, 0, 0, 5000, 0);
 INSERT INTO `npc_vendor` VALUES (80014, 0, 36913, 0, 0, 0, 0);
 INSERT INTO `npc_vendor` VALUES (80014, 0, 35624, 0, 0, 0, 0);
@@ -42966,7 +42966,7 @@ INSERT INTO `npc_vendor` VALUES (81102, 0, 14807, 0, 0, 1111, 0);
 INSERT INTO `npc_vendor` VALUES (32334, 0, 35953, 0, 0, 0, 0);
 INSERT INTO `npc_vendor` VALUES (80086, 0, 50356, 0, 0, 0, 0);
 INSERT INTO `npc_vendor` VALUES (80085, 0, 50663, 0, 0, 0, 0);
-INSERT INTO `npc_vendor` VALUES (80266, 0, 52020, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` VALUES (35642, 0, 43233, 0, 0, 0, 0);
 INSERT INTO `npc_vendor` VALUES (80244, 0, 44150, 0, 0, 0, 0);
 INSERT INTO `npc_vendor` VALUES (45545, 0, 80739, 0, 0, 0, 0);
 INSERT INTO `npc_vendor` VALUES (80257, 0, 14341, 0, 0, 0, 0);
@@ -43860,7 +43860,7 @@ INSERT INTO `npc_vendor` VALUES (80234, 0, 49845, 0, 0, 0, 0);
 INSERT INTO `npc_vendor` VALUES (81128, 0, 16689, 0, 0, 0, 0);
 INSERT INTO `npc_vendor` VALUES (80234, 0, 49844, 0, 0, 0, 0);
 INSERT INTO `npc_vendor` VALUES (81128, 0, 16688, 0, 0, 0, 0);
-INSERT INTO `npc_vendor` VALUES (80305, 0, 9017, 0, 0, 5000, 0);
+INSERT INTO `npc_vendor` VALUES (94170, 0, 3372, 0, 0, 0, 0);
 INSERT INTO `npc_vendor` VALUES (81128, 0, 16683, 0, 0, 0, 0);
 INSERT INTO `npc_vendor` VALUES (81111, 0, 14967, 0, 0, 1111, 0);
 INSERT INTO `npc_vendor` VALUES (81111, 0, 14974, 0, 0, 1111, 0);
@@ -45520,11 +45520,11 @@ INSERT INTO `npc_vendor` VALUES (90032, 0, 72139, 0, 0, 2938, 0);
 INSERT INTO `npc_vendor` VALUES (93001, 0, 70049, 0, 0, 0, 0);
 INSERT INTO `npc_vendor` VALUES (93001, 0, 70048, 0, 0, 0, 0);
 INSERT INTO `npc_vendor` VALUES (80046, 0, 48523, 0, 0, 2995, 0);
-INSERT INTO `npc_vendor` VALUES (93018, 0, 72226, 0, 0, 0, 0);
-INSERT INTO `npc_vendor` VALUES (93018, 0, 72227, 0, 0, 0, 0);
-INSERT INTO `npc_vendor` VALUES (93018, 0, 72230, 0, 0, 0, 0);
-INSERT INTO `npc_vendor` VALUES (93018, 0, 72228, 0, 0, 0, 0);
-INSERT INTO `npc_vendor` VALUES (93018, 0, 72229, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` VALUES (45547, 0, 80721, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` VALUES (45547, 0, 80722, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` VALUES (45547, 0, 80725, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` VALUES (45547, 0, 80720, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` VALUES (81135, 0, 9403, 0, 0, 0, 0);
 INSERT INTO `npc_vendor` VALUES (93010, 0, 70624, 0, 0, 0, 0);
 INSERT INTO `npc_vendor` VALUES (93010, 0, 70623, 0, 0, 0, 0);
 INSERT INTO `npc_vendor` VALUES (93010, 0, 70621, 0, 0, 0, 0);
@@ -45533,7 +45533,7 @@ INSERT INTO `npc_vendor` VALUES (93010, 0, 70620, 0, 0, 0, 0);
 INSERT INTO `npc_vendor` VALUES (93050, 0, 70238, 0, 0, 2992, 0);
 INSERT INTO `npc_vendor` VALUES (90004, 0, 70626, 0, 0, 0, 0);
 INSERT INTO `npc_vendor` VALUES (45563, 0, 80433, 0, 0, 5000, 0);
-INSERT INTO `npc_vendor` VALUES (45563, 0, 80736, 0, 0, 5000, 0);
+INSERT INTO `npc_vendor` VALUES (45563, 0, 80736, 0, 0, 0, 0);
 INSERT INTO `npc_vendor` VALUES (45563, 0, 80588, 0, 0, 5000, 0);
 INSERT INTO `npc_vendor` VALUES (45566, 0, 80292, 0, 0, 5000, 0);
 INSERT INTO `npc_vendor` VALUES (45563, 0, 80439, 0, 0, 5000, 0);
@@ -46581,7 +46581,7 @@ INSERT INTO `npc_vendor` VALUES (45564, 0, 80291, 0, 0, 5000, 0);
 INSERT INTO `npc_vendor` VALUES (45564, 0, 80587, 0, 0, 5000, 0);
 INSERT INTO `npc_vendor` VALUES (45564, 0, 80438, 0, 0, 5000, 0);
 INSERT INTO `npc_vendor` VALUES (45564, 0, 80368, 0, 0, 5000, 0);
-INSERT INTO `npc_vendor` VALUES (45564, 0, 80737, 0, 0, 5000, 0);
+INSERT INTO `npc_vendor` VALUES (45564, 0, 80737, 0, 0, 0, 0);
 INSERT INTO `npc_vendor` VALUES (90047, 0, 71654, 0, 0, 2991, 0);
 INSERT INTO `npc_vendor` VALUES (90047, 0, 71655, 0, 0, 2991, 0);
 INSERT INTO `npc_vendor` VALUES (90047, 0, 71656, 0, 0, 2991, 0);
@@ -47092,7 +47092,7 @@ INSERT INTO `npc_vendor` VALUES (45564, 0, 80432, 0, 0, 5000, 0);
 INSERT INTO `npc_vendor` VALUES (90033, 0, 71893, 0, 0, 2991, 0);
 INSERT INTO `npc_vendor` VALUES (93015, 0, 71677, 0, 0, 0, 0);
 INSERT INTO `npc_vendor` VALUES (45564, 0, 80732, 0, 0, 5000, 0);
-INSERT INTO `npc_vendor` VALUES (45549, 0, 80739, 0, 0, 5000, 0);
+INSERT INTO `npc_vendor` VALUES (45547, 0, 80790, 0, 0, 0, 0);
 INSERT INTO `npc_vendor` VALUES (45564, 0, 80342, 0, 0, 5000, 0);
 INSERT INTO `npc_vendor` VALUES (45566, 0, 80344, 0, 0, 5000, 0);
 INSERT INTO `npc_vendor` VALUES (45564, 0, 80495, 0, 0, 5000, 0);
@@ -47301,7 +47301,7 @@ INSERT INTO `npc_vendor` VALUES (80279, 0, 72077, 0, 0, 0, 0);
 INSERT INTO `npc_vendor` VALUES (80279, 0, 72078, 0, 0, 0, 0);
 INSERT INTO `npc_vendor` VALUES (80279, 0, 72079, 0, 0, 0, 0);
 INSERT INTO `npc_vendor` VALUES (80279, 0, 72080, 0, 0, 0, 0);
-INSERT INTO `npc_vendor` VALUES (93018, 0, 72220, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` VALUES (45547, 0, 80719, 0, 0, 0, 0);
 INSERT INTO `npc_vendor` VALUES (80279, 0, 72082, 0, 0, 0, 0);
 INSERT INTO `npc_vendor` VALUES (80279, 0, 72083, 0, 0, 0, 0);
 INSERT INTO `npc_vendor` VALUES (80279, 0, 72084, 0, 0, 0, 0);
@@ -47408,7 +47408,7 @@ INSERT INTO `npc_vendor` VALUES (90014, 0, 71364, 0, 0, 0, 0);
 INSERT INTO `npc_vendor` VALUES (80208, 0, 40684, 0, 0, 2960, 0);
 INSERT INTO `npc_vendor` VALUES (80208, 0, 40682, 0, 0, 2960, 0);
 INSERT INTO `npc_vendor` VALUES (45545, 0, 80738, 0, 0, 0, 0);
-INSERT INTO `npc_vendor` VALUES (80305, 0, 25749, 0, 0, 5000, 0);
+INSERT INTO `npc_vendor` VALUES (94170, 0, 3371, 0, 0, 0, 0);
 INSERT INTO `npc_vendor` VALUES (81168, 0, 18538, 0, 0, 2995, 0);
 INSERT INTO `npc_vendor` VALUES (90012, 0, 71414, 0, 0, 0, 0);
 INSERT INTO `npc_vendor` VALUES (90012, 0, 71415, 0, 0, 0, 0);
@@ -48788,13 +48788,13 @@ INSERT INTO `npc_vendor` VALUES (93000, 0, 80107, 0, 0, 0, 0);
 INSERT INTO `npc_vendor` VALUES (93000, 0, 80108, 0, 0, 0, 0);
 INSERT INTO `npc_vendor` VALUES (93000, 0, 80110, 0, 0, 0, 0);
 INSERT INTO `npc_vendor` VALUES (93000, 0, 80111, 0, 0, 0, 0);
-INSERT INTO `npc_vendor` VALUES (80266, 0, 23162, 0, 0, 0, 0);
-INSERT INTO `npc_vendor` VALUES (80266, 0, 49110, 0, 0, 0, 0);
-INSERT INTO `npc_vendor` VALUES (80266, 0, 34722, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` VALUES (35642, 0, 35953, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` VALUES (35642, 0, 43237, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` VALUES (35642, 0, 35952, 0, 0, 0, 0);
 INSERT INTO `npc_vendor` VALUES (93147, 0, 48007, 0, 0, 0, 0);
 INSERT INTO `npc_vendor` VALUES (93147, 0, 52570, 0, 0, 0, 0);
 INSERT INTO `npc_vendor` VALUES (93147, 0, 50384, 0, 0, 0, 0);
-INSERT INTO `npc_vendor` VALUES (80266, 0, 40771, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` VALUES (35642, 0, 43231, 0, 0, 0, 0);
 INSERT INTO `npc_vendor` VALUES (93147, 0, 50387, 0, 0, 0, 0);
 INSERT INTO `npc_vendor` VALUES (93147, 0, 50386, 0, 0, 0, 0);
 INSERT INTO `npc_vendor` VALUES (93028, 0, 80158, 0, 0, 0, 0);
@@ -49384,7 +49384,7 @@ INSERT INTO `npc_vendor` VALUES (45548, 0, 80590, 0, 0, 5000, 0);
 INSERT INTO `npc_vendor` VALUES (45548, 0, 80591, 0, 0, 5000, 0);
 INSERT INTO `npc_vendor` VALUES (45548, 0, 80592, 0, 0, 5000, 0);
 INSERT INTO `npc_vendor` VALUES (45548, 0, 80593, 0, 0, 5000, 0);
-INSERT INTO `npc_vendor` VALUES (45547, 0, 80724, 0, 0, 5000, 0);
+INSERT INTO `npc_vendor` VALUES (45547, 0, 80724, 0, 0, 0, 0);
 INSERT INTO `npc_vendor` VALUES (45545, 0, 80723, 0, 0, 5000, 0);
 INSERT INTO `npc_vendor` VALUES (45548, 0, 80611, 0, 0, 5000, 0);
 INSERT INTO `npc_vendor` VALUES (45548, 0, 80618, 0, 0, 5000, 0);
@@ -49478,32 +49478,31 @@ INSERT INTO `npc_vendor` VALUES (45548, 0, 80710, 0, 0, 5000, 0);
 INSERT INTO `npc_vendor` VALUES (45548, 0, 80711, 0, 0, 5000, 0);
 INSERT INTO `npc_vendor` VALUES (45548, 0, 80712, 0, 0, 5000, 0);
 INSERT INTO `npc_vendor` VALUES (45548, 0, 80713, 0, 0, 5000, 0);
-INSERT INTO `npc_vendor` VALUES (45549, 0, 80714, 0, 0, 5000, 0);
-INSERT INTO `npc_vendor` VALUES (45549, 0, 80715, 0, 0, 5000, 0);
-INSERT INTO `npc_vendor` VALUES (45549, 0, 80716, 0, 0, 5000, 0);
-INSERT INTO `npc_vendor` VALUES (45549, 0, 80717, 0, 0, 5000, 0);
-INSERT INTO `npc_vendor` VALUES (45549, 0, 80718, 0, 0, 5000, 0);
-INSERT INTO `npc_vendor` VALUES (45549, 0, 80719, 0, 0, 5000, 0);
-INSERT INTO `npc_vendor` VALUES (45549, 0, 80720, 0, 0, 5000, 0);
-INSERT INTO `npc_vendor` VALUES (45549, 0, 80721, 0, 0, 5000, 0);
-INSERT INTO `npc_vendor` VALUES (45549, 0, 80722, 0, 0, 5000, 0);
+INSERT INTO `npc_vendor` VALUES (81135, 0, 36447, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` VALUES (81135, 0, 49689, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` VALUES (45545, 0, 80794, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` VALUES (45545, 0, 80780, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` VALUES (45547, 0, 80798, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` VALUES (45547, 0, 80800, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` VALUES (45547, 0, 80796, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` VALUES (45547, 0, 80799, 0, 0, 0, 0);
 INSERT INTO `npc_vendor` VALUES (93199, 0, 8627, 0, 0, 0, 0);
-INSERT INTO `npc_vendor` VALUES (45549, 0, 80724, 0, 0, 5000, 0);
-INSERT INTO `npc_vendor` VALUES (45549, 0, 80725, 0, 0, 5000, 0);
-INSERT INTO `npc_vendor` VALUES (45549, 0, 80726, 0, 0, 5000, 0);
-INSERT INTO `npc_vendor` VALUES (45549, 0, 80727, 0, 0, 5000, 0);
-INSERT INTO `npc_vendor` VALUES (45549, 0, 80728, 0, 0, 5000, 0);
-INSERT INTO `npc_vendor` VALUES (45549, 0, 80729, 0, 0, 5000, 0);
+INSERT INTO `npc_vendor` VALUES (45547, 0, 80797, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` VALUES (45547, 0, 80795, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` VALUES (45547, 0, 80789, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` VALUES (45547, 0, 80786, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` VALUES (45547, 0, 80785, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` VALUES (45547, 0, 80784, 0, 0, 0, 0);
 INSERT INTO `npc_vendor` VALUES (45546, 0, 80731, 0, 0, 5000, 0);
-INSERT INTO `npc_vendor` VALUES (45549, 0, 80732, 0, 0, 5000, 0);
-INSERT INTO `npc_vendor` VALUES (45549, 0, 80733, 0, 0, 5000, 0);
-INSERT INTO `npc_vendor` VALUES (45549, 0, 80734, 0, 0, 5000, 0);
-INSERT INTO `npc_vendor` VALUES (45549, 0, 80735, 0, 0, 5000, 0);
+INSERT INTO `npc_vendor` VALUES (45547, 0, 80782, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` VALUES (45547, 0, 80783, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` VALUES (45547, 0, 80788, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` VALUES (45547, 0, 80781, 0, 0, 0, 0);
 INSERT INTO `npc_vendor` VALUES (4731, 0, 13333, 0, 0, 0, 0);
 INSERT INTO `npc_vendor` VALUES (4731, 0, 46308, 0, 0, 0, 0);
-INSERT INTO `npc_vendor` VALUES (45549, 0, 80738, 0, 0, 5000, 0);
+INSERT INTO `npc_vendor` VALUES (45547, 0, 80779, 0, 0, 0, 0);
 INSERT INTO `npc_vendor` VALUES (93058, 0, 43964, 0, 0, 0, 0);
-INSERT INTO `npc_vendor` VALUES (45549, 0, 80740, 0, 0, 5000, 0);
+INSERT INTO `npc_vendor` VALUES (45547, 0, 80793, 0, 0, 0, 0);
 INSERT INTO `npc_vendor` VALUES (4731, 0, 13331, 0, 0, 0, 0);
 INSERT INTO `npc_vendor` VALUES (4731, 0, 13332, 0, 0, 0, 0);
 INSERT INTO `npc_vendor` VALUES (93199, 0, 8628, 0, 0, 0, 0);
@@ -49720,5 +49719,58 @@ INSERT INTO `npc_vendor` VALUES (80279, 0, 80775, 0, 0, 0, 0);
 INSERT INTO `npc_vendor` VALUES (80279, 0, 80777, 0, 0, 0, 0);
 INSERT INTO `npc_vendor` VALUES (80279, 0, 80774, 0, 0, 0, 0);
 INSERT INTO `npc_vendor` VALUES (80279, 0, 80776, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` VALUES (94155, 0, 34012, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` VALUES (94155, 0, 32524, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` VALUES (94155, 0, 32331, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` VALUES (94155, 0, 32337, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` VALUES (94155, 0, 32323, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` VALUES (94155, 0, 34010, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` VALUES (94155, 0, 32590, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` VALUES (94155, 0, 28660, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` VALUES (94155, 0, 34190, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` VALUES (94155, 0, 34241, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` VALUES (94155, 0, 29925, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` VALUES (94155, 0, 29992, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` VALUES (94155, 0, 29989, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` VALUES (94155, 0, 29994, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` VALUES (94155, 0, 33592, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` VALUES (81135, 0, 13953, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` VALUES (80305, 0, 23162, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` VALUES (80305, 0, 83550, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` VALUES (80014, 0, 34722, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` VALUES (80014, 0, 38873, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` VALUES (80014, 0, 40771, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` VALUES (35642, 0, 34760, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` VALUES (80014, 0, 52020, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` VALUES (80014, 0, 52021, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` VALUES (35642, 0, 43236, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` VALUES (80305, 0, 80750, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` VALUES (80305, 0, 83551, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` VALUES (80305, 0, 83555, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` VALUES (94170, 0, 8925, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` VALUES (94170, 0, 18256, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` VALUES (94170, 0, 40411, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` VALUES (93015, 0, 72220, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` VALUES (93015, 0, 72221, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` VALUES (93015, 0, 72222, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` VALUES (93015, 0, 72223, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` VALUES (93015, 0, 72224, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` VALUES (93015, 0, 72225, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` VALUES (93015, 0, 72226, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` VALUES (93015, 0, 72227, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` VALUES (93015, 0, 72228, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` VALUES (93015, 0, 72229, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` VALUES (93015, 0, 72230, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` VALUES (45547, 0, 80726, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` VALUES (45547, 0, 80727, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` VALUES (45547, 0, 80728, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` VALUES (45547, 0, 80729, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` VALUES (45547, 0, 80732, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` VALUES (45547, 0, 80733, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` VALUES (45547, 0, 80734, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` VALUES (45547, 0, 80735, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` VALUES (45547, 0, 80738, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` VALUES (45547, 0, 80739, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` VALUES (45547, 0, 80740, 0, 0, 0, 0);
 
 SET FOREIGN_KEY_CHECKS = 1;

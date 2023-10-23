@@ -1,6 +1,14 @@
-DELETE FROM `spell_proc_event` WHERE `entry` = '71845';
+-- DELETE FROM `spell_proc_event` WHERE `entry` = '71845';
 
-UPDATE `command` SET `security` = '4' WHERE `name` = 'dismount';
+-- UPDATE `command` SET `security` = '4' WHERE `name` = 'dismount';
+
+
+-- mounts:
+-- Invincible
+UPDATE `creature_model_info` SET `DisplayID_Other_gender` = '0' WHERE `DisplayID` = '31007';
+
+
+------------------------------------------------------------
 
 -- Bosses:
 
@@ -496,8 +504,6 @@ INSERT INTO `acore_world`.`creature_model_info` (`DisplayID`, `BoundingRadius`, 
 INSERT INTO `acore_world`.`creature_model_info` (`DisplayID`, `BoundingRadius`, `CombatReach`, `Gender`, `DisplayID_Other_Gender`) VALUES (50486, 2, 2.21, 0, 0);
 INSERT INTO `acore_world`.`creature_model_info` (`DisplayID`, `BoundingRadius`, `CombatReach`, `Gender`, `DisplayID_Other_Gender`) VALUES (50487, 2, 2.21, 0, 0);
 INSERT INTO `acore_world`.`creature_model_info` (`DisplayID`, `BoundingRadius`, `CombatReach`, `Gender`, `DisplayID_Other_Gender`) VALUES (50488, 2, 2.21, 0, 0);
-INSERT INTO `acore_world`.`creature_model_info` (`DisplayID`, `BoundingRadius`, `CombatReach`, `Gender`, `DisplayID_Other_Gender`) VALUES (50489, 2, 2.21, 0, 0);
-INSERT INTO `acore_world`.`creature_model_info` (`DisplayID`, `BoundingRadius`, `CombatReach`, `Gender`, `DisplayID_Other_Gender`) VALUES (50490, 2, 2.21, 0, 0);
 INSERT INTO `acore_world`.`creature_model_info` (`DisplayID`, `BoundingRadius`, `CombatReach`, `Gender`, `DisplayID_Other_Gender`) VALUES (50491, 2, 2.21, 0, 0);
 INSERT INTO `acore_world`.`creature_model_info` (`DisplayID`, `BoundingRadius`, `CombatReach`, `Gender`, `DisplayID_Other_Gender`) VALUES (50492, 0.35, 1, 1, 0);
 INSERT INTO `acore_world`.`creature_model_info` (`DisplayID`, `BoundingRadius`, `CombatReach`, `Gender`, `DisplayID_Other_Gender`) VALUES (50493, 0.35, 1, 1, 0);
@@ -622,8 +628,8 @@ INSERT INTO `acore_world`.`creature_model_info` (`DisplayID`, `BoundingRadius`, 
 INSERT INTO `acore_world`.`creature_model_info` (`DisplayID`, `BoundingRadius`, `CombatReach`, `Gender`, `DisplayID_Other_Gender`) VALUES (50619, 2, 2.21, 0, 0);
 INSERT INTO `acore_world`.`creature_model_info` (`DisplayID`, `BoundingRadius`, `CombatReach`, `Gender`, `DisplayID_Other_Gender`) VALUES (50620, 2, 2.21, 0, 0);
 INSERT INTO `acore_world`.`creature_model_info` (`DisplayID`, `BoundingRadius`, `CombatReach`, `Gender`, `DisplayID_Other_Gender`) VALUES (50621, 2, 2.21, 0, 0);
-INSERT INTO `acore_world`.`creature_model_info` (`DisplayID`, `BoundingRadius`, `CombatReach`, `Gender`, `DisplayID_Other_Gender`) VALUES (50622, 2, 2.21, 0, 0);
-INSERT INTO `acore_world`.`creature_model_info` (`DisplayID`, `BoundingRadius`, `CombatReach`, `Gender`, `DisplayID_Other_Gender`) VALUES (50623, 2, 2.21, 0, 0);
+INSERT INTO `acore_world`.`creature_model_info` (`DisplayID`, `BoundingRadius`, `CombatReach`, `Gender`, `DisplayID_Other_Gender`) VALUES (50622, 2, 2.21, 2, 50623);
+INSERT INTO `acore_world`.`creature_model_info` (`DisplayID`, `BoundingRadius`, `CombatReach`, `Gender`, `DisplayID_Other_Gender`) VALUES (50623, 2, 2.21, 2, 50622);
 INSERT INTO `acore_world`.`creature_model_info` (`DisplayID`, `BoundingRadius`, `CombatReach`, `Gender`, `DisplayID_Other_Gender`) VALUES (50624, 2, 2.21, 0, 0);
 INSERT INTO `acore_world`.`creature_model_info` (`DisplayID`, `BoundingRadius`, `CombatReach`, `Gender`, `DisplayID_Other_Gender`) VALUES (50625, 2, 2.21, 0, 0);
 INSERT INTO `acore_world`.`creature_model_info` (`DisplayID`, `BoundingRadius`, `CombatReach`, `Gender`, `DisplayID_Other_Gender`) VALUES (50626, 0.35, 1, 1, 0);

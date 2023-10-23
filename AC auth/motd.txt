@@ -1,0 +1,1 @@
+UPDATE `acore_auth`.`motd` SET `text` = 'Seja bem vindo ao Battleborn, esperamos que você se divirta jogando!' WHERE `realmid` = -1;
