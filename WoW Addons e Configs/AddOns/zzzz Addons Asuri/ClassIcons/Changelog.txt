@@ -1,0 +1,79 @@
+7.4
+- TOC updated for 7.2.0
+
+7.3
+- TOC updated for 7.1.0
+
+7.2
+- Added icon for totems
+- Fixed minor issue of last patch
+
+7.1
+- Added additional check for unknown classes (no more green boxes)
+- Added demon hunter icon
+
+7.0
+- TOC updated for 7.0.3
+- Updated LibBabble-CreatureType-3.0
+- Made LibBabble-CreatureType-3.0 an optional dependency, so users can load their own version of it
+
+6.3
+- TOC updated for 6.1
+- Added icon for aberrations
+- Updated LibBabble-CreatureType-3.0
+
+6.2
+- Fixed changing angles of icons [comment]
+- Minor clean-up of XML
+- Use ADDON_LOADED instead of VARIABLES_LOADED
+
+6.1
+- Fixed savedVars initialization
+- Fixed two German strings in LibBabble-CreatureType-3.0
+
+6.0
+- Bringing this addon back to curse.com - new author Jitter88 (Hoochie@EU-Dethecus)
+- Positioning of all icons fixed
+- Added LibBabble-CreatureType-3.0, so all localizations available to the library are supported by this addon now
+
+5.1
+- Icon on non wild pet fixed
+- Focus adds even if a bit clunky.
+- WIP : Find a command to make the focus works as soon as the focus is set.
+- WIP : Rework icons to improve visual
+- WIP : Portuguese localisation to do.
+
+5.0
+- Monk icon added
+
+3.0
+- Nothing new as it was already prepared for LK \o/
+- Still waiting for a Russian player to give the information to make it available for thos players touhgh. :)
+
+2.4
+- Addon modified a bit by Yorgl (EU - CdT)
+- Works again for mobs
+- Deathknights added so it will work for the release of LK (works on the beta)
+
+
+1.1.1
+- Added an icon for critters.
+- Fixed the mechanical icon so it loads properly.
+
+1.1.0
+- Added higher-resolution icons for all classes and types.
+- Added icons for all monster types (i.e. humanoid, mechanical, beast, etc.)
+- Monster icons display type by default, can be changed to show class or be hidden with the '/ci mobsuse' command.
+- All three sets of icons can be arbitrarily rotated around the portrait now. Use '/ci angle [player/party/target] [angle]'
+
+1.0.3
+- Added individual toggles for each icon set. (Player/Party/Target)
+
+1.0.2
+- Changed the event handling array to a single function to prevent the "Attempt to index field '?' (A nil value)" bug.
+
+1.0.1
+- Changed some code around to make it safer and cleaner.
+
+1.0.0
+- Initial version.

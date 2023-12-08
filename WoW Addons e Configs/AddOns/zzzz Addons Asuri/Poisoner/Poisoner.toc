@@ -1,0 +1,15 @@
+## Interface: 30300
+## Title: Poisoner3
+## Notes: Poison application helper for rogues
+## Author: Original Poisoner by Karrion@Terenas, Poisoner3 Wotlk compatibility update by Silentdave, humfras (since 06/2010)
+## eMail: N/A
+## URL: http://www.wowinterface.com/downloads/info5580-Poisoner.html
+## Version: 3.3 beta2
+## Dependencies:
+## SavedVariablesPerCharacter: POISONER_CONFIG
+## X-Compatible-With: 40000
+locale\locale.xml
+Poisoner_Options.lua
+Poisoner_Options.xml
+Poisoner_AutoBuy.lua
+Poisoner.xml

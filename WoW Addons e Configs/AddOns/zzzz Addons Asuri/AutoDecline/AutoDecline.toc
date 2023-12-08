@@ -1,0 +1,9 @@
+## Interface: 30200
+## Title: Auto|cffff0000Decline|r
+## Notes: Automatically declines party, guild, duel, charter, arena invites
+## Version: 1.5.30000
+## Author: Pacer Dawn (pacer.dawn@earthlink.net)
+## SavedVariables: AutoDeclineConfig, AutoDeclinePartyAllow, AutoDeclineDuelAllow, AutoDeclineActions, AUTODECLINE_DEBUG, PDLibConfig, PD_Persistent_Debug
+AutoDecline.xml
+ADOptions.xml
+PDLib.xml

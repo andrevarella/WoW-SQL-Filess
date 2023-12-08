@@ -1,0 +1,8 @@
+## Interface: 30300
+## Version: 09.12.16
+## Title: ACB Auras
+## Author: Aezay (Earthen Ring EU)
+## Notes: Aura Timer Plugin for AzCastBar
+## Dependencies: AzCastBar
+LibWeaponEnchant.lua
+core.lua

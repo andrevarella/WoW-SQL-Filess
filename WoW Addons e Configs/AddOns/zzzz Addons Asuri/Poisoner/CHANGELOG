@@ -1,0 +1,79 @@
+Version: 2.2
+
+Updated for WoW client patch 2.1
+Use item:<id> attributes to avoid the client choosing the wrong poison rank.
+
+
+Version: 2.1
+
+New scaling and positioning commands
+Fixed issue in german localisation
+
+
+Version: 2.0.3
+
+Updated to work with the WoW client patch 2.0.3
+
+
+Version: 2.0.2
+
+Remember previously seen items and display them greyed out (fixes nill reference bug)
+Added alchemical oils (Frost Oil, Shadow Oil)
+
+
+Version: 2.0.1
+
+Fixed a bug where Poisoner was not correctly staying disabled.
+
+
+Version: 2.0
+
+Updated to work with WoW client 2.0.
+Look and feel improvements to the buttons, especially poison count.
+Menu now pops up on mouseover, instead of having to click the minimap button.
+New reset command, in case the button is dragged offscreen.
+
+
+Version: 1.4.2
+
+Fix distribution .zip to include Poisoner path name.
+
+
+Version: 1.4.1
+
+Bump interface number for 1.12
+
+
+Version: 1.4
+
+Implemented counting for expendable (X Charges) items.
+Added Mana Oil and Wizard Oil.
+
+
+Version: 1.3
+
+Added Sharpening Stones and Weightstones.
+
+
+Version: 1.2
+
+Added /poisoner (en|dis)able command to show/hide the button.
+Poisoner is enabled by default only for Rogues.
+Experimental localisation for non-English languages.
+
+
+Version: 1.1.1
+
+Fixed interface number for 1.11
+
+
+Version: 1.1
+
+Added a /poisoner (lock|unlock) command to prevent/allow the button to be dragged.
+Display poison count on the menu buttons.
+Tested against WoW 1.11
+
+
+Version: 1.0
+
+Initial release

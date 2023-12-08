@@ -1,0 +1,25 @@
+------------------------------------------------------------------------
+r85 | xinhuan | 2010-09-28 11:02:05 +0000 (Tue, 28 Sep 2010) | 1 line
+Changed paths:
+   M /trunk/IPopBar.lua
+
+Now that the latest build has secure SpellFlyout buttons (previous build was insecure), we can now securewrap them to hide our popbars! Unfortunately, if any spell flyout buttons are created in combat, we have to wrap them when combat ends.
+------------------------------------------------------------------------
+r84 | xinhuan | 2010-09-24 05:02:31 +0000 (Fri, 24 Sep 2010) | 1 line
+Changed paths:
+   M /trunk/IPopBar.lua
+
+Make sure it works with live realms too.
+------------------------------------------------------------------------
+r83 | xinhuan | 2010-09-24 04:57:38 +0000 (Fri, 24 Sep 2010) | 1 line
+Changed paths:
+   M /trunk/IPopBar.lua
+
+Minor update for Cataclysm.
+------------------------------------------------------------------------
+r82 | xinhuan | 2009-12-24 03:19:13 +0000 (Thu, 24 Dec 2009) | 1 line
+Changed paths:
+   M /trunk/IPopBar.lua
+
+Remove unnecessary code.
+------------------------------------------------------------------------

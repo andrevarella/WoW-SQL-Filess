@@ -1,0 +1,18 @@
+## Interface: 40000
+## Author: Korkosh
+## Version: 2.9.6d
+## Title: TweakWoW
+## Notes: 
+## SavedVariablesPerCharacter: TweakWoWDB
+## OptionalDeps: LibSimpleOptions-1.0
+
+libs\LibStub.lua
+libs\LibSimpleOptions-1.0.lua
+
+locale\enUS.lua
+locale\deDE.lua
+locale\ruRU.lua
+locale\zhCN.lua
+locale\zhTW.lua
+
+TweakWoW.lua

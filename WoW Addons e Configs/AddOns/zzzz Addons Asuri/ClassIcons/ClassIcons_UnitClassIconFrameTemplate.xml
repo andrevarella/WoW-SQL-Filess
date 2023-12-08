@@ -1,0 +1,34 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/FrameXML\UI.xsd">
+	<Frame name="ClassIcons_UnitClassIconFrameTemplate" hidden="true" movable="true" enableMouse="true" frameStrata="MEDIUM" parent="UIParent" virtual="true">
+		<Size>
+			<AbsDimension x="20" y="20"/>
+		</Size>
+		
+		<Layers>
+			<Layer level="ARTWORK">
+				<Texture name="$parentTexture" setAllPoints="true"/>
+			</Layer>
+		</Layers>
+		
+		<Scripts>
+			<OnLoad>
+				self.TEXTURE = getglobal(self:GetName().."Texture");
+				self:SetFrameLevel(0);
+			</OnLoad>
+			<OnMouseDown>
+				if (IsModifierKeyDown() ~= nil) then
+					self.Moving = true;
+					self:StartMoving();
+				end
+			</OnMouseDown>
+			<OnMouseUp>
+				if (self.Moving ~= nil) then
+					self.Moving = nil;
+					self:StopMovingOrSizing();
+				end
+			</OnMouseUp>
+		</Scripts>
+	</Frame>
+	
+	
+</Ui>

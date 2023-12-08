@@ -1,0 +1,442 @@
+﻿<Ui xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.blizzard.com/wow/ui/">
+	<Script file="Peace.lua" />
+	<Frame name="Peace_OptionsFrame" hidden="true" parent="UIParent" toplevel="true" movable="true">
+		<Size>
+			<AbsDimension x="668" y="487" />
+		</Size>
+		<Anchors>
+			<Anchor point="CENTER">
+				<Offset x="11" y="-17" />
+			</Anchor>
+		</Anchors>
+		<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" edgeFile="Interface\DialogFrame\UI-DialogBox-Border" tile="true">
+			<BackgroundInsets>
+				<AbsInset left="11" right="12" top="12" bottom="11" />
+			</BackgroundInsets>
+			<TileSize>
+				<AbsValue val="32" />
+			</TileSize>
+			<EdgeSize>
+				<AbsValue val="32" />
+			</EdgeSize>
+		</Backdrop>
+		<Frames>
+			<CheckButton name="Peace_EnableAddonCheck" inherits="UICheckButtonTemplate" text="">
+				<Size>
+					<AbsDimension x="20" y="20" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="37" y="-92" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>Peace_EnableAddonCheck_OnClick();</OnClick>
+				</Scripts>
+			</CheckButton>
+			<CheckButton name="Peace_AutoAddGuildCheck" inherits="UICheckButtonTemplate" text="">
+				<Size>
+					<AbsDimension x="20" y="20" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="37" y="-130" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>Peace_AutoAddGuildCheck_OnClick();</OnClick>
+				</Scripts>
+			</CheckButton>
+			<CheckButton name="Peace_AutoAddFriendsCheck" inherits="UICheckButtonTemplate" text="">
+				<Size>
+					<AbsDimension x="20" y="20" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="37" y="-156" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>Peace_AutoAddFriendsCheck_OnClick();</OnClick>
+				</Scripts>
+			</CheckButton>
+			<EditBox name="EnteredPlayerNameBox" inherits="InputBoxTemplate">
+				<Size>
+					<AbsDimension x="176" y="20" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="92" y="-364" />
+					</Anchor>
+				</Anchors>
+			</EditBox>
+			<Button name="AddNewAuthorisedButton" inherits="UIPanelButtonTemplate" text="Authorise">
+				<Size>
+					<AbsDimension x="75" y="20" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="290" y="-364" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>AddNewAuthorisedButton_OnClick();</OnClick>
+				</Scripts>
+			</Button>
+			<Button name="DeleteAuthoriseButton" inherits="UIPanelButtonTemplate" text="Delete">
+				<Size>
+					<AbsDimension x="66" y="20" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="371" y="-364" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>DeleteAuthoriseButton_OnClick();</OnClick>
+				</Scripts>
+			</Button>
+			<Button name="IgnorePlayerWhisperButton" inherits="UIPanelButtonTemplate" text="Ignore">
+				<Size>
+					<AbsDimension x="75" y="20" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="443" y="-364" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>IgnorePlayerWhisperButton_OnClick();</OnClick>
+				</Scripts>
+			</Button>
+			<Button name="Peace_CloseOptionsFrame" inherits="UIPanelButtonTemplate" text="Close">
+				<Size>
+					<AbsDimension x="75" y="23" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="112" y="-421" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>Peace_CloseOptionsFrame_OnClick();</OnClick>
+				</Scripts>
+			</Button>
+			<Button name="Peace_CreditsButton" inherits="UIPanelButtonTemplate" text="Credits">
+				<Size>
+					<AbsDimension x="75" y="23" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="193" y="-421" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>Peace_CreditsButton_OnClick();</OnClick>
+				</Scripts>
+			</Button>
+			<CheckButton name="Peace_AutoAddWhisperedPlayersCheck" inherits="UICheckButtonTemplate" text="">
+				<Size>
+					<AbsDimension x="20" y="20" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="355" y="-130" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>Peace_AutoAddWhisperedPlayersCheck_OnClick();</OnClick>
+				</Scripts>
+			</CheckButton>
+			<Button name="Peace_CleanWholePlayerList" inherits="UIPanelButtonTemplate" text="Reset Authorised List">
+				<Size>
+					<AbsDimension x="159" y="23" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="419" y="-421" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>Peace_CleanWholePlayerList_OnClick();</OnClick>
+				</Scripts>
+			</Button>
+			<CheckButton name="Peace_NotifyBlockedPlayersCheck" inherits="UICheckButtonTemplate" text="">
+				<Size>
+					<AbsDimension x="20" y="20" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="355" y="-156" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>Peace_NotifyBlockedPlayersCheck_OnClick();</OnClick>
+				</Scripts>
+			</CheckButton>
+			<CheckButton name="Peace_InformWhenPlayerBlockedCheck" inherits="UICheckButtonTemplate" text="">
+				<Size>
+					<AbsDimension x="20" y="20" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="37" y="-182" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>Peace_InformWhenPlayerBlockedCheck_OnClick();</OnClick>
+				</Scripts>
+			</CheckButton>
+			<EditBox name="Peace_CustomMsgEditBox" inherits="InputBoxTemplate">
+				<Size>
+					<AbsDimension x="545" y="20" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="63" y="-276" />
+					</Anchor>
+				</Anchors>
+			</EditBox>
+			<CheckButton name="Peace_UseCustomMessageTextCheck" inherits="UICheckButtonTemplate" text="CheckButton1">
+				<Size>
+					<AbsDimension x="20" y="20" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="37" y="-276" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>Peace_UseCustomMessageTextCheck_OnClick();</OnClick>
+				</Scripts>
+			</CheckButton>
+			<Button name="Peace_ScanGuildFriendsButton" inherits="UIPanelButtonTemplate" text="Scan Guild/Friends">
+				<Size>
+					<AbsDimension x="139" y="23" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="274" y="-421" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>Peace_ScanGuildFriendsButton_OnClick();</OnClick>
+				</Scripts>
+			</Button>
+			<CheckButton name="Peace_ResetBlockedWhisperHistoryCheck" inherits="UICheckButtonTemplate" text="">
+				<Size>
+					<AbsDimension x="20" y="20" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="355" y="-182" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>Peace_ResetBlockedWhisperHistoryCheck_OnClick();</OnClick>
+				</Scripts>
+			</CheckButton>
+			<CheckButton name="Peace_DoSoundOnBlockCheck" inherits="UICheckButtonTemplate" text="">
+				<Size>
+					<AbsDimension x="20" y="20" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="37" y="-208" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>Peace_DoSoundOnBlockCheck_OnClick();</OnClick>
+				</Scripts>
+			</CheckButton>
+			<Button name="Peace_ManualClearHistoryButton" inherits="UIPanelButtonTemplate" text="Clear">
+				<Size>
+					<AbsDimension x="42" y="22" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="585" y="-182" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>Peace_ManualClearHistoryButton_OnClick();</OnClick>
+				</Scripts>
+			</Button>
+		</Frames>
+		<Layers>
+			<Layer level="OVERLAY">
+				<FontString name="OptionsTitle" inherits="NumberFontNormalHuge" text="Give Me Peace" justifyH="LEFT">
+					<Size x="241" y="41" />
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="27" y="-26" />
+						</Anchor>
+					</Anchors>
+					<FontHeight>
+						<AbsValue val="38" />
+					</FontHeight>
+				</FontString>
+				<FontString name="EnableAddonText" inherits="GameFontNormal" text="Enable Peace!" justifyH="LEFT">
+					<Size>
+						<AbsDimension x="148" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="63" y="-92" />
+						</Anchor>
+					</Anchors>
+					<Color r="1" g="1" b="1" />
+				</FontString>
+				<FontString name="FontString1" inherits="GameFontNormal" text="Auto add guild member list." justifyH="LEFT">
+					<Size>
+						<AbsDimension x="205" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="63" y="-128" />
+						</Anchor>
+					</Anchors>
+					<FontHeight>
+						<AbsValue val="11" />
+					</FontHeight>
+					<Color r="1" g="1" b="0.5" />
+				</FontString>
+				<FontString name="FontString2" inherits="GameFontNormal" text="Auto add friends list." justifyH="LEFT">
+					<Size>
+						<AbsDimension x="205" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="63" y="-154" />
+						</Anchor>
+					</Anchors>
+					<FontHeight>
+						<AbsValue val="11" />
+					</FontHeight>
+					<Color r="1" g="1" b="0.5" />
+				</FontString>
+				<FontString name="AddPlayerNameText" inherits="GameFontNormal" text="Players can be manually added, removed or they can be ignored in such cases where a certain guild member is a complete pain in the neck  =p" justifyH="LEFT">
+					<Size>
+						<AbsDimension x="493" y="47" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="37" y="-311" />
+						</Anchor>
+					</Anchors>
+					<Color r="0.75" g="1" b="0.75" />
+				</FontString>
+				<FontString name="PlayerNameText" inherits="GameFontNormal" text="Player:" justifyH="LEFT">
+					<Size>
+						<AbsDimension x="49" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="37" y="-364" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="FontString3" inherits="GameFontNormal" text="Auto add players I whisper." justifyH="LEFT">
+					<Size>
+						<AbsDimension x="215" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="381" y="-128" />
+						</Anchor>
+					</Anchors>
+					<FontHeight>
+						<AbsValue val="11" />
+					</FontHeight>
+					<Color r="1" g="1" b="0.5" />
+				</FontString>
+				<FontString name="FontString4" inherits="GameFontNormal" text="Silently whisper blocked players." justifyH="LEFT">
+					<Size>
+						<AbsDimension x="226" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="381" y="-154" />
+						</Anchor>
+					</Anchors>
+					<FontHeight>
+						<AbsValue val="11" />
+					</FontHeight>
+					<Color r="1" g="1" b="0.5" />
+				</FontString>
+				<FontString name="FontString5" inherits="GameFontNormal" text="Tell me when a message is blocked." justifyH="LEFT">
+					<Size>
+						<AbsDimension x="234" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="63" y="-182" />
+						</Anchor>
+					</Anchors>
+					<FontHeight>
+						<AbsValue val="11" />
+					</FontHeight>
+					<Color r="1" g="1" b="0.5" />
+				</FontString>
+				<FontString name="OptionsBlockedSummary" inherits="GameFontNormal" text="" justifyV="TOP" justifyH="LEFT">
+					<Size>
+						<AbsDimension x="272" y="77" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="355" y="-35" />
+						</Anchor>
+					</Anchors>
+					<FontHeight>
+						<AbsValue val="11" />
+					</FontHeight>
+					<Color r="0.88" g="0.88" b="0.88" />
+				</FontString>
+				<FontString name="FontString6" inherits="GameFontNormal" text="Customised Blocked Whisper (if left unchecked the default will be used): " justifyH="LEFT">
+					<Size>
+						<AbsDimension x="481" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="37" y="-250" />
+						</Anchor>
+					</Anchors>
+					<Color r="0.75" g="1" b="0.75" />
+				</FontString>
+				<FontString name="FontString7" inherits="GameFontNormal" text="Clear whisper history on login." justifyH="LEFT">
+					<Size>
+						<AbsDimension x="198" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="381" y="-182" />
+						</Anchor>
+					</Anchors>
+					<FontHeight>
+						<AbsValue val="11" />
+					</FontHeight>
+					<Color r="1" g="1" b="0.5" />
+				</FontString>
+				<FontString name="FontString8" inherits="GameFontNormal" text="Play sound on message block." justifyH="LEFT">
+					<Size>
+						<AbsDimension x="234" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="63" y="-208" />
+						</Anchor>
+					</Anchors>
+					<FontHeight>
+						<AbsValue val="11" />
+					</FontHeight>
+					<Color r="1" g="1" b="0.5" />
+				</FontString>
+			</Layer>
+		</Layers>
+		<Scripts>
+			<OnLoad>self:RegisterForDrag("LeftButton");</OnLoad>
+			<OnDragStart>self:StartMoving();</OnDragStart>
+			<OnDragStop>self:StopMovingOrSizing();</OnDragStop>
+		</Scripts>
+	</Frame>
+</Ui>

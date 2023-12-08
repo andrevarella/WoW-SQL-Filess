@@ -1,0 +1,70 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
+..\FrameXML\UI.xsd">
+	<Script file="ClassIcons.lua" />
+
+	<Frame name="UnitFrameClassIconTemplate" hidden="true" virtual="true">
+		<Size x="32" y="32"/>
+		<Layers>
+			<Layer>
+				<Texture name="$parentTexture">
+					<Size x="32" y="32"/>
+				</Texture>
+			</Layer>
+		</Layers>
+		<Scripts>
+			<OnLoad>
+				self:SetFrameLevel(self:GetFrameLevel()+2);
+			</OnLoad>
+		</Scripts>
+	</Frame>
+
+	<Frame name="$parentClassIcon" inherits="UnitFrameClassIconTemplate" parent="TargetFrame">
+		<Scripts>
+			<OnLoad>
+				self:SetFrameLevel(self:GetFrameLevel()+2);
+				self:ClearAllPoints();
+				self:SetPoint("TOPRIGHT", "TargetFrame", "TOPRIGHT", -85, -5);
+			</OnLoad>
+		</Scripts>
+	</Frame>
+
+    <Frame name="$parentClassIcon" inherits="UnitFrameClassIconTemplate" parent="FocusFrame">
+		<Scripts>
+			<OnLoad>
+				self:SetFrameLevel(self:GetFrameLevel()+2);
+				self:ClearAllPoints();
+				self:SetPoint("TOPRIGHT", "FocusFrame", "TOPRIGHT", -85, -5);
+			</OnLoad>
+		</Scripts>
+    </Frame>
+
+	<Frame name="$parentClassIcon" inherits="UnitFrameClassIconTemplate" parent="PlayerFrame" />
+
+	<Frame name="UnitFrameClassIconSmallTemplate" hidden="true" virtual="true">
+		<Size x="20" y="20"/>
+		<Layers>
+			<Layer>
+				<Texture name="$parentTexture">
+					<Size x="20" y="20"/>
+				</Texture>
+			</Layer>
+		</Layers>
+		<Scripts>
+			<OnLoad>
+				self:SetFrameLevel(self:GetFrameLevel()+2);
+			</OnLoad>
+		</Scripts>
+	</Frame>
+
+	<Frame name="$parentClassIcon" inherits="UnitFrameClassIconSmallTemplate" parent="PartyMemberFrame1" id="1" />
+	<Frame name="$parentClassIcon" inherits="UnitFrameClassIconSmallTemplate" parent="PartyMemberFrame2" id="2" />
+	<Frame name="$parentClassIcon" inherits="UnitFrameClassIconSmallTemplate" parent="PartyMemberFrame3" id="3" />
+	<Frame name="$parentClassIcon" inherits="UnitFrameClassIconSmallTemplate" parent="PartyMemberFrame4" id="4" />
+
+	<Frame name="ClassIcons" hidden="true">
+		<Scripts>
+			<OnLoad function="ClassIcons_OnLoad"/>
+			<OnEvent function="ClassIcons_OnEvent"/>
+		</Scripts>
+	</Frame>
+</Ui>

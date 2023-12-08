@@ -1,0 +1,14 @@
+## Interface: 40100
+## Title: EliteFrame
+## Notes: Making y0ur unitframe l33t
+## SavedVariablesPerCharacter: EliteFrameConfig
+## Version: 1.0.6
+## Author: Silentspy
+## OptionalDeps: LibSimpleOptions-1.0
+
+libs\LibStub.lua
+libs\LibSimpleOptions-1.0.lua
+
+localization\enGB.lua
+
+EliteFrame.lua

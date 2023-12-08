@@ -1,0 +1,19 @@
+<Bindings>
+
+  <Binding name="FULLSCREEN" header="SWITCH">
+    SwitchFullscreen();
+  </Binding>
+  
+  <Binding name="MAXIMIZED">
+    SwitchMaximized();
+  </Binding>
+
+  <Binding name="RATIOA">
+    SwitchRatio("UP");
+  </Binding>
+
+  <Binding name="RATIOB">
+    SwitchRatio("DOWN");
+  </Binding>
+  
+</Bindings>

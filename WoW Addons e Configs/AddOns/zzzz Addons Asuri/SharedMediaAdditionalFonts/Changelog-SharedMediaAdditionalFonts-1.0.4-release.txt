@@ -1,0 +1,23 @@
+------------------------------------------------------------------------
+r57 | pb_ee1 | 2009-12-09 23:40:13 +0000 (Wed, 09 Dec 2009) | 1 line
+Changed paths:
+   A /tags/1.0.4-release (from /trunk:56)
+
+Tagging as 1.0.4-release
+------------------------------------------------------------------------
+r56 | pb_ee1 | 2009-12-09 23:39:12 +0000 (Wed, 09 Dec 2009) | 2 lines
+Changed paths:
+   M /trunk
+   M /trunk/.pkgmeta
+   M /trunk/embeds.xml
+
+- Updating .pkgmeta, adding LibStub to embeds
+- Removing svnlogtemplate
+------------------------------------------------------------------------
+r55 | pb_ee1 | 2009-12-09 23:01:44 +0000 (Wed, 09 Dec 2009) | 1 line
+Changed paths:
+   D /trunk/Libs
+   M /trunk/SharedMediaAdditionalFonts.toc
+
+SharedMediaAdditionalFonts: Updating TOC
+------------------------------------------------------------------------

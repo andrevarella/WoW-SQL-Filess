@@ -1,0 +1,8 @@
+## Interface: 30300
+## Title: Addon template
+## Author: BannZay
+## Notes: 
+## Version: v1.0
+## DefaultState: Enabled
+
+Lib.xml

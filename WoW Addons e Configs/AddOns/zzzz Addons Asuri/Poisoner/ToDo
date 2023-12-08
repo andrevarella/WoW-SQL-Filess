@@ -1,0 +1,114 @@
+﻿Poisoner
+
+
+
+
+
+Options_Menu {
+
+_________________________________________
+|	Poisoner Options					|
+|										|
+|	❐ "Combat Lockdown"					|
+|										|
+|	❐ "Check for weapon buffs"			|
+|		Remaining Time:					|
+|		"0<--------------------->300"	|
+|										|
+|										|
+|	❐ "Buy poison automatically"		|
+|		'Amound set in the respective'	|
+|		'options below.'				|
+|										|
+|										|
+|_______________________________________|
+ [Options]  |ACM-P|  |D-P|  |I-P|  |W-P|
+
+}
+
+
+
+Options_Autobuy{
+
+|ACM-P| - Anesthetic/Crippling/Mind-numbing Poison (
+_________________________________________
+|	[ICON] Anesthetic Poison			|
+|	Rank 1								|
+|	Rank 2								|
+|										|
+|	[ICON] Crippling Poison				|
+|	Rank 1								|
+|	Rank 2								|
+|										|
+|	[ICON] Mind-numbing Poison			|
+|	Rank 1								|
+|										|
+|										|
+|										|
+|										|
+|										|
+|_______________________________________|
+ [Options]  |ACM-P|  |D-P|  |I-P|  |W-P|
+)
+|D-P| - Deadly Poison (
+_________________________________________
+|	[ICON] Deadly Poison				|
+|	Rank		Amount					|
+|	Rank 1		'0<--->60'				|
+|	Rank 2		'0<--->60'				|
+|	Rank 3		'0<--->60'				|
+|	Rank 4		'0<--->60'				|
+|	Rank 5		'0<--->60'				|
+|	Rank 6		'0<--->60'				|
+|	Rank 7		'0<--->60'				|
+|	Rank 8		'0<--->60'				|
+|	Rank 9		'0<--->60'				|
+|										|
+|										|
+|										|
+|										|
+|_______________________________________|
+ [Options]  |ACM-P|  |D-P|  |I-P|  |W-P|
+)
+|I-P| - Instant Poison (
+_________________________________________
+|	[ICON] Instant Poison				|
+|	Rank		Amount					|
+|	Rank 1		'0<--->60'				|
+|	Rank 2		'0<--->60'				|
+|	Rank 3		'0<--->60'				|
+|	Rank 4		'0<--->60'				|
+|	Rank 5		'0<--->60'				|
+|	Rank 6		'0<--->60'				|
+|	Rank 7		'0<--->60'				|
+|	Rank 8		'0<--->60'				|
+|	Rank 9		'0<--->60'				|
+|										|
+|										|
+|										|
+|										|
+|_______________________________________|
+ [Options]  |ACM-P|  |D-P|  |I-P|  |W-P|
+)
+|W-P| - Wound Poison (
+_________________________________________
+|	[ICON] Wound Poison					|
+|	Rank		Amount					|
+|	Rank 1		'0<--->60'				|
+|	Rank 2		'0<--->60'				|
+|	Rank 3		'0<--->60'				|
+|	Rank 4		'0<--->60'				|
+|	Rank 5		'0<--->60'				|
+|	Rank 6		'0<--->60'				|
+|	Rank 7		'0<--->60'				|
+|										|
+|										|
+|										|
+|										|
+|										|
+|										|
+|_______________________________________|
+ [Options]  |ACM-P|  |D-P|  |I-P|  |W-P|
+)
+
+}

@@ -1,0 +1,23 @@
+------------------------------------------------------------------------
+r33 | cybermind | 2010-06-26 13:34:21 +0000 (Sat, 26 Jun 2010) | 1 line
+Changed paths:
+   A /tags/v1.4.0 (from /trunk:32)
+
+tagging as v1.4.0
+------------------------------------------------------------------------
+r32 | cybermind | 2010-06-26 13:34:05 +0000 (Sat, 26 Jun 2010) | 1 line
+Changed paths:
+   M /trunk/DispelBorder.lua
+   M /trunk/DispelBorder.toc
+
+-- * Now checks UID in UnitBuff/UnitAura hooks to prevent filter logic from happening unneccesarily. Should prevent many strange things with other addons
+------------------------------------------------------------------------
+r29 | cybermind | 2010-06-18 04:48:52 +0000 (Fri, 18 Jun 2010) | 3 lines
+Changed paths:
+   M /trunk/DispelBorder.lua
+   M /trunk/DispelBorder.toc
+
+-- * Fixed bug with alternate UnitBuff/UnitAura signatures not working (unit, spellname, spellrank, filter)
+-- * Fixed bug with highlighting Enrage buffs on focus target
+
+------------------------------------------------------------------------

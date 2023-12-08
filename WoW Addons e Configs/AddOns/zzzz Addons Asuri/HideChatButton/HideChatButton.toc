@@ -1,0 +1,7 @@
+## Interface: 70000
+## Author: Phemior, tpalmer
+## Notes: A button to hide chat.
+## Version: 6
+## Title: HideChatButton
+## SavedVariablesPerCharacter: HCBxpos, HCBypos, HCBkeyable, HCBchatIsShown
+HideChatButton.lua

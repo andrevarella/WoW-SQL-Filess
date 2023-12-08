@@ -1,0 +1,15 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
+..\FrameXML\UI.xsd">
+	<Script file="pdliblocalization.en.lua"/>
+	<Script file="PDLib.lua"/>
+	<Frame name="PDLibFrame" parent="UIParent" hidden="false">
+		<Scripts>
+			<OnLoad>
+			  PDLib_OnLoad();			  
+			</OnLoad>
+			<OnEvent>
+			  PDLib_OnEvent(event);
+			</OnEvent>
+		</Scripts>
+	</Frame>
+</Ui>

@@ -1,0 +1,81 @@
+Poisoner: apply poisons to weapons from a minimap menu
+=============================================================
+
+Copyright (c) 2006 Karrion of Terenas
+
+
+Installation
+------------
+
+Extract this archive into your Interface\AddOns folder. The full path
+to the files should end up being something like:
+C:\Program Files\World of Warcraft\Interface\AddOns\Poisoner\Poisoner.toc
+and so on.
+
+
+Usage
+-----
+
+When the addon is installed, a small button is displayed near the minimap.
+Click and drag the button to move it to a desired location. To apply poisons
+to your weapons, mouse over the minimap button and a menu of the poisons in
+your packs will pop up. Click the poison type with the left mouse button to
+apply it to your main hand weapon, and with the right mouse button to apply
+it to your offhand weapon.
+
+The following commands are provided:
+
+	/poisoner enable
+		Enable display of the poisoner button.
+
+	/poisoner disable
+		Disable display of the poisoner button.
+
+	/poisoner lock
+		Prevent the poisoner button from being dragged.
+
+	/poisoner unlock
+		Allow the poisoner button to be dragged.
+
+	/poisoner scale <multiplier>
+		Set the scale of the poisoner menu to <multiplier>.
+
+	/poisoner position {left|right}
+		Set which side of the minimap button the menu appears.
+
+	/poisoner reset
+		Reset the position and scale of the poisoner button.
+
+
+Poisoner is enabled by default for Rogues, and disabled by default for all
+other classes.
+
+
+Notes and known issues
+----------------------
+
+If there are already poisons on the selected weapon you will get a popup
+confirmation dialog. If you choose 'No' from this dialog your cursor may
+still have the poison selected; hit escape or right click in open space to
+clear this condition.
+
+Localisation is EXPERIMENTAL. If your WoW client uses a language other than
+English, please let me know whether or not it works for you.
+
+
+Copyright and License
+---------------------
+
+This addon is copyright © 2006 Karrion of Terenas (karrion@kieron.nu).
+World of Warcraft® is a registered trademark of Blizzard Entertainment.
+
+Permission is granted to:
+	a) use, copy and distribute this mod in full,
+	b) copy the code, in part or in full, into another mod, provided:
+		1) The other mod is not identified as 'Poisoner',
+		2) If significant portions of code are used, this mod is
+		   identified as the source of such code, and
+		3) Similar permissions are granted to users of the mod.
+
+The information available at http://www.wowwiki.com/ was invaluable in
+writing this mod.

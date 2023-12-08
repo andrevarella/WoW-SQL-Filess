@@ -1,0 +1,10 @@
+## Interface: 30300
+## Title: OmniBar
+## Notes: Tracks enemy cooldowns
+## Version: 3.3.5a Version
+## Author: Jordon, Backported to 3.3.5a by Jammin
+## DefaultState: Enabled
+## SavedVariables: OmniBarDB
+## OptionalDeps: Masque
+
+OmniBar.xml

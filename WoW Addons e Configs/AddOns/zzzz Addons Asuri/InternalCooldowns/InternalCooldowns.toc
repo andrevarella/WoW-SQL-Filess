@@ -1,0 +1,13 @@
+## Interface: 30300
+## Title: InternalCooldowns
+## Notes: Adds cooldown timers to your trinket procs
+## OptionalDeps: Ace3, LibInternalCooldowns-1.0, LibSink-2.0, Bartender4, Forte_Cooldown
+## SavedVars: InternalCooldownsDB
+## X-Curse-Packaged-Version: v1.1.1-1-ga4a7aec
+## X-Curse-Project-Name: InternalCooldowns
+## X-Curse-Project-ID: internal-cooldowns
+## X-Curse-Repository-ID: wow/internal-cooldowns/mainline
+
+embeds.xml
+Core.lua
+modules.xml

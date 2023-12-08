@@ -1,0 +1,14 @@
+﻿<Ui xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.blizzard.com/wow/ui/">
+	<Script file="Peace.lua" />
+	<Frame name="Peace_Main" alpha="0" parent="UIParent" toplevel="true" enableMouse="true">
+		<Size>
+			<AbsDimension x="10" y="10" />
+		</Size>
+		<Anchors />
+		<Scripts>
+			<OnLoad>Peace_OnLoad();</OnLoad>
+			<OnUpdate>Peace_OnUpdate();</OnUpdate>
+			<OnEvent>Peace_EventHandler(event);</OnEvent>
+		</Scripts>
+	</Frame>
+</Ui>

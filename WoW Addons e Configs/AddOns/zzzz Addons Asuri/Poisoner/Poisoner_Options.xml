@@ -1,0 +1,1465 @@
+﻿<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.blizzard.com/wow/ui/
+..\FrameXML\UI.xsd">
+
+
+<!-- TabTemplate -->
+	<Button name="PoisonerOptions_TabTemplate" inherits="CharacterFrameTabButtonTemplate" virtual="true">
+		<Scripts>
+			<OnClick>
+				PoisonerOptionsTab_OnClick();
+			</OnClick>
+		</Scripts>
+	</Button>	
+	
+<!-- SettingsFrame -->
+	<Frame name="PoisonerOptions_SettingsFrame" frameStrata="DIALOG" enableMouse="true" movable="true" hidden="false" parent="UIParent">
+		<Size>
+			<AbsDimension x="600" y="470"/>
+		</Size>
+		<Anchors>
+			<Anchor point="CENTER"/>
+		</Anchors>
+		<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" edgeFile="Interface\DialogFrame\UI-DialogBox-Border" tile="true">
+			<BackgroundInsets>
+				<AbsInset left="11" right="12" top="12" bottom="11" />
+			</BackgroundInsets>
+			<TileSize>
+				<AbsValue val="32" />
+			</TileSize>
+			<EdgeSize>
+				<AbsValue val="32" />
+			</EdgeSize>
+		</Backdrop>		
+		<Layers>
+			<Layer>
+				<Texture name="$parentTitleBorder" file="Interface\DialogFrame\UI-DialogBox-Header">
+					<Size>
+						<AbsDimension x="160" y="32" />
+          			</Size>
+         			 <Anchors>
+						<Anchor point="TOP">
+							<Offset>
+								<AbsDimension x="0" y="5" />
+							</Offset>
+						</Anchor>
+         			 </Anchors>
+         			 <TexCoords left="0.2" right="0.8" top="0" bottom="0.6" />
+        		</Texture>
+				<FontString name="$parentTitleString" font="Fonts\FRIZQT__.TTF" text="PoisonerOptions_SETTINGS">
+					<Size>
+						<AbsDimension x="140" y="0" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOP">
+							<Offset>
+								<AbsDimension x="0" y="-4" />
+							</Offset>
+            				</Anchor>
+          			</Anchors>
+         			<FontHeight>
+						<AbsValue val="12" />
+					</FontHeight>
+					<Color r="1" g="0.8196079" b="0" />
+					<Shadow>
+						<Color r="0" g="0" b="0" />
+							<Offset>
+								<AbsDimension x="1" y="-1" />
+							</Offset>
+					</Shadow>
+				</FontString>										
+			</Layer>
+		</Layers>
+		
+		<Frames>
+		<!-- TABS -->
+			<Button name="$parentTab1" inherits="PoisonerOptions_TabTemplate" id="1" text="PoisonerOptions_SETTINGS1">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT" relativeTo="$parent">
+						<Offset>
+							<AbsDimension x="15" y="5"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</Button>
+			<Button name="$parentTab2" inherits="PoisonerOptions_TabTemplate" id="2" text="PoisonerOptions_SETTINGS2">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="$parentTab1" relativePoint="TOPRIGHT">
+						<Offset>
+							<AbsDimension x="-8" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</Button>
+			<Button name="$parentTab3" inherits="PoisonerOptions_TabTemplate" id="3" text="PoisonerOptions_SETTINGS3">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="$parentTab2" relativePoint="TOPRIGHT">
+						<Offset>
+							<AbsDimension x="-8" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</Button>
+			<Button name="$parentTab4" inherits="PoisonerOptions_TabTemplate" id="4" text="PoisonerOptions_SETTINGS4">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="$parentTab3" relativePoint="TOPRIGHT">
+						<Offset>
+							<AbsDimension x="-8" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</Button>
+			<Button name="$parentTab5" inherits="PoisonerOptions_TabTemplate" id="5" text="PoisonerOptions_SETTINGS5">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="$parentTab4" relativePoint="TOPRIGHT">
+						<Offset>
+							<AbsDimension x="-8" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</Button>
+			
+		<!-- CLOSE button -->
+			<Button name="PoisonerOptions_SettingsClose" inherits="UIPanelButtonTemplate" text="PoisonerOptions_SETTINGS_CLOSE">
+				<Size>
+					<AbsDimension x="80" y="30"/>
+				</Size>
+				<Anchors>
+					<Anchor point="BOTTOMRIGHT" relativeTo="$parent" relativePoint="BOTTOMRIGHT">
+						<Offset>
+							<AbsDimension x="-10" y="10"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						PoisonerOptions_ToggleSettings();
+						<!--PoisonerOptions_CallUpdate();-->
+					</OnClick>
+				</Scripts>
+			</Button>
+			
+			
+	<!-- Frames -->
+
+		<!-- SettingFrame1 -->
+			<Frame name="PoisonerOptions_SettingsFrame1">
+				<Size>
+					<!--<AbsDimension x="390" y="326"/>-->
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT"/>
+					<Anchor point="BOTTOMRIGHT"/>
+				</Anchors>
+				
+				
+				
+			</Frame>
+			
+		<!-- SettingFrame2 -->
+			<Frame name="PoisonerOptions_SettingsFrame2">
+				<Size>
+					<!--<AbsDimension x="390" y="326"/>-->
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT"/>
+					<Anchor point="BOTTOMRIGHT"/>
+				</Anchors>
+				<Layers>
+					<Layer>
+						<FontString name="PoisonerOptions_AP_Title" font="Fonts\FRIZQT__.TTF" text="PoisonerOptions_SETTINGS_APtitle">
+							<Size>
+								<AbsDimension x="180" y="0" />
+							</Size>
+							<Anchors>
+								<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
+									<Offset x="-15" y="-30"/>
+								</Anchor>
+       						</Anchors>
+       						<FontHeight>
+								<AbsValue val="12" />
+							</FontHeight>
+							<Color r="1" g="0.8196079" b="0" />
+							<Shadow>
+								<Color r="0" g="0" b="0" />
+									<Offset>
+										<AbsDimension x="1" y="-1" />
+									</Offset>
+							</Shadow>
+						</FontString>
+						<FontString name="PoisonerOptions_CP_Title" font="Fonts\FRIZQT__.TTF" text="PoisonerOptions_SETTINGS_CPtitle">
+							<Size>
+								<AbsDimension x="180" y="0" />
+							</Size>
+							<Anchors>
+								<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
+									<Offset x="-10" y="-140"/>
+								</Anchor>
+       						</Anchors>
+       						<FontHeight>
+								<AbsValue val="12" />
+							</FontHeight>
+							<Color r="1" g="0.8196079" b="0" />
+							<Shadow>
+								<Color r="0" g="0" b="0" />
+									<Offset>
+										<AbsDimension x="1" y="-1" />
+									</Offset>
+							</Shadow>
+						</FontString>
+						<FontString name="PoisonerOptions_MP_Title" font="Fonts\FRIZQT__.TTF" text="PoisonerOptions_SETTINGS_MPtitle">
+							<Size>
+								<AbsDimension x="180" y="0" />
+							</Size>
+							<Anchors>
+								<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
+									<Offset x="10" y="-210"/>
+								</Anchor>
+       						</Anchors>
+       						<FontHeight>
+								<AbsValue val="12" />
+							</FontHeight>
+							<Color r="1" g="0.8196079" b="0" />
+							<Shadow>
+								<Color r="0" g="0" b="0" />
+									<Offset>
+										<AbsDimension x="1" y="-1" />
+									</Offset>
+							</Shadow>
+						</FontString>
+					</Layer>
+				</Layers>
+				<Frames>
+				<!-- Anesthetic Poison -->
+					<Button name="PoisonerOptions_AP_1" inherits="SecureActionButtonTemplate" movable="true"  enableMouse="true" id="1">
+						<Size>
+							<AbsDimension x="40" y="40"/>
+						</Size>
+   						<Anchors>
+      						<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
+         						<Offset x="20" y="-50"/>
+      						</Anchor>
+   						</Anchors>
+   						<NormalTexture file="Interface\Icons\Spell_Nature_SlowPoison">
+     						-- <TexCoords left="0" right="1" top="0" bottom="1"/>
+           						<Size>
+									<AbsDimension x="32" y="32"/> 
+           						</Size>
+   						</NormalTexture>
+   						<HighlightTexture name="$parentHighlightTexture" alphaMode="add" file="Interface\Buttons\ButtonHilight-Square">
+   						</HighlightTexture>
+      						<PushedTexture name="$parentPushedTexture" alphaMode="add" file="Interface\Buttons\UI-Quickslot-Depress">
+   						</PushedTexture>
+   						<Scripts>
+							<OnLoad>
+							</OnLoad>
+        					<OnEnter>
+                				<!--tempAP = GetItemCount(GetLocalizedItemName("Anesthetic Poison"))-->
+               					GameTooltip_SetDefaultAnchor(GameTooltip, UIParent)
+								GameTooltip:SetHyperlink("item:21835:0:0:0:0:0:0:0")
+								<!--if tempAP==0 then
+									GameTooltip:AddLine(notininventory, 1.0, 0, 0 )
+								else
+									GameTooltip:AddLine(haveN..""..tempAP..""..fromN.."" ..AP, 0, 1.0, 0 )
+								end-->
+								GameTooltip:Show()
+							</OnEnter>
+							<OnLeave>
+								GameTooltip:Hide()
+							</OnLeave>
+						</Scripts>
+					</Button>
+					<Button name="PoisonerOptions_AP_2" inherits="SecureActionButtonTemplate" movable="true"  enableMouse="true" id="1">
+						<Size>
+							<AbsDimension x="40" y="40"/>
+						</Size>
+   						<Anchors>
+      						<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_AP_1" relativePoint="TOPLEFT">
+         						<Offset x="0" y="-45"/>
+      						</Anchor>
+   						</Anchors>
+   						<NormalTexture file="Interface\Icons\Spell_Nature_SlowPoison">
+     						-- <TexCoords left="0" right="1" top="0" bottom="1"/>
+           						<Size>
+									<AbsDimension x="32" y="32"/> 
+           						</Size>
+   						</NormalTexture>
+   						<HighlightTexture name="$parentHighlightTexture" alphaMode="add" file="Interface\Buttons\ButtonHilight-Square">
+   						</HighlightTexture>
+      						<PushedTexture name="$parentPushedTexture" alphaMode="add" file="Interface\Buttons\UI-Quickslot-Depress">
+   						</PushedTexture>
+   						<Scripts>
+							<OnLoad>
+							</OnLoad>
+        					<OnEnter>
+                				<!--tempAP = GetItemCount(GetLocalizedItemName("Anesthetic Poison II"))-->
+               					GameTooltip_SetDefaultAnchor(GameTooltip, UIParent)
+								GameTooltip:SetHyperlink("item:43237:0:0:0:0:0:0:0")
+								<!--if tempAP==0 then
+									GameTooltip:AddLine(notininventory, 1.0, 0, 0 )
+								else
+									GameTooltip:AddLine(haveN..""..tempAP..""..fromN.."" ..AP, 0, 1.0, 0 )
+								end-->
+								GameTooltip:Show()
+							</OnEnter>
+							<OnLeave>
+								GameTooltip:Hide()
+							</OnLeave>
+						</Scripts>
+					</Button>
+				<!-- Cripling Poison -->
+					<Button name="PoisonerOptions_CP_1" inherits="SecureActionButtonTemplate" movable="true"  enableMouse="true" id="1">
+						<Size>
+							<AbsDimension x="40" y="40"/>
+						</Size>
+   						<Anchors>
+      						<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
+         						<Offset x="20" y="-160"/>
+      						</Anchor>
+   						</Anchors>
+   						<NormalTexture file="Interface\Icons\Ability_PoisonSting">
+     						-- <TexCoords left="0" right="1" top="0" bottom="1"/>
+           						<Size>
+									<AbsDimension x="32" y="32"/> 
+           						</Size>
+   						</NormalTexture>
+   						<HighlightTexture name="$parentHighlightTexture" alphaMode="add" file="Interface\Buttons\ButtonHilight-Square">
+   						</HighlightTexture>
+      						<PushedTexture name="$parentPushedTexture" alphaMode="add" file="Interface\Buttons\UI-Quickslot-Depress">
+   						</PushedTexture>
+   						<Scripts>
+							<OnLoad>
+							</OnLoad>
+        					<OnEnter>
+                				<!--tempAP = GetItemCount(GetLocalizedItemName("Anesthetic Poison"))-->
+               					GameTooltip_SetDefaultAnchor(GameTooltip, UIParent)
+								GameTooltip:SetHyperlink("item:3775:0:0:0:0:0:0:0")
+								<!--if tempAP==0 then
+									GameTooltip:AddLine(notininventory, 1.0, 0, 0 )
+								else
+									GameTooltip:AddLine(haveN..""..tempAP..""..fromN.."" ..AP, 0, 1.0, 0 )
+								end-->
+								GameTooltip:Show()
+							</OnEnter>
+							<OnLeave>
+								GameTooltip:Hide()
+							</OnLeave>
+						</Scripts>
+					</Button>
+				<!-- Mind-numbing Poison -->
+					<Button name="PoisonerOptions_MP_1" inherits="SecureActionButtonTemplate" movable="true"  enableMouse="true" id="1">
+						<Size>
+							<AbsDimension x="40" y="40"/>
+						</Size>
+   						<Anchors>
+      						<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
+         						<Offset x="20" y="-230"/>
+      						</Anchor>
+   						</Anchors>
+   						<NormalTexture file="Interface\Icons\Spell_Nature_NullifyDisease">
+     						-- <TexCoords left="0" right="1" top="0" bottom="1"/>
+           						<Size>
+									<AbsDimension x="32" y="32"/> 
+           						</Size>
+   						</NormalTexture>
+   						<HighlightTexture name="$parentHighlightTexture" alphaMode="add" file="Interface\Buttons\ButtonHilight-Square">
+   						</HighlightTexture>
+      						<PushedTexture name="$parentPushedTexture" alphaMode="add" file="Interface\Buttons\UI-Quickslot-Depress">
+   						</PushedTexture>
+   						<Scripts>
+							<OnLoad>
+							</OnLoad>
+        					<OnEnter>
+                				<!--tempAP = GetItemCount(GetLocalizedItemName("Anesthetic Poison"))-->
+               					GameTooltip_SetDefaultAnchor(GameTooltip, UIParent)
+								GameTooltip:SetHyperlink("item:5237:0:0:0:0:0:0:0")
+								<!--if tempAP==0 then
+									GameTooltip:AddLine(notininventory, 1.0, 0, 0 )
+								else
+									GameTooltip:AddLine(haveN..""..tempAP..""..fromN.."" ..AP, 0, 1.0, 0 )
+								end-->
+								GameTooltip:Show()
+							</OnEnter>
+							<OnLeave>
+								GameTooltip:Hide()
+							</OnLeave>
+						</Scripts>
+					</Button>
+				</Frames>
+			</Frame>
+			
+		<!-- SettingFrame3 -->
+			<Frame name="PoisonerOptions_SettingsFrame3">
+				<Size>
+					<!--<AbsDimension x="390" y="326"/>-->
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT"/>
+					<Anchor point="BOTTOMRIGHT"/>
+				</Anchors>
+				<Layers>
+					<Layer>
+						<FontString name="PoisonerOptions_DP_Title" font="Fonts\FRIZQT__.TTF" text="PoisonerOptions_SETTINGS_DPtitle">
+							<Size>
+								<AbsDimension x="180" y="0" />
+							</Size>
+							<Anchors>
+								<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
+									<Offset x="-25" y="-30"/>
+								</Anchor>
+       						</Anchors>
+       						<FontHeight>
+								<AbsValue val="12" />
+							</FontHeight>
+							<Color r="1" g="0.8196079" b="0" />
+							<Shadow>
+								<Color r="0" g="0" b="0" />
+									<Offset>
+										<AbsDimension x="1" y="-1" />
+									</Offset>
+							</Shadow>
+						</FontString>
+					</Layer>
+				</Layers>
+				<Frames>
+				<!-- Deadly Poison -->
+					<Button name="PoisonerOptions_DP_1" inherits="SecureActionButtonTemplate" movable="true"  enableMouse="true" id="1">
+						<Size>
+							<AbsDimension x="40" y="40"/>
+						</Size>
+   						<Anchors>
+      						<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
+         						<Offset x="20" y="-50"/>
+      						</Anchor>
+   						</Anchors>
+   						<NormalTexture file="Interface\Icons\Ability_Rogue_DualWeild">
+     						-- <TexCoords left="0" right="1" top="0" bottom="1"/>
+           						<Size>
+									<AbsDimension x="32" y="32"/> 
+           						</Size>
+   						</NormalTexture>
+   						<HighlightTexture name="$parentHighlightTexture" alphaMode="add" file="Interface\Buttons\ButtonHilight-Square">
+   						</HighlightTexture>
+      						<PushedTexture name="$parentPushedTexture" alphaMode="add" file="Interface\Buttons\UI-Quickslot-Depress">
+   						</PushedTexture>
+   						<Scripts>
+							<OnLoad>
+							</OnLoad>
+        					<OnEnter>
+                				<!--tempAP = GetItemCount(GetLocalizedItemName("Anesthetic Poison"))-->
+               					GameTooltip_SetDefaultAnchor(GameTooltip, UIParent)
+								GameTooltip:SetHyperlink("item:2892:0:0:0:0:0:0:0")
+								<!--if tempAP==0 then
+									GameTooltip:AddLine(notininventory, 1.0, 0, 0 )
+								else
+									GameTooltip:AddLine(haveN..""..tempAP..""..fromN.."" ..AP, 0, 1.0, 0 )
+								end-->
+								GameTooltip:Show()
+							</OnEnter>
+							<OnLeave>
+								GameTooltip:Hide()
+							</OnLeave>
+						</Scripts>
+					</Button>
+					<Button name="PoisonerOptions_DP_2" inherits="SecureActionButtonTemplate" movable="true"  enableMouse="true" id="1">
+						<Size>
+							<AbsDimension x="40" y="40"/>
+						</Size>
+   						<Anchors>
+      						<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_DP_1" relativePoint="TOPLEFT">
+         						<Offset x="0" y="-45"/>
+      						</Anchor>
+   						</Anchors>
+   						<NormalTexture file="Interface\Icons\Ability_Rogue_DualWeild">
+     						-- <TexCoords left="0" right="1" top="0" bottom="1"/>
+           						<Size>
+									<AbsDimension x="32" y="32"/> 
+           						</Size>
+   						</NormalTexture>
+   						<HighlightTexture name="$parentHighlightTexture" alphaMode="add" file="Interface\Buttons\ButtonHilight-Square">
+   						</HighlightTexture>
+      						<PushedTexture name="$parentPushedTexture" alphaMode="add" file="Interface\Buttons\UI-Quickslot-Depress">
+   						</PushedTexture>
+   						<Scripts>
+							<OnLoad>
+							</OnLoad>
+        					<OnEnter>
+                				<!--tempAP = GetItemCount(GetLocalizedItemName("Anesthetic Poison II"))-->
+               					GameTooltip_SetDefaultAnchor(GameTooltip, UIParent)
+								GameTooltip:SetHyperlink("item:2893:0:0:0:0:0:0:0")
+								<!--if tempAP==0 then
+									GameTooltip:AddLine(notininventory, 1.0, 0, 0 )
+								else
+									GameTooltip:AddLine(haveN..""..tempAP..""..fromN.."" ..AP, 0, 1.0, 0 )
+								end-->
+								GameTooltip:Show()
+							</OnEnter>
+							<OnLeave>
+								GameTooltip:Hide()
+							</OnLeave>
+						</Scripts>
+					</Button>
+					<Button name="PoisonerOptions_DP_3" inherits="SecureActionButtonTemplate" movable="true"  enableMouse="true" id="1">
+						<Size>
+							<AbsDimension x="40" y="40"/>
+						</Size>
+   						<Anchors>
+      						<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_DP_2" relativePoint="TOPLEFT">
+         						<Offset x="0" y="-45"/>
+      						</Anchor>
+   						</Anchors>
+   						<NormalTexture file="Interface\Icons\Ability_Rogue_DualWeild">
+     						-- <TexCoords left="0" right="1" top="0" bottom="1"/>
+           						<Size>
+									<AbsDimension x="32" y="32"/> 
+           						</Size>
+   						</NormalTexture>
+   						<HighlightTexture name="$parentHighlightTexture" alphaMode="add" file="Interface\Buttons\ButtonHilight-Square">
+   						</HighlightTexture>
+      						<PushedTexture name="$parentPushedTexture" alphaMode="add" file="Interface\Buttons\UI-Quickslot-Depress">
+   						</PushedTexture>
+   						<Scripts>
+							<OnLoad>
+							</OnLoad>
+        					<OnEnter>
+                				<!--tempAP = GetItemCount(GetLocalizedItemName("Anesthetic Poison II"))-->
+               					GameTooltip_SetDefaultAnchor(GameTooltip, UIParent)
+								GameTooltip:SetHyperlink("item:8984:0:0:0:0:0:0:0")
+								<!--if tempAP==0 then
+									GameTooltip:AddLine(notininventory, 1.0, 0, 0 )
+								else
+									GameTooltip:AddLine(haveN..""..tempAP..""..fromN.."" ..AP, 0, 1.0, 0 )
+								end-->
+								GameTooltip:Show()
+							</OnEnter>
+							<OnLeave>
+								GameTooltip:Hide()
+							</OnLeave>
+						</Scripts>
+					</Button>
+					<Button name="PoisonerOptions_DP_4" inherits="SecureActionButtonTemplate" movable="true"  enableMouse="true" id="1">
+						<Size>
+							<AbsDimension x="40" y="40"/>
+						</Size>
+   						<Anchors>
+      						<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_DP_3" relativePoint="TOPLEFT">
+         						<Offset x="0" y="-45"/>
+      						</Anchor>
+   						</Anchors>
+   						<NormalTexture file="Interface\Icons\Ability_Rogue_DualWeild">
+     						-- <TexCoords left="0" right="1" top="0" bottom="1"/>
+           						<Size>
+									<AbsDimension x="32" y="32"/> 
+           						</Size>
+   						</NormalTexture>
+   						<HighlightTexture name="$parentHighlightTexture" alphaMode="add" file="Interface\Buttons\ButtonHilight-Square">
+   						</HighlightTexture>
+      						<PushedTexture name="$parentPushedTexture" alphaMode="add" file="Interface\Buttons\UI-Quickslot-Depress">
+   						</PushedTexture>
+   						<Scripts>
+							<OnLoad>
+							</OnLoad>
+        					<OnEnter>
+                				<!--tempAP = GetItemCount(GetLocalizedItemName("Anesthetic Poison II"))-->
+               					GameTooltip_SetDefaultAnchor(GameTooltip, UIParent)
+								GameTooltip:SetHyperlink("item:8985:0:0:0:0:0:0:0")
+								<!--if tempAP==0 then
+									GameTooltip:AddLine(notininventory, 1.0, 0, 0 )
+								else
+									GameTooltip:AddLine(haveN..""..tempAP..""..fromN.."" ..AP, 0, 1.0, 0 )
+								end-->
+								GameTooltip:Show()
+							</OnEnter>
+							<OnLeave>
+								GameTooltip:Hide()
+							</OnLeave>
+						</Scripts>
+					</Button>
+					<Button name="PoisonerOptions_DP_5" inherits="SecureActionButtonTemplate" movable="true"  enableMouse="true" id="1">
+						<Size>
+							<AbsDimension x="40" y="40"/>
+						</Size>
+   						<Anchors>
+      						<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_DP_4" relativePoint="TOPLEFT">
+         						<Offset x="0" y="-45"/>
+      						</Anchor>
+   						</Anchors>
+   						<NormalTexture file="Interface\Icons\Ability_Rogue_DualWeild">
+     						-- <TexCoords left="0" right="1" top="0" bottom="1"/>
+           						<Size>
+									<AbsDimension x="32" y="32"/> 
+           						</Size>
+   						</NormalTexture>
+   						<HighlightTexture name="$parentHighlightTexture" alphaMode="add" file="Interface\Buttons\ButtonHilight-Square">
+   						</HighlightTexture>
+      						<PushedTexture name="$parentPushedTexture" alphaMode="add" file="Interface\Buttons\UI-Quickslot-Depress">
+   						</PushedTexture>
+   						<Scripts>
+							<OnLoad>
+							</OnLoad>
+        					<OnEnter>
+                				<!--tempAP = GetItemCount(GetLocalizedItemName("Anesthetic Poison II"))-->
+               					GameTooltip_SetDefaultAnchor(GameTooltip, UIParent)
+								GameTooltip:SetHyperlink("item:20844:0:0:0:0:0:0:0")
+								<!--if tempAP==0 then
+									GameTooltip:AddLine(notininventory, 1.0, 0, 0 )
+								else
+									GameTooltip:AddLine(haveN..""..tempAP..""..fromN.."" ..AP, 0, 1.0, 0 )
+								end-->
+								GameTooltip:Show()
+							</OnEnter>
+							<OnLeave>
+								GameTooltip:Hide()
+							</OnLeave>
+						</Scripts>
+					</Button>
+					<Button name="PoisonerOptions_DP_6" inherits="SecureActionButtonTemplate" movable="true"  enableMouse="true" id="1">
+						<Size>
+							<AbsDimension x="40" y="40"/>
+						</Size>
+   						<Anchors>
+      						<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_DP_5" relativePoint="TOPLEFT">
+         						<Offset x="0" y="-45"/>
+      						</Anchor>
+   						</Anchors>
+   						<NormalTexture file="Interface\Icons\Ability_Rogue_DualWeild">
+     						-- <TexCoords left="0" right="1" top="0" bottom="1"/>
+           						<Size>
+									<AbsDimension x="32" y="32"/> 
+           						</Size>
+   						</NormalTexture>
+   						<HighlightTexture name="$parentHighlightTexture" alphaMode="add" file="Interface\Buttons\ButtonHilight-Square">
+   						</HighlightTexture>
+      						<PushedTexture name="$parentPushedTexture" alphaMode="add" file="Interface\Buttons\UI-Quickslot-Depress">
+   						</PushedTexture>
+   						<Scripts>
+							<OnLoad>
+							</OnLoad>
+        					<OnEnter>
+                				<!--tempAP = GetItemCount(GetLocalizedItemName("Anesthetic Poison II"))-->
+               					GameTooltip_SetDefaultAnchor(GameTooltip, UIParent)
+								GameTooltip:SetHyperlink("item:22053:0:0:0:0:0:0:0")
+								<!--if tempAP==0 then
+									GameTooltip:AddLine(notininventory, 1.0, 0, 0 )
+								else
+									GameTooltip:AddLine(haveN..""..tempAP..""..fromN.."" ..AP, 0, 1.0, 0 )
+								end-->
+								GameTooltip:Show()
+							</OnEnter>
+							<OnLeave>
+								GameTooltip:Hide()
+							</OnLeave>
+						</Scripts>
+					</Button>
+					<Button name="PoisonerOptions_DP_7" inherits="SecureActionButtonTemplate" movable="true"  enableMouse="true" id="1">
+						<Size>
+							<AbsDimension x="40" y="40"/>
+						</Size>
+   						<Anchors>
+      						<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_DP_6" relativePoint="TOPLEFT">
+         						<Offset x="0" y="-45"/>
+      						</Anchor>
+   						</Anchors>
+   						<NormalTexture file="Interface\Icons\Ability_Rogue_DualWeild">
+     						-- <TexCoords left="0" right="1" top="0" bottom="1"/>
+           						<Size>
+									<AbsDimension x="32" y="32"/> 
+           						</Size>
+   						</NormalTexture>
+   						<HighlightTexture name="$parentHighlightTexture" alphaMode="add" file="Interface\Buttons\ButtonHilight-Square">
+   						</HighlightTexture>
+      						<PushedTexture name="$parentPushedTexture" alphaMode="add" file="Interface\Buttons\UI-Quickslot-Depress">
+   						</PushedTexture>
+   						<Scripts>
+							<OnLoad>
+							</OnLoad>
+        					<OnEnter>
+                				<!--tempAP = GetItemCount(GetLocalizedItemName("Anesthetic Poison II"))-->
+               					GameTooltip_SetDefaultAnchor(GameTooltip, UIParent)
+								GameTooltip:SetHyperlink("item:22054:0:0:0:0:0:0:0")
+								<!--if tempAP==0 then
+									GameTooltip:AddLine(notininventory, 1.0, 0, 0 )
+								else
+									GameTooltip:AddLine(haveN..""..tempAP..""..fromN.."" ..AP, 0, 1.0, 0 )
+								end-->
+								GameTooltip:Show()
+							</OnEnter>
+							<OnLeave>
+								GameTooltip:Hide()
+							</OnLeave>
+						</Scripts>
+					</Button>
+					<Button name="PoisonerOptions_DP_8" inherits="SecureActionButtonTemplate" movable="true"  enableMouse="true" id="1">
+						<Size>
+							<AbsDimension x="40" y="40"/>
+						</Size>
+   						<Anchors>
+      						<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_DP_7" relativePoint="TOPLEFT">
+         						<Offset x="0" y="-45"/>
+      						</Anchor>
+   						</Anchors>
+   						<NormalTexture file="Interface\Icons\Ability_Rogue_DualWeild">
+     						-- <TexCoords left="0" right="1" top="0" bottom="1"/>
+           						<Size>
+									<AbsDimension x="32" y="32"/> 
+           						</Size>
+   						</NormalTexture>
+   						<HighlightTexture name="$parentHighlightTexture" alphaMode="add" file="Interface\Buttons\ButtonHilight-Square">
+   						</HighlightTexture>
+      						<PushedTexture name="$parentPushedTexture" alphaMode="add" file="Interface\Buttons\UI-Quickslot-Depress">
+   						</PushedTexture>
+   						<Scripts>
+							<OnLoad>
+							</OnLoad>
+        					<OnEnter>
+                				<!--tempAP = GetItemCount(GetLocalizedItemName("Anesthetic Poison II"))-->
+               					GameTooltip_SetDefaultAnchor(GameTooltip, UIParent)
+								GameTooltip:SetHyperlink("item:43232:0:0:0:0:0:0:0")
+								<!--if tempAP==0 then
+									GameTooltip:AddLine(notininventory, 1.0, 0, 0 )
+								else
+									GameTooltip:AddLine(haveN..""..tempAP..""..fromN.."" ..AP, 0, 1.0, 0 )
+								end-->
+								GameTooltip:Show()
+							</OnEnter>
+							<OnLeave>
+								GameTooltip:Hide()
+							</OnLeave>
+						</Scripts>
+					</Button>
+					<Button name="PoisonerOptions_DP_9" inherits="SecureActionButtonTemplate" movable="true"  enableMouse="true" id="1">
+						<Size>
+							<AbsDimension x="40" y="40"/>
+						</Size>
+   						<Anchors>
+      						<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_DP_8" relativePoint="TOPLEFT">
+         						<Offset x="0" y="-45"/>
+      						</Anchor>
+   						</Anchors>
+   						<NormalTexture file="Interface\Icons\Ability_Rogue_DualWeild">
+     						-- <TexCoords left="0" right="1" top="0" bottom="1"/>
+           						<Size>
+									<AbsDimension x="32" y="32"/> 
+           						</Size>
+   						</NormalTexture>
+   						<HighlightTexture name="$parentHighlightTexture" alphaMode="add" file="Interface\Buttons\ButtonHilight-Square">
+   						</HighlightTexture>
+      						<PushedTexture name="$parentPushedTexture" alphaMode="add" file="Interface\Buttons\UI-Quickslot-Depress">
+   						</PushedTexture>
+   						<Scripts>
+							<OnLoad>
+							</OnLoad>
+        					<OnEnter>
+                				<!--tempAP = GetItemCount(GetLocalizedItemName("Anesthetic Poison II"))-->
+               					GameTooltip_SetDefaultAnchor(GameTooltip, UIParent)
+								GameTooltip:SetHyperlink("item:43233:0:0:0:0:0:0:0")
+								<!--if tempAP==0 then
+									GameTooltip:AddLine(notininventory, 1.0, 0, 0 )
+								else
+									GameTooltip:AddLine(haveN..""..tempAP..""..fromN.."" ..AP, 0, 1.0, 0 )
+								end-->
+								GameTooltip:Show()
+							</OnEnter>
+							<OnLeave>
+								GameTooltip:Hide()
+							</OnLeave>
+						</Scripts>
+					</Button>
+				</Frames>
+			</Frame>
+			
+		<!-- SettingFrame4 -->
+			<Frame name="PoisonerOptions_SettingsFrame4">
+				<Size>
+					<!--<AbsDimension x="390" y="326"/>-->
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT"/>
+					<Anchor point="BOTTOMRIGHT"/>
+				</Anchors>
+				<Layers>
+					<Layer>
+						<FontString name="PoisonerOptions_IP_Title" font="Fonts\FRIZQT__.TTF" text="PoisonerOptions_SETTINGS_IPtitle">
+							<Size>
+								<AbsDimension x="180" y="0" />
+							</Size>
+							<Anchors>
+								<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
+									<Offset x="-5" y="-30"/>
+								</Anchor>
+       						</Anchors>
+       						<FontHeight>
+								<AbsValue val="12" />
+							</FontHeight>
+							<Color r="1" g="0.8196079" b="0" />
+							<Shadow>
+								<Color r="0" g="0" b="0" />
+									<Offset>
+										<AbsDimension x="1" y="-1" />
+									</Offset>
+							</Shadow>
+						</FontString>
+					</Layer>
+				</Layers>
+				<Frames>
+				<!-- Instant Poison -->
+					<Button name="PoisonerOptions_IP_1" inherits="SecureActionButtonTemplate" movable="true"  enableMouse="true" id="1">
+						<Size>
+							<AbsDimension x="40" y="40"/>
+						</Size>
+   						<Anchors>
+      						<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
+         						<Offset x="20" y="-50"/>
+      						</Anchor>
+   						</Anchors>
+   						<NormalTexture file="Interface\Icons\Ability_Poisons">
+     						-- <TexCoords left="0" right="1" top="0" bottom="1"/>
+           						<Size>
+									<AbsDimension x="32" y="32"/> 
+           						</Size>
+   						</NormalTexture>
+   						<HighlightTexture name="$parentHighlightTexture" alphaMode="add" file="Interface\Buttons\ButtonHilight-Square">
+   						</HighlightTexture>
+      						<PushedTexture name="$parentPushedTexture" alphaMode="add" file="Interface\Buttons\UI-Quickslot-Depress">
+   						</PushedTexture>
+   						<Scripts>
+							<OnLoad>
+							</OnLoad>
+        					<OnEnter>
+                				<!--tempAP = GetItemCount(GetLocalizedItemName("Anesthetic Poison"))-->
+               					GameTooltip_SetDefaultAnchor(GameTooltip, UIParent)
+								GameTooltip:SetHyperlink("item:6947:0:0:0:0:0:0:0")
+								<!--if tempAP==0 then
+									GameTooltip:AddLine(notininventory, 1.0, 0, 0 )
+								else
+									GameTooltip:AddLine(haveN..""..tempAP..""..fromN.."" ..AP, 0, 1.0, 0 )
+								end-->
+								GameTooltip:Show()
+							</OnEnter>
+							<OnLeave>
+								GameTooltip:Hide()
+							</OnLeave>
+						</Scripts>
+					</Button>
+					<Button name="PoisonerOptions_IP_2" inherits="SecureActionButtonTemplate" movable="true"  enableMouse="true" id="1">
+						<Size>
+							<AbsDimension x="40" y="40"/>
+						</Size>
+   						<Anchors>
+      						<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_IP_1" relativePoint="TOPLEFT">
+         						<Offset x="0" y="-45"/>
+      						</Anchor>
+   						</Anchors>
+   						<NormalTexture file="Interface\Icons\Ability_Poisons">
+     						-- <TexCoords left="0" right="1" top="0" bottom="1"/>
+           						<Size>
+									<AbsDimension x="32" y="32"/> 
+           						</Size>
+   						</NormalTexture>
+   						<HighlightTexture name="$parentHighlightTexture" alphaMode="add" file="Interface\Buttons\ButtonHilight-Square">
+   						</HighlightTexture>
+      						<PushedTexture name="$parentPushedTexture" alphaMode="add" file="Interface\Buttons\UI-Quickslot-Depress">
+   						</PushedTexture>
+   						<Scripts>
+							<OnLoad>
+							</OnLoad>
+        					<OnEnter>
+                				<!--tempAP = GetItemCount(GetLocalizedItemName("Anesthetic Poison II"))-->
+               					GameTooltip_SetDefaultAnchor(GameTooltip, UIParent)
+								GameTooltip:SetHyperlink("item:6949:0:0:0:0:0:0:0")
+								<!--if tempAP==0 then
+									GameTooltip:AddLine(notininventory, 1.0, 0, 0 )
+								else
+									GameTooltip:AddLine(haveN..""..tempAP..""..fromN.."" ..AP, 0, 1.0, 0 )
+								end-->
+								GameTooltip:Show()
+							</OnEnter>
+							<OnLeave>
+								GameTooltip:Hide()
+							</OnLeave>
+						</Scripts>
+					</Button>
+					<Button name="PoisonerOptions_IP_3" inherits="SecureActionButtonTemplate" movable="true"  enableMouse="true" id="1">
+						<Size>
+							<AbsDimension x="40" y="40"/>
+						</Size>
+   						<Anchors>
+      						<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_IP_2" relativePoint="TOPLEFT">
+         						<Offset x="0" y="-45"/>
+      						</Anchor>
+   						</Anchors>
+   						<NormalTexture file="Interface\Icons\Ability_Poisons">
+     						-- <TexCoords left="0" right="1" top="0" bottom="1"/>
+           						<Size>
+									<AbsDimension x="32" y="32"/> 
+           						</Size>
+   						</NormalTexture>
+   						<HighlightTexture name="$parentHighlightTexture" alphaMode="add" file="Interface\Buttons\ButtonHilight-Square">
+   						</HighlightTexture>
+      						<PushedTexture name="$parentPushedTexture" alphaMode="add" file="Interface\Buttons\UI-Quickslot-Depress">
+   						</PushedTexture>
+   						<Scripts>
+							<OnLoad>
+							</OnLoad>
+        					<OnEnter>
+                				<!--tempAP = GetItemCount(GetLocalizedItemName("Anesthetic Poison II"))-->
+               					GameTooltip_SetDefaultAnchor(GameTooltip, UIParent)
+								GameTooltip:SetHyperlink("item:6950:0:0:0:0:0:0:0")
+								<!--if tempAP==0 then
+									GameTooltip:AddLine(notininventory, 1.0, 0, 0 )
+								else
+									GameTooltip:AddLine(haveN..""..tempAP..""..fromN.."" ..AP, 0, 1.0, 0 )
+								end-->
+								GameTooltip:Show()
+							</OnEnter>
+							<OnLeave>
+								GameTooltip:Hide()
+							</OnLeave>
+						</Scripts>
+					</Button>
+					<Button name="PoisonerOptions_IP_4" inherits="SecureActionButtonTemplate" movable="true"  enableMouse="true" id="1">
+						<Size>
+							<AbsDimension x="40" y="40"/>
+						</Size>
+   						<Anchors>
+      						<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_IP_3" relativePoint="TOPLEFT">
+         						<Offset x="0" y="-45"/>
+      						</Anchor>
+   						</Anchors>
+   						<NormalTexture file="Interface\Icons\Ability_Poisons">
+     						-- <TexCoords left="0" right="1" top="0" bottom="1"/>
+           						<Size>
+									<AbsDimension x="32" y="32"/> 
+           						</Size>
+   						</NormalTexture>
+   						<HighlightTexture name="$parentHighlightTexture" alphaMode="add" file="Interface\Buttons\ButtonHilight-Square">
+   						</HighlightTexture>
+      						<PushedTexture name="$parentPushedTexture" alphaMode="add" file="Interface\Buttons\UI-Quickslot-Depress">
+   						</PushedTexture>
+   						<Scripts>
+							<OnLoad>
+							</OnLoad>
+        					<OnEnter>
+                				<!--tempAP = GetItemCount(GetLocalizedItemName("Anesthetic Poison II"))-->
+               					GameTooltip_SetDefaultAnchor(GameTooltip, UIParent)
+								GameTooltip:SetHyperlink("item:8926:0:0:0:0:0:0:0")
+								<!--if tempAP==0 then
+									GameTooltip:AddLine(notininventory, 1.0, 0, 0 )
+								else
+									GameTooltip:AddLine(haveN..""..tempAP..""..fromN.."" ..AP, 0, 1.0, 0 )
+								end-->
+								GameTooltip:Show()
+							</OnEnter>
+							<OnLeave>
+								GameTooltip:Hide()
+							</OnLeave>
+						</Scripts>
+					</Button>
+					<Button name="PoisonerOptions_IP_5" inherits="SecureActionButtonTemplate" movable="true"  enableMouse="true" id="1">
+						<Size>
+							<AbsDimension x="40" y="40"/>
+						</Size>
+   						<Anchors>
+      						<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_IP_4" relativePoint="TOPLEFT">
+         						<Offset x="0" y="-45"/>
+      						</Anchor>
+   						</Anchors>
+   						<NormalTexture file="Interface\Icons\Ability_Poisons">
+     						-- <TexCoords left="0" right="1" top="0" bottom="1"/>
+           						<Size>
+									<AbsDimension x="32" y="32"/> 
+           						</Size>
+   						</NormalTexture>
+   						<HighlightTexture name="$parentHighlightTexture" alphaMode="add" file="Interface\Buttons\ButtonHilight-Square">
+   						</HighlightTexture>
+      						<PushedTexture name="$parentPushedTexture" alphaMode="add" file="Interface\Buttons\UI-Quickslot-Depress">
+   						</PushedTexture>
+   						<Scripts>
+							<OnLoad>
+							</OnLoad>
+        					<OnEnter>
+                				<!--tempAP = GetItemCount(GetLocalizedItemName("Anesthetic Poison II"))-->
+               					GameTooltip_SetDefaultAnchor(GameTooltip, UIParent)
+								GameTooltip:SetHyperlink("item:8927:0:0:0:0:0:0:0")
+								<!--if tempAP==0 then
+									GameTooltip:AddLine(notininventory, 1.0, 0, 0 )
+								else
+									GameTooltip:AddLine(haveN..""..tempAP..""..fromN.."" ..AP, 0, 1.0, 0 )
+								end-->
+								GameTooltip:Show()
+							</OnEnter>
+							<OnLeave>
+								GameTooltip:Hide()
+							</OnLeave>
+						</Scripts>
+					</Button>
+					<Button name="PoisonerOptions_IP_6" inherits="SecureActionButtonTemplate" movable="true"  enableMouse="true" id="1">
+						<Size>
+							<AbsDimension x="40" y="40"/>
+						</Size>
+   						<Anchors>
+      						<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_IP_5" relativePoint="TOPLEFT">
+         						<Offset x="0" y="-45"/>
+      						</Anchor>
+   						</Anchors>
+   						<NormalTexture file="Interface\Icons\Ability_Poisons">
+     						-- <TexCoords left="0" right="1" top="0" bottom="1"/>
+           						<Size>
+									<AbsDimension x="32" y="32"/> 
+           						</Size>
+   						</NormalTexture>
+   						<HighlightTexture name="$parentHighlightTexture" alphaMode="add" file="Interface\Buttons\ButtonHilight-Square">
+   						</HighlightTexture>
+      						<PushedTexture name="$parentPushedTexture" alphaMode="add" file="Interface\Buttons\UI-Quickslot-Depress">
+   						</PushedTexture>
+   						<Scripts>
+							<OnLoad>
+							</OnLoad>
+        					<OnEnter>
+                				<!--tempAP = GetItemCount(GetLocalizedItemName("Anesthetic Poison II"))-->
+               					GameTooltip_SetDefaultAnchor(GameTooltip, UIParent)
+								GameTooltip:SetHyperlink("item:8928:0:0:0:0:0:0:0")
+								<!--if tempAP==0 then
+									GameTooltip:AddLine(notininventory, 1.0, 0, 0 )
+								else
+									GameTooltip:AddLine(haveN..""..tempAP..""..fromN.."" ..AP, 0, 1.0, 0 )
+								end-->
+								GameTooltip:Show()
+							</OnEnter>
+							<OnLeave>
+								GameTooltip:Hide()
+							</OnLeave>
+						</Scripts>
+					</Button>
+					<Button name="PoisonerOptions_IP_7" inherits="SecureActionButtonTemplate" movable="true"  enableMouse="true" id="1">
+						<Size>
+							<AbsDimension x="40" y="40"/>
+						</Size>
+   						<Anchors>
+      						<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_IP_6" relativePoint="TOPLEFT">
+         						<Offset x="0" y="-45"/>
+      						</Anchor>
+   						</Anchors>
+   						<NormalTexture file="Interface\Icons\Ability_Poisons">
+     						-- <TexCoords left="0" right="1" top="0" bottom="1"/>
+           						<Size>
+									<AbsDimension x="32" y="32"/> 
+           						</Size>
+   						</NormalTexture>
+   						<HighlightTexture name="$parentHighlightTexture" alphaMode="add" file="Interface\Buttons\ButtonHilight-Square">
+   						</HighlightTexture>
+      						<PushedTexture name="$parentPushedTexture" alphaMode="add" file="Interface\Buttons\UI-Quickslot-Depress">
+   						</PushedTexture>
+   						<Scripts>
+							<OnLoad>
+							</OnLoad>
+        					<OnEnter>
+                				<!--tempAP = GetItemCount(GetLocalizedItemName("Anesthetic Poison II"))-->
+               					GameTooltip_SetDefaultAnchor(GameTooltip, UIParent)
+								GameTooltip:SetHyperlink("item:21927:0:0:0:0:0:0:0")
+								<!--if tempAP==0 then
+									GameTooltip:AddLine(notininventory, 1.0, 0, 0 )
+								else
+									GameTooltip:AddLine(haveN..""..tempAP..""..fromN.."" ..AP, 0, 1.0, 0 )
+								end-->
+								GameTooltip:Show()
+							</OnEnter>
+							<OnLeave>
+								GameTooltip:Hide()
+							</OnLeave>
+						</Scripts>
+					</Button>
+					<Button name="PoisonerOptions_IP_8" inherits="SecureActionButtonTemplate" movable="true"  enableMouse="true" id="1">
+						<Size>
+							<AbsDimension x="40" y="40"/>
+						</Size>
+   						<Anchors>
+      						<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_IP_7" relativePoint="TOPLEFT">
+         						<Offset x="0" y="-45"/>
+      						</Anchor>
+   						</Anchors>
+   						<NormalTexture file="Interface\Icons\Ability_Poisons">
+     						-- <TexCoords left="0" right="1" top="0" bottom="1"/>
+           						<Size>
+									<AbsDimension x="32" y="32"/> 
+           						</Size>
+   						</NormalTexture>
+   						<HighlightTexture name="$parentHighlightTexture" alphaMode="add" file="Interface\Buttons\ButtonHilight-Square">
+   						</HighlightTexture>
+      						<PushedTexture name="$parentPushedTexture" alphaMode="add" file="Interface\Buttons\UI-Quickslot-Depress">
+   						</PushedTexture>
+   						<Scripts>
+							<OnLoad>
+							</OnLoad>
+        					<OnEnter>
+                				<!--tempAP = GetItemCount(GetLocalizedItemName("Anesthetic Poison II"))-->
+               					GameTooltip_SetDefaultAnchor(GameTooltip, UIParent)
+								GameTooltip:SetHyperlink("item:43230:0:0:0:0:0:0:0")
+								<!--if tempAP==0 then
+									GameTooltip:AddLine(notininventory, 1.0, 0, 0 )
+								else
+									GameTooltip:AddLine(haveN..""..tempAP..""..fromN.."" ..AP, 0, 1.0, 0 )
+								end-->
+								GameTooltip:Show()
+							</OnEnter>
+							<OnLeave>
+								GameTooltip:Hide()
+							</OnLeave>
+						</Scripts>
+					</Button>
+					<Button name="PoisonerOptions_IP_9" inherits="SecureActionButtonTemplate" movable="true"  enableMouse="true" id="1">
+						<Size>
+							<AbsDimension x="40" y="40"/>
+						</Size>
+   						<Anchors>
+      						<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_IP_8" relativePoint="TOPLEFT">
+         						<Offset x="0" y="-45"/>
+      						</Anchor>
+   						</Anchors>
+   						<NormalTexture file="Interface\Icons\Ability_Poisons">
+     						-- <TexCoords left="0" right="1" top="0" bottom="1"/>
+           						<Size>
+									<AbsDimension x="32" y="32"/> 
+           						</Size>
+   						</NormalTexture>
+   						<HighlightTexture name="$parentHighlightTexture" alphaMode="add" file="Interface\Buttons\ButtonHilight-Square">
+   						</HighlightTexture>
+      						<PushedTexture name="$parentPushedTexture" alphaMode="add" file="Interface\Buttons\UI-Quickslot-Depress">
+   						</PushedTexture>
+   						<Scripts>
+							<OnLoad>
+							</OnLoad>
+        					<OnEnter>
+                				<!--tempAP = GetItemCount(GetLocalizedItemName("Anesthetic Poison II"))-->
+               					GameTooltip_SetDefaultAnchor(GameTooltip, UIParent)
+								GameTooltip:SetHyperlink("item:43231:0:0:0:0:0:0:0")
+								<!--if tempAP==0 then
+									GameTooltip:AddLine(notininventory, 1.0, 0, 0 )
+								else
+									GameTooltip:AddLine(haveN..""..tempAP..""..fromN.."" ..AP, 0, 1.0, 0 )
+								end-->
+								GameTooltip:Show()
+							</OnEnter>
+							<OnLeave>
+								GameTooltip:Hide()
+							</OnLeave>
+						</Scripts>
+					</Button>
+				</Frames>
+			</Frame>
+			
+		<!-- SettingFrame5 -->
+			<Frame name="PoisonerOptions_SettingsFrame5">
+				<Size>
+					<!--<AbsDimension x="390" y="326"/>-->
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT"/>
+					<Anchor point="BOTTOMRIGHT"/>
+				</Anchors>
+				<Layers>
+					<Layer>
+						<FontString name="PoisonerOptions_WP_Title" font="Fonts\FRIZQT__.TTF" text="PoisonerOptions_SETTINGS_WPtitle">
+							<Size>
+								<AbsDimension x="180" y="0" />
+							</Size>
+							<Anchors>
+								<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
+									<Offset x="-40" y="-30"/>
+								</Anchor>
+       						</Anchors>
+       						<FontHeight>
+								<AbsValue val="12" />
+							</FontHeight>
+							<Color r="1" g="0.8196079" b="0" />
+							<Shadow>
+								<Color r="0" g="0" b="0" />
+									<Offset>
+										<AbsDimension x="1" y="-1" />
+									</Offset>
+							</Shadow>
+						</FontString>
+					</Layer>
+				</Layers>
+				<Frames>
+				<!-- Wound Poison -->
+					<Button name="PoisonerOptions_WP_1" inherits="SecureActionButtonTemplate" movable="true"  enableMouse="true" id="1">
+						<Size>
+							<AbsDimension x="40" y="40"/>
+						</Size>
+   						<Anchors>
+      						<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
+         						<Offset x="20" y="-50"/>
+      						</Anchor>
+   						</Anchors>
+   						<NormalTexture file="Interface\Icons\INV_Misc_Herb_16">
+     						-- <TexCoords left="0" right="1" top="0" bottom="1"/>
+           						<Size>
+									<AbsDimension x="32" y="32"/> 
+           						</Size>
+   						</NormalTexture>
+   						<HighlightTexture name="$parentHighlightTexture" alphaMode="add" file="Interface\Buttons\ButtonHilight-Square">
+   						</HighlightTexture>
+      						<PushedTexture name="$parentPushedTexture" alphaMode="add" file="Interface\Buttons\UI-Quickslot-Depress">
+   						</PushedTexture>
+   						<Scripts>
+							<OnLoad>
+							</OnLoad>
+        					<OnEnter>
+                				<!--tempAP = GetItemCount(GetLocalizedItemName("Anesthetic Poison"))-->
+               					GameTooltip_SetDefaultAnchor(GameTooltip, UIParent)
+								GameTooltip:SetHyperlink("item:10918:0:0:0:0:0:0:0")
+								<!--if tempAP==0 then
+									GameTooltip:AddLine(notininventory, 1.0, 0, 0 )
+								else
+									GameTooltip:AddLine(haveN..""..tempAP..""..fromN.."" ..AP, 0, 1.0, 0 )
+								end-->
+								GameTooltip:Show()
+							</OnEnter>
+							<OnLeave>
+								GameTooltip:Hide()
+							</OnLeave>
+						</Scripts>
+					</Button>
+					<Button name="PoisonerOptions_WP_2" inherits="SecureActionButtonTemplate" movable="true"  enableMouse="true" id="1">
+						<Size>
+							<AbsDimension x="40" y="40"/>
+						</Size>
+   						<Anchors>
+      						<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_WP_1" relativePoint="TOPLEFT">
+         						<Offset x="0" y="-45"/>
+      						</Anchor>
+   						</Anchors>
+   						<NormalTexture file="Interface\Icons\INV_Misc_Herb_16">
+     						-- <TexCoords left="0" right="1" top="0" bottom="1"/>
+           						<Size>
+									<AbsDimension x="32" y="32"/> 
+           						</Size>
+   						</NormalTexture>
+   						<HighlightTexture name="$parentHighlightTexture" alphaMode="add" file="Interface\Buttons\ButtonHilight-Square">
+   						</HighlightTexture>
+      						<PushedTexture name="$parentPushedTexture" alphaMode="add" file="Interface\Buttons\UI-Quickslot-Depress">
+   						</PushedTexture>
+   						<Scripts>
+							<OnLoad>
+							</OnLoad>
+        					<OnEnter>
+                				<!--tempAP = GetItemCount(GetLocalizedItemName("Anesthetic Poison II"))-->
+               					GameTooltip_SetDefaultAnchor(GameTooltip, UIParent)
+								GameTooltip:SetHyperlink("item:10920:0:0:0:0:0:0:0")
+								<!--if tempAP==0 then
+									GameTooltip:AddLine(notininventory, 1.0, 0, 0 )
+								else
+									GameTooltip:AddLine(haveN..""..tempAP..""..fromN.."" ..AP, 0, 1.0, 0 )
+								end-->
+								GameTooltip:Show()
+							</OnEnter>
+							<OnLeave>
+								GameTooltip:Hide()
+							</OnLeave>
+						</Scripts>
+					</Button>
+					<Button name="PoisonerOptions_WP_3" inherits="SecureActionButtonTemplate" movable="true"  enableMouse="true" id="1">
+						<Size>
+							<AbsDimension x="40" y="40"/>
+						</Size>
+   						<Anchors>
+      						<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_WP_2" relativePoint="TOPLEFT">
+         						<Offset x="0" y="-45"/>
+      						</Anchor>
+   						</Anchors>
+   						<NormalTexture file="Interface\Icons\INV_Misc_Herb_16">
+     						-- <TexCoords left="0" right="1" top="0" bottom="1"/>
+           						<Size>
+									<AbsDimension x="32" y="32"/> 
+           						</Size>
+   						</NormalTexture>
+   						<HighlightTexture name="$parentHighlightTexture" alphaMode="add" file="Interface\Buttons\ButtonHilight-Square">
+   						</HighlightTexture>
+      						<PushedTexture name="$parentPushedTexture" alphaMode="add" file="Interface\Buttons\UI-Quickslot-Depress">
+   						</PushedTexture>
+   						<Scripts>
+							<OnLoad>
+							</OnLoad>
+        					<OnEnter>
+                				<!--tempAP = GetItemCount(GetLocalizedItemName("Anesthetic Poison II"))-->
+               					GameTooltip_SetDefaultAnchor(GameTooltip, UIParent)
+								GameTooltip:SetHyperlink("item:10921:0:0:0:0:0:0:0")
+								<!--if tempAP==0 then
+									GameTooltip:AddLine(notininventory, 1.0, 0, 0 )
+								else
+									GameTooltip:AddLine(haveN..""..tempAP..""..fromN.."" ..AP, 0, 1.0, 0 )
+								end-->
+								GameTooltip:Show()
+							</OnEnter>
+							<OnLeave>
+								GameTooltip:Hide()
+							</OnLeave>
+						</Scripts>
+					</Button>
+					<Button name="PoisonerOptions_WP_4" inherits="SecureActionButtonTemplate" movable="true"  enableMouse="true" id="1">
+						<Size>
+							<AbsDimension x="40" y="40"/>
+						</Size>
+   						<Anchors>
+      						<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_WP_3" relativePoint="TOPLEFT">
+         						<Offset x="0" y="-45"/>
+      						</Anchor>
+   						</Anchors>
+   						<NormalTexture file="Interface\Icons\INV_Misc_Herb_16">
+     						-- <TexCoords left="0" right="1" top="0" bottom="1"/>
+           						<Size>
+									<AbsDimension x="32" y="32"/> 
+           						</Size>
+   						</NormalTexture>
+   						<HighlightTexture name="$parentHighlightTexture" alphaMode="add" file="Interface\Buttons\ButtonHilight-Square">
+   						</HighlightTexture>
+      						<PushedTexture name="$parentPushedTexture" alphaMode="add" file="Interface\Buttons\UI-Quickslot-Depress">
+   						</PushedTexture>
+   						<Scripts>
+							<OnLoad>
+							</OnLoad>
+        					<OnEnter>
+                				<!--tempAP = GetItemCount(GetLocalizedItemName("Anesthetic Poison II"))-->
+               					GameTooltip_SetDefaultAnchor(GameTooltip, UIParent)
+								GameTooltip:SetHyperlink("item:10922:0:0:0:0:0:0:0")
+								<!--if tempAP==0 then
+									GameTooltip:AddLine(notininventory, 1.0, 0, 0 )
+								else
+									GameTooltip:AddLine(haveN..""..tempAP..""..fromN.."" ..AP, 0, 1.0, 0 )
+								end-->
+								GameTooltip:Show()
+							</OnEnter>
+							<OnLeave>
+								GameTooltip:Hide()
+							</OnLeave>
+						</Scripts>
+					</Button>
+					<Button name="PoisonerOptions_WP_5" inherits="SecureActionButtonTemplate" movable="true"  enableMouse="true" id="1">
+						<Size>
+							<AbsDimension x="40" y="40"/>
+						</Size>
+   						<Anchors>
+      						<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_WP_4" relativePoint="TOPLEFT">
+         						<Offset x="0" y="-45"/>
+      						</Anchor>
+   						</Anchors>
+   						<NormalTexture file="Interface\Icons\INV_Misc_Herb_16">
+     						-- <TexCoords left="0" right="1" top="0" bottom="1"/>
+           						<Size>
+									<AbsDimension x="32" y="32"/> 
+           						</Size>
+   						</NormalTexture>
+   						<HighlightTexture name="$parentHighlightTexture" alphaMode="add" file="Interface\Buttons\ButtonHilight-Square">
+   						</HighlightTexture>
+      						<PushedTexture name="$parentPushedTexture" alphaMode="add" file="Interface\Buttons\UI-Quickslot-Depress">
+   						</PushedTexture>
+   						<Scripts>
+							<OnLoad>
+							</OnLoad>
+        					<OnEnter>
+                				<!--tempAP = GetItemCount(GetLocalizedItemName("Anesthetic Poison II"))-->
+               					GameTooltip_SetDefaultAnchor(GameTooltip, UIParent)
+								GameTooltip:SetHyperlink("item:22055:0:0:0:0:0:0:0")
+								<!--if tempAP==0 then
+									GameTooltip:AddLine(notininventory, 1.0, 0, 0 )
+								else
+									GameTooltip:AddLine(haveN..""..tempAP..""..fromN.."" ..AP, 0, 1.0, 0 )
+								end-->
+								GameTooltip:Show()
+							</OnEnter>
+							<OnLeave>
+								GameTooltip:Hide()
+							</OnLeave>
+						</Scripts>
+					</Button>
+					<Button name="PoisonerOptions_WP_6" inherits="SecureActionButtonTemplate" movable="true"  enableMouse="true" id="1">
+						<Size>
+							<AbsDimension x="40" y="40"/>
+						</Size>
+   						<Anchors>
+      						<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_WP_5" relativePoint="TOPLEFT">
+         						<Offset x="0" y="-45"/>
+      						</Anchor>
+   						</Anchors>
+   						<NormalTexture file="Interface\Icons\INV_Misc_Herb_16">
+     						-- <TexCoords left="0" right="1" top="0" bottom="1"/>
+           						<Size>
+									<AbsDimension x="32" y="32"/> 
+           						</Size>
+   						</NormalTexture>
+   						<HighlightTexture name="$parentHighlightTexture" alphaMode="add" file="Interface\Buttons\ButtonHilight-Square">
+   						</HighlightTexture>
+      						<PushedTexture name="$parentPushedTexture" alphaMode="add" file="Interface\Buttons\UI-Quickslot-Depress">
+   						</PushedTexture>
+   						<Scripts>
+							<OnLoad>
+							</OnLoad>
+        					<OnEnter>
+                				<!--tempAP = GetItemCount(GetLocalizedItemName("Anesthetic Poison II"))-->
+               					GameTooltip_SetDefaultAnchor(GameTooltip, UIParent)
+								GameTooltip:SetHyperlink("item:43234:0:0:0:0:0:0:0")
+								<!--if tempAP==0 then
+									GameTooltip:AddLine(notininventory, 1.0, 0, 0 )
+								else
+									GameTooltip:AddLine(haveN..""..tempAP..""..fromN.."" ..AP, 0, 1.0, 0 )
+								end-->
+								GameTooltip:Show()
+							</OnEnter>
+							<OnLeave>
+								GameTooltip:Hide()
+							</OnLeave>
+						</Scripts>
+					</Button>
+					<Button name="PoisonerOptions_WP_7" inherits="SecureActionButtonTemplate" movable="true"  enableMouse="true" id="1">
+						<Size>
+							<AbsDimension x="40" y="40"/>
+						</Size>
+   						<Anchors>
+      						<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_WP_6" relativePoint="TOPLEFT">
+         						<Offset x="0" y="-45"/>
+      						</Anchor>
+   						</Anchors>
+   						<NormalTexture file="Interface\Icons\INV_Misc_Herb_16">
+     						-- <TexCoords left="0" right="1" top="0" bottom="1"/>
+           						<Size>
+									<AbsDimension x="32" y="32"/> 
+           						</Size>
+   						</NormalTexture>
+   						<HighlightTexture name="$parentHighlightTexture" alphaMode="add" file="Interface\Buttons\ButtonHilight-Square">
+   						</HighlightTexture>
+      						<PushedTexture name="$parentPushedTexture" alphaMode="add" file="Interface\Buttons\UI-Quickslot-Depress">
+   						</PushedTexture>
+   						<Scripts>
+							<OnLoad>
+							</OnLoad>
+        					<OnEnter>
+                				<!--tempAP = GetItemCount(GetLocalizedItemName("Anesthetic Poison II"))-->
+               					GameTooltip_SetDefaultAnchor(GameTooltip, UIParent)
+								GameTooltip:SetHyperlink("item:43235:0:0:0:0:0:0:0")
+								<!--if tempAP==0 then
+									GameTooltip:AddLine(notininventory, 1.0, 0, 0 )
+								else
+									GameTooltip:AddLine(haveN..""..tempAP..""..fromN.."" ..AP, 0, 1.0, 0 )
+								end-->
+								GameTooltip:Show()
+							</OnEnter>
+							<OnLeave>
+								GameTooltip:Hide()
+							</OnLeave>
+						</Scripts>
+					</Button>
+				</Frames>
+			</Frame>
+			
+		</Frames>
+		<Scripts>
+			<OnMouseDown>
+				PoisonerOptions_MoveSettingsHandler_OnMouseDown(arg1);
+			</OnMouseDown>
+			<OnMouseUp>
+				PoisonerOptions_MoveSettingsHandler_OnMouseUp(arg1);
+			</OnMouseUp>
+		</Scripts>
+	</Frame> 
+</Ui>

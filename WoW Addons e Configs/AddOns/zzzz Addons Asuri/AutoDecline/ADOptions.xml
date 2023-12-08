@@ -1,0 +1,334 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/..\FrameXML\UI.xsd">
+	<Script file="localization.en.lua"/>
+	<Script file="ADOptions.lua"/>
+  <CheckButton name="ADCheckButtonTemplate" inherits="OptionsCheckButtonTemplate" virtual="true">
+		<Scripts>
+			<OnClick>
+				if ( this:GetChecked() ) then
+					PlaySound("igMainMenuOptionCheckBoxOff");
+				else
+					PlaySound("igMainMenuOptionCheckBoxOn");
+				end
+				ADOptionsFrame_OnClick();
+			</OnClick>
+		</Scripts>
+	</CheckButton>
+
+	<Frame name="ADOptionsFrame" toplevel="true" frameStrata="MEDIUM" movable="true" enableMouse="true" hidden="true" parent="UIParent">
+		<Size>
+<!--			<AbsDimension x="550" y="400"/> -->
+			<AbsDimension x="550" y="330"/>
+		</Size>
+		<Anchors>
+			<Anchor point="CENTER"/>
+		</Anchors>
+		<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" edgeFile="Interface\DialogFrame\UI-DialogBox-Border" tile="true">
+			<BackgroundInsets>
+				<AbsInset left="11" right="12" top="12" bottom="11"/>
+			</BackgroundInsets>
+			<TileSize>
+				<AbsValue val="32"/>
+			</TileSize>
+			<EdgeSize>
+				<AbsValue val="32"/>
+			</EdgeSize>
+		</Backdrop>
+		<Layers>
+			<Layer level="ARTWORK">
+  			<Texture name="ADOptionsFrameHeader" file="Interface\DialogFrame\UI-DialogBox-Header">
+					<Size>
+						<AbsDimension x="384" y="64"/>
+					</Size>
+					<Anchors>
+						<Anchor point="TOP">
+							<Offset>
+								<AbsDimension x="0" y="12"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</Texture>
+
+				<FontString inherits="GameFontNormal" text="AD_DIALOG_HEADER">
+					<Anchors>
+						<Anchor point="TOP" relativeTo="ADOptionsFrameHeader">
+							<Offset>
+								<AbsDimension x="0" y="-14"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>
+			</Layer>
+		</Layers>
+
+    <frames>
+			<Frame name="AD_TogglesBorder" inherits="OptionsBoxTemplate">
+				<Size>
+<!--					<AbsDimension x="520" y="95"/> -->
+<!--					<AbsDimension x="520" y="125"/> -->
+					<AbsDimension x="520" y="95"/>
+				</Size>
+				<Anchors>
+					<Anchor point="TOP">
+						<Offset>
+							<AbsDimension x="0" y="-45"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+
+    		<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" edgeFile="Interface\DialogFrame\UI-DialogBox-Border" tile="true">
+    			<BackgroundInsets>
+    				<AbsInset left="11" right="12" top="12" bottom="11"/>
+    			</BackgroundInsets>
+    			<TileSize>
+    				<AbsValue val="32"/>
+    			</TileSize>
+    			<EdgeSize>
+    				<AbsValue val="32"/>
+    			</EdgeSize>
+    		</Backdrop>
+
+				<Layers>
+				  <Layer level="ARTWORK">
+  				  <Texture name="AD_TogglesBorderHeader" file="Interface\DialogFrame\UI-DialogBox-Header">
+  					<Size>
+  						<AbsDimension x="400" y="64"/>
+  					</Size>
+  					<Anchors>
+  						<Anchor point="TOP" relativeTo="AD_TogglesBorder">
+  							<Offset>
+  								<AbsDimension x="0" y="12"/>
+  							</Offset>
+  						</Anchor>
+  					</Anchors>
+  				  </Texture>
+
+    				<FontString inherits="GameFontNormal" text="AD_DIALOG_CHECKHEADER">
+    					<Anchors>
+    						<Anchor point="TOP" relativeTo="AD_TogglesBorderHeader">
+    							<Offset>
+    							   <AbsDimension x="0" y="-14"/>
+    <!--								<AbsDimension x="20" y="-30"/> -->
+    							</Offset>
+    						</Anchor>
+    					</Anchors>
+    				</FontString>
+				  </Layer>
+				</Layers>
+
+				<Scripts>
+					<OnLoad>
+<!--						this:SetBackdropColor(40,40,40) -->
+					</OnLoad>
+				</Scripts>
+
+        <frames>
+
+					<CheckButton name="ADOptionsFrame_CheckButton1" inherits="ADCheckButtonTemplate">
+						<Anchors>
+							<Anchor point="TOPLEFT">
+								<Offset>
+									<AbsDimension x="20" y="-30"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</CheckButton>
+
+					<CheckButton name="ADOptionsFrame_CheckButton2" inherits="ADCheckButtonTemplate">
+						<Anchors>
+							<Anchor point="TOP" relativeTo="ADOptionsFrame_CheckButton1" relativePoint="BOTTOM">
+								<Offset>
+									<AbsDimension x="0" y="7"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</CheckButton>
+
+					<CheckButton name="ADOptionsFrame_CheckButton3" inherits="ADCheckButtonTemplate">
+						<Anchors>
+							<Anchor point="TOP">
+								<Offset>
+									<AbsDimension x="15" y="-30"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</CheckButton>
+					<CheckButton name="ADOptionsFrame_CheckButton4" inherits="ADCheckButtonTemplate">
+						<Anchors>
+							<Anchor point="TOP" relativeTo="ADOptionsFrame_CheckButton3" relativePoint="BOTTOM">
+								<Offset>
+									<AbsDimension x="0" y="7"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</CheckButton>
+<!-- Forthcoming
+					<CheckButton name="ADOptionsFrame_CheckButton5" inherits="ADCheckButtonTemplate">
+						<Anchors>
+							<Anchor point="TOP" relativeTo="ADOptionsFrame_CheckButton4" relativePoint="BOTTOM">
+								<Offset>
+									<AbsDimension x="0" y="7"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</CheckButton>
+					<CheckButton name="ADOptionsFrame_CheckButton6" inherits="ADCheckButtonTemplate">
+						<Anchors>
+							<Anchor point="TOP" relativeTo="ADOptionsFrame_CheckButton5" relativePoint="BOTTOM">
+								<Offset>
+									<AbsDimension x="0" y="7"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</CheckButton>
+-->
+
+        </frames>
+  	  </Frame>
+
+			<CheckButton name="ADOptionsFrame_CheckButton7" inherits="ADCheckButtonTemplate">
+				<Anchors>
+					<Anchor point="TOP" relativeTo="ADOptionsFrame_CheckButton2" relativePoint="LEFT">
+						<Offset>
+							<AbsDimension x="-4" y="-27"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</CheckButton>
+			<CheckButton name="ADOptionsFrame_CheckButton8" inherits="ADCheckButtonTemplate">
+				<Anchors>
+					<Anchor point="TOP" relativeTo="ADOptionsFrame_CheckButton7" relativePoint="BOTTOM">
+						<Offset>
+							<AbsDimension x="0" y="7"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</CheckButton>
+			<CheckButton name="ADOptionsFrame_CheckButton9" inherits="ADCheckButtonTemplate">
+				<Anchors>
+					<Anchor point="TOP" relativeTo="ADOptionsFrame_CheckButton8" relativePoint="BOTTOM">
+						<Offset>
+							<AbsDimension x="0" y="7"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</CheckButton>
+			<CheckButton name="ADOptionsFrame_CheckButton10" inherits="ADCheckButtonTemplate">
+				<Anchors>
+					<Anchor point="TOP" relativeTo="ADOptionsFrame_CheckButton9" relativePoint="BOTTOM">
+						<Offset>
+							<AbsDimension x="0" y="7"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</CheckButton>
+			<CheckButton name="ADOptionsFrame_CheckButton11" inherits="ADCheckButtonTemplate">
+				<Anchors>
+					<Anchor point="TOP" relativeTo="ADOptionsFrame_CheckButton10" relativePoint="BOTTOM">
+						<Offset>
+							<AbsDimension x="0" y="7"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</CheckButton>
+
+			<CheckButton name="ADOptionsFrame_CheckButton12" inherits="ADCheckButtonTemplate">
+				<Anchors>
+					<Anchor point="TOP" relativeTo="ADOptionsFrame_CheckButton7" relativePoint="TOP">
+						<Offset>
+							<AbsDimension x="250" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</CheckButton>
+			<CheckButton name="ADOptionsFrame_CheckButton13" inherits="ADCheckButtonTemplate">
+				<Anchors>
+					<Anchor point="TOP" relativeTo="ADOptionsFrame_CheckButton12" relativePoint="BOTTOM">
+						<Offset>
+							<AbsDimension x="0" y="7"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</CheckButton>
+			<CheckButton name="ADOptionsFrame_CheckButton14" inherits="ADCheckButtonTemplate">
+				<Anchors>
+					<Anchor point="TOP" relativeTo="ADOptionsFrame_CheckButton13" relativePoint="BOTTOM">
+						<Offset>
+							<AbsDimension x="0" y="7"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</CheckButton>
+			<CheckButton name="ADOptionsFrame_CheckButton15" inherits="ADCheckButtonTemplate">
+				<Anchors>
+					<Anchor point="TOP" relativeTo="ADOptionsFrame_CheckButton14" relativePoint="BOTTOM">
+						<Offset>
+							<AbsDimension x="0" y="7"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</CheckButton>
+
+			<CheckButton name="ADOptionsFrame_CheckButton16" inherits="ADCheckButtonTemplate">
+				<Anchors>
+					<Anchor point="TOP" relativeTo="ADOptionsFrame_CheckButton11" relativePoint="BOTTOM">
+						<Offset>
+<!--							<AbsDimension x="150" y="-17"/> -->
+							<AbsDimension x="150" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</CheckButton>
+			<CheckButton name="ADOptionsFrame_CheckButton17" inherits="ADCheckButtonTemplate">
+				<Anchors>
+					<Anchor point="TOP" relativeTo="ADOptionsFrame_CheckButton16" relativePoint="BOTTOM">
+						<Offset>
+							<AbsDimension x="0" y="7"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</CheckButton>
+
+			<Button name="ADOptionsFrameCancel" inherits="OptionsButtonTemplate" text="AD_BUTTON_CANCEL">
+				<Anchors>
+  			  <Anchor point="BOTTOM">
+				<Offset>
+					<AbsDimension x="50" y="16"/>
+				</Offset>
+	  		  </Anchor>
+		    </Anchors>
+
+		    <Scripts>
+			    <OnClick>
+				    PlaySound("gsTitleOptionExit");
+				    ADOptionsFrame:Hide();
+			    </OnClick>
+		    </Scripts>
+    	</Button>
+
+	    <Button name="ADOptionsFrameOkay" inherits="OptionsButtonTemplate" text="AD_BUTTON_OKAY">
+				<Anchors>
+					<Anchor point="RIGHT" relativeTo="ADOptionsFrameCancel" relativePoint="LEFT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						PlaySound("gsTitleOptionOK");
+						ADOptionsFrame_SaveOptions();
+						ADOptionsFrame:Hide();
+					</OnClick>
+				</Scripts>
+	    </Button>
+    </frames>
+		<Scripts>
+			<OnLoad>
+				ADOptionsFrame_OnLoad();
+			</OnLoad>
+			<OnShow>
+				ADOptionsFrame_OnShow();
+			</OnShow>
+		</Scripts>
+	</Frame>
+</Ui>

@@ -540,7 +540,7 @@ function ACP:OnEvent(this, event, arg1, arg2, arg3)
 		collapsedAddons = savedVar.collapsed
 
         if not savedVar.sorter then
-            ACP:SetMasterAddonBuilder(GROUP_BY_NAME)
+            ACP:SetMasterAddonBuilder(AUTHOR)
         else
     		ACP:ReloadAddonList()
         end
@@ -682,6 +682,40 @@ function ACP.SlashHandler(msg)
 	ShowUIPanel(ACP_AddonList)
 end
 
+addonListBuilders[AUTHOR] = function()
+	local t = {}
+
+	local numAddons = GetNumAddOns()
+	for i=1, numAddons do
+		table.insert(t, i)
+	end
+
+	-- Sort the addon list by Ace2 Categories.
+	table.sort(t, function(a, b)
+		local catA = GetAddOnMetadata(a, "Author")
+		local catB = GetAddOnMetadata(b, "Author")
+		if catA == catB then
+			local nameA = GetAddOnInfo(a)
+			local nameB = GetAddOnInfo(b)
+			return nameA < nameB
+		else
+			return tostring(catA) < tostring(catB)
+		end
+	end )
+
+	-- Insert the category titles into the list.
+	local prevCategory = ""
+	for i, addonIndex in ipairs(t) do
+		local category = GetAddOnMetadata(addonIndex, "Author")
+		if not category then
+			category = "Unknown"
+		end
+		if category ~= prevCategory then
+			table.insert(t, i, category)
+		end
+		prevCategory = category
+	end
+
 
 addonListBuilders[GROUP_BY_NAME] = function()
 	local t = {}
@@ -723,39 +757,7 @@ addonListBuilders[GROUP_BY_NAME] = function()
 	end )
 	
 	
-addonListBuilders[AUTHOR] = function()
-	local t = {}
 
-	local numAddons = GetNumAddOns()
-	for i=1, numAddons do
-		table.insert(t, i)
-	end
-
-	-- Sort the addon list by Ace2 Categories.
-	table.sort(t, function(a, b)
-		local catA = GetAddOnMetadata(a, "Author")
-		local catB = GetAddOnMetadata(b, "Author")
-		if catA == catB then
-			local nameA = GetAddOnInfo(a)
-			local nameB = GetAddOnInfo(b)
-			return nameA < nameB
-		else
-			return tostring(catA) < tostring(catB)
-		end
-	end )
-
-	-- Insert the category titles into the list.
-	local prevCategory = ""
-	for i, addonIndex in ipairs(t) do
-		local category = GetAddOnMetadata(addonIndex, "Author")
-		if not category then
-			category = "Unknown"
-		end
-		if category ~= prevCategory then
-			table.insert(t, i, category)
-		end
-		prevCategory = category
-	end
 
 --[[
 	table.insert(t, "Blizzard")

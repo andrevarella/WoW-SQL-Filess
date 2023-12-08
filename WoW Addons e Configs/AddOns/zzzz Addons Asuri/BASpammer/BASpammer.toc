@@ -1,0 +1,9 @@
+## Interface: 30300
+## Title: BASpammer
+## Author: Bigalex, Exyth
+## Version: 1.0
+## Notes: Spams the specified text in the selected channel at the specified interval.
+## SavedVariablesPerCharacter: BASpammerDB
+
+BASpammer.xml
+BASpammer.lua

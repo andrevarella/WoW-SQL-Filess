@@ -1,0 +1,10 @@
+## Author: Softrix Studios
+## Interface: 30300
+## SavedVariables: Peace_Options,Peace_CustomMsg,Peace_BlockedMsg,Peace_FriendList,Peace_ManualList,
+## Title: Give Me Peace
+## Version: r09129
+Peace.xml
+Options.xml
+Credits.xml
+Local.lua
+Peace.lua

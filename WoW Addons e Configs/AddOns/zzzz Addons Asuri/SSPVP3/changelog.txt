@@ -1,0 +1,182 @@
+commit 71d26f7059e529a4ca9a17247258f16958dc7d60
+Author: Shadowed <shadowed.wow@gmail.com>
+Date:   Tue Aug 4 00:31:23 2009 -0700
+
+    * Updated to use _G instead of getglobal
+
+commit ee573e123af3694333dcf26a29c8c273bdbabac4
+Author: Shadowed <shadowed.wow@gmail.com>
+Date:   Sun Aug 2 01:03:01 2009 -0700
+
+    * Fixed all leaked globals
+    * Removed all of the auto join code, 3.2 disables this (Blizzards fault not mine, I can't do anything about it)
+    * Updated EoTS and AB to use the new 1600 resource cap for calculations
+    * Updated time before port features to not divide by 1000 as it's not needed now
+    * Changed overlay to be unlocked by default
+    * Changed /sspvp to open up the configuration by default, /sspvp suspend still works thought
+    * Cleaned up localization
+    * Library update
+    * Updated TOC to 30200
+
+commit b1b5ffc47fd32830d1dab7c33fcfc1a068a49d16
+Author: Shadowed <shadowed.wow@gmail.com>
+Date:   Sun May 3 05:39:44 2009 +0000
+
+    * Reverted the score request change, forgot that its actually used in a few things (Fixed flag carrier names not being colored)
+
+commit 1c23d7292dbee87bdc18ad90b1222691a0ac52bf
+Author: Shadowed <shadowed.wow@gmail.com>
+Date:   Mon Apr 27 23:38:38 2009 +0000
+
+    * Wintergrasp shows second to last in configuration now
+    * Fixed a bug with score/pvp frame positioning being messed up due to UI scale
+    * Removed RequestBattlefieldScoreData call as it's not needed anymore
+    * Fixed minor typo in status messages for joining an arena
+
+commit 36867b8e0f44590a9610096fbf55c214b1e43984
+Author: Shadowed <shadowed.wow@gmail.com>
+Date:   Sat Apr 25 15:20:42 2009 +0000
+
+    * Fixed an error in wg.lua if you're no in a WOTLK zone
+
+commit a915bd2fbe1f23503c6e449395e0448c9aee557a
+Author: Shadowed <shadowed.wow@gmail.com>
+Date:   Sat Apr 25 08:35:40 2009 +0000
+
+    * Added a Wintergrasp timer to the overlay for when the battle will start (Includes an option to only show it when the match is about to start within X minutes)
+
+commit 6cdd4e696c9f3b61fa92f92a16f410a867f7f0da
+Author: Shadowed <shadowed.wow@gmail.com>
+Date:   Sun Apr 12 21:08:36 2009 +0000
+
+    * Fixed an error in battlefield.lua from API changes in 3.1
+    * TOC bump + library update
+
+commit 79cdd4192b3b9d354d3d045f759a12465c557ef8
+Author: Shadowed <shadowed.wow@gmail.com>
+Date:   Mon Dec 29 00:47:03 2008 +0000
+
+    * Fixed join priority not including strands
+    * Fixed queue overlay not hiding if you disable it while it's visible
+    * Fixed minimap checks for battlefields, uses the showBattlefieldMinimap CVar now
+    * Library update
+    * Added a failed warning to screenshots (Can screenshots even fail to be saved?)
+    * Added a bomb timer for Strands
+    * Removed some old code that isn't needed anymore with 3.0
+
+commit 519855aea2cd6b753c842a529a9f5235f09d4f28
+Author: Shadowed <shadowed.wow@gmail.com>
+Date:   Sat Oct 18 20:36:43 2008 +0000
+
+    * Updated a bunch of libraries
+    * Fixed an error with AcceptBattlefieldPort
+    * Removed all of the WoTLK checks as 3.0 is live
+
+commit 99beb65e9bd4331af918d409b268b16367615e68
+Author: Shadowed <shadowed.wow@gmail.com>
+Date:   Sun Sep 21 17:10:57 2008 +0000
+
+    * Swapped back to our old method of rechecking the totals for overlays since the new fancy way was too buggy
+    * Fixed a possible error in score.lua at #103
+
+commit 6b59e1100ba4471e84897fef0281208bd37b74a0
+Author: Shadowed <shadowed.wow@gmail.com>
+Date:   Fri Sep 19 17:07:53 2008 +0000
+
+    * Actually works with both now
+
+commit 508be01a841b097ee388eaac551abb4e8516c9e5
+Author: Shadowed <shadowed.wow@gmail.com>
+Date:   Fri Sep 19 17:03:12 2008 +0000
+
+    * SSPVP (SHOULD) work with wrath and live now
+    * Fixed the auto release disabled text never showing if auto release is disabled
+    * Fixed battlefield window not working in WoTLK
+    * Fixed score not working in WoTLK
+    * Updated battlefield auto releasing, now supports Strand of the Ancients and Wintergrasp
+    * Added Strands of the Ancient module, all this does right now is hide the "X Defending" and "Y Attacking" world states
+    * Moved slash commands to config.lua
+
+commit 99811f4ca7fb501bc98978cae098fed7a72cec86
+Author: Shadowed <shadowed.wow@gmail.com>
+Date:   Fri Sep 19 15:59:51 2008 +0000
+
+    * Fixed rows not being shown if it was shown, removed, then shown again
+
+commit 356238a8f91f37ab315ae72ec418ef912be3de82
+Author: Shadowed <shadowed.wow@gmail.com>
+Date:   Thu Sep 18 05:14:29 2008 +0000
+
+    * Fixed a possible error if RemoveRow is called before the category has been setup
+
+commit cc6487c1ef285fe77e535cca7a5860ce6638e437
+Author: Shadowed <shadowed.wow@gmail.com>
+Date:   Thu Sep 18 04:00:43 2008 +0000
+
+    * Fixed a few bugs with ACTIVE_CATS and ACTIVE_ROWS in overlay.lua causing weird-ness
+
+commit b1bba1c3ee05075d55fecca3a3d4dc79b3353f8e
+Author: Shadowed <shadowed.wow@gmail.com>
+Date:   Wed Sep 17 20:59:07 2008 +0000
+
+    * Fixed an error in EoTS at line #74
+    * Recoded the overlay to fix horrible usage of tables, as well as fix an anchor to ourself error when configuring it
+
+commit d15fbf8e5b896bd481e2d18890dbb0fc93426a25
+Author: Shadowed <shadowed.wow@gmail.com>
+Date:   Fri Sep 12 19:58:44 2008 +0000
+
+    * Removed a bunch of unused localizations
+    * Cleaned up queue overlay and the joining code a little bit
+    * Fixed overlays creating new tables for ids more than once if they had been removed
+    * Fixed a typo in the higher priority message
+
+commit 149b8bc6068a98685db815e2d62d70dd9304c4bb
+Author: Shadowed <shadowed.wow@gmail.com>
+Date:   Fri Sep 12 06:26:43 2008 +0000
+
+    * Flag settings are actually saved now since I remembered to register it was a namespace not a new DB
+
+commit 68367692987d30d7a344279bd7f309187fc66fd3
+Author: Shadowed <shadowed.wow@gmail.com>
+Date:   Fri Sep 12 06:23:15 2008 +0000
+
+    * Removed some useless variable creation in in eots.lua and score.lua
+
+commit 7297fe936fab715a6210123a948b1b35a9f11418
+Author: Shadowed <shadowed.wow@gmail.com>
+Date:   Wed Sep 10 23:59:04 2008 +0000
+
+    * Fixed flag positioning in EoTS
+    * Fixed error inside AV about compare nil value
+    * Fixed our chat filter in AV
+    * Fixed error on line #280 in flag.lua
+    * Cleaned up OOC updating, no longer creates a table EVERYTIME we register something
+
+commit bcd740323ae420925ec2519382e9781b9e9f1a5c
+Author: Shadowed <shadowed.wow@gmail.com>
+Date:   Wed Sep 10 23:15:20 2008 +0000
+
+    * Removed the option to release in battlegrounds, instead you can choose which battleground to release (and arenas)
+    * Removed the level option on score board
+    * Removed the leave confirmation when a match ends
+    * Configuration should be fully implemented now, the priorities are a little hackish but not sure how I want to clean them up yet
+
+commit 1da5f76abae30b8f717fddf12bd109a85cace613
+Author: Shadowed <shadowed.wow@gmail.com>
+Date:   Wed Sep 10 16:47:32 2008 +0000
+
+    * Cleaned up av.lua, timer outputting should work better, removed most of the table usage, cleaned up Snowfall detection, changed our ChatFrame_OnEvent hook to a method thats friendly with both live and WoTLK
+    * Pulled in the Overlay and Flag configuration (Still more to do)
+    * Pulled in the SSFlags/ code
+    * Changed EoTS WorldStateAlwaysUpFrame_Update hook to a regular one instead of secure
+    * Cleaned up overlay.lua, no longer passing tables for OnClick handlers but a single string, you should also be able to switch between grow up and normal without reloading (NTS: Improve this)
+    * Removed AceConsole-3.0, OptionHouse, HousingAuthority usage
+    * Renamed lib/ -> libs/
+    * Removed arena.lua (split into SSArena)
+
+commit 6d2360f15548cf316cf27de0515b620bd99463e2
+Author: Shadowed <shadowed.wow@gmail.com>
+Date:   Tue Sep 9 13:57:23 2008 +0000
+
+    * Fuck it, I can't get the other method to a way I like so I'll just continue SSPVP3 as it is.

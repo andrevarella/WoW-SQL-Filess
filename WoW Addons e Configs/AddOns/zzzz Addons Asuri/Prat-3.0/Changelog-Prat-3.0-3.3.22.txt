@@ -1,0 +1,269 @@
+------------------------------------------------------------------------
+r515 | sylvanaar | 2010-07-12 16:53:40 +0000 (Mon, 12 Jul 2010) | 1 line
+Changed paths:
+   A /tags/3.3.22 (from /trunk:514)
+
+Tagging as 3.3.22
+------------------------------------------------------------------------
+r514 | sylvanaar | 2010-07-09 00:26:17 +0000 (Fri, 09 Jul 2010) | 1 line
+Changed paths:
+   M /trunk/modules/ChatTabs.lua
+
+fix the 'disable flashing' option for the chat tabs
+------------------------------------------------------------------------
+r513 | sylvanaar | 2010-07-09 00:11:18 +0000 (Fri, 09 Jul 2010) | 1 line
+Changed paths:
+   M /trunk/addon/addon.lua
+
+code needed to fix prat's addmessage processing for events that are processed
+------------------------------------------------------------------------
+r512 | sylvanaar | 2010-07-09 00:02:10 +0000 (Fri, 09 Jul 2010) | 1 line
+Changed paths:
+   M /trunk/addon/addon.lua
+   M /trunk/services/chatsections.lua
+
+very alpha support for bn whisper text popouts. works by fixing a very old bug that was allowing unprocessed chat types to be processed anyways.
+------------------------------------------------------------------------
+r511 | sylvanaar | 2010-07-08 22:20:28 +0000 (Thu, 08 Jul 2010) | 1 line
+Changed paths:
+   M /trunk/modules/UrlCopy.lua
+   M /trunk/modules/includes.xml
+
+fix another reference to CFEB and remove the OriginalEditbox module
+------------------------------------------------------------------------
+r510 | sylvanaar | 2010-07-08 22:17:03 +0000 (Thu, 08 Jul 2010) | 1 line
+Changed paths:
+   M /trunk/modules/AltNames.lua
+   M /trunk/modules/Substitutions.lua
+
+fix references to ChatFrameEditBox
+------------------------------------------------------------------------
+r509 | sylvanaar | 2010-07-06 14:41:36 +0000 (Tue, 06 Jul 2010) | 1 line
+Changed paths:
+   M /trunk/modules/Editbox.lua
+
+since the useAltKey option was broken forever, people expect the default option to be off, so change it to that.
+------------------------------------------------------------------------
+r508 | sylvanaar | 2010-07-03 01:35:23 +0000 (Sat, 03 Jul 2010) | 1 line
+Changed paths:
+   M /trunk/modules/ChatFrames.lua
+
+make a x-module call to set the font on the bnet temp frame
+------------------------------------------------------------------------
+r507 | sylvanaar | 2010-07-03 01:20:18 +0000 (Sat, 03 Jul 2010) | 1 line
+Changed paths:
+   M /trunk/modules/ChatFrames.lua
+
+make sure the realid whisper frames sit in the dock properly
+------------------------------------------------------------------------
+r505 | sylvanaar | 2010-07-02 23:19:30 +0000 (Fri, 02 Jul 2010) | 1 line
+Changed paths:
+   M /trunk/modules/Editbox.lua
+
+pick up the fixes from chatter
+------------------------------------------------------------------------
+r504 | sylvanaar | 2010-07-02 15:26:03 +0000 (Fri, 02 Jul 2010) | 2 lines
+Changed paths:
+   M /trunk/modules/ChatTabs.lua
+
+correct? workaround for error message from FCF_FadeOutChatFrame()
+
+------------------------------------------------------------------------
+r503 | sylvanaar | 2010-07-02 15:16:57 +0000 (Fri, 02 Jul 2010) | 2 lines
+Changed paths:
+   M /trunk/modules/ChatTabs.lua
+
+add workaround for error message from FCF_FadeOutChatFrame()
+
+------------------------------------------------------------------------
+r502 | sylvanaar | 2010-07-02 14:47:11 +0000 (Fri, 02 Jul 2010) | 1 line
+Changed paths:
+   M /trunk/modules/Editbox.lua
+
+add workaround for error message from FCF_FadeOutChatFrame()
+------------------------------------------------------------------------
+r501 | sylvanaar | 2010-07-02 14:28:10 +0000 (Fri, 02 Jul 2010) | 1 line
+Changed paths:
+   M /trunk/modules/Editbox.lua
+
+matching change for chatter's editbox fix for not being clickable
+------------------------------------------------------------------------
+r500 | sylvanaar | 2010-07-02 14:16:05 +0000 (Fri, 02 Jul 2010) | 1 line
+Changed paths:
+   M /trunk/modules/Editbox.lua
+
+fix old reference to self.frame
+------------------------------------------------------------------------
+r499 | sylvanaar | 2010-07-02 14:13:44 +0000 (Fri, 02 Jul 2010) | 1 line
+Changed paths:
+   M /trunk/modules/Editbox.lua
+
+fix the use alt key option, it was using the wrong variable name
+------------------------------------------------------------------------
+r498 | sylvanaar | 2010-07-02 14:06:26 +0000 (Fri, 02 Jul 2010) | 1 line
+Changed paths:
+   M /trunk/modules/Editbox.lua
+
+try to fix free moving mode
+------------------------------------------------------------------------
+r497 | sylvanaar | 2010-07-02 13:19:21 +0000 (Fri, 02 Jul 2010) | 1 line
+Changed paths:
+   M /trunk/modules/Buttons.lua
+
+make scrolldown reminder toggle work, update localizations
+------------------------------------------------------------------------
+r496 | sylvanaar | 2010-07-02 13:06:58 +0000 (Fri, 02 Jul 2010) | 1 line
+Changed paths:
+   M /trunk/modules/Buttons.lua
+   M /trunk/modules/ChatTabs.lua
+   M /trunk/modules/Editbox.lua
+
+button options to hide/show the chat and bnet menus. editbox ondisable error fix. chattabs new default options to set both alphas to 0
+------------------------------------------------------------------------
+r493 | sylvanaar | 2010-06-28 10:45:24 +0000 (Mon, 28 Jun 2010) | 1 line
+Changed paths:
+   M /trunk/modules/ChatFrames.lua
+
+set the clamp during addon load to prevent the frames from jumping around
+------------------------------------------------------------------------
+r492 | sylvanaar | 2010-06-27 19:09:01 +0000 (Sun, 27 Jun 2010) | 1 line
+Changed paths:
+   M /trunk/modules/ChannelSticky.lua
+
+sticky options for realid whisper and conversation
+------------------------------------------------------------------------
+r491 | sylvanaar | 2010-06-27 18:49:59 +0000 (Sun, 27 Jun 2010) | 1 line
+Changed paths:
+   M /trunk/modules/ChatTabs.lua
+
+put the not active alpha option back in now that i remember what it does
+------------------------------------------------------------------------
+r489 | sylvanaar | 2010-06-27 18:18:27 +0000 (Sun, 27 Jun 2010) | 1 line
+Changed paths:
+   M /trunk/modules/ChatTabs.lua
+
+remove one of the alpha options for now until i can figure out what to do with it. now you can only set the alpha for the non mouse-over value.
+------------------------------------------------------------------------
+r488 | sylvanaar | 2010-06-27 18:13:02 +0000 (Sun, 27 Jun 2010) | 1 line
+Changed paths:
+   M /trunk/modules/ChatTabs.lua
+
+make tabs configurable and fully fade-out if desired.
+------------------------------------------------------------------------
+r487 | sylvanaar | 2010-06-27 17:45:15 +0000 (Sun, 27 Jun 2010) | 1 line
+Changed paths:
+   M /trunk/modules/TellTarget.lua
+
+make telltarget require 3.3.5
+------------------------------------------------------------------------
+r485 | sylvanaar | 2010-06-27 17:34:22 +0000 (Sun, 27 Jun 2010) | 1 line
+Changed paths:
+   M /trunk/modules/ChannelSticky.lua
+   M /trunk/modules/ChatTabs.lua
+   M /trunk/modules/OriginalEditbox.lua
+
+some unmerged changes, and fade out all the frames when you change their settings
+------------------------------------------------------------------------
+r484 | sylvanaar | 2010-06-27 17:26:39 +0000 (Sun, 27 Jun 2010) | 1 line
+Changed paths:
+   M /trunk/modules/Buttons.lua
+
+hide the menubutton (again?)
+------------------------------------------------------------------------
+r482 | sylvanaar | 2010-06-27 16:51:52 +0000 (Sun, 27 Jun 2010) | 1 line
+Changed paths:
+   M /trunk/modules/ChatTabs.lua
+
+set the nomouse alpha to 0
+------------------------------------------------------------------------
+r481 | sylvanaar | 2010-06-27 16:47:29 +0000 (Sun, 27 Jun 2010) | 1 line
+Changed paths:
+   M /trunk/modules/ChatFrames.lua
+
+allow the buttonframes to fade out all the way
+------------------------------------------------------------------------
+r480 | sylvanaar | 2010-06-27 16:34:56 +0000 (Sun, 27 Jun 2010) | 1 line
+Changed paths:
+   M /trunk/modules/OriginalButtons.lua
+
+hide the buttonframe on all windows
+------------------------------------------------------------------------
+r479 | sylvanaar | 2010-06-27 15:53:19 +0000 (Sun, 27 Jun 2010) | 1 line
+Changed paths:
+   M /trunk/modules/highcpu.xml
+
+actually just dont load smfhax at all
+------------------------------------------------------------------------
+r478 | sylvanaar | 2010-06-27 15:48:29 +0000 (Sun, 27 Jun 2010) | 1 line
+Changed paths:
+   M /trunk/modules/ScrollingMessageFrameHacks.lua
+
+disable 2-column chat
+------------------------------------------------------------------------
+r477 | sylvanaar | 2010-06-27 04:38:38 +0000 (Sun, 27 Jun 2010) | 1 line
+Changed paths:
+   M /trunk/addon/addon.lua
+
+add chatframes 8-10
+------------------------------------------------------------------------
+r475 | sylvanaar | 2010-06-26 04:21:28 +0000 (Sat, 26 Jun 2010) | 1 line
+Changed paths:
+   M /trunk/modules/ScrollingMessageFrameHacks.lua
+
+disable the hoverhilight module extention
+------------------------------------------------------------------------
+r474 | sylvanaar | 2010-06-26 04:06:26 +0000 (Sat, 26 Jun 2010) | 1 line
+Changed paths:
+   M /trunk/modules/Buttons.lua
+
+fjx missing "frame" in button name
+------------------------------------------------------------------------
+r473 | sylvanaar | 2010-06-26 03:58:23 +0000 (Sat, 26 Jun 2010) | 1 line
+Changed paths:
+   M /trunk/modules/Editbox.lua
+   M /trunk/modules/OriginalButtons.lua
+
+add 3.3.5 requirement to the editbox module. fix the scroll buttons in originalbuttons 3.3.5+
+------------------------------------------------------------------------
+r471 | sylvanaar | 2010-06-26 03:23:56 +0000 (Sat, 26 Jun 2010) | 1 line
+Changed paths:
+   M /trunk/modules/Editbox.lua
+
+default to use alt key for cursor movement
+------------------------------------------------------------------------
+r470 | sylvanaar | 2010-06-26 03:15:34 +0000 (Sat, 26 Jun 2010) | 1 line
+Changed paths:
+   M /trunk/modules/Editbox.lua
+
+merged with current version from chatter
+------------------------------------------------------------------------
+r469 | sylvanaar | 2010-06-25 06:27:10 +0000 (Fri, 25 Jun 2010) | 1 line
+Changed paths:
+   M /trunk/modules/Editbox.lua
+
+quick fix for the editbox text color being dimmed
+------------------------------------------------------------------------
+r467 | sylvanaar | 2010-06-25 00:34:50 +0000 (Fri, 25 Jun 2010) | 1 line
+Changed paths:
+   M /trunk/modules/Buttons.lua
+
+remove code which tracks which side the buttons are on - just use default
+------------------------------------------------------------------------
+r466 | sylvanaar | 2010-06-25 00:17:04 +0000 (Fri, 25 Jun 2010) | 1 line
+Changed paths:
+   M /trunk/modules/Buttons.lua
+
+buttons fixes
+------------------------------------------------------------------------
+r465 | sylvanaar | 2010-06-24 23:14:17 +0000 (Thu, 24 Jun 2010) | 1 line
+Changed paths:
+   M /trunk/modules/TellTarget.lua
+
+fix telltarget
+------------------------------------------------------------------------
+r464 | sylvanaar | 2010-06-24 19:03:47 +0000 (Thu, 24 Jun 2010) | 1 line
+Changed paths:
+   M /trunk/modules/Editbox.lua
+
+drycoded fix for editbox - just renamed to ChatFrame1EditBox
+------------------------------------------------------------------------
