@@ -1,7 +1,7 @@
 -- funciona em kill de mob, quest, kill player e objetivos em BG (talvez com discovery de mapa tbm) - e tambem com custom rate mod x2 XP weekend em bg - nao funciona com XP de ganhar skirmish
 
 local DEFAULT_XP_RATE = 1
-local MAX_XP_BONUS = 0.3 -- 30% Bonus maximo de XP
+local MAX_XP_BONUS = 0.3     -- 30% Bonus maximo de XP
 local LVL_80_XP_BONUS = 0.15 -- 15% Bonus XP por char level 80
 
 function countLevel80(accountID)

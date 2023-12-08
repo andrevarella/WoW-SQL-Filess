@@ -1,4 +1,5 @@
-local NPC_ID = 94149 -- Substitua pelo ID do NPC desejado
+local NPC_ID = 94147 -- Substitua pelo ID do NPC desejado
+
 local SPELLS_TO_CAST = {48469, 53307} -- Lista de IDs das magias que você deseja lançar
 
 local function ResetPlayerCooldowns(player)
@@ -18,6 +19,7 @@ local function ResetNearbyPlayersCooldowns(player)
         ResetPlayerCooldowns(nearbyPlayer) -- Reseta cooldowns e auras dos jogadores próximos
     end
 end
+
 
 local function OnGossip(event, player, object)
     ResetPlayerCooldowns(player) -- Reseta cooldowns e auras do jogador que interagiu

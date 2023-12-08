@@ -29,9 +29,13 @@ function TeleporterLow_Gossip(unit, player, creature)
 	elseif (player:GetRace()) == 10 then -- Blood Elf
 		player:GossipMenuAddItem(2, "|TInterface\\icons\\achievement_zone_ghostlands.png:29|t |cFF0000FFIr para Tranquillien (Ghostlands) ", 1, 22, false, "Você será teleportado para Ghostlands, tem certeza?")
 	end
+	
 	player:GossipMenuAddItem(2,"|TInterface\\icons\\spell_holy_holynova.png:29|t |cFF0000FFSelecionar Level para Upar", 0, 50)
 	player:GossipMenuAddItem(2, "|TInterface\\icons\\achievement_level_80.png:29|t |cFF0000FFUpar para o Level 80|r (Fase de Teste)", 1, 9, false, "Você será teleportado para Northrend, tem certeza que quer upar para o level 80?")
-    player:GossipSendMenu(0x7FFFFFFF, creature, menuid)
+    if (player:GetLevel() >= 68) then
+		player:GossipMenuAddItem(2,"|TInterface\\icons\\Achievement_zone_grizzlyhills_01.png:29|t |cFF0000FFIr para Voldrune - Mall",0, 23, false, "Tem certeza que quer teleportar para o Mall?")
+	end
+	player:GossipSendMenu(0x7FFFFFFF, creature, menuid)
 end
 
 RegisterCreatureGossipEvent(UnitEntry, 1, TeleporterLow_Gossip)
@@ -48,13 +52,18 @@ function CountPrimaryProfessions(player)
 end
 
 function Teleporter_Event(event, player, creature, sender, intid, code)
-	
+
+	-- teleport mall (apenas level >= 70)
+	if(intid == 23) then
+		--player:Teleport(571, 2884.257568, -2674.678955, 84.674553, 2.604867)
+		player:Teleport(571, 2787.870117, -2732.060059, 89.669998, 0.410000)
+	end
 	
    -- PROFISSOES
     if(intid == 30) then	
 		player:GossipSetText(string.format(" "))
 		--player:GossipMenuAddItem(1," |cFF800000Comprar|r |cFF0000FFReagentes",0, 43)
-		player:GossipMenuAddItem(3," Aprender |cFF0000FFFirst Aid, Cooking e Fishing",0, 42)
+		--player:GossipMenuAddItem(3," Aprender |cFF0000FFFirst Aid, Cooking e Fishing",0, 42)
 		--player:GossipMenuAddItem(3," Upar Profissoes para o level Maximo",0, 44)
 		--player:GossipMenuAddItem(3," Upar Profissoes em 100 levels",0, 45)
 		--player:GossipMenuAddItem(3," Upar Profissões para o level 350",0, 46)

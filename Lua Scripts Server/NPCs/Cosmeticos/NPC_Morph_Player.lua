@@ -1,7 +1,7 @@
 ﻿local npc = 93131
 
-local itemVIP = 83550
-local itemVIPeterno = 83555
+local itemVIP = 61000
+local itemVIPeterno = 61001
 
 local function morpherMenu(event, player, object)
 	if (player:HasItem(itemVIP) == false and player:HasItem(itemVIPeterno) == false) then

@@ -1,0 +1,90 @@
+function druidMorph_OnCast(event, player, spell, skipCheck)
+
+	local LuaIsNull = function(val, default)
+	if val ~= nil and val ~= 0 then
+		return val
+	else
+		return default
+		end
+	end
+
+	local Query = CharDBQuery("SELECT * FROM custom_druid_form_display WHERE player_guid = "..player:GetGUIDLow())
+
+	if(Query) then
+		local DisplayCatForm = LuaIsNull(Query:GetUInt32(1), nil)
+		local DisplayBearForm = LuaIsNull(Query:GetUInt32(2), nil)
+		local DisplayTravelForm = LuaIsNull(Query:GetUInt32(3), nil)
+		local DisplayMoonkinForm = LuaIsNull(Query:GetUInt32(4), nil)
+		local DisplayAquaticForm = LuaIsNull(Query:GetUInt32(5), nil)
+		local DisplayTreeForm = LuaIsNull(Query:GetUInt32(6), nil)
+		local DisplayFlightForm = LuaIsNull(Query:GetUInt32(7), nil)
+		local DisplayGhostWolfForm = LuaIsNull(Query:GetUInt32(8), nil)
+
+		local race = player:GetRace()
+		local defaultCatForm
+		local defaultBearForm
+		local defaultTravelForm
+		local defaultMoonkinForm
+		local defaultAquaticForm
+		local defaultTreeForm
+		local defaultFlightForm
+		local defaultGhostWolfForm
+
+		if race == 4 then -- Night Elf
+			defaultCatForm = 29406
+			defaultBearForm = 29417
+			defaultTravelForm = 918
+			defaultMoonkinForm = 15374
+			defaultAquaticForm = 2428
+			defaultTreeForm = 864
+			defaultFlightForm = 21243
+		elseif race == 6 then -- Tauren
+			defaultCatForm = 29411
+			defaultBearForm = 29420
+			defaultTravelForm = 918
+			defaultMoonkinForm = 15375
+			defaultAquaticForm = 2428
+			defaultTreeForm = 864
+			defaultFlightForm = 21244
+			defaultGhostWolfForm = 4613
+		elseif race == 8 then -- Troll
+			defaultCatForm = 50595
+			defaultBearForm = 50580
+			defaultTravelForm = 918
+			defaultMoonkinForm = 50590
+			defaultAquaticForm = 2428
+			defaultTreeForm = 864
+			defaultFlightForm = 50601
+			defaultGhostWolfForm = 4613
+		elseif race == 2 or race == 3 then -- Orc / Dwarf
+			defaultGhostWolfForm = 4613
+		end
+
+        --if player:HasAura(768) and (player:HasItem(83550) or player:HasItem(83555)) then   -- Cat Form - só aplica Display se tiver o livro VIP
+		if player:HasAura(768) then     -- Cat Form
+            player:SetDisplayId(DisplayCatForm or defaultCatForm)
+        end
+		
+        if player:HasAura(9634 or 5487) then -- Bear Form
+            player:SetDisplayId(DisplayBearForm or defaultBearForm)
+        end
+		if player:HasAura(783) then     -- Travel Form
+            player:SetDisplayId(DisplayTravelForm or defaultTravelForm)
+        end
+        if player:HasAura(24858) then   -- Moonkin Form
+            player:SetDisplayId(DisplayMoonkinForm or defaultMoonkinForm)
+        end
+        if player:HasAura(1066) then    -- Aquatic Form
+            player:SetDisplayId(DisplayAquaticForm or defaultAquaticForm)
+        end
+		if player:HasAura(33891) then   -- Tree Form
+            player:SetDisplayId(DisplayTreeForm or defaultTreeForm)
+        end
+		if player:HasAura(33943) or player:HasAura(40120) then  -- Flight Form
+            player:SetDisplayId(DisplayFlightForm or defaultFlightForm)
+        end
+		if player:HasAura(2645) then   -- Ghost Wolf
+			player:SetDisplayId(DisplayGhostWolfForm or defaultGhostWolfForm)
+		end
+	end
+end

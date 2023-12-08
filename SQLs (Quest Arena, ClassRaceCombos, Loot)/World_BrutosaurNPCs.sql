@@ -63,6 +63,9 @@ INSERT INTO `creature_template_addon`(`entry`, `path_id`, `mount`, `bytes1`, `by
 -- Brutosaur NPC - Repair
 INSERT INTO `creature_template_addon`(`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES (45741, 0, 0, 1, 1, 0, 0, '');
 
+-- Yak NPCs
+INSERT INTO `acore_world`.`creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES (45751, 0, 0, 1, 1, 0, 0, '');
+INSERT INTO `acore_world`.`creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES (45752, 0, 0, 1, 1, 0, 0, '');
 
 
 

@@ -1,7 +1,7 @@
 local NpcId = 190065;
 local NpcIdSmall = 94164;
-local itemVIP = 83550
-local itemVIPeterno = 83555
+local itemVIP = 61000
+local itemVIPeterno = 61001
  
 local EQUIPMENT_SLOT_MAINHAND = 15
 local EQUIPMENT_SLOT_OFFHAND = 16

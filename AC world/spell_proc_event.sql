@@ -211,7 +211,7 @@ INSERT INTO `spell_proc_event`(`entry`, `SchoolMask`, `SpellFamilyName`, `SpellF
 INSERT INTO `spell_proc_event`(`entry`, `SchoolMask`, `SpellFamilyName`, `SpellFamilyMask0`, `SpellFamilyMask1`, `SpellFamilyMask2`, `procFlags`, `procEx`, `procPhase`, `ppmRate`, `CustomChance`, `Cooldown`) VALUES (83101, 0, 0, 0, 0, 0, 0, 0, 0, 0, 30, 45000);
 -- * Sharpened
 INSERT INTO `spell_proc_event`(`entry`, `SchoolMask`, `SpellFamilyName`, `SpellFamilyMask0`, `SpellFamilyMask1`, `SpellFamilyMask2`, `procFlags`, `procEx`, `procPhase`, `ppmRate`, `CustomChance`, `Cooldown`) VALUES (83102, 0, 0, 0, 0, 0, 0, 0, 0, 0, 30, 45000);
--- * charred
+-- * Charred
 INSERT INTO `spell_proc_event`(`entry`, `SchoolMask`, `SpellFamilyName`, `SpellFamilyMask0`, `SpellFamilyMask1`, `SpellFamilyMask2`, `procFlags`, `procEx`, `procPhase`, `ppmRate`, `CustomChance`, `Cooldown`) VALUES (83103, 0, 0, 0, 0, 0, 331776, 1027, 0, 0, 30, 45000);
 
 

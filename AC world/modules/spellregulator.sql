@@ -3,15 +3,15 @@
 
  Source Server         : acore
  Source Server Type    : MySQL
- Source Server Version : 50739
+ Source Server Version : 80034 (8.0.34)
  Source Host           : localhost:3306
- Source Schema         : 1acore_world
+ Source Schema         : acore_world
 
  Target Server Type    : MySQL
- Target Server Version : 50739
+ Target Server Version : 80034 (8.0.34)
  File Encoding         : 65001
 
- Date: 31/03/2023 18:17:18
+ Date: 07/12/2023 20:45:23
 */
 
 SET NAMES utf8mb4;
@@ -22,7 +22,7 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP TABLE IF EXISTS `spellregulator`;
 CREATE TABLE `spellregulator`  (
-  `spellId` int(11) UNSIGNED NOT NULL,
+  `spellId` int UNSIGNED NOT NULL,
   `percentage` float NOT NULL DEFAULT 100,
   `nome da spell` varchar(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   PRIMARY KEY (`spellId`) USING BTREE
@@ -40,9 +40,8 @@ INSERT INTO `spellregulator` VALUES (11116, 100, 'Chaos Bolt');
 INSERT INTO `spellregulator` VALUES (11117, 100, 'Lava Burst');
 INSERT INTO `spellregulator` VALUES (26654, 50, 'Sweeping Strikes (dmg bizarro)');
 INSERT INTO `spellregulator` VALUES (31117, 136.5, 'Dispel UA R5 (scalling diminuído SP 1,8 > 1,3)');
+INSERT INTO `spellregulator` VALUES (51963, 183, 'Ebon Gargoyle Coeficiente nerfado (dmg tava baixo)');
+INSERT INTO `spellregulator` VALUES (60103, 165, 'Lava Lash');
 INSERT INTO `spellregulator` VALUES (83245, 50, 'Lava Burst Custom (Proc on Proc)');
-INSERT INTO `spellregulator` (`spellId`, `percentage`, `nome da spell`) VALUES (51963, 183, 'Ebon Gargoyle Coeficiente nerfado (dmg tava baixo)');
-INSERT INTO `spellregulator` (`spellId`, `percentage`, `nome da spell`) VALUES (60103, 165, 'Lava Lash');
-
 
 SET FOREIGN_KEY_CHECKS = 1;

@@ -3,15 +3,15 @@
 
  Source Server         : acore
  Source Server Type    : MySQL
- Source Server Version : 50739
+ Source Server Version : 80034 (8.0.34)
  Source Host           : localhost:3306
- Source Schema         : 1acore_world
+ Source Schema         : acore_world
 
  Target Server Type    : MySQL
- Target Server Version : 50739
+ Target Server Version : 80034 (8.0.34)
  File Encoding         : 65001
 
- Date: 31/03/2023 18:16:20
+ Date: 06/12/2023 22:49:08
 */
 
 SET NAMES utf8mb4;
@@ -22,10 +22,10 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP TABLE IF EXISTS `objscale_creature`;
 CREATE TABLE `objscale_creature`  (
-  `guid` int(10) UNSIGNED NOT NULL DEFAULT 0 COMMENT 'Global Unique Identifier',
+  `guid` int UNSIGNED NOT NULL DEFAULT 0 COMMENT 'Global Unique Identifier',
   `scale` float NULL DEFAULT NULL,
   PRIMARY KEY (`guid`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of objscale_creature

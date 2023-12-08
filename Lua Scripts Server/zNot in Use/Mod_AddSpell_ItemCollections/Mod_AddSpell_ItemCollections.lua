@@ -1,4 +1,4 @@
---[[
+
 
 local function SHIRT_OnEquip(event, player, item, bag, slot)
 
@@ -26,7 +26,7 @@ end
 RegisterPlayerEvent(29, SHIRT_OnEquip)
 
 
---]]
+
 
 -- 0 =
 -- 1 =

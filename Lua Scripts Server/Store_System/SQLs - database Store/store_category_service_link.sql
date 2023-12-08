@@ -1,7 +1,7 @@
 /*
  Navicat Premium Data Transfer
 
- Source Server         : 127.0.0.1
+ Source Server         : acore
  Source Server Type    : MySQL
  Source Server Version : 80034 (8.0.34)
  Source Host           : localhost:3306
@@ -11,7 +11,7 @@
  Target Server Version : 80034 (8.0.34)
  File Encoding         : 65001
 
- Date: 19/09/2023 21:30:42
+ Date: 07/12/2023 22:12:30
 */
 
 SET NAMES utf8mb4;
@@ -26,7 +26,7 @@ CREATE TABLE `store_category_service_link`  (
   `service` int UNSIGNED NOT NULL,
   `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`category`, `service`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of store_category_service_link

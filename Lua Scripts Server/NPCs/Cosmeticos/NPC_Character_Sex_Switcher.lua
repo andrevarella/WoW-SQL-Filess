@@ -1,7 +1,7 @@
 local npc = 94126
 local Cost = 50000000 -- Custo da mudança de gênero (50000000 = 5000g)
-local itemVIP = 83550
-local itemVIPeterno = 83555
+local itemVIP = 61000
+local itemVIPeterno = 61001
 
 
 local function OnGossipHello(event, player, object)

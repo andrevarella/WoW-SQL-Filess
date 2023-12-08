@@ -33,7 +33,7 @@ local validInventoryTypes =
 
 
 
--- Items comprados no NPC com a flag 4097 e sem flag item_refund, caso o Id do item não tenha em custom_unlocked_appearances
+-- Items comprados no NPC com a flag 4097 e sem flag item_refund, caso o Id do item não esteja em custom_unlocked_appearances
 local function OnPlayerLoginFlag4097(event, player)
     local playerguid = player:GetGUIDLow()
     
@@ -75,11 +75,11 @@ end
 
 
 
--- dá appearance de items com flag = 1 (Soulbound) ao Logar, caso o Id do item não tenha em custom_unlocked_appearances
+-- dá appearance de items com flag = 0 e 1 (Soulbound e Bind When Equiped) ao Logar, caso o Id do item não tenha em custom_unlocked_appearances
 local function OnPlayerLoginFlag1(event, player)
     local playerguid = player:GetGUIDLow()
     
-    local item_instanceQuery = CharDBQuery("SELECT itemEntry FROM item_instance WHERE owner_guid = " .. playerguid .. " AND flags = 1") -- apenas itens Soulbound (Flag 1)
+    local item_instanceQuery = CharDBQuery("SELECT itemEntry FROM item_instance WHERE owner_guid = " .. playerguid .. " AND (flags = 1 OR flags = 0)") -- apenas itens Soulbound (Flag 1)
     
     if item_instanceQuery then
         local addedItems = {}
@@ -113,7 +113,7 @@ end
 
 
 
--- transmog Collection só coleta se o player tiver sozinho em raid (nao tem flag tradeable), mas se tiver em raid/grupo então precisa desse script para dar o Collect após sair o Soulbound em um item
+-- transmog Collection só coleta se o player tiver sozinho em raid (nao tem flag tradeable), mas se tiver em raid/grupo então precisa desse script para dar o Collect após sair o Soulbound em um item:
 
 -- Free For All/Master loot/Group Loot/Need Before Greed - não funciona com items Traded entre players ou items comprados
 function OnStoreNewItem(event, player, item, count)
@@ -187,46 +187,79 @@ RegisterPlayerEvent(3, OnPlayerLoginFlag4097)
 RegisterPlayerEvent(53, OnStoreNewItem)
 
 
---[[ -- nao funciona os gossips quando invocado por comando
+
 local UnitEntry = 94149
 local function GossipAddTransmog(event, player, creature)	
+	player:GossipSetText(string.format(" "))
     player:GossipClearMenu()
-    player:GossipMenuAddItem(1, "Obter Transmog de um item\nBind when Equiped", 0, 100, false, "Digite o ID do item BoP que você deseja coletar o Transmog")
-	player:GossipMenuAddItem(6," test ",0, 500)
+    player:GossipMenuAddItem(1, " Obter Transmog de um item\nBind when Equiped", 0, 100, true, "Digite o ID do item;")
+	player:GossipMenuAddItem(5," Sair ",0, 500)
     player:GossipSendMenu(0x7FFFFFFF, creature, 100)
 	--player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)
 end  
 
-function On_Top_Selecttt(event, player, creature, sender, intid, code)
-    if (intid == 100) then
-        local text = code
-		player:CastSpell(player, 59547, true)
-        player:GossipComplete()	
-    end
-	
+-- pega o Transmog de items Bind when Equiped
+function On_Top_Selecttt(event, player, creature, sender, intid, code)	
 	if (intid == 100) then
-		local text = code
-		if text == "test" then
-			player:CastSpell(player, 47436, true)
-			player:GossipComplete()	
-		else
-			player:SendBroadcastMessage("Senha Errada")
-			player:GossipComplete()
-		end
+		local itemEntry = tonumber(code)
+        if itemEntry then
+            local playerGUID = player:GetGUIDLow()
+            local itemInstanceQuery = CharDBQuery("SELECT itemEntry, guid FROM item_instance WHERE owner_guid = " .. playerGUID .. " AND itemEntry = " .. itemEntry .. " AND flags = 0")
+
+            if itemInstanceQuery then
+                local iGuid = itemInstanceQuery:GetUInt32(1)
+                local checkQuery = CharDBQuery("SELECT COUNT(*) FROM custom_unlocked_appearances WHERE account_id = " .. playerGUID .. " AND item_template_id = " .. itemEntry)
+                
+                if not checkQuery or checkQuery:GetUInt32(0) == 0 then
+                    local soulboundDataQuery = CharDBQuery("SELECT item_Guid FROM item_refund_instance WHERE item_Guid = " .. iGuid)
+                    if not soulboundDataQuery then
+                        CharDBExecute("INSERT INTO custom_unlocked_appearances (account_id, item_template_id) VALUES (" .. playerGUID .. ", " .. itemEntry .. ")")
+                        local name, quality = GetItemNameAndQuality(itemEntry)
+                        local color = GetItemColor(quality)
+                        local itemString = "|cff" .. color .. "[" .. name .. "]|r"
+                        player:SendBroadcastMessage(itemString .. " has been added to your appearance collection.")
+                    else
+                        player:SendBroadcastMessage("You can't add an item that's refundable to your collection!")
+                    end
+                else
+                    player:SendBroadcastMessage("The appearance of this item has already been added to your collection!")
+                end
+            else
+                player:SendBroadcastMessage("You don't have an item with this entry or the item isn't bought from a NPC!")
+            end
+        else
+            player:SendBroadcastMessage("Please enter a valid value!")
+        end
+		player:GossipComplete()
 	end
-	
 	if(intid == 500) then
-		player:GossipComplete()	
+		player:GossipComplete()
+		player:SendBroadcastMessage("testSair")
 	end	
 end
-function CommandAddCollection(event, player, command)
-    if command == "transmogadd" then
+
+--[[
+function CommandAddCollectionBoP(event, player, command)
+    if command == "reload transmogbop" then
         GossipAddTransmog(event, player, player)
+		--GossipAddTransmog(event, player, creature)
     end
 end
+--]]
+
+function CommandAddCollection(event, player, command)
+    if command == "reload transmog" then
+		OnPlayerLoginFlag1(event, player)
+		OnPlayerLoginFlag4097(event, player)
+		--player:SendBroadcastMessage("test")
+    end
+end
+
 RegisterCreatureGossipEvent(UnitEntry, 1, GossipAddTransmog)
 RegisterCreatureGossipEvent(UnitEntry, 2, On_Top_Selecttt)
-RegisterPlayerEvent(42, CommandAddCollection)--]]
+RegisterPlayerEvent(42, CommandAddCollection)
+--RegisterPlayerEvent(42, CommandAddCollectionBoP)
+
 
 
 

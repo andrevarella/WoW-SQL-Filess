@@ -83,6 +83,10 @@ local function OnLevelChanged(event, player, oldLevel, newLevel)
 	end
 end
 
+-- add Warmode +10% XP Buff on char create
+local function OnFirstLogin(event, player)
+	player:AddAura(83389, player)
+end
 
 
 RegisterPlayerEvent(27, ApplyPvPState)
@@ -90,3 +94,4 @@ RegisterPlayerEvent(42, HandlePvPCommand)
 RegisterPlayerEvent(3, ApplyPvPState) -- OnLogin
 RegisterPlayerEvent(PLAYER_EVENT_ON_LOGOUT, HandleLogoutEvent)
 RegisterPlayerEvent(13, OnLevelChanged)
+RegisterPlayerEvent(30, OnFirstLogin)

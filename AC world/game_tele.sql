@@ -42,3 +42,7 @@ INSERT INTO `acore_world`.`game_tele` (`id`, `position_x`, `position_y`, `positi
 INSERT INTO `acore_world`.`game_tele`(`id`, `position_x`, `position_y`, `position_z`, `orientation`, `map`, `name`) VALUES (1541, -117.555, -195.67, -423.224, 4.72384, 13, 'teste2');
 INSERT INTO `acore_world`.`game_tele`(`id`, `position_x`, `position_y`, `position_z`, `orientation`, `map`, `name`) VALUES (1542, -8569.11, 1997.43, 100.721, 0.378044, 1, 'AhnqirajShop');
 INSERT INTO `acore_world`.`game_tele` (`id`, `position_x`, `position_y`, `position_z`, `orientation`, `map`, `name`) VALUES (1543, -4004.94, -1399.17, 154.403, 0.883036, 0, 'proff');
+INSERT INTO `acore_world`.`game_tele` (`id`, `position_x`, `position_y`, `position_z`, `orientation`, `map`, `name`) VALUES (1544, -5646.09, -1174.02, 8.87718, 1.58023, 1, 'mountswip');
+INSERT INTO `acore_world`.`game_tele` (`id`, `position_x`, `position_y`, `position_z`, `orientation`, `map`, `name`) VALUES (1545, -2505.26, 8653.25, 192.18, 6.03267, 530, 'pedranagrand');
+INSERT INTO `acore_world`.`game_tele` (`id`, `position_x`, `position_y`, `position_z`, `orientation`, `map`, `name`) VALUES (1546, -9124.02, 372.393, 92.2784, 4.55407, 0, 'elwynnduel');
+INSERT INTO `acore_world`.`game_tele` (`id`, `position_x`, `position_y`, `position_z`, `orientation`, `map`, `name`) VALUES (1547, 2916.32, -2496.42, 72.9776, 1.79198, 571, 'bmah');

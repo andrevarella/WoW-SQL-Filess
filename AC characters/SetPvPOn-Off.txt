@@ -1,4 +1,0 @@
-CREATE TABLE player_pvp (
-    guid INT PRIMARY KEY,
-    state INT NOT NULL
-);

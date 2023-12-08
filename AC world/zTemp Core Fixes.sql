@@ -211,3 +211,21 @@ ALTER TABLE `gossip_menu_option`
 
 ALTER TABLE `gossip_menu_option_locale`
 	CHANGE COLUMN `MenuID` `MenuID` INT UNSIGNED NOT NULL DEFAULT 0 FIRST;
+	
+	
+-- Shamanistic Rage PPM 10 -> 18
+UPDATE `spell_proc_event` SET `ppmRate` = 18 WHERE `entry` = 30823;
+
+
+
+
+-- refactor(DB): Unify two player stat tables.
+ALTER TABLE `player_class_stats`
+    ADD COLUMN `BaseHP` int unsigned NOT NULL DEFAULT '1' AFTER `Level`,
+    ADD COLUMN `BaseMana` int unsigned NOT NULL DEFAULT '1' AFTER `BaseHP`;
+
+UPDATE player_class_stats AS noo
+JOIN player_classlevelstats AS ole ON noo.Class = ole.class AND noo.Level = ole.level
+SET noo.BaseHP = ole.basehp, noo.BaseMana = ole.basemana;
+
+DROP TABLE IF EXISTS `player_classlevelstats`;

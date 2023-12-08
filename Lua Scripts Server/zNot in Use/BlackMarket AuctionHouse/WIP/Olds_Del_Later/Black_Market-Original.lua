@@ -1,13 +1,13 @@
 --[[
 realTime = gapTime*24*60*60*1000 -- no touch
-local npcID = 94151
+local npcID = 94147
 local gapTime = 2 --days till reset
 local realTime = gapTime*24*60*60*1000 -- no touch
 local fileName = "lastTime.txt"
 
 local function UpdateAH()
 VendorRemoveAllItems(npcID)
-local Q = WorldDBQuery("SELECT item, count, incrtime, extended FROM black_market ORDER BY RAND() LIMIT 10")
+local Q = CharDBQuery("SELECT item, count, incrtime, extended FROM custom_black_market_vendor ORDER BY RAND() LIMIT 10")
 	if Q then
 		repeat
 			local item, count, incrtime, extended = Q:GetUInt32(0), Q:GetUInt32(1), Q:GetUInt32(2), Q:GetUInt32(3)

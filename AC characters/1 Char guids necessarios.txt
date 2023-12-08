@@ -1,0 +1,3 @@
+guid 1 = Guildmaster
+guid X = Blackmarket
+Guid X = Server

@@ -26,7 +26,8 @@ function TokenExchangerSelect(event, player, object, sender, intid, code)
 		if player:HasItem(20560, 1) then
 				player:RemoveItem(20560, 1)
 				player:SendBroadcastMessage("Você trocou um Token 3x3.")
-				player:CastSpell(player, 47292) -- Som/Animação de Level Up
+				--player:CastSpell(player, 47292) -- Som/Animação de Level Up
+				player:CastSpell(player, 52852) -- só animação de level up, sem o Som
 			for i, skill in ipairs(Profissoes) do
 				if player:HasSkill(skill) then 
 					player:AdvanceSkill(skill, 1)
@@ -43,7 +44,8 @@ function TokenExchangerSelect(event, player, object, sender, intid, code)
 		if player:HasItem(20560, 2) then
 				player:RemoveItem(20560, 2)
 				player:SendBroadcastMessage("Você trocou dois Token 3x3.")
-				player:CastSpell(player, 47292)
+				--player:CastSpell(player, 47292)
+				player:CastSpell(player, 52852) -- só animação de level up, sem o Som
 			for i, skill in ipairs(Profissoes) do
 				if player:HasSkill(skill) then 
 					player:AdvanceSkill(skill, 2)
@@ -59,7 +61,8 @@ function TokenExchangerSelect(event, player, object, sender, intid, code)
 		if player:HasItem(20560, 5) then
 				player:RemoveItem(20560, 5)
 				player:SendBroadcastMessage("Você trocou cinco Token 3x3.")
-				player:CastSpell(player, 47292)
+				--player:CastSpell(player, 47292)
+				player:CastSpell(player, 52852) -- só animação de level up, sem o Som
 			for i, skill in ipairs(Profissoes) do
 				if player:HasSkill(skill) then 
 					player:AdvanceSkill(skill, 5)

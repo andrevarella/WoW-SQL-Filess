@@ -1,9 +1,25 @@
--- Classes:
---
 -- Geral:
 -- Module GoMove
 INSERT INTO spell_script_names (spell_id, ScriptName) VALUES (27651, 'GOMove_spell_place');
---
+
+
+
+-- Classes:
+
+-- overrides
+UPDATE `spell_script_names` SET `ScriptName` = 'spell_dru_omen_of_clarity_module' WHERE `spell_id` = '16864';
+UPDATE `spell_script_names` SET `ScriptName` = 'spell_dru_berserk_module' WHERE `spell_id` = '50334';
+UPDATE `spell_script_names` SET `ScriptName` = 'spell_warr_shattering_throw_module' WHERE `spell_id` = '64380';
+UPDATE `spell_script_names` SET `ScriptName` = 'spell_warr_shattering_throw_module' WHERE `spell_id` = '65941';
+UPDATE `spell_script_names` SET `ScriptName` = 'spell_pal_seal_of_righteousness_module' WHERE `spell_id` = '20154';
+UPDATE `spell_script_names` SET `ScriptName` = 'spell_pal_seal_of_righteousness_module' WHERE `spell_id` = '21084';
+UPDATE `spell_script_names` SET `ScriptName` = 'spell_pri_mind_control_module' WHERE `spell_id` = '605';
+UPDATE `spell_script_names` SET `ScriptName` = 'spell_pri_shadowfiend_scaling_module' WHERE `spell_id` = '35661';
+UPDATE `spell_script_names` SET `ScriptName` = 'spell_pri_shadowfiend_scaling_module' WHERE `spell_id` = '35662';
+UPDATE `spell_script_names` SET `ScriptName` = 'spell_pri_shadowfiend_scaling_module' WHERE `spell_id` = '35663';
+UPDATE `spell_script_names` SET `ScriptName` = 'spell_pri_shadowfiend_scaling_module' WHERE `spell_id` = '35664';
+
+
 -- * Por enquanto só é usado pelo PW:S de priest Holy
 INSERT INTO `spell_script_names`(`spell_id`, `ScriptName`) VALUES (83089, 'spell_gen_remove_slow_impairing_auras');
 
@@ -15,17 +31,19 @@ INSERT INTO `spell_script_names`(`spell_id`, `ScriptName`) VALUES (83089, 'spell
 -- ========= LEATHER ==============
 -- 
 -- ▸▸ Druid: ---
+
 -- * Custom Savage Roar que proca ao sair do prowl
 INSERT INTO `spell_script_names`(`spell_id`, `ScriptName`) VALUES (83122, 'spell_dru_savage_roar');
+
 -- glyph of omen of clarity
 INSERT INTO `acore_world`.`spell_script_names` (`spell_id`, `ScriptName`) VALUES (83293, 'spell_druid_glyph_omen_of_clarity');
---
+
 -- * Custom Passive Spell - ao ganhar Wrath of Elune, reduz o cd do starfall em 3s (Wrath of Elune só é renovado se o buff é consumido)
 INSERT INTO `spell_script_names`(`spell_id`, `ScriptName`) VALUES (83253, 'spell_druid_balance_starfall_custom_cdreduction');
---
+
 -- skull_bash
 INSERT INTO `acore_world`.`spell_script_names` (`spell_id`, `ScriptName`) VALUES (83028, 'spell_druid_skull_bash');
---
+
 -- wild charge
 INSERT INTO `acore_world`.`spell_script_names` (`spell_id`, `ScriptName`) VALUES (83369, 'spell_druid_wild_charge');
 --
@@ -105,6 +123,12 @@ UPDATE `item_template` SET `spellid_2` = '84506' WHERE `entry` = '32319'; -- blu
 UPDATE `item_template` SET `spellid_2` = '84508' WHERE `entry` = '32318'; -- silver nether ray - old spell 39802
 UPDATE `item_template` SET `spellid_2` = '84510' WHERE `entry` = '32317'; -- red nether ray - old spell 39800
 UPDATE `item_template` SET `spellid_2` = '84512' WHERE `entry` = '32314'; -- green nether ray - old spell 39798
+
+
+-- x-53 e Hippogryph 100% - usavel fora de Outland/Northrend
+UPDATE `spell_script_names` SET `ScriptName` = 'spell_x53_touring_rocket_new' WHERE `spell_id` = '75973';
+UPDATE `spell_script_names` SET `ScriptName` = 'spell_blazing_hippogryph_new' WHERE `spell_id` = '74856';
+
 
 -- mounts tbc
 INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (84504, 'spell_NETHERRAY1');
@@ -507,6 +531,17 @@ VALUES
 (85073, 'SPELL_DF_S6_GLAD');
 
 
+INSERT INTO `acore_world`.`spell_script_names` (`spell_id`, `ScriptName`) VALUES (84633, 'spell_MECHAGONPEACEK');
+INSERT INTO `acore_world`.`spell_script_names` (`spell_id`, `ScriptName`) VALUES (85204, 'spell_GROTTONETHERWING');
+INSERT INTO `acore_world`.`spell_script_names` (`spell_id`, `ScriptName`) VALUES (85198, 'spell_ELEMENTIUMDRAKE');
+INSERT INTO `acore_world`.`spell_script_names` (`spell_id`, `ScriptName`) VALUES (85177, 'spell_AZUREWORLDCH');
+INSERT INTO `acore_world`.`spell_script_names` (`spell_id`, `ScriptName`) VALUES (85195, 'spell_AMALGAMRAGE');
+INSERT INTO `acore_world`.`spell_script_names` (`spell_id`, `ScriptName`) VALUES (85201, 'spell_GRAVEWINGPALE');
+INSERT INTO `acore_world`.`spell_script_names` (`spell_id`, `ScriptName`) VALUES (85180, 'spell_GRAVEWINGSINFALL');
+INSERT INTO `acore_world`.`spell_script_names` (`spell_id`, `ScriptName`) VALUES (85183, 'spell_GRAVEWINGOBSIDIAN');
+INSERT INTO `acore_world`.`spell_script_names` (`spell_id`, `ScriptName`) VALUES (85189, 'spell_RAPTORASWOOPER');
+INSERT INTO `acore_world`.`spell_script_names` (`spell_id`, `ScriptName`) VALUES (85186, 'spell_MAWDAPTEDRAPTORA');
+INSERT INTO `acore_world`.`spell_script_names` (`spell_id`, `ScriptName`) VALUES (85192, 'spell_DESERTWINGHUNTER');
 
 
 

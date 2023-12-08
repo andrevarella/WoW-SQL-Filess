@@ -85,8 +85,8 @@ local function OnHelloRacialSwitch(event, player, creature)
     if not player:IsInCombat() and not player:HasAura(SPELL_SHADOWMELD) and not player:HasAura(SPELL_STEALTH) and not player:InBattleground() then
 	
         local spellID = 83383
-        local itemVIP = 83550
-        local itemVIPeterno = 83555
+        local itemVIP = 61000
+        local itemVIPeterno = 61001
 
         if player:HasSpell(spellID) and not (player:HasItem(itemVIP) or player:HasItem(itemVIPeterno)) then
             player:SendBroadcastMessage("Você precisa do Livro Vip para trocar de raça novamente")

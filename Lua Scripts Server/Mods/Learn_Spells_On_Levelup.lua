@@ -1091,17 +1091,19 @@ end
 
 
 local function onFirstLogin(event, player)
+	player:LearnSpell(3273) -- First Aid, Cooking, Fishing
+	player:LearnSpell(2550)
+	player:LearnSpell(7620)
+	player:AddItem(45120, 1) -- Basic Fishing Pole
     if player:GetClass() == CLASS_DEATHKNIGHT then -- Verifica se é um Death Knight
         if (MaxLevel) then
             player:SetLevel(StartDKLevel)
 			player:CastSpell(player, 63680, true) -- Teach Learn Talent Specialization Switches (63680)
 			player:CastSpell(player, 63624, true) -- Learn a Second Talent Specialization (63624)
-			player:AddAura(83389, player)
         end
     else
         if (MaxLevel) then
             player:SetLevel(StartPlayerLevel)
-			player:AddAura(83389, player)
         end
         onLevelChange(1, player, 0)
     end

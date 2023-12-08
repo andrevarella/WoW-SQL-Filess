@@ -10,8 +10,8 @@ DELETE FROM `spell_group` WHERE `spell_id` = '57518'; -- Arms
 DELETE FROM `spell_group` WHERE `spell_id` = '12880'; -- Fury
 DELETE FROM `spell_group` WHERE `spell_id` = '57516'; -- Enrage Prot (nao tem na database)
 -- Backup Enrages
--- INSERT INTO `1acore_world`.`spell_group`(`id`, `spell_id`, `special_flag`) VALUES (1031, 57518, 0);
--- INSERT INTO `1acore_world`.`spell_group`(`id`, `spell_id`, `special_flag`) VALUES (1031, 12880, 0);
+-- INSERT INTO `acore_world`.`spell_group`(`id`, `spell_id`, `special_flag`) VALUES (1031, 57518, 0);
+-- INSERT INTO `acore_world`.`spell_group`(`id`, `spell_id`, `special_flag`) VALUES (1031, 12880, 0);
 
 -- Mudanças Enrages p nao stackarem (antes dessa mudança, eles stackam mas os efeitos nao acumulam)
 INSERT INTO `spell_group`(`id`, `spell_id`, `special_flag`) VALUES (2000, 57518, 0); -- Enrage Arms

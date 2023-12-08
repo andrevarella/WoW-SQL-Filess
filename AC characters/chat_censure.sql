@@ -3,15 +3,15 @@
 
  Source Server         : acore
  Source Server Type    : MySQL
- Source Server Version : 50737
+ Source Server Version : 80034 (8.0.34)
  Source Host           : localhost:3306
  Source Schema         : acore_characters
 
  Target Server Type    : MySQL
- Target Server Version : 50737
+ Target Server Version : 80034 (8.0.34)
  File Encoding         : 65001
 
- Date: 24/07/2022 05:38:32
+ Date: 07/12/2023 21:59:08
 */
 
 SET NAMES utf8mb4;
@@ -22,7 +22,7 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP TABLE IF EXISTS `chat_censure`;
 CREATE TABLE `chat_censure`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `text` varchar(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 70 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;

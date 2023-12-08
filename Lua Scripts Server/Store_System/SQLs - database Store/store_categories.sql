@@ -1,7 +1,7 @@
 /*
  Navicat Premium Data Transfer
 
- Source Server         : 127.0.0.1
+ Source Server         : acore
  Source Server Type    : MySQL
  Source Server Version : 80034 (8.0.34)
  Source Host           : localhost:3306
@@ -11,7 +11,7 @@
  Target Server Version : 80034 (8.0.34)
  File Encoding         : 65001
 
- Date: 19/09/2023 21:30:47
+ Date: 07/12/2023 22:12:23
 */
 
 SET NAMES utf8mb4;
@@ -29,7 +29,7 @@ CREATE TABLE `store_categories`  (
   `flags` int UNSIGNED NOT NULL DEFAULT 0,
   `enabled` int UNSIGNED NOT NULL DEFAULT 1,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 57 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 57 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of store_categories

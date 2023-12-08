@@ -5,7 +5,7 @@ function On_Top_HelloArenaHallofFame(event, player, gameobject)
 	local evento_data = os.time{year=2024, month=05, day=05} -- Data do Reset (ano, mês, dia)
     local hoje_data = os.time(os.date("*t")) -- Data atual
     local diferenca_dias = math.floor((evento_data - hoje_data) / (24 * 60 * 60))
-	player:GossipSetText(string.format("\n\n   |TInterface\\icons\\Achievement_featsofstrength_gladiator_01:25|t Season 1 - Termina em 05/05\n                               (Faltam %d dias) \n\n   |TInterface\\icons\\Achievement_featsofstrength_gladiator_02:25|t Season 2 - Começa ??/2023", diferenca_dias))
+	player:GossipSetText(string.format("\n\n   |TInterface\\icons\\Achievement_featsofstrength_gladiator_01:25|t Season 1 - Termina dia 05/05/24\n                               (Faltam %d dias) \n\n   |TInterface\\icons\\Achievement_featsofstrength_gladiator_02:25|t Season 2 - Começa dia ??/2023", diferenca_dias))
 
     player:GossipMenuAddItem(11," |TInterface\\icons\\Achievement_bg_killflagcarriers_grabflag_capit:25|tRegras e Season Cutoffs\n",0, 1)
     player:GossipMenuAddItem(9," |TInterface\\icons\\Achievement_quests_completed_08:25|t Gladiators de Seasons Anteriores\n",0, 2)
@@ -14,22 +14,23 @@ end
 
 function On_Top_SelectArenaHallofFame(event, player, gameobject, sender, intid, code)
 if(intid == 1) then
-player:GossipSetText(string.format("Maximo de distancia entre Personal e Team Rating = 100.\n \nWintrade = time desqualificado + suspensão.\n \nPremiações apenas para 2x2 e 3x3. \n\n\n |TInterface\\icons\\Achievement_bg_winwsg:30|t Season Cutoffs: \n\n |TInterface\\icons\\Achievement_arena_2v2_7:25|t Rank 1 - Season Gladiator \n |TInterface\\icons\\Achievement_arena_2v2_6:25|t Rank 2 e 3 - Gladiator \n |TInterface\\icons\\Achievement_arena_2v2_4:25|t Rank 4 e 5 - Duelist \n |TInterface\\icons\\Achievement_arena_2v2_1:25|t Rank 6 e 7 - Rival \n |TInterface\\icons\\Achievement_arena_2v2_1:25|t Rank 8, 9 e 10 - Challenger"))
-    player:GossipMenuAddItem(4,"|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:27:27:0:0|t Voltar",0,998)
-    player:GossipMenuAddItem(4,"|TInterface\\RaidFrame\\ReadyCheck-NotReady:22:22:0:0|t |cFF8B0000Sair",0,999)
+player:GossipSetText(string.format("- Maximo de distancia entre Personal e Team Rating = 100.\n \n- Wintrade = time desqualificado + suspensão.\n \n- Premiações apenas para 2x2 e 3x3. \n\n|TInterface\\icons\\Achievement_bg_winwsg:25|t Season Cutoffs: "))
+    player:GossipMenuAddItem(9," |TInterface\\icons\\Achievement_arena_2v2_7:22|t Rank 1 - Season Gladiator \n |TInterface\\icons\\Achievement_arena_2v2_6:22|t Rank 2 e 3 - Gladiator \n |TInterface\\icons\\Achievement_arena_2v2_4:22|t Rank 4 e 5 - Duelist \n |TInterface\\icons\\Achievement_arena_2v2_1:22|t Rank 6 e 7 - Rival \n |TInterface\\icons\\Achievement_arena_2v2_1:22|t Rank 8, 9 e 10 - Challenger",0,998)
+	player:GossipMenuAddItem(4,"|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t Voltar",0,998)
+    --player:GossipMenuAddItem(4,"|TInterface\\RaidFrame\\ReadyCheck-NotReady:20:20:0:0|t |cFF8B0000Sair",0,999)
     player:GossipSendMenu(0x7FFFFFFF, gameobject, menu_id)
 end
 
 if(intid == 2) then -- Gladiators de Seasons Anteriores
 player:GossipSetText(string.format("\nGladiators das Seasons Anteriores"))
-	player:GossipMenuAddItem(9,"|TInterface\\icons\\Achievement_featsofstrength_gladiator_01:25|t Season 1 Teste (Encerrado 03/2023)",0, 3)
-	player:GossipMenuAddItem(9,"|TInterface\\icons\\Achievement_featsofstrength_gladiator_02:25|t Season 2 (Encerrado ??/2023)",0, 997)
-	player:GossipMenuAddItem(9,"|TInterface\\icons\\Achievement_featsofstrength_gladiator_04:25|t Season 3 (Encerrado ??/2023)",0, 997)
-        player:GossipMenuAddItem(9,"|TInterface\\icons\\Achievement_featsofstrength_gladiator_07:25|t Season 4 (Encerrado ??/2023)",0, 997)
-	player:GossipMenuAddItem(9,"|TInterface\\icons\\Achievement_featsofstrength_gladiator_06:25|t Season 5 (Encerrado ??/2023)",0, 997)
-	player:GossipMenuAddItem(9,"|TInterface\\icons\\Achievement_featsofstrength_gladiator_03:25|t Season 6 (Encerrado ??/2023)",0, 997)
-	player:GossipMenuAddItem(9,"|TInterface\\icons\\Achievement_featsofstrength_gladiator_09:25|t Season 7 (Encerrado ??/2023)",0, 997)
-	player:GossipMenuAddItem(9,"|TInterface\\icons\\Achievement_featsofstrength_gladiator_08:25|t Season 8 (Encerrado ??/2023)",0, 997)
+	player:GossipMenuAddItem(9,"|TInterface\\icons\\Achievement_featsofstrength_gladiator_01:22|t Season 1 Teste (Encerrado 03/2023)",0, 3)
+	player:GossipMenuAddItem(9,"|TInterface\\icons\\Achievement_featsofstrength_gladiator_02:22|t Season 2 (Encerrado ??/2023)",0, 997)
+	player:GossipMenuAddItem(9,"|TInterface\\icons\\Achievement_featsofstrength_gladiator_04:22|t Season 3 (Encerrado ??/2023)",0, 997)
+    player:GossipMenuAddItem(9,"|TInterface\\icons\\Achievement_featsofstrength_gladiator_07:22|t Season 4 (Encerrado ??/2023)",0, 997)
+	player:GossipMenuAddItem(9,"|TInterface\\icons\\Achievement_featsofstrength_gladiator_06:22|t Season 5 (Encerrado ??/2023)",0, 997)
+	player:GossipMenuAddItem(9,"|TInterface\\icons\\Achievement_featsofstrength_gladiator_03:22|t Season 6 (Encerrado ??/2023)",0, 997)
+	player:GossipMenuAddItem(9,"|TInterface\\icons\\Achievement_featsofstrength_gladiator_09:22|t Season 7 (Encerrado ??/2023)",0, 997)
+	player:GossipMenuAddItem(9,"|TInterface\\icons\\Achievement_featsofstrength_gladiator_08:22|t Season 8 (Encerrado ??/2023)",0, 997)
 	player:GossipMenuAddItem(9,"|TInterface\\icons\\Inv_inscription_parchment:20|t Proxima Página ",0, 11)
 	player:GossipMenuAddItem(4,"|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t Voltar",0,998)
     player:GossipSendMenu(0x7FFFFFFF, gameobject, menu_id)

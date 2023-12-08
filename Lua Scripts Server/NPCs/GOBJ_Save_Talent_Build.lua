@@ -1,8 +1,8 @@
 --local NPC_ID = 94151
 local GameObjectEntry = 3501007
 
-local itemVIP = 83550
-local itemVIPeterno = 83555
+local itemVIP = 61000
+local itemVIPeterno = 61001
 
 playerMap = {}
 
@@ -3886,76 +3886,88 @@ end
 
 
 
-
 function OpenNPCSaveBuild(event, player, gameobject)
-	if (player:HasItem(itemVIP) == false and player:HasItem(itemVIPeterno) == false) then
-		player:SendBroadcastMessage("Você precisa do Livro Vip para usar esse npc.")
-		player:GossipComplete()
-	else
-		player:SaveToDB()
-		player:GossipMenuAddItem(3, " |TInterface\\icons\\Ability_druid_naturalperfection.png:26|t Criar |cFF0000FFBuild", 1, 80) -- Salvar Builds Submenu
-		local guid = player:GetGUIDLow()
-		local query = "SELECT intid, BuildName FROM custom_save_talents_buildname WHERE guid = "..guid
-		local result = CharDBQuery(query)
-		if result then
-			repeat
-				local intid = result:GetUInt32(0)
-				local talentName = result:GetString(1)
-				player:GossipMenuAddItem(3, " |TInterface\\icons\\Achievement_bg_most_damage_killingblow_dieleast.png:26|t |cFF0000FFBuild " .. intid .. "|r [ |cffffff00" .. talentName .. "|r ]", 0, intid + 30) -- Stored Builds Submenu
-			until not result:NextRow()
-		end
-		player:GossipMenuAddItem(3, " |TInterface\\icons\\Achievement_bg_returnxflags_def_wsg.png:26|t Resetar |cFF0000FFTalentos", 1, 500, false, "Tem certeza que quer Resetar os Talentos?") -- Reset Talents
+    if (player:HasItem(itemVIP) == false and player:HasItem(itemVIPeterno) == false) then
+        player:SendBroadcastMessage("Você precisa do Livro Vip para usar esse npc.")
+        player:GossipComplete()
+    else
+        player:SaveToDB()
+        player:GossipMenuAddItem(3, " |TInterface\\icons\\Ability_druid_naturalperfection.png:26|t Criar |cFF0000FFBuild", 1, 80) -- Salvar Builds Submenu
+        local guid = player:GetGUIDLow()
+        
+        local query = "SELECT DISTINCT BuildSlot, BuildName FROM custom_save_talents WHERE guid = "..guid
+        local result = CharDBQuery(query)
+        
+        if result then
+            repeat
+                local buildSlot = result:GetUInt32(0)
+                local talentName = result:GetString(1)
+				--player:GossipMenuAddItem(3, " |TInterface\\icons\\Achievement_bg_most_damage_killingblow_dieleast.png:26|t |cFF0000FFBuild " .. intid .. "|r [ |cffffff00" .. talentName .. "|r ]", 0, intid + 30) -- Stored Builds Submenu
+                player:GossipMenuAddItem(3, " |TInterface\\icons\\Achievement_bg_most_damage_killingblow_dieleast.png:26|t |cFF0000FFBuild " .. buildSlot .. "|r [ |cffffff00" .. talentName .. "|r ]", 0, buildSlot + 30) -- Stored Builds Submenu
+            until not result:NextRow()
+        end
+        
+        player:GossipMenuAddItem(3, " |TInterface\\icons\\Achievement_bg_returnxflags_def_wsg.png:26|t Resetar |cFF0000FFTalentos", 1, 500, false, "Tem certeza que quer Resetar os Talentos?") -- Reset Talents
 		--player:GossipMenuAddItem(3, " |TInterface\\icons\\Inv_inscription_minorglyph08.png:26|t Major Glyphs", 1, 100)
 		--player:GossipMenuAddItem(3, " |TInterface\\icons\\Inv_inscription_majorglyph18.png:26|t Minor Glyphs", 1, 101)
 		--player:GossipMenuAddItem(3, " Trocar de Spec Instant\n (para ativar Glyphs)", 1, 110)
-		player:GossipSendMenu(1, gameobject)
-	end
+        player:GossipSendMenu(1, gameobject)
+    end
 end
 
 
 function OnGossipSelect(event, player, gameobject, sender, intid, code)
-		
-	-- Aplicar Talent Submenu
+	-- [Submenu] Aplicar Talent
 	if intid >= 30 and intid <= 50 then
 		local buildSlot = intid - 30
 		local guid = player:GetGUIDLow()
-		local query = "SELECT BuildName FROM custom_save_talents_buildname WHERE guid = " .. guid .. " AND intid = " .. buildSlot
+		local query = "SELECT BuildName FROM custom_save_talents WHERE guid = " .. guid .. " AND BuildSlot = " .. buildSlot
 		local result = CharDBQuery(query)
+    
 		if result then
 			local talentName = result:GetString(0)
-			player:GossipMenuAddItem(3, " |TInterface\\icons\\Achievement_bg_most_damage_killingblow_dieleast.png:26|t Aplicar |cFF0000FFBuild " .. (intid -30) .. "|r [|cffffff00 " .. talentName .. " |r]", 0, intid + 1000)
+			--player:GossipMenuAddItem(3, " |TInterface\\icons\\Achievement_bg_most_damage_killingblow_dieleast.png:26|t Aplicar |cFF0000FFBuild " .. (intid -30) .. "|r [|cffffff00 " .. talentName .. " |r]", 0, intid + 1000)
+			player:GossipMenuAddItem(3, " |TInterface\\icons\\Achievement_bg_most_damage_killingblow_dieleast.png:26|t Aplicar |cFF0000FFBuild " .. buildSlot .. "|r [|cffffff00 " .. talentName .. " |r]", 0, intid + 1000)
 		end
-		player:GossipMenuAddItem(9, " |TInterface\\icons\\Ability_fiegndead.png:26|t Deletar |cFF0000FFBuild ", 1, intid + 2000, false, "|cffffff00Tem certeza que quer deletar a Build " .. intid - 30 .. " ?")
+    
+		--player:GossipMenuAddItem(9, " |TInterface\\icons\\Ability_fiegndead.png:26|t Deletar |cFF0000FFBuild ", 1, intid + 2000, false, "|cffffff00Tem certeza que quer deletar a Build " .. intid - 30 .. " ?")
 		player:GossipMenuAddItem(9, " |TInterface/Icons/Inv_scroll_11.png:26|t Renomear |cFF0000FFBuild", 1, intid + 2100, true)
-		player:GossipMenuAddItem(2,"|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:16:16:0:0|t |cFF800000Voltar",0,499)  
+		player:GossipMenuAddItem(9, " |TInterface\\icons\\Ability_fiegndead.png:26|t Deletar |cFF0000FFBuild ", 1, intid + 2000, false, "|cffffff00Tem certeza que quer deletar a Build " .. buildSlot .. " ?")
+		player:GossipMenuAddItem(2, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:16:16:0:0|t |cFF800000Voltar", 0, 499)
 		player:GossipSendMenu(1, gameobject)
 	end
 	
+
 	-- Realmente Aplica a Build
 	if intid >= 1030 and intid <= 1050 then -- Aplicar Talents (de acordo com o Gossip [Aplicar Talents], que tem intid 30 até 50)
-		local buildSlot = intid - 1030
-			player:ResetTalents()
-			player:SaveToDB()
-			playerMap[player:GetGUIDLow()] = buildSlot
-			player:RegisterEvent(ApplyTalentsPeriodically, 100, 10) -- Milisegundos/quantidades de applies
-			ApplyGlyphsFromStoredTable(player, buildSlot)
-		if player:GetActiveSpec() == 0 then -- Main Spec - Force Switch spec for Glyphs (need to Relog or Switch spec, otherwise they don't work)
-			player:CastSpell(player, 63644, true) -- Activate Secondary Spec
-			player:CastSpell(player, 63645, true) -- Activate primary Spec
-		elseif player:GetActiveSpec() == 1 then
-			player:CastSpell(player, 63645, true)
-			player:CastSpell(player, 63644, true)
+		-- Custom Lua Function
+		if player:InArenaQueue() then
+			player:SendBroadcastMessage("Você não pode aplicar uma build através do Talent Archivist enquanto estiver na fila de Arena.")
+			player:GossipComplete()
+		else 
+			local buildSlot = intid - 1030
+				player:ResetTalents()
+				player:SaveToDB()
+				playerMap[player:GetGUIDLow()] = buildSlot
+				player:RegisterEvent(ApplyTalentsPeriodically, 100, 10) -- Milisegundos/quantidades de applies
+				ApplyGlyphsFromStoredTable(player, buildSlot)
+			if player:GetActiveSpec() == 0 then -- Main Spec - Force Switch spec for Glyphs (need to Relog or Switch spec, otherwise they don't work)
+				player:CastSpell(player, 63644, true) -- Activate Secondary Spec
+				player:CastSpell(player, 63645, true) -- Activate primary Spec
+			elseif player:GetActiveSpec() == 1 then
+				player:CastSpell(player, 63645, true)
+				player:CastSpell(player, 63644, true)
+			end
+				player:SetPower(player:GetMaxPower(0), 0)
+				player:SendBroadcastMessage("Você aplicou a Build " .. (intid - 1030))
+			player:GossipComplete()
 		end
-			player:SetPower(player:GetMaxPower(0), 0)
-			player:SendBroadcastMessage("Você aplicou a Build " .. (intid - 1030))
-		player:GossipComplete()
 	end
 	
 	-- Deletar a build selecionada
 	if intid >= 2030 and intid <= 2050 then
 		local buildSlot = intid - 2030
 		local guid = player:GetGUIDLow()
-		CharDBExecute("DELETE FROM custom_save_talents_buildname WHERE guid = "..guid.." AND intid = "..buildSlot)
 		CharDBExecute("DELETE FROM custom_save_talents WHERE guid = "..guid.." AND BuildSlot = "..buildSlot)
 		CharDBExecute("DELETE FROM custom_save_talents_glyphs WHERE guid = "..guid.." AND BuildSlot = "..buildSlot)
 		player:SendBroadcastMessage("Build " .. (intid - 2030) .. " deletada.")
@@ -3966,7 +3978,7 @@ function OnGossipSelect(event, player, gameobject, sender, intid, code)
 	if intid >= 2130 and intid <= 2150 then
 		local BuildName = code
 		local guid = player:GetGUIDLow()
-		CharDBExecute("REPLACE INTO custom_save_talents_buildname (guid, intid, BuildName) VALUES ("..guid..", ".. (intid - 2130) ..", '"..BuildName.."')")
+		CharDBExecute("UPDATE custom_save_talents SET BuildName = '"..BuildName.."' WHERE guid = "..guid.." AND BuildSlot = "..(intid - 2130))
 		player:SendBroadcastMessage("Build " .. (intid - 2130) .. " renomeada para '" .. (BuildName) .. "' ")
 		player:GossipComplete()
 	end
@@ -3991,7 +4003,6 @@ function OnGossipSelect(event, player, gameobject, sender, intid, code)
 		player:GossipComplete()
 		player:SendBroadcastMessage("Build Salvada no Slot " .. (intid))
     
-		CharDBExecute("REPLACE INTO custom_save_talents_buildname (guid, intid, BuildName) VALUES ("..guid..", "..intid..", '"..BuildName.."')")
 		CharDBExecute("DELETE FROM custom_save_talents WHERE guid = "..guid.." AND BuildSlot = "..intid)
 		
 		player:SaveToDB()
@@ -4003,14 +4014,16 @@ function OnGossipSelect(event, player, gameobject, sender, intid, code)
 			specMask = "specMask IN (2,3)"
 		end
 
+		-- get talents and add them on the new database, based on active spec
 		local result = CharDBQuery("SELECT spell FROM character_talent WHERE guid = "..guid.." AND "..specMask)
 		if result then
 			repeat
 				local spell = result:GetUInt32(0)
 				local BuildSlot = intid
-				CharDBExecute("INSERT INTO custom_save_talents (guid, spell, BuildSlot) VALUES ("..guid..", "..spell..", "..BuildSlot..")")
+				CharDBExecute("INSERT INTO custom_save_talents (guid, spell, BuildSlot, BuildName) VALUES ("..guid..", "..spell..", "..BuildSlot..", '"..BuildName.."')")
 			until not result:NextRow()
 		end
+		
 		-- Save Glyphs
 		local glyphQuery = "REPLACE INTO custom_save_talents_glyphs (guid, glyph1, glyph2, glyph3, glyph4, glyph5, glyph6, BuildSlot) VALUES ("..guid
 		local result = CharDBQuery("SELECT glyph1, glyph2, glyph3, glyph4, glyph5, glyph6 FROM character_glyphs WHERE guid = "..guid.." AND talentGroup = "..activeSpec)
@@ -4028,7 +4041,6 @@ function OnGossipSelect(event, player, gameobject, sender, intid, code)
 	-- Deletar todas Builds Salvas
 	if intid == 450 then 
 		local guid = player:GetGUIDLow()
-		CharDBExecute("DELETE FROM custom_save_talents_buildname WHERE guid = " .. guid)
 		CharDBExecute("DELETE FROM custom_save_talents WHERE guid = " .. guid)
 		CharDBExecute("DELETE FROM custom_save_talents_glyphs WHERE guid = " .. guid)
 		player:SaveToDB()
@@ -4302,25 +4314,7 @@ function ApplyGlyphsFromStoredTable(player, buildSlot)
 end
 
 
-function CheckDeletedCharacters() -- check guids from deleted chars every X hours to delete their entries
-    local query = CharDBQuery("SELECT guid FROM characters WHERE deleteInfos_name IS NOT NULL")
-    if query then
-        repeat
-            local guid = query:GetUInt32(0)
-            CharDBExecute("DELETE FROM custom_save_talents_glyphs WHERE guid = " .. guid)
-            CharDBExecute("DELETE FROM custom_save_talents WHERE guid = " .. guid)
-            CharDBExecute("DELETE FROM custom_save_talents_buildname WHERE guid = " .. guid)
-			--CharDBExecute("DELETE FROM custom_druid_form_display WHERE player_guid = " .. guid)
-			--CharDBExecute("DELETE FROM custom_transmogrification WHERE Owner = " .. guid)
-			--CharDBExecute("DELETE FROM custom_transmogrification_sets WHERE Owner = " .. guid)
-			--CharDBExecute("DELETE FROM custom_unlocked_appearances WHERE account_id = " .. guid)
-            print("Os registros do NPC Save Talents do guid " .. guid .. " foram removidos das tabelas.")
-        until not query:NextRow()
-    end
-end
-
 
 
 RegisterGameObjectGossipEvent(GameObjectEntry, 1, OpenNPCSaveBuild)
 RegisterGameObjectGossipEvent(GameObjectEntry, 2, OnGossipSelect)
-CreateLuaEvent(CheckDeletedCharacters, 1800000, 0) -- Executa a função a cada 30 minutos.  [-- 172800000 = 48 horas]    [-- 1800000 = 30 minutos]   [-- 30000 = 30s ]

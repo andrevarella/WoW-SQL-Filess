@@ -1,4 +1,4 @@
---[[
+
 
 local function SHIRT_OnEquip(event, player, item, bag, slot)
     local shirtSlot = player:GetEquippedItemBySlot(3)
@@ -48,4 +48,3 @@ end
 RegisterPlayerEvent(29, SHIRT_OnEquip)
 
 
---]]
