@@ -9,8 +9,9 @@ local function OnGossipHello(event, player, object)
 		player:SendBroadcastMessage("Você precisa do Livro Vip para usar esse npc.")
 		player:GossipComplete()
 	else
+		player:GossipSetText(string.format(" "))
 		player:GossipMenuAddItem(0, "|TInterface\\icons\\Ability_hunter_beastwithin.png:27|t Trocar Sexo (Custo: |cffffff005000g|cFF000000)", 0, 1, false, "Tem certeza? essa função custará 5000 de gold")
-		player:GossipSendMenu(1, object)
+		player:GossipSendMenu(0x7FFFFFFF, object, MenuId)
 	end
 end
 

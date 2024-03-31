@@ -8,15 +8,16 @@ local function morpherMenu(event, player, object)
 		player:SendBroadcastMessage("Você precisa do Livro Vip para usar esse npc.")
 		player:GossipComplete()
 	else
+		player:GossipSetText(string.format(" "))
 		player:GossipMenuAddItem(9, "|TInterface\\icons\\Inv_bannerpvp_01:26|t Horde Races\n", 0, 6) -- |TInterface\\PVPFrame\\Pvp-Currency-Horde:28|t
 		player:GossipMenuAddItem(9, "|TInterface\\icons\\Inv_bannerpvp_02:26|t Alliance Races\n", 0, 7)
 		player:GossipMenuAddItem(9, "|TInterface\\icons\\Spell_shadow_raisedead:24|t Creature Displays", 0, 40)
 		--player:GossipMenuAddItem(7, "|TInterface\\icons\\Ability_rogue_disguise:24|t  Insert Display", 0, 2, true)
 		player:GossipMenuAddItem(5, "|TInterface\\icons\\spell_holy_dispelmagic:24|t  Reset Display", 0, 5)
-		player:GossipMenuAddItem(5, player:GetDisplayId() .. " <- Current Display ID\n", 0, 0)    -- tava '0, 4', mas acho que nao precisa aparecer no chat tb
+		player:GossipMenuAddItem(5, player:GetDisplayId() .. " <- Your current Display ID\n", 0, 0)    -- tava '0, 4', mas acho que nao precisa aparecer no chat tb
 		--player:GossipMenuAddItem(2, "Next DisplayID", 0, 1)
 		--player:GossipMenuAddItem(2, "Previous DisplayID", 0, 3)
-		player:GossipSendMenu(1, object)
+		player:GossipSendMenu(0x7FFFFFFF, object)
 	end
 end
 
@@ -56,7 +57,7 @@ local function onSelectMorphDisplay(event, player, object, sender, intid, code)
         player:GossipClearMenu()
         player:GossipMenuAddItem(9, "|TInterface\\icons\\Spell_shadow_raisedead:27|t Visual Morph |cff0000ffNoggenfoggen Elixir", 0, 41)
         player:GossipMenuAddItem(4, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:27:27:0:0|tBack", 0, 500)
-        player:GossipSendMenu(1, object, MENU_ID)
+        player:GossipSendMenu(0x7FFFFFFF, object, MENU_ID)
     end
     -- Noggenfoggen Elixir
     if (intid == 41) then
@@ -80,7 +81,7 @@ local function onSelectMorphDisplay(event, player, object, sender, intid, code)
         player:GossipMenuAddItem(9, "|TInterface\\icons\\Achievement_character_troll_male:22|t Visual Morph |cff0000ffTroll Male", 0, 16)
         player:GossipMenuAddItem(9, "|TInterface\\icons\\Achievement_character_troll_female:22|t Visual Morph |cff0000ffTroll Female\n", 0, 17)
         player:GossipMenuAddItem(4, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|tBack", 0, 500)
-        player:GossipSendMenu(1, object, MENU_ID)
+        player:GossipSendMenu(0x7FFFFFFF, object, MENU_ID)
     end
     -- Alliance Races
     if (intid == 7) then
@@ -96,10 +97,10 @@ local function onSelectMorphDisplay(event, player, object, sender, intid, code)
         player:GossipMenuAddItem(9, "|TInterface\\icons\\Achievement_character_draenei_male:22|t Visual Morph |cff0000ffDraenei Male", 0, 28)
         player:GossipMenuAddItem(9, "|TInterface\\icons\\Achievement_character_draenei_female:22|t Visual Morph |cff0000ffDraenei Female\n", 0, 29)
         player:GossipMenuAddItem(4, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|tBack", 0, 500)
-        player:GossipSendMenu(1, object, MENU_ID)
+        player:GossipSendMenu(0x7FFFFFFF, object, MENU_ID)
     end
 
-    -- raças horde
+    -- Raças Horde
     if (intid == 8) then
         player:SetDisplayId(50563) -- Undead Male     -- Precisa do patch
 		player:Dismount() -- Desmonta o player para nao ocorrer o bug do jogador ficar grandao
