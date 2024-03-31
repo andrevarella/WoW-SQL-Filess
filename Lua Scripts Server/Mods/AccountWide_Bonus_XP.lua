@@ -1,4 +1,5 @@
--- funciona em kill de mob, quest, kill player e objetivos em BG (talvez com discovery de mapa tbm) - e tambem com custom rate mod x2 XP weekend em bg - nao funciona com XP de ganhar skirmish
+-- funciona em kill de mob, quest, kill player e objetivos em BG (talvez com discovery de mapa tbm) - e tambem com custom rate mod x2 XP weekend em bg
+-- nao funciona com XP de ganhar skirmish
 
 local DEFAULT_XP_RATE = 1
 local MAX_XP_BONUS = 0.3     -- 30% Bonus maximo de XP
@@ -59,11 +60,11 @@ function handleXpCommand(player, state)
 end
 
 function HandleCommand(event, player, command)
-    if command:find("xp off") then
+    if command:find("xp bonus off") then
         handleXpCommand(player, 2)
 		player:SendBroadcastMessage("O bonus de XP foi desativado no seu personagem atual.")
         return false
-    elseif command:find("xp on") then
+    elseif command:find("xp bonus on") then
         handleXpCommand(player, 1)
 		player:SendBroadcastMessage("O bonus de XP foi ativado no seu personagem atual.")
         return false
