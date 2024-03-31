@@ -28,8 +28,7 @@ local function OnStartUpDeleteEntriesOfCustomTablesFromDeletedCharacters()
 			end
 		end
 	end
-	local delayedDeleteDeletedCharsEntriesFromCustomTablesOnStartUp2 = 6000
-    CreateLuaEvent(delayedDeleteDeletedCharsEntriesFromCustomTablesOnStartUp, delayedDeleteDeletedCharsEntriesFromCustomTablesOnStartUp2, 1)
+    CreateLuaEvent(delayedDeleteDeletedCharsEntriesFromCustomTablesOnStartUp, 6000, 1)
 end
 
 

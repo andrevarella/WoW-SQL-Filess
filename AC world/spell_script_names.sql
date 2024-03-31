@@ -26,7 +26,13 @@ INSERT INTO `spell_script_names`(`spell_id`, `ScriptName`) VALUES (83089, 'spell
 -- ========= CLOTH ==============
 -- ▸▸ Mage    ---
 -- ▸▸ Priest  ---
+
 -- ▸▸ Warlock ---
+-- Cleave do Felguard proca Mortal Wound
+INSERT INTO `acore_world`.`spell_script_names` (`spell_id`, `ScriptName`) VALUES (47994, 'spell_warl_cleave_mortalwound');
+INSERT INTO `acore_world`.`spell_script_names` (`spell_id`, `ScriptName`) VALUES (30213, 'spell_warl_cleave_mortalwound');
+INSERT INTO `acore_world`.`spell_script_names` (`spell_id`, `ScriptName`) VALUES (30219, 'spell_warl_cleave_mortalwound');
+INSERT INTO `acore_world`.`spell_script_names` (`spell_id`, `ScriptName`) VALUES (30223, 'spell_warl_cleave_mortalwound');
 
 -- ========= LEATHER ==============
 -- 

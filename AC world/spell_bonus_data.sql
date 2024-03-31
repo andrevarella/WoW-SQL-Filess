@@ -40,6 +40,13 @@ INSERT INTO `acore_world`.`spell_bonus_data`(`entry`, `direct_bonus`, `dot_bonus
 -- flametongue weapon (nao tem nenhum valor, só p futuro)
 INSERT INTO `spell_bonus_data` (`entry`, `direct_bonus`, `dot_bonus`, `ap_bonus`, `ap_dot_bonus`, `comments`) VALUES (10444, 0, 0, 0, 0, 'Flametongue Weapon - Rank 10');
 
+-- Hunter:
+
+-- Explosive Trap (Custom Launcher)
+INSERT INTO `acore_world`.`spell_bonus_data` (`entry`, `direct_bonus`, `dot_bonus`, `ap_bonus`, `ap_dot_bonus`, `comments`) VALUES (83390, 0, 0, 0.1, 0.1, 'Hunter - Explosive Trap Effect (Custom - Trap Launcher)');
+-- Immolation Trap (Trap Launcher)
+INSERT INTO `acore_world`.`spell_bonus_data` (`entry`, `direct_bonus`, `dot_bonus`, `ap_bonus`, `ap_dot_bonus`, `comments`) VALUES (83391, 0, 0, 0, 0.02, 'Hunter - Immolation Trap($RAP*0.1 / number of ticks) (Custom - Trap Launcher)');
+
 
 -- XXXXX
 -- Plate Classes:

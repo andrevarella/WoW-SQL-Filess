@@ -26,8 +26,6 @@ INSERT INTO `spell_linked_spell`(`spell_trigger`, `spell_effect`, `type`, `comme
 
 -- Warlock
 INSERT INTO `spell_linked_spell`(`spell_trigger`, `spell_effect`, `type`, `comment`) VALUES (-83219, 83220, 0, 'Soul Swap (pra ter travel time nos dots)');
--- Talvez mudar pro bonus pvp 4p warlock modificar o cleave do pet pra procar Mortal Wound (25646)
---INSERT INTO `spell_linked_spell`(`spell_trigger`, `spell_effect`, `type`, `comment`) VALUES (47994, 25646, 0, 'Warlock Felguard Cleave (Rank 4) proca Mortal Wound 15% healing reduction (stack até 2)');
 
 -- Mage
 

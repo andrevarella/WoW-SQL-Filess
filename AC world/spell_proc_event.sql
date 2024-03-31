@@ -17,9 +17,7 @@
 -- this as of now prevents proccs from the Slow effect from Ice Armor, aswell as frostbite/fiery payback/Blazing speed etc.
 
 --
--- ▸▸ Lock:  ---
--- * Custom Spell - Felguard heal reduction on cleave
-INSERT INTO `spell_proc_event`(`entry`, `SchoolMask`, `SpellFamilyName`, `SpellFamilyMask0`, `SpellFamilyMask1`, `SpellFamilyMask2`, `procFlags`, `procEx`, `procPhase`, `ppmRate`, `CustomChance`, `Cooldown`) VALUES (83282, 0, 5, 0, 0, 65536, 16, 3, 0, 0, 0, 0);
+-- ▸▸ Warlock:  ---
 
 
 -- P test com bop/absorb/ou versus absorb:
