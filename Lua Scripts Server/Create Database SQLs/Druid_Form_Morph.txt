@@ -1,11 +1,25 @@
-CREATE TABLE `custom_druid_form_display` (
-  `player_guid` int(11) NOT NULL,
-  `DisplayCatForm` int(11) DEFAULT NULL,
-  `DisplayBearForm` int(11) DEFAULT NULL,
-  `DisplayTravelForm` int(11) DEFAULT NULL,
-  `DisplayMoonkinForm` int(11) DEFAULT NULL,
-  `DisplayAquaticForm` int(11) DEFAULT NULL,
-  `DisplayTreeForm` int(11) DEFAULT NULL,
-  `DisplayGhostWolfForm` int(11) DEFAULT NULL,
-  PRIMARY KEY (`player_guid`)
-) ENGINE=InnoDB;
+SET NAMES utf8mb4;
+SET FOREIGN_KEY_CHECKS = 0;
+
+-- ----------------------------
+-- Table structure for custom_druid_form_display
+-- ----------------------------
+DROP TABLE IF EXISTS `custom_druid_form_display`;
+CREATE TABLE `custom_druid_form_display`  (
+  `player_guid` int NOT NULL,
+  `DisplayCatForm` int NULL DEFAULT NULL,
+  `DisplayBearForm` int NULL DEFAULT NULL,
+  `DisplayTravelForm` int NULL DEFAULT NULL,
+  `DisplayMoonkinForm` int NULL DEFAULT NULL,
+  `DisplayAquaticForm` int NULL DEFAULT NULL,
+  `DisplayTreeForm` int NULL DEFAULT NULL,
+  `DisplayFlightForm` int NULL DEFAULT NULL,
+  `DisplayGhostWolfForm` int NULL DEFAULT NULL,
+  PRIMARY KEY (`player_guid`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of custom_druid_form_display
+-- ----------------------------
+
+SET FOREIGN_KEY_CHECKS = 1;

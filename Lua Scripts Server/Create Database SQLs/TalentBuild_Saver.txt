@@ -2,40 +2,65 @@
 
 -- Save Talents
 
+
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
+-- ----------------------------
+-- Table structure for custom_save_talents
 -- ----------------------------
 DROP TABLE IF EXISTS `custom_save_talents`;
 CREATE TABLE `custom_save_talents`  (
   `guid` bigint UNSIGNED NOT NULL,
   `spell` int UNSIGNED NOT NULL,
-  `BuildSlot` int UNSIGNED NOT NULL
+  `BuildSlot` int UNSIGNED NOT NULL,
+  `BuildName` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of custom_save_talents
 -- ----------------------------
 
+SET FOREIGN_KEY_CHECKS = 1;
 
--- Build Name
--- ----------------------------
-DROP TABLE IF EXISTS `custom_save_talents_buildname`;
-CREATE TABLE `custom_save_talents_buildname`  (
-  `guid` bigint UNSIGNED NOT NULL,
-  `intid` int UNSIGNED NOT NULL,
-  `BuildName` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-  PRIMARY KEY (`guid`, `intid`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ---------------------------------------------
+-- ---------------------------------------------
+-- ---------------------------------------------
+-- ---------------------------------------------
+
+SET NAMES utf8mb4;
+SET FOREIGN_KEY_CHECKS = 0;
 
 -- ----------------------------
--- Records of custom_save_talents_buildname
+-- Table structure for custom_save_talents_actionbar
+-- ----------------------------
+DROP TABLE IF EXISTS `custom_save_talents_actionbar`;
+CREATE TABLE `custom_save_talents_actionbar`  (
+  `guid` int UNSIGNED NOT NULL DEFAULT 0,
+  `BuildSlot` tinyint UNSIGNED NOT NULL DEFAULT 0,
+  `button` tinyint UNSIGNED NOT NULL DEFAULT 0,
+  `action` int UNSIGNED NOT NULL DEFAULT 0,
+  `type` tinyint UNSIGNED NOT NULL DEFAULT 0,
+  PRIMARY KEY (`guid`, `BuildSlot`, `button`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of custom_save_talents_actionbar
 -- ----------------------------
 
+SET FOREIGN_KEY_CHECKS = 1;
 
 
 
 -- GLYPHS
+-- ----------------------------
+
+SET NAMES utf8mb4;
+SET FOREIGN_KEY_CHECKS = 0;
+
+-- ----------------------------
+-- Table structure for custom_save_talents_glyphs
 -- ----------------------------
 DROP TABLE IF EXISTS `custom_save_talents_glyphs`;
 CREATE TABLE `custom_save_talents_glyphs`  (
