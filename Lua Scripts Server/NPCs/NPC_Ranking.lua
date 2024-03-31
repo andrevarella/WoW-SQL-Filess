@@ -49,37 +49,33 @@ local Raca =
     [11] = "|TInterface\\icons\\Achievement_character_draenei_female:20|t",
 };
 
-
-
 local Class = 
 { 
-    [1] = "|cFF000000 Warrior", -- Warrior
-    [2] = "|cFF000000 Paladin", -- Paladin
-    [3] = "|cFF000000 Hunter", -- Hunter
-    [4] = "|cFF000000 Rogue", -- Rogue
-    [5] = "|cFF000000 Priest", -- Priest
-    [6] = "|cFF000000 Dk", -- Death Knight
-    [7] = "|cFF000000 Shaman", -- Shaman
-    [8] = "|cFF000000 Mage", -- Mage
-    [9] = "|cFF000000 Warlock", -- Warlock
-    [11] = "|cFF000000 Druid" -- Druid
+	[1] = "|cff8B4513 Warrior", -- Warr
+	[2] = "|cffF48CBA Paladin", -- Pala
+	[3] = "|cff3D8E3D Hunter", -- Hunter
+	[4] = "|cffFFF468 Rogue", -- Rogue
+	[5] = "|cffFFFFFF Priest", -- Priest
+	[6] = "|cffC41F3B Dk", -- DK
+	[7] = "|cff0070DE Shaman", -- Shaman
+	[8] = "|cff69CCF0 Mage", -- Mage
+	[9] = "|cff9482C9 Warlock", -- Warlock
+	[11] = "|cffFF7C0A Druid", -- Druid
 };
 
---[[
-local Class = 
+local ClassColor = 
 { 
-    [1] = "|cFF000000", -- Warrior
-    [2] = "|cFF000000", -- Paladin
-    [3] = "|cFF000000", -- Hunter
-    [4] = "|cFF000000", -- Rogue
-    [5] = "|cFF000000", -- Priest
-    [6] = "|cFF000000", -- Death Knight
-    [7] = "|cFF000000", -- Shaman
-    [8] = "|cFF000000", -- Mage
-    [9] = "|cFF000000", -- Warlock
-    [11] = "|cFF000000" -- Druid
+	[1] = "|cff8B4513", -- Warr
+	[2] = "|cffF48CBA", -- Pala
+	[3] = "|cff3D8E3D", -- Hunter
+	[4] = "|cffFFF468", -- Rogue
+	[5] = "|cffFFFFFF", -- Priest
+	[6] = "|cffC41F3B", -- DK
+	[7] = "|cff0070DE", -- Shaman
+	[8] = "|cff69CCF0", -- Mage
+	[9] = "|cff9482C9", -- Warlock
+	[11] = "|cffFF7C0A", -- Druid
 };
---]]
 
 local Classe = 
 { 
@@ -110,7 +106,7 @@ local function On_Top_Hello2(event, player, creature)
 	
 	
 	player:GossipMenuAddItem(9, "|TInterface\\icons\\achievement_bg_grab_cap_flagunderxseconds:25|t Top |cFF0000FF30 |cFF000000- [|cff0000ffPlayed |cffff0000Time|cFF000000]", 0, 206) -- top 30 played time
-	--player:GossipMenuAddItem(9, "|TInterface\\icons\\Inv_misc_coin_02:25|t |cFF000000Top |cFF0000FF20 |cFF000000- [|cff0000ffGold |cffff0000Rich|cFF000000]", 0, 207) -- top 20 gold rich
+	player:GossipMenuAddItem(9, "|TInterface\\icons\\Inv_misc_coin_02:25|t |cFF000000Top |cFF0000FF20 |cFF000000- [|cff0000ffGold |cffff0000Rich|cFF000000]", 0, 207) -- top 20 gold rich
     player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)
 end
 
@@ -124,92 +120,17 @@ function GetHordeTotal()
     return tostring(score:GetUInt32(0))
 end
 
-function On_Top_Select2(event, player, creature, sender, intid, code)
-	if(intid >= 1) then -- apenas times ArenaTeamID igual ou maior que 1
-		selectedTeamID = intid
-		player:GossipSetText(" ")
-		local teamInfoQuery = CharDBQuery("SELECT name, rating, `rank`, type, weekWins, seasonWins, weekGames, seasonGames FROM arena_team WHERE arenaTeamId = " .. selectedTeamID)
-		if teamInfoQuery then
-			local teamName = teamInfoQuery:GetString(0)
-			local teamRating = teamInfoQuery:GetUInt32(1)
-			local teamRank = teamInfoQuery:GetUInt32(2)
-			local teamType = teamInfoQuery:GetUInt32(3)
-			local weekWins = teamInfoQuery:GetUInt32(4);
-			local seasonWins = teamInfoQuery:GetUInt32(5);
-			local weekGames = teamInfoQuery:GetUInt32(6);
-			local seasonGames = teamInfoQuery:GetUInt32(7);
-			local Seasonderrotas = seasonGames - seasonWins;
-			local Weekderrotas = weekGames - weekWins;
-			local SeasonWinrate = getWinPercent(seasonWins, Seasonderrotas)
-			local WeekWinrate = getWinPercent(weekWins, Weekderrotas)
-			player:GossipMenuAddItem(9, " Time:    |cFF4B0082" .. teamName .. "|r\n Rating: |cffffff00" .. teamRating .. "|r  (Rank: " .. teamRank .. " in " .. teamType .. "v" .. teamType .. ")" .. "\n \n Season: |cFF228B22" .. seasonWins .. "|r - " .. "|cFFFF6347" .. Seasonderrotas .. "|r (" .. SeasonWinrate .. " WR)" .. "\n Week:   |cFF228B22" .. weekWins .. "|r - " .. "|cFFFF6347" .. Weekderrotas .. "|r (" ..WeekWinrate .. " WR)", 0, 1)
-			player:GossipMenuAddItem(8, " Membros: "  .. "\n", 0, 1)
-		end
-		
-		local playersQuery = CharDBQuery("SELECT c.name, c.race, c.class, atm.personalrating, atm.seasonWins, atm.seasonGames, atm.weekWins, atm.weekGames FROM characters c JOIN arena_team_member atm ON c.guid = atm.guid WHERE atm.arenaTeamId = " .. selectedTeamID)
-		if playersQuery then
-			repeat
-				local playerName = playersQuery:GetString(0)
-				local playerRace = playersQuery:GetUInt8(1)
-				local playerClass = playersQuery:GetUInt8(2)
-				local personalRating = playersQuery:GetUInt32(3)
-				local seasonWins = playersQuery:GetUInt32(4);
-				local seasonGames = playersQuery:GetUInt32(5);
-				local weekWins = playersQuery:GetUInt32(6);
-				local weekGames = playersQuery:GetUInt32(7);
-				local Seasonderrotas = seasonGames - seasonWins;
-			    local Weekderrotas = weekGames - weekWins;
-				local SeasonWinrate = getWinPercent(seasonWins, Seasonderrotas)
-				local WeekWinrate = getWinPercent(weekWins, Weekderrotas)
-				player:GossipMenuAddItem(9, " " .. Classe[playerClass] .. Raca[playerRace]  .. "|cFF4B0082 " .. playerName .. "|r | Rating: |cffffff00" .. personalRating .. "|r" .. "\n              Season: |cFF228B22" .. seasonWins .. "|r - |cFFFF6347" .. Seasonderrotas .. "|r (" .. SeasonWinrate .. " winrate)" .. "\n              Week:   |cFF228B22" .. weekWins .. "|r - " .. "|cFFFF6347" .. Weekderrotas .. "|r (" .. WeekWinrate .. " winrate)\n-----------------------------------------------", 0, 1)
-			until not playersQuery:NextRow()
-			player:GossipMenuAddItem(9," Voltar para o Top |cFF0000FF15|r - 2v2  |TInterface\\icons\\Achievement_arena_2v2_7:20|t", 0, 5)
-			player:GossipMenuAddItem(9," Voltar para o Top |cFF0000FF15|r - 3v3  |TInterface\\icons\\Achievement_arena_3v3_7:20|t", 0, 6)
-			player:GossipMenuAddItem(9," Voltar para o Top |cFF0000FF15|r - 5v5  |TInterface\\icons\\Achievement_arena_5v5_7:20|t", 0, 7)
-			player:GossipMenuAddItem(9," |TInterface/PaperDollInfoFrame/UI-GearManager-Undo:18:18:0:0|t Inicio", 0, 98)
-		end
-		player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)
-	end
+--local currentArenaType = nil
 
-	if(intid == 300) then -- Arena Ladder (Top 15 2v2/3v3/5v5/1v1)
-	player:GossipSetText(string.format(" "))
+function On_Top_Select2(event, player, creature, sender, intid, code)
+
+	if(intid == 300) then -- Arena Ladder Submenu (Top 15 2v2/3v3/5v5/1v1)
+		player:GossipSetText(string.format(" "))
 		player:GossipMenuAddItem(9," |TInterface\\icons\\Achievement_arena_2v2_7:27|t 2v2 |cFF000000Teams - Top |cFF0000FF15|r", 0, 5)
 		player:GossipMenuAddItem(9," |TInterface\\icons\\Achievement_arena_3v3_7:27|t 3v3 |cFF000000Teams - Top |cFF0000FF15|r", 0, 6)
 		player:GossipMenuAddItem(9," |TInterface\\icons\\Achievement_arena_5v5_7:27|t 5v5 |cFF000000Teams - Top |cFF0000FF15|r", 0, 7)
 		player:GossipMenuAddItem(9," |TInterface/Icons/Achievement_bg_trueavshutout:27|t 1v1 |cFF000000Teams - Top |cFF0000FF15|r", 0, 20)
 		player:GossipMenuAddItem(5," |TInterface/PaperDollInfoFrame/UI-GearManager-Undo:22:22:0:0|t |cFF8B0000Voltar",0,98)    
-		player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)
-	end
-
-	if(intid == 2) then -- TOP KILLS Total
-	player:GossipSetText(string.format("Aqui estão os tops 10 jogadores com mais Honorable Kills do servidor:"))
-			local score = CharDBQuery("SELECT name,race,totalKills,class FROM characters ORDER BY totalKills DESC LIMIT 10")
-				repeat	
-				local playername = score:GetString(0);
-				local race = score:GetUInt32(1);
-				local kills = score:GetUInt32(2);
-				local class = score:GetUInt32(3);	
-				player:GossipMenuAddItem(9, ""..Classe[class].." "..Raca[R[race]].." "..Team[T[race]].." ".. playername ..", |cFF000000Total Kills:|r |cffffff00" .. kills .. "", 2, 98)
-			until not score:NextRow()
-		player:GossipComplete()
-		player:GossipMenuAddItem(5,"|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:22:22:0:0|t |cFF8B0000Voltar",0,98)    
-		player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)		
-	end					
-
-	
-	if(intid == 3) then	-- TOP CLASSES
-	player:GossipSetText(string.format("\nAqui estão os top 10 Killers de cada Classe do servidor:"))
-		player:GossipMenuAddItem(9,"|TInterface\\icons\\inv_sword_27.png:20|t Top 10 |cFF8B4513Warrior |cFF000000Killers",0, 8)
-		player:GossipMenuAddItem(9,"|TInterface\\icons\\inv_hammer_01.png:20|t Top 10 |cffff00ffPaladin |cFF000000Killers",0, 9)
-		player:GossipMenuAddItem(9,"|TInterface\\icons\\inv_weapon_bow_07.png:20|t Top 10 |cFF228B22Hunter |cFF000000Killers",0, 10)
-		player:GossipMenuAddItem(9,"|TInterface\\icons\\inv_throwingknife_04.png:20|t Top 10 Rogue |cFF000000Killers",0, 11)
-		player:GossipMenuAddItem(9,"|TInterface\\icons\\inv_staff_30.png:20|t Top 10 |cFFFFFFFFPriest |cFF000000Killers",0, 12)
-		player:GossipMenuAddItem(9,"|TInterface\\icons\\spell_deathknight_classicon.png:20|t Top 10 |cFF8B0000Death Knight |cFF000000Killers",0, 13)
-		player:GossipMenuAddItem(9,"|TInterface\\icons\\inv_jewelry_talisman_04.png:20|t Top 10 |cff0000ffShaman |cFF000000Killers",0, 14)
-		player:GossipMenuAddItem(9,"|TInterface\\icons\\inv_staff_13.png:20|t Top 10 |cFF00BFFFMage |cFF000000Killers",0, 15)
-		player:GossipMenuAddItem(9,"|TInterface\\icons\\spell_nature_drowsy.png:20|t Top 10 |cFF800080Warlock |cFF000000Killers",0, 16)
-		player:GossipMenuAddItem(9,"|TInterface\\icons\\inv_misc_monsterclaw_04.png:20|t Top 10 |cFFFF4500Druid |cFF000000Killers",0, 17)
-		player:GossipMenuAddItem(5,"|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF8B0000Voltar",0,98)    
 		player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)
 	end
 
@@ -231,7 +152,7 @@ function On_Top_Select2(event, player, creature, sender, intid, code)
 				local Weekderrotas = weekGames - weekWins;
 				local SeasonWinrate = getWinPercent(seasonWins, Seasonderrotas)
 				local WeekWinrate = getWinPercent(weekWins, Weekderrotas)
-				player:GossipMenuAddItem(9, " Time #" .. teamRank .. ": |cFF4B0082".. Team .."|r  -  Rating: |cffffff00" .. TRating .. --[["|r  Rank: " .. teamRank ..--]] "|r \n   Season: |cFF228B22" --[[Vitórias--]] ..seasonWins.."|r - |cFFFF6347"--[[Derrotas--]] .. Seasonderrotas .. "|r  (" .. SeasonWinrate .. " Winrate)\n   Week:   |cFF228B22".. weekGames .. "|r - |cFFFF6347" .. Weekderrotas .. "|r  (" .. WeekWinrate .. " WR)\n_______________________________________", 0, teamID)
+				player:GossipMenuAddItem(9, " Time #" .. teamRank .. ": |cFF4B0082".. Team .."|r  -  Rating: |cffffff00" .. TRating .. --[["|r  Rank: " .. teamRank ..--]] "|r \n   Season: |cFF228B22" --[[Vitórias--]] ..seasonWins.."|r - |cFFFF6347"--[[Derrotas--]] .. Seasonderrotas .. "|r  (" .. SeasonWinrate .. " Winrate)\n   Week:   |cFF228B22".. weekGames .. "|r - |cFFFF6347" .. Weekderrotas .. "|r  (" .. WeekWinrate .. " WR)\n_______________________________________", 0, teamID + 5000)
 			until not score:NextRow() 
         else
 			player:GossipSetText("Não há times de arena 2v2 disponíveis.")
@@ -262,7 +183,7 @@ function On_Top_Select2(event, player, creature, sender, intid, code)
 				local Weekderrotas = weekGames - weekWins;
 				local SeasonWinrate = getWinPercent(seasonWins, Seasonderrotas)
 				local WeekWinrate = getWinPercent(weekWins, Weekderrotas)
-				player:GossipMenuAddItem(9, " Time #" .. teamRank .. ": |cFF4B0082".. Team .."|r  -  Rating: |cffffff00" .. TRating .. --[["|r  Rank: " .. teamRank ..--]] "|r \n   Season: |cFF228B22" --[[Vitórias--]] ..seasonWins.."|r - |cFFFF6347"--[[Derrotas--]] .. Seasonderrotas .. "|r  (" .. SeasonWinrate .. " Winrate)\n   Week:   |cFF228B22".. weekGames .. "|r - |cFFFF6347" .. Weekderrotas .. "|r  (" .. WeekWinrate .. " WR)\n_______________________________________", 0, teamID)
+				player:GossipMenuAddItem(9, " Time #" .. teamRank .. ": |cFF4B0082".. Team .."|r  -  Rating: |cffffff00" .. TRating .. --[["|r  Rank: " .. teamRank ..--]] "|r \n   Season: |cFF228B22" --[[Vitórias--]] ..seasonWins.."|r - |cFFFF6347"--[[Derrotas--]] .. Seasonderrotas .. "|r  (" .. SeasonWinrate .. " Winrate)\n   Week:   |cFF228B22".. weekGames .. "|r - |cFFFF6347" .. Weekderrotas .. "|r  (" .. WeekWinrate .. " WR)\n_______________________________________", 0, teamID + 5000)
 			until not score:NextRow() 
         else
 			player:GossipSetText("Não há times de arena 3v3 disponíveis.")
@@ -293,7 +214,7 @@ function On_Top_Select2(event, player, creature, sender, intid, code)
 				local Weekderrotas = weekGames - weekWins;
 				local SeasonWinrate = getWinPercent(seasonWins, Seasonderrotas)
 				local WeekWinrate = getWinPercent(weekWins, Weekderrotas)
-				player:GossipMenuAddItem(9, " Time #" .. teamRank .. ": |cFF4B0082".. Team .."|r  -  Rating: |cffffff00" .. TRating .. --[["|r  Rank: " .. teamRank ..--]] "|r \n   Season: |cFF228B22" --[[Vitórias--]] ..seasonWins.."|r - |cFFFF6347"--[[Derrotas--]] .. Seasonderrotas .. "|r  (" .. SeasonWinrate .. " Winrate)\n   Week:   |cFF228B22".. weekGames .. "|r - |cFFFF6347" .. Weekderrotas .. "|r  (" .. WeekWinrate .. " WR)\n_______________________________________", 0, teamID)
+				player:GossipMenuAddItem(9, " Time #" .. teamRank .. ": |cFF4B0082".. Team .."|r  -  Rating: |cffffff00" .. TRating .. --[["|r  Rank: " .. teamRank ..--]] "|r \n   Season: |cFF228B22" --[[Vitórias--]] ..seasonWins.."|r - |cFFFF6347"--[[Derrotas--]] .. Seasonderrotas .. "|r  (" .. SeasonWinrate .. " Winrate)\n   Week:   |cFF228B22".. weekGames .. "|r - |cFFFF6347" .. Weekderrotas .. "|r  (" .. WeekWinrate .. " WR)\n_______________________________________", 0, teamID + 5000)
 			until not score:NextRow() 
         else
 			player:GossipSetText("Não há times de arena 5v5 disponíveis.")
@@ -325,7 +246,7 @@ function On_Top_Select2(event, player, creature, sender, intid, code)
 				local Weekderrotas = weekGames - weekWins;
 				local SeasonWinrate = getWinPercent(seasonWins, Seasonderrotas)
 				local WeekWinrate = getWinPercent(weekWins, Weekderrotas)
-				player:GossipMenuAddItem(9, " Player rank #" .. teamRank .. ": |cFF4B0082".. Team .."|r  -  Rating: |cffffff00" .. TRating .. --[["|r  Rank: " .. teamRank ..--]] "|r \n   Season: |cFF228B22" --[[Vitórias--]] ..seasonWins.."|r - |cFFFF6347"--[[Derrotas--]] .. Seasonderrotas .. "|r  (" .. SeasonWinrate .. " Winrate)\n   Week:   |cFF228B22".. weekGames .. "|r - |cFFFF6347" .. Weekderrotas .. "|r  (" .. WeekWinrate .. " WR)\n_______________________________________", 0, teamID)
+				player:GossipMenuAddItem(9, " Player rank #" .. teamRank .. ": |cFF4B0082".. Team .."|r  -  Rating: |cffffff00" .. TRating .. --[["|r  Rank: " .. teamRank ..--]] "|r \n   Season: |cFF228B22" --[[Vitórias--]] ..seasonWins.."|r - |cFFFF6347"--[[Derrotas--]] .. Seasonderrotas .. "|r  (" .. SeasonWinrate .. " Winrate)\n   Week:   |cFF228B22".. weekGames .. "|r - |cFFFF6347" .. Weekderrotas .. "|r  (" .. WeekWinrate .. " WR)\n_______________________________________", 0, teamID + 5000)
 			until not score:NextRow() 
         else
 			player:GossipSetText("Não há times de arena 1v1 disponíveis.")
@@ -338,155 +259,290 @@ function On_Top_Select2(event, player, creature, sender, intid, code)
         player:GossipComplete()
         player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)
     end
-	
 
+	-- Mostra as informaçoes do time e dos players do time de arena selecionado (2v2/3v3/5v5/1v1)
+	if(intid >= 5000) then
+		selectedTeamID = intid - 5000
+		local teamInfoQuery = CharDBQuery("SELECT name, rating, `rank`, type, weekWins, seasonWins, weekGames, seasonGames FROM arena_team WHERE arenaTeamId = " .. selectedTeamID)
+		if teamInfoQuery then -- Gossip Text
+			local teamName = teamInfoQuery:GetString(0)
+			local teamRating = teamInfoQuery:GetUInt32(1)
+			local teamRank = teamInfoQuery:GetUInt32(2)
+			local teamType = teamInfoQuery:GetUInt32(3)
+			local weekWins = teamInfoQuery:GetUInt32(4);
+			local seasonWins = teamInfoQuery:GetUInt32(5);
+			local weekGames = teamInfoQuery:GetUInt32(6);
+			local seasonGames = teamInfoQuery:GetUInt32(7);
+			local Seasonderrotas = seasonGames - seasonWins;
+			local Weekderrotas = weekGames - weekWins;
+			local SeasonWinrate = getWinPercent(seasonWins, Seasonderrotas)
+			local WeekWinrate = getWinPercent(weekWins, Weekderrotas)
+			--player:GossipSetText(" ")
+			--player:GossipMenuAddItem(9, " Time:    |cFF4B0082" .. teamName .. "|r\n Rating: |cffffff00" .. teamRating .. "|r  (Rank: " .. teamRank .. " in " .. teamType .. "v" .. teamType .. ")" .. "\n \n Season: |cFF228B22" .. seasonWins .. "|r - " .. "|cFFFF6347" .. Seasonderrotas .. "|r (" .. SeasonWinrate .. " WR)" .. "\n Week:   |cFF228B22" .. weekWins .. "|r - " .. "|cFFFF6347" .. Weekderrotas .. "|r (" ..WeekWinrate .. " WR)", 0, 1)
+			--player:GossipSetText("\n  Time:    |cFF4B0082" .. teamName .. "|r\n  Rating: |cffffff00" .. teamRating .. "|r  (Rank: " .. teamRank .. " in " .. teamType .. "v" .. teamType .. ")" .. "\n \n  Season: |cFF228B22" .. seasonWins .. "|r - " .. "|cFFFF6347" .. Seasonderrotas .. "|r (" .. SeasonWinrate .. " WR)" .. "\n  Week:   |cFF228B22" .. weekWins .. "|r - " .. "|cFFFF6347" .. Weekderrotas .. "|r (" ..WeekWinrate .. " WR")
+			player:GossipSetText("\n  Time:    |cFF4B0082" .. teamName .. "|r\n  Rating: |cffffff00" .. teamRating .. "|r  (Rank: " .. teamRank .. " in " .. teamType .. "v" .. teamType .. ")" .. "\n \n  Season: |cFF228B22" .. seasonWins .. "|r - " .. "|cFFFF6347" .. Seasonderrotas .. "|r (" .. SeasonWinrate .. " WR)" .. "\n  Week:   |cFF228B22" .. weekWins .. "|r - " .. "|cFFFF6347" .. Weekderrotas .. "|r (" ..WeekWinrate .. " WR \n \nTeam Members:")
+			--player:GossipMenuAddItem(8, " Team Members: "  .. "\n", 0, 1)
+		end
+		
+		-- Players do time selecionado
+		local playersQuery = CharDBQuery("SELECT c.name, c.race, c.class, atm.personalrating, atm.seasonWins, atm.seasonGames, atm.weekWins, atm.weekGames FROM characters c JOIN arena_team_member atm ON c.guid = atm.guid WHERE atm.arenaTeamId = " .. selectedTeamID)
+		if playersQuery then
+			repeat
+				local playerName = playersQuery:GetString(0)
+				local playerRace = playersQuery:GetUInt8(1)
+				local playerClass = playersQuery:GetUInt8(2)
+				local personalRating = playersQuery:GetUInt32(3)
+				local seasonWins = playersQuery:GetUInt32(4);
+				local seasonGames = playersQuery:GetUInt32(5);
+				local weekWins = playersQuery:GetUInt32(6);
+				local weekGames = playersQuery:GetUInt32(7);
+				local Seasonderrotas = seasonGames - seasonWins;
+			    local Weekderrotas = weekGames - weekWins;
+				local SeasonWinrate = getWinPercent(seasonWins, Seasonderrotas)
+				local WeekWinrate = getWinPercent(weekWins, Weekderrotas)
+				player:GossipMenuAddItem(9, " " .. Classe[playerClass] .. Raca[playerRace]  .. " " .. ClassColor[playerClass] .. playerName .. "|r  -  Rating: |cffffff00" .. personalRating .. "|r" .. "\n              Season: |cFF228B22" .. seasonWins .. "|r - |cFFFF6347" .. Seasonderrotas .. "|r (" .. SeasonWinrate .. " winrate)" .. "\n              Week:   |cFF228B22" .. weekWins .. "|r - " .. "|cFFFF6347" .. Weekderrotas .. "|r (" .. WeekWinrate .. " winrate)\n-----------------------------------------------", 0, selectedTeamID+5000)
+			until not playersQuery:NextRow()
+			--player:GossipMenuAddItem(9," Voltar", 0, 1)
+			player:GossipMenuAddItem(9," Voltar para o Top |cFF0000FF15|r - 2v2  |TInterface\\icons\\Achievement_arena_2v2_7:20|t", 0, 5)
+			player:GossipMenuAddItem(9," Voltar para o Top |cFF0000FF15|r - 3v3  |TInterface\\icons\\Achievement_arena_3v3_7:20|t", 0, 6)
+			player:GossipMenuAddItem(9," Voltar para o Top |cFF0000FF15|r - 5v5  |TInterface\\icons\\Achievement_arena_5v5_7:20|t", 0, 7)
+			player:GossipMenuAddItem(9," |TInterface/PaperDollInfoFrame/UI-GearManager-Undo:18:18:0:0|t Inicio", 0, 98)
+		end
+		player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)
+	end
 
+	-- TOP KILLS Total
+	if(intid == 2) then 
+		player:GossipSetText(string.format("Aqui estão os tops 10 jogadores com mais Honorable Kills do servidor:"))
+		local score = CharDBQuery("SELECT name, race, totalKills, class FROM characters ORDER BY totalKills DESC LIMIT 10")
+		if score then
+			repeat
+				local playername = score:GetString(0)
+				local race = score:GetUInt32(1)
+				local kills = score:GetUInt32(2)
+				local class = score:GetUInt32(3)
+				player:GossipMenuAddItem(9, "" .. Classe[class] .. " " .. Raca[R[race]] .. " " .. Team[T[race]] .. " " .. ClassColor[class] .. playername .. "|r, |cFF000000Total Kills:|r |cffffff00" .. kills .. "", 2, 2)
+			until not score:NextRow()
+		end
+		player:GossipComplete()
+		player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:22:22:0:0|t |cFF8B0000Voltar", 0, 98)    
+		player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)      
+	end
 
-	---- Top Kill por CLASSE----
+	if(intid == 3) then	-- TOP KILL por Classe (Submenu)
+	player:GossipSetText(string.format("\nAqui estão os top 10 Killers de cada Classe do servidor:"))
+		player:GossipMenuAddItem(9,"|TInterface\\icons\\inv_sword_27.png:20|t Top 10 |cFF8B4513Warrior |cFF000000Killers",0, 8)
+		player:GossipMenuAddItem(9,"|TInterface\\icons\\inv_hammer_01.png:20|t Top 10 |cffff00ffPaladin |cFF000000Killers",0, 9)
+		player:GossipMenuAddItem(9,"|TInterface\\icons\\inv_weapon_bow_07.png:20|t Top 10 |cFF228B22Hunter |cFF000000Killers",0, 10)
+		player:GossipMenuAddItem(9,"|TInterface\\icons\\inv_throwingknife_04.png:20|t Top 10 |cffFFF468Rogue |cFF000000Killers",0, 11)
+		player:GossipMenuAddItem(9,"|TInterface\\icons\\inv_staff_30.png:20|t Top 10 |cFFFFFFFFPriest |cFF000000Killers",0, 12)
+		player:GossipMenuAddItem(9,"|TInterface\\icons\\spell_deathknight_classicon.png:20|t Top 10 |cFF8B0000Death Knight |cFF000000Killers",0, 13)
+		player:GossipMenuAddItem(9,"|TInterface\\icons\\inv_jewelry_talisman_04.png:20|t Top 10 |cff0000ffShaman |cFF000000Killers",0, 14)
+		player:GossipMenuAddItem(9,"|TInterface\\icons\\inv_staff_13.png:20|t Top 10 |cFF00BFFFMage |cFF000000Killers",0, 15)
+		player:GossipMenuAddItem(9,"|TInterface\\icons\\spell_nature_drowsy.png:20|t Top 10 |cFF800080Warlock |cFF000000Killers",0, 16)
+		player:GossipMenuAddItem(9,"|TInterface\\icons\\inv_misc_monsterclaw_04.png:20|t Top 10 |cFFFF4500Druid |cFF000000Killers",0, 17)
+		player:GossipMenuAddItem(5,"|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF8B0000Voltar",0,98)    
+		player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)
+	end
+
+	---- Top Kill por CLASSES ----
 	if (intid == 8) then -- Warrior
 		player:GossipSetText(string.format(" "))
-		local score = CharDBQuery("SELECT name,race,totalKills,class FROM characters WHERE class=1 ORDER BY totalKills DESC LIMIT 10")
-        repeat
-			local playername = score:GetString(0);
-			local race = score:GetUInt32(1);
-			local kills = score:GetUInt32(2);
-			local class = score:GetUInt32(3);	
-            player:GossipMenuAddItem(9, " "..Classe[class].." "..Raca[R[race]].." "..Team[T[race]].." ".. playername ..", |cFF000000Total Kills: |r |cffffff00" .. kills .. " ", 0, 3)
-        until not score:NextRow()
-        player:GossipComplete()
-        player:GossipMenuAddItem(5,"|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:22:22:0:0|t |cFF8B0000Voltar",0,3)	
-        player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)		
-	elseif (intid == 9) then -- Paladino
+		local score = CharDBQuery("SELECT name, race, totalKills, class FROM characters WHERE class = 1 ORDER BY totalKills DESC LIMIT 10")
+		if score then
+			repeat
+				local playername = score:GetString(0)
+				local race = score:GetUInt32(1)
+				local kills = score:GetUInt32(2)
+				local class = score:GetUInt32(3)
+				player:GossipMenuAddItem(9, " " .. Classe[class] .. " " .. Raca[R[race]] .. " " .. Team[T[race]] .. " " .. ClassColor[class] .. playername .. "|r, |cFF000000Total Kills: |r |cffffff00" .. kills .. " ", 0, 8)
+			until not score:NextRow()
+		end
+		player:GossipComplete()
+		player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:22:22:0:0|t |cFF8B0000Voltar", 0, 3)
+		player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)
+	
+	elseif (intid == 9) then -- Pala
 		player:GossipSetText(string.format(" "))
-        local score = CharDBQuery("SELECT name,race,totalKills,class FROM characters WHERE class=2 ORDER BY totalKills DESC LIMIT 10")
-        repeat
-			local playername = score:GetString(0);
-			local race = score:GetUInt32(1);
-			local kills = score:GetUInt32(2);
-			local class = score:GetUInt32(3);	
-            player:GossipMenuAddItem(9, " "..Classe[class].." "..Raca[R[race]].." "..Team[T[race]].." ".. playername ..", |cFF000000Total Kills: |r |cffffff00" .. kills .. "", 0, 3)
-        until not score:NextRow()
-        player:GossipComplete()
-        player:GossipMenuAddItem(5,"|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:22:22:0:0|t |cFF8B0000Voltar",0,3)	
-        player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)		
-	end
-	if (intid == 10) then -- Hunter
+		local score = CharDBQuery("SELECT name, race, totalKills, class FROM characters WHERE class = 2 ORDER BY totalKills DESC LIMIT 10")
+		if score then
+			repeat
+				local playername = score:GetString(0)
+				local race = score:GetUInt32(1)
+				local kills = score:GetUInt32(2)
+				local class = score:GetUInt32(3)
+				player:GossipMenuAddItem(9, " " .. Classe[class] .. " " .. Raca[R[race]] .. " " .. Team[T[race]] .. " " .. ClassColor[class] .. playername .. "|r, |cFF000000Total Kills: |r |cffffff00" .. kills .. " ", 0, 9)
+			until not score:NextRow()
+		end
+		player:GossipComplete()
+		player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:22:22:0:0|t |cFF8B0000Voltar", 0, 3)
+		player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)
+	
+	elseif (intid == 10) then -- Hunter
 		player:GossipSetText(string.format(" "))
-        local score = CharDBQuery("SELECT name,race,totalKills,class FROM characters WHERE class=3 ORDER BY totalKills DESC LIMIT 10")
-        repeat
-			local playername = score:GetString(0);
-			local race = score:GetUInt32(1);
-			local kills = score:GetUInt32(2);
-			local class = score:GetUInt32(3);	
-            player:GossipMenuAddItem(9, " "..Classe[class].." "..Raca[R[race]].." "..Team[T[race]].." ".. playername ..", |cFF000000Total Kills: |r |cffffff00" .. kills .. "", 0, 3)
-        until not score:NextRow()
-        player:GossipComplete()
-        player:GossipMenuAddItem(5,"|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:22:22:0:0|t |cFF8B0000Voltar",0,3)
-        player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)		
-	end
-	if (intid == 11) then -- Rogue
+		local score = CharDBQuery("SELECT name, race, totalKills, class FROM characters WHERE class = 3 ORDER BY totalKills DESC LIMIT 10")
+		if score then
+			repeat
+				local playername = score:GetString(0)
+				local race = score:GetUInt32(1)
+				local kills = score:GetUInt32(2)
+				local class = score:GetUInt32(3)
+				player:GossipMenuAddItem(9, " " .. Classe[class] .. " " .. Raca[R[race]] .. " " .. Team[T[race]] .. " " .. ClassColor[class] .. playername .. "|r, |cFF000000Total Kills: |r |cffffff00" .. kills .. " ", 0, 10)
+			until not score:NextRow()
+		end
+		player:GossipComplete()
+		player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:22:22:0:0|t |cFF8B0000Voltar", 0, 3)
+		player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)
+	
+	elseif (intid == 11) then -- Rogue
 		player:GossipSetText(string.format(" "))
-        local score = CharDBQuery("SELECT name,race,totalKills,class FROM characters WHERE class=4 ORDER BY totalKills DESC LIMIT 10")
-        repeat
-			local playername = score:GetString(0);
-			local race = score:GetUInt32(1);
-			local kills = score:GetUInt32(2);
-			local class = score:GetUInt32(3);	
-            player:GossipMenuAddItem(9, " "..Classe[class].." "..Raca[R[race]].." "..Team[T[race]].." ".. playername ..", |cFF000000Total Kills: |r |cffffff00" .. kills .. "", 0, 3)
-        until not score:NextRow()
-        player:GossipComplete()
-        player:GossipMenuAddItem(5,"|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:22:22:0:0|t |cFF8B0000Voltar",0,3)
-        player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)		
-	end
-	if (intid == 12) then -- Priest
+		local score = CharDBQuery("SELECT name, race, totalKills, class FROM characters WHERE class = 4 ORDER BY totalKills DESC LIMIT 10")
+		if score then
+			repeat
+				local playername = score:GetString(0)
+				local race = score:GetUInt32(1)
+				local kills = score:GetUInt32(2)
+				local class = score:GetUInt32(3)
+				player:GossipMenuAddItem(9, " " .. Classe[class] .. " " .. Raca[R[race]] .. " " .. Team[T[race]] .. " " .. ClassColor[class] .. playername .. "|r, |cFF000000Total Kills: |r |cffffff00" .. kills .. " ", 0, 11)
+			until not score:NextRow()
+		end
+		player:GossipComplete()
+		player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:22:22:0:0|t |cFF8B0000Voltar", 0, 3)
+		player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)
+	
+	elseif (intid == 12) then -- Priest
 		player:GossipSetText(string.format(" "))
-        local score = CharDBQuery("SELECT name,race,totalKills,class FROM characters WHERE class=5 ORDER BY totalKills DESC LIMIT 10")
-        repeat
-			local playername = score:GetString(0);
-			local race = score:GetUInt32(1);
-			local kills = score:GetUInt32(2);
-			local class = score:GetUInt32(3);	
-            player:GossipMenuAddItem(9, " "..Classe[class].." "..Raca[R[race]].." "..Team[T[race]].." ".. playername ..", |cFF000000Total Kills: |r |cffffff00" .. kills .. "", 0, 3)
-        until not score:NextRow()
-        player:GossipComplete()
-        player:GossipMenuAddItem(5,"|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:22:22:0:0|t |cFF8B0000Voltar",0,3)
-        player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)		
-	end
-	if (intid == 13) then -- Death Knight
+		local score = CharDBQuery("SELECT name, race, totalKills, class FROM characters WHERE class = 5 ORDER BY totalKills DESC LIMIT 10")
+		if score then
+			repeat
+				local playername = score:GetString(0)
+				local race = score:GetUInt32(1)
+				local kills = score:GetUInt32(2)
+				local class = score:GetUInt32(3)
+				player:GossipMenuAddItem(9, " " .. Classe[class] .. " " .. Raca[R[race]] .. " " .. Team[T[race]] .. " " .. ClassColor[class] .. playername .. "|r, |cFF000000Total Kills: |r |cffffff00" .. kills .. " ", 0, 12)
+			until not score:NextRow()
+		end
+		player:GossipComplete()
+		player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:22:22:0:0|t |cFF8B0000Voltar", 0, 3)
+		player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)
+	
+	elseif (intid == 13) then -- DK
 		player:GossipSetText(string.format(" "))
-        local score = CharDBQuery("SELECT name,race,totalKills,class FROM characters WHERE class=6 ORDER BY totalKills DESC LIMIT 10")
-        repeat
-			local playername = score:GetString(0);
-			local race = score:GetUInt32(1);
-			local kills = score:GetUInt32(2);
-			local class = score:GetUInt32(3);	
-            player:GossipMenuAddItem(9, " "..Classe[class].." "..Raca[R[race]].." "..Team[T[race]].." ".. playername ..", |cFF000000Total Kills: |r |cffffff00" .. kills .. "", 0, 3)
-        until not score:NextRow()
-        player:GossipComplete()
-        player:GossipMenuAddItem(5,"|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:22:22:0:0|t |cFF8B0000Voltar",0,3)
-        player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)		
-	end
-	if (intid == 14) then -- Shaman
+		local score = CharDBQuery("SELECT name, race, totalKills, class FROM characters WHERE class = 6 ORDER BY totalKills DESC LIMIT 10")
+		if score then
+			repeat
+				local playername = score:GetString(0)
+				local race = score:GetUInt32(1)
+				local kills = score:GetUInt32(2)
+				local class = score:GetUInt32(3)
+				player:GossipMenuAddItem(9, " " .. Classe[class] .. " " .. Raca[R[race]] .. " " .. Team[T[race]] .. " " .. ClassColor[class] .. playername .. "|r, |cFF000000Total Kills: |r |cffffff00" .. kills .. " ", 0, 13)
+			until not score:NextRow()
+		end
+		player:GossipComplete()
+		player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:22:22:0:0|t |cFF8B0000Voltar", 0, 3)
+		player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)
+	
+	elseif (intid == 14) then -- Shaman
 		player:GossipSetText(string.format(" "))
-        local score = CharDBQuery("SELECT name,race,totalKills,class FROM characters WHERE class=7 ORDER BY totalKills DESC LIMIT 10")
-        repeat
-			local playername = score:GetString(0);
-			local race = score:GetUInt32(1);
-			local kills = score:GetUInt32(2);
-			local class = score:GetUInt32(3);	
-            player:GossipMenuAddItem(9, " "..Classe[class].." "..Raca[R[race]].." "..Team[T[race]].." ".. playername ..", |cFF000000Total Kills: |r |cffffff00" .. kills .. "", 0, 3)
-        until not score:NextRow()
-        player:GossipComplete()
-        player:GossipMenuAddItem(5,"|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:22:22:0:0|t |cFF8B0000Voltar",0,3)
-        player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)		
-	end
-	if (intid == 15) then -- Mage
+		local score = CharDBQuery("SELECT name, race, totalKills, class FROM characters WHERE class = 7 ORDER BY totalKills DESC LIMIT 10")
+		if score then
+			repeat
+				local playername = score:GetString(0)
+				local race = score:GetUInt32(1)
+				local kills = score:GetUInt32(2)
+				local class = score:GetUInt32(3)
+				player:GossipMenuAddItem(9, " " .. Classe[class] .. " " .. Raca[R[race]] .. " " .. Team[T[race]] .. " " .. ClassColor[class] .. playername .. "|r, |cFF000000Total Kills: |r |cffffff00" .. kills .. " ", 0, 14)
+			until not score:NextRow()
+		end
+		player:GossipComplete()
+		player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:22:22:0:0|t |cFF8B0000Voltar", 0, 3)
+		player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)
+	
+	elseif (intid == 15) then -- Mage
 		player:GossipSetText(string.format(" "))
-        local score = CharDBQuery("SELECT name,race,totalKills,class FROM characters WHERE class=8 ORDER BY totalKills DESC LIMIT 10")
-        repeat
-			local playername = score:GetString(0);
-			local race = score:GetUInt32(1);
-			local kills = score:GetUInt32(2);
-			local class = score:GetUInt32(3);	
-            player:GossipMenuAddItem(9, " "..Classe[class].." "..Raca[R[race]].." "..Team[T[race]].." ".. playername ..", |cFF000000Total Kills: |r |cffffff00" .. kills .. "", 0, 3)
-        until not score:NextRow()
-        player:GossipComplete()
-        player:GossipMenuAddItem(5,"|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:22:22:0:0|t |cFF8B0000Voltar",0,3)
-        player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)		
-	end
-	if (intid == 16) then -- Warlock
+		local score = CharDBQuery("SELECT name, race, totalKills, class FROM characters WHERE class = 8 ORDER BY totalKills DESC LIMIT 10")
+		if score then
+			repeat
+				local playername = score:GetString(0)
+				local race = score:GetUInt32(1)
+				local kills = score:GetUInt32(2)
+				local class = score:GetUInt32(3)
+				player:GossipMenuAddItem(9, " " .. Classe[class] .. " " .. Raca[R[race]] .. " " .. Team[T[race]] .. " " .. ClassColor[class] .. playername .. "|r, |cFF000000Total Kills: |r |cffffff00" .. kills .. " ", 0, 15)
+			until not score:NextRow()
+		end
+		player:GossipComplete()
+		player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:22:22:0:0|t |cFF8B0000Voltar", 0, 3)
+		player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)
+	
+	elseif (intid == 16) then -- Warlock
 		player:GossipSetText(string.format(" "))
-        local score = CharDBQuery("SELECT name,race,totalKills,class FROM characters WHERE class=9 ORDER BY totalKills DESC LIMIT 10") 
-        repeat
-						local playername = score:GetString(0);
-			local race = score:GetUInt32(1);
-			local kills = score:GetUInt32(2);
-			local class = score:GetUInt32(3);	
-            player:GossipMenuAddItem(9, " "..Classe[class].." "..Raca[R[race]].." "..Team[T[race]].." ".. playername ..", |cFF000000Total Kills: |r |cffffff00" .. kills .. "", 0, 3)
-        until not score:NextRow()
-        player:GossipComplete()
-        player:GossipMenuAddItem(5,"|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:22:22:0:0|t |cFF8B0000Voltar",0,3)
-        player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)	
-	end
-	if (intid == 17) then -- Druid
+		local score = CharDBQuery("SELECT name, race, totalKills, class FROM characters WHERE class = 9 ORDER BY totalKills DESC LIMIT 10")
+		if score then
+			repeat
+				local playername = score:GetString(0)
+				local race = score:GetUInt32(1)
+				local kills = score:GetUInt32(2)
+				local class = score:GetUInt32(3)
+				player:GossipMenuAddItem(9, " " .. Classe[class] .. " " .. Raca[R[race]] .. " " .. Team[T[race]] .. " " .. ClassColor[class] .. playername .. "|r, |cFF000000Total Kills: |r |cffffff00" .. kills .. " ", 0, 16)
+			until not score:NextRow()
+		end
+		player:GossipComplete()
+		player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:22:22:0:0|t |cFF8B0000Voltar", 0, 3)
+		player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)
+	
+	elseif (intid == 17) then -- Druid
 		player:GossipSetText(string.format(" "))
-        local score = CharDBQuery("SELECT name,race,totalKills,class FROM characters WHERE class=11 ORDER BY totalKills DESC LIMIT 10")  
-        repeat
-			local playername = score:GetString(0);
-			local race = score:GetUInt32(1);
-			local kills = score:GetUInt32(2);
-			local class = score:GetUInt32(3);	
-            player:GossipMenuAddItem(9, " "..Classe[class].." "..Raca[R[race]].." "..Team[T[race]].." ".. playername ..", |cFF000000Total Kills: |r |cffffff00" .. kills .. "", 0, 3)
-        until not score:NextRow()
-        player:GossipComplete()
-        player:GossipMenuAddItem(5,"|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:22:22:0:0|t |cFF8B0000Voltar",0,3)
-        player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)		
+		local score = CharDBQuery("SELECT name, race, totalKills, class FROM characters WHERE class = 11 ORDER BY totalKills DESC LIMIT 10")
+		if score then
+			repeat
+				local playername = score:GetString(0)
+				local race = score:GetUInt32(1)
+				local kills = score:GetUInt32(2)
+				local class = score:GetUInt32(3)
+				player:GossipMenuAddItem(9, " " .. Classe[class] .. " " .. Raca[R[race]] .. " " .. Team[T[race]] .. " " .. ClassColor[class] .. playername .. "|r, |cFF000000Total Kills: |r |cffffff00" .. kills .. " ", 0, 17)
+			until not score:NextRow()
+		end
+		player:GossipComplete()
+		player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:22:22:0:0|t |cFF8B0000Voltar", 0, 3)
+		player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)
 	end
 
+	-- Classes Total Criadas
+	if(intid == 202) then
+    player:GossipSetText(string.format("Em ordem decrescente:"))
+		local classes = {
+        [1] = {name = "|cff8B4513Warriors|r", icon = "Interface\\icons\\inv_sword_27.png"},
+        [2] = {name = "|cffF48CBAPaladins|r", icon = "Interface\\icons\\inv_hammer_01.png"},
+        [3] = {name = "|cff3D8E3DHunters|r", icon = "Interface\\icons\\inv_weapon_bow_07.png"},
+        [4] = {name = "|cffFFF468Rogues|r", icon = "Interface\\icons\\inv_throwingknife_04.png"},
+        [5] = {name = "|cffFFFFFFPriests|r", icon = "Interface\\icons\\inv_staff_30.png"},
+        [6] = {name = "|cffC41F3BDeath Knights|r", icon = "Interface\\icons\\spell_deathknight_classicon.png"},
+        [7] = {name = "|cff0070DEShamans|r", icon = "Interface\\icons\\inv_jewelry_talisman_04.png"},
+        [8] = {name = "|cff69CCF0Mages|r", icon = "Interface\\icons\\inv_staff_13.png"},
+        [9] = {name = "|cff9482C9Warlocks|r", icon = "Interface\\icons\\spell_nature_drowsy.png"},
+        [11] = {name = "|cffFF7C0ADruids|r", icon = "Interface\\icons\\inv_misc_monsterclaw_04.png"}
+		}
+		
+		local classTotals = {}
+		for class, data in pairs(classes) do
+			local score = CharDBQuery("SELECT COUNT(*) FROM characters WHERE class = "..class)
+			local total = score:GetUInt32(0)
+			classTotals[class] = {name = data.name, icon = data.icon, total = total}
+		end
 
+		-- Ordena a tabela com base no número total de jogadores
+		table.sort(classTotals, function(a, b) return a.total > b.total end)
 
+		for _, data in ipairs(classTotals) do
+			player:GossipMenuAddItem(9, string.format("|T%s:20|t Total de %s criados: [|cffff0000%d|cFF0000FF]|r", data.icon, data.name, data.total), 6, 202)
+		end
+    
+		player:GossipMenuAddItem(3,"|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:22:22:0:0|t |cFF8B0000Voltar",0,98)            
+		player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)
+	end
 
-	if(intid == 201) then -- Raças total criadas
+	-- Raças total criadas
+	if(intid == 201) then
 	player:GossipSetText(string.format("Em ordem decrescente:"))
 		local races = {
         [1] = {name = "Humans", icon = "Interface\\icons\\Achievement_character_human_male:20"},
@@ -528,89 +584,63 @@ function On_Top_Select2(event, player, creature, sender, intid, code)
 		player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)
 	end
 
-
-
-	if(intid == 202) then -- classes total criadas
-    player:GossipSetText(string.format("Em ordem decrescente:"))
-		local classes = {
-        [1] = {name = "Warriors", icon = "Interface\\icons\\inv_sword_27.png"},
-        [2] = {name = "Paladins", icon = "Interface\\icons\\inv_hammer_01.png"},
-        [3] = {name = "Hunters", icon = "Interface\\icons\\inv_weapon_bow_07.png"},
-        [4] = {name = "Rogues", icon = "Interface\\icons\\inv_throwingknife_04.png"},
-        [5] = {name = "Priests", icon = "Interface\\icons\\inv_staff_30.png"},
-        [6] = {name = "Death Knights", icon = "Interface\\icons\\spell_deathknight_classicon.png"},
-        [7] = {name = "Shamans", icon = "Interface\\icons\\inv_jewelry_talisman_04.png"},
-        [8] = {name = "Mages", icon = "Interface\\icons\\inv_staff_13.png"},
-        [9] = {name = "Warlocks", icon = "Interface\\icons\\spell_nature_drowsy.png"},
-        [11] = {name = "Druids", icon = "Interface\\icons\\inv_misc_monsterclaw_04.png"}
-		}
-    
-		local classTotals = {}
-		for class, data in pairs(classes) do
-			local score = CharDBQuery("SELECT COUNT(*) FROM characters WHERE class = "..class)
-			local total = score:GetUInt32(0)
-			classTotals[class] = {name = data.name, icon = data.icon, total = total}
+	-- Personagens Total Criados
+	if(intid == 203) then
+		player:GossipSetText(string.format(" "))
+		local score = CharDBQuery("SELECT COUNT(*) FROM characters")
+		if score then
+			repeat
+				local totalCharacters = score:GetUInt32(0)
+				player:GossipMenuAddItem(9, "Total de |cFF0000FFPersonagens |cFF000000Criados: |cFF0000FF[|cFFFF0000".. totalCharacters .."|cFF0000FF]|r", 6, 98)
+			until not score:NextRow()    
 		end
-
-		-- Ordena a tabela com base no número total de jogadores
-		table.sort(classTotals, function(a, b) return a.total > b.total end)
-
-		for _, data in ipairs(classTotals) do
-			player:GossipMenuAddItem(9, string.format("|T%s:20|t Total de |cFF0000FF%s |cFF000000Criados: |cFF0000FF[|cffff0000%d|cFF0000FF]|r", data.icon, data.name, data.total), 6, 202)
-		end
-    
-		player:GossipMenuAddItem(3,"|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:22:22:0:0|t |cFF8B0000Voltar",0,98)            
+		player:GossipMenuAddItem(3, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:22:22:0:0|t |cFF8B0000Voltar", 0, 98)
 		player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)
 	end
 
-
 	
-	if(intid == 203) then -- personagens total criados
-	player:GossipSetText(string.format(" "))
-		local score = CharDBQuery("SELECT COUNT(*) FROM characters")
-        repeat
-		local class = score:GetUInt32(0);
-		player:GossipMenuAddItem(9, "Total de |cFF0000FFPersonagens |cFF000000Criados: |cFF0000FF[|cffff0000"..score:GetUInt32(0).."|cFF0000FF]|r", 6, 98)
-        until not score:NextRow()		
-		player:GossipMenuAddItem(3,"|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:22:22:0:0|t |cFF8B0000Voltar",0,98)		
+	-- Richests players (gold)
+	if(intid == 207) then
+		player:GossipSetText(string.format(" "))
+		local score = CharDBQuery("SELECT name, race, money, class FROM characters ORDER BY money DESC LIMIT 30")
+		if score then
+			repeat
+				local playername = score:GetString(0)
+				local race = score:GetUInt32(1)
+				local money = score:GetUInt32(2)
+				local class = score:GetUInt32(3)
+
+				local gold = string.format("%02.f", math.floor(money/10000))
+				player:GossipMenuAddItem(9, " "..Team[T[race]]..""..Classe[class].."".. ClassColor[class] .. playername .."|r |cffffff00"..gold.." |cFF000000Gold", 20, 98)
+			until not score:NextRow()
+		end
+		player:GossipMenuAddItem(3, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:22:22:0:0|t |cFF8B0000Voltar", 0, 98)
 		player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)
-    end
-	
-	if(intid == 207) then -- Gold Rich
-	player:GossipSetText(string.format(" "))
-		local score = CharDBQuery("SELECT name,race,money,class FROM characters ORDER BY money DESC LIMIT 30")
-            repeat
-            local playername = score:GetString(0);
-            local race = score:GetUInt32(1);
-            local money = score:GetUInt32(2);
-            local class = score:GetUInt32(3);
+	end
 
-            local gold = string.format("%02.f", math.floor(money/10000));
-            player:GossipMenuAddItem(9, " "..Team[T[race]]..""..Classe[class].."".. playername .." |cFF0000FF"..gold.." |cFF000000Gold", 20, 98)
-        until not score:NextRow()
-        player:GossipMenuAddItem(3,"|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:22:22:0:0|t |cFF8B0000Voltar",0,98)
-        player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)
-	end	
+	-- Played Time
+	if(intid == 206) then 
+		player:GossipSetText(string.format(" "))
+		local score = CharDBQuery("SELECT name, race, class, totaltime FROM characters ORDER BY totaltime DESC LIMIT 30")
+		if score then
+			repeat
+				local playername = score:GetString(0)
+				local race = score:GetUInt32(1)
+				local class = score:GetUInt32(2)
+            
+				local nSeconds = score:GetUInt32(3)
+				local nHours = string.format("%02.f", math.floor(nSeconds/3600))
+				local nMins = string.format("%02.f", math.floor(nSeconds/60 - (nHours*60)))
+				local nSecs = string.format("%02.f", math.floor(nSeconds - nHours*3600 - nMins *60))
+            
+				player:GossipMenuAddItem(9, ""..Team[T[race]]..""..Classe[class].." ".. ClassColor[class] .. playername .. "|r |cFF000000| Played:|r |cFF0000FF"..nHours.." |cFF000000Horas", 20, 98)
+			until not score:NextRow()
+		end
+		player:GossipComplete()
+		player:GossipMenuAddItem(3, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:22:22:0:0|t |cFF8B0000Voltar", 0, 98)    
+		player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)  
+	end
 
-	if(intid == 206) then -- Played Time
-	player:GossipSetText(string.format(" "))
-        local score = CharDBQuery("SELECT name,race,class,totaltime FROM characters ORDER BY totaltime DESC LIMIT 30")
-        repeat
-		local playername = score:GetString(0);
-		local race = score:GetUInt32(1);
-		local class = score:GetUInt32(2);
-        
-		local nSeconds = score:GetUInt32(3);
-        nHours = string.format("%02.f", math.floor(nSeconds/3600));
-        nMins = string.format("%02.f", math.floor(nSeconds/60 - (nHours*60)));
-        nSecs = string.format("%02.f", math.floor(nSeconds - nHours*3600 - nMins *60));			
-					
-        player:GossipMenuAddItem(9, ""..Team[T[race]]..""..Classe[class].." ".. playername .." |cFF000000| Played:|r |cFF0000FF"..nHours.." |cFF000000Horas", 20, 98)
-        until not score:NextRow()
-        player:GossipComplete()
-        player:GossipMenuAddItem(3,"|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:22:22:0:0|t |cFF8B0000Voltar",0,98)    
-        player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)	
-    end
 
 	if (intid == 98) then -- Inicio
 		On_Top_Hello2(event, player, creature)

@@ -1,12 +1,17 @@
 -- local UnitEntry = 93026
 local GameObjectEntry = 3501008
 
-function On_Top_HelloArenaHallofFame(event, player, gameobject)
-	local evento_data = os.time{year=2024, month=05, day=05} -- Data do Reset (ano, mês, dia)
-    local hoje_data = os.time(os.date("*t")) -- Data atual
-    local diferenca_dias = math.floor((evento_data - hoje_data) / (24 * 60 * 60))
-	player:GossipSetText(string.format("\n\n   |TInterface\\icons\\Achievement_featsofstrength_gladiator_01:25|t Season 1 - Termina dia 05/05/24\n                               (Faltam %d dias) \n\n   |TInterface\\icons\\Achievement_featsofstrength_gladiator_02:25|t Season 2 - Começa dia ??/2023", diferenca_dias))
+Data_Fim_da_Season = os.time{year=2024, month=05, day=7}
 
+    local hoje_data = os.time(os.date("*t")) -- Data atual
+    local diferenca_dias = math.floor((Data_Fim_da_Season - hoje_data) / (24 * 60 * 60))
+    
+    local ano_fim_season = os.date("%Y", Data_Fim_da_Season)
+    local mes_fim_season = os.date("%m", Data_Fim_da_Season)
+    local dia_fim_season = os.date("%d", Data_Fim_da_Season)
+
+function On_Top_HelloArenaHallofFame(event, player, gameobject)
+	player:GossipSetText(string.format("\n\n   |TInterface\\icons\\Achievement_featsofstrength_gladiator_01:25|t Season 1 - Termina: %d/%02d/%d\n                                 (Faltam %d dias) \n\n   |TInterface\\icons\\Achievement_featsofstrength_gladiator_02:25|t Season 2 - Começa dia ??/2023", dia_fim_season, mes_fim_season, ano_fim_season, diferenca_dias))
     player:GossipMenuAddItem(11," |TInterface\\icons\\Achievement_bg_killflagcarriers_grabflag_capit:25|tRegras e Season Cutoffs\n",0, 1)
     player:GossipMenuAddItem(9," |TInterface\\icons\\Achievement_quests_completed_08:25|t Gladiators de Seasons Anteriores\n",0, 2)
     player:GossipSendMenu(0x7FFFFFFF, gameobject, menu_id)

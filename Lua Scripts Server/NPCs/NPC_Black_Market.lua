@@ -1,6 +1,6 @@
 -- show/add/reset items on the Vendor with these values (will show items with mintemporder >= '' and maxtemporder <= '' (5 items, if >= 1, <= 5) - amounts of items = min~max + 1 (box)
 local mintemporder = 1
-local maxtemporder = 7 -- +1 with Unclaimed Black Market Container
+local maxtemporder = 5 -- +1 with Unclaimed Black Market Container
 -- type '.reload bmah' after changing the min/max order (will reward bidders and then reset timers/items on the vendor)
 
 -- commands:
@@ -160,7 +160,7 @@ function On_Top_Select(event, player, object, sender, intid, code)
 
 				if player:GetCoinage() >= Bid * 10000 then
 					player:SetCoinage(player:GetCoinage() - Bid * 10000)
-					-- return gold to previous bidder
+					-- return gold to previous bidder                                                                                                                                     9311 = Default Stationery (carta)
 					SendMail("Outbided", string.format("You have been outbid on %s. \nHere's your gold.", itemname), playerguid, BlackMarketPlayerGuid, 0, 0, currentbidprice * 10000, 0, 9311, 1)
 					local playerToSendMessage = GetPlayerByGUID(playerguid)
 					if playerToSendMessage then
@@ -369,12 +369,10 @@ local function PeriodicUpdateRandomItemsOnVendor(eventid, delay, repeats)
 				end
 			end
 		end
-		local someDelay5 = 1500
-		CreateLuaEvent(delayedUpdate5, someDelay5, 1)
+		CreateLuaEvent(delayedUpdate5, 1500, 1)
 		
 	end
-	local someDelay1 = 1000
-	CreateLuaEvent(delayedUpdate1, someDelay1, 1)
+	CreateLuaEvent(delayedUpdate1, 1000, 1)
 end
 
 
@@ -448,12 +446,10 @@ local function OnStartUpUpdateItems()
 				end
 			end
 		end
-		local someDelayUpdateTemporaryOrderStartUp = 3500
-		CreateLuaEvent(delayedUpdateTemporaryOrderStartUp, someDelayUpdateTemporaryOrderStartUp, 1)
+		CreateLuaEvent(delayedUpdateTemporaryOrderStartUp, 3500, 1)
 		
 	end
-	local DelayRewardOnStartUp = 2500 -- 25 ms
-	CreateLuaEvent(delayedRewardOnStartUp, DelayRewardOnStartUp, 1)
+	CreateLuaEvent(delayedRewardOnStartUp, 2500, 1)
 end
 
 
@@ -530,8 +526,7 @@ local function OnReloadCommand(event, player, command)
 					end
 				end
 			end
-			local someDelay5 = 1000
-			CreateLuaEvent(delayedUpdate5, someDelay5, 1)
+			CreateLuaEvent(delayedUpdate5, 1000, 1)
 		end
 		
     end

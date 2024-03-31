@@ -1,6 +1,6 @@
 local UnitEntry = 94150
 
-function TeleporterLow_Gossip(unit, player, creature)
+function TeleporterLow_Gossip(event, player, creature)
 	--player:GossipSetText(string.format("Escolha o level que quiser!\n\nPerfeito para quem gosta de ter um personagem twink ou para quem não gosta de upar. Mas também opcional para quem curte upar ;)"))
 	player:GossipSetText(string.format(" "))
     player:GossipMenuAddItem(6,"|TInterface\\icons\\inv_chest_cloth_49:29|t |cFF0000FFComprar Heirlooms", 0, 10)
@@ -30,12 +30,12 @@ function TeleporterLow_Gossip(unit, player, creature)
 		player:GossipMenuAddItem(2, "|TInterface\\icons\\achievement_zone_ghostlands.png:29|t |cFF0000FFIr para Tranquillien (Ghostlands) ", 1, 22, false, "Você será teleportado para Ghostlands, tem certeza?")
 	end
 	
-	player:GossipMenuAddItem(2,"|TInterface\\icons\\spell_holy_holynova.png:29|t |cFF0000FFSelecionar Level para Upar", 0, 50)
+	player:GossipMenuAddItem(2,"|TInterface\\icons\\spell_holy_holynova.png:29|t |cFF0000FFSelecionar Level para Upar (Fase de Teste)", 0, 50)
 	player:GossipMenuAddItem(2, "|TInterface\\icons\\achievement_level_80.png:29|t |cFF0000FFUpar para o Level 80|r (Fase de Teste)", 1, 9, false, "Você será teleportado para Northrend, tem certeza que quer upar para o level 80?")
     if (player:GetLevel() >= 68) then
 		player:GossipMenuAddItem(2,"|TInterface\\icons\\Achievement_zone_grizzlyhills_01.png:29|t |cFF0000FFIr para Voldrune - Mall",0, 23, false, "Tem certeza que quer teleportar para o Mall?")
 	end
-	player:GossipSendMenu(0x7FFFFFFF, creature, menuid)
+	player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)
 end
 
 RegisterCreatureGossipEvent(UnitEntry, 1, TeleporterLow_Gossip)
@@ -234,25 +234,7 @@ function Teleporter_Event(event, player, creature, sender, intid, code)
 			player:AddItem(2901, 1) -- Mining Pick
 		end
 	end
-	
-	
-	-- Comprar Heirlooms
-	if(intid == 10) then
-		player:GossipSetText(string.format(" "))
-		player:GossipMenuAddItem(6,"|TInterface\\icons\\inv_chest_cloth_49:29|t |cFF0000FFSet Heirloom ",0, 11)
-		player:GossipMenuAddItem(6,"|TInterface\\icons\\inv_sword_43:29|t |cFF0000FFArmas Heirloom ",0, 12)
-		player:GossipMenuAddItem(2,"|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Voltar",0,499)
-		player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)	
-   end
-	
-   if(intid == 11) then -- Heirloom Set
-		player:SendListInventory(creature, 80049)
-   end
-   if(intid == 12) then -- Heirloom Armas
-		player:SendListInventory(creature, 80271)
-   end
-   
-   
+
    
     -- Alliance Level 10
    	-- Human - Goldshire
@@ -432,6 +414,22 @@ function Teleporter_Event(event, player, creature, sender, intid, code)
 	if(intid == 499) then -- Voltar
 		TeleporterLow_Gossip(event, player, creature)
 	end
+	
+	-- Comprar Heirlooms
+	if(intid == 10) then
+		player:GossipSetText(string.format(" "))
+		player:GossipMenuAddItem(6," |TInterface\\icons\\inv_chest_cloth_49:29|t |cFF0000FFSet Heirloom ",0, 111)
+		player:GossipMenuAddItem(6," |TInterface\\icons\\inv_sword_43:29|t |cFF0000FFArmas Heirloom ",0, 112)
+		player:GossipMenuAddItem(2," |TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Voltar",0,499)
+		player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)	
+    end
+	
+    if(intid == 111) then -- Heirloom Set
+		player:SendListInventory(creature, 80049)
+    end
+    if(intid == 112) then -- Heirloom Armas
+		player:SendListInventory(creature, 80271)
+    end
 	
 end
 

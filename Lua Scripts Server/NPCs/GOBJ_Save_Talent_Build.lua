@@ -4,7 +4,545 @@ local GameObjectEntry = 3501007
 local itemVIP = 61000
 local itemVIPeterno = 61001
 
+local menu_id = 123
+
 playerMap = {}
+
+function OpenNPCSaveBuild(event, player, gameobject)
+    if (player:HasItem(itemVIP) == false and player:HasItem(itemVIPeterno) == false) then
+        player:SendBroadcastMessage("Você precisa do Livro Vip para usar esse npc.")
+        player:GossipComplete()
+    else
+        player:SaveToDB()
+		player:GossipSetText(string.format(" \nEsse livro ancestral tem o poder de salvar os |cff0000ffTalents|r, |cff0000ffGlyphs|r e |cff0000ffAction Bars|r do jogador. \n\nPermite criar até 10 perfis diferentes e alternar entre eles conforme desejar."))
+        player:GossipMenuAddItem(3, " |TInterface\\icons\\Ability_druid_naturalperfection.png:26|t Criar |cFF0000FFProfile", 1, 80) -- Salvar Builds Submenu
+        local guid = player:GetGUIDLow()
+        
+        local query = "SELECT DISTINCT BuildSlot, BuildName FROM custom_save_talents WHERE guid = "..guid
+        local result = CharDBQuery(query)
+        
+        if result then
+            repeat
+                local buildSlot = result:GetUInt32(0)
+                local talentName = result:GetString(1)
+                player:GossipMenuAddItem(3, " |TInterface\\icons\\Achievement_bg_most_damage_killingblow_dieleast.png:26|t |cFF0000FFProfile " .. buildSlot .. "|r [ |cffffff00" .. talentName .. "|r ]", 0, buildSlot + 30) -- Stored Builds Submenu
+            until not result:NextRow()
+        end
+        
+        player:GossipMenuAddItem(3, " |TInterface\\icons\\Achievement_bg_returnxflags_def_wsg.png:26|t Resetar |cFF0000FFTalentos", 1, 500, false, "Tem certeza que quer Resetar os Talentos?") -- Reset Talents
+		--player:GossipMenuAddItem(3, " |TInterface\\icons\\Inv_inscription_minorglyph08.png:26|t Major Glyphs", 1, 100)
+		--player:GossipMenuAddItem(3, " |TInterface\\icons\\Inv_inscription_majorglyph18.png:26|t Minor Glyphs", 1, 101)
+		--player:GossipMenuAddItem(3, " Trocar de Spec Instant\n (para ativar Glyphs)", 1, 110)
+		player:GossipSendMenu(0x7FFFFFFF, gameobject, menu_id)
+    end
+end
+
+
+local function ApplySavedActionBars(player, buildSlot)
+    local activeSpec = player:GetActiveSpec()
+    local guid = player:GetGUIDLow()
+    
+    CharDBExecute(string.format("DELETE FROM character_action WHERE guid = %d AND spec = %d;", guid, activeSpec))
+
+    local actionBarResult = CharDBQuery(string.format("SELECT button, action, type FROM custom_save_talents_actionbar WHERE guid = %d AND BuildSlot = %d;", guid, buildSlot))
+    
+    if actionBarResult then
+        CharDBExecute("START TRANSACTION;")
+
+        repeat
+            local button, action, type = actionBarResult:GetUInt32(0), actionBarResult:GetUInt32(1), actionBarResult:GetUInt32(2)
+			if action > 0 then
+                local insertQuery = string.format("INSERT INTO character_action (guid, spec, button, action, type) VALUES (%d, %d, %d, %d, %d);", guid, activeSpec, button, action, type)
+                CharDBExecute(insertQuery)
+            end
+        until not actionBarResult:NextRow()
+     
+        CharDBExecute("COMMIT;")
+    end
+    player:SaveToDB()
+end
+
+
+
+function OnGossipSelect(event, player, gameobject, sender, intid, code)
+
+	-- Aplicar Talent Submenu
+	if intid >= 30 and intid <= 50 then
+		local buildSlot = intid - 30
+		local guid = player:GetGUIDLow()
+		local query = "SELECT BuildName FROM custom_save_talents WHERE guid = " .. guid .. " AND BuildSlot = " .. buildSlot
+		local result = CharDBQuery(query)
+    
+		if result then
+			local talentName = result:GetString(0)
+			player:GossipMenuAddItem(3, " |TInterface\\icons\\Achievement_bg_most_damage_killingblow_dieleast.png:26|t Aplicar |cFF0000FFProfile " .. buildSlot .. "|r [|cffffff00 " .. talentName .. " |r]", 0, intid + 1000)
+		end
+    
+		player:GossipMenuAddItem(9, " |TInterface/Icons/Inv_scroll_11.png:26|t Renomear |cFF0000FFProfile", 1, intid + 2100, true)
+		player:GossipMenuAddItem(9, " |TInterface\\icons\\Ability_fiegndead.png:26|t Deletar |cFF0000FFProfile ", 1, intid + 2000, false, "|cffffff00Tem certeza que quer deletar o Profile " .. buildSlot .. " ?")
+		player:GossipMenuAddItem(2, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:16:16:0:0|t |cFF800000Voltar", 0, 499)
+		player:GossipSendMenu(1, gameobject)
+	end
+	
+	-- Realmente Aplica a Build
+	if intid >= 1030 and intid <= 1050 then -- Aplicar Talents (de acordo com o Gossip [Aplicar Talents], que tem intid 30 até 50)
+		-- Custom Lua Function (InArenaQueue)
+		if player:InArenaQueue() then
+			player:SendBroadcastMessage("Você não pode aplicar um Profile do Talent Archivist enquanto estiver na fila de Arena.")
+			player:GossipComplete()
+		else 
+			local buildSlot = intid - 1030
+			player:ResetTalents()
+			player:SaveToDB()
+			player:GossipComplete()	
+			playerMap[player:GetGUIDLow()] = buildSlot
+			local playerGUID = player:GetGUIDLow()
+			
+			-- Apply Talents (every 50 MS, 5 times)
+			player:RegisterEvent(ApplyTalentsPeriodically, 70, 10)
+			
+			-- Apply Glyphs
+			ApplyGlyphsFromStoredTable(player, buildSlot)
+			
+			-- Change Spells/Items/Macros on ActionBars
+			local applyActionBars = function()
+				local player = GetPlayerByGUID(playerGUID)
+				if player then
+					local buildSlot = playerMap[playerGUID]
+					ApplySavedActionBars(player, buildSlot)
+				end
+			end
+			CreateLuaEvent(applyActionBars, 300, 3) -- 250 ms, 3 vezes
+			
+			-- Update ActionBars through activate Secondary Spec and back to current spec (with a 1000ms delay). Is also needed for Glyphs to work, otherwise a relog is needed.
+			local switchActionBar = function()
+				local player = GetPlayerByGUID(playerGUID)
+				if player then
+					player:SaveToDB()
+        
+					if player:GetActiveSpec() == 0 then
+					
+						player:CastSpell(player, 63644, true)
+						local delayToActivateSecondarySpec = function()
+							local player = GetPlayerByGUID(playerGUID)
+							if player then
+								player:CastSpell(player, 63645, true)
+								player:SetPower(player:GetMaxPower(0), 0)
+								player:SendBroadcastMessage("Profile " .. (intid - 1030) .. " aplicado.")
+							end
+						end
+						CreateLuaEvent(delayToActivateSecondarySpec, 250, 1)
+						
+					elseif player:GetActiveSpec() == 1 then
+					
+						player:CastSpell(player, 63645, true)
+						local delayToActivatePrimarySpec = function()
+							local player = GetPlayerByGUID(playerGUID)
+							if player then
+								player:CastSpell(player, 63644, true)
+								player:SetPower(player:GetMaxPower(0), 0)
+								player:SendBroadcastMessage("Profile " .. (intid - 1030) .. " aplicado.")
+							end
+						end
+						CreateLuaEvent(delayToActivatePrimarySpec, 250, 1)
+					end
+				end
+			end
+			CreateLuaEvent(switchActionBar, 1000, 1)
+			
+		end
+	end
+
+	
+	-- Deletar a build selecionada
+	if intid >= 2030 and intid <= 2050 then
+		local buildSlot = intid - 2030
+		local guid = player:GetGUIDLow()
+		CharDBExecute("DELETE FROM custom_save_talents WHERE guid = "..guid.." AND BuildSlot = "..buildSlot)
+		CharDBExecute("DELETE FROM custom_save_talents_glyphs WHERE guid = "..guid.." AND BuildSlot = "..buildSlot)
+		CharDBExecute("DELETE FROM custom_save_talents_actionbar WHERE guid = "..guid.." AND BuildSlot = "..buildSlot)
+		player:SendBroadcastMessage("Profile " .. (intid - 2030) .. " deletado.")
+		player:GossipComplete()
+	end
+	
+	-- Renomear a build selecionada
+	if intid >= 2130 and intid <= 2150 then
+		local BuildName = code
+	    -- Limitando a 50 caracteres
+		BuildName = BuildName:sub(1, 55)
+		-- Removendo aspas simples e barras invertidas do nome da Build (sem ' ou \, que crasha o server)
+		BuildName = BuildName:gsub("[']", ""):gsub("[\\]", "")
+		
+		local guid = player:GetGUIDLow()
+		CharDBExecute("UPDATE custom_save_talents SET BuildName = '"..BuildName.."' WHERE guid = "..guid.." AND BuildSlot = "..(intid - 2130))
+		player:SendBroadcastMessage("Profile " .. (intid - 2130) .. " renomeado para '" .. (BuildName) .. "' ")
+		player:GossipComplete()
+	end
+
+	-- Salvar Build - Submenu
+	if(intid == 80) then 
+		player:GossipSetText(string.format(" "))
+
+		for i = 1, 10 do -- Só mostra 10 Slots
+			player:GossipMenuAddItem(3, " |TInterface\\icons\\Ability_druid_naturalperfection.png:26|t Salvar Profile - |cFF0000FFSlot " .. i, 1, i, true, "Digite o nome do Profile que você deseja Salvar.\n Exemplo: 'Fury 0/59/12' \n\n\n Obs: Caso você mova alguma spell, macro ou item da Action Bar após salvar, é recomendado salvar o profile novamente.")
+		end
+		player:GossipMenuAddItem(9, "\n |TInterface\\icons\\Ability_fiegndead.png:26|t Deletar |cFF0000FFProfiles|r Salvos", 1, 450, false, "|cffffff00Tem certeza que quer deletar \ntodos os Profiles salvos?|r")
+		player:GossipMenuAddItem(5,"|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Voltar",0,499)        
+		player:GossipSendMenu(0x7FFFFFFF, gameobject, menu_id)    
+	end
+	
+	-- Salvar Build
+	if intid >= 1 and intid <= 20 then
+		player:SaveToDB()
+		local playerGUID = player:GetGUIDLow()
+	
+		local delayToSave = function()
+			local player = GetPlayerByGUID(playerGUID)
+			
+			if player then
+				local BuildName = code:sub(1, 55):gsub("[']", ""):gsub("[\\]", "") -- Limitando a 50 caracteres + Removendo aspas simples e barras invertidas do nome do Profile (sem ' ou \, que crasham o server)
+				local guid = player:GetGUIDLow()
+				player:GossipComplete()
+				player:SendBroadcastMessage("Profile Salvado no Slot " .. (intid))
+    
+				CharDBExecute("DELETE FROM custom_save_talents WHERE guid = "..guid.." AND BuildSlot = "..intid)
+		
+				local activeSpec = player:GetActiveSpec()
+				local specMask
+				if activeSpec == 0 then     -- Main Spec
+					specMask = "specMask IN (1,3)"
+				elseif activeSpec == 1 then -- Off Spec
+					specMask = "specMask IN (2,3)"
+				end
+
+				-- Get Talents and add them on the new Database, based on active spec
+				local result = CharDBQuery("SELECT spell FROM character_talent WHERE guid = "..guid.." AND "..specMask)
+				if result then
+					repeat
+						local spell = result:GetUInt32(0)
+						local BuildSlot = intid
+						CharDBExecute("INSERT INTO custom_save_talents (guid, spell, BuildSlot, BuildName) VALUES ("..guid..", "..spell..", "..BuildSlot..", '"..BuildName.."')")
+					until not result:NextRow()
+				end
+		
+				-- Save Glyphs
+				local glyphQuery = "REPLACE INTO custom_save_talents_glyphs (guid, glyph1, glyph2, glyph3, glyph4, glyph5, glyph6, BuildSlot) VALUES ("..guid
+				local result = CharDBQuery("SELECT glyph1, glyph2, glyph3, glyph4, glyph5, glyph6 FROM character_glyphs WHERE guid = "..guid.." AND talentGroup = "..activeSpec)
+				if result then
+					for i = 0, result:GetColumnCount() - 1 do
+						local glyph = result:GetUInt32(i)
+						glyphQuery = glyphQuery .. ", " .. glyph
+					end
+					glyphQuery = glyphQuery .. ", " .. intid .. ")"
+					CharDBExecute(glyphQuery)
+				end
+		
+				-- Save Action Bar
+				local actionBarQuery = string.format("DELETE FROM custom_save_talents_actionbar WHERE guid = %d AND BuildSlot = %d;", guid, intid);
+				CharDBExecute(actionBarQuery);
+				local actionResultQuery = string.format("SELECT button, action, type FROM character_action WHERE guid = %d AND spec = %d ORDER BY button ASC;", guid, activeSpec);
+				local actionResult = CharDBQuery(actionResultQuery);
+				
+				if actionResult then
+					local insertQueryBase = "INSERT INTO custom_save_talents_actionbar (guid, BuildSlot, button, action, type) VALUES ";
+					local insertValues = {};
+					repeat
+						local button, action, type = actionResult:GetUInt32(0), actionResult:GetUInt32(1), actionResult:GetUInt32(2);
+						table.insert(insertValues, string.format("(%d, %d, %d, %d, %d)", guid, intid, button, action, type));
+					until not actionResult:NextRow();
+    
+					if #insertValues > 0 then
+						local insertQuery = insertQueryBase .. table.concat(insertValues, ",") .. ";";
+						CharDBExecute(insertQuery);
+					end
+				end
+				
+			end
+		end
+		CreateLuaEvent(delayToSave, 150, 1)
+	end
+	
+	
+	-- Deletar todas Builds Salvas
+	if intid == 450 then 
+		local guid = player:GetGUIDLow()
+		CharDBExecute("DELETE FROM custom_save_talents WHERE guid = " .. guid)
+		CharDBExecute("DELETE FROM custom_save_talents_glyphs WHERE guid = " .. guid)
+		CharDBExecute("DELETE FROM custom_save_talents_actionbar WHERE guid = " .. guid)
+		player:SaveToDB()
+		player:SendBroadcastMessage("Profiles salvos foram deletados.")
+		player:GossipComplete()
+	end
+	
+	if intid == 500 then -- Reset Talents
+		player:SaveToDB()
+		player:ResetTalents()
+		player:RemoveSpell(43039) -- Ice Barrier
+		player:SaveToDB()
+		player:SendBroadcastMessage("Seus Talentos foram resetados.")
+		player:GossipComplete()
+    end
+	
+	-- Trocar de Spec (para aplicar Glyph, sem precisar Relogar)
+	if intid == 110 then 
+		OpenNPCSaveBuild(event, player, gameobject)
+		if player:GetActiveSpec() == 0 then -- Main Spec - Force Switch spec to make applied Glyphs work
+			player:CastSpell(player, 63644, true)
+			player:CastSpell(player, 63645, true)
+		elseif player:GetActiveSpec() == 1 then
+			player:CastSpell(player, 63645, true)
+			player:CastSpell(player, 63644, true)
+		end
+		player:SetPower(player:GetMaxPower(0), 0)
+	end
+	
+	
+	if(intid == 100) then -- Major Glyphs
+		player:GossipSetText(string.format(" "))
+		player:GossipMenuAddItem(3, " |TInterface\\icons\\Misc_arrowlup:26|t Major Glyphs - Slot Cima", 1, 104)
+		player:GossipMenuAddItem(3, " |TInterface\\icons\\Misc_arrowleft:26|t Major Glyphs - Slot Esquerdo", 1, 105)
+		player:GossipMenuAddItem(3, " |TInterface\\icons\\Misc_arrowright:26|t Major Glyphs - Slot Direito", 1, 106)
+		player:GossipMenuAddItem(2, " Voltar", 1, 499)
+		player:GossipSendMenu(0x7FFFFFFF, gameobject, menu_id)    
+	elseif(intid == 101) then -- Minor Glyphs
+		player:GossipSetText(string.format(" "))
+		player:GossipMenuAddItem(3, " |TInterface\\icons\\misc_arrowdown:26|t Minor Glyphs - Slot Baixo", 1, 107)
+		player:GossipMenuAddItem(3, " |TInterface\\icons\\Misc_arrowleft:26|t Minor Glyphs - Slot Esquerdo", 1, 108)
+		player:GossipMenuAddItem(3, " |TInterface\\icons\\Misc_arrowright:26|t Minor Glyphs - Slot Direito", 1, 109)
+		player:GossipMenuAddItem(2, " Voltar", 1, 499)
+		player:GossipSendMenu(0x7FFFFFFF, gameobject, menu_id)    
+	end
+
+    -- Major Glyphs
+	if intid >= 104 and intid <= 106 then
+		local GlyphSlot
+		if intid == 104 then     -- Major Up
+			GlyphSlot = 0       
+		elseif intid == 105 then -- Major Left
+			GlyphSlot = 5
+		elseif intid == 106 then -- Major Right
+			GlyphSlot = 3
+		end
+		player:SetData("GlyphSlot", GlyphSlot) -- Salvando GlyphSlot no player para ser usado em intid 110
+	
+		-- Major Glyphs:
+		if (player:GetClass() == 1) then     -- Warrior
+			player:GossipSetText(string.format("Atualmente os glyphs adicionados atraves de Lua só estão tendo efeito após trocar de Spec ou Relogar."))
+			player:GossipMenuAddItem(3, "Glyph of Pain Suppression", 1, 111)
+			player:GossipMenuAddItem(3, "Glyph of Dispersion", 1, 11222)
+			player:GossipMenuAddItem(2, "Voltar", 1, 100)
+			player:GossipSendMenu(0x7FFFFFFF, gameobject, menu_id)
+		elseif (player:GetClass() == 2) then -- Paladin
+			player:GossipSetText(string.format("Atualmente os glyphs adicionados atraves de Lua só estão tendo efeito após trocar de Spec ou Relogar."))
+			player:GossipMenuAddItem(3, "Glyph of Mortal Strike", 1, 111)
+			player:GossipMenuAddItem(3, "Glyph of Dispersion", 1, 112)
+			player:GossipMenuAddItem(2, "Voltar", 1, 100)
+			player:GossipSendMenu(0x7FFFFFFF, gameobject, menu_id)
+		elseif (player:GetClass() == 3) then -- Hunter
+			player:GossipSetText(string.format("Atualmente os glyphs adicionados atraves de Lua só estão tendo efeito após trocar de Spec ou Relogar."))
+			player:GossipMenuAddItem(3, "Glyph of Mortal Strike", 1, 112)
+			player:GossipMenuAddItem(3, "Glyph of Dispersion", 1, 11122)
+			player:GossipMenuAddItem(2, "Voltar", 1, 100)
+			player:GossipSendMenu(0x7FFFFFFF, gameobject, menu_id)
+		elseif (player:GetClass() == 4) then -- Rogue
+			player:GossipSetText(string.format("Atualmente os glyphs adicionados atraves de Lua só estão tendo efeito após trocar de Spec ou Relogar."))
+			player:GossipMenuAddItem(3, "Glyph of Mortal Strike", 1, 112)
+			player:GossipMenuAddItem(3, "Glyph of Dispersion", 1, 11122)
+			player:GossipMenuAddItem(2, "Voltar", 1, 100)
+			player:GossipSendMenu(0x7FFFFFFF, gameobject, menu_id)
+		elseif (player:GetClass() == 5) then -- Priest
+			player:GossipSetText(string.format("Atualmente os glyphs adicionados atraves de Lua só estão tendo efeito após trocar de Spec ou Relogar."))
+			player:GossipMenuAddItem(3, "Glyph of Mortal Strike", 1, 112)
+			player:GossipMenuAddItem(3, "Glyph of Dispersion", 1, 11122)
+			player:GossipMenuAddItem(2, "Voltar", 1, 100)
+			player:GossipSendMenu(0x7FFFFFFF, gameobject, menu_id)
+		elseif (player:GetClass() == 6) then -- Death Knight
+			player:GossipSetText(string.format("Atualmente os glyphs adicionados atraves de Lua só estão tendo efeito após trocar de Spec ou Relogar."))
+			player:GossipMenuAddItem(3, "Glyph of Mortal Strike", 1, 112)
+			player:GossipMenuAddItem(3, "Glyph of Dispersion", 1, 11122)
+			player:GossipMenuAddItem(2, "Voltar", 1, 100)
+			player:GossipSendMenu(0x7FFFFFFF, gameobject, menu_id)
+     	elseif (player:GetClass() == 7) then -- Shaman
+			player:GossipSetText(string.format("Atualmente os glyphs adicionados atraves de Lua só estão tendo efeito após trocar de Spec ou Relogar."))
+			player:GossipMenuAddItem(3, "Glyph of Mortal Strike", 1, 112)
+			player:GossipMenuAddItem(3, "Glyph of Dispersion", 1, 11122)
+			player:GossipMenuAddItem(2, "Voltar", 1, 100)
+			player:GossipSendMenu(0x7FFFFFFF, gameobject, menu_id)
+		elseif (player:GetClass() == 8) then -- Mage
+			player:GossipSetText(string.format("Atualmente os glyphs adicionados atraves de Lua só estão tendo efeito após trocar de Spec ou Relogar."))
+			player:GossipMenuAddItem(3, "Glyph of Mortal Strike", 1, 112)
+			player:GossipMenuAddItem(3, "Glyph of Dispersion", 1, 11122)
+			player:GossipMenuAddItem(2, "Voltar", 1, 100)
+			player:GossipSendMenu(0x7FFFFFFF, gameobject, menu_id)
+		elseif (player:GetClass() == 9) then -- Warlock
+			player:GossipSetText(string.format("Atualmente os glyphs adicionados atraves de Lua só estão tendo efeito após trocar de Spec ou Relogar."))
+			player:GossipMenuAddItem(3, "Glyph of Insect Swarm", 1, 113)
+			player:GossipMenuAddItem(3, "Glyph of Dispersion", 1, 11122)
+			player:GossipMenuAddItem(2, "Voltar", 1, 100)
+			player:GossipSendMenu(0x7FFFFFFF, gameobject, menu_id)
+		elseif (player:GetClass() == 11) then -- Druid
+			player:GossipSetText(string.format("Atualmente os glyphs adicionados atraves de Lua só estão tendo efeito após trocar de Spec ou Relogar."))
+			player:GossipMenuAddItem(3, "Glyph of Mortal Strike", 1, 112)
+			player:GossipMenuAddItem(3, "Glyph of Dispersion", 1, 11122)
+			player:GossipMenuAddItem(2, "Voltar", 1, 100)
+			player:GossipSendMenu(0x7FFFFFFF, gameobject, menu_id)
+		end
+	end
+
+	if intid == 111 then     -- Glyph of Pain Suppression
+		local GlyphSlot = player:GetData("GlyphSlot")
+		player:SetGlyph(190, GlyphSlot)
+		OpenNPCSaveBuild(event, player, gameobject)
+	elseif intid == 112 then -- Glyph of Mortal Strike
+		local GlyphSlot = player:GetData("GlyphSlot")
+		player:SetGlyph(489, GlyphSlot)
+		OpenNPCSaveBuild(event, player, gameobject)
+	elseif intid == 113 then -- Glyph of Insect Swarm
+		local GlyphSlot = player:GetData("GlyphSlot")
+		player:SetGlyph(176, GlyphSlot)
+		OpenNPCSaveBuild(event, player, gameobject)
+	elseif intid == 114 then -- Glyph of the Wild - Minor
+		local GlyphSlot = player:GetData("GlyphSlot")
+		player:SetGlyph(433, GlyphSlot)
+		OpenNPCSaveBuild(event, player, gameobject)
+	elseif intid == 115 then -- Glyph of Dash - Minor
+		local GlyphSlot = player:GetData("GlyphSlot")
+		player:SetGlyph(551, GlyphSlot)
+		OpenNPCSaveBuild(event, player, gameobject)
+	end
+
+	-- Minor Glyphs
+	if intid >= 107 and intid <= 109 then
+		local GlyphSlot
+		if intid == 107 then     -- Minor Down
+			GlyphSlot = 1
+		elseif intid == 108 then -- Minor Left
+			GlyphSlot = 2
+		elseif intid == 109 then -- Minor Right
+			GlyphSlot = 4
+		end
+		player:SetData("GlyphSlot", GlyphSlot) -- Salvando GlyphSlot no player para ser usado em intid 110
+	
+		-- Minor Glyphs:
+		if (player:GetClass() == 1) then -- Warrior
+			player:GossipSetText(string.format("Atualmente os glyphs adicionados atraves de Lua só estão tendo efeito após trocar de Spec ou Relogar."))
+			player:GossipMenuAddItem(3, "Glyph of Pain Suppression", 1, 111)
+			player:GossipMenuAddItem(3, "Glyph of Dispersion", 1, 11222)
+			player:GossipMenuAddItem(2, "Voltar", 1, 100)
+			player:GossipSendMenu(0x7FFFFFFF, gameobject, menu_id)
+		elseif (player:GetClass() == 2) then -- Rogue
+			player:GossipSetText(string.format("Atualmente os glyphs adicionados atraves de Lua só estão tendo efeito após trocar de Spec ou Relogar."))
+			player:GossipMenuAddItem(3, "Glyph of Mortal Strike", 1, 112)
+			player:GossipMenuAddItem(3, "Glyph of Dispersion", 1, 11122)
+			player:GossipMenuAddItem(2, "Voltar", 1, 100)
+			player:GossipSendMenu(0x7FFFFFFF, gameobject, menu_id)
+		elseif (player:GetClass() == 3) then -- Hunter
+			player:GossipSetText(string.format("Atualmente os glyphs adicionados atraves de Lua só estão tendo efeito após trocar de Spec ou Relogar."))
+			player:GossipMenuAddItem(3, "Glyph of Mortal Strike", 1, 112)
+			player:GossipMenuAddItem(3, "Glyph of Dispersion", 1, 11122)
+			player:GossipMenuAddItem(2, "Voltar", 1, 100)
+			player:GossipSendMenu(0x7FFFFFFF, gameobject, menu_id)
+		elseif (player:GetClass() == 4) then -- Rogue
+			player:GossipSetText(string.format("Atualmente os glyphs adicionados atraves de Lua só estão tendo efeito após trocar de Spec ou Relogar."))
+			player:GossipMenuAddItem(3, "Glyph of Mortal Strike", 1, 112)
+			player:GossipMenuAddItem(3, "Glyph of Dispersion", 1, 11122)
+			player:GossipMenuAddItem(2, "Voltar", 1, 100)
+			player:GossipSendMenu(0x7FFFFFFF, gameobject, menu_id)
+		elseif (player:GetClass() == 5) then -- Priest
+			player:GossipSetText(string.format("Atualmente os glyphs adicionados atraves de Lua só estão tendo efeito após trocar de Spec ou Relogar."))
+			player:GossipMenuAddItem(3, "Glyph Minor ", 1, 116)
+			player:GossipMenuAddItem(3, "Glyph of Dash", 1, 117)
+			player:GossipMenuAddItem(2, "Voltar", 1, 100)
+			player:GossipSendMenu(0x7FFFFFFF, gameobject, menu_id)
+		elseif (player:GetClass() == 6) then -- Death Knight
+			player:GossipSetText(string.format("Atualmente os glyphs adicionados atraves de Lua só estão tendo efeito após trocar de Spec ou Relogar."))
+			player:GossipMenuAddItem(3, "Glyph of Mortal Strike", 1, 112)
+			player:GossipMenuAddItem(3, "Glyph of Dispersion", 1, 11122)
+			player:GossipMenuAddItem(2, "Voltar", 1, 100)
+			player:GossipSendMenu(0x7FFFFFFF, gameobject, menu_id)
+     	elseif (player:GetClass() == 7) then -- Shaman
+			player:GossipSetText(string.format("Atualmente os glyphs adicionados atraves de Lua só estão tendo efeito após trocar de Spec ou Relogar."))
+			player:GossipMenuAddItem(3, "Glyph of Mortal Strike", 1, 112)
+			player:GossipMenuAddItem(3, "Glyph of Dispersion", 1, 11122)
+			player:GossipMenuAddItem(2, "Voltar", 1, 100)
+			player:GossipSendMenu(0x7FFFFFFF, gameobject, menu_id)
+		elseif (player:GetClass() == 8) then -- Mage
+			player:GossipSetText(string.format("Atualmente os glyphs adicionados atraves de Lua só estão tendo efeito após trocar de Spec ou Relogar."))
+			player:GossipMenuAddItem(3, "Glyph of Mortal Strike", 1, 112)
+			player:GossipMenuAddItem(3, "Glyph of Dispersion", 1, 11122)
+			player:GossipMenuAddItem(2, "Voltar", 1, 100)
+			player:GossipSendMenu(0x7FFFFFFF, gameobject, menu_id)
+		elseif (player:GetClass() == 9) then -- Warlock
+			player:GossipSetText(string.format("Atualmente os glyphs adicionados atraves de Lua só estão tendo efeito após trocar de Spec ou Relogar."))
+			player:GossipMenuAddItem(3, "Glyph of Insect Swarm", 1, 113)
+			player:GossipMenuAddItem(3, "Glyph of Dispersion", 1, 11122)
+			player:GossipMenuAddItem(2, "Voltar", 1, 100)
+			player:GossipSendMenu(0x7FFFFFFF, gameobject, menu_id)
+		elseif (player:GetClass() == 11) then -- Druid
+			player:GossipSetText(string.format("Atualmente os glyphs adicionados atraves de Lua só estão tendo efeito após trocar de Spec ou Relogar."))
+			player:GossipMenuAddItem(3, "Glyph of Dash", 1, 116)
+			player:GossipMenuAddItem(3, "Glyph of Dispersion", 1, 11122)
+			player:GossipMenuAddItem(2, "Voltar", 1, 100)
+			player:GossipSendMenu(0x7FFFFFFF, gameobject, menu_id)
+		end
+	end
+	
+	-- Minor Glyphs Entries
+	if intid == 116 then     -- Glyph of Dash - Minor
+		local GlyphSlot = player:GetData("GlyphSlot")
+		player:SetGlyph(551, GlyphSlot)
+		OpenNPCSaveBuild(event, player, gameobject)
+	elseif intid == 117 then -- Glyph of Dash - Minor
+		local GlyphSlot = player:GetData("GlyphSlot")
+		player:SetGlyph(551, GlyphSlot)
+		OpenNPCSaveBuild(event, player, gameobject)
+	end
+	
+	if(intid == 499) then -- Back to Main Menu
+		OpenNPCSaveBuild(event, player, gameobject)
+	end
+end
+
+function ApplyGlyphsFromStoredTable(player, buildSlot)
+    local guid = player:GetGUIDLow()
+    local result = CharDBQuery("SELECT glyph1, glyph2, glyph3, glyph4, glyph5, glyph6 FROM custom_save_talents_glyphs WHERE guid = "..guid.." AND BuildSlot = "..buildSlot)
+
+    if result then
+        local glyphSlots = {0, 1, 2, 3, 4, 5} -- (0, 5 e 3 são major. Em ordem: cima, esquerda, direita)
+
+        for i = 0, result:GetColumnCount() - 1 do
+            local glyphID = result:GetUInt32(i)
+            local glyphSlot = glyphSlots[i+1] -- Índices Lua começam em 1, não 0
+
+            if glyphID ~= 0 then -- Se o glyphID não for 0 (nenhum glyph)
+                player:SetGlyph(glyphID, glyphSlot)
+            end
+        end
+    end
+end
+
+function ApplyTalentsPeriodically(eventid, delay, repeats, player)
+    ApplyTalentsFromStoredTable(player)
+end
+
+function ApplyTalentsFromStoredTable(player, buildSlot)
+    local guid = player:GetGUIDLow()
+    local buildSlot = playerMap[guid]
+
+    local result = CharDBQuery("SELECT spell FROM custom_save_talents WHERE guid = "..guid.." AND BuildSlot = "..buildSlot)
+    if result then
+        repeat
+            local spellID = result:GetUInt32(0)
+            local talentInfo = SpellIDToTalentandRank(spellID)
+
+            if talentInfo then
+                player:LearnTalent(talentInfo.talentID, talentInfo.rank)
+            end
+        until not result:NextRow()
+    end
+end
+
+
 
 function SpellIDToTalentandRank(spellID)
 
@@ -3886,435 +4424,8 @@ end
 
 
 
-function OpenNPCSaveBuild(event, player, gameobject)
-    if (player:HasItem(itemVIP) == false and player:HasItem(itemVIPeterno) == false) then
-        player:SendBroadcastMessage("Você precisa do Livro Vip para usar esse npc.")
-        player:GossipComplete()
-    else
-        player:SaveToDB()
-        player:GossipMenuAddItem(3, " |TInterface\\icons\\Ability_druid_naturalperfection.png:26|t Criar |cFF0000FFBuild", 1, 80) -- Salvar Builds Submenu
-        local guid = player:GetGUIDLow()
-        
-        local query = "SELECT DISTINCT BuildSlot, BuildName FROM custom_save_talents WHERE guid = "..guid
-        local result = CharDBQuery(query)
-        
-        if result then
-            repeat
-                local buildSlot = result:GetUInt32(0)
-                local talentName = result:GetString(1)
-				--player:GossipMenuAddItem(3, " |TInterface\\icons\\Achievement_bg_most_damage_killingblow_dieleast.png:26|t |cFF0000FFBuild " .. intid .. "|r [ |cffffff00" .. talentName .. "|r ]", 0, intid + 30) -- Stored Builds Submenu
-                player:GossipMenuAddItem(3, " |TInterface\\icons\\Achievement_bg_most_damage_killingblow_dieleast.png:26|t |cFF0000FFBuild " .. buildSlot .. "|r [ |cffffff00" .. talentName .. "|r ]", 0, buildSlot + 30) -- Stored Builds Submenu
-            until not result:NextRow()
-        end
-        
-        player:GossipMenuAddItem(3, " |TInterface\\icons\\Achievement_bg_returnxflags_def_wsg.png:26|t Resetar |cFF0000FFTalentos", 1, 500, false, "Tem certeza que quer Resetar os Talentos?") -- Reset Talents
-		--player:GossipMenuAddItem(3, " |TInterface\\icons\\Inv_inscription_minorglyph08.png:26|t Major Glyphs", 1, 100)
-		--player:GossipMenuAddItem(3, " |TInterface\\icons\\Inv_inscription_majorglyph18.png:26|t Minor Glyphs", 1, 101)
-		--player:GossipMenuAddItem(3, " Trocar de Spec Instant\n (para ativar Glyphs)", 1, 110)
-        player:GossipSendMenu(1, gameobject)
-    end
-end
-
-
-function OnGossipSelect(event, player, gameobject, sender, intid, code)
-	-- [Submenu] Aplicar Talent
-	if intid >= 30 and intid <= 50 then
-		local buildSlot = intid - 30
-		local guid = player:GetGUIDLow()
-		local query = "SELECT BuildName FROM custom_save_talents WHERE guid = " .. guid .. " AND BuildSlot = " .. buildSlot
-		local result = CharDBQuery(query)
-    
-		if result then
-			local talentName = result:GetString(0)
-			--player:GossipMenuAddItem(3, " |TInterface\\icons\\Achievement_bg_most_damage_killingblow_dieleast.png:26|t Aplicar |cFF0000FFBuild " .. (intid -30) .. "|r [|cffffff00 " .. talentName .. " |r]", 0, intid + 1000)
-			player:GossipMenuAddItem(3, " |TInterface\\icons\\Achievement_bg_most_damage_killingblow_dieleast.png:26|t Aplicar |cFF0000FFBuild " .. buildSlot .. "|r [|cffffff00 " .. talentName .. " |r]", 0, intid + 1000)
-		end
-    
-		--player:GossipMenuAddItem(9, " |TInterface\\icons\\Ability_fiegndead.png:26|t Deletar |cFF0000FFBuild ", 1, intid + 2000, false, "|cffffff00Tem certeza que quer deletar a Build " .. intid - 30 .. " ?")
-		player:GossipMenuAddItem(9, " |TInterface/Icons/Inv_scroll_11.png:26|t Renomear |cFF0000FFBuild", 1, intid + 2100, true)
-		player:GossipMenuAddItem(9, " |TInterface\\icons\\Ability_fiegndead.png:26|t Deletar |cFF0000FFBuild ", 1, intid + 2000, false, "|cffffff00Tem certeza que quer deletar a Build " .. buildSlot .. " ?")
-		player:GossipMenuAddItem(2, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:16:16:0:0|t |cFF800000Voltar", 0, 499)
-		player:GossipSendMenu(1, gameobject)
-	end
-	
-
-	-- Realmente Aplica a Build
-	if intid >= 1030 and intid <= 1050 then -- Aplicar Talents (de acordo com o Gossip [Aplicar Talents], que tem intid 30 até 50)
-		-- Custom Lua Function
-		if player:InArenaQueue() then
-			player:SendBroadcastMessage("Você não pode aplicar uma build através do Talent Archivist enquanto estiver na fila de Arena.")
-			player:GossipComplete()
-		else 
-			local buildSlot = intid - 1030
-				player:ResetTalents()
-				player:SaveToDB()
-				playerMap[player:GetGUIDLow()] = buildSlot
-				player:RegisterEvent(ApplyTalentsPeriodically, 100, 10) -- Milisegundos/quantidades de applies
-				ApplyGlyphsFromStoredTable(player, buildSlot)
-			if player:GetActiveSpec() == 0 then -- Main Spec - Force Switch spec for Glyphs (need to Relog or Switch spec, otherwise they don't work)
-				player:CastSpell(player, 63644, true) -- Activate Secondary Spec
-				player:CastSpell(player, 63645, true) -- Activate primary Spec
-			elseif player:GetActiveSpec() == 1 then
-				player:CastSpell(player, 63645, true)
-				player:CastSpell(player, 63644, true)
-			end
-				player:SetPower(player:GetMaxPower(0), 0)
-				player:SendBroadcastMessage("Você aplicou a Build " .. (intid - 1030))
-			player:GossipComplete()
-		end
-	end
-	
-	-- Deletar a build selecionada
-	if intid >= 2030 and intid <= 2050 then
-		local buildSlot = intid - 2030
-		local guid = player:GetGUIDLow()
-		CharDBExecute("DELETE FROM custom_save_talents WHERE guid = "..guid.." AND BuildSlot = "..buildSlot)
-		CharDBExecute("DELETE FROM custom_save_talents_glyphs WHERE guid = "..guid.." AND BuildSlot = "..buildSlot)
-		player:SendBroadcastMessage("Build " .. (intid - 2030) .. " deletada.")
-		player:GossipComplete()
-	end
-	
-	-- Renomear a build selecionada
-	if intid >= 2130 and intid <= 2150 then
-		local BuildName = code
-		local guid = player:GetGUIDLow()
-		CharDBExecute("UPDATE custom_save_talents SET BuildName = '"..BuildName.."' WHERE guid = "..guid.." AND BuildSlot = "..(intid - 2130))
-		player:SendBroadcastMessage("Build " .. (intid - 2130) .. " renomeada para '" .. (BuildName) .. "' ")
-		player:GossipComplete()
-	end
-
-	-- Salvar Build - Submenu
-	if(intid == 80) then 
-		player:GossipSetText(string.format(" "))
-		player:SaveToDB()
-		for i = 1, 10 do -- Só mostra 10 Slots
-			player:GossipMenuAddItem(3, " |TInterface\\icons\\Ability_druid_naturalperfection.png:26|t Salvar Build - |cFF0000FFSlot " .. i, 1, i, true, "Digite o nome da Build que você deseja Salvar.\n Exemplos: 'Build PvE' ou 'DPS 0/59/12' ")
-		end
-		player:GossipMenuAddItem(9, "\n |TInterface\\icons\\Ability_fiegndead.png:26|t Deletar |cFF0000FFBuilds|r Salvas", 1, 450, false, "|cffffff00Tem certeza que quer deletar \ntodas as Builds salvas ?|r")
-		player:GossipMenuAddItem(5,"|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Voltar",0,499)        
-		player:GossipSendMenu(0x7FFFFFFF, gameobject, menu_id)    
-	end
-	
-	-- Salvar Build
-	if intid >= 1 and intid <= 20 then
-		local BuildName = code
-		local guid = player:GetGUIDLow()
-		player:SaveToDB()
-		player:GossipComplete()
-		player:SendBroadcastMessage("Build Salvada no Slot " .. (intid))
-    
-		CharDBExecute("DELETE FROM custom_save_talents WHERE guid = "..guid.." AND BuildSlot = "..intid)
-		
-		player:SaveToDB()
-		local activeSpec = player:GetActiveSpec()
-		local specMask
-		if activeSpec == 0 then     -- Main Spec
-			specMask = "specMask IN (1,3)"
-		elseif activeSpec == 1 then -- Off Spec
-			specMask = "specMask IN (2,3)"
-		end
-
-		-- get talents and add them on the new database, based on active spec
-		local result = CharDBQuery("SELECT spell FROM character_talent WHERE guid = "..guid.." AND "..specMask)
-		if result then
-			repeat
-				local spell = result:GetUInt32(0)
-				local BuildSlot = intid
-				CharDBExecute("INSERT INTO custom_save_talents (guid, spell, BuildSlot, BuildName) VALUES ("..guid..", "..spell..", "..BuildSlot..", '"..BuildName.."')")
-			until not result:NextRow()
-		end
-		
-		-- Save Glyphs
-		local glyphQuery = "REPLACE INTO custom_save_talents_glyphs (guid, glyph1, glyph2, glyph3, glyph4, glyph5, glyph6, BuildSlot) VALUES ("..guid
-		local result = CharDBQuery("SELECT glyph1, glyph2, glyph3, glyph4, glyph5, glyph6 FROM character_glyphs WHERE guid = "..guid.." AND talentGroup = "..activeSpec)
-
-		if result then
-			for i = 0, result:GetColumnCount() - 1 do
-				local glyph = result:GetUInt32(i)
-				glyphQuery = glyphQuery .. ", " .. glyph
-			end
-			glyphQuery = glyphQuery .. ", " .. intid .. ")"
-			CharDBExecute(glyphQuery)
-		end
-	end
-	
-	-- Deletar todas Builds Salvas
-	if intid == 450 then 
-		local guid = player:GetGUIDLow()
-		CharDBExecute("DELETE FROM custom_save_talents WHERE guid = " .. guid)
-		CharDBExecute("DELETE FROM custom_save_talents_glyphs WHERE guid = " .. guid)
-		player:SaveToDB()
-		player:SendBroadcastMessage("Builds salvas foram deletados.")
-		player:GossipComplete()
-	end
-	
-	if intid == 500 then -- Reset Talents
-		player:ResetTalents()
-		player:SaveToDB()
-		player:SendBroadcastMessage("Seus Talentos foram resetados.")
-		player:GossipComplete()
-    end
-	
-	if intid == 110 then -- Trocar de Spec (para aplicar Glyph, sem precisar Relogar)
-		OpenNPCSaveBuild(event, player, gameobject)
-		if player:GetActiveSpec() == 0 then -- Main Spec - Force Switch spec to make applied Glyphs work
-			player:CastSpell(player, 63644, true)
-			player:CastSpell(player, 63645, true)
-		elseif player:GetActiveSpec() == 1 then
-			player:CastSpell(player, 63645, true)
-			player:CastSpell(player, 63644, true)
-		end
-	end
-	
-	
-	
-	if(intid == 100) then -- Major Glyphs
-		player:GossipSetText(string.format(" "))
-		player:GossipMenuAddItem(3, " |TInterface\\icons\\Misc_arrowlup:26|t Major Glyphs - Slot Cima", 1, 104)
-		player:GossipMenuAddItem(3, " |TInterface\\icons\\Misc_arrowleft:26|t Major Glyphs - Slot Esquerdo", 1, 105)
-		player:GossipMenuAddItem(3, " |TInterface\\icons\\Misc_arrowright:26|t Major Glyphs - Slot Direito", 1, 106)
-		player:GossipMenuAddItem(2, " Voltar", 1, 499)
-		player:GossipSendMenu(0x7FFFFFFF, gameobject, menu_id)    
-	elseif(intid == 101) then -- Minor Glyphs
-		player:GossipSetText(string.format(" "))
-		player:GossipMenuAddItem(3, " |TInterface\\icons\\misc_arrowdown:26|t Minor Glyphs - Slot Baixo", 1, 107)
-		player:GossipMenuAddItem(3, " |TInterface\\icons\\Misc_arrowleft:26|t Minor Glyphs - Slot Esquerdo", 1, 108)
-		player:GossipMenuAddItem(3, " |TInterface\\icons\\Misc_arrowright:26|t Minor Glyphs - Slot Direito", 1, 109)
-		player:GossipMenuAddItem(2, " Voltar", 1, 499)
-		player:GossipSendMenu(0x7FFFFFFF, gameobject, menu_id)    
-	end
-
-    -- Major Glyphs
-	if intid >= 104 and intid <= 106 then
-		local GlyphSlot
-		if intid == 104 then     -- Major Up
-			GlyphSlot = 0       
-		elseif intid == 105 then -- Major Left
-			GlyphSlot = 5
-		elseif intid == 106 then -- Major Right
-			GlyphSlot = 3
-		end
-		player:SetData("GlyphSlot", GlyphSlot) -- Salvando GlyphSlot no player para ser usado em intid 110
-	
-		-- Major Glyphs:
-		if (player:GetClass() == 1) then     -- Warrior
-			player:GossipSetText(string.format("Atualmente os glyphs adicionados atraves de Lua só estão tendo efeito após trocar de Spec ou Relogar."))
-			player:GossipMenuAddItem(3, "Glyph of Pain Suppression", 1, 111)
-			player:GossipMenuAddItem(3, "Glyph of Dispersion", 1, 11222)
-			player:GossipMenuAddItem(2, "Voltar", 1, 100)
-			player:GossipSendMenu(0x7FFFFFFF, gameobject, menu_id)
-		elseif (player:GetClass() == 2) then -- Paladin
-			player:GossipSetText(string.format("Atualmente os glyphs adicionados atraves de Lua só estão tendo efeito após trocar de Spec ou Relogar."))
-			player:GossipMenuAddItem(3, "Glyph of Mortal Strike", 1, 111)
-			player:GossipMenuAddItem(3, "Glyph of Dispersion", 1, 112)
-			player:GossipMenuAddItem(2, "Voltar", 1, 100)
-			player:GossipSendMenu(0x7FFFFFFF, gameobject, menu_id)
-		elseif (player:GetClass() == 3) then -- Hunter
-			player:GossipSetText(string.format("Atualmente os glyphs adicionados atraves de Lua só estão tendo efeito após trocar de Spec ou Relogar."))
-			player:GossipMenuAddItem(3, "Glyph of Mortal Strike", 1, 112)
-			player:GossipMenuAddItem(3, "Glyph of Dispersion", 1, 11122)
-			player:GossipMenuAddItem(2, "Voltar", 1, 100)
-			player:GossipSendMenu(0x7FFFFFFF, gameobject, menu_id)
-		elseif (player:GetClass() == 4) then -- Rogue
-			player:GossipSetText(string.format("Atualmente os glyphs adicionados atraves de Lua só estão tendo efeito após trocar de Spec ou Relogar."))
-			player:GossipMenuAddItem(3, "Glyph of Mortal Strike", 1, 112)
-			player:GossipMenuAddItem(3, "Glyph of Dispersion", 1, 11122)
-			player:GossipMenuAddItem(2, "Voltar", 1, 100)
-			player:GossipSendMenu(0x7FFFFFFF, gameobject, menu_id)
-		elseif (player:GetClass() == 5) then -- Priest
-			player:GossipSetText(string.format("Atualmente os glyphs adicionados atraves de Lua só estão tendo efeito após trocar de Spec ou Relogar."))
-			player:GossipMenuAddItem(3, "Glyph of Mortal Strike", 1, 112)
-			player:GossipMenuAddItem(3, "Glyph of Dispersion", 1, 11122)
-			player:GossipMenuAddItem(2, "Voltar", 1, 100)
-			player:GossipSendMenu(0x7FFFFFFF, gameobject, menu_id)
-		elseif (player:GetClass() == 6) then -- Death Knight
-			player:GossipSetText(string.format("Atualmente os glyphs adicionados atraves de Lua só estão tendo efeito após trocar de Spec ou Relogar."))
-			player:GossipMenuAddItem(3, "Glyph of Mortal Strike", 1, 112)
-			player:GossipMenuAddItem(3, "Glyph of Dispersion", 1, 11122)
-			player:GossipMenuAddItem(2, "Voltar", 1, 100)
-			player:GossipSendMenu(0x7FFFFFFF, gameobject, menu_id)
-     	elseif (player:GetClass() == 7) then -- Shaman
-			player:GossipSetText(string.format("Atualmente os glyphs adicionados atraves de Lua só estão tendo efeito após trocar de Spec ou Relogar."))
-			player:GossipMenuAddItem(3, "Glyph of Mortal Strike", 1, 112)
-			player:GossipMenuAddItem(3, "Glyph of Dispersion", 1, 11122)
-			player:GossipMenuAddItem(2, "Voltar", 1, 100)
-			player:GossipSendMenu(0x7FFFFFFF, gameobject, menu_id)
-		elseif (player:GetClass() == 8) then -- Mage
-			player:GossipSetText(string.format("Atualmente os glyphs adicionados atraves de Lua só estão tendo efeito após trocar de Spec ou Relogar."))
-			player:GossipMenuAddItem(3, "Glyph of Mortal Strike", 1, 112)
-			player:GossipMenuAddItem(3, "Glyph of Dispersion", 1, 11122)
-			player:GossipMenuAddItem(2, "Voltar", 1, 100)
-			player:GossipSendMenu(0x7FFFFFFF, gameobject, menu_id)
-		elseif (player:GetClass() == 9) then -- Warlock
-			player:GossipSetText(string.format("Atualmente os glyphs adicionados atraves de Lua só estão tendo efeito após trocar de Spec ou Relogar."))
-			player:GossipMenuAddItem(3, "Glyph of Insect Swarm", 1, 113)
-			player:GossipMenuAddItem(3, "Glyph of Dispersion", 1, 11122)
-			player:GossipMenuAddItem(2, "Voltar", 1, 100)
-			player:GossipSendMenu(0x7FFFFFFF, gameobject, menu_id)
-		elseif (player:GetClass() == 11) then -- Druid
-			player:GossipSetText(string.format("Atualmente os glyphs adicionados atraves de Lua só estão tendo efeito após trocar de Spec ou Relogar."))
-			player:GossipMenuAddItem(3, "Glyph of Mortal Strike", 1, 112)
-			player:GossipMenuAddItem(3, "Glyph of Dispersion", 1, 11122)
-			player:GossipMenuAddItem(2, "Voltar", 1, 100)
-			player:GossipSendMenu(0x7FFFFFFF, gameobject, menu_id)
-		end
-	end
-
-	if intid == 111 then     -- Glyph of Pain Suppression
-		local GlyphSlot = player:GetData("GlyphSlot")
-		player:SetGlyph(190, GlyphSlot)
-		OpenNPCSaveBuild(event, player, gameobject)
-	elseif intid == 112 then -- Glyph of Mortal Strike
-		local GlyphSlot = player:GetData("GlyphSlot")
-		player:SetGlyph(489, GlyphSlot)
-		OpenNPCSaveBuild(event, player, gameobject)
-	elseif intid == 113 then -- Glyph of Insect Swarm
-		local GlyphSlot = player:GetData("GlyphSlot")
-		player:SetGlyph(176, GlyphSlot)
-		OpenNPCSaveBuild(event, player, gameobject)
-	elseif intid == 114 then -- Glyph of the Wild - Minor
-		local GlyphSlot = player:GetData("GlyphSlot")
-		player:SetGlyph(433, GlyphSlot)
-		OpenNPCSaveBuild(event, player, gameobject)
-	elseif intid == 115 then -- Glyph of Dash - Minor
-		local GlyphSlot = player:GetData("GlyphSlot")
-		player:SetGlyph(551, GlyphSlot)
-		OpenNPCSaveBuild(event, player, gameobject)
-	end
-
-	-- Minor Glyphs
-	if intid >= 107 and intid <= 109 then
-		local GlyphSlot
-		if intid == 107 then     -- Minor Down
-			GlyphSlot = 1
-		elseif intid == 108 then -- Minor Left
-			GlyphSlot = 2
-		elseif intid == 109 then -- Minor Right
-			GlyphSlot = 4
-		end
-		player:SetData("GlyphSlot", GlyphSlot) -- Salvando GlyphSlot no player para ser usado em intid 110
-	
-		-- Minor Glyphs:
-		if (player:GetClass() == 1) then -- Warrior
-			player:GossipSetText(string.format("Atualmente os glyphs adicionados atraves de Lua só estão tendo efeito após trocar de Spec ou Relogar."))
-			player:GossipMenuAddItem(3, "Glyph of Pain Suppression", 1, 111)
-			player:GossipMenuAddItem(3, "Glyph of Dispersion", 1, 11222)
-			player:GossipMenuAddItem(2, "Voltar", 1, 100)
-			player:GossipSendMenu(0x7FFFFFFF, gameobject, menu_id)
-		elseif (player:GetClass() == 2) then -- Rogue
-			player:GossipSetText(string.format("Atualmente os glyphs adicionados atraves de Lua só estão tendo efeito após trocar de Spec ou Relogar."))
-			player:GossipMenuAddItem(3, "Glyph of Mortal Strike", 1, 112)
-			player:GossipMenuAddItem(3, "Glyph of Dispersion", 1, 11122)
-			player:GossipMenuAddItem(2, "Voltar", 1, 100)
-			player:GossipSendMenu(0x7FFFFFFF, gameobject, menu_id)
-		elseif (player:GetClass() == 3) then -- Hunter
-			player:GossipSetText(string.format("Atualmente os glyphs adicionados atraves de Lua só estão tendo efeito após trocar de Spec ou Relogar."))
-			player:GossipMenuAddItem(3, "Glyph of Mortal Strike", 1, 112)
-			player:GossipMenuAddItem(3, "Glyph of Dispersion", 1, 11122)
-			player:GossipMenuAddItem(2, "Voltar", 1, 100)
-			player:GossipSendMenu(0x7FFFFFFF, gameobject, menu_id)
-		elseif (player:GetClass() == 4) then -- Rogue
-			player:GossipSetText(string.format("Atualmente os glyphs adicionados atraves de Lua só estão tendo efeito após trocar de Spec ou Relogar."))
-			player:GossipMenuAddItem(3, "Glyph of Mortal Strike", 1, 112)
-			player:GossipMenuAddItem(3, "Glyph of Dispersion", 1, 11122)
-			player:GossipMenuAddItem(2, "Voltar", 1, 100)
-			player:GossipSendMenu(0x7FFFFFFF, gameobject, menu_id)
-		elseif (player:GetClass() == 5) then -- Priest
-			player:GossipSetText(string.format("Atualmente os glyphs adicionados atraves de Lua só estão tendo efeito após trocar de Spec ou Relogar."))
-			player:GossipMenuAddItem(3, "Glyph Minor ", 1, 116)
-			player:GossipMenuAddItem(3, "Glyph of Dash", 1, 117)
-			player:GossipMenuAddItem(2, "Voltar", 1, 100)
-			player:GossipSendMenu(0x7FFFFFFF, gameobject, menu_id)
-		elseif (player:GetClass() == 6) then -- Death Knight
-			player:GossipSetText(string.format("Atualmente os glyphs adicionados atraves de Lua só estão tendo efeito após trocar de Spec ou Relogar."))
-			player:GossipMenuAddItem(3, "Glyph of Mortal Strike", 1, 112)
-			player:GossipMenuAddItem(3, "Glyph of Dispersion", 1, 11122)
-			player:GossipMenuAddItem(2, "Voltar", 1, 100)
-			player:GossipSendMenu(0x7FFFFFFF, gameobject, menu_id)
-     	elseif (player:GetClass() == 7) then -- Shaman
-			player:GossipSetText(string.format("Atualmente os glyphs adicionados atraves de Lua só estão tendo efeito após trocar de Spec ou Relogar."))
-			player:GossipMenuAddItem(3, "Glyph of Mortal Strike", 1, 112)
-			player:GossipMenuAddItem(3, "Glyph of Dispersion", 1, 11122)
-			player:GossipMenuAddItem(2, "Voltar", 1, 100)
-			player:GossipSendMenu(0x7FFFFFFF, gameobject, menu_id)
-		elseif (player:GetClass() == 8) then -- Mage
-			player:GossipSetText(string.format("Atualmente os glyphs adicionados atraves de Lua só estão tendo efeito após trocar de Spec ou Relogar."))
-			player:GossipMenuAddItem(3, "Glyph of Mortal Strike", 1, 112)
-			player:GossipMenuAddItem(3, "Glyph of Dispersion", 1, 11122)
-			player:GossipMenuAddItem(2, "Voltar", 1, 100)
-			player:GossipSendMenu(0x7FFFFFFF, gameobject, menu_id)
-		elseif (player:GetClass() == 9) then -- Warlock
-			player:GossipSetText(string.format("Atualmente os glyphs adicionados atraves de Lua só estão tendo efeito após trocar de Spec ou Relogar."))
-			player:GossipMenuAddItem(3, "Glyph of Insect Swarm", 1, 113)
-			player:GossipMenuAddItem(3, "Glyph of Dispersion", 1, 11122)
-			player:GossipMenuAddItem(2, "Voltar", 1, 100)
-			player:GossipSendMenu(0x7FFFFFFF, gameobject, menu_id)
-		elseif (player:GetClass() == 11) then -- Druid
-			player:GossipSetText(string.format("Atualmente os glyphs adicionados atraves de Lua só estão tendo efeito após trocar de Spec ou Relogar."))
-			player:GossipMenuAddItem(3, "Glyph of Mortal Strike", 1, 112)
-			player:GossipMenuAddItem(3, "Glyph of Dispersion", 1, 11122)
-			player:GossipMenuAddItem(2, "Voltar", 1, 100)
-			player:GossipSendMenu(0x7FFFFFFF, gameobject, menu_id)
-		end
-	end
-	
-	-- Minor Glyphs Entries
-	if intid == 116 then     -- Glyph of Dash - Minor
-		local GlyphSlot = player:GetData("GlyphSlot")
-		player:SetGlyph(551, GlyphSlot)
-		OpenNPCSaveBuild(event, player, gameobject)
-	elseif intid == 117 then -- Glyph of Dash - Minor
-		local GlyphSlot = player:GetData("GlyphSlot")
-		player:SetGlyph(551, GlyphSlot)
-		OpenNPCSaveBuild(event, player, gameobject)
-	end
-	
-	if(intid == 499) then -- Back to Main Menu
-		OpenNPCSaveBuild(event, player, gameobject)
-	end
-end
-
-function ApplyTalentsPeriodically(eventid, delay, repeats, player)
-    ApplyTalentsFromStoredTable(player)
-end
-
-function ApplyTalentsFromStoredTable(player, buildSlot)
-    local guid = player:GetGUIDLow()
-    local buildSlot = playerMap[guid]
-
-    local result = CharDBQuery("SELECT spell FROM custom_save_talents WHERE guid = "..guid.." AND BuildSlot = "..buildSlot)
-    if result then
-        repeat
-            local spellID = result:GetUInt32(0)
-            local talentInfo = SpellIDToTalentandRank(spellID)
-
-            if talentInfo then
-                player:LearnTalent(talentInfo.talentID, talentInfo.rank)
-            end
-        until not result:NextRow()
-    end
-end
-
-function ApplyGlyphsFromStoredTable(player, buildSlot)
-    local guid = player:GetGUIDLow()
-    local result = CharDBQuery("SELECT glyph1, glyph2, glyph3, glyph4, glyph5, glyph6 FROM custom_save_talents_glyphs WHERE guid = "..guid.." AND BuildSlot = "..buildSlot)
-
-    if result then
-        local glyphSlots = {0, 1, 2, 3, 4, 5} -- (0, 5 e 3 são major. Em ordem: cima, esquerda, direita)
-
-        for i = 0, result:GetColumnCount() - 1 do
-            local glyphID = result:GetUInt32(i)
-            local glyphSlot = glyphSlots[i+1] -- Índices Lua começam em 1, não 0
-
-            if glyphID ~= 0 then -- Se o glyphID não for 0 (nenhum glyph)
-                player:SetGlyph(glyphID, glyphSlot)
-            end
-        end
-    end
-end
-
-
-
 
 RegisterGameObjectGossipEvent(GameObjectEntry, 1, OpenNPCSaveBuild)
 RegisterGameObjectGossipEvent(GameObjectEntry, 2, OnGossipSelect)
+
+RegisterPlayerGossipEvent(menu_id, 2, OnGossipSelect)
