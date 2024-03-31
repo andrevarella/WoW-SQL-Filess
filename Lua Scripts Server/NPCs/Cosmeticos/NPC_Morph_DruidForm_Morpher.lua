@@ -2,23 +2,31 @@ local UnitEntry = 45432
 local itemVIP = 61000
 local itemVIPeterno = 61001
 
+-- achievements de arena:
+-- 401   = 2000 2v2
+-- 1159  = 2200 2v2
+-- 10036 = 2400 2v2
+-- 10037 = 2700 2v2
+-- 10046 = 3000 2v2
+
+-- 405   = 2000 3v3
+-- 1160  = 2200 3v3
+-- 10038 = 2400 3v3
+-- 13039 = 2700 3v3
+-- 10047 = 3000 3v3
+
+
 local function druidMorphHello2(event, player, creature)
     player:GossipSetText(string.format(" "))
-    if (player:HasItem(itemVIP) == false and player:HasItem(itemVIPeterno) == false) then
-		player:SendBroadcastMessage("Você precisa do Livro Vip para usar esse NPC.")
-		return player:GossipComplete()
-	else
-		player:LearnSpell(83384) -- Spell necessaria para poder castar RemoveAura/AddAura OnLogin (só pessoas com o livro VIP)
-		player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_catform.png:29|t Cat Form", 0, 1)
-		player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_racial_bearform.png:29|t Bear Form", 0, 2)
-		player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_travelform.png:29|t Travel Form", 0, 3)
-		player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_improvedmoonkinform.png:29|t Moonkin Form", 0, 4)
-		player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_aquaticform.png:29|t Aquatic Form", 0, 5)
-		player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_TreeofLife.png:29|t Tree Form", 0, 6)
-		--player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_Druid_FlightForm.png:29|t Flight Form", 0, 7)
-		player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_Mount_WhiteDireWolf.png:29|t Ghost Wolf", 0, 8)
-		player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)
-	end
+	player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_catform.png:29|t Cat Form", 0, 1)
+	player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_racial_bearform.png:29|t Bear Form", 0, 2)
+	player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_travelform.png:29|t Travel Form", 0, 3)
+	player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_improvedmoonkinform.png:29|t Moonkin Form", 0, 4)
+	player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_aquaticform.png:29|t Aquatic Form", 0, 5)
+	player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_TreeofLife.png:29|t Tree Form", 0, 6)
+	--player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_Druid_FlightForm.png:29|t Flight Form", 0, 7)
+	player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_Mount_WhiteDireWolf.png:29|t Ghost Wolf", 0, 8)
+	player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)
 end
 
 function druidMorph_Select(event, player, creature, sender, intid, code)
@@ -36,11 +44,11 @@ function druidMorph_Select(event, player, creature, sender, intid, code)
 			player:GossipMenuAddItem(2, "|TInterface\\icons\\ability_warlock_fireAndBrimstone.png:20|t Armored Fire Cat HD", 0, 50774)
             player:GossipMenuAddItem(7, "|TInterface\\icons\\Ability_druid_catform.png:20|t Night Elf - Cat Forms", 0, 29)
             player:GossipMenuAddItem(7, "|TInterface\\icons\\Ability_druid_catform.png:20|t Night Elf - Armored Cat Forms", 0, 30)
+		    player:GossipMenuAddItem(7, "|TInterface\\icons\\Ability_druid_catform.png:20|t Incarnation of Nightmare Cat Forms", 0, 27)
 		    player:GossipMenuAddItem(7, "|TInterface\\icons\\Ability_druid_catform.png:20|t Fangs of Ashamane Cat Forms", 0, 23)
 		    player:GossipMenuAddItem(7, "|TInterface\\icons\\Ability_druid_catform.png:20|t Ghost of the Pridemother Cat Forms", 0, 24)
 		    player:GossipMenuAddItem(7, "|TInterface\\icons\\Ability_druid_catform.png:20|t Nature's Fury Cat Forms", 0, 25)
 			player:GossipMenuAddItem(7, "|TInterface\\icons\\Ability_druid_catform.png:20|t Primal Stalker Cat Forms", 0, 26)
-		    player:GossipMenuAddItem(7, "|TInterface\\icons\\Ability_druid_catform.png:20|t Incarnation of Nightmare Cat Forms", 0, 27)
 		    player:GossipMenuAddItem(7, "|TInterface\\icons\\Ability_druid_catform.png:20|t Moonspirit Cat Forms", 0, 28)
 			player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Inicio",0,10)
 		
@@ -50,11 +58,11 @@ function druidMorph_Select(event, player, creature, sender, intid, code)
 			player:GossipMenuAddItem(2, "|TInterface\\icons\\ability_warlock_fireAndBrimstone.png:20|t Armored Fire Cat HD", 0, 50774)
             player:GossipMenuAddItem(7, "|TInterface\\icons\\Ability_druid_catform.png:20|t Tauren - Cat Forms", 0, 31)
             player:GossipMenuAddItem(7, "|TInterface\\icons\\Ability_druid_catform.png:20|t Tauren - Armored Cat Forms", 0, 32)
+			player:GossipMenuAddItem(7, "|TInterface\\icons\\Ability_druid_catform.png:20|t Incarnation of Nightmare Cat Forms", 0, 27)
 		    player:GossipMenuAddItem(7, "|TInterface\\icons\\Ability_druid_catform.png:20|t Fangs of Ashamane Cat Forms", 0, 23)
 		    player:GossipMenuAddItem(7, "|TInterface\\icons\\Ability_druid_catform.png:20|t Ghost of the Pridemother Cat Forms", 0, 24)
 		    player:GossipMenuAddItem(7, "|TInterface\\icons\\Ability_druid_catform.png:20|t Nature's Fury Cat Forms", 0, 25)
 			player:GossipMenuAddItem(7, "|TInterface\\icons\\Ability_druid_catform.png:20|t Primal Stalker Cat Forms", 0, 26)
-		    player:GossipMenuAddItem(7, "|TInterface\\icons\\Ability_druid_catform.png:20|t Incarnation of Nightmare Cat Forms", 0, 27)
 		    player:GossipMenuAddItem(7, "|TInterface\\icons\\Ability_druid_catform.png:20|t Moonspirit Cat Forms", 0, 28)
 			player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Inicio",0,10)
 		
@@ -64,15 +72,14 @@ function druidMorph_Select(event, player, creature, sender, intid, code)
 			player:GossipMenuAddItem(2, "|TInterface\\icons\\ability_warlock_fireAndBrimstone.png:20|t Armored Fire Cat HD", 0, 50774)
 			player:GossipMenuAddItem(7, "|TInterface\\icons\\Ability_druid_catform.png:20|t Troll - Cat Forms", 0, 33)
 			player:GossipMenuAddItem(7, "|TInterface\\icons\\Ability_druid_catform.png:20|t Troll - Armored Cat Forms", 0, 34)
+			player:GossipMenuAddItem(7, "|TInterface\\icons\\Ability_druid_catform.png:20|t Incarnation of Nightmare Cat Forms", 0, 27)
 		    player:GossipMenuAddItem(7, "|TInterface\\icons\\Ability_druid_catform.png:20|t Fangs of Ashamane Cat Forms", 0, 23)
 		    player:GossipMenuAddItem(7, "|TInterface\\icons\\Ability_druid_catform.png:20|t Ghost of the Pridemother Cat Forms", 0, 24)
 		    player:GossipMenuAddItem(7, "|TInterface\\icons\\Ability_druid_catform.png:20|t Nature's Fury Cat Forms", 0, 25)
 			player:GossipMenuAddItem(7, "|TInterface\\icons\\Ability_druid_catform.png:20|t Primal Stalker Cat Forms", 0, 26)
-		    player:GossipMenuAddItem(7, "|TInterface\\icons\\Ability_druid_catform.png:20|t Incarnation of Nightmare Cat Forms", 0, 27)
 		    player:GossipMenuAddItem(7, "|TInterface\\icons\\Ability_druid_catform.png:20|t Moonspirit Cat Forms", 0, 28)
 			player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Inicio",0,10)
 		end
-        player:GossipComplete()
         player:GossipSendMenu(0x7FFFFFFF, creature, menu_id) 
 	
     elseif(intid == 29) then -- Cat Forms - Night Elf
@@ -89,15 +96,20 @@ function druidMorph_Select(event, player, creature, sender, intid, code)
 	
     elseif(intid == 30) then -- Armored Cat Forms - Night Elf
         player:GossipSetText(string.format("Night Elf Armored Cat Forms"))
-		player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_catform.png:20|t Armored Cat Form Skin Black", 0, 50209)
-	    player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_catform.png:20|t Armored Cat Form Skin White", 0, 50213)
-		player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_catform.png:20|t Armored Cat Form Skin Blue", 0, 50210)
-		player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_catform.png:20|t Armored Cat Form Skin Purple", 0, 50211)
-		player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_catform.png:20|t Armored Cat Form Skin Pink", 0, 50212)
-		player:GossipMenuAddItem(5, " ",0, 1)
-	    player:GossipMenuAddItem(5, "|TInterface\\icons\\Ability_druid_catform.png:20|t Voltar",0,1)
-	    player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Inicio",0,10)
-        player:GossipSendMenu(0x7FFFFFFF, creature, menu_id) 
+		if not player:HasAchieved(405) then
+			player:SendBroadcastMessage("Você precisa do Livro Vip e o achievement de 2000 de rating em 3v3 para acessar essa opção.")
+			return druidMorph_Select(event, player, creature, sender, 1, code)
+		else
+			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_catform.png:20|t Armored Cat Form Skin Black", 0, 50209)
+			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_catform.png:20|t Armored Cat Form Skin White", 0, 50213)
+			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_catform.png:20|t Armored Cat Form Skin Blue", 0, 50210)
+			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_catform.png:20|t Armored Cat Form Skin Purple", 0, 50211)
+			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_catform.png:20|t Armored Cat Form Skin Pink", 0, 50212)
+			player:GossipMenuAddItem(5, " ",0, 1)
+			player:GossipMenuAddItem(5, "|TInterface\\icons\\Ability_druid_catform.png:20|t Voltar",0,1)
+			player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Inicio",0,10)
+			player:GossipSendMenu(0x7FFFFFFF, creature, menu_id) 
+		end
 	
     elseif(intid == 31) then -- Cat Forms - Tauren
         player:GossipSetText(string.format("Tauren Cat Forms"))
@@ -113,15 +125,20 @@ function druidMorph_Select(event, player, creature, sender, intid, code)
 	
     elseif(intid == 32) then -- Armored Cat Forms - Tauren
         player:GossipSetText(string.format("Tauren Armored Cat Forms"))
-		player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_catform.png:20|t Armored Cat Form Skin Black", 0, 50215)
-	    player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_catform.png:20|t Armored Cat Form Skin White", 0, 50217)
-		player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_catform.png:20|t Armored Cat Form Skin Brown", 0, 50216)
-		player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_catform.png:20|t Armored Cat Form Skin Light Brown", 0, 50214)
-		player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_catform.png:20|t Armored Cat Form Skin Yellow", 0, 50218)
-		player:GossipMenuAddItem(5, " ",0, 1)
-	    player:GossipMenuAddItem(5, "|TInterface\\icons\\Ability_druid_catform.png:20|t Voltar",0,1)
-	    player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Inicio",0,10)
-        player:GossipSendMenu(0x7FFFFFFF, creature, menu_id) 
+		if not player:HasAchieved(405) then
+			player:SendBroadcastMessage("Você precisa do Livro Vip e o achievement de 2000 de rating em 3v3 para acessar essa opção.")
+			return druidMorph_Select(event, player, creature, sender, 1, code)
+		else
+			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_catform.png:20|t Armored Cat Form Skin Black", 0, 50215)
+			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_catform.png:20|t Armored Cat Form Skin White", 0, 50217)
+			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_catform.png:20|t Armored Cat Form Skin Brown", 0, 50216)
+			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_catform.png:20|t Armored Cat Form Skin Light Brown", 0, 50214)
+			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_catform.png:20|t Armored Cat Form Skin Yellow", 0, 50218)
+			player:GossipMenuAddItem(5, " ",0, 1)
+			player:GossipMenuAddItem(5, "|TInterface\\icons\\Ability_druid_catform.png:20|t Voltar",0,1)
+			player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Inicio",0,10)
+			player:GossipSendMenu(0x7FFFFFFF, creature, menu_id) 
+		end
 		
    elseif(intid == 33) then -- Cat Forms - Troll
         player:GossipSetText(string.format("Troll Cat Forms"))
@@ -136,86 +153,124 @@ function druidMorph_Select(event, player, creature, sender, intid, code)
         player:GossipSendMenu(0x7FFFFFFF, creature, menu_id) 
     elseif(intid == 34) then -- Armored Cat Forms - Troll
         player:GossipSetText(string.format("Troll Armored Cat Forms"))
-		player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_catform.png:20|t Armored Cat Form Skin Blue", 0, 50600)
-	    player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_catform.png:20|t Armored Cat Form Skin White", 0, 50596)
-		player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_catform.png:20|t Armored Cat Form Skin Red", 0, 50598)
-		player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_catform.png:20|t Armored Cat Form Skin Yellow", 0, 50599)
-		player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_catform.png:20|t Armored Cat Form Skin Green", 0, 50597)
-		player:GossipMenuAddItem(5, " ",0, 1)
-	    player:GossipMenuAddItem(5, "|TInterface\\icons\\Ability_druid_catform.png:20|t Voltar",0,1)
-	    player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Inicio",0,10)
-        player:GossipSendMenu(0x7FFFFFFF, creature, menu_id) 
+		if not player:HasAchieved(405) then
+			player:SendBroadcastMessage("Você precisa do Livro Vip e o achievement de 2000 de rating em 3v3 para acessar essa opção.")
+			return druidMorph_Select(event, player, creature, sender, 1, code)
+		else
+			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_catform.png:20|t Armored Cat Form Skin Blue", 0, 50600)
+			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_catform.png:20|t Armored Cat Form Skin White", 0, 50596)
+			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_catform.png:20|t Armored Cat Form Skin Red", 0, 50598)
+			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_catform.png:20|t Armored Cat Form Skin Yellow", 0, 50599)
+			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_catform.png:20|t Armored Cat Form Skin Green", 0, 50597)
+			player:GossipMenuAddItem(5, " ",0, 1)
+			player:GossipMenuAddItem(5, "|TInterface\\icons\\Ability_druid_catform.png:20|t Voltar",0,1)
+			player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Inicio",0,10)
+			player:GossipSendMenu(0x7FFFFFFF, creature, menu_id) 
+		end
 	
 	-- Artifact Cat Forms
     elseif(intid == 23) then -- Artifact Cat Forms 1 - Fangs of Ashamane Cat Forms
         player:GossipSetText(string.format("Fangs of Ashamane Cat Forms"))
-		player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_catform.png:20|t White", 0, 50226)
-	    player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_catform.png:20|t Black", 0, 50219)
-		player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_catform.png:20|t Brown", 0, 50221)
-		player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_catform.png:20|t Blue", 0, 50225)
-		player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_catform.png:20|t Purple", 0, 50220)
-	    player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_catform.png:20|t Red", 0, 50224)
-		player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_catform.png:20|t Greybrown", 0, 50223)
-		player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_catform.png:20|t Lightbrown", 0, 50222)
-		player:GossipMenuAddItem(5, " ",0, 1)
-	    player:GossipMenuAddItem(5, "|TInterface\\icons\\Ability_druid_catform.png:20|t Voltar",0,1)
-	    player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Inicio",0,10)
-        player:GossipSendMenu(0x7FFFFFFF, creature, menu_id) 
+		if (player:HasItem(itemVIP) == false and player:HasItem(itemVIPeterno) == false) then
+			player:SendBroadcastMessage("Você precisa do Livro Vip para acessar essa opção.")
+			return druidMorph_Select(event, player, creature, sender, 1, code)
+		else
+			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_catform.png:20|t White", 0, 50226)
+			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_catform.png:20|t Black", 0, 50219)
+			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_catform.png:20|t Brown", 0, 50221)
+			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_catform.png:20|t Blue", 0, 50225)
+			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_catform.png:20|t Purple", 0, 50220)
+			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_catform.png:20|t Red", 0, 50224)
+			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_catform.png:20|t Greybrown", 0, 50223)
+			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_catform.png:20|t Lightbrown", 0, 50222)
+			player:GossipMenuAddItem(5, " ",0, 1)
+			player:GossipMenuAddItem(5, "|TInterface\\icons\\Ability_druid_catform.png:20|t Voltar",0,1)
+			player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Inicio",0,10)
+			player:GossipSendMenu(0x7FFFFFFF, creature, menu_id) 
+		end
 	
     elseif(intid == 24) then -- Artifact Cat Forms 2 - Ghost of the Pridemother Cat Forms
         player:GossipSetText(string.format("Ghost of the Pridemother Cat Forms"))
-		player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_catform.png:20|t Blue", 0, 50227)
-	    player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_catform.png:20|t Red", 0, 50230)
-		player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_catform.png:20|t Green", 0, 50228)
-		player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_catform.png:20|t Purple", 0, 50229)
-		player:GossipMenuAddItem(5, " ",0, 1)
-	    player:GossipMenuAddItem(5, "|TInterface\\icons\\Ability_druid_catform.png:20|t Voltar",0,1)
-	    player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Inicio",0,10)
-        player:GossipSendMenu(0x7FFFFFFF, creature, menu_id) 
+		if (player:HasItem(itemVIP) == false and player:HasItem(itemVIPeterno) == false) then
+			player:SendBroadcastMessage("Você precisa do Livro Vip para acessar essa opção.")
+			return druidMorph_Select(event, player, creature, sender, 1, code)
+		else
+			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_catform.png:20|t Blue", 0, 50227)
+			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_catform.png:20|t Red", 0, 50230)
+			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_catform.png:20|t Green", 0, 50228)
+			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_catform.png:20|t Purple", 0, 50229)
+			player:GossipMenuAddItem(5, " ",0, 1)
+			player:GossipMenuAddItem(5, "|TInterface\\icons\\Ability_druid_catform.png:20|t Voltar",0,1)
+			player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Inicio",0,10)
+			player:GossipSendMenu(0x7FFFFFFF, creature, menu_id) 
+		end
 	
     elseif(intid == 25) then -- Artifact Cat Forms 3 - Nature's Fury Cat Forms
         player:GossipSetText(string.format("Nature's Fury Cat Forms"))
-		player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_catform.png:20|t Purple", 0, 50235)
-	    player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_catform.png:20|t Blue", 0, 50232)
-		player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_catform.png:20|t Orange", 0, 50234)
-		player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_catform.png:20|t Green", 0, 50233)
-		player:GossipMenuAddItem(5, " ",0, 1)
-	    player:GossipMenuAddItem(5, "|TInterface\\icons\\Ability_druid_catform.png:20|t Voltar",0,1)
-	    player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Inicio",0,10)
-        player:GossipSendMenu(0x7FFFFFFF, creature, menu_id) 
+		if (player:HasItem(itemVIP) == false and player:HasItem(itemVIPeterno) == false) then
+			player:SendBroadcastMessage("Você precisa do Livro Vip para acessar essa opção.")
+			return druidMorph_Select(event, player, creature, sender, 1, code)
+		else
+			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_catform.png:20|t Purple", 0, 50235)
+			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_catform.png:20|t Blue", 0, 50232)
+			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_catform.png:20|t Orange", 0, 50234)
+			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_catform.png:20|t Green", 0, 50233)
+			player:GossipMenuAddItem(5, " ",0, 1)
+			player:GossipMenuAddItem(5, "|TInterface\\icons\\Ability_druid_catform.png:20|t Voltar",0,1)
+			player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Inicio",0,10)
+			player:GossipSendMenu(0x7FFFFFFF, creature, menu_id) 
+		end
 	
     elseif(intid == 26) then -- Artifact Cat Forms 4 - Primal Stalker Cat Forms
         player:GossipSetText(string.format("Primal Stalker Cat Forms"))
-		player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_catform.png:20|t Purple", 0, 50239)
-	    player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_catform.png:20|t White", 0, 50240)
-		player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_catform.png:20|t Orange", 0, 50238)
-		player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_catform.png:20|t Green", 0, 50237)
-		player:GossipMenuAddItem(5, " ",0, 1)
-	    player:GossipMenuAddItem(5, "|TInterface\\icons\\Ability_druid_catform.png:20|t Voltar",0,1)
-	    player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Inicio",0,10)
-        player:GossipSendMenu(0x7FFFFFFF, creature, menu_id) 
+		if (player:HasItem(itemVIP) == false and player:HasItem(itemVIPeterno) == false) then
+			player:SendBroadcastMessage("Você precisa do Livro Vip para acessar essa opção.")
+			return druidMorph_Select(event, player, creature, sender, 1, code)
+		else
+			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_catform.png:20|t Purple", 0, 50239)
+			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_catform.png:20|t White", 0, 50240)
+			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_catform.png:20|t Orange", 0, 50238)
+			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_catform.png:20|t Green", 0, 50237)
+			player:GossipMenuAddItem(5, " ",0, 1)
+			player:GossipMenuAddItem(5, "|TInterface\\icons\\Ability_druid_catform.png:20|t Voltar",0,1)
+			player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Inicio",0,10)
+			player:GossipSendMenu(0x7FFFFFFF, creature, menu_id) 
+		end
 	
-    elseif(intid == 27) then -- Artifact Cat Forms 5 - Incarnation of Nightmare Cat Forms
+    elseif(intid == 27) then -- Artifact Cat Forms 5 - Incarnation of Nightmare Cat Forms (Honor)
         player:GossipSetText(string.format("Incarnation of Nightmare Cat Forms"))
-		player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_catform.png:20|t Red", 0, 50244)
-	    player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_catform.png:20|t Orange", 0, 50243)
-		player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_catform.png:20|t Blue", 0, 50241)
-		player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_catform.png:20|t Green", 0, 50242)
-		player:GossipMenuAddItem(5, " ",0, 1)
-	    player:GossipMenuAddItem(5, "|TInterface\\icons\\Ability_druid_catform.png:20|t Voltar",0,1)
-	    player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Inicio",0,10)
-        player:GossipSendMenu(0x7FFFFFFF, creature, menu_id) 
+		if (player:HasItem(itemVIP) == false and player:HasItem(itemVIPeterno) == false) then
+			player:SendBroadcastMessage("Você precisa do Livro Vip e o achievement de 2200 de rating em 3v3 para acessar essa opção.")
+			return druidMorph_Select(event, player, creature, sender, 1, code)
+		elseif not player:HasAchieved(1160) then
+			player:SendBroadcastMessage("Você precisa do Livro Vip e o achievement de 2200 de rating em 3v3 para acessar essa opção.")
+			return druidMorph_Select(event, player, creature, sender, 1, code)
+		else
+			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_catform.png:20|t Red", 0, 50244)
+			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_catform.png:20|t Orange", 0, 50243)
+			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_catform.png:20|t Blue", 0, 50241)
+			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_catform.png:20|t Green", 0, 50242)
+			player:GossipMenuAddItem(5, " ",0, 1)
+			player:GossipMenuAddItem(5, "|TInterface\\icons\\Ability_druid_catform.png:20|t Voltar",0,1)
+			player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Inicio",0,10)
+			player:GossipSendMenu(0x7FFFFFFF, creature, menu_id) 
+		end
 	
     elseif(intid == 28) then -- Artifact Cat Forms 6 - Moonspirit Cat Forms
         player:GossipSetText(string.format("Moonspirit Cat Forms"))
-		player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_catform.png:20|t Black", 0, 50245)
-	    player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_catform.png:20|t White", 0, 50246)
-		player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_catform.png:20|t Brown", 0, 50248)
-		player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_catform.png:20|t Orange", 0, 50247)
-		player:GossipMenuAddItem(5, " ",0, 1)
-	    player:GossipMenuAddItem(5, "|TInterface\\icons\\Ability_druid_catform.png:20|t Voltar",0,1)
-	    player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Inicio",0,10)
-        player:GossipSendMenu(0x7FFFFFFF, creature, menu_id) 
+		if (player:HasItem(itemVIP) == false and player:HasItem(itemVIPeterno) == false) then
+			player:SendBroadcastMessage("Você precisa do Livro Vip para acessar essa opção.")
+			return druidMorph_Select(event, player, creature, sender, 1, code)
+		else
+			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_catform.png:20|t Black", 0, 50245)
+			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_catform.png:20|t White", 0, 50246)
+			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_catform.png:20|t Brown", 0, 50248)
+			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_catform.png:20|t Orange", 0, 50247)
+			player:GossipMenuAddItem(5, " ",0, 1)
+			player:GossipMenuAddItem(5, "|TInterface\\icons\\Ability_druid_catform.png:20|t Voltar",0,1)
+			player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Inicio",0,10)
+			player:GossipSendMenu(0x7FFFFFFF, creature, menu_id) 
+		end
     end
 	
 	-- Bear Forms Gossips/Menus (Night Elf/Tauren/Troll/Artifact)
@@ -228,37 +283,35 @@ function druidMorph_Select(event, player, creature, sender, intid, code)
         if (player:GetRace()) == 4 then -- Night Elf
 		    player:GossipMenuAddItem(7, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Bear Forms - Night Elf", 0, 17)
 		    player:GossipMenuAddItem(7, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Armored Bear Forms - Night Elf", 0, 18)
+			player:GossipMenuAddItem(7, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Fallen to Nightmare Bear Forms", 0, 14)
 		    player:GossipMenuAddItem(7, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Claws of Ursoc Bear Forms", 0, 11)
 		    player:GossipMenuAddItem(7, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Stonepaw Bear Forms", 0, 12)
 		    player:GossipMenuAddItem(7, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Avatar of Ursol Bear Forms", 0, 13)
-			player:GossipMenuAddItem(7, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Fallen to Nightmare Bear Forms", 0, 14)
 		    player:GossipMenuAddItem(7, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Guardian of the Glade Bear Forms", 0, 15)
 		    player:GossipMenuAddItem(7, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Might of the Grizzlemaw Bear Forms", 0, 16)
-			
 			player:GossipMenuAddItem(5,"|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Inicio",0,10)
         
         elseif (player:GetRace()) == 6 then -- Tauren
             player:GossipMenuAddItem(7, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Bear Forms - Tauren", 0, 19)
 		    player:GossipMenuAddItem(7, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Armored Bear Forms - Tauren", 0, 20)
+			player:GossipMenuAddItem(7, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Fallen to Nightmare Bear Forms", 0, 14)
 		    player:GossipMenuAddItem(7, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Claws of Ursoc Bear Forms", 0, 11)
 		    player:GossipMenuAddItem(7, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Stonepaw Bear Forms", 0, 12)
 		    player:GossipMenuAddItem(7, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Avatar of Ursol Bear Forms", 0, 13)
-			player:GossipMenuAddItem(7, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Fallen to Nightmare Bear Forms", 0, 14)
 		    player:GossipMenuAddItem(7, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Guardian of the Glade Bear Forms", 0, 15)
 		    player:GossipMenuAddItem(7, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Might of the Grizzlemaw Bear Forms", 0, 16)
 			player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Inicio",0,10)
 		elseif (player:GetRace()) == 8 then -- Troll
             player:GossipMenuAddItem(7, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Bear Forms - Troll", 0, 21)
-		    player:GossipMenuAddItem(7, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Armored Bear Troll" - Tauren, 0, 22)
+		    player:GossipMenuAddItem(7, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Armored Bear Forms - Troll", 0, 22)
+			player:GossipMenuAddItem(7, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Fallen to Nightmare Bear Forms", 0, 14)
 		    player:GossipMenuAddItem(7, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Claws of Ursoc Bear Forms", 0, 11)
 		    player:GossipMenuAddItem(7, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Stonepaw Bear Forms", 0, 12)
 		    player:GossipMenuAddItem(7, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Avatar of Ursol Bear Forms", 0, 13)
-			player:GossipMenuAddItem(7, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Fallen to Nightmare Bear Forms", 0, 14)
 		    player:GossipMenuAddItem(7, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Guardian of the Glade Bear Forms", 0, 15)
 		    player:GossipMenuAddItem(7, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Might of the Grizzlemaw Bear Forms", 0, 16)
 			player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Inicio",0,10)
         end
-        player:GossipComplete()
         player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)
 	
     elseif(intid == 17) then -- Bear Forms - Night Elf
@@ -275,15 +328,20 @@ function druidMorph_Select(event, player, creature, sender, intid, code)
 	
     elseif(intid == 18) then -- Armored Bear Forms - Night Elf
         player:GossipSetText(string.format("Night Elf Armored Bear Forms"))
-		player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Armored Bear Form Skin Purple", 0, 50627)
-	    player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Armored Bear Form Skin Black", 0, 50625)
-		player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Armored Bear Form Skin Blue", 0, 50626)
-		player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Armored Bear Form Skin White", 0, 50629)
-		player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Armored Bear Form Skin Red", 0, 50628)
-		player:GossipMenuAddItem(5, " ",0, 2)
-	    player:GossipMenuAddItem(5, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Voltar",0,2)
-	    player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Inicio",0,10)
-        player:GossipSendMenu(0x7FFFFFFF, creature, menu_id) 
+		if not player:HasAchieved(405) then -- 2000 TR 3v3
+			player:SendBroadcastMessage("É necessário o achievement de 2000 de rating em 3v3 para acessar essa opção.")
+			return druidMorph_Select(event, player, creature, sender, 2, code)
+		else
+			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Armored Bear Form Skin Purple", 0, 50627)
+			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Armored Bear Form Skin Black", 0, 50625)
+			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Armored Bear Form Skin Blue", 0, 50626)
+			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Armored Bear Form Skin White", 0, 50629)
+			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Armored Bear Form Skin Red", 0, 50628)
+			player:GossipMenuAddItem(5, " ",0, 2)
+			player:GossipMenuAddItem(5, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Voltar",0,2)
+			player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Inicio",0,10)
+			player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)
+		end
 	
     elseif(intid == 19) then -- Bear Forms - Tauren
         player:GossipSetText(string.format("Tauren Bear Forms"))
@@ -295,19 +353,24 @@ function druidMorph_Select(event, player, creature, sender, intid, code)
 		player:GossipMenuAddItem(5, " ",0, 2)
 	    player:GossipMenuAddItem(5, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Voltar",0,2)
 	    player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Inicio",0,10)
-        player:GossipSendMenu(0x7FFFFFFF, creature, menu_id) 
+        player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)
 	
     elseif(intid == 20) then -- Armored Bear Forms - Tauren
         player:GossipSetText(string.format("Tauren Armored Bear Forms"))
-		player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Armored Bear Form Skin Brown", 0, 50631)
-	    player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Armored Bear Form Skin Black", 0, 50630)
-		player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Armored Bear Form Skin Silver", 0, 50632)
-		player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Armored Bear Form Skin Yellow", 0, 50634)
-		player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Armored Bear Form Skin White", 0, 50633)
-		player:GossipMenuAddItem(5, " ",0, 2)
-	    player:GossipMenuAddItem(5, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Voltar",0,2)
-	    player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Inicio",0,10)
-        player:GossipSendMenu(0x7FFFFFFF, creature, menu_id) 
+		if not player:HasAchieved(405) then -- 2000 TR 3v3
+			player:SendBroadcastMessage("É necessário o achievement de 2000 de rating em 3v3 para acessar essa opção.")
+			return druidMorph_Select(event, player, creature, sender, 2, code)
+		else
+			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Armored Bear Form Skin Brown", 0, 50631)
+			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Armored Bear Form Skin Black", 0, 50630)
+			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Armored Bear Form Skin Silver", 0, 50632)
+			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Armored Bear Form Skin Yellow", 0, 50634)
+			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Armored Bear Form Skin White", 0, 50633)
+			player:GossipMenuAddItem(5, " ",0, 2)
+			player:GossipMenuAddItem(5, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Voltar",0,2)
+			player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Inicio",0,10)
+			player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)
+		end
 	
     elseif(intid == 21) then -- Bear Forms - Troll
         player:GossipSetText(string.format("Troll Bear Forms"))
@@ -319,269 +382,325 @@ function druidMorph_Select(event, player, creature, sender, intid, code)
 		player:GossipMenuAddItem(5, " ",0, 2)
 	    player:GossipMenuAddItem(5, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Voltar",0,2)
 	    player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Inicio",0,10)
-        player:GossipSendMenu(0x7FFFFFFF, creature, menu_id) 
+        player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)
     elseif(intid == 22) then -- Armored Bear Forms - Troll
         player:GossipSetText(string.format("Troll Armored Bear Forms"))
-		player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Armored Bear Form Skin Blue", 0, 50589)
-	    player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Armored Bear Form Skin Purple", 0, 50586)
-		player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Armored Bear Form Skin Red", 0, 50587)
-		player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Armored Bear Form Skin White", 0, 50586)
-		player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Armored Bear Form Skin Green", 0, 50585)
-		player:GossipMenuAddItem(5, " ",0, 2)
-	    player:GossipMenuAddItem(5, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Voltar",0,2)
-	    player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Inicio",0,10)
-        player:GossipSendMenu(0x7FFFFFFF, creature, menu_id) 
+		if not player:HasAchieved(405) then -- 2000 TR 3v3
+			player:SendBroadcastMessage("É necessário o achievement de 2000 de rating em 3v3 para acessar essa opção.")
+			return druidMorph_Select(event, player, creature, sender, 2, code)
+		else
+			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Armored Bear Form Skin Blue", 0, 50589)
+			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Armored Bear Form Skin Purple", 0, 50586)
+			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Armored Bear Form Skin Red", 0, 50587)
+			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Armored Bear Form Skin White", 0, 50586)
+			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Armored Bear Form Skin Green", 0, 50585)
+			player:GossipMenuAddItem(5, " ",0, 2)
+			player:GossipMenuAddItem(5, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Voltar",0,2)
+			player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Inicio",0,10)
+			player:GossipSendMenu(0x7FFFFFFF, creature, menu_id) 
+		end
 	
     elseif(intid == 11) then -- Artifact Bear Forms 1 (Comuns)
         player:GossipSetText(string.format("Claws of Ursoc Bear Forms"))
-		player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Black", 0, 50495)
-	    player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_racial_bearform.png:20|t White", 0, 50493)
-		player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Brown", 0, 50496)
-		player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Gold", 0, 50498)
-		player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Purple", 0, 50492)
-	    player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Blue", 0, 50499)
-		player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Burgundy", 0, 50501)
-		player:GossipMenuAddItem(5, " ",0, 2)
-	    player:GossipMenuAddItem(5, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Voltar",0,2)
-	    player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Inicio",0,10)
-        player:GossipSendMenu(0x7FFFFFFF, creature, menu_id) 
+		if (player:HasItem(itemVIP) == false and player:HasItem(itemVIPeterno) == false) then
+			player:SendBroadcastMessage("Você precisa do Livro Vip para acessar essa opção.")
+			return druidMorph_Select(event, player, creature, sender, 2, code)
+		else
+			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Black", 0, 50495)
+			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_racial_bearform.png:20|t White", 0, 50493)
+			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Brown", 0, 50496)
+			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Gold", 0, 50498)
+			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Purple", 0, 50492)
+			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Blue", 0, 50499)
+			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Burgundy", 0, 50501)
+			player:GossipMenuAddItem(5, " ",0, 2)
+			player:GossipMenuAddItem(5, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Voltar",0,2)
+			player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Inicio",0,10)
+			player:GossipSendMenu(0x7FFFFFFF, creature, menu_id) 
+		end
 	
     elseif(intid == 12) then -- Artifact Bear Forms 2 (Stone)
         player:GossipSetText(string.format("Stonepaw Bear Forms"))
-		player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Black", 0, 50506)
-	    player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Brown", 0, 50508)
-		player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Purple", 0, 50509)
-		player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Grey", 0, 50507)
-		player:GossipMenuAddItem(5, " ",0, 2)
-	    player:GossipMenuAddItem(5, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Voltar",0,2)
-	    player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Inicio",0,10)
-        player:GossipSendMenu(0x7FFFFFFF, creature, menu_id) 
+		if (player:HasItem(itemVIP) == false and player:HasItem(itemVIPeterno) == false) then
+			player:SendBroadcastMessage("Você precisa do Livro Vip para acessar essa opção.")
+			return druidMorph_Select(event, player, creature, sender, 2, code)
+		else
+			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Black", 0, 50506)
+			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Brown", 0, 50508)
+			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Purple", 0, 50509)
+			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Grey", 0, 50507)
+			player:GossipMenuAddItem(5, " ",0, 2)
+			player:GossipMenuAddItem(5, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Voltar",0,2)
+			player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Inicio",0,10)
+			player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)
+		end
 	
     elseif(intid == 13) then -- Artifact Bear Forms 3 (Mage Tower)
         player:GossipSetText(string.format("Avatar of Ursol Bear Forms"))
-		player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Blue", 0, 50510)
-	    player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Green", 0, 50511)
-		player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Purple", 0, 50512)
-		player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Red", 0, 50513)
-		player:GossipMenuAddItem(5, " ",0, 2)
-	    player:GossipMenuAddItem(5, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Voltar",0,2)
-	    player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Inicio",0,10)
-        player:GossipSendMenu(0x7FFFFFFF, creature, menu_id) 
+		if (player:HasItem(itemVIP) == false and player:HasItem(itemVIPeterno) == false) then
+			player:SendBroadcastMessage("Você precisa do Livro Vip para acessar essa opção.")
+			return druidMorph_Select(event, player, creature, sender, 2, code)
+		else
+			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Blue", 0, 50510)
+			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Green", 0, 50511)
+			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Purple", 0, 50512)
+			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Red", 0, 50513)
+			player:GossipMenuAddItem(5, " ",0, 2)
+			player:GossipMenuAddItem(5, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Voltar",0,2)
+			player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Inicio",0,10)
+			player:GossipSendMenu(0x7FFFFFFF, creature, menu_id) 
+		end
 	
-    elseif(intid == 14) then -- Artifact Bear Forms 4 (Spiked)
-        player:GossipSetText(string.format("Fallen to Nightmare Bear Forms"))
-		player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Red", 0, 50517)
-	    player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Orange", 0, 50515)
-		player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Blue", 0, 50514)
-		player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Green", 0, 50516)
-		player:GossipMenuAddItem(5, " ",0, 2)
-	    player:GossipMenuAddItem(5, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Voltar",0,2)
-	    player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Inicio",0,10)
-        player:GossipSendMenu(0x7FFFFFFF, creature, menu_id) 
+    elseif(intid == 14) then -- Artifact Bear Forms 4 (Spiked) (Honor)
+		if (player:HasItem(itemVIP) == false and player:HasItem(itemVIPeterno) == false) then
+			player:SendBroadcastMessage("Você precisa do Livro Vip e o achievement de 2200 de rating em 3v3 para acessar essa opção.")
+			return druidMorph_Select(event, player, creature, sender, 2, code)
+		elseif not player:HasAchieved(1160) then
+			player:SendBroadcastMessage("Você precisa do Livro Vip e o achievement de 2200 de rating em 3v3 para acessar essa opção.")
+			return druidMorph_Select(event, player, creature, sender, 2, code)
+		else
+			player:GossipSetText(string.format("Fallen to Nightmare Bear Forms"))
+			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Red", 0, 50517)
+			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Orange", 0, 50515)
+			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Blue", 0, 50514)
+			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Green", 0, 50516)
+			player:GossipMenuAddItem(5, " ",0, 2)
+			player:GossipMenuAddItem(5, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Voltar",0,2)
+			player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Inicio",0,10)
+			player:GossipSendMenu(0x7FFFFFFF, creature, menu_id) 
+		end
 	
     elseif(intid == 15) then -- Artifact Bear Forms 5 (Boned)
-        player:GossipSetText(string.format("Guardian of the Glade Bear Forms"))
-		player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Black", 0, 50518)
-	    player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Brown", 0, 50519)
-		player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Orange", 0, 50520)
-		player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_racial_bearform.png:20|t White", 0, 50521)
-		player:GossipMenuAddItem(5, " ",0, 2)
-	    player:GossipMenuAddItem(5, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Voltar",0,2)
-	    player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Inicio",0,10)
-        player:GossipSendMenu(0x7FFFFFFF, creature, menu_id) 
+		player:GossipSetText(string.format("Guardian of the Glade Bear Forms"))
+		if (player:HasItem(itemVIP) == false and player:HasItem(itemVIPeterno) == false) then
+			player:SendBroadcastMessage("Você precisa do Livro Vip para acessar essa opção.")
+			return druidMorph_Select(event, player, creature, sender, 2, code)
+		else
+			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Black", 0, 50518)
+			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Brown", 0, 50519)
+			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Orange", 0, 50520)
+			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_racial_bearform.png:20|t White", 0, 50521)
+			player:GossipMenuAddItem(5, " ",0, 2)
+			player:GossipMenuAddItem(5, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Voltar",0,2)
+			player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Inicio",0,10)
+			player:GossipSendMenu(0x7FFFFFFF, creature, menu_id) 
+		end
 	
     elseif(intid == 16) then -- Artifact Bear Forms 6 (Werebear)
-        player:GossipSetText(string.format("Might of the Grizzlemaw Bear Forms"))
-		player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Werebear Black", 0, 50203)
-	    player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Werebear White", 0, 50206)
-		player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Werebear Brown", 0, 50205)
-		player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Werebear Yellow", 0, 50204)
-		player:GossipMenuAddItem(5, " ",0, 2)
-	    player:GossipMenuAddItem(5, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Voltar",0,2)
-	    player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Inicio",0,10)
-        player:GossipSendMenu(0x7FFFFFFF, creature, menu_id) 
+		player:GossipSetText(string.format("Might of the Grizzlemaw Bear Forms"))
+		if (player:HasItem(itemVIP) == false and player:HasItem(itemVIPeterno) == false) then
+			player:SendBroadcastMessage("Você precisa do Livro Vip para acessar essa opção.")
+			return druidMorph_Select(event, player, creature, sender, 2, code)
+		else
+			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Werebear Black", 0, 50203)
+			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Werebear White", 0, 50206)
+			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Werebear Brown", 0, 50205)
+			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Werebear Yellow", 0, 50204)
+			player:GossipMenuAddItem(5, " ",0, 2)
+			player:GossipMenuAddItem(5, "|TInterface\\icons\\Ability_racial_bearform.png:20|t Voltar",0,2)
+			player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Inicio",0,10)
+			player:GossipSendMenu(0x7FFFFFFF, creature, menu_id) 
+		end
     end
 	
 	-- Travel Form Gossips/Menus
 	if(intid == 3) then
-        player:GossipSetText(string.format(" "))
-        if not player:HasAura(783) then
-            player:SendBroadcastMessage("You are not in Travel form")
+		if (player:HasItem(itemVIP) == false and player:HasItem(itemVIPeterno) == false) then
+			player:SendBroadcastMessage("Você precisa do Livro Vip para acessar essa opção.")
 			return druidMorphHello2(event, player, creature)
-        end
-        if (player:GetRace()) == 4 then -- Night Elf
-            player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_travelform.png:20|t Night Elf Stag", 0, 50504)
-		    player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_travelform.png:20|t Default Travel Form", 0, 918)
-			player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Inicio",0,10)
-        
-        elseif (player:GetRace()) == 6 then -- Tauren
-            player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_travelform.png:20|t Tauren Stag", 0, 50505)
-			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_travelform.png:20|t Highmountain Tauren Stag", 0, 50676)
-			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_travelform.png:20|t Default Travel Form", 0, 918)
-			player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Inicio",0,10)
-		elseif (player:GetRace()) == 8 then -- Troll
-			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_travelform.png:20|t Zandalari Raptor", 0, 50677)
-			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_travelform.png:20|t Default Travel Form", 0, 918)
-			player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Inicio",0,10)
-        end
-        player:GossipComplete()
-        player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)
+		else
+			if not player:HasAura(783) then
+				player:SendBroadcastMessage("You are not in Travel form")
+				return druidMorphHello2(event, player, creature)
+			end
+			player:GossipSetText(string.format(" "))
+			if (player:GetRace()) == 4 then -- Night Elf
+				player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_travelform.png:20|t Night Elf Stag", 0, 50504)
+				player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_travelform.png:20|t Default Travel Form", 0, 918)
+				player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Inicio",0,10)
+			
+			elseif (player:GetRace()) == 6 then -- Tauren
+				player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_travelform.png:20|t Tauren Stag", 0, 50505)
+				player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_travelform.png:20|t Highmountain Tauren Stag", 0, 50676)
+				player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_travelform.png:20|t Default Travel Form", 0, 918)
+				player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Inicio",0,10)
+			elseif (player:GetRace()) == 8 then -- Troll
+				player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_travelform.png:20|t Zandalari Raptor", 0, 50677)
+				player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_travelform.png:20|t Default Travel Form", 0, 918)
+				player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Inicio",0,10)
+			end
+			player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)
+		end
 	end
-		
+
 	-- Moonkin Form Gossips/Menus
 	if(intid == 4) then
-        player:GossipSetText(string.format(" "))
-        if not player:HasAura(24858) then
-            player:SendBroadcastMessage("You are not in Moonkin form")
+		if not player:HasAura(24858) then
+			player:SendBroadcastMessage("You are not in Moonkin form")
 			return druidMorphHello2(event, player, creature)
-        end
-        if (player:GetRace()) == 4 then -- Night Elf
-            player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_improvedmoonkinform.png:20|t Armored Moonkin Form", 0, 50503)
-			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_improvedmoonkinform.png:20|t Default Moonkin Form", 0, 15374)
-			player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Inicio",0,10)
-        
-        elseif (player:GetRace()) == 6 then -- Tauren
-			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_improvedmoonkinform.png:20|t Armored Moonkin Form", 0, 50502)
-            player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_improvedmoonkinform.png:20|t Default Moonkin Form", 0, 15375)
-			player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Inicio",0,10)
-		elseif (player:GetRace()) == 8 then -- Troll
-			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_improvedmoonkinform.png:20|t Armored Moonkin Form", 0, 50502)
-            player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_improvedmoonkinform.png:20|t Default Moonkin Form", 0, 50590)
-			player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Inicio",0,10)
-        end
-        player:GossipComplete()
-        player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)    
+		else
+			player:GossipSetText(string.format(" "))
+			if (player:GetRace()) == 4 then -- Night Elf
+				player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_improvedmoonkinform.png:20|t Armored Moonkin Form", 0, 50503)
+				player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_improvedmoonkinform.png:20|t Default Moonkin Form", 0, 15374)
+				player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Inicio",0,10)
+				
+			elseif (player:GetRace()) == 6 then -- Tauren
+				player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_improvedmoonkinform.png:20|t Armored Moonkin Form", 0, 50502)
+				player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_improvedmoonkinform.png:20|t Default Moonkin Form", 0, 15375)
+				player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Inicio",0,10)
+			elseif (player:GetRace()) == 8 then -- Troll
+				player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_improvedmoonkinform.png:20|t Armored Moonkin Form", 0, 50502)
+				player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_improvedmoonkinform.png:20|t Default Moonkin Form", 0, 50590)
+				player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Inicio",0,10)
+			end
+			player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)    
+		end
 	end
 	
 	-- Aquatic Form Gossips/Menus
 	if(intid == 5) then
-        player:GossipSetText(string.format(" "))
-		if (player:GetClass()) == 11 then
-			if (player:GetRace()) == 4 then -- Night Elf
-				player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_aquaticform.png:20|t Orca", 0, 50494)
-				player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_aquaticform.png:20|tDefault Aquatic Form", 0, 2428)
-				player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Inicio",0,10)
-        
-			elseif (player:GetRace()) == 6 then -- Tauren
-				player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_aquaticform.png:20|tOrca", 0, 50494)
-				player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_aquaticform.png:20|tDefault Aquatic Form", 0, 2428)
-				player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Inicio",0,10)
-			elseif (player:GetRace()) == 8 then -- Troll
-				player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_aquaticform.png:20|tOrca", 0, 50494)
-				player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_aquaticform.png:20|tDefault Aquatic Form", 0, 2428)
-				player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Inicio",0,10)
-			end
-			player:GossipComplete()
-			player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)    
-		else
-			player:SendBroadcastMessage("Você precisa ser Druid para acessar essa opção.")
+		if (player:HasItem(itemVIP) == false and player:HasItem(itemVIPeterno) == false) then
+			player:SendBroadcastMessage("Você precisa do Livro Vip para acessar essa opção.")
 			return druidMorphHello2(event, player, creature)
+		else
+			player:GossipSetText(string.format(" "))
+			if (player:GetClass()) == 11 then
+				if (player:GetRace()) == 4 then -- Night Elf
+					player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_aquaticform.png:20|t Orca", 0, 50494)
+					player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_aquaticform.png:20|tDefault Aquatic Form", 0, 2428)
+					player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Inicio",0,10)
+			
+				elseif (player:GetRace()) == 6 then -- Tauren
+					player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_aquaticform.png:20|tOrca", 0, 50494)
+					player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_aquaticform.png:20|tDefault Aquatic Form", 0, 2428)
+					player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Inicio",0,10)
+				elseif (player:GetRace()) == 8 then -- Troll
+					player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_aquaticform.png:20|tOrca", 0, 50494)
+					player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_aquaticform.png:20|tDefault Aquatic Form", 0, 2428)
+					player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Inicio",0,10)
+				end
+				player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)    
+			else
+				player:SendBroadcastMessage("Você precisa ser Druid para acessar essa opção.")
+				return druidMorphHello2(event, player, creature)
+			end
 		end
 	end
 	
 	-- Tree Form Gossips/Menus
 	if(intid == 6) then
-        player:GossipSetText(string.format(" "))
-        if not player:HasAura(33891) then
-            player:SendBroadcastMessage("You are not in Tree form")
+		if (player:HasItem(itemVIP) == false and player:HasItem(itemVIPeterno) == false) then
+			player:SendBroadcastMessage("Você precisa do Livro Vip para acessar essa opção.")
 			return druidMorphHello2(event, player, creature)
-        end
-        if (player:GetRace()) == 4 then -- Night Elf
-            player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_TreeofLife.png:20|t Default Tree Form", 0, 864)
-			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_TreeofLife.png:20|t Cataclysm Tree Form (Green)", 0, 50672)
-			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_TreeofLife.png:20|t Cataclysm Tree Form (Orange)", 0, 50673)
-			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_TreeofLife.png:20|t Cataclysm Tree Form (Purple)", 0, 50674)
-			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_TreeofLife.png:20|t Cataclysm Tree Form (Red)", 0, 50675)
-			player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Inicio",0,10)
-        
-        elseif (player:GetRace()) == 6 then -- Tauren
-            player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_TreeofLife.png:20|t Default Tree Form", 0, 864)
-			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_TreeofLife.png:20|t Cataclysm Tree Form (Green)", 0, 50672)
-			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_TreeofLife.png:20|t Cataclysm Tree Form (Orange)", 0, 50673)
-			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_TreeofLife.png:20|t Cataclysm Tree Form (Purple)", 0, 50674)
-			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_TreeofLife.png:20|t Cataclysm Tree Form (Red)", 0, 50675)
-			player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Inicio",0,10)
-	    elseif (player:GetRace()) == 8 then -- Troll
-            player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_TreeofLife.png:20|t Default Tree Form", 0, 864)
-			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_TreeofLife.png:20|t Cataclysm Tree Form (Green)", 0, 50672)
-			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_TreeofLife.png:20|t Cataclysm Tree Form (Orange)", 0, 50673)
-			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_TreeofLife.png:20|t Cataclysm Tree Form (Purple)", 0, 50674)
-			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_TreeofLife.png:20|t Cataclysm Tree Form (Red)", 0, 50675)
-			player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Inicio",0,10)
-        end
-        player:GossipComplete()
-        player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)    
+		elseif not player:HasAura(33891) then
+			player:SendBroadcastMessage("You are not in Tree form")
+			return druidMorphHello2(event, player, creature)
+		else
+			player:GossipSetText(string.format(" "))
+			if (player:GetRace()) == 4 then -- Night Elf
+				player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_TreeofLife.png:20|t Default Tree Form", 0, 864)
+				player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_TreeofLife.png:20|t Cataclysm Tree Form (Green)", 0, 50672)
+				player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_TreeofLife.png:20|t Cataclysm Tree Form (Orange)", 0, 50673)
+				player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_TreeofLife.png:20|t Cataclysm Tree Form (Purple)", 0, 50674)
+				player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_TreeofLife.png:20|t Cataclysm Tree Form (Red)", 0, 50675)
+				player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Inicio",0,10)
+			
+			elseif (player:GetRace()) == 6 then -- Tauren
+				player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_TreeofLife.png:20|t Default Tree Form", 0, 864)
+				player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_TreeofLife.png:20|t Cataclysm Tree Form (Green)", 0, 50672)
+				player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_TreeofLife.png:20|t Cataclysm Tree Form (Orange)", 0, 50673)
+				player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_TreeofLife.png:20|t Cataclysm Tree Form (Purple)", 0, 50674)
+				player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_TreeofLife.png:20|t Cataclysm Tree Form (Red)", 0, 50675)
+				player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Inicio",0,10)
+			elseif (player:GetRace()) == 8 then -- Troll
+				player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_TreeofLife.png:20|t Default Tree Form", 0, 864)
+				player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_TreeofLife.png:20|t Cataclysm Tree Form (Green)", 0, 50672)
+				player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_TreeofLife.png:20|t Cataclysm Tree Form (Orange)", 0, 50673)
+				player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_TreeofLife.png:20|t Cataclysm Tree Form (Purple)", 0, 50674)
+				player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_druid_TreeofLife.png:20|t Cataclysm Tree Form (Red)", 0, 50675)
+				player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Inicio",0,10)
+			end
+			player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)    
+		end
 	end
 	
     -- Flight Form Gossips/Menus
 	if(intid == 7) then
         player:GossipSetText(string.format(" "))
-        if not (player:HasAura(33943) or player:HasAura(40120)) then
-            player:SendBroadcastMessage("You are not in Flight form")
+		if (player:HasItem(itemVIP) == false and player:HasItem(itemVIPeterno) == false) then
+			player:SendBroadcastMessage("Você precisa do Livro Vip para usar essa função.")
 			return druidMorphHello2(event, player, creature)
-        end
-        if (player:GetRace()) == 4 then -- Night Elf
-			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_Druid_FlightForm.png:20|t Stormpike Owl", 0, 10828)
-            player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_Druid_FlightForm.png:20|t Night Elf Swift Flight Form", 0, 21243)
-			player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Inicio",0,10)
-            --player:GossipMenuAddItem(2, "Night Elf Flight Form", 0, 20857)
-        elseif (player:GetRace()) == 6 then -- Tauren
-			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_Druid_FlightForm.png:20|t Stormpike Owl", 0, 10828)
-			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_Druid_FlightForm.png:20|t Tauren Swift Flight Form", 0, 21244)
-            --player:GossipMenuAddItem(2, "Tauren Flight Form", 0, 20872)
-			player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Inicio",0,10)
-	    elseif (player:GetRace()) == 8 then -- Troll
-			player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_Druid_FlightForm.png:20|t Stormpike Owl", 0, 10828)
-            player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_Druid_FlightForm.png:20|t Troll Swift Flight Form", 0, 50601)
-			player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Inicio",0,10)
-        end
-        player:GossipComplete()
-        player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)    
+		else
+			if not (player:HasAura(33943) or player:HasAura(40120)) then
+				player:SendBroadcastMessage("You are not in Flight form")
+				return druidMorphHello2(event, player, creature)
+			end
+			if (player:GetRace()) == 4 then -- Night Elf
+				player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_Druid_FlightForm.png:20|t Stormpike Owl", 0, 10828)
+				player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_Druid_FlightForm.png:20|t Night Elf Swift Flight Form", 0, 21243)
+				player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Inicio",0,10)
+				--player:GossipMenuAddItem(2, "Night Elf Flight Form", 0, 20857)
+			elseif (player:GetRace()) == 6 then -- Tauren
+				player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_Druid_FlightForm.png:20|t Stormpike Owl", 0, 10828)
+				player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_Druid_FlightForm.png:20|t Tauren Swift Flight Form", 0, 21244)
+				--player:GossipMenuAddItem(2, "Tauren Flight Form", 0, 20872)
+				player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Inicio",0,10)
+			elseif (player:GetRace()) == 8 then -- Troll
+				player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_Druid_FlightForm.png:20|t Stormpike Owl", 0, 10828)
+				player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_Druid_FlightForm.png:20|t Troll Swift Flight Form", 0, 50601)
+				player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Inicio",0,10)
+			end
+			player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)    
+		end
 	end
 	
 	-- Ghost Wolf Gossips/Menus
 	if(intid == 8) then
-        player:GossipSetText(string.format(" "))
-        if not player:HasAura(2645) then
-            player:SendBroadcastMessage("You are not in Ghost Wolf")
+		if (player:HasItem(itemVIP) == false and player:HasItem(itemVIPeterno) == false) then
+			player:SendBroadcastMessage("Você precisa do Livro Vip para acessar essa opção.")
 			return druidMorphHello2(event, player, creature)
-        end
-        if (player:GetRace()) == 11 then -- Draenei
-			player:GossipMenuAddItem(2, "|TInterface\\icons\\spell_shaman_feralspirit.png:29|t Spirit Ghost Wolf", 0, 2446)
-		    player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_Mount_BlackDireWolf.png:29|t Black Ghost Wolf", 0, 27311)
-			player:GossipMenuAddItem(2, "|TInterface\\icons\\ability_mount_whitedirewolf.png:29|t Arctic Ghost Wolf", 0, 27312)
-			player:GossipMenuAddItem(2, "|TInterface\\icons\\spell_nature_spiritwolf.png:29|t Default Ghost Wolf", 0, 4613)
-			player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Inicio",0,10)
-		--elseif (player:GetRace()) == 3 then -- Dwarf
-			--player:GossipMenuAddItem(2, "|TInterface\\icons\\spell_shaman_feralspirit.png:29|t Spirit Ghost Wolf", 0, 2446)
-		    --player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_Mount_BlackDireWolf.png:29|t Black Ghost Wolf", 0, 27311)
-			--player:GossipMenuAddItem(2, "|TInterface\\icons\\ability_mount_whitedirewolf.png:29|t Arctic Ghost Wolf", 0, 27312)
-			--player:GossipMenuAddItem(2, "|TInterface\\icons\\spell_nature_spiritwolf.png:29|t Default Ghost Wolf", 0, 4613)
-			--player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Inicio",0,10)
-		
-		elseif (player:GetRace()) == 2 then -- Orc
-			player:GossipMenuAddItem(2, "|TInterface\\icons\\spell_shaman_feralspirit.png:29|t Spirit Ghost Wolf", 0, 2446)
-		    player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_Mount_BlackDireWolf.png:29|t Black Ghost Wolf", 0, 27311)
-			player:GossipMenuAddItem(2, "|TInterface\\icons\\ability_mount_whitedirewolf.png:29|t Arctic Ghost Wolf", 0, 27312)
-			player:GossipMenuAddItem(2, "|TInterface\\icons\\spell_nature_spiritwolf.png:29|t Default Ghost Wolf", 0, 4613)
-			player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Inicio",0,10)
+		elseif not player:HasAura(2645) then
+			player:SendBroadcastMessage("You are not in Ghost Wolf")
+			return druidMorphHello2(event, player, creature)
+		else
+			player:GossipSetText(string.format(" "))
+			if (player:GetRace()) == 11 then -- Draenei
+				player:GossipMenuAddItem(2, "|TInterface\\icons\\spell_shaman_feralspirit.png:29|t Spirit Ghost Wolf", 0, 2446)
+				player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_Mount_BlackDireWolf.png:29|t Black Ghost Wolf", 0, 27311)
+				player:GossipMenuAddItem(2, "|TInterface\\icons\\ability_mount_whitedirewolf.png:29|t Arctic Ghost Wolf", 0, 27312)
+				player:GossipMenuAddItem(2, "|TInterface\\icons\\spell_nature_spiritwolf.png:29|t Default Ghost Wolf", 0, 4613)
+				player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Inicio",0,10)
+			--elseif (player:GetRace()) == 3 then -- Dwarf
+				--player:GossipMenuAddItem(2, "|TInterface\\icons\\spell_shaman_feralspirit.png:29|t Spirit Ghost Wolf", 0, 2446)
+				--player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_Mount_BlackDireWolf.png:29|t Black Ghost Wolf", 0, 27311)
+				--player:GossipMenuAddItem(2, "|TInterface\\icons\\ability_mount_whitedirewolf.png:29|t Arctic Ghost Wolf", 0, 27312)
+				--player:GossipMenuAddItem(2, "|TInterface\\icons\\spell_nature_spiritwolf.png:29|t Default Ghost Wolf", 0, 4613)
+				--player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Inicio",0,10)
 			
-		elseif (player:GetRace()) == 6 then -- Tauren
-			player:GossipMenuAddItem(2, "|TInterface\\icons\\spell_shaman_feralspirit.png:29|t Spirit Ghost Wolf", 0, 2446)
-		    player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_Mount_BlackDireWolf.png:29|t Black Ghost Wolf", 0, 27311)
-			player:GossipMenuAddItem(2, "|TInterface\\icons\\ability_mount_whitedirewolf.png:29|t Arctic Ghost Wolf", 0, 27312)
-			player:GossipMenuAddItem(2, "|TInterface\\icons\\spell_nature_spiritwolf.png:29|t Default Ghost Wolf", 0, 4613)
-			player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Inicio",0,10)
+			elseif (player:GetRace()) == 2 then -- Orc
+				player:GossipMenuAddItem(2, "|TInterface\\icons\\spell_shaman_feralspirit.png:29|t Spirit Ghost Wolf", 0, 2446)
+				player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_Mount_BlackDireWolf.png:29|t Black Ghost Wolf", 0, 27311)
+				player:GossipMenuAddItem(2, "|TInterface\\icons\\ability_mount_whitedirewolf.png:29|t Arctic Ghost Wolf", 0, 27312)
+				player:GossipMenuAddItem(2, "|TInterface\\icons\\spell_nature_spiritwolf.png:29|t Default Ghost Wolf", 0, 4613)
+				player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Inicio",0,10)
+				
+			elseif (player:GetRace()) == 6 then -- Tauren
+				player:GossipMenuAddItem(2, "|TInterface\\icons\\spell_shaman_feralspirit.png:29|t Spirit Ghost Wolf", 0, 2446)
+				player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_Mount_BlackDireWolf.png:29|t Black Ghost Wolf", 0, 27311)
+				player:GossipMenuAddItem(2, "|TInterface\\icons\\ability_mount_whitedirewolf.png:29|t Arctic Ghost Wolf", 0, 27312)
+				player:GossipMenuAddItem(2, "|TInterface\\icons\\spell_nature_spiritwolf.png:29|t Default Ghost Wolf", 0, 4613)
+				player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Inicio",0,10)
 
-        elseif (player:GetRace()) == 8 then -- Troll
-			player:GossipMenuAddItem(2, "|TInterface\\icons\\spell_shaman_feralspirit.png:29|t Spirit Ghost Wolf", 0, 2446)
-		    player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_Mount_BlackDireWolf.png:29|t Black Ghost Wolf", 0, 27311)
-			player:GossipMenuAddItem(2, "|TInterface\\icons\\ability_mount_whitedirewolf.png:29|t Arctic Ghost Wolf", 0, 27312)
-			player:GossipMenuAddItem(2, "|TInterface\\icons\\spell_nature_spiritwolf.png:29|t Default Ghost Wolf", 0, 4613)
-			player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Inicio",0,10)
-        end
-        player:GossipComplete()
-        player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)
+			elseif (player:GetRace()) == 8 then -- Troll
+				player:GossipMenuAddItem(2, "|TInterface\\icons\\spell_shaman_feralspirit.png:29|t Spirit Ghost Wolf", 0, 2446)
+				player:GossipMenuAddItem(2, "|TInterface\\icons\\Ability_Mount_BlackDireWolf.png:29|t Black Ghost Wolf", 0, 27311)
+				player:GossipMenuAddItem(2, "|TInterface\\icons\\ability_mount_whitedirewolf.png:29|t Arctic Ghost Wolf", 0, 27312)
+				player:GossipMenuAddItem(2, "|TInterface\\icons\\spell_nature_spiritwolf.png:29|t Default Ghost Wolf", 0, 4613)
+				player:GossipMenuAddItem(5, "|TInterface/PaperDollInfoFrame/UI-GearManager-Undo:20:20:0:0|t |cFF800000Inicio",0,10)
+			end
+			player:GossipSendMenu(0x7FFFFFFF, creature, menu_id)
+		end
 	end
 	
 	-- #############################################
@@ -591,19 +710,30 @@ function druidMorph_Select(event, player, creature, sender, intid, code)
 	-- Cat Form DisplayIDs/Entries:
 	if(intid == 50207) then -- Cat Form Fire Cat Armored
 		player:SetData("currentForm", 1)
-		if not player:HasAura(768) then player:AddAura(768, player) end
+		if (player:HasItem(itemVIP) == false and player:HasItem(itemVIPeterno) == false) then
+			player:SendBroadcastMessage("Você precisa do Livro Vip para acessar essa forma.")
+			return druidMorph_Select(event, player, creature, sender, 1, code)
+		else if not player:HasAura(768) then player:AddAura(768, player) end
 			druidMorph_Select(event, player, creature, sender, 1, code) -- 1 is the IntId for Cat Form menu
-		    --druidMorphHello2(event, player, creature)                 -- Mostra o Menu Principal
+		end
 		
 	elseif(intid == 50208) then -- Cat Form Fire Cat
 		player:SetData("currentForm", 1)
-		if not player:HasAura(768) then player:AddAura(768, player) end
+		if (player:HasItem(itemVIP) == false and player:HasItem(itemVIPeterno) == false) then
+			player:SendBroadcastMessage("Você precisa do Livro Vip para acessar essa forma.")
+			return druidMorph_Select(event, player, creature, sender, 1, code)
+		else if not player:HasAura(768) then player:AddAura(768, player) end
 			druidMorph_Select(event, player, creature, sender, 1, code)
+		end
 		
 	elseif(intid == 50774) then -- Cat Form Fire Cat
 		player:SetData("currentForm", 1)
-		if not player:HasAura(768) then player:AddAura(768, player) end
+		if (player:HasItem(itemVIP) == false and player:HasItem(itemVIPeterno) == false) then
+			player:SendBroadcastMessage("Você precisa do Livro Vip para acessar essa forma.")
+			return druidMorph_Select(event, player, creature, sender, 1, code)
+		else if not player:HasAura(768) then player:AddAura(768, player) end
 			druidMorph_Select(event, player, creature, sender, 1, code)
+		end
 		
 	-- Cat Forms Night Elf
 	elseif(intid == 892) then -- Cat Form Nelf Black
@@ -996,32 +1126,33 @@ function druidMorph_Select(event, player, creature, sender, intid, code)
 		player:SetData("currentForm", 2)
 		if not player:HasAura(9634 or 5487) then player:AddAura(9634, player) end
 			druidMorph_Select(event, player, creature, sender, 20, code)
-		
+	
+	
 	-- Troll Bear Forms
 	elseif(intid == 50580) then -- Bear Form Troll - Blue
-		player:SetData("currentForm", 2)
 		if not player:HasAura(9634 or 5487) then player:AddAura(9634, player) end
 			druidMorph_Select(event, player, creature, sender, 21, code)
+			player:SetData("currentForm", 2)
 			
 	elseif(intid == 50581) then -- Bear Form Troll - Purple
-		player:SetData("currentForm", 2)
 		if not player:HasAura(9634 or 5487) then player:AddAura(9634, player) end
 			druidMorph_Select(event, player, creature, sender, 21, code)
+			player:SetData("currentForm", 2)
 		
 	elseif(intid == 50582) then -- Bear Form Troll - Red
-		player:SetData("currentForm", 2)
 		if not player:HasAura(9634 or 5487) then player:AddAura(9634, player) end
 			druidMorph_Select(event, player, creature, sender, 21, code)
+			player:SetData("currentForm", 2)
 		
 	elseif(intid == 50583) then -- Bear Form Troll - White
-		player:SetData("currentForm", 2)
 		if not player:HasAura(9634 or 5487) then player:AddAura(9634, player) end
 			druidMorph_Select(event, player, creature, sender, 21, code)
+			player:SetData("currentForm", 2)
 		
 	elseif(intid == 50584) then -- Bear Form Troll - Yellow
-		player:SetData("currentForm", 2)
 		if not player:HasAura(9634 or 5487) then player:AddAura(9634, player) end
 			druidMorph_Select(event, player, creature, sender, 21, code)
+			player:SetData("currentForm", 2)
 		
 		
 	-- Troll Armored Bear Forms
@@ -1158,7 +1289,7 @@ function druidMorph_Select(event, player, creature, sender, intid, code)
 		player:SetData("currentForm", 2)
 		if not player:HasAura(9634 or 5487) then player:AddAura(9634, player) end
 			druidMorph_Select(event, player, creature, sender, 15, code)
-		
+	
 	-- Artifact Bear Forms 6
 	elseif(intid == 50203) then	-- Artifact Bear Forms 6 Black
 		player:SetData("currentForm", 2)
@@ -1177,7 +1308,7 @@ function druidMorph_Select(event, player, creature, sender, intid, code)
 		if not player:HasAura(9634 or 5487) then player:AddAura(9634, player) end
 		druidMorph_Select(event, player, creature, sender, 16, code)
 	end
-		
+
 	-- Travel Forms DisplayIDS/Entries:
 	if(intid == 918) then -- Default Travel Form (Night Elf / Tauren / Troll)
 		player:SetData("currentForm", 3)
@@ -1202,18 +1333,28 @@ function druidMorph_Select(event, player, creature, sender, intid, code)
 	end
 	
 	-- Moonkin Forms DisplayIDS/Entries:
-	if(intid == 50503) then -- Armored Moonkin Form - Night Elf
+	if(intid == 50503) then     -- Armored Moonkin Form - Night Elf
 		player:SetData("currentForm", 4)
-		if not player:HasAura(24858) then player:AddAura(24858, player) end
-			druidMorph_Select(event, player, creature, sender, 4, code)
+		if player:HasAchieved(405) then
+			if not player:HasAura(24858) then player:AddAura(24858, player) end
+				druidMorph_Select(event, player, creature, sender, 4, code)
+		else
+			player:SendBroadcastMessage("É necessário o achievement de 2000 de rating em 3v3 para acessar essa forma.")
+			return druidMorph_Select(event, player, creature, sender, 4, code)
+		end
 	elseif(intid == 15374) then -- Default Moonkin Form - Night Elf
 		player:SetData("currentForm", 4)
 		if not player:HasAura(24858) then player:AddAura(24858, player) end
 			druidMorph_Select(event, player, creature, sender, 4, code)
 	elseif(intid == 50502) then -- Armored Moonkin Form - Tauren
-		player:SetData("currentForm", 4)
-		if not player:HasAura(24858) then player:AddAura(24858, player) end
-			druidMorph_Select(event, player, creature, sender, 4, code)
+		if player:HasAchieved(405) then
+			player:SetData("currentForm", 4)
+			if not player:HasAura(24858) then player:AddAura(24858, player) end
+				druidMorph_Select(event, player, creature, sender, 4, code)
+		else
+			player:SendBroadcastMessage("É necessário o achievement de 2000 de rating em 3v3 para acessar essa forma.")
+			return druidMorph_Select(event, player, creature, sender, 4, code)
+		end
 	elseif(intid == 15375) then -- Default Moonkin Form - Tauren
 		player:SetData("currentForm", 4)
 		if not player:HasAura(24858) then player:AddAura(24858, player) end
@@ -1338,7 +1479,26 @@ function druidMorph_Select(event, player, creature, sender, intid, code)
     end
 	
 	if intid > 40 then -- aplica DisplayID dos entries acima de 40
-        player:SetDisplayId(intid)
+		
+		-- Spell necessaria para poder castar RemoveAura/AddAura OnLogin (p aplicar o Display OnLogin)
+		player:LearnSpell(83384)
+		
+		-- Bear/Dire Bear form (fix bug formas troll só trocava o display apos sair e entrar na forma)
+		if player:HasAura(9634 or 5487) then 
+			player:RemoveAura(9634)
+			player:RemoveAura(5487)
+			local playerGuid = player:GetGUIDLow()
+			local test = function() -- delay to add Display
+				local playerObject = GetPlayerByGUID(playerGuid)
+				if playerObject and playerObject:IsInWorld() then
+					playerObject:AddAura(9634, playerObject)
+					playerObject:SetDisplayId(intid)
+				end
+			end
+			CreateLuaEvent(test, 25, 1)
+		else 
+			player:SetDisplayId(intid) 
+		end
 		
 	    local currentForm = player:GetData("currentForm")
         local formName
@@ -1416,7 +1576,7 @@ end
 function ApplyMorphOnLoguin(event, player) -- fix, não aplicava o CustomDisplay ao logar, sem OnLoguin, tem que renovar a forma ao logar
     if player:HasSpell(83384) then -- Só casta a Spell dnv se o player tiver a aura 83384 (Passive Spell)
 		if player:GetClass() == 11 then -- Druids Only
-			if player:HasAura(768) and DisplayCatForm then -- Cat Form
+			if player:HasAura(768) then -- Cat Form
 				player:RemoveAura(768)
 				player:AddAura(768, player)
 				player:AddAura(53307, player)
@@ -1447,7 +1607,7 @@ function ApplyMorphOnLoguin(event, player) -- fix, não aplicava o CustomDisplay
 			end
 		elseif player:GetClass() == 7 then -- Shaman
 			if player:HasAura(2645) then -- Ghost Wolf
-				player:RemoveAura(2645) --
+				player:RemoveAura(2645)
 				player:AddAura(2645, player)
 			end
 		end
