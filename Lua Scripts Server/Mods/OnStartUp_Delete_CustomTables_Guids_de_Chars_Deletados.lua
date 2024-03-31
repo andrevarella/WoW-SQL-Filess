@@ -5,6 +5,7 @@ local function OnStartUpDeleteEntriesOfCustomTablesFromDeletedCharacters()
 		{
 			{name = "custom_save_talents_glyphs", column = "guid"},
 			{name = "custom_save_talents", column = "guid"},
+			{name = "custom_save_talents_actionbar", column = "guid"},
 			{name = "custom_transmogrification", column = "Owner"},
 			{name = "custom_transmogrification_sets", column = "Owner"},
 			{name = "custom_unlocked_appearances", column = "account_id"}, -- atualmente deleta guids do character, mas se nao mudar na config, vai mudar guids da conta toda

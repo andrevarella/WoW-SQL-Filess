@@ -2,7 +2,6 @@
 -- AUTO LEARN SKILLS MOD
 ------------------------------------------------------------------------------------------------
 local EnableModule = true
-local AnnounceModule = false -- Announce module on player login ?
 
 local MaxLevel = true -- Set to true to enable max level skills instantly when login
 local StartPlayerLevel = 10 -- Starting player level change to your liking.
@@ -403,7 +402,7 @@ local SKILL = {
         [80] = {49233, 49271, 49281, 58643, 58656, 58704, 58739, 58745, 58749, 58790, 58796, 58804, 60043, 61657}
     },
     [CLASS_MAGE] = {
-        [1] = {1459, 1180, 201, 58661, 227},
+        [1] = {1459, 1180, 201, 227},
         [4] = {116, 5504},
         [6] = {143, 587, 2136},
         [8] = {118, 205, 5143},
@@ -455,7 +454,7 @@ local SKILL = {
         [80] = {42873, 42897, 42921, 42940, 42956, 42995, 43002, 47610, 58659}
     },
     [CLASS_WARLOCK] = {
-        [1] = {688, 201, 61993, 58889, 227, 1180},
+        [1] = {688, 201, 227, 1180},
         [3] = {348},
         [4] = {172, 702},
         [6] = {695, 1454},
@@ -560,18 +559,24 @@ local SKILL = {
     }
 }
 
--- team.class.level
-local TEAMSKILL = {
-    [0] = {
-        [CLASS_PALADIN] = {
+-- team.class.level (Spells)
+local TEAMSKILL = 
+{
+	-- Alliance
+    [0] = 
+	{
+        [CLASS_PALADIN] = 
+		{
             [20] = {13820, 13819},
             [40] = {23214},
-            [64] = {31801}
+            [64] = {31801} -- Seal of Vengeance
         },
-        [CLASS_SHAMAN] = {
+        [CLASS_SHAMAN] = 
+		{	-- Heroism
             [70] = {32182}
         },
-        [CLASS_MAGE] = {
+        [CLASS_MAGE] = 
+		{
             [20] = {3561, 3562, 32271},
             [30] = {3565},
             [35] = {49359, 49360},
@@ -581,16 +586,21 @@ local TEAMSKILL = {
             [65] = {33691}
         }
     },
-    [1] = {
-        [CLASS_PALADIN] = {
+	-- Horde
+    [1] = 
+	{
+        [CLASS_PALADIN] = 
+		{
             [20] = {34768, 34769},
             [40] = {34766, 34767},
             [66] = {53736}
         },
-        [CLASS_SHAMAN] = {
+        [CLASS_SHAMAN] = 
+		{	-- bloodlust
             [70] = {2825}
         },
-        [CLASS_MAGE] = {
+        [CLASS_MAGE] = 
+		{
             [20] = {3563, 3567, 32272},
             [30] = {3566},
             [35] = {49358, 49361},
@@ -602,7 +612,7 @@ local TEAMSKILL = {
     }
 }
 
--- class.talent.level
+-- class.talent.level (Spells de Talents)
 local TALENTSKILL = {
     [CLASS_WARRIOR] = {
         [20243] = {
@@ -622,7 +632,7 @@ local TALENTSKILL = {
         }
     },
     [CLASS_PALADIN] = {
-        [20925] = {
+        [20925] = { -- Holy Shield
             [50] = {20927},
             [60] = {20928},
             [70] = {27179},
@@ -805,7 +815,7 @@ local TALENTSKILL = {
         }
     },
     [CLASS_MAGE] = {
-        [11366] = {
+        [11366] = { -- Pyroblast
             [24] = {12505},
             [30] = {12522},
             [36] = {12523},
@@ -816,9 +826,9 @@ local TALENTSKILL = {
             [66] = {27132},
             [70] = {33938},
             [73] = {42890},
-            [77] = {42981}
+            [77] = {42891}
         },
-        [11113] = {
+        [11113] = { -- Blast Wave
             [36] = {13018},
             [44] = {13019},
             [52] = {13020},
@@ -828,33 +838,33 @@ local TALENTSKILL = {
             [75] = {42944},
             [80] = {42945}
         },
-        [11426] = {
+        [11426] = { -- Ice Barrier
             [46] = {13031},
             [52] = {13032},
             [58] = {13033},
             [64] = {27134},
             [70] = {33405},
-            [75] = {43408},
+            [75] = {43038},
             [80] = {43039}
         },
-        [31661] = {
+        [31661] = { -- Dragon's Breath
             [56] = {33041},
             [64] = {33042},
             [70] = {33043},
             [75] = {42949},
             [80] = {42950}
         },
-        [44425] = {
+        [44425] = { -- Arcane Barrage
             [70] = {44780},
             [80] = {44781}
         },
-        [44457] = {
+        [44457] = { -- Living Bomb
             [70] = {55359},
             [80] = {55360}
         }
     },
     [CLASS_WARLOCK] = {
-        [17877] = {
+        [17877] = { -- Shadowburn
             [24] = {18867},
             [32] = {18868},
             [40] = {18869},
@@ -865,19 +875,19 @@ local TALENTSKILL = {
             [75] = {47826},
             [80] = {47827}
         },
-        [18220] = {
+        [18220] = { -- Dark Pact
             [50] = {18937},
             [60] = {18938},
             [70] = {27265},
             [80] = {59092}
         },
-        [30108] = {
+        [30108] = { -- Unstable Affliction
             [60] = {30404},
             [70] = {30405},
             [75] = {47841},
             [80] = {47843}
         },
-        [30283] = {
+        [30283] = { -- Shadowfury
             [60] = {30413},
             [70] = {30414},
             [75] = {47846},
@@ -1084,17 +1094,9 @@ local function onLearnTalent(event, player, talentId, talentRank, spellId)
     end
 end
 
-local function onLogin(event, player)
-
-    player:SendBroadcastMessage("This server is running the |cff4CFF00" .. FILE_NAME .. "|r module loaded.")
-end
 
 
 local function onFirstLogin(event, player)
-	player:LearnSpell(3273) -- First Aid, Cooking, Fishing
-	player:LearnSpell(2550)
-	player:LearnSpell(7620)
-	player:AddItem(45120, 1) -- Basic Fishing Pole
     if player:GetClass() == CLASS_DEATHKNIGHT then -- Verifica se é um Death Knight
         if (MaxLevel) then
             player:SetLevel(StartDKLevel)
@@ -1113,9 +1115,3 @@ end
 RegisterPlayerEvent(13, onLevelChange) -- PLAYER_EVENT_ON_LEVEL_CHANGE
 RegisterPlayerEvent(39, onLearnTalent) -- PLAYER_EVENT_ON_LEARN_TALENTS
 RegisterPlayerEvent(30, onFirstLogin) -- PLAYER_EVENT_ON_FIRST_LOGIN
-
-if (AnnounceModule) then
-    RegisterPlayerEvent(30, onLogin) -- PLAYER_EVENT_ON_LOGIN
-end
-
-PrintInfo("[" .. FILE_NAME .. "] AutoLearnSkills module loaded.")

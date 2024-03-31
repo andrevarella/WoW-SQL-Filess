@@ -1,3 +1,7 @@
+--[[
+
+TEST
+
 local NpcId = 94148
 
 local MenuId = 123
@@ -25,6 +29,8 @@ local function OnPlayerCommand(event, player, command)
     end
 end
 
+
+--]]
 
 --RegisterCreatureGossipEvent(NpcId, 1, OnGossipHello)
 --RegisterCreatureGossipEvent(NpcId, 2, OnGossipSelect)
