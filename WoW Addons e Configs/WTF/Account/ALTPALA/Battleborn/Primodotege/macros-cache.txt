@@ -1,3 +1,0 @@
-MACRO 16777217 "ros" INV_Misc_QuestionMark
-/cast [@player] roar of sacrifice
-END

@@ -40,20 +40,26 @@ INSERT INTO `spell_linked_spell`(`spell_trigger`, `spell_effect`, `type`, `comme
 INSERT INTO `spell_linked_spell`(`spell_trigger`, `spell_effect`, `type`, `comment`) VALUES (46832, 83009, 0, '[Moonkin Starfire Bonus Passive] proca [Learn Starfire DoT Bonus]');
 INSERT INTO `spell_linked_spell`(`spell_trigger`, `spell_effect`, `type`, `comment`) VALUES (-83121, 83122, 0, 'Perder [Buff Temporario Prowl PvP Set] ganha [Savage Roar 10s]');
 INSERT INTO `spell_linked_spell`(`spell_trigger`, `spell_effect`, `type`, `comment`) VALUES (-5215, -83121, 0, 'Perder [Prowl] perde [Buff Temporario Prowl PvP Set]');
+
 -- dash ativa cat [fora de cat]
-INSERT INTO `acore_world`.`spell_linked_spell` (`spell_trigger`, `spell_effect`, `type`, `comment`) VALUES (33357, 83355, 0, '[Dash] ativa [Dash Passive] que proca Cat Form');
--- Aquatic/Travel - mudar som
+--INSERT INTO `acore_world`.`spell_linked_spell` (`spell_trigger`, `spell_effect`, `type`, `comment`) VALUES (33357, 83355, 0, '[Dash] ativa [Dash Passive] que proca Cat Form');
+-
+- Aquatic/Travel - mudar som
 INSERT INTO `acore_world`.`spell_linked_spell` (`spell_trigger`, `spell_effect`, `type`, `comment`) VALUES (783, 83350, 0, '[Travel Form] casta [Passive Aura - Druids [To Mod Druid Form Sounds]]');
 INSERT INTO `acore_world`.`spell_linked_spell` (`spell_trigger`, `spell_effect`, `type`, `comment`) VALUES (1066, 83350, 0, '[Aquatic Form] casta [Passive Aura - Druids [To Mod Druid Form Sounds]]');
 
 -- glyph of lunar inspiration
 INSERT INTO `acore_world`.`spell_linked_spell` (`spell_trigger`, `spell_effect`, `type`, `comment`) VALUES (-83299, 83325, 0, 'Perder [Glyph of Lunar Inspiration] proca [Unlearn Glyph of Lunar Inspiration]');
+
 -- glyph of prowl - unlearn
 INSERT INTO `acore_world`.`spell_linked_spell` (`spell_trigger`, `spell_effect`, `type`, `comment`) VALUES (-83311, 83315, 0, 'Perder [Glyph of Prowl] proca [Unlearn Glyph of Prowl Hidden Aura]');
+
 -- glyph of versatile predator - da Unlearn na hidden aura após perder o glyph (hidden aura p fazer spells castar em cat)
 INSERT INTO `spell_linked_spell` (`spell_trigger`, `spell_effect`, `type`, `comment`) VALUES (-83321, 83328, 0, 'Perder [Glyph of Versatile Predator] proca [Unlearn Glyph of Versatile Predator]');
+
 -- glyph of versatile predator - perder predatory swiftness perde proc hidden (insta spells usaveis em qlqr forma)
 INSERT INTO `spell_linked_spell` (`spell_trigger`, `spell_effect`, `type`, `comment`) VALUES (-69369, -83327, 0, 'Perder [Predator\'s Swiftness] perde [Glyph of Versatile Predator Hidden Aura]');
+
 -- nao inserido - Glyph of versatile predator [da unlearn na spell que aumenta cd do cyc após perder a Hidden Aura do Versatile Predator]
 -- INSERT INTO `spell_linked_spell` (`spell_trigger`, `spell_effect`, `type`, `comment`) VALUES (-83327, 83331, 0, 'Perder [Aura Glyph of Versa Predator] proca [Unlearn Glyph +5s Cyclone CD]');
 

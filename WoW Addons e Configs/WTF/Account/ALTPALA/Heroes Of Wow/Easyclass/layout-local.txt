@@ -1,8 +1,0 @@
-Version: 1
-Frame: XPerl_Party_Anchor
-FrameLevel: 1
-Anchor: TOPLEFT
-X: 0
-Y: -150
-W: 100
-H: 60

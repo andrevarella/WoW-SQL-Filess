@@ -1,9 +1,0 @@
-## Interface: 70300
-## Title: TwitchEmotes
-## Author: Chat
-## Version: v2
-## SavedVariablesPerCharacter: Emoticons_Settings Emoticons_Eyecandy
-UIDropDownMenuTemplates.xml
-UIDropDownMenu.lua
-TwitchEmotes.lua
-TwitchEmotes.xml

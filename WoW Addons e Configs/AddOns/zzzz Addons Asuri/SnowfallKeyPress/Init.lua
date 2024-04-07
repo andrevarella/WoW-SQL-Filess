@@ -1,2 +1,0 @@
-if(SnowfallKeyPress and SnowfallKeyPress.animation and SnowfallKeyPress.animation.defaultHandler)then
-SnowfallKeyPress.animation.savedDefaultHandler=SnowfallKeyPress.animation.defaultHandler;end

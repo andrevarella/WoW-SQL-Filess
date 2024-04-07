@@ -1,7 +1,0 @@
-
-LagBar_DB = {
-	["y"] = 0,
-	["x"] = 0,
-	["bgShown"] = true,
-	["locked"] = false,
-}

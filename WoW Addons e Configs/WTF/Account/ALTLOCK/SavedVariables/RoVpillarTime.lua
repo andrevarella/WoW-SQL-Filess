@@ -1,3 +1,0 @@
-
-RoVpillarTimer_DB = {
-}

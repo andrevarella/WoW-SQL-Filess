@@ -1,3 +1,0 @@
-
-collapse_state = {
-}

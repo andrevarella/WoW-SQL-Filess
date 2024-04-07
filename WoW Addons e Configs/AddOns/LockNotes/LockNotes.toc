@@ -1,8 +1,0 @@
-## Interface: 30000
-## Name: LockNotes
-## Title: LockNotes
-## Notes: Simple spell notifications tailored for the warlock class.
-## Version: 3.0
-## Author: General
-## Updated by: MaZaHaKa-Kel'Thuzad
-LockNotes.xml

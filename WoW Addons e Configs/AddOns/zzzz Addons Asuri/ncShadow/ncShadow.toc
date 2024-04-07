@@ -1,8 +1,0 @@
-## Interface: 30200
-## Title: ncShadow
-## Author: Nightcracker
-## Version: 1.0
-## Notes: Creates a shadowed background
-## SavedVariables: ncShadowLevel
-
-ncShadow.lua

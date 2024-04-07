@@ -1,9 +1,0 @@
-## Interface: 30300
-## Title: SpellBlocked
-## Version: 1.8.0
-## Notes: Adds spell name to "Reflect" combat messages.
-## Author: L'ombra
-## LoadOnDemand: 1
-## LoadWith: Blizzard_CombatText
-
-SpellBlocked.lua

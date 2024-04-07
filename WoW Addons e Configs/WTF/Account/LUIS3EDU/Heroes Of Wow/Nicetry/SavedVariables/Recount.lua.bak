@@ -1,9 +1,0 @@
-
-RecountPerCharDB = {
-	["FoughtWho"] = {
-	},
-	["CombatTimes"] = {
-	},
-	["combatants"] = {
-	},
-}

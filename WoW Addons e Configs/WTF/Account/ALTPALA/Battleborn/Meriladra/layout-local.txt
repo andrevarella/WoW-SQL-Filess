@@ -1,8 +1,0 @@
-Version: 1
-Frame: WorldMapScreenAnchor
-FrameLevel: 0
-Anchor: TOPLEFT
-X: 10
-Y: -118
-W: 1
-H: 1

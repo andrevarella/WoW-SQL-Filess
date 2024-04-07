@@ -41,6 +41,13 @@ INSERT INTO `acore_world`.`spell_script_names` (`spell_id`, `ScriptName`) VALUES
 -- * Custom Savage Roar que proca ao sair do prowl
 INSERT INTO `spell_script_names`(`spell_id`, `ScriptName`) VALUES (83122, 'spell_dru_savage_roar');
 
+-- Stampeding Roar (casta Cat)
+INSERT INTO `acore_world`.`spell_script_names` (`spell_id`, `ScriptName`) VALUES (83214, 'spell_druid_stampedingroar');
+
+-- soms ao castar algumas formas
+INSERT INTO `acore_world`.`spell_script_names` (`spell_id`, `ScriptName`) VALUES (83350, 'spell_druid_formsounds');
+
+
 -- glyph of omen of clarity
 INSERT INTO `acore_world`.`spell_script_names` (`spell_id`, `ScriptName`) VALUES (83293, 'spell_druid_glyph_omen_of_clarity');
 

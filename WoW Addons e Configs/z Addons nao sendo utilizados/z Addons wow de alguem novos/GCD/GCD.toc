@@ -1,4 +1,0 @@
-## Title: GCD
-## Interface: 50001
-
-GCD.lua

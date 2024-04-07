@@ -1,8 +1,0 @@
-Version: 1
-Frame: GladiusFrame
-FrameLevel: 1
-Anchor: BOTTOMRIGHT
-X: 0
-Y: 130
-W: 205
-H: 307

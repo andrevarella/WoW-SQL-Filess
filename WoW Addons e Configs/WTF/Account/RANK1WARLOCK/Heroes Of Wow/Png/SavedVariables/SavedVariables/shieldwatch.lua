@@ -1,2 +1,0 @@
-
-Shieldwatch_Options = nil

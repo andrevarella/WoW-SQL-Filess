@@ -1,2 +1,0 @@
-
-AppearanceTooltipDBPC = nil

@@ -1,8 +1,0 @@
-## Interface: 30000
-## Author: General
-## Version: 1.6.4
-## Title: Lorti UI
-## Notes: The default UI with black color of frames/bars and some improvements.
-
-Lorti UI.lua
-func\functions.lua

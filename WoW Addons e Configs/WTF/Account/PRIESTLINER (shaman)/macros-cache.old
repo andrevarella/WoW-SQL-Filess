@@ -1,3 +1,0 @@
-MACRO 1 "treinar skill" Ability_Creature_Disease_04
-/run LoadAddOn"Blizzard_TrainerUI" f=ClassTrainerTrainButton f.e = 0 f:SetScript("OnUpdate", function(f,e) f.e=f.e+e if f.e>.01 then f.e=0 f:Click() end end)
-END

@@ -1,2 +1,0 @@
-
-BangArenaObstacleTimerDBPC = nil

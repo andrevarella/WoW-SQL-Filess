@@ -1,9 +1,0 @@
-﻿## Interface: 30300
-## Author: .PvP
-## Version: 1.0
-## Title: ShieldWatch
-## Notes: Displays the percent left on magical shields and barriers in a fancy bar.
-## DefaultState: Enabled
-## LoadOnDemand: 0
-## SavedVariablesPerCharacter: Shieldwatch_Options
-shieldwatch.xml

@@ -1,3 +1,0 @@
-## Interface: 80300
-## Title: ASHUI-Outlines
-core.lua
